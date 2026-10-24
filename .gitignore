@@ -1,0 +1,11 @@
+# build output (Cloudflare Pages builds dist/ itself from src/ + public/)
+dist/
+build/
+# local test output and scratch
+shots/
+v/
+*.backup.js
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store

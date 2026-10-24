@@ -1,0 +1,113 @@
+/* Trading-track additions: macro, commodities and crypto courses, their tools and shared glossary terms. Loaded after content-money.js. */
+(function () {
+  'use strict';
+  const SML = window.SML;
+
+  const C = (id, n, title, blurb, level) => ({ track: 'trading', id, n, title, blurb, level });
+  SML.courses.push(
+    C('fed', 11, 'The Fed & Interest Rates', 'How the Federal Reserve sets rates, why bond yields matter and how both move stocks.', 'Intermediate'),
+    C('econ', 12, 'Economic Data & the Calendar', 'Inflation, jobs, PMI, GDP, earnings season, the business cycle and the dates to mark every month.', 'Intermediate'),
+    C('commod', 13, 'Oil, Metals & Geopolitics', 'Oil, gold, silver, copper, the dollar, tension and sanctions, and how they ripple into stocks.', 'Intermediate'),
+    C('crypto', 14, 'Crypto & Blockchain', 'How blockchains work, what moves crypto, how to trade it and the risks to respect.', 'Intermediate'),
+  );
+
+  const T = (id, title, blurb, widget, cat, icon, lesson) => ({ track: 'trading', id, title, blurb, widget, cat, icon, lesson });
+  SML.tools.push(
+    T('tool-rates', 'Rates and stock values', 'What a change in interest rates does to a stock’s fair value and a bond’s price.', 'rateValuation', 'Macro', 'ratio', 'l-rates'),
+    T('tool-inflation', 'Inflation and your money', 'What inflation does to cash, bonds and stocks over the years.', 'inflationCalc', 'Macro', 'compound', 'l-inflation'),
+    T('tool-dataday', 'Data-day move', 'How far the market is pricing a move on CPI or jobs day, and how to size around it.', 'dataDayMove', 'Macro', 'expected', 'l-data-day'),
+    T('tool-metals', 'Gold, silver and copper', 'Compare the metals, the gold-silver ratio and what drives each one.', 'metalsLab', 'Commodities', 'value', 'l-gold-silver'),
+    T('tool-liq', 'Crypto leverage and liquidation', 'Where a leveraged crypto position gets liquidated, and a safer size.', 'liqCalc', 'Crypto', 'drawdown', 'l-crypto-trading'),
+  );
+
+  const G = (t, full, d, l) => ({ t, full, d, l });
+  SML.glossary.push(
+    // the Fed and rates
+    G('Federal Reserve', 'The Fed', 'The US central bank. It sets short-term interest rates and oversees banks.', 'l-fed'),
+    G('FOMC', 'Federal Open Market Committee', 'The Fed group that votes on interest rates at eight scheduled meetings a year.', 'l-fed'),
+    G('Federal funds rate', '', 'The overnight rate banks charge each other. The Fed sets a target range for it, and other rates follow.', 'l-fed'),
+    G('Dual mandate', '', 'The Fed’s two goals set by Congress: maximum employment and stable prices.', 'l-fed'),
+    G('Dot plot', '', 'A chart in the Fed’s projections where each official marks where they expect rates to be at each year end.', 'l-fed'),
+    G('Quantitative easing', 'QE', 'The Fed buying bonds to push long-term rates down and add money to the system.', 'l-fed'),
+    G('Quantitative tightening', 'QT', 'The Fed shrinking its bond holdings, the reverse of QE.', 'l-fed'),
+    G('Monetary policy', '', 'What a central bank does with interest rates and its balance sheet to steer the economy.', 'l-fed'),
+    G('Fiscal policy', '', 'What the government does with taxes and spending.', 'l-macro-intro'),
+    G('Basis point', 'bp', 'One hundredth of a percentage point. A 0.25% rate cut is 25 basis points.', 'l-rates'),
+    G('Treasury yield', '', 'The interest rate the US government pays to borrow, set by trading in its bonds.', 'l-rates'),
+    G('Yield curve', '', 'A line of Treasury yields from short to long maturities. Normally it slopes up.', 'l-rates'),
+    G('Inverted yield curve', '', 'When short-term yields are above long-term yields. It has often come before recessions.', 'l-rates'),
+    G('Real yield', '', 'A bond yield minus expected inflation. Rising real yields tend to weigh on stocks and gold.', 'l-rates'),
+    G('Duration', '', 'How much a bond’s price moves when rates change. A duration of 8 means about 8% for a 1-point rate move.', 'l-rates'),
+    // data
+    G('CPI', 'Consumer Price Index', 'The government’s main measure of prices people pay, released monthly by the BLS.', 'l-inflation'),
+    G('Core inflation', '', 'Inflation without food and energy, which jump around. It shows the underlying trend.', 'l-inflation'),
+    G('PCE', 'Personal consumption expenditures price index', 'The inflation measure the Fed targets at 2%. It covers more spending than CPI.', 'l-inflation'),
+    G('PPI', 'Producer Price Index', 'Prices businesses receive for their goods and services. It can hint at future consumer prices.', 'l-inflation'),
+    G('Stagflation', '', 'Slow growth and high inflation at the same time. Hard for stocks, bonds and the Fed.', 'l-inflation'),
+    G('Nonfarm payrolls', 'NFP', 'The number of jobs added or lost last month, from the monthly jobs report.', 'l-jobs'),
+    G('Unemployment rate', '', 'The share of people in the labor force who are looking for work and cannot find it.', 'l-jobs'),
+    G('Jobless claims', '', 'Weekly count of people filing for unemployment benefits. A fast early warning for layoffs.', 'l-jobs'),
+    G('JOLTS', 'Job Openings and Labor Turnover Survey', 'A monthly report on job openings, hires and quits.', 'l-jobs'),
+    G('PMI', 'Purchasing Managers’ Index', 'A monthly survey of business activity. Above 50 means growing, below 50 means shrinking.', 'l-pmi'),
+    G('GDP', 'Gross domestic product', 'The total value of everything an economy produces. The headline number is growth at an annual rate.', 'l-pmi'),
+    G('Retail sales', '', 'Monthly spending at stores, restaurants and online. Consumers drive most of the US economy.', 'l-pmi'),
+    G('Recession', '', 'A broad, lasting fall in economic activity. In the US the NBER makes the official call.', 'l-cycle'),
+    G('Soft landing', '', 'When inflation cools without a recession.', 'l-cycle'),
+    G('Consensus estimate', '', 'The average forecast of economists or analysts. Markets move on the gap between actual and consensus.', 'l-data-day'),
+    G('Earnings season', '', 'The weeks after each quarter ends when most companies report results.', 'l-earnings-season'),
+    G('Business cycle', '', 'The repeating pattern of expansion, peak, slowdown and recovery in an economy.', 'l-cycle'),
+    G('Sector rotation', '', 'Money moving between industries as the economy moves through the cycle.', 'l-cycle'),
+    G('Cyclical stocks', '', 'Companies whose sales rise and fall with the economy, such as carmakers, airlines and banks.', 'l-cycle'),
+    G('Defensive stocks', '', 'Companies people buy from in any economy, such as utilities, groceries and health care.', 'l-cycle'),
+    G('Leading indicator', '', 'Data that tends to turn before the economy does, such as claims, PMI new orders and the yield curve.', 'l-cycle'),
+    G('Options expiration', 'OPEX', 'The day options stop trading. Monthly stock options expire on the third Friday.', 'l-key-dates'),
+    G('Quad witching', '', 'The third Friday of March, June, September and December, when several kinds of options and futures expire together.', 'l-key-dates'),
+    // commodities and geopolitics
+    G('Commodity', '', 'A raw material traded in bulk, such as oil, gold, copper or wheat.', 'l-oil'),
+    G('WTI', 'West Texas Intermediate', 'The main US crude oil price benchmark.', 'l-oil'),
+    G('Brent', '', 'The main global crude oil price benchmark, from the North Sea.', 'l-oil'),
+    G('OPEC+', '', 'OPEC oil producers plus allies such as Russia. They coordinate how much oil to pump.', 'l-oil'),
+    G('Strategic Petroleum Reserve', 'SPR', 'The US government’s emergency stockpile of crude oil.', 'l-oil'),
+    G('Futures contract', '', 'An agreement to buy or sell something at a set price on a future date. Used for oil, metals, indexes and bitcoin.', 'l-oil'),
+    G('Contango', '', 'When later futures cost more than nearer ones. Funds that roll contracts lose a little each time.', 'l-oil'),
+    G('Backwardation', '', 'When nearer futures cost more than later ones, often a sign of tight supply.', 'l-oil'),
+    G('Safe haven', '', 'An asset people buy when they are scared, such as gold, Treasuries or the dollar.', 'l-gold-silver'),
+    G('Gold-silver ratio', '', 'How many ounces of silver one ounce of gold buys.', 'l-gold-silver'),
+    G('Dr. Copper', '', 'A nickname for copper, whose price is often read as a sign of global industrial demand.', 'l-copper'),
+    G('Sanctions', '', 'Government limits on trade or money flows with a country, company or person.', 'l-geopolitics'),
+    G('Tariff', '', 'A tax on imported goods, paid by the importer.', 'l-geopolitics'),
+    G('Geopolitical risk', '', 'The chance that wars, tension or political events disrupt trade, energy or markets.', 'l-geopolitics'),
+    G('Risk-off', '', 'When investors sell risky assets and buy safe ones at the same time.', 'l-geopolitics'),
+    G('US Dollar Index', 'DXY', 'The dollar’s value against a basket of six major currencies.', 'l-dollar'),
+    // crypto
+    G('Cryptocurrency', 'Crypto', 'Digital money or tokens recorded on a blockchain instead of by a bank.', 'l-blockchain'),
+    G('Blockchain', '', 'A shared record of transactions, grouped into blocks that are linked so past entries are very hard to change.', 'l-blockchain'),
+    G('Hash', '', 'A short fingerprint of data. Change one character and the fingerprint changes completely.', 'l-blockchain'),
+    G('Mining', '', 'Using computers to compete to add the next block in a proof-of-work blockchain, for a reward.', 'l-blockchain'),
+    G('Proof of work', '', 'A way to secure a blockchain by making block creators spend computing power and electricity.', 'l-blockchain'),
+    G('Proof of stake', '', 'A way to secure a blockchain where validators lock up coins and can lose them for cheating.', 'l-blockchain'),
+    G('Halving', '', 'The cut in half of new bitcoin issued per block, about every four years.', 'l-crypto-coins'),
+    G('Bitcoin', 'BTC', 'The first cryptocurrency, with a fixed supply of 21 million coins.', 'l-crypto-coins'),
+    G('Ethereum', 'ETH', 'A blockchain that runs programs called smart contracts. Its coin is ether.', 'l-crypto-coins'),
+    G('Stablecoin', '', 'A crypto token designed to stay worth one dollar (or another currency), usually backed by cash and Treasuries.', 'l-crypto-coins'),
+    G('Altcoin', '', 'Any cryptocurrency other than bitcoin.', 'l-crypto-coins'),
+    G('Smart contract', '', 'A program on a blockchain that runs automatically when its conditions are met.', 'l-crypto-coins'),
+    G('DeFi', 'Decentralized finance', 'Lending, trading and other financial services run by smart contracts instead of companies.', 'l-crypto-coins'),
+    G('Gas fee', '', 'The fee paid to process a transaction on a blockchain such as Ethereum.', 'l-crypto-coins'),
+    G('Staking', '', 'Locking up coins to help secure a proof-of-stake network in return for rewards.', 'l-crypto-coins'),
+    G('Crypto wallet', '', 'Software or a device that holds the keys that control your crypto.', 'l-crypto-custody'),
+    G('Private key', '', 'The secret that proves you own crypto. Whoever has it controls the coins.', 'l-crypto-custody'),
+    G('Seed phrase', '', 'A list of 12 or 24 words that can rebuild your wallet. Anyone who sees it can take everything.', 'l-crypto-custody'),
+    G('Cold wallet', '', 'A wallet kept offline, such as a hardware device. Safer from hackers.', 'l-crypto-custody'),
+    G('Hot wallet', '', 'A wallet connected to the internet, such as a phone app. Handy, but easier to attack.', 'l-crypto-custody'),
+    G('Self-custody', '', 'Holding your own keys instead of leaving coins with an exchange.', 'l-crypto-custody'),
+    G('Spot bitcoin ETF', '', 'A fund that holds real bitcoin and trades like a stock in a regular brokerage account.', 'l-crypto-custody'),
+    G('Perpetual futures', 'Perps', 'Crypto futures with no expiry date, kept near the spot price by regular funding payments.', 'l-crypto-trading'),
+    G('Funding rate', '', 'Payments between long and short perpetual futures traders, usually every few hours.', 'l-crypto-trading'),
+    G('Liquidation', '', 'When an exchange closes a leveraged position because losses ate the margin behind it.', 'l-crypto-trading'),
+    G('Rug pull', '', 'A scam where a project’s creators drain the money and disappear.', 'l-crypto-risks'),
+    G('Pig-butchering scam', '', 'A long con where a stranger builds trust, then steers the victim into a fake crypto investment.', 'l-crypto-risks'),
+    G('Depeg', '', 'When a stablecoin loses its link to one dollar.', 'l-crypto-risks'),
+    G('Form 1099-DA', '', 'The IRS form brokers use to report your crypto sales.', 'l-crypto-risks'),
+  );
+})();
