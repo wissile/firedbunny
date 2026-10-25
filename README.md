@@ -16,20 +16,18 @@ python3 tools/build.py        # Python 3.8+ standard library only
 
 Preview locally: `python3 -m http.server 8000 --directory dist` and open http://localhost:8000.
 
-## Deploy on Cloudflare Pages (auto-deploy from GitHub)
+## Deploy on Cloudflare (auto-deploy from GitHub)
 
-Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pick this repository, then:
+The repo deploys as a **Cloudflare Worker with static assets** (what the dashboard creates by default when you
+import a Git repository). `wrangler.jsonc` holds everything: the Worker name (`firedbunny`, must match the name in
+the dashboard), the build command and the `dist` folder. In the dashboard keep the defaults: Deploy command
+`npx wrangler deploy`, build command empty, root directory `/`. Every push to `main` deploys; other branches get
+preview URLs if "non-production branch builds" is on.
 
-| Setting | Value |
-|---|---|
-| Production branch | `main` |
-| Framework preset | None |
-| Build command | `python3 tools/build.py` |
-| Build output directory | `dist` |
-| Root directory | (leave empty) |
-| Environment variable (optional) | `SITE_URL` = your final address, e.g. `https://firedbunny.com` (used in link previews) |
+Cloudflare **Pages** works too: Production branch `main`, Framework preset None, Build command
+`python3 tools/build.py`, Build output directory `dist`.
 
-Every push to `main` deploys to production; pushes to any other branch get their own preview URL.
+Optional build variable: `SITE_URL` = your final address, e.g. `https://firedbunny.com` (used in link previews).
 
 ## Where things live
 

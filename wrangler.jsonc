@@ -1,0 +1,8 @@
+// Cloudflare Workers (static assets) deploy config. Workers Builds runs `npx wrangler deploy`,
+// which first runs the build below and then uploads dist/ as a static site.
+{
+  "name": "firedbunny",
+  "compatibility_date": "2026-10-01",
+  "build": { "command": "python3 tools/build.py" },
+  "assets": { "directory": "./dist", "not_found_handling": "single-page-application" }
+}
