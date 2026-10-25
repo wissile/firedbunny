@@ -76,6 +76,7 @@
         <div class="nav-right"><a class="nav-prog" href="#learn" id="nav-prog" title="Lessons completed"></a><a class="nav-acct" href="#dashboard" id="nav-acct" data-sec="account"></a>
         <button type="button" class="nav-menu" id="nav-menu" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">${icons.menu}</button></div>
       </div>
+      <div class="nav-bar" id="nav-bar" role="progressbar" aria-label="Position in the curriculum" aria-valuemin="0" aria-valuemax="100" hidden><i></i></div>
       <nav class="drawer" id="drawer" aria-label="Mobile" hidden><ul>
         ${[['home', 'Home']].concat(NAV, [['dashboard', 'My dashboard'], ['assessment', 'Self-assessment'], ['indicator', 'TradingView indicator'], ['sheets', 'Spreadsheets'], ['glossary', 'Glossary']]).map(([t, l]) => `<li><a class="dl" href="#${t}" data-sec="${t}"><span>${l}</span></a></li>`).join('')}
         <li class="dcta"><a id="drawer-cta" href="#learn"></a></li></ul></nav>`;
@@ -329,14 +330,9 @@
         <p class="lede">Every idea is a picture you can touch. Drag a candle, step through a breakout, run a thousand trades in a second. Then plan your retirement, or your early exit, with the same hands-on tools. Ten years of lessons, shared free by a bunny who learned most of it the hard way.</p>
         <ul class="navchips" aria-label="Tracks">${TRACKS().map((t) => `<li><a class="navchip" href="#track-${t.id}"><i>${nn(t.n)}</i>${esc(t.title)}<span class="nc-m">${allLessons(t.id).length} lessons</span></a></li>`).join('')}</ul>
         <div style="display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;margin-top:28px">
-          <div class="cta-row">${first ? `<a class="btn btn-p" href="#${first.id}">Start lesson 01 ${icons.arrow}</a>` : ''}<a class="btn btn-g" href="#play">${icons.play} Open the simulator</a></div>
           <div class="hero-facts"><span><b>${nL}</b>picture lessons</span><span><b>${nT}</b>tools</span><span><b>${TRACKS().length}</b>tracks</span></div>
         </div>
         <a class="hero-bun" href="#assessment"><img src="${SML.brandArt}" alt="" width="120" height="80"><span><b>New: what kind of investor are you?</b><small>Slide through the self-assessment and get your investor profile, risk level and a learning path.</small></span>${icons.arrow}</a>
-        <div class="game"><div>
-          <div class="game-h"><h2>The whole game in one chart</h2><p>A simulated morning on a 2-minute chart. Toggle the overlays, hover the candles and read the coach.</p></div>
-          ${SML.widgetHTML('heroChart')}
-        </div></div>
         <p class="disclaimer" style="margin-top:32px"><strong>Read this first:</strong> education only, not financial or tax advice. Most new traders lose money. The <a href="#c-risk" style="color:var(--ink)">Risk &amp; Sizing</a> course is what keeps you in the game.</p>
       </div></section>
 
@@ -522,7 +518,6 @@
             <p class="l-sum">${l.idea || l.summary || ''}</p>
           </div>
         </div>
-        <div class="l-bar" role="progressbar" aria-label="Position in the curriculum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct(pos, all.length)}"><i style="width:${pct(pos, all.length)}%"></i></div>
       </header>
       <div class="wrap lesson">
         <article class="l-main">
@@ -557,6 +552,7 @@
           ${tl()}
         </div></aside>
       </div>`;
+    navBar(pct(pos, all.length));
     $$('.otp button', view).forEach((b) => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.sec); if (el) el.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'start' }); }));
     const qz = $('#quiz', view);
     if (qz) qz.addEventListener('click', (e) => {
@@ -676,12 +672,19 @@
 
   /* ---------------- router ---------------- */
   let current = null;
+  function navBar(p) {
+    const bar = document.getElementById('nav-bar'), nav = bar && bar.parentNode; if (!bar) return;
+    if (p == null) { bar.hidden = true; nav.classList.remove('has-bar'); return; }
+    bar.hidden = false; nav.classList.add('has-bar'); bar.setAttribute('aria-valuenow', String(p));
+    const i = bar.firstElementChild; requestAnimationFrame(() => { i.style.width = p + '%'; });
+  }
   function render() {
     let tok = (location.hash || '').replace(/^#/, '') || 'home';
     if (!/^[A-Za-z0-9._~-]+$/.test(tok)) tok = 'home';
     const view = $('#view');
     SML.runCleanup();
     view.innerHTML = '';
+    if (tok.indexOf('l-') !== 0) navBar(null);
     let title;
     try {
       if (SML.pages[tok]) title = SML.pages[tok](view, tok);

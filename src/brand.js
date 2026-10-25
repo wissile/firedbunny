@@ -13,7 +13,6 @@
   SML.bunnyMark = function (size, cls) {
     const s = size || 30;
     return `<svg class="fb-mark${cls ? ' ' + cls : ''}" width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true">
-      <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7" style="fill:var(--bg);stroke:var(--flame)" stroke-width="1.5"/>
       <g transform="rotate(-14 11 10)"><ellipse cx="11" cy="9.6" rx="2.9" ry="7" style="fill:var(--ink)"/><ellipse cx="11" cy="10.2" rx="1.5" ry="5.1" style="fill:var(--flame)"/></g>
       <g transform="rotate(16 20.5 9.6)"><ellipse cx="20.5" cy="9.2" rx="2.9" ry="7" style="fill:var(--ink)"/><ellipse cx="20.5" cy="9.8" rx="1.5" ry="5.1" style="fill:var(--flame)"/></g>
       <ellipse cx="16" cy="20.6" rx="8.6" ry="7.2" style="fill:var(--ink)"/>
@@ -33,7 +32,7 @@
 
   SML.css(`
     :root{--flame:#ff6224;--gold:#ffb52e;--flame-t:color-mix(in srgb,var(--flame) 14%,var(--surface))}
-    .fb-mark{display:block;flex:0 0 auto;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--flame) 45%,transparent))}
+    .fb-mark{display:block;flex:0 0 auto}
     .fb-flame{display:inline-block;vertical-align:-1px}
     .fb-wm{font-family:var(--sans);font-weight:700;font-style:italic;font-synthesis:style;letter-spacing:-.02em;line-height:1;white-space:nowrap}
     .fb-wm-f{color:var(--gold);text-shadow:0 0 14px color-mix(in srgb,var(--gold) 35%,transparent)}
