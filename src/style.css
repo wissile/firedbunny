@@ -559,3 +559,4 @@ svg .tipbg{fill:var(--surface-2);stroke:var(--input)}
   .btn,a.card,.circ{transition:none}
 }
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:360px){.nav-prog{display:none}.nav .wrap{gap:10px}}
