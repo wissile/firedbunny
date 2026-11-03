@@ -50,6 +50,25 @@ browser, with export/import in Settings; the sign-in page explains this. When th
 artifact it can also save to a private per-person profile through the viewer's Claude account. Real accounts on the
 public site (and the feedback inbox) need a backend, for example Cloudflare Pages Functions with KV or D1.
 
+## Lesson narration (audio)
+
+Every lesson page has a "Listen to this lesson" player (`src/mod-z-narration.js`): chapters, speed, a mini player
+while you scroll, lock-screen controls. Recorded audio lives in `public/audio/lessons/<lesson-id>.mp4` and is listed
+in the generated `src/mod-z-narration-data.js`; a lesson without a recording (or the claude.ai preview) reads the same
+script with the device's own voice.
+
+The voice is Kokoro-82M (Apache-2.0), voice `af_heart`, rendered offline:
+
+```
+pip install kokoro-onnx soundfile          # plus ffmpeg on PATH
+# download kokoro-v1.0.onnx and voices-v1.0.bin from https://github.com/thewh1teagle/kokoro-onnx/releases into DIR
+node tools/narration/make-scripts.js        # builds the spoken script from the lessons (same code as the player)
+python3 tools/narration/render.py --model DIR [--max-minutes 100] [--ids l-a,l-b]
+```
+
+`render.py` only re-records lessons whose script changed (it keeps a hash per lesson in `tools/narration/manifest.json`).
+Edit a lesson, run both commands again, commit the new `.mp4` files and the regenerated data file.
+
 ## Tests (optional, need Playwright + Chromium)
 
 ```bash

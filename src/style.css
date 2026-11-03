@@ -353,6 +353,7 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 @media (min-width:768px){.l-hero{padding-block:80px}}
 .l-title{font-size:clamp(56px,8vw,96px)}
 .l-sum{font-size:20px;line-height:1.6;color:var(--muted);max-width:44ch;text-wrap:pretty}
+.l-listen{margin-top:22px}.l-listen:empty{display:none}
 .l-bar{height:2px;background:var(--line)}
 .l-bar i{display:block;height:100%;background:var(--accent)}
 .lesson{display:grid;gap:48px;grid-template-columns:minmax(0,1fr);padding-block:56px 80px}

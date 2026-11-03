@@ -1,0 +1,60 @@
+{
+ "l-ema-stack": {
+  "bytes": 787057,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.99,
+    "how"
+   ],
+   [
+    50.42,
+    "ex"
+   ],
+   [
+    117.36,
+    "mis"
+   ],
+   [
+    135.97,
+    "pts"
+   ]
+  ],
+  "dur": 153.5,
+  "file": "audio/lessons/l-ema-stack.mp4",
+  "hash": "1p3cjvl",
+  "voice": "af_heart"
+ },
+ "l-stocks": {
+  "bytes": 700114,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    10.26,
+    "how"
+   ],
+   [
+    40.46,
+    "ex"
+   ],
+   [
+    100.59,
+    "mis"
+   ],
+   [
+    122.34,
+    "pts"
+   ]
+  ],
+  "dur": 138.2,
+  "file": "audio/lessons/l-stocks.mp4",
+  "hash": "6jj3j7",
+  "voice": "af_heart"
+ }
+}

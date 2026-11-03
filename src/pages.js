@@ -516,6 +516,7 @@
             <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">${lvl(l.level)}<span class="meta">${l.mins || 4} min read</span><span class="meta up" id="l-done"${done ? '' : ' hidden'}>Completed</span></div>
             <h1 class="l-title">${esc(l.title)}</h1>
             <p class="l-sum">${l.idea || l.summary || ''}</p>
+            <div class="l-listen" id="l-listen"></div>
           </div>
         </div>
       </header>
@@ -553,6 +554,7 @@
         </div></aside>
       </div>`;
     navBar(pct(pos, all.length));
+    if (SML.narrate) { try { SML.narrate.mount($('#l-listen', view), l); } catch (e) { console.error(e); } }
     $$('.otp button', view).forEach((b) => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.sec); if (el) el.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'start' }); }));
     const qz = $('#quiz', view);
     if (qz) qz.addEventListener('click', (e) => {
