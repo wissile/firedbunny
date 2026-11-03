@@ -58,6 +58,7 @@ def main():
     ap.add_argument('--bitrate', default='40k')
     ap.add_argument('--stage', default='')
     ap.add_argument('--skip', default='', help='comma-separated id prefixes to leave for later (e.g. l-rc-)')
+    ap.add_argument('--first', default='', help='comma-separated id prefixes to record before the rest')
     a = ap.parse_args()
     stage = os.path.abspath(a.stage) if a.stage else ''
     out_dir = os.path.join(stage, 'lessons') if stage else OUT
@@ -86,6 +87,9 @@ def main():
     skip = tuple(filter(None, a.skip.split(',')))
     todo = [s for s in scripts if (not want or s['id'] in want) and not (skip and s['id'].startswith(skip))
             and not (s['id'] in man and man[s['id']]['hash'] == s['hash'] and have(man[s['id']]))]
+    first = tuple(filter(None, a.first.split(',')))
+    if first:  # record these id prefixes before the rest (stable order otherwise)
+        todo.sort(key=lambda s: 0 if s['id'].startswith(first) else 1)
     print(f'{len(todo)} lessons to render', flush=True)
     for s in todo:
         if a.max_minutes and (time.time() - t_start) / 60 > a.max_minutes:
