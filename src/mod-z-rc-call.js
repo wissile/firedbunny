@@ -19,7 +19,7 @@
      ====================================================================== */
   /*@timing-start*/
   const TIMING = {
-    "apple": {"dur":471.72,"c":[[0.3,4.53,4.75,8.93],[9.28,10.11,10.33,17.11],[17.46,22.51,22.73,26.73],[27.08,33.78],[34.13,35.53,35.75,40.43,40.65,44.84],[45.19,55.67],[56.02,60.36,60.58,66.34],[66.69,68.29,68.51,73.31],[73.66,74.93,75.15,81.24,81.46,85.0],[85.35,89.29,89.51,94.99,95.21,97.29],[97.64,102.46,102.68,108.37],[108.72,114.75],[115.1,116.12,116.34,119.06],[119.41,127.25],[127.6,128.19,128.41,130.6,130.82,131.7,131.92,133.15],[133.5,139.94],[140.29,145.97,146.19,147.38,147.6,151.45],[151.8,153.22,153.44,163.62],[163.97,167.33,167.55,171.76],[172.11,174.94,175.16,182.57,182.79,187.61],[187.96,197.46],[197.81,203.58],[203.93,206.64,206.86,209.61],[209.96,220.67],[221.02,227.83],[228.18,237.64],[237.99,247.36],[247.71,249.66,249.88,256.2,256.42,258.7],[259.05,262.7],[263.05,263.69,263.91,266.72,266.94,270.55,270.77,271.98],[272.33,280.7],[281.05,283.09,283.31,293.49],[293.84,301.11],[301.46,301.89,302.11,307.6,307.82,313.49],[313.84,318.09,318.31,321.26,321.48,322.54],[322.89,330.68],[331.03,336.83,337.05,343.68],[344.03,349.66],[350.01,352.78,353.0,358.51],[358.86,360.69,360.91,365.5],[365.85,371.28,371.5,381.59],[381.94,384.43,384.65,388.45],[388.8,393.87,394.09,398.33],[398.68,399.53,399.75,407.79,408.01,412.73],[413.08,421.49],[421.84,425.32,425.54,434.89],[435.24,436.14,436.36,440.08,440.3,449.51],[449.86,451.17,451.39,456.93,457.15,459.03],[459.38,463.56,463.78,468.46,468.68,469.83,470.05,470.67]]},
+    "apple": {"dur":522.69,"c":[[0.3,4.66,4.88,9.77],[10.12,10.95,11.17,17.5,17.72,20.65],[21.0,27.67,27.89,30.89],[31.24,37.94],[38.29,39.69,39.91,45.06,45.28,49.47],[49.82,55.01,55.23,61.21],[61.56,71.41],[71.76,76.1,76.32,82.08],[82.43,84.02,84.24,91.15],[91.5,92.76,92.98,100.1,100.32,103.85],[104.2,107.45,107.67,111.75,111.97,116.93,117.15,118.62,118.84,120.88],[121.23,125.93,126.15,128.31,128.53,133.82],[134.17,141.08,141.3,143.1],[143.45,147.51,147.73,149.84],[150.19,158.85],[159.2,159.79,160.01,162.65,162.87,164.43,164.65,165.87],[166.22,173.63],[173.98,178.86,179.08,187.33],[187.68,190.15,190.37,202.76],[203.11,207.04,207.26,211.48],[211.83,212.81,213.03,220.3,220.52,225.93],[226.28,234.55],[234.9,240.38],[240.73,242.38,242.6,248.19],[248.54,255.63],[255.98,268.7],[269.05,281.01],[281.36,290.48],[290.83,292.79,293.01,299.32,299.54,303.99],[304.34,310.69],[311.04,311.68,311.9,314.71,314.93,318.54,318.76,319.97],[320.32,324.62,324.84,328.62],[328.97,331.27,331.49,343.29],[343.64,353.24],[353.59,354.03,354.25,355.14,355.36,358.06,358.28,361.67,361.89,367.3],[367.65,371.66,371.88,376.45,376.67,377.73],[378.08,388.62],[388.97,392.74,392.96,398.68],[399.03,401.89,402.11,409.42,409.64,411.98],[412.33,415.08,415.3,420.29],[420.64,423.69,423.91,431.32],[431.67,433.38,433.6,438.77,438.99,440.94],[441.29,447.42,447.64,451.88],[452.23,453.08,453.3,460.17,460.39,461.29,461.51,464.34],[464.69,472.56],[472.91,477.46,477.68,484.65],[485.0,485.89,486.11,489.83,490.05,496.86,497.08,501.01],[501.36,509.98,510.2,513.21],[513.56,517.44,517.66,520.79,521.01,521.64]]},
     "spacex": {"dur":359.2,"c":[[0.3,3.3,3.52,7.43,7.65,14.95],[15.3,25.97],[26.32,32.11],[32.46,41.84],[42.19,52.81,53.03,61.28],[61.63,69.1],[69.45,71.19,71.41,73.83,74.05,82.02,82.24,86.97],[87.32,88.48,88.7,96.71],[97.06,105.65,105.87,112.43,112.65,120.53],[120.88,121.81,122.03,126.55,126.77,127.56],[127.91,136.06,136.28,146.5],[146.85,154.75,154.97,158.45],[158.8,164.66,164.88,169.99],[170.34,171.17,171.39,178.2,178.42,181.01],[181.36,183.92,184.14,190.95,191.17,196.57],[196.92,205.85,206.07,209.55],[209.9,217.35,217.57,224.44,224.66,226.59],[226.94,228.63,228.85,239.28,239.5,245.99],[246.34,250.44,250.66,256.83,257.05,263.14],[263.49,270.56],[270.91,273.44,273.66,278.81],[279.16,279.81,280.03,287.1,287.32,289.11,289.33,290.54],[290.89,298.48,298.7,300.84],[301.19,304.5,304.72,311.45],[311.8,312.7,312.92,314.97,315.19,321.7,321.92,324.83],[325.18,327.51,327.73,339.91,340.13,345.25],[345.6,352.53,352.75,357.3,357.52,358.15]]}
   };
   /*@timing-end*/
@@ -242,7 +242,7 @@
   const QA = {
     apple: [
       { firm: 'Evercore', q: 'What pulls the December-quarter gross margin down?', a: [['CFO', 'Mostly memory costs.'], ['CFO', 'A little from running Siri AI in Apple’s cloud, booked in Services costs.']] },
-      { firm: 'Bank of America', q: 'How does Apple buy memory in a shortage?', a: [['COO', `Long supplier relationships; purchase commitments rose about ${B(AP.call.purchaseObligationsUp, 0)} from June to September.`], ['CFO', 'Prices went up: Mac and iPad in late June, iPhone in September. Too early to judge the effect.']] },
+      { firm: 'Bank of America', q: 'How does Apple buy memory in a shortage?', a: [['COO', `Long supplier relationships; purchase commitments up about ${B(AP.call.purchaseObligationsUp, 0)} since June.`], ['CFO', 'Prices went up: Mac and iPad in June, iPhone in September.']] },
       { firm: 'JPMorgan', q: 'When will the foldable iPhone Duo catch up with demand?', a: [['COO', 'It is short of supply, and it is hard to predict when supply and demand will be in balance.']] },
       { firm: 'Morgan Stanley', q: 'How durable is Services growth?', a: [['CFO', 'Currency took about 4 points off the growth rate from March to September.'], ['CFO', 'Mobile gaming was weaker, and a US court ruling on App Store link-outs weighs.']] },
       { firm: 'Melius Research', q: 'What is the plan for Apple’s cash?', a: [['CFO', 'Net cash neutral is no longer the target. Apple will invest what it needs and return the excess.']] },
@@ -663,7 +663,7 @@
   const ICONSETS = {
     frame: () => [{ k: 's', ic: 'target', t: 'The surprise', s: 'Results against what analysts expected' }, { k: 'g', ic: 'chart', t: 'The outlook', s: 'Guidance for the next quarter, often the biggest mover' }, { k: 'q', ic: 'search', t: 'The quality', s: 'Temporary items, adjusted versus official numbers' }],
     launch: () => [{ k: 'duo', ic: 'phone', t: 'iPhone Duo', s: 'The first foldable iPhone, short of supply' }, { k: 'pro', ic: 'phone', t: 'iPhone 18 Pro', s: 'The fall flagship' }, { k: 'mac', ic: 'chip', t: 'New Macs', s: 'A record year for Mac' }, { k: 'siri', ic: 'ai', t: 'Siri AI', s: 'Test version launched in September' }],
-    supply: () => [{ k: 'mem', ic: 'mem', t: 'Memory costs', s: 'Pricing “unprecedented”: the main reason for the lower margin' }, { k: 'ai', ic: 'ai', t: 'Siri AI in the cloud', s: 'Server costs, booked in Services' }, { k: 'price', ic: 'tag', t: 'Higher prices', s: 'Mac and iPad in late June, iPhone in September' }, { k: 'chip', ic: 'chip', t: 'Supply', s: 'Mac and iPad still tight, mainly memory' }],
+    supply: () => [{ k: 'mem', ic: 'mem', t: 'Memory costs', s: 'Pricing “unprecedented”, the main cause' }, { k: 'ai', ic: 'ai', t: 'Siri AI in the cloud', s: 'Server costs, in Services' }, { k: 'price', ic: 'tag', t: 'Higher prices', s: 'Mac and iPad in June, iPhone in September' }, { k: 'chip', ic: 'chip', t: 'Supply', s: 'Mac and iPad still tight' }],
     guide2: () => [{ k: 'sv', ic: 'star', t: 'Services', s: `Growth ${AG.servicesGrowth[0]}–${AG.servicesGrowth[1]}% vs ≈${AE.nextQtrServicesGrowth}% expected` }, { k: 'ox', ic: 'coin', t: 'Operating expenses', s: `${B(AG.opex[0])} to ${B(AG.opex[1])}` }, { k: 'tx', ic: 'gauge', t: 'Tax and other', s: `Tax rate about ${AG.taxRate}%, other income about ${Mn(AG.otherIncome)}` }],
     themes: () => [{ k: 'm', ic: 'mem', t: 'Memory costs', s: 'Evercore, Bank of America, TD Cowen' }, { k: 'g', ic: 'gauge', t: 'Margins', s: 'Evercore, TD Cowen' }, { k: 's', ic: 'chip', t: 'Supply', s: 'JPMorgan, Cleveland Research' }, { k: 'v', ic: 'star', t: 'Services', s: 'Morgan Stanley, Melius' }],
   };
@@ -755,7 +755,7 @@
     if (st === 'tariff' || st === 'q') {
       const id = x.A({ k: 'op', t0: st === 'q' ? 0.2 : x.m('t', 0.4), t1: (st === 'q' ? 0.2 : x.m('t', 0.4)) + 0.4 });
       s += `<g id="${id}" style="opacity:0"><rect x="${xf(gx0).toFixed(1)}" y="${y - 11}" width="${(xf(A_GM) - xf(gx0)).toFixed(1)}" height="22" rx="4" class="${st === 'q' ? 'f-flame-t s-flame w1' : 'hatch s-flame w1'}"/>
-        <text x="${((xf(gx0) + xf(A_GM)) / 2).toFixed(1)}" y="${y + 42}" text-anchor="middle" class="md b flame">${st === 'q' ? 'How much of this was temporary?' : `≈${refund} points: tariff refunds (temporary)`}</text></g>`;
+        <text x="${((xf(gx0) + xf(A_GM)) / 2).toFixed(1)}" y="${y + 42}" text-anchor="middle" class="md b flame">${st === 'q' ? 'How much of this was temporary?' : `≈${refund} point${refund === 1 ? '' : 's'}: tariff refunds (temporary)`}</text></g>`;
       if (st === 'tariff') { const id2 = x.A({ k: 'op', t0: x.m('t', 0.4) + 1.2, t1: x.m('t', 0.4) + 1.6 }); s += `<g id="${id2}" style="opacity:0"><text x="${(W / 2).toFixed(1)}" y="${y + 64}" text-anchor="middle" class="md b ink">Without them: ≈${P(gx0)} (a year ago: ${P(A_GMY)})</text></g>`; }
     }
     if (st === 'guide') {
@@ -837,9 +837,10 @@
   SC.gcheck = (x) => {
     const rows = AP.call.guideCheck.filter((r) => r.k !== 'oth' || !x.narrow), mk = { rev: 'r', gm: 'g', opex: 'o', oth: 'o', tax: 'o' };
     const cls = (v) => (/above|top|lower/.test(v) ? 'up' : 'info');
+    const SHORT = { above: 'Above', 'top of range': 'Top', 'in range': 'In range', lower: 'Lower' };
     return `<div class="rcc-sc"><div class="rcc-scr h"><span>Apple’s July forecast for this quarter</span><span class="x">Guided</span><span class="g">Delivered</span><span style="text-align:right">Verdict</span></div>${rows.map((r, i) => {
       const k = mk[r.k], t0 = x.has(k) ? x.m(k) + (k === 'o' ? i * 0.25 : 0) : 0.3 + i * 0.4;
-      return `<div class="rcc-scr" id="${x.A({ k: 'cls', cls: 'on', t0 })}"><span>${esc(r.name)}<small>guided ${esc(r.guide)}</small></span><span class="x">${esc(r.guide)}</span><span class="g">${esc(r.actual)}</span><span class="pill ${cls(r.verdict)} rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: t0 + 0.3, inv: true })}">${esc(r.verdict)}</span></div>`;
+      return `<div class="rcc-scr" id="${x.A({ k: 'cls', cls: 'on', t0 })}"><span>${esc(r.name)}<small>guided ${esc(r.guide)}</small></span><span class="x">${esc(r.guide)}</span><span class="g">${esc(r.actual)}</span><span class="pill ${cls(r.verdict)} rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: t0 + 0.3, inv: true })}">${esc(x.narrow ? SHORT[r.verdict] || r.verdict : r.verdict)}</span></div>`;
     }).join('')}</div>`;
   };
 
@@ -848,8 +849,8 @@
     const A = AP.is.fy, Z = AP.is.fyPrev, fcf = AP.cf.fcf;
     const rows = [['r', 'Revenue', A.revenue, Z.revenue, B], ['n', 'Net income', A.netInc, Z.netInc, B], ['e', 'Diluted EPS', A.epsDil, Z.epsDil, (v) => F.usd(v)], ['f', 'Free cash flow*', fcf[0], fcf[1], B]];
     return `<div class="rcc-lab" style="margin-bottom:10px">Fiscal year 2026 vs 2025 (October to September)</div><div class="rcc-hb">${rows.map(([k, l, a, b, f], i) => {
-      const t0 = x.has(k) ? x.m(k, 0.3) : 0.4 + i * 0.5, g = yoy(a, b);
-      return `<div class="rcc-hr${x.has(k) ? ' on' : ''}"><span class="l">${l}</span><span class="t"><i class="mut" style="opacity:.55" id="${x.A({ k: 'w', to: b / a * 100, t0: 0.1, t1: 0.6 })}"></i></span><b id="${x.A({ k: 'count', from: b, to: a, fmt: f, t0, t1: t0 + 0.9 })}">${f(a)}</b><em class="up">${SP(g, 0)}</em></div>`;
+      const t0 = 0.3 + i * 0.45, g = yoy(a, b), lit = x.has(k) ? x.A({ k: 'cls', cls: 'on', t0: x.m(k) }) : '';
+      return `<div class="rcc-hr"${lit ? ` id="${lit}"` : ''}><span class="l">${l}</span><span class="t"><i class="mut" style="opacity:.55" id="${x.A({ k: 'w', to: b / a * 100, t0: 0.1, t1: 0.6 })}"></i></span><b id="${x.A({ k: 'count', from: b, to: a, fmt: f, t0, t1: t0 + 0.9 })}">${f(a)}</b><em class="up">${SP(g, 0)}</em></div>`;
     }).join('')}</div><span class="rcc-sub" style="margin-top:10px;display:block">Bar: last year as a share of this year. *Operating cash flow minus capex, our math.</span>`;
   };
 
@@ -949,7 +950,7 @@
   };
   SC.score = (x) => {
     const st = x.show.step, rows = SCORE[x.script.key]();
-    const list = st === 'pre' && x.script.key === 'apple' ? rows.slice(0, 2).concat([{ k: 'q', l: 'Guidance', x: `≈${AE.nextQtrGrowth}% growth`, g: '?', v: ['flame', '?'] }]) : rows;
+    const list = st === 'pre' && x.script.key === 'apple' ? rows.slice(0, 2).concat([{ k: 'q', l: 'Guidance', x: `≈${AE.nextQtrGrowth}% growth`, g: '?', v: ['flame', '?'] }]) : x.narrow && rows.length > 6 ? rows.filter((r) => r.k !== 'o') : rows;
     const live = (r) => st === 'verdict' ? (r.k === 'r' || r.k === 'e' ? 'b' : r.k) : r.k;
     return `<div class="rcc-sc"><div class="rcc-scr h"><span>${st === 'pre' ? 'What you know so far' : 'Expectations vs results'}</span><span class="x">Expected</span><span class="g">Actual</span><span style="text-align:right">Verdict</span></div>${list.map((r) => {
       const mk = live(r), has = x.has(mk);
