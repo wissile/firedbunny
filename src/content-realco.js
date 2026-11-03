@@ -147,7 +147,7 @@
         quarterReturn: { total: 28000, buybacks: 24000, dividends: 3900 },
         installedBase: '2.5 billion+ active devices', paidSubs: '1.5 billion+',
         netCashNeutral: 'Apple dropped its long-time goal of reaching “net cash neutral” (cash equal to debt), to keep more flexibility; it still plans to invest what it needs and return the excess.',
-        purchaseObligationsUp: 33000, // manufacturing purchase obligations rose about $33B from June to September (mostly memory)
+        purchaseObligationsUp: 33000, // manufacturing purchase obligations rose about $33B from June to September (to secure supply)
         notes: [
           'Memory chip prices kept climbing. John Ternus called today’s memory pricing “unprecedented”. Memory is the main reason the December gross margin guide (45–46%) is below September’s 47.9%; the cost of running Siri AI in Apple’s data centers adds a little.',
           'Apple raised Mac and iPad prices at the end of June and iPhone prices in September, and said it is too early to judge how buyers react.',
