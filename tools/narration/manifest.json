@@ -1,4 +1,33 @@
 {
+ "l-bonds": {
+  "bytes": 683478,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    10.75,
+    "how"
+   ],
+   [
+    46.64,
+    "ex"
+   ],
+   [
+    96.6,
+    "mis"
+   ],
+   [
+    117.94,
+    "pts"
+   ]
+  ],
+  "dur": 134.3,
+  "file": "audio/lessons/l-bonds.mp4",
+  "hash": "mzax6s",
+  "voice": "af_heart"
+ },
  "l-ema-stack": {
   "bytes": 787057,
   "chapters": [
