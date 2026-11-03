@@ -14,6 +14,7 @@
     no_quarterly: 'This company does not file quarterly US (GAAP) reports with the SEC, so there is nothing to chart here. Many foreign companies file yearly reports under international rules instead.',
     unavailable: 'Live lookups run on the FiredBunny website.',
     sec_error: 'The SEC or the price service did not answer. Try again in a minute.',
+    no_api: 'Live lookups are not switched on for this copy of the site: its data relay is not running.',
   };
   const fail = (code) => err(code, MSG[code]);
 
@@ -285,10 +286,18 @@
 
   /* ---------- network ---------- */
   const live = () => SML.host === 'web' && /^https?:$/.test(location.protocol);
-  const getJSON = (path) => fetch(API + path, { headers: { Accept: 'application/json' } }).then((r) => {
-    if (r.status === 404) return null;
-    if (!r.ok) throw fail('sec_error');
-    return r.json();
+  /* Errors carry what the relay said (status, source, hint) so the page can tell "the SEC refused" from "the relay
+     is missing". A web page where JSON was expected means no Worker answers /api here (e.g. a static-only deploy). */
+  const getJSON = (path) => fetch(API + path, { headers: { Accept: 'application/json' } }).then(async (r) => {
+    const ct = r.headers.get('content-type') || '';
+    if (!/json/i.test(ct)) throw Object.assign(fail('no_api'), { status: r.status, hint: 'GET ' + API + path + ' returned ' + (ct.split(';')[0] || 'no content type') + ' instead of JSON: the /api Worker is not running on this deployment.' });
+    let d = null; try { d = await r.json(); } catch (e) { d = undefined; }
+    if (r.status === 404 && !(d && d.error === 'upstream')) return null;
+    if (!r.ok || d === undefined) {
+      const e = d && typeof d.message === 'string' ? err('sec_error', d.message + ' Try again in a minute.') : fail('sec_error');
+      throw Object.assign(e, { status: d ? d.status : r.status, source: d && d.source, hint: d && d.hint });
+    }
+    return d;
   }, () => { throw fail(live() ? 'sec_error' : 'unavailable'); });
   let tickers = null;
   function tickerList() {

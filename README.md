@@ -24,10 +24,22 @@ the dashboard), the build command and the `dist` folder. In the dashboard keep t
 `npx wrangler deploy`, build command empty, root directory `/`. Every push to `main` deploys; other branches get
 preview URLs if "non-production branch builds" is on.
 
-Cloudflare **Pages** works too: Production branch `main`, Framework preset None, Build command
-`python3 tools/build.py`, Build output directory `dist`.
+Cloudflare **Pages** serves the lessons too (Production branch `main`, Framework preset None, Build command
+`python3 tools/build.py`, Build output directory `dist`), but Pages does not run `worker/index.js`, so the
+Earnings lookup has no live data there and shows its sample. Use the Worker deploy for live lookups.
 
 Optional build variable: `SITE_URL` = your final address, e.g. `https://firedbunny.com` (used in link previews).
+
+### Live earnings data (the `/api` relay)
+
+The Earnings lookup reads the SEC's public filings and a price history through `worker/index.js`. The SEC turns
+automated requests away (error 403) unless the User-Agent names a contact email, so set one variable in the
+Cloudflare dashboard: **Workers & Pages → firedbunny → Settings → Variables and Secrets → Add**, type *Text*,
+name `SEC_UA`, value `FiredBunny your@email.com`. `keep_vars` in `wrangler.jsonc` keeps it across deploys.
+
+To check the relay, open **`/api/health`** on your site. It tests the SEC ticker list, company facts and filing
+index plus both price sources (Yahoo Finance, Stooq) and gives a one-line verdict. It reports whether `SEC_UA` is
+set, never its value. When a lookup fails, the page also shows the reason and a "For the site owner" hint.
 
 ## Where things live
 

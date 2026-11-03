@@ -223,6 +223,7 @@
 .ern-empty .ern-quick{justify-content:center}
 .ern-err{border-left:4px solid var(--down)}
 .ern-err h4{color:var(--ink)}
+.ern-owner{max-width:560px;font-size:13px;color:var(--muted);text-align:left}.ern-owner summary{cursor:pointer;color:var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}.ern-owner p{margin-top:6px}.ern-owner a{color:var(--accent)}
 .ern-sk{display:flex;flex-direction:column;gap:14px}
 .ern-sk i{display:block;border-radius:var(--r);background:linear-gradient(90deg,var(--surface) 0%,var(--surface-2) 40%,var(--surface) 80%);background-size:200% 100%;animation:ernSk 1.2s linear infinite;border:1px solid var(--line)}
 .ern-sk .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:12px}
@@ -938,16 +939,21 @@ svg .ern-ring{fill:none;stroke:var(--accent);stroke-width:2}
         setStatus(m.sample ? sampleNote(null) : '');
         render(m);
         if (!m.sample) SML.store.set(STORE, t);
-      }, (e) => { if (!ok(my)) return; if (e && e.code === 'unavailable') showSample(t, true); else showError(e || {}, t); });
+      }, (e) => {
+        if (!ok(my)) return;
+        if (e && e.code !== 'bad_ticker' && e.code !== 'not_found' && e.code !== 'no_quarterly') console.warn('[earnings] lookup failed', t, e && e.code, e && e.status, e && (e.hint || e.message));
+        if (e && (e.code === 'unavailable' || e.code === 'no_api')) showSample(t, true, e.code === 'no_api' ? e : null); else showError(e || {}, t);
+      });
     }
     const sampleNote = (t, unavailable) => `<div class="callout info"><span>${t ? `Live lookups run on the FiredBunny website, so <b>${esc(t)}</b> cannot be loaded here.` : live && !unavailable ? 'This is sample data from a made-up company, so you can see what a result looks like. Search above for a real stock.' : 'Live lookups run on the FiredBunny website.'}${t || !live || unavailable ? ' Here is what a result looks like, with sample data from a made-up company.' : ''}</span></div>`;
-    function showSample(t, unavailable) {
+    const ownerHint = (e) => (e && e.hint ? `<details class="ern-owner"><summary>For the site owner</summary><p>${esc(e.hint)}${e.status ? ` (status ${esc(String(e.status))})` : ''} Open <a href="/api/health" target="_blank" rel="noopener">/api/health</a> to test each data source.</p></details>` : '');
+    function showSample(t, unavailable, why) {
       if (!E || typeof E.sample !== 'function') { engineMissing(); return; }
       ++req; runLocal(); markQuick(null);
       let m = null; try { m = E.sample(); } catch (e) { m = null; }
       if (!m) { engineMissing(); return; }
       m.sample = true;
-      setStatus(sampleNote(t, unavailable));
+      setStatus(why ? `<div class="callout info"><span>${esc(why.message)} Here is what a result looks like, with sample data from a made-up company.</span></div>${ownerHint(why)}` : sampleNote(t, unavailable));
       render(m);
     }
     function engineMissing() {
@@ -960,7 +966,7 @@ svg .ern-ring{fill:none;stroke:var(--accent);stroke-width:2}
       runLocal(); setStatus('');
       const code = ERRH[e.code] ? e.code : 'sec_error';
       const msg = typeof e.message === 'string' && e.message.trim() ? e.message : ERRM[code];
-      out.innerHTML = `<div class="ern-panel ern-empty ern-err" role="alert"><p class="ern-lk">${esc(t)}</p><h4>${ERRH[code]}${code === 'not_found' ? ` for “${esc(t)}”` : ''}</h4><p>${esc(msg)}</p>
+      out.innerHTML = `<div class="ern-panel ern-empty ern-err" role="alert"><p class="ern-lk">${esc(t)}</p><h4>${ERRH[code]}${code === 'not_found' ? ` for “${esc(t)}”` : ''}</h4><p>${esc(msg)}</p>${code === 'sec_error' ? ownerHint(e) : ''}
         <div class="ern-quick">${code === 'sec_error' ? `<button type="button" class="btn btn-p sm" data-retry="${esc(t)}">Try again</button>` : ''}<span class="ern-lk">Try</span>${QUICK.slice(0, 5).map((q) => `<button type="button" class="ern-qk" data-t="${q}">${q}</button>`).join('')}</div></div>`;
     }
     function showEmpty() {
