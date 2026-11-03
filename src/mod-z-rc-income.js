@@ -1,4 +1,4 @@
-/* FiredBunny · Read a Real Company (fork K2).
+/* FiredBunny · Read a Real Company (fork K2; Apple refreshed to the September 2026 quarter by fork R1).
    Lessons: l-rc-words (termTranslator) and l-rc-apple-income (incomeWaterfall), plus the tool widget statementExplorer ★.
    Every company figure is read from SML.realco (content-realco.js); every ratio below is computed from it at load.
    Hoppy's Coffee Cart is the shared made-up example from SPEC-realco.md. */
@@ -13,6 +13,7 @@
   /* ---------------- formatting ---------------- */
   const M = (v) => F.usd(v, 0) + 'M';                                                       // −$143M · $109,417M
   const Bn = (v, d) => (v < 0 ? MI : '') + '$' + F.num(Math.abs(v) / 1000, d == null ? 1 : d) + 'B';
+  const Bw = (v, d) => (v < 0 ? MI : '') + '$' + F.num(Math.abs(v) / 1000, d == null ? 1 : d) + ' billion';   // prose
   const BM = (v) => (v === 0 ? '$0' : Math.abs(v) >= 1000 ? Bn(v) : M(v));
   const H$ = (v) => F.usd(v, 0);
   const E$ = (v) => F.usd(v, 2);
@@ -28,19 +29,23 @@
   const tx = (x, str, px, W, mono) => { const w = estW(str, px, mono); return clamp(x, w / 2 + 2, W - w / 2 - 2); };
 
   /* ---------------- derived numbers ---------------- */
-  const ai = A.is.cur, ay = A.is.ya, ap = A.is.pq, xi = X.is.cur, xy = X.is.ya, xp = X.is.pq;
+  /* Apple: cur = Sep 2026 qtr (fiscal Q4 2026, latest), ya = Sep 2025, ap = Jun 2026 (previous quarter), ay2 = Jun 2025 */
+  const ai = A.is.cur, ay = A.is.ya, ap = A.is.pq, ay2 = A.is.ya2, xi = X.is.cur, xy = X.is.ya, xp = X.is.pq;
   const xOpex = (r) => r.rd + r.sga + r.restructuring + r.impairment;
   const xNonOp = (r) => r.intExp + r.intInc + r.other;
-  const TR = A.tariffRefund, G = A.call.guidance, EXA = A.expectations, EXX = X.expectations;
+  /* G = December-quarter guidance (given Nov 2); GJ = the July guidance for the September quarter; Q3 = the June story */
+  const TR = A.tariffRefund, G = A.call.guidance, EXA = A.expectations, EXX = X.expectations, Q3 = A.q3, GJ = A.q3.guidance, RA = A.reaction;
   const D = {
     revYoY: pc(ai.revenue, ay.revenue), revQoQ: pc(ai.revenue, ap.revenue),
     gm: (ai.gross / ai.revenue) * 100, gmYa: (ay.gross / ay.revenue) * 100, gmPq: (ap.gross / ap.revenue) * 100,
-    om: (ai.opInc / ai.revenue) * 100, omYa: (ay.opInc / ay.revenue) * 100,
+    om: (ai.opInc / ai.revenue) * 100, omYa: (ay.opInc / ay.revenue) * 100, omPq: (ap.opInc / ap.revenue) * 100,
     nm: (ai.netInc / ai.revenue) * 100, nmYa: (ay.netInc / ay.revenue) * 100,
     tax: (ai.tax / ai.pretax) * 100, taxYa: (ay.tax / ay.pretax) * 100,
     prodGP: ai.prodSales - ai.prodCost, servGP: ai.servSales - ai.servCost,
     prodGPya: ay.prodSales - ay.prodCost, servGPya: ay.servSales - ay.servCost,
     epsYoY: pc(ai.epsDil, ay.epsDil), niYoY: pc(ai.netInc, ay.netInc), shYoY: pc(ai.shDil, ay.shDil),
+    gpYoY: pc(ai.gross, ay.gross), opexYoY: pc(ai.opex, ay.opex), opYoY: pc(ai.opInc, ay.opInc), costYoY: pc(ai.cost, ay.cost),
+    servYoY: pc(ai.servSales, ay.servSales), servYoYPq: pc(ap.servSales, ay2.servSales), nmPq: (ap.netInc / ap.revenue) * 100,
     xRevYoY: pc(xi.revenue, xy.revenue), xRevQoQ: pc(xi.revenue, xp.revenue),
     xGm: (xi.gross / xi.revenue) * 100, xGmYa: (xy.gross / xy.revenue) * 100,
     xOm: (xi.opInc / xi.revenue) * 100, xOmYa: (xy.opInc / xy.revenue) * 100,
@@ -61,24 +66,38 @@
   const segOpTxt = () => { const sp = XSEG('space').opInc; return `Starlink earned ${M(XSEG('conn').opInc)}, Super Intelligence ${M(XSEG('ai').opInc)} after ${M(X.segments.notes.cursorStockComp)} of Cursor-related stock pay, and Space ${sp < 0 ? 'lost ' + M(-sp) : 'earned ' + M(sp)}`; };
   D.prodGM = (D.prodGP / ai.prodSales) * 100; D.servGM = (D.servGP / ai.servSales) * 100;
   D.servRevShare = (ai.servSales / ai.revenue) * 100; D.servGPShare = (D.servGP / ai.gross) * 100;
-  /* Tariff refund: Apple gave about 2 points of gross margin and $0.11 of EPS. We back the dollars out of the $0.11:
-     $0.11 × diluted shares = after-tax effect; ÷ (1 − the quarter's tax rate) = pre-tax effect inside cost of sales. */
-  D.ref = (function () { const t = ai.tax / ai.pretax, net = TR.eps * ai.shDil, pre = net / (1 - t); return { net, pre, taxOn: pre - net, eps: Math.round((ai.epsDil - TR.eps) * 100) / 100 }; })();
-  D.gmEx = ((ai.gross - D.ref.pre) / ai.revenue) * 100;
+  /* Tariff refund: Apple said it added about 1 point of gross margin and $0.05 of EPS in September (2 points, $0.11 in June).
+     We back the dollars out of the EPS figure: EPS help × diluted shares = after-tax effect; ÷ (1 − the quarter's tax rate)
+     = pre-tax effect inside cost of sales. September: $0.05 × 14,630.3M ≈ $732M after tax; ÷ (1 − 15.0%) ≈ $861M before tax. */
+  const refOf = (r, eps) => { const t = r.tax / r.pretax, net = eps * r.shDil, pre = net / (1 - t); return { net, pre, taxOn: pre - net, eps: Math.round((r.epsDil - eps) * 100) / 100 }; };
+  D.ref = refOf(ai, TR.eps); D.refPq = refOf(ap, TR.pq.eps);
+  /* the underlying margin uses Apple's own words (gross margin minus the stated points); the waterfall's dollar estimate
+     above lands within a quarter point of it (Sep: 47.1% vs 46.9%) because $0.05 of EPS is rounded */
+  D.gmEx = D.gm - TR.grossMarginPts;
+  D.gmExPq = D.gmPq - TR.pq.grossMarginPts;
   D.epsExYoY = pc(D.ref.eps, ay.epsDil);
+  D.costExYoY = pc(ai.cost + D.ref.pre, ay.cost);
+  /* December-quarter guide in dollars (our math) and the July guide for the September quarter */
   D.gLo = G.baseRevenue * (1 + G.revGrowth[0] / 100); D.gHi = G.baseRevenue * (1 + G.revGrowth[1] / 100);
+  D.jLo = GJ.baseRevenue * (1 + GJ.revGrowth[0] / 100); D.jHi = GJ.baseRevenue * (1 + GJ.revGrowth[1] / 100);
   const cents2 = (v) => Math.round(v * 100);
-  D.beat = [cents2(ai.epsDil - EXA.eps[1]), cents2(ai.epsDil - EXA.eps[0])];
-  D.beatEx = [cents2(D.ref.eps - EXA.eps[1]), cents2(D.ref.eps - EXA.eps[0])];
+  D.beat = cents2(ai.epsDil - EXA.eps); D.beatEx = cents2(D.ref.eps - EXA.eps); D.revBeat = ai.revenue - EXA.revenue;
+  const one = (v) => [v, v];   // a single consensus number drawn as a band
+  /* the stock move after the Nov 2 report; closePct stays null until the Nov 3 close is filled in */
+  const moveShort = () => (RA.closePct == null ? 'traded about 2–4% lower the next day' : `${RA.closePct < 0 ? 'fell' : 'rose'} about ${P(Math.abs(RA.closePct))} the next day`);
+  const moveLong = () => (RA.closePct == null ? `traded about 2% to 4% lower on ${RA.day.replace(/, \d{4}$/, '')} (after hours it had been down about ${P(-RA.afterHoursPct)}, as much as ${P(-RA.afterHoursLowPct, 0)} during the call)` : `${RA.closePct < 0 ? 'fell' : 'rose'} about ${P(Math.abs(RA.closePct))} on ${RA.day.replace(/, \d{4}$/, '')}${RA.closeAfter != null ? ', closing at ' + E$(RA.closeAfter) : ''}`);
+  const moveCell = () => (RA.closePct == null ? 'about −2% to −4%' : SP(RA.closePct));
   const bsv = (list, k, p) => { const r = list.find((x) => x.k === k); return r ? r[p] : 0; };
-  const aB = A.bs, xB = X.bs, aCF = A.cf9;
+  const aB = A.bs, xB = X.bs, aCF = A.cf;   // Apple cash flow: full fiscal year 2026 (each line also has `q`, the Sep quarter, our math)
   D.aCashMs = (p) => bsv(aB.assets, 'cash', p) + bsv(aB.assets, 'msCur', p) + bsv(aB.assets, 'msNon', p);
   D.aDebt = (p) => bsv(aB.liabilities, 'cp', p) + bsv(aB.liabilities, 'debtCur', p) + bsv(aB.liabilities, 'debtNon', p);
   D.xCashMs = (p) => bsv(xB.assets, 'cash', p) + bsv(xB.assets, 'ms', p);
   D.xDebt = (p) => bsv(xB.liabilities, 'debtCur', p) + bsv(xB.liabilities, 'debtNon', p);
   D.aCapex = [bsv(aCF.investing, 'capex', 'cur'), bsv(aCF.investing, 'capex', 'ya')];
   D.aFcf = [aCF.totals.operating[0] + D.aCapex[0], aCF.totals.operating[1] + D.aCapex[1]];
-  D.aBvps = aB.totals.equity[0] / ai.shBasic;
+  D.aFcfQ = aCF.totals.operating[2] + bsv(aCF.investing, 'capex', 'q');
+  D.aBvps = aB.totals.equity[0] / aB.sharesOutstanding.cur; D.aBvpsPrev = aB.totals.equity[1] / aB.sharesOutstanding.prev;
+  D.aNetCash = (p) => D.aCashMs(p) - D.aDebt(p);
 
   /* Hoppy's Coffee Cart (made up; numbers fixed by SPEC-realco.md) */
   const HOP = {
@@ -337,15 +356,15 @@
     return { H, body: s };
   }
 
-  /* fiscal vs calendar quarters, Oct 2025 – Sep 2026. which: 'cal' | 'fis' */
+  /* fiscal vs calendar quarters, Oct 2025 – Sep 2026. which: 'cal' (Hoppy, Apr–Jun) | 'cal3' (SpaceX Q3) | 'fis' (Apple fiscal Q4) */
   function figFiscal(W, which) {
-    const mon = ['O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'], cw = W / 12, compact = W < 480, b0 = which === 'cal3' ? 9 : 6;
+    const mon = ['O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'], cw = W / 12, compact = W < 480, b0 = which === 'cal' ? 6 : 9;
     let s = S.rect(b0 * cw, 0, 3 * cw, 150, 'f-acc-t', 4);
     s += S.text(1.5 * cw, 12, '2025', 'xs', 'middle') + S.text(7.5 * cw, 12, '2026', 'xs', 'middle') + S.line(3 * cw, 2, 3 * cw, 34, 's-mut dash2');
     mon.forEach((m, i) => { s += S.text(cw * (i + 0.5), 29, m, 'sm mono ' + (i >= b0 && i <= b0 + 2 ? 'b acc' : 'ink'), 'middle'); });
     const rows = [
       { y: 56, l: 'Calendar quarters', q: ['Q4 2025', 'Q1 2026', 'Q2 2026', 'Q3 2026'], hi: which === 'cal' ? 2 : which === 'cal3' ? 3 : -1 },
-      { y: 110, l: compact ? 'Apple fiscal 2026' : 'Apple’s fiscal year 2026', q: ['Q1 FY26', 'Q2 FY26', 'Q3 FY26', 'Q4 FY26'], hi: which === 'fis' ? 2 : -1 },
+      { y: 110, l: compact ? 'Apple fiscal 2026' : 'Apple’s fiscal year 2026', q: ['Q1 FY26', 'Q2 FY26', 'Q3 FY26', 'Q4 FY26'], hi: which === 'fis' ? 3 : -1 },
     ];
     rows.forEach((r) => {
       s += S.text(2, r.y - 6, r.l, 'sm b ' + (r.hi >= 0 ? 'acc' : 'mut'));
@@ -420,7 +439,7 @@
       what: 'All the money customers paid for what the company sold in the period, before any cost comes out. It is the first line of the income statement, so people call it the top line.',
       why: 'Revenue is the first number traders hold up against the consensus. A top-line beat shows customers are really buying; a miss is hard to fix with cost cuts.',
       hop: () => ({ math: `${H$(hc.revenue)} this June vs ${H$(hy.revenue)} last June`, say: `Every cup rung up in June, before paying for a single bean: ${SP(pc(hc.revenue, hy.revenue), 0)} on last June.`, fig: (W) => figCompare(W, { bars: [{ l: 'Last June', v: hy.revenue }, { l: 'This June', v: hc.revenue }], arrows: [{ a: 0, b: 1, t: SP(pc(hc.revenue, hy.revenue), 0) + ' YoY', c: 'up' }], fmt: H$ }) }),
-      apple: () => ({ math: `${M(ai.prodSales)} products + ${M(ai.servSales)} services = ${M(ai.revenue)}`, say: `That is ${Bn(ai.revenue)}, up ${P(D.revYoY)} from ${Bn(ay.revenue)} a year earlier. Apple called it its strongest June quarter ever.`, fig: (W) => figCompare(W, { bars: [{ l: A.labels.ya, v: ay.revenue, segs: [{ v: ay.prodSales, c: 'info' }, { v: ay.servSales, c: 'vio' }] }, { l: A.labels.cur, v: ai.revenue, segs: [{ v: ai.prodSales, c: 'info' }, { v: ai.servSales, c: 'vio' }] }], arrows: [{ a: 0, b: 1, t: SP(D.revYoY) + ' YoY', c: 'up' }], fmt: (v) => Bn(v), legend: [{ c: 'info', l: 'Products' }, { c: 'vio', l: 'Services' }] }) }),
+      apple: () => ({ math: `${M(ai.prodSales)} products + ${M(ai.servSales)} services = ${M(ai.revenue)}`, say: `That is ${Bn(ai.revenue)}, up ${P(D.revYoY)} from ${Bn(ay.revenue)} a year earlier: a September-quarter record, above Apple’s own July guide of ${GJ.revGrowth[0]}%–${GJ.revGrowth[1]}% growth.`, fig: (W) => figCompare(W, { bars: [{ l: A.labels.ya, v: ay.revenue, segs: [{ v: ay.prodSales, c: 'info' }, { v: ay.servSales, c: 'vio' }] }, { l: A.labels.cur, v: ai.revenue, segs: [{ v: ai.prodSales, c: 'info' }, { v: ai.servSales, c: 'vio' }] }], arrows: [{ a: 0, b: 1, t: SP(D.revYoY) + ' YoY', c: 'up' }], fmt: (v) => Bn(v), legend: [{ c: 'info', l: 'Products' }, { c: 'vio', l: 'Services' }] }) }),
       spacex: () => ({ math: `${M(xi.revenue)}, up from ${M(xy.revenue)}`, say: `Revenue was ${F.num(xi.revenue / xy.revenue, 1)} times its level a year earlier (${SP(D.xRevYoY)}). Super Intelligence brought in ${Bn(XSEG('ai').revenue)}, ${P((XSEG('ai').revenue / xi.revenue) * 100, 0)} of it.`, fig: (W) => figCompare(W, { bars: [{ l: X.labels.ya, v: xy.revenue, segs: X.segments.ya.map((g) => ({ v: g.revenue, c: SEGC[g.k] })) }, { l: X.labels.cur, v: xi.revenue, segs: X.segments.cur.map((g) => ({ v: g.revenue, c: SEGC[g.k] })) }], arrows: [{ a: 0, b: 1, t: SP(D.xRevYoY) + ' YoY', c: 'up' }], fmt: M, legend: X.segments.cur.map((g) => ({ c: SEGC[g.k], l: SEGS[g.k] })) }) }),
     },
     {
@@ -428,15 +447,15 @@
       what: 'Compares a period with the same period one year earlier: summer with summer, holidays with holidays. The seasons cancel out, so what is left is real growth.',
       why: 'Headlines lead with YoY growth. Growth faster or slower than expected changes how much investors will pay for each dollar of profit, the P/E multiple.',
       hop: () => ({ math: `(${H$(hc.revenue)} − ${H$(hy.revenue)}) ÷ ${H$(hy.revenue)} = ${SP(pc(hc.revenue, hy.revenue), 0)}`, say: 'June against last June: same weather, same summer crowds. So the 25% is the cart really growing.', fig: (W) => figCompare(W, { bars: [{ l: 'Last June', v: hy.revenue }, { l: 'This June', v: hc.revenue }], arrows: [{ a: 0, b: 1, t: SP(pc(hc.revenue, hy.revenue), 0) + ' YoY', c: 'up' }], fmt: H$ }) }),
-      apple: () => ({ math: `(${M(ai.revenue)} − ${M(ay.revenue)}) ÷ ${M(ay.revenue)} = ${SP(D.revYoY)}`, say: 'June 2026 quarter against June 2025 quarter. On the chart the December holiday bar towers over the rest, so only same-quarter comparisons are fair for Apple.', fig: trendFig([0, 4], [{ a: 0, b: 4, t: SP(D.revYoY) + ' YoY', c: 'up' }]) }),
+      apple: () => ({ math: `(${M(ai.revenue)} − ${M(ay.revenue)}) ÷ ${M(ay.revenue)} = ${SP(D.revYoY)}`, say: 'September 2026 quarter against September 2025 quarter. On the chart the December holiday bar towers over the rest, so only same-quarter comparisons are fair for Apple.', fig: trendFig([1, 5], [{ a: 1, b: 5, t: SP(D.revYoY) + ' YoY', c: 'up' }]) }),
       spacex: () => ({ math: `(${M(xi.revenue)} − ${M(xy.revenue)}) ÷ ${M(xy.revenue)} = ${SP(D.xRevYoY)}`, say: 'Revenue was more than two and a half times its level a year earlier. The Super Intelligence segment (Grok, cloud compute, X and, since August, Cursor) did most of the growing.', fig: xTrio([{ a: 0, b: 2, t: SP(D.xRevYoY) + ' YoY', c: 'up' }]) }),
     },
     {
       k: 'qoq', g: 0, n: 'Quarter over quarter', aka: 'QoQ · sequential',
       what: 'Compares a quarter with the one right before it. It spots a turn quickly, but in a seasonal business it mixes the seasons into the number.',
-      why: { hop: 'A QoQ dip in a seasonal business is normal and already expected. Traders judge it against the company’s own guidance for that quarter.', apple: 'A QoQ dip in a seasonal business is normal and already expected. Traders judge it against the company’s own guidance for that quarter.', spacex: 'For a fast grower, QoQ is the speedometer. Faster growth than expected can lift the stock; a slowdown from one quarter to the next can sink it even while YoY still looks huge.' },
+      why: { hop: 'A QoQ dip in a seasonal business is normal and already expected. Traders judge it against the company’s own guidance for that quarter.', apple: 'QoQ moves in a seasonal business are normal and already expected. Traders judge the quarter against the company’s own guidance for it.', spacex: 'For a fast grower, QoQ is the speedometer. Faster growth than expected can lift the stock; a slowdown from one quarter to the next can sink it even while YoY still looks huge.' },
       hop: () => ({ math: 'QoQ = (this quarter − last quarter) ÷ last quarter', say: 'Hoppy’s sells far more iced drinks in summer than on cold March mornings, so June against March mostly measures the weather. Compare June with last June instead.', fig: (W) => figSeasons(W) }),
-      apple: () => ({ math: `(${M(ai.revenue)} − ${M(ap.revenue)}) ÷ ${M(ap.revenue)} = ${SP(D.revQoQ)}`, say: `Sales slipped ${P(-D.revQoQ)} from the March quarter while growing ${P(D.revYoY)} from a year ago. Apple’s June quarter is seasonally smaller than March, so nothing broke.`, fig: trendFig([3, 4, 0], [{ a: 0, b: 4, t: SP(D.revYoY) + ' YoY', c: 'up' }, { a: 3, b: 4, t: SP(D.revQoQ) + ' QoQ', c: 'dn' }]) }),
+      apple: () => ({ math: `(${M(ai.revenue)} − ${M(ap.revenue)}) ÷ ${M(ap.revenue)} = ${SP(D.revQoQ)}`, say: `Sales ${D.revQoQ >= 0 ? 'rose' : 'slipped'} ${P(Math.abs(D.revQoQ))} from the June quarter and grew ${P(D.revYoY)} from a year ago. New iPhones go on sale in September, so Apple’s September quarter is usually a little bigger than June; the December holiday quarter is the giant. The QoQ number mostly measures the calendar.`, fig: trendFig([4, 5, 1], [{ a: 1, b: 5, t: SP(D.revYoY) + ' YoY', c: 'up' }, { a: 4, b: 5, t: SP(D.revQoQ) + ' QoQ', c: D.revQoQ >= 0 ? 'up' : 'dn' }]) }),
       spacex: () => ({ math: `(${M(xi.revenue)} − ${M(xp.revenue)}) ÷ ${M(xp.revenue)} = ${SP(D.xRevQoQ)}`, say: `For a company growing this fast, QoQ shows the pace: revenue rose ${P(D.xRevQoQ)} in three months. Cursor, bought in August, added ${M(X.segments.notes.cursorRevenue)} of it.`, fig: xTrio([{ a: 0, b: 2, t: SP(D.xRevYoY) + ' YoY', c: 'up' }, { a: 1, b: 2, t: SP(D.xRevQoQ) + ' QoQ', c: 'up' }]) }),
     },
     {
@@ -444,15 +463,15 @@
       what: 'A fiscal year is a company’s own 12-month accounting year. Its quarters, Q1 to Q4, count from the start of that year, which may not be January.',
       why: 'Mix up fiscal and calendar quarters and you compare the wrong numbers. Apple’s Q1 is the holiday quarter, by far its biggest.',
       hop: () => ({ math: 'June sits in Q2 (April to June)', say: 'Hoppy’s books run January to December, so its fiscal quarters match the calendar.', fig: (W) => figFiscal(W, 'cal') }),
-      apple: () => ({ math: 'April–June 2026 = fiscal Q3 2026', say: `${A.fiscalNote} This quarter ended ${A.periodEnd}.`, fig: (W) => figFiscal(W, 'fis') }),
-      spacex: () => ({ math: 'July–September 2026 = Q3 2026', say: `SpaceX keeps its books on the calendar year (its last year ended ${X.bs.labels.prev}), so Q3 means July to September. Its latest quarter covers newer months than Apple’s: Apple’s own July to September quarter, its fiscal Q4, comes out on November 2.`, fig: (W) => figFiscal(W, 'cal3') }),
+      apple: () => ({ math: 'July–September 2026 = fiscal Q4 2026', say: `${A.fiscalNote} This quarter ended ${A.periodEnd}, so it also closes Apple’s fiscal year 2026. On the calendar it covers the same months as SpaceX’s Q3.`, fig: (W) => figFiscal(W, 'fis') }),
+      spacex: () => ({ math: 'July–September 2026 = Q3 2026', say: `SpaceX keeps its books on the calendar year (its last year ended ${X.bs.labels.prev}), so Q3 means July to September. Apple’s latest quarter covers the very same months, but Apple calls it fiscal Q4 2026; it reported on November 2.`, fig: (W) => figFiscal(W, 'cal3') }),
     },
     {
       k: 'cost', g: 1, n: 'Cost of sales', aka: 'COGS · cost of revenue',
       what: 'What it cost to make or deliver exactly what was sold: parts, assembly, shipping, data centers, support. It grows with every unit sold.',
       why: 'When cost of sales grows slower than sales, margins widen and profit grows faster than revenue. Rising parts or memory prices squeeze this line first, so traders listen for them on the call.',
       hop: () => ({ math: `Beans, milk and cups: ${H$(hc.cost)}`, say: `Up from ${H$(hy.cost)} last June (${SP(pc(hc.cost, hy.cost))}), while sales rose 25%.`, fig: ladder('hop', ['rev', 'cost']) }),
-      apple: () => ({ math: `${M(ai.prodCost)} products + ${M(ai.servCost)} services = ${M(ai.cost)}`, say: `Up ${P(pc(ai.cost, ay.cost))} while sales grew ${P(D.revYoY)}, so each sale cost less to make.`, fig: ladder('apple', ['rev', 'cost']) }),
+      apple: () => ({ math: `${M(ai.prodCost)} products + ${M(ai.servCost)} services = ${M(ai.cost)}`, say: `Up ${P(D.costYoY)} while sales grew ${P(D.revYoY)}. But about ${Bn(D.ref.pre)} of tariff refunds lowered this line (our estimate); without them it would have grown about ${P(D.costExYoY)}, ${D.costExYoY > D.revYoY ? 'a touch faster than sales' : 'about as fast as sales'}, as memory chips got more expensive.`, fig: ladder('apple', ['rev', 'cost']) }),
       spacex: () => ({ math: `${M(xi.cost)} on ${M(xi.revenue)} of revenue`, say: `Cost of revenue grew ${P(pc(xi.cost, xy.cost))} while revenue grew ${P(D.xRevYoY)}.`, fig: ladder('spacex', ['rev', 'cost']) }),
     },
     {
@@ -460,23 +479,23 @@
       what: 'Revenue minus cost of sales: what is left to pay for inventing, selling and running the business. Apple’s statement calls this line "gross margin" in dollars.',
       why: 'Gross profit is the fuel for every line below it. When it grows faster than sales, the company is pricing well or making things more cheaply.',
       hop: () => ({ math: `${H$(hc.revenue)} − ${H$(hc.cost)} = ${H$(hc.gross)}`, say: `Last June: ${H$(hy.revenue)} − ${H$(hy.cost)} = ${H$(hy.gross)}.`, fig: ladder('hop', ['rev', 'cost', 'gross']) }),
-      apple: () => ({ math: `${M(ai.revenue)} − ${M(ai.cost)} = ${M(ai.gross)}`, say: `Up ${P(pc(ai.gross, ay.gross))} from ${Bn(ay.gross)} a year earlier, faster than sales.`, fig: ladder('apple', ['rev', 'cost', 'gross']) }),
+      apple: () => ({ math: `${M(ai.revenue)} − ${M(ai.cost)} = ${M(ai.gross)}`, say: `Up ${P(D.gpYoY)} from ${Bn(ay.gross)} a year earlier, faster than sales, though about ${Bn(D.ref.pre)} of it was the temporary tariff refund (our estimate).`, fig: ladder('apple', ['rev', 'cost', 'gross']) }),
       spacex: () => ({ math: `${M(xi.revenue)} − ${M(xi.cost)} = ${M(xi.gross)}`, say: `Up from ${M(xy.gross)} a year earlier (${SP(pc(xi.gross, xy.gross))}).`, fig: ladder('spacex', ['rev', 'cost', 'gross']) }),
     },
     {
       k: 'gm', g: 1, n: 'Gross margin', aka: 'gross profit ÷ revenue',
       what: 'Gross profit as a percent of revenue: how many cents of each sales dollar are left after making the product.',
-      why: { hop: 'A wider margin means each extra sale adds more profit. Investors pay more for businesses whose margins are rising.', apple: `Margin guidance moves stocks. Apple guided the September quarter to ${G.grossMargin[0]}%–${G.grossMargin[1]}%, below this quarter’s ${P(D.gm)}, one reason the stock fell.`, spacex: 'A rising gross margin while revenue grows this fast tells investors growth is getting more profitable per dollar. But Q3’s margin had one-time help: the CFO said fourth-quarter gross margin should look more like Q2’s, given one-time benefits and customer mix in Q3 (Starlink’s margin included about 3 points of one-time help, mainly tariff refunds, per TIKR).' },
+      why: { hop: 'A wider margin means each extra sale adds more profit. Investors pay more for businesses whose margins are rising.', apple: `Margin guidance moves stocks. Apple guided the December quarter to ${G.grossMargin[0]}%–${G.grossMargin[1]}%, below this quarter’s ${P(D.gm)} and the roughly ${EXA.nextQtrGrossMargin}% analysts expected, mainly because memory chips cost more. It was a big reason the stock fell.`, spacex: 'A rising gross margin while revenue grows this fast tells investors growth is getting more profitable per dollar. But Q3’s margin had one-time help: the CFO said fourth-quarter gross margin should look more like Q2’s, given one-time benefits and customer mix in Q3 (Starlink’s margin included about 3 points of one-time help, mainly tariff refunds, per TIKR).' },
       hop: () => ({ math: `${H$(hc.gross)} ÷ ${H$(hc.revenue)} = ${P((hc.gross / hc.revenue) * 100, 0)}`, say: `Up from ${P((hy.gross / hy.revenue) * 100, 0)} last June (${H$(hy.gross)} ÷ ${H$(hy.revenue)}): 60 cents of every sales dollar are left after the beans.`, fig: (W) => figMargin(W, [{ l: 'This June', v: (hc.gross / hc.revenue) * 100 }, { l: 'Last June', v: (hy.gross / hy.revenue) * 100, dim: 1 }]) }),
-      apple: () => ({ math: `${M(ai.gross)} ÷ ${M(ai.revenue)} = ${P(D.gm)}`, say: `Up from ${P(D.gmYa)}. Apple said about ${TR.grossMarginPts} points came from temporary tariff refunds, so the underlying margin was about ${P(D.gmEx, 0)}.`, fig: (W) => figMargin(W, [{ l: A.labels.cur, v: D.gm, ref: TR.grossMarginPts, note: `≈${TR.grossMarginPts} pts tariff refund` }, { l: A.labels.ya, v: D.gmYa, dim: 1 }], SML.uid('rcihz')) }),
+      apple: () => ({ math: `${M(ai.gross)} ÷ ${M(ai.revenue)} = ${P(D.gm)}`, say: `Up from ${P(D.gmYa)} a year ago, down from ${P(D.gmPq)} in June. Apple said about ${TR.grossMarginPts} point came from temporary tariff refunds (about ${TR.pq.grossMarginPts} in June), so the underlying margin was about ${P(D.gmEx)}, ${D.gmEx < D.gmYa ? 'a little below' : 'a little above'} a year earlier: memory chips got more expensive.`, fig: (W) => figMargin(W, [{ l: A.labels.cur, v: D.gm, ref: TR.grossMarginPts, note: `≈${TR.grossMarginPts} pt tariff refund` }, { l: A.labels.pq, v: D.gmPq, ref: TR.pq.grossMarginPts, dim: 1, note: `≈${TR.pq.grossMarginPts} pts refund` }, { l: A.labels.ya, v: D.gmYa, dim: 1 }], SML.uid('rcihz')) }),
       spacex: () => ({ math: `${M(xi.gross)} ÷ ${M(xi.revenue)} = ${P(D.xGm)}`, say: `Up from ${P(D.xGmYa)} a year earlier and ${P(D.xGmPq)} in Q2. The CFO said fourth-quarter gross margin would be closer to Q2’s.`, fig: (W) => figMargin(W, [{ l: X.labels.cur, v: D.xGm }, { l: X.labels.pq, v: D.xGmPq, dim: 1 }, { l: X.labels.ya, v: D.xGmYa, dim: 1 }]) }),
     },
     {
       k: 'opex', g: 2, n: 'Operating expenses', aka: 'opex · R&D + SG&A',
       what: 'The costs of running the company that are not tied to each unit sold: mainly research and development (R&D) plus selling, general and administrative (SG&A).',
-      why: { hop: 'Investors want opex to grow slower than gross profit, so more of each sale drops to the bottom line.', apple: `Investors watch whether opex grows slower than gross profit. Apple guided ${Bn(G.opex[0])}–${Bn(G.opex[1])} for the September quarter.`, spacex: 'In Q3 gross profit finally outgrew operating costs. Investors watch whether that holds as the fourth-quarter gross margin falls back toward Q2’s.' },
+      why: { hop: 'Investors want opex to grow slower than gross profit, so more of each sale drops to the bottom line.', apple: `Investors watch whether opex grows slower than gross profit. This time it grew faster (${SP(D.opexYoY)} vs ${SP(D.gpYoY)}), and Apple guided ${Bn(G.opex[0])}–${Bn(G.opex[1])} for the December quarter, which it put at 11% to 13% more than a year earlier.`, spacex: 'In Q3 gross profit finally outgrew operating costs. Investors watch whether that holds as the fourth-quarter gross margin falls back toward Q2’s.' },
       hop: () => ({ math: `${H$(hc.rd)} R&D + ${H$(hc.sga)} SG&A = ${H$(hc.opex)}`, say: `Up from ${H$(hy.opex)} last June.`, fig: ladder('hop', ['rd', 'sga']) }),
-      apple: () => ({ math: `${M(ai.rd)} + ${M(ai.sga)} = ${M(ai.opex)}`, say: `Up ${P(pc(ai.opex, ay.opex))}, faster than sales (${SP(D.revYoY)}), mostly because R&D jumped ${P(pc(ai.rd, ay.rd))}.`, fig: ladder('apple', ['rd', 'sga']) }),
+      apple: () => ({ math: `${M(ai.rd)} + ${M(ai.sga)} = ${M(ai.opex)}`, say: `Up ${P(D.opexYoY)}, faster than sales (${SP(D.revYoY)}) and faster than gross profit (${SP(D.gpYoY)}), mostly because R&D jumped ${P(pc(ai.rd, ay.rd))}.`, fig: ladder('apple', ['rd', 'sga']) }),
       spacex: () => ({ math: `${M(xi.rd)} + ${M(xi.sga)} + ${M(xi.restructuring)} = ${M(xOpex(xi))}`, say: xOpex(xi) > xi.gross ? `R&D, SG&A and restructuring together were bigger than gross profit (${M(xi.gross)}). That gap is the operating loss.` : `Operating costs grew too, but gross profit (${M(xi.gross)}) now covers them with ${M(xi.gross - xOpex(xi))} to spare: SpaceX’s operating profit.`, fig: ladder('spacex', ['rd', 'sga']) }),
     },
     {
@@ -492,7 +511,7 @@
       what: 'Marketing, sales staff, stores, executives, lawyers and offices: the cost of selling and running the company.',
       why: 'SG&A that grows slower than sales is called operating leverage: each extra dollar of sales drops more profit to the bottom line.',
       hop: () => ({ math: `Ads, permit, accountant, phone: ${H$(hc.sga)}`, say: `${P((hc.sga / hc.revenue) * 100, 0)} of sales. Last June: ${H$(hy.sga)}.`, fig: ladder('hop', ['sga']) }),
-      apple: () => ({ math: `${M(ai.sga)}, up ${P(pc(ai.sga, ay.sga))}`, say: `${P((ai.sga / ai.revenue) * 100)} of sales. It grew slower than revenue, which lifted the operating margin.`, fig: ladder('apple', ['sga']) }),
+      apple: () => ({ math: `${M(ai.sga)}, up ${P(pc(ai.sga, ay.sga))}`, say: `${P((ai.sga / ai.revenue) * 100)} of sales. It grew slower than revenue, but not by enough to offset the jump in R&D, so the operating margin still slipped.`, fig: ladder('apple', ['sga']) }),
       spacex: () => ({ math: `${M(xi.sga)}, up ${P(pc(xi.sga, xy.sga))}`, say: `${P((xi.sga / xi.revenue) * 100)} of revenue, ${xi.sga / xi.revenue > xy.sga / xy.revenue ? 'up' : 'down'} from ${P((xy.sga / xy.revenue) * 100)} a year earlier.`, fig: ladder('spacex', ['sga']) }),
     },
     {
@@ -500,7 +519,7 @@
       what: 'Gross profit minus operating expenses: the profit from the core business before interest and taxes.',
       why: 'Operating income shows whether the business itself makes money, before financing choices and taxes. Growing it faster than sales is what investors want to see.',
       hop: () => ({ math: `${H$(hc.gross)} − ${H$(hc.opex)} = ${H$(hc.opInc)}`, say: `Last June: ${H$(hy.gross)} − ${H$(hy.opex)} = ${H$(hy.opInc)}.`, fig: ladder('hop', ['gross', 'rd', 'sga', 'op']) }),
-      apple: () => ({ math: `${M(ai.gross)} − ${M(ai.opex)} = ${M(ai.opInc)}`, say: `Up ${P(pc(ai.opInc, ay.opInc))} from ${Bn(ay.opInc)}.`, fig: ladder('apple', ['gross', 'rd', 'sga', 'op']) }),
+      apple: () => ({ math: `${M(ai.gross)} − ${M(ai.opex)} = ${M(ai.opInc)}`, say: `Up ${P(D.opYoY)} from ${Bn(ay.opInc)}: ${D.opYoY < D.revYoY ? 'slower than sales (' + SP(D.revYoY) + '), because R&D grew so fast' : 'faster than sales (' + SP(D.revYoY) + ')'}.`, fig: ladder('apple', ['gross', 'rd', 'sga', 'op']) }),
       spacex: () => ({ math: `${M(xi.gross)} − ${M(xOpex(xi))} = ${M(xi.opInc)}`, say: xi.opInc >= 0 ? `SpaceX’s first operating profit as a public company, after ${M(xy.opInc)} a year earlier and ${M(xp.opInc)} in Q2.` : `Still a loss, compared with ${M(xy.opInc)} a year earlier.`, fig: ladder('spacex', ['gross', 'rd', 'sga', 'op']) }),
     },
     {
@@ -508,7 +527,7 @@
       what: 'Operating income as a percent of revenue: how many cents of each sales dollar the core business keeps.',
       why: 'A widening margin means profit is growing faster than sales. Margin trends often matter more to the stock than one quarter’s profit.',
       hop: () => ({ math: `${H$(hc.opInc)} ÷ ${H$(hc.revenue)} = ${P((hc.opInc / hc.revenue) * 100, 0)}`, say: `Up from ${P((hy.opInc / hy.revenue) * 100)} last June (${H$(hy.opInc)} ÷ ${H$(hy.revenue)}).`, fig: (W) => figMargin(W, [{ l: 'This June', v: (hc.opInc / hc.revenue) * 100, c: 'acc' }, { l: 'Last June', v: (hy.opInc / hy.revenue) * 100, c: 'acc', dim: 1 }]) }),
-      apple: () => ({ math: `${M(ai.opInc)} ÷ ${M(ai.revenue)} = ${P(D.om)}`, say: `Up from ${P(D.omYa)}: Apple’s core business kept about ${F.num(D.om, 0)} cents of each sales dollar.`, fig: (W) => figMargin(W, [{ l: A.labels.cur, v: D.om, c: 'acc' }, { l: A.labels.ya, v: D.omYa, c: 'acc', dim: 1 }]) }),
+      apple: () => ({ math: `${M(ai.opInc)} ÷ ${M(ai.revenue)} = ${P(D.om)}`, say: `${D.om < D.omYa ? 'Down' : 'Up'} from ${P(D.omYa)} a year ago (and ${P(D.omPq)} in June): Apple’s core business kept about ${F.num(D.om, 0)} cents of each sales dollar. ${D.om < D.omYa ? 'Gross margin rose, but operating costs rose faster.' : ''}`, fig: (W) => figMargin(W, [{ l: A.labels.cur, v: D.om, c: 'acc' }, { l: A.labels.pq, v: D.omPq, c: 'acc', dim: 1 }, { l: A.labels.ya, v: D.omYa, c: 'acc', dim: 1 }]) }),
       spacex: () => ({ math: `${M(xi.opInc)} ÷ ${M(xi.revenue)} = ${P(D.xOm)}`, say: `Up from ${P(D.xOmYa)} a year earlier and ${P(D.xOmPq)} in Q2.`, fig: (W) => figMargin(W, [{ l: X.labels.cur, v: D.xOm, c: 'acc' }, { l: X.labels.pq, v: D.xOmPq, c: 'acc', dim: 1 }, { l: X.labels.ya, v: D.xOmYa, c: 'acc', dim: 1 }]) }),
     },
     {
@@ -524,7 +543,7 @@
       what: 'The profit left after every cost, interest and tax. It is the last line of the income statement, so people call it the bottom line.',
       why: 'Net income divided by the share count becomes EPS, the number most headlines compare with forecasts.',
       hop: () => ({ math: `${H$(hc.opInc)} − ${H$(-hc.interest)} interest − ${H$(hc.tax)} tax = ${H$(hc.netInc)}`, say: `Up ${P(pc(hc.netInc, hy.netInc))} from ${H$(hy.netInc)} last June.`, fig: ladder('hop', ['op', 'oth', 'tax', 'net']) }),
-      apple: () => ({ math: `${M(ai.opInc)} + ${M(ai.other)} − ${M(ai.tax)} tax = ${M(ai.netInc)}`, say: `Up ${P(D.niYoY)}. Apple kept ${P(D.nm)} of sales as profit.`, fig: ladder('apple', ['op', 'oth', 'tax', 'net']) }),
+      apple: () => ({ math: `${M(ai.opInc)} + ${M(ai.other)} − ${M(ai.tax)} tax = ${M(ai.netInc)}`, say: `Up ${P(D.niYoY)}. Apple kept ${P(D.nm)} of sales as profit. A lower tax rate (${P(D.tax)} vs ${P(D.taxYa)} a year earlier) helped profit grow faster than operating income.`, fig: ladder('apple', ['op', 'oth', 'tax', 'net']) }),
       spacex: () => ({ math: `${M(xi.opInc)} ${xNonOp(xi) >= 0 ? '+' : '−'} ${M(Math.abs(xNonOp(xi)))} interest &amp; other ${xi.tax < 0 ? '+ ' + M(-xi.tax) + ' tax benefit' : '− ' + M(xi.tax) + ' tax'} = ${M(xi.netInc)}`, say: xi.netInc >= 0 ? `SpaceX’s first profitable quarter as a public company, after ${M(xy.netInc)} a year earlier and ${M(xp.netInc)} in Q2. About ${Bn(D.xBelow)} of it came from below the operating line.` : `A net loss, compared with ${M(xy.netInc)} a year earlier.`, fig: ladder('spacex', ['op', 'oth', 'tax', 'net']) }),
     },
     {
@@ -548,13 +567,13 @@
       what: 'Diluted EPS adds the shares that employee stock awards and options could create, but only when counting them lowers EPS (the treasury-stock method; in a loss quarter they are left out). It is the EPS headlines quote.',
       why: { hop: 'Dilution quietly shrinks each share’s slice. Buybacks do the opposite and make EPS grow faster than profit.', apple: 'Dilution quietly shrinks each share’s slice. Buybacks do the opposite, which is why Apple’s EPS grew faster than its profit.', spacex: `SpaceX’s diluted share count is ${F.num(xi.sh / xy.sh, 1)} times a year earlier (${F.num(xy.sh)}M to ${F.num(xi.sh)}M), so each share’s claim on profit is far smaller than the headline profit suggests.` },
       hop: () => ({ math: `${F.num(hc.sh)} shares, no stock awards: basic = diluted = ${E$(hc.eps)}`, say: 'If Hoppy promised the barista shares, they would join the diluted count and shave a little off EPS.', fig: (W) => figEps(W, [{ l: 'Basic and diluted', ni: H$(hc.netInc), sh: F.num(hc.sh), eps: E$(hc.eps) }]) }),
-      apple: () => ({ math: `Basic ${shM(ai.shBasic)} → ${E$(ai.epsBasic)} · Diluted ${shM(ai.shDil)} → ${E$(ai.epsDil)}`, say: `About ${shM(ai.shDil - ai.shBasic)} extra shares from stock awards cost one cent of EPS.`, fig: (W) => figEps(W, [{ l: 'Basic', ni: M(ai.netInc), sh: shM(ai.shBasic), eps: E$(ai.epsBasic), dim: 1 }, { l: 'Diluted (the headline number)', ni: M(ai.netInc), sh: shM(ai.shDil), eps: E$(ai.epsDil) }]) }),
+      apple: () => ({ math: `Basic ${shM(ai.shBasic)} → ${E$(ai.epsBasic)} · Diluted ${shM(ai.shDil)} → ${E$(ai.epsDil)}`, say: `About ${shM(ai.shDil - ai.shBasic)} extra shares from stock awards cost ${cents2(ai.epsBasic - ai.epsDil) === 1 ? 'one cent' : cents2(ai.epsBasic - ai.epsDil) + ' cents'} of EPS.`, fig: (W) => figEps(W, [{ l: 'Basic', ni: M(ai.netInc), sh: shM(ai.shBasic), eps: E$(ai.epsBasic), dim: 1 }, { l: 'Diluted (the headline number)', ni: M(ai.netInc), sh: shM(ai.shDil), eps: E$(ai.epsDil) }]) }),
       spacex: () => ({ math: `Basic ${F.num(xi.shBasic)}M → ${E$(xi.epsBasic)} · Diluted ${F.num(xi.sh)}M → ${E$(xi.eps)}`, say: `Now that SpaceX is profitable, about ${F.num(xi.sh - xi.shBasic)}M extra shares from stock awards count, trimming EPS by ${cents2(xi.epsBasic - xi.eps)} cents. Shares outstanding jumped this year with the preferred conversion, the IPO and other share issuance (Class A ${F.num(X.bs.sharesOutstanding.classA[1])}M → ${F.num(X.bs.sharesOutstanding.classA[0])}M, Class B ${F.num(X.bs.sharesOutstanding.classB[1])}M → ${F.num(X.bs.sharesOutstanding.classB[0])}M since December); the release does not break down the change in the weighted average.`, fig: (W) => figEps(W, [{ l: 'Basic', ni: M(xi.netInc), sh: F.num(xi.shBasic) + 'M', eps: E$(xi.epsBasic), dim: 1 }, { l: 'Diluted (the headline number)', ni: M(xi.netInc), sh: F.num(xi.sh) + 'M', eps: E$(xi.eps) }]) }),
     },
     {
       k: 'segment', g: 0, n: 'Segment', aka: 'a business line reported on its own',
       what: 'A part of the business the company reports separately, so you can see which parts grow and which make money.',
-      why: { hop: 'Segments show where growth comes from, and where to cut or invest next.', apple: 'Investors track each piece: a strong Greater China or a soft iPad can move the stock even when the total looks fine.', spacex: `Super Intelligence now brings in about half the revenue, while Starlink earns most of the operating profit (${M(XSEG('conn').opInc)} of ${M(xi.opInc)}). Investors value those two businesses very differently.` },
+      why: { hop: 'Segments show where growth comes from, and where to cut or invest next.', apple: `Investors track each piece. This quarter Greater China grew ${P(pc(A.regions.cur['Greater China'], A.regions.ya['Greater China']), 0)} yet came in under the roughly ${Bn(EXA.greaterChina)} some analysts expected, and iPad shrank ${P(-pc(A.categories.cur.iPad, A.categories.ya.iPad), 0)}, even though the total beat.`, spacex: `Super Intelligence now brings in about half the revenue, while Starlink earns most of the operating profit (${M(XSEG('conn').opInc)} of ${M(xi.opInc)}). Investors value those two businesses very differently.` },
       hop: () => ({ math: `Coffee ${H$(8000)} + pastries ${H$(2000)} = ${H$(hc.revenue)} ${imag}`, say: 'If Hoppy sold pastries too and reported them separately, you could see which one grows faster.', fig: (W) => figSeg(W, { segs: [{ l: 'Coffee', v: 8000, c: 'info' }, { l: 'Pastries', v: 2000, c: 'acc' }], fmt: H$, pct: true }) }),
       apple: () => ({ math: Object.keys(A.regions.cur).map((k) => `${k} ${Bn(A.regions.cur[k])}`).join(' · '), say: `Apple’s official segments are these five regions, which add up to ${Bn(ai.revenue)}. It also reports sales by product: iPhone alone was ${Bn(A.categories.cur.iPhone)}.`, fig: (W) => figSeg(W, { segs: Object.keys(A.regions.cur).map((k, i) => ({ l: k, s: k === 'Rest of Asia Pacific' ? 'Rest of Asia Pac.' : k, v: A.regions.cur[k], c: ['info', 'vio', 'acc', 'up', 'mut'][i] })), fmt: (v) => Bn(v), pct: true }) }),
       spacex: () => ({ math: X.segments.cur.map((g) => `${SEGS[g.k]} ${M(g.revenue)}`).join(' · '), say: `Operating income: ${segOpTxt()}.`, fig: (W) => figSeg(W, { segs: X.segments.cur.map((g) => ({ l: SEGT[g.k], s: SEGSS[g.k], v: g.revenue, op: g.opInc, c: SEGC[g.k] })), fmt: M, op: true }) }),
@@ -564,9 +583,9 @@
       what: 'The average forecast of the analysts who follow a company. Prices already reflect it before the results come out.',
       why: 'Stocks move on the surprise against the consensus, not on the raw number. A great quarter that everyone expected can leave the price flat.',
       hop: () => ({ math: `Regulars guessed ${H$(hy.revenue)}: a repeat of last June`, say: 'That guess is Hoppy’s consensus. Real analysts build detailed models, but the idea is the same.', fig: (W) => figRange(W, [{ l: 'June sales', band: [hy.revenue, hy.revenue], bandL: 'the guess', act: hc.revenue, actL: H$(hc.revenue), verdict: 'BEAT', vc: 'up' }]) }),
-      apple: () => ({ math: `Revenue about ${Bn(EXA.revenue[0])}–${Bn(EXA.revenue[1])} · EPS about ${E$(EXA.eps[0])}–${E$(EXA.eps[1])}`, say: `Those were the reported estimates before July 30, 2026. Apple came in at ${Bn(ai.revenue)} and ${E$(ai.epsDil)}.`, fig: (W) => figRange(W, [
-        { l: 'Revenue', band: EXA.revenue, bandL: 'expected', act: ai.revenue, actL: Bn(ai.revenue), verdict: 'BEAT', vc: 'up' },
-        { l: 'Diluted EPS', band: EXA.eps, bandL: 'expected', act: ai.epsDil, actL: E$(ai.epsDil), verdict: 'BEAT', vc: 'up' }]) }),
+      apple: () => ({ math: `Revenue about ${Bn(EXA.revenue)} · EPS about ${E$(EXA.eps)}`, say: `Those were the reported estimates before November 2, 2026. Apple came in at ${Bn(ai.revenue)} and ${E$(ai.epsDil)}.`, fig: (W) => figRange(W, [
+        { l: 'Revenue', band: one(EXA.revenue), bandL: 'expected', act: ai.revenue, actL: Bn(ai.revenue), verdict: 'BEAT', vc: 'up' },
+        { l: 'Diluted EPS', band: one(EXA.eps), bandL: 'expected', act: ai.epsDil, actL: E$(ai.epsDil), verdict: 'BEAT', vc: 'up' }]) }),
       spacex: () => ({ math: `Revenue about ${Bn(EXX.revenue[0], 2)}–${Bn(EXX.revenue[1], 2)} · EPS about ${E$(EXX.eps[0])}–${E$(EXX.eps[1])}`, say: `Those were the reported estimates for Q3. SpaceX came in at ${Bn(xi.revenue, 2)} and ${E$(xi.eps)}. For the first quarter of 2027, analysts had about ${Bn(EXX.q1_2027Revenue)} of revenue.`, fig: (W) => figRange(W, [
         { l: 'Revenue', band: EXX.revenue, bandL: 'expected', act: xi.revenue, actL: Bn(xi.revenue, 2), verdict: 'BEAT', vc: 'up' },
         { l: 'Diluted EPS', band: EXX.eps, bandL: 'expected', act: xi.eps, actL: E$(xi.eps), verdict: 'BEAT', vc: 'up' }]) }),
@@ -574,12 +593,12 @@
     {
       k: 'beat', g: 4, n: 'Beat or miss', aka: 'versus the consensus',
       what: 'A beat is a result above the consensus; a miss is below it. Traders check revenue, EPS and guidance separately, so one report can beat and miss at the same time.',
-      why: { hop: 'A beat on the quarter can still sink the stock if guidance, margins or one-time items disappoint. Read the whole scoreboard.', apple: 'A beat on the quarter can still sink the stock if guidance, margins or one-time items disappoint. Read the whole scoreboard.', spacex: `SpaceX beat and guided far above expectations, and the stock rose about ${P(D.xNextDay)} the next day. Apple beat too but guided below hopes, and fell about ${P(-A.reaction.closePct, 0)}.` },
+      why: { hop: 'A beat on the quarter can still sink the stock if guidance, margins or one-time items disappoint. Read the whole scoreboard.', apple: 'A beat on the quarter can still sink the stock if guidance, margins or one-time items disappoint. Read the whole scoreboard.', spacex: `SpaceX beat and guided far above expectations, and the stock rose about ${P(D.xNextDay)} the next day. Apple beat too in November but guided below hopes, and ${moveShort()}.` },
       hop: () => ({ math: `${H$(hc.revenue)} − ${H$(hy.revenue)} guess = ${H$(hc.revenue - hy.revenue)} beat`, say: 'Sales beat the regulars’ guess by 25%. EPS beat too, since the guess was last June’s $1.92.', fig: (W) => figRange(W, [{ l: 'June sales', band: [hy.revenue, hy.revenue], bandL: 'the guess', act: hc.revenue, actL: H$(hc.revenue), verdict: 'BEAT', vc: 'up' }, { l: 'EPS', band: [hy.eps, hy.eps], bandL: 'the guess', act: hc.eps, actL: E$(hc.eps), verdict: 'BEAT', vc: 'up' }]) }),
-      apple: () => ({ math: `EPS ${E$(ai.epsDil)} vs about ${E$(EXA.eps[0])}–${E$(EXA.eps[1])}: a ${D.beat[0]}–${D.beat[1]} cent beat`, say: `Revenue beat too. But Services (${Bn(ai.servSales)}) came in under the roughly ${Bn(EXA.services)} expected, and guidance was below hopes.`, fig: (W) => figRange(W, [
-        { l: 'Revenue', band: EXA.revenue, bandL: 'expected', act: ai.revenue, actL: Bn(ai.revenue), verdict: 'BEAT', vc: 'up' },
-        { l: 'Diluted EPS', band: EXA.eps, bandL: 'expected', act: ai.epsDil, actL: E$(ai.epsDil), alt: { v: D.ref.eps, l: E$(D.ref.eps) + ' w/o refund (our math)' }, verdict: 'BEAT', vc: 'up' },
-        { l: 'Services', band: [EXA.services, EXA.services], bandL: 'expected', act: ai.servSales, actL: Bn(ai.servSales, 2), verdict: 'MISS', vc: 'dn' },
+      apple: () => ({ math: `EPS ${E$(ai.epsDil)} vs about ${E$(EXA.eps)}: a ${D.beat}-cent beat`, say: `Revenue beat by about ${Bn(D.revBeat)}, and iPhone and Mac beat too. Services (${Bn(ai.servSales, 2)}) matched the roughly ${Bn(EXA.services, 2)} expected, while iPad and Greater China came in light. Then the December-quarter guide landed below hopes.`, fig: (W) => figRange(W, [
+        { l: 'Revenue', band: one(EXA.revenue), bandL: 'expected', act: ai.revenue, actL: Bn(ai.revenue), verdict: 'BEAT', vc: 'up' },
+        { l: 'Diluted EPS', band: one(EXA.eps), bandL: 'expected', act: ai.epsDil, actL: E$(ai.epsDil), alt: { v: D.ref.eps, l: E$(D.ref.eps) + ' w/o refund (our math)' }, verdict: 'BEAT', vc: 'up' },
+        { l: 'Services', band: one(EXA.services), bandL: 'expected', act: ai.servSales, actL: Bn(ai.servSales, 2), verdict: Math.abs(ai.servSales - EXA.services) < 100 ? 'IN LINE' : ai.servSales > EXA.services ? 'BEAT' : 'MISS', vc: Math.abs(ai.servSales - EXA.services) < 100 ? 'info' : ai.servSales > EXA.services ? 'up' : 'dn' },
         { l: 'Next quarter growth', band: G.revGrowth, bc: 'info', bandL: 'guided', act: EXA.nextQtrGrowth, actL: '~' + EXA.nextQtrGrowth + '% hoped', ac: 'acc', verdict: 'BELOW', vc: 'dn' }]) }),
       spacex: () => ({ math: `Revenue ${Bn(xi.revenue, 2)} vs about ${Bn(EXX.revenue[0], 2)}–${Bn(EXX.revenue[1], 2)}`, say: `EPS of ${E$(xi.eps)} beat about ${E$(EXX.eps[0])}–${E$(EXX.eps[1])}${D.xGuideRev ? `, and the first-quarter 2027 revenue guide (${Bn(D.xGuideRev[0], 0)}–${Bn(D.xGuideRev[1], 0)}) was far above the roughly ${Bn(EXX.q1_2027Revenue)} analysts had` : ''}. The stock rose about ${P(D.xNextDay)} the next day.`, fig: (W) => figRange(W, [
         { l: 'Revenue', band: EXX.revenue, bandL: 'expected', act: xi.revenue, actL: Bn(xi.revenue, 2), verdict: 'BEAT', vc: 'up' },
@@ -589,11 +608,12 @@
     {
       k: 'guidance', g: 4, n: 'Guidance', aka: 'management’s own forecast',
       what: 'The company’s forecast for the next quarter or year: sales, margins, costs. Not every company gives one.',
-      why: { hop: 'A stock is a bet on future profits, so guidance often moves it more than the quarter just reported.', apple: 'A stock is a bet on future profits, so guidance often moves it more than the quarter just reported. Apple beat in July 2026 and still fell about 7% on softer guidance.', spacex: `Guidance far above expectations lifted the stock about ${P(D.xNextDay)} the next day: the mirror image of Apple, which beat but guided below hopes and fell about ${P(-A.reaction.closePct, 0)}.` },
+      why: { hop: 'A stock is a bet on future profits, so guidance often moves it more than the quarter just reported.', apple: `A stock is a bet on future profits, so guidance often moves it more than the quarter just reported. Apple beat in July and again in November, and both times guided below hopes: the stock fell ${P(-Q3.reaction.closePct)} on July 31 and ${moveShort()} after the November report.`, spacex: `Guidance far above expectations lifted the stock about ${P(D.xNextDay)} the next day: the mirror image of Apple, which beat but guided below hopes and ${moveShort()}.` },
       hop: () => ({ math: `Next June: ${H$(11000)} to ${H$(12000)} ${imag}`, say: 'Hoppy tells the regulars what he expects. If they had hoped for $12,500, even growth of 10% to 20% disappoints them.', fig: (W) => figRange(W, [{ l: 'Next June sales', band: [11000, 12000], bc: 'info', bandL: 'Hoppy’s guide', act: 12500, actL: 'hoped ' + H$(12500), ac: 'acc', mark: { v: hc.revenue, l: 'this June' }, verdict: 'BELOW HOPES', vc: 'dn' }]) }),
-      apple: () => ({ math: `${M(G.baseRevenue)} × ${1 + G.revGrowth[0] / 100}–${1 + G.revGrowth[1] / 100} = ${Bn(D.gLo)}–${Bn(D.gHi)}`, say: `Apple guided ${G.revGrowth[0]}%–${G.revGrowth[1]}% growth for the September quarter, with a currency headwind about ${G.fxHeadwindPts} points bigger than in the June quarter. Analysts had hoped for about ${EXA.nextQtrGrowth}% (about ${Bn(EXA.nextQtrRevenue, 0)}). Gross margin guide: ${G.grossMargin[0]}%–${G.grossMargin[1]}%.`, fig: (W) => figRange(W, [
-        { l: 'Sep 2026 qtr revenue', band: [D.gLo, D.gHi], bc: 'info', bandL: `guided ${Bn(D.gLo)}–${Bn(D.gHi)}`, act: EXA.nextQtrRevenue, actL: '~' + Bn(EXA.nextQtrRevenue, 0) + ' hoped', ac: 'acc', mark: { v: G.baseRevenue, l: 'Sep 2025 qtr' }, verdict: 'BELOW', vc: 'dn' },
-        { l: 'Gross margin', band: G.grossMargin, bc: 'info', bandL: `guided ${G.grossMargin[0]}%–${G.grossMargin[1]}%`, act: D.gm, actL: 'June ' + P(D.gm), ac: 'mut', verdict: 'LOWER', vc: 'dn' }]) }),
+      apple: () => ({ math: `${M(G.baseRevenue)} × ${1 + G.revGrowth[0] / 100}–${1 + G.revGrowth[1] / 100} = ${Bn(D.gLo)}–${Bn(D.gHi)} (our math)`, say: `For the December quarter Apple guided ${G.revGrowth[0]}%–${G.revGrowth[1]}% growth, which it said would still be its best revenue quarter ever, Services up ${G.servicesGrowth[0]}%–${G.servicesGrowth[1]}% and a ${G.grossMargin[0]}%–${G.grossMargin[1]}% gross margin. Analysts had hoped for about ${EXA.nextQtrGrowth}% growth (about ${Bn(EXA.nextQtrRevenue)}, our math), Services near ${EXA.nextQtrServicesGrowth}% and a margin near ${EXA.nextQtrGrossMargin}%.`, fig: (W) => figRange(W, [
+        { l: 'Dec 2026 qtr revenue', band: [D.gLo, D.gHi], bc: 'info', bandL: `guided ${Bn(D.gLo)}–${Bn(D.gHi)}`, act: EXA.nextQtrRevenue, actL: '~' + Bn(EXA.nextQtrRevenue) + ' hoped', ac: 'acc', mark: { v: G.baseRevenue, l: 'Dec 2025 qtr' }, verdict: 'BELOW', vc: 'dn' },
+        { l: 'Gross margin', band: G.grossMargin, bc: 'info', bandL: `guided ${G.grossMargin[0]}%–${G.grossMargin[1]}%`, act: EXA.nextQtrGrossMargin, actL: '~' + EXA.nextQtrGrossMargin + '% hoped', ac: 'acc', mark: { v: D.gm, l: 'Sep ' + P(D.gm) }, verdict: 'BELOW', vc: 'dn' },
+        { l: 'Services growth', band: G.servicesGrowth, bc: 'info', bandL: `guided ${G.servicesGrowth[0]}%–${G.servicesGrowth[1]}%`, act: EXA.nextQtrServicesGrowth, actL: '~' + EXA.nextQtrServicesGrowth + '% hoped', ac: 'acc', mark: { v: D.servYoY, l: 'Sep ' + P(D.servYoY) }, verdict: 'BELOW', vc: 'dn' }]) }),
       spacex: () => ({ math: D.xGuideRev ? `Q1 2027 revenue ${Bn(D.xGuideRev[0], 0)}–${Bn(D.xGuideRev[1], 0)} vs about ${Bn(EXX.q1_2027Revenue)} expected` : xOut[0], say: `SpaceX also guided fourth-quarter capex of ${Bn(X.capex.q4Guide[0], 0)}–${Bn(X.capex.q4Guide[1], 0)} (Q3: ${Bn(X.capex.cur)})${D.xGuideGW ? `, ${F.num(D.xGuideGW[0], 1)} to ${F.num(D.xGuideGW[1], 0)} GW of computing capacity by year end (${F.num(X.metrics.computeGW[0], 1)} GW in September)` : ''}, and a fourth-quarter gross margin closer to Q2’s.`, fig: (W) => figRange(W, (D.xGuideRev ? [
         { l: 'Q1 2027 revenue', band: D.xGuideRev, bc: 'info', bandL: `guided ${Bn(D.xGuideRev[0], 0)}–${Bn(D.xGuideRev[1], 0)}`, act: EXX.q1_2027Revenue, actL: '~' + Bn(EXX.q1_2027Revenue) + ' expected', ac: 'acc', mark: { v: xi.revenue, l: 'Q3 2026' }, verdict: 'FAR ABOVE', vc: 'up' }] : []).concat([
         { l: 'Q4 2026 capex', band: X.capex.q4Guide, bc: 'info', bandL: `guided ${Bn(X.capex.q4Guide[0], 0)}–${Bn(X.capex.q4Guide[1], 0)}`, act: X.capex.cur, actL: 'Q3 ' + Bn(X.capex.cur), ac: 'mut', verdict: 'HIGHER', vc: 'acc' }])) }),
@@ -601,11 +621,11 @@
     {
       k: 'onetime', g: 5, n: 'One-time item', aka: 'temporary or non-recurring',
       what: 'A gain or cost that is temporary or unusual: a refund, a lawsuit settlement, a restructuring, a gain below the operating line. Investors often strip it out to see the repeatable business.',
-      why: { hop: 'A beat built on a temporary item counts for less, because it fades.', apple: 'A beat built on a temporary item counts for less. Apple’s September guide still includes about 1 point of refunds, so the help shrinks over time rather than vanishing at once.', spacex: `A profit lifted by items below the operating line counts for less, because those items may not recur. Investors compare it with operating income, which was ${Bn(xi.opInc)}.` },
+      why: { hop: 'A beat built on a temporary item counts for less, because it fades.', apple: `A beat built on a temporary item counts for less. Apple’s refunds shrank from about ${TR.pq.grossMarginPts} points of gross margin in June to about ${TR.grossMarginPts} in September, and the December guide does not count on them.`, spacex: `A profit lifted by items below the operating line counts for less, because those items may not recur. Investors compare it with operating income, which was ${Bn(xi.opInc)}.` },
       hop: () => ({ math: `${H$(hc.netInc)} − ${H$(300)} permit refund = ${H$(hc.netInc - 300)} ${imag}`, say: `If ${H$(300)} of June’s profit came from a temporary permit refund, the repeatable profit is ${H$(hc.netInc - 300)}, or ${E$((hc.netInc - 300) / hc.sh)} a share.`, fig: (W) => figRange(W, [{ l: 'EPS', act: hc.eps, actL: E$(hc.eps) + ' reported', ac: 'info', alt: { v: (hc.netInc - 300) / hc.sh, l: 'repeatable ' + E$((hc.netInc - 300) / hc.sh), c: 'acc' }, mark: { v: hy.eps, l: 'last June ' + E$(hy.eps) } }]) }),
-      apple: () => ({ math: `${E$(ai.epsDil)} − ${E$(TR.eps)} tariff refund = ${E$(D.ref.eps)}`, say: `Apple said tariff refunds added about ${TR.grossMarginPts} points of gross margin and ${E$(TR.eps)} of EPS. Without them EPS was still above the ${E$(EXA.eps[0])}–${E$(EXA.eps[1])} consensus, but only by ${D.beatEx[0]}–${D.beatEx[1]} cents (FiredBunny’s math, assuming the consensus did not include the refunds). The September guide still includes about ${G.tariffRefundPts} point of refunds.`, fig: (W) => figRange(W, [
-        { l: 'Diluted EPS', band: EXA.eps, bandL: 'expected', act: ai.epsDil, actL: E$(ai.epsDil), ac: 'info', alt: { v: D.ref.eps, l: E$(D.ref.eps) + ' w/o refund (our math)', c: 'acc' } },
-        { l: 'Gross margin', act: D.gm, actL: P(D.gm), ac: 'info', alt: { v: D.gmEx, l: '≈' + P(D.gmEx, 0) + ' w/o refund', c: 'acc' }, mark: { v: D.gmYa, l: 'year ago ' + P(D.gmYa) } }]) }),
+      apple: () => ({ math: `${E$(ai.epsDil)} − ${E$(TR.eps)} tariff refund = ${E$(D.ref.eps)}`, say: `Apple said tariff refunds added about ${TR.grossMarginPts} point of gross margin and ${E$(TR.eps)} of EPS (about ${TR.pq.grossMarginPts} points and ${E$(TR.pq.eps)} in June). Without them EPS was still above the ${E$(EXA.eps)} consensus, by ${D.beatEx} cents instead of ${D.beat} (FiredBunny’s math, assuming the consensus did not include the refunds), and gross margin was about ${P(D.gmEx)}, ${D.gmEx < D.gmYa ? 'a little below' : 'above'} the ${P(D.gmYa)} of a year earlier.`, fig: (W) => figRange(W, [
+        { l: 'Diluted EPS', band: one(EXA.eps), bandL: 'expected', act: ai.epsDil, actL: E$(ai.epsDil), ac: 'info', alt: { v: D.ref.eps, l: E$(D.ref.eps) + ' w/o refund (our math)', c: 'acc' } },
+        { l: 'Gross margin', act: D.gm, actL: P(D.gm), ac: 'info', alt: { v: D.gmEx, l: '≈' + P(D.gmEx) + ' w/o refund', c: 'acc' }, mark: { v: D.gmYa, l: 'year ago ' + P(D.gmYa) } }]) }),
       spacex: () => ({ math: `${M(xi.opInc)} operating income + ${M(X.belowTheLine.netInterest)} net interest + ${M(X.belowTheLine.other)} other income + ${M(X.belowTheLine.taxBenefit)} tax benefit = ${M(xi.netInc)}`, say: `About ${Bn(D.xBelow)} of Q3’s ${Bn(xi.netInc)} profit came from below the operating line, including ${M(X.belowTheLine.otherRelatedParty)} of other income from a related party (per TIKR). Such items may not recur every quarter. Above the line, ${M(X.segments.notes.cursorStockComp)} of Cursor-related stock pay is the kind of deal cost adjusted numbers add back.`, fig: (W) => hwf(W, [{ l: 'Operating income', v: xi.opInc, abs: 1, c: 'acc' }, { l: 'Net interest', v: X.belowTheLine.netInterest, c: 'up' }, { l: 'Other income', v: X.belowTheLine.other, c: 'up' }, { l: 'Tax benefit', v: X.belowTheLine.taxBenefit, c: 'up' }, { l: 'Net income', v: xi.netInc, abs: 1, c: 'up' }], { fmt: M }) }),
     },
     {
@@ -621,7 +641,7 @@
       what: 'Earnings before interest, taxes and the wear-and-tear cost of equipment (depreciation and amortization). A rough view of cash earnings before reinvesting; it is not a profit figure.',
       why: { hop: 'EBITDA is handy for comparing businesses with different loans and tax bills, but the espresso machine still wears out.', apple: 'Without an official EBITDA, investors use Apple’s GAAP operating income and cash flow instead.', spacex: `EBITDA ignores what it costs to build and replace equipment. SpaceX spent ${Bn(X.capex.cur)} on capex in the quarter, ${F.num(X.capex.cur / X.ebitda.cur, 1)} times its adjusted EBITDA, and guided ${Bn(X.capex.q4Guide[0], 0)}–${Bn(X.capex.q4Guide[1], 0)} for Q4.` },
       hop: () => ({ math: `${H$(hc.netInc)} + ${H$(-hc.interest)} + ${H$(hc.tax)} + ${H$(HOP.cf.dep)} = ${H$(hc.netInc - hc.interest + hc.tax + HOP.cf.dep)}`, say: 'Net income plus interest, tax and machine depreciation.', fig: (W) => hwf(W, [{ l: 'Net income', v: hc.netInc, abs: 1, c: 'up' }, { l: '+ Interest', v: -hc.interest, c: 'acc' }, { l: '+ Tax', v: hc.tax, c: 'acc' }, { l: '+ Depreciation', v: HOP.cf.dep, c: 'acc' }, { l: 'EBITDA', v: hc.netInc - hc.interest + hc.tax + HOP.cf.dep, abs: 1, c: 'vio' }], { fmt: H$ }) }),
-      apple: () => ({ math: 'Not reported', say: `Apple does not publish EBITDA. Its depreciation and amortization is only given for nine months (${M(bsv(aCF.operating, 'da', 'cur'))}), so a quarterly figure would be a guess.`, fig: (W) => figNote(W, 'No EBITDA line', ['Apple reports GAAP results only', `Nine-month D&amp;A: ${M(bsv(aCF.operating, 'da', 'cur'))}`, `Quarter operating income: ${M(ai.opInc)}`]) }),
+      apple: () => ({ math: 'Not reported', say: `Apple does not publish EBITDA. Its depreciation and amortization is given only year to date: ${Bn(bsv(aCF.operating, 'da', 'cur'))} for fiscal 2026, so about ${Bn(bsv(aCF.operating, 'da', 'q'))} for the September quarter (our math: full year minus nine months).`, fig: (W) => figNote(W, 'No EBITDA line', ['Apple reports GAAP results only', `Fiscal 2026 D&amp;A: ${M(bsv(aCF.operating, 'da', 'cur'))}`, `Quarter operating income: ${M(ai.opInc)}`]) }),
       spacex: () => ({ math: `${X.ebitda.bridge.map((b, i) => (i ? sgn(b[1], M) : M(b[1]))).join(' ')} = ${M(X.ebitda.cur)}`, say: `Positive ${Bn(X.ebitda.cur)} on SpaceX’s own adjusted measure, ${P(D.xEbitdaM)} of revenue, up from ${M(X.ebitda.ya)} a year earlier. The SpaceX lesson walks through each add-back.`, fig: (W) => hwf(W, X.ebitda.bridge.map((b, i) => ({ l: (BRL[b[0]] || [b[0], b[0]])[W < 480 ? 1 : 0], v: b[1], abs: i === 0, c: i === 0 ? (b[1] < 0 ? 'dn' : 'up') : b[1] >= 0 ? 'acc' : 'dn' })).concat([{ l: W < 480 ? 'Adj. EBITDA' : 'Adjusted EBITDA', v: X.ebitda.cur, abs: 1, c: 'vio' }]), { fmt: M }) }),
     },
     {
@@ -629,7 +649,7 @@
       what: 'The cash the business brings in from operations minus what it spends on long-lasting things (capex). It is what is left for dividends, buybacks or paying down debt.',
       why: { hop: 'Profit is an opinion, cash is a fact. Free cash flow is what can actually be paid out.', apple: 'Strong free cash flow pays for the buybacks that lift EPS. Apple’s cash machine is a big part of why investors pay a high P/E.', spacex: `Negative free cash flow means the company must keep raising money or spend its savings. SpaceX guided fourth-quarter capex of ${Bn(X.capex.q4Guide[0], 0)}–${Bn(X.capex.q4Guide[1], 0)}, up from ${Bn(X.capex.cur)} in Q3.` },
       hop: () => ({ math: `${H$(HOP.cf.ocf)} operating cash − ${H$(-HOP.cf.capex)} grinder = ${H$(HOP.cf.fcf)}`, say: `Hoppy paid a ${H$(-HOP.cf.div)} dividend out of it.`, fig: (W) => hwf(W, [{ l: 'Operating cash', v: HOP.cf.ocf, abs: 1, c: 'info' }, { l: 'Capex (grinder)', v: HOP.cf.capex, c: 'dn' }, { l: 'Free cash flow', v: HOP.cf.fcf, abs: 1, c: 'up' }], { fmt: H$ }) }),
-      apple: () => ({ math: `${M(aCF.totals.operating[0])} − ${M(-D.aCapex[0])} = ${M(D.aFcf[0])}`, say: `Nine months to June 2026. Apple then spent ${Bn(-bsv(aCF.financing, 'buyback', 'cur'))} on buybacks and ${Bn(-bsv(aCF.financing, 'div', 'cur'))} on dividends.`, fig: (W) => hwf(W, [{ l: W < 480 ? 'Operating cash' : 'Operating cash (9 mo)', v: aCF.totals.operating[0], abs: 1, c: 'info' }, { l: 'Capex', v: D.aCapex[0], c: 'dn' }, { l: 'Free cash flow', v: D.aFcf[0], abs: 1, c: 'up' }], { fmt: (v) => Bn(v) }) }),
+      apple: () => ({ math: `${M(aCF.totals.operating[0])} − ${M(-D.aCapex[0])} = ${M(D.aFcf[0])}`, say: `Fiscal 2026, the full year to September (our math), up from ${Bn(D.aFcf[1])} in fiscal 2025. Apple spent ${Bn(-bsv(aCF.financing, 'buyback', 'cur'))} on buybacks and ${Bn(-bsv(aCF.financing, 'div', 'cur'))} on dividends. The September quarter alone: about ${Bn(D.aFcfQ)} (our math).`, fig: (W) => hwf(W, [{ l: W < 480 ? 'Operating cash' : 'Operating cash (FY26)', v: aCF.totals.operating[0], abs: 1, c: 'info' }, { l: 'Capex', v: D.aCapex[0], c: 'dn' }, { l: 'Free cash flow', v: D.aFcf[0], abs: 1, c: 'up' }], { fmt: (v) => Bn(v) }) }),
       spacex: () => ({ math: `${M(X.cf9.operating[0])} − ${M(-X.cf9.ppe[0])} = ${M(D.xFcf9[0])}`, say: `Nine months to September 2026. Most of the capex went to Super Intelligence computing capacity (${Bn(XSEG('ai').capex)} in Q3 alone), paid for with IPO money (${Bn(X.cf9.ipoProceeds)} raised) and debt.`, fig: (W) => hwf(W, [{ l: W < 480 ? 'Operating cash' : 'Operating cash (9 mo)', v: X.cf9.operating[0], abs: 1, c: 'info' }, { l: 'Capex (9 mo)', v: X.cf9.ppe[0], c: 'dn' }, { l: 'Free cash flow', v: D.xFcf9[0], abs: 1, c: 'dn' }], { fmt: M }) }),
     },
   ];
@@ -651,7 +671,7 @@
   const nw = (t) => `<span class="rci-nw">${t}</span>`;
   const HEAD = {
     hop: () => `Hoppy’s Coffee Cart: June ${J('revenue', 'top line')} up ${P(pc(hc.revenue, hy.revenue), 0)} ${J('yoy', 'YoY')} to ${H$(hc.revenue)}; ${J('gm', 'gross margin')} widens to ${P((hc.gross / hc.revenue) * 100, 0)}; ${J('opinc', 'operating income')} ${H$(hc.opInc)}; ${J('net', 'bottom line')} ${H$(hc.netInc)}, or ${J('eps', 'EPS')} of ${E$(hc.eps)} vs ${E$(hy.eps)}; ${J('fcf', 'free cash flow')} ${H$(HOP.cf.fcf)}.`,
-    apple: () => `Apple ${J('beat', 'beats')} on the ${J('revenue', 'top line')} and ${J('eps', 'EPS')} in ${J('fiscal', 'fiscal Q3')}: revenue ${Bn(ai.revenue)}, up ${P(D.revYoY, 0)} ${J('yoy', 'YoY')} but down ${P(-D.revQoQ)} ${J('qoq', 'QoQ')}; ${J('gm', 'gross margin')} ${P(D.gm)} with help from ${J('onetime', 'temporary')} tariff refunds; ${J('diluted', 'diluted')} EPS ${E$(ai.epsDil)}; ${J('guidance', 'guidance')} of ${G.revGrowth[0]}%–${G.revGrowth[1]}% growth trails the ~${EXA.nextQtrGrowth}% ${J('consensus', 'consensus')}.`,
+    apple: () => `Apple ${J('beat', 'beats')} on the ${J('revenue', 'top line')} and ${J('eps', 'EPS')} in ${J('fiscal', 'fiscal Q4')}: revenue ${Bn(ai.revenue)}, up ${P(D.revYoY, 0)} ${J('yoy', 'YoY')} and ${P(D.revQoQ)} ${J('qoq', 'QoQ')}; ${J('gm', 'gross margin')} ${P(D.gm)} with a little help from ${J('onetime', 'temporary')} tariff refunds; ${J('opex', 'opex')} up ${P(D.opexYoY, 0)}; ${J('diluted', 'diluted')} EPS ${E$(ai.epsDil)} vs a ${nw('~' + E$(EXA.eps))} ${J('consensus', 'consensus')}; ${J('guidance', 'guidance')} of ${G.revGrowth[0]}%–${G.revGrowth[1]}% growth and a ${G.grossMargin[0]}%–${G.grossMargin[1]}% margin trails hopes.`,
     spacex: () => `SpaceX’s latest quarter (Q3): revenue up ${P(D.xRevYoY, 0)} ${J('yoy', 'YoY')} and ${P(D.xRevQoQ, 0)} ${J('qoq', 'QoQ')}; its first ${J('opinc', 'operating profit')} as a public company, ${M(xi.opInc)}, and a ${J('net', 'bottom line')} of ${Bn(xi.netInc)}, though about ${Bn(D.xBelow)} came from ${J('onetime', 'below the line')}; ${J('eps', 'EPS')} ${E$(xi.eps)} vs a ${nw('~' + E$(EXX.eps[0]) + '–' + E$(EXX.eps[1]))} ${J('consensus', 'consensus')}; ${J('adjusted', 'adjusted')} ${J('ebitda', 'EBITDA')} ${Bn(X.ebitda.cur)}; the Super Intelligence ${J('segment', 'segment')} is now ${P((XSEG('ai').revenue / xi.revenue) * 100, 0)} of sales; ${Bn(X.capex.cur)} of capex keeps ${J('fcf', 'free cash flow')} deep below zero; ${J('guidance', 'guidance')} far above hopes.`,
   };
   const DKEY = 'rci-decoded';
@@ -671,7 +691,7 @@
       <div class="wg-fig"></div>
       <div id="${id}-card"></div>
       <div class="wg-msg" id="${id}-msg"></div>
-      <div class="wg-note">Apple: fiscal Q3 2026 (April to June), reported ${A.reported}. SpaceX: ${X.period} (July to September), reported ${X.reported}. These are the latest reported quarters as of October 2026. Statement figures in $ millions as the companies print them; ratios computed by FiredBunny. Estimates and the analyst consensus are as reported by news outlets. Hoppy’s Coffee Cart is made up. Education only, not investment advice.</div>`;
+      <div class="wg-note">Apple: fiscal Q4 2026 (July to September), reported ${A.reported}. SpaceX: ${X.period} (July to September), reported ${X.reported}. These are the latest reported quarters as of November 2026. Statement figures in $ millions as the companies print them; ratios computed by FiredBunny. Estimates and the analyst consensus are as reported by news outlets. Hoppy’s Coffee Cart is made up. Education only, not investment advice.</div>`;
     const fig = root.querySelector('.wg-fig'), sel = $id(id + '-sel');
     const mark = () => { const k = TT[ti].k; if (!seen.has(k)) { seen.add(k); SML.store.set(DKEY, Array.from(seen)); } };
     const st = ui.wire(root, (e) => {
@@ -716,15 +736,15 @@
      ====================================================================== */
   const TD = {
     prodSales: { n: 'Products sales', what: 'Money from selling devices: iPhone, Mac, iPad, wearables and accessories.', hop: `The cart only sells products: every cup is a product sale, all ${H$(hc.revenue)} of June.`, why: `Products are about ${P((ai.prodSales / ai.revenue) * 100, 0)} of Apple’s sales but keep only about ${P(D.prodGM, 0)} as gross margin, so the mix between products and services moves Apple’s overall margin.` },
-    servSales: { n: 'Services sales', what: 'Recurring sales that need no new device: App Store, iCloud, Apple Music and TV, AppleCare, payments, advertising.', hop: 'Like selling monthly coffee subscriptions: paid again every month without building a new cart.', why: `Services keep about ${F.num(D.servGM, 0)} cents of gross profit per dollar and repeat, so investors pay up for them. This quarter Services came in a little under the roughly ${Bn(EXA.services)} analysts expected.` },
-    prodCost: { n: 'Cost of sales: products', what: 'Parts, assembly, freight and warranty costs for the devices sold.', hop: `Beans, milk and cups: ${H$(hc.cost)} in June.`, why: 'Component prices hit this line first. Apple flagged rising memory chip costs on the call, which can squeeze product margins.' },
+    servSales: { n: 'Services sales', what: 'Recurring sales that need no new device: App Store, iCloud, Apple Music and TV, AppleCare, payments, advertising.', hop: 'Like selling monthly coffee subscriptions: paid again every month without building a new cart.', why: `Services keep about ${F.num(D.servGM, 0)} cents of gross profit per dollar and repeat, so investors pay up for them. This quarter they matched the roughly ${Bn(EXA.services)} analysts expected, but growth slowed to ${P(D.servYoY)} from ${P(D.servYoYPq)} in June, and Apple guided only ${G.servicesGrowth[0]}%–${G.servicesGrowth[1]}% for December vs about ${EXA.nextQtrServicesGrowth}% hoped.` },
+    prodCost: { n: 'Cost of sales: products', what: 'Parts, assembly, freight and warranty costs for the devices sold.', hop: `Beans, milk and cups: ${H$(hc.cost)} in June.`, why: 'Component prices hit this line first. On the November call John Ternus called memory chip pricing “unprecedented”, and memory is the main reason Apple guided a lower December-quarter margin.' },
     servCost: { n: 'Cost of sales: services', what: 'The cost of delivering services: data centers, content licenses, support staff.', hop: 'If Hoppy sold subscriptions, the extra cups and the app fees would land here.', why: 'Services cost little compared with their sales, which is why they lift Apple’s overall margin.' },
     other: { n: 'Other income / expense', aka: 'non-operating', what: 'Money from outside the main business: interest earned on cash, minus interest paid on debt, investment gains or losses, currency effects.', hop: `Interest on the cart loan: ${H$(hc.interest)} a month.`, why: 'Usually small next to operating income, so investors look past its swings.' },
     intExp: { n: 'Interest expense', what: 'Interest paid on loans and bonds.', hop: `The ${H$(-hc.interest)} a month Hoppy pays on the ${H$(HOP.bs.loan)} cart loan.`, why: `More debt means more interest. In mid-2026 SpaceX sold ${Bn(X.q2.bond, 0)} of bonds and used part of the money to repay a ${Bn(X.q2.bridgeLoan, 0)} bridge loan, so investors watch this line.` },
     intInc: { n: 'Interest income', what: 'Interest earned on cash and short-term investments.', hop: 'If Hoppy parked spare cash in a savings account, the interest would show up here.', why: `A big cash pile earns interest, which adds to profit or softens a loss. After the IPO, SpaceX’s interest income rose to ${M(xi.intInc)} from ${M(xy.intInc)} a year earlier; it is non-operating, so investors judge the business on operating income.` },
     pretax: { n: 'Income before taxes', aka: 'pretax income', what: 'Operating income plus or minus other income: the profit the tax bill is based on.', hop: `${H$(hc.opInc)} − ${H$(-hc.interest)} interest = ${H$(hc.pretax)}.`, why: 'Compare it with the tax line to get the tax rate, which can move EPS on its own.' },
     tax: { n: 'Provision for income taxes', what: 'The income tax expense for the period.', hop: `20% of ${H$(hc.pretax)} = ${H$(hc.tax)}.`, why: 'A higher tax rate shrinks EPS even when the business does fine, so traders check it against the company’s guidance.' },
-    taxRate: { n: 'Effective tax rate', aka: 'tax ÷ pretax income', what: 'The share of pretax profit that went to income taxes.', hop: `${H$(hc.tax)} ÷ ${H$(hc.pretax)} = 20%.`, why: `At Apple’s ${P(D.tax)} rate, each point of tax rate moves EPS by about ${P(100 / (100 - D.tax))}. Apple guided about ${G.taxRate}% for the September quarter.` },
+    taxRate: { n: 'Effective tax rate', aka: 'tax ÷ pretax income', what: 'The share of pretax profit that went to income taxes.', hop: `${H$(hc.tax)} ÷ ${H$(hc.pretax)} = 20%.`, why: `At Apple’s ${P(D.tax)} rate, each point of tax rate moves EPS by about ${P(100 / (100 - D.tax))}. Apple guided about ${G.taxRate}% for the December quarter, a higher rate that would trim EPS.` },
     nm: { n: 'Net margin', aka: 'net income ÷ revenue', what: 'How many cents of each sales dollar end up as profit after everything.', hop: `${H$(hc.netInc)} ÷ ${H$(hc.revenue)} = ${P((hc.netInc / hc.revenue) * 100)}.`, why: 'A rising net margin means profit grows faster than sales, which investors reward.' },
     epsBasic: { n: 'Basic EPS', what: 'Net income divided by the average number of shares outstanding.', hop: `${H$(hc.netInc)} ÷ ${F.num(hc.sh)} shares = ${E$(hc.eps)}.`, why: 'Headlines quote diluted EPS, which can be a little lower because it adds shares from stock awards when they would lower EPS.' },
     shBasic: { n: 'Basic shares', what: 'The average number of shares outstanding during the quarter, in millions.', hop: `Hoppy owns all ${F.num(hc.sh)} shares.`, why: 'Buybacks shrink this count and new shares grow it, so EPS can move even when profit does not.' },
@@ -794,7 +814,7 @@
     cfTaxes: { n: 'Taxes paid on employee stock awards', what: 'When employees’ shares vest, the company holds back some shares and pays their taxes in cash.', hop: 'Hoppy has none.', why: 'A hidden cash cost of paying people in stock.' },
     cfDiv: { n: 'Dividends paid', what: 'Cash paid out to shareholders.', hop: `Hoppy’s ${H$(-HOP.cf.div)} dividend.`, why: `Apple declared ${E$(A.dividend.perShare)} a share for this quarter. Dividends tend to be steady, so investors notice any cut.` },
     cfBuyback: { n: 'Buybacks', aka: 'share repurchases', what: 'Cash spent buying back the company’s own shares, which shrinks the share count.', hop: 'If Hoppy bought back a partner’s shares, each remaining share would own more of the cart.', why: `Fewer shares made Apple’s EPS grow ${P(D.epsYoY)} while net income grew ${P(D.niYoY)}.` },
-    cfIssue: { n: 'New term debt issued', what: 'Borrowing new money by selling bonds.', hop: 'Taking out a second cart loan.', why: 'Apple issued none in these nine months.' },
+    cfIssue: { n: 'New term debt issued', what: 'Borrowing new money by selling bonds.', hop: 'Taking out a second cart loan.', why: 'Apple issued none in fiscal 2026.' },
     cfRepay: { n: 'Term debt repaid', what: 'Paying back bonds that came due.', hop: 'Paying down the cart loan.', why: 'Shrinking debt lowers interest costs and risk.' },
     cfCp: { n: 'Commercial paper, net', what: 'Short-term borrowing taken or paid back, net.', hop: 'Paying back a few-week loan.', why: 'Apple paid down most of its commercial paper.' },
     cfOthFin: { n: 'Other financing', what: 'Smaller financing items.', hop: 'Hoppy has none.', why: 'Usually small.' },
@@ -814,7 +834,7 @@
   }
 
   /* ======================================================================
-     Widget 2: incomeWaterfall: Apple's June 2026 quarter, revenue to EPS
+     Widget 2: incomeWaterfall: Apple's September 2026 quarter (with June 2026 and a year ago), revenue to EPS
      ====================================================================== */
   const WROWS = [
     { k: 'revenue', l: 'Revenue', s: 'Revenue', abs: 1, c: 'info' },
@@ -828,20 +848,26 @@
     { k: 'netInc', l: 'Net income', s: 'Net income', abs: 1, c: 'up' },
   ];
   const SIGN = { cost: -1, rd: -1, sga: -1, tax: -1, other: 1 };
+  /* per: 'cur' | 'pq' | 'ya' | 'ya2'. ref removes the tariff refund (September: $0.05; June: $0.11); there was none a year earlier */
+  const REFQ = { cur: () => D.ref, pq: () => D.refPq };
+  const YOYOF = { cur: 'ya', pq: 'ya2', ya: null, ya2: null };
   function wModel(per, ref) {
-    const r = A.is[per], on = !!ref && per === 'cur';
-    const pre = on ? D.ref.pre : 0, taxOn = on ? D.ref.taxOn : 0, netOn = on ? D.ref.net : 0;
-    return { revenue: r.revenue, cost: r.cost + pre, gross: r.gross - pre, rd: r.rd, sga: r.sga, opInc: r.opInc - pre, other: r.other, tax: r.tax - taxOn, netInc: r.netInc - netOn, eps: on ? D.ref.eps : r.epsDil, sh: r.shDil, est: on };
+    const r = A.is[per], R = ref && REFQ[per] ? REFQ[per]() : null, on = !!R;
+    const pre = on ? R.pre : 0, taxOn = on ? R.taxOn : 0, netOn = on ? R.net : 0;
+    return { revenue: r.revenue, cost: r.cost + pre, gross: r.gross - pre, rd: r.rd, sga: r.sga, opInc: r.opInc - pre, other: r.other, tax: r.tax - taxOn, netInc: r.netInc - netOn, eps: on ? R.eps : r.epsDil, sh: r.shDil, est: on, pre };
   }
   const CATS = { iPhone: 'Apple’s phone line, about half of all sales.', Mac: 'Laptops and desktops.', iPad: 'Tablets.', 'Wearables, Home & Accessories': 'Apple Watch, AirPods, Apple TV, HomePod, Vision Pro and accessories.', Services: 'App Store, iCloud, Apple Music and TV, AppleCare, payments and advertising.' };
   const REGS = { Americas: 'North and South America.', Europe: 'Europe plus India, the Middle East and Africa.', 'Greater China': 'Mainland China, Hong Kong and Taiwan.', Japan: 'Japan.', 'Rest of Asia Pacific': 'Australia and the Asian markets not counted elsewhere.' };
   const SHORTNAME = { 'Wearables, Home & Accessories': 'Wearables, Home', 'Rest of Asia Pacific': 'Rest of Asia Pac.' };
+  /* consensus by line, as reported (see SML.realco.apple.expectations) */
+  const EXK = { iPhone: 'iPhone', Mac: 'Mac', iPad: 'iPad', Services: 'services', 'Greater China': 'greaterChina' };
+  const exNote = (k) => { const e = EXA[EXK[k]], v = A.categories.cur[k] != null ? A.categories.cur[k] : A.regions.cur[k]; if (e == null || v == null) return ''; const d = v - e; return ` Analysts expected about ${Bn(e)}: ${Math.abs(d) < 100 ? 'in line' : d > 0 ? 'a beat' : 'a miss'}.`; };
 
   SML.widgets.incomeWaterfall = function (root) {
     const id = SML.uid('rciw'), pid = id + '-hz';
     let sel = 'revenue', mixSel = null, lastW = 600, cur = null, anim = 0;
     root.innerHTML = `
-      <div class="wg-bar">${ui.seg(id + '-p', [{ v: 'cur', label: A.labels.cur }, { v: 'ya', label: A.labels.ya }], 'cur', 'Quarter')}${ui.seg(id + '-u', [{ v: 'usd', label: '$ billions' }, { v: 'per', label: 'Per $1 of sales' }], 'usd', 'Units')}<span class="grow"></span>${ui.chips(id + '-r', [{ k: 'ref', label: 'Remove tariff refund', color: 'var(--accent)' }])}</div>
+      <div class="wg-bar">${ui.seg(id + '-p', [{ v: 'cur', label: A.labels.cur }, { v: 'pq', label: A.labels.pq }, { v: 'ya', label: A.labels.ya }], 'cur', 'Quarter')}${ui.seg(id + '-u', [{ v: 'usd', label: '$ billions' }, { v: 'per', label: 'Per $1 of sales' }], 'usd', 'Units')}<span class="grow"></span>${ui.chips(id + '-r', [{ k: 'ref', label: 'Remove tariff refund', color: 'var(--accent)' }])}</div>
       <div class="wg-fig"></div>
       <div class="rci-cardwrap" id="${id}-card"></div>
       <div class="wg-read">${ui.stat('Revenue', id + '-s1')}${ui.stat('Gross margin', id + '-s2')}${ui.stat('Operating margin', id + '-s3')}${ui.stat('Net income', id + '-s4')}${ui.stat('Diluted EPS', id + '-s5', 'hl')}</div>
@@ -849,7 +875,7 @@
       <div class="wg-bar"><span class="wg-title">Where the sales came from</span><span class="grow"></span>${ui.seg(id + '-m', [{ v: 'ps', label: 'Products vs services' }, { v: 'cat', label: 'Categories' }, { v: 'reg', label: 'Regions' }], 'ps', 'Breakdown')}</div>
       <div class="wg-fig rci-mixf"></div>
       <div class="wg-msg" id="${id}-msg2"></div>
-      <div class="wg-note">Apple’s fiscal Q3 2026: three months ended ${A.periodEnd}, reported ${A.reported}; the latest reported quarter as of October 2026. Source: Apple’s 8-K, Exhibit 99.1. Tap any row for its card. "Remove tariff refund" is our estimate: Apple said refunds added about ${TR.grossMarginPts} points of gross margin and ${E$(TR.eps)} of EPS; we take ${E$(TR.eps)} × ${shM(ai.shDil)} diluted shares ≈ ${Bn(D.ref.net, 2)} after tax, ≈ ${Bn(D.ref.pre, 2)} before tax at the quarter’s ${P(D.tax)} tax rate.</div>`;
+      <div class="wg-note">Apple’s fiscal Q4 2026: three months ended ${A.periodEnd}, reported ${A.reported}; the latest reported quarter as of November 2026 and the last quarter of Apple’s fiscal year. The June 2026 quarter (fiscal Q3) is the previous one. Source: Apple’s condensed consolidated financial statements. Tap any row for its card. "Remove tariff refund" is our estimate: Apple said refunds added about ${TR.grossMarginPts} point of gross margin and ${E$(TR.eps)} of EPS (June: about ${TR.pq.grossMarginPts} points and ${E$(TR.pq.eps)}); we take ${E$(TR.eps)} × ${shM(ai.shDil)} diluted shares ≈ ${Bn(D.ref.net, 2)} after tax, ≈ ${Bn(D.ref.pre, 2)} before tax at the quarter’s ${P(D.tax)} tax rate.</div>`;
     const fig = root.querySelector('.wg-fig'), mixFig = root.querySelector('.rci-mixf'), esc = SML.esc;
     const st = ui.wire(root, (e) => {
       if (e && e.target && e.target.closest && e.target.closest('#' + id + '-m')) { mixSel = null; mixAnim = true; drawMix(); return; }
@@ -877,17 +903,18 @@
       const W = lastW, compact = W < 540, u = unit(), p = per(), other = p === 'cur' ? 'ya' : 'cur';
       const m = wModel(p, refOn()), gm = wModel(other, refOn()), gv = vec(gm, u);
       const est = m.est;
-      const yoyM = wModel('cur', refOn()), yaM = wModel('ya', false);
+      /* the YoY column follows the quarter shown: Sep 2026 vs Sep 2025, Jun 2026 vs Jun 2025 (a year-ago view shows Sep 2026's) */
+      const yp = YOYOF[p] ? p : 'cur', yoyM = wModel(yp, refOn()), yaM = wModel(YOYOF[yp], false);
       const rowH = compact ? 38 : 31, top = 30, lw = compact ? 100 : 182, vw = compact ? 78 : 100, yw = compact ? 0 : 76;
       const x0 = lw + 6, x1 = W - vw - yw - 10;
-      const dom = u === 'per' ? 1 : Math.max(ai.revenue, ay.revenue);
+      const dom = u === 'per' ? 1 : Math.max(ai.revenue, ay.revenue, ap.revenue);
       const x = SML.lin(0, dom, x0, x1);
       const fmtv = (v) => (u === 'per' ? cents(v * 100) : BM(v));
       let s = hatch(pid, 'acc');
       /* header */
-      s += S.rect(0, 6, 12, 10, 'f-info', 2) + S.text(17, 15, p === 'cur' ? A.labels.cur : A.labels.ya, 'sm ink');
-      const gl = (p === 'cur' ? A.labels.ya : A.labels.cur);
-      const gx = 17 + estW(p === 'cur' ? A.labels.cur : A.labels.ya, 11.5) + 18;
+      s += S.rect(0, 6, 12, 10, 'f-info', 2) + S.text(17, 15, A.labels[p], 'sm ink');
+      const gl = A.labels[other];
+      const gx = 17 + estW(A.labels[p], 11.5) + 18;
       s += S.rect(gx, 6, 12, 10, 'nf s-mut dash2', 2) + S.text(gx + 17, 15, gl, 'sm');
       if (!compact) s += S.text(W - yw, 15, u === 'per' ? '¢ per $1' : '$ billions', 'cap', 'end') + S.text(W, 15, u === 'per' ? 'vs year ago' : 'YoY', 'cap', 'end');
       /* rows */
@@ -911,7 +938,7 @@
         g1 += S.rect(gxa, cy - bh / 2 - 2, Math.max(1, gxb - gxa), bh + 4, 'nf s-mut dash2', 2);
         const xa = x(Math.min(a, b)), xb = x(Math.max(a, b));
         g1 += S.rect(xa, cy - bh / 2, Math.max(2, xb - xa), bh, 'f-' + (r.k === 'other' && v < 0 ? 'dn' : r.c), 2);
-        if (est && r.k === 'gross') { const xr = x(b), xr2 = x(b + (u === 'per' ? D.ref.pre / ai.revenue : D.ref.pre)); g1 += S.rect(xr, cy - bh / 2, Math.max(1, xr2 - xr), bh, '', 2, ` fill="url(#${pid})"`); if (!compact) g1 += S.text(xr2 + 5, cy + 4, 'refund', 'xs b acc'); }
+        if (est && r.k === 'gross') { const xr = x(b), xr2 = x(b + (u === 'per' ? m.pre / m.revenue : m.pre)); g1 += S.rect(xr, cy - bh / 2, Math.max(1, xr2 - xr), bh, '', 2, ` fill="url(#${pid})"`); if (!compact) g1 += S.text(xr2 + 5, cy + 4, 'refund', 'xs b acc'); }
         if (i < WROWS.length - 1) g1 += S.line(x(b), cy + bh / 2, x(b), cy + rowH - bh / 2, 's-mut dash2');
         g1 += S.text(W - yw - (compact ? 4 : 0), compact ? y + 17 : cy + 4.5, lab, (compact ? 'sm' : 'md') + ' mono b ' + (r.abs ? 'ink' : 'mut'), 'end');
         g1 += S.text(W - (compact ? 4 : 0), compact ? y + 31 : cy + 4.5, yoy, (compact ? 'xs' : 'sm') + ' mono b ' + good, 'end');
@@ -919,7 +946,7 @@
       });
       /* EPS row */
       const ey = top + WROWS.length * rowH + 6, eh = compact ? 50 : 46, on = sel === 'eps', eps = cur[WROWS.length];
-      const eyo = pc(wModel('cur', refOn()).eps, ay.epsDil);
+      const eyo = pc(yoyM.eps, A.is[YOYOF[yp]].epsDil);
       let g2 = `<g class="rci-row${on ? ' on' : ''}" data-k="eps" tabindex="0" role="button" aria-label="Diluted EPS ${E$(eps)}. Show card.">`;
       g2 += S.rect(0, ey, W, eh, 'rci-bg' + (on ? ' f-acc-t' : ''), 4) + S.line(0, ey - 3, W, ey - 3, 's-line');
       g2 += S.text(6, ey + (compact ? 20 : 27), compact ? 'EPS' : 'Earnings per share', (compact ? 'sm' : 'md') + ' b ink');
@@ -933,28 +960,28 @@
       g2 += S.text(W - (compact ? 4 : 0), ey + (compact ? 37 : 28), (m.est ? '≈' : '') + SP(eyo), (compact ? 'xs' : 'sm') + ' mono b up', 'end');
       s += g2 + '</g>';
       const H = ey + eh + 4;
-      fig.innerHTML = wrapI(W, H, `Apple ${p === 'cur' ? A.labels.cur : A.labels.ya} income statement as a waterfall from revenue ${Bn(m.revenue)} to net income ${Bn(m.netInc)} and diluted EPS ${E$(m.eps)}`, s);
+      fig.innerHTML = wrapI(W, H, `Apple ${A.labels[p]} income statement as a waterfall from revenue ${Bn(m.revenue)} to net income ${Bn(m.netInc)} and diluted EPS ${E$(m.eps)}`, s);
     }
 
     function cardFor(k) {
       const m = wModel('cur', refOn()), est = m.est;
       const T = k === 'eps' ? td('epsDil', 'apple') : k === 'opInc' ? td('opInc', 'apple') : k === 'netInc' ? td('netInc', 'apple') : td(k, 'apple');
       const R = {
-        revenue: `${Bn(ai.revenue)}, up ${P(D.revYoY)} from ${Bn(ay.revenue)}. Products ${Bn(ai.prodSales)} (${SP(pc(ai.prodSales, ay.prodSales))}), Services ${Bn(ai.servSales)} (${SP(pc(ai.servSales, ay.servSales))}). Analysts expected about ${Bn(EXA.revenue[0])}–${Bn(EXA.revenue[1])}.`,
-        cost: `${Bn(ai.cost)}: products ${Bn(ai.prodCost)}, services ${Bn(ai.servCost)}. Up ${P(pc(ai.cost, ay.cost))} while sales rose ${P(D.revYoY)}.${est ? ` Without the tariff refund, about ${Bn(m.cost)}.` : ''}`,
-        gross: `${Bn(ai.gross)}, a ${P(D.gm)} gross margin (${P(D.gmYa)} a year ago). Products kept ${P(D.prodGM)}, Services ${P(D.servGM)}. ${est ? `Without the refund: about ${Bn(m.gross)}, ≈${P(D.gmEx, 0)}.` : `Apple said about ${TR.grossMarginPts} points came from temporary tariff refunds; its September guide still includes about ${G.tariffRefundPts} point of them.`}`,
+        revenue: `${Bn(ai.revenue)}, up ${P(D.revYoY)} from ${Bn(ay.revenue)}. Products ${Bn(ai.prodSales)} (${SP(pc(ai.prodSales, ay.prodSales))}), Services ${Bn(ai.servSales)} (${SP(D.servYoY)}). Analysts expected about ${Bn(EXA.revenue)}; Apple’s own July guide implied ${Bn(D.jLo)}–${Bn(D.jHi)} (our math).`,
+        cost: `${Bn(ai.cost)}: products ${Bn(ai.prodCost)}, services ${Bn(ai.servCost)}. Up ${P(D.costYoY)} while sales rose ${P(D.revYoY)}.${est ? ` Without the tariff refund, about ${Bn(m.cost)}.` : ` About ${Bn(D.ref.pre)} of tariff refunds lowered it (our estimate).`}`,
+        gross: `${Bn(ai.gross)}, a ${P(D.gm)} gross margin (${P(D.gmYa)} a year ago, ${P(D.gmPq)} in June). Products kept ${P(D.prodGM)}, Services ${P(D.servGM)}. ${est ? `Without the refund: about ${Bn(m.gross)}, ≈${P((m.gross / m.revenue) * 100, 0)} (our estimate; Apple’s “about ${TR.grossMarginPts} point” gives ${P(D.gmEx)}).` : `Apple said about ${TR.grossMarginPts} point came from temporary tariff refunds. Its December guide is ${G.grossMargin[0]}%–${G.grossMargin[1]}%.`}`,
         rd: `${Bn(ai.rd)}, ${P((ai.rd / ai.revenue) * 100)} of sales, up ${P(pc(ai.rd, ay.rd))}: ${F.num(pc(ai.rd, ay.rd) / D.revYoY, 1)} times as fast as revenue.`,
         sga: `${Bn(ai.sga)}, ${P((ai.sga / ai.revenue) * 100)} of sales, up ${P(pc(ai.sga, ay.sga))}: slower than revenue.`,
         opInc: `${Bn(ai.opInc)}, up ${P(pc(ai.opInc, ay.opInc))}: a ${P(D.om)} operating margin vs ${P(D.omYa)} a year earlier.${est ? ` Without the refund, about ${Bn(m.opInc)}.` : ''}`,
-        other: `${M(ai.other)} vs ${M(ay.other)} a year earlier. Apple guided about ${M(G.otherIncome)} for the September quarter.`,
-        tax: `${Bn(ai.tax)} on ${Bn(ai.pretax)} of pretax income: a ${P(D.tax)} rate vs ${P(D.taxYa)} a year earlier. Guidance for September: about ${G.taxRate}%.`,
+        other: `${M(ai.other)} vs ${M(ay.other)} a year earlier. Apple had guided about ${M(GJ.otherIncome)}; for December it guides about ${M(G.otherIncome)}.`,
+        tax: `${Bn(ai.tax)} on ${Bn(ai.pretax)} of pretax income: a ${P(D.tax)} rate vs ${P(D.taxYa)} a year earlier and the roughly ${GJ.taxRate}% Apple had guided. December guide: about ${G.taxRate}%.`,
         netInc: `${Bn(ai.netInc)}, up ${P(D.niYoY)}: ${P(D.nm)} of sales, vs ${P(D.nmYa)} a year earlier.${est ? ` Without the refund, about ${Bn(m.netInc)}.` : ''}`,
-        eps: `${M(ai.netInc)} ÷ ${shM(ai.shDil)} diluted shares = ${E$(ai.epsDil)}, up ${P(D.epsYoY)} from ${E$(ay.epsDil)}. Diluted shares fell ${P(-D.shYoY)} thanks to buybacks. Includes ${E$(TR.eps)} of tariff refunds: about ${E$(D.ref.eps)} without (${SP(D.epsExYoY)}). Analysts expected about ${E$(EXA.eps[0])}–${E$(EXA.eps[1])}.`,
+        eps: `${M(ai.netInc)} ÷ ${shM(ai.shDil)} diluted shares = ${E$(ai.epsDil)}, up ${P(D.epsYoY)} from ${E$(ay.epsDil)}. Diluted shares fell ${P(-D.shYoY)} thanks to buybacks. Includes ${E$(TR.eps)} of tariff refunds: about ${E$(D.ref.eps)} without (${SP(D.epsExYoY)}). Analysts expected about ${E$(EXA.eps)}.`,
       };
       return card({ n: k === 'eps' ? 'Diluted EPS' : k === 'tax' ? 'Income tax' : T.n, aka: T.aka }, [
         { c: 'what', h: 'What it is', b: T.what },
         { c: 'hop', h: 'At Hoppy’s cart', b: T.hop },
-        { c: 'real', h: 'At Apple, June 2026 qtr', b: R[k] },
+        { c: 'real', h: 'At Apple, ' + A.labels.cur, b: R[k] },
         { c: 'stock', h: 'Why it matters for the stock', b: T.why },
       ]);
     }
@@ -965,10 +992,13 @@
       set(1, Bn(m.revenue)); set(2, e + P((m.gross / m.revenue) * 100, m.est ? 0 : 1)); set(3, e + P((m.opInc / m.revenue) * 100, m.est ? 0 : 1)); set(4, e + Bn(m.netInc)); set(5, e + E$(m.eps));
       let msg;
       const p = per(), u = unit();
-      if (p === 'ya') msg = ui.msg('info', 'A year ago', `The June 2025 quarter: ${Bn(ay.revenue)} of sales and EPS of ${E$(ay.epsDil)}. The dashed outlines show June 2026: sales grew ${P(D.revYoY)}, and gross profit, operating income, net income and EPS all grew faster.`);
-      else if (refOn()) msg = ui.msg('acc', 'Temporary', `Without the tariff refund EPS is about ${E$(D.ref.eps)}: still up ${P(D.epsExYoY)} from ${E$(ay.epsDil)} and still above the ${E$(EXA.eps[0])}–${E$(EXA.eps[1])} consensus, but by ${D.beatEx[0]}–${D.beatEx[1]} cents instead of ${D.beat[0]}–${D.beat[1]} (our math, assuming the consensus did not include the refunds). Gross margin drops to about ${P(D.gmEx, 0)}. Refunds are temporary: the September guide still includes about ${G.tariffRefundPts} point of them.`);
-      else if (u === 'per') { const r = (k) => cents((ai[k] / ai.revenue) * 100); msg = ui.msg('info', 'Per $1', `Of each $1 of sales, Apple spent ${r('cost')} making what it sold, ${r('rd')} on R&amp;D, ${r('sga')} on SG&amp;A and ${r('tax')} on tax. With ${r('other')} of other income, it kept ${r('netInc')} as profit, up from ${cents(D.nmYa)} a year earlier.`); }
-      else msg = ui.msg('up', 'Beat', `Out of ${Bn(ai.revenue)} of sales Apple kept ${Bn(ai.netInc)}: ${P(D.nm)}, up from ${P(D.nmYa)}. EPS of ${E$(ai.epsDil)} beat the roughly ${E$(EXA.eps[0])}–${E$(EXA.eps[1])} expected, yet the stock fell about ${P(-A.reaction.closePct, 0)} the next day. See <a href="#l-rc-price">why</a>.`);
+      const vsYa = (a, b) => (Math.abs(a - b) < 0.2 ? 'about the same as' : a > b ? 'up from' : 'down from');
+      if (p === 'ya') msg = ui.msg('info', 'A year ago', `The September 2025 quarter: ${Bn(ay.revenue)} of sales and EPS of ${E$(ay.epsDil)}. The dashed outlines show September 2026: sales grew ${P(D.revYoY)} and gross profit ${P(D.gpYoY)}, but operating income only ${P(D.opYoY)} because R&amp;D jumped ${P(pc(ai.rd, ay.rd), 0)}. Net income grew ${P(D.niYoY)} and EPS ${P(D.epsYoY)}.`);
+      else if (p === 'pq' && refOn()) msg = ui.msg('acc', 'Temporary', `June had more help: about ${TR.pq.grossMarginPts} points of gross margin and ${E$(TR.pq.eps)} of EPS. Without it, June’s EPS was about ${E$(D.refPq.eps)} and gross margin about ${P(D.gmExPq)} (our math), against a ${E$(Q3.expectations.eps[0])}–${E$(Q3.expectations.eps[1])} consensus.`);
+      else if (p === 'pq') msg = ui.msg('info', 'Previous quarter', `The June 2026 quarter: ${Bn(ap.revenue)} of sales, a ${P(D.gmPq)} gross margin with about ${TR.pq.grossMarginPts} points of tariff refunds, and EPS of ${E$(ap.epsDil)}. Apple beat then too, guided below hopes, and the stock fell ${P(-Q3.reaction.closePct)} on July 31. The dashed outlines show September 2026.`);
+      else if (refOn()) msg = ui.msg('acc', 'Temporary', `Without the tariff refund EPS is about ${E$(D.ref.eps)}: still up ${P(D.epsExYoY)} from ${E$(ay.epsDil)} and still above the ${E$(EXA.eps)} consensus, but by ${D.beatEx} cents instead of ${D.beat} (our math, assuming the consensus did not include the refunds). Gross margin drops to about ${P(D.gmEx)} on Apple’s “about ${TR.grossMarginPts} point”, ${D.gmEx < D.gmYa ? 'a little below' : 'above'} a year ago. The refunds are temporary and shrinking: about ${TR.pq.grossMarginPts} points in June, ${TR.grossMarginPts} in September.`);
+      else if (u === 'per') { const r = (k) => cents((ai[k] / ai.revenue) * 100); msg = ui.msg('info', 'Per $1', `Of each $1 of sales, Apple spent ${r('cost')} making what it sold, ${r('rd')} on R&amp;D, ${r('sga')} on SG&amp;A and ${r('tax')} on tax. With ${r('other')} of other income, it kept ${r('netInc')} as profit, ${vsYa(D.nm, D.nmYa)} ${cents(D.nmYa)} a year earlier.`); }
+      else msg = ui.msg('up', 'Beat', `Out of ${Bn(ai.revenue)} of sales Apple kept ${Bn(ai.netInc)}: ${P(D.nm)}, ${vsYa(D.nm, D.nmYa)} ${P(D.nmYa)} a year earlier. EPS of ${E$(ai.epsDil)} beat the roughly ${E$(EXA.eps)} expected, yet the stock ${moveShort()} as the December-quarter guide disappointed. See <a href="#l-rc-price">why</a>.`);
       $id(id + '-msg').innerHTML = msg;
     }
 
@@ -1018,24 +1048,25 @@
         });
         H = top + keys.length * rowH + 4;
       }
-      mixFig.innerHTML = wrapI(W, H, mode === 'ps' ? `Apple sales ${Bn(ai.revenue)} split into products and services, and the gross profit each kept` : `Apple ${mode === 'cat' ? 'sales by product category' : 'sales by region'}, June 2026 quarter vs a year earlier`, s, mixAnim && !SML.reduced() ? 'rci-grow' : '');
+      mixFig.innerHTML = wrapI(W, H, mode === 'ps' ? `Apple sales ${Bn(ai.revenue)} split into products and services, and the gross profit each kept` : `Apple ${mode === 'cat' ? 'sales by product category' : 'sales by region'}, ${A.labels.cur} vs a year earlier`, s, mixAnim && !SML.reduced() ? 'rci-grow' : '');
       mixAnim = false;
       mixMsg(mode);
     }
     function mixMsg(mode) {
       let h;
       if (mode === 'ps') {
-        if (mixSel === 'prod') h = ui.msg('info', 'Products', `${Bn(ai.prodSales)} of sales (${SP(pc(ai.prodSales, ay.prodSales))}) kept ${Bn(D.prodGP)} of gross profit: ${P(D.prodGM)} per dollar. iPhone, Mac, iPad and wearables. Rising memory chip costs pressure this margin.`);
-        else if (mixSel === 'serv') h = ui.msg('vio', 'Services', `${Bn(ai.servSales)} of sales (${SP(pc(ai.servSales, ay.servSales))}) kept ${Bn(D.servGP)}: ${P(D.servGM)} per dollar. Analysts expected about ${Bn(EXA.services)}, so Services came in a little light.`);
+        if (mixSel === 'prod') h = ui.msg('info', 'Products', `${Bn(ai.prodSales)} of sales (${SP(pc(ai.prodSales, ay.prodSales))}) kept ${Bn(D.prodGP)} of gross profit: ${P(D.prodGM)} per dollar, vs ${P(((ap.prodSales - ap.prodCost) / ap.prodSales) * 100)} in June (when tariff refunds helped more) and ${P((D.prodGPya / ay.prodSales) * 100)} a year ago. iPhone, Mac, iPad and wearables. Rising memory chip costs pressure this margin.`);
+        else if (mixSel === 'serv') h = ui.msg('vio', 'Services', `${Bn(ai.servSales)} of sales (${SP(D.servYoY)}) kept ${Bn(D.servGP)}: ${P(D.servGM)} per dollar. That matched the roughly ${Bn(EXA.services)} analysts expected, but growth slowed from ${P(D.servYoYPq)} in June.`);
         else h = ui.msg('vio', 'Mix', `Services were ${P(D.servRevShare)} of sales but ${P(D.servGPShare)} of gross profit: each Services dollar keeps ${cents(D.servGM)} vs ${cents(D.prodGM)} for products. That is why investors watch Services so closely.`);
       } else {
         const src = mode === 'cat' ? A.categories : A.regions, keys = Object.keys(src.cur), dsc = mode === 'cat' ? CATS : REGS;
         if (mixSel && src.cur[mixSel] != null) {
           const k = mixSel, yo = pc(src.cur[k], src.ya[k]);
-          h = ui.msg(yo >= 0 ? 'up' : 'dn', esc(SHORTNAME[k] || k), `${Bn(src.cur[k])}, ${SP(yo)} from ${Bn(src.ya[k])}; ${P((src.cur[k] / ai.revenue) * 100)} of Apple’s sales. ${dsc[k] || ''}`);
+          h = ui.msg(yo >= 0 ? 'up' : 'dn', esc(SHORTNAME[k] || k), `${Bn(src.cur[k])}, ${SP(yo)} from ${Bn(src.ya[k])}; ${P((src.cur[k] / ai.revenue) * 100)} of Apple’s sales. ${dsc[k] || ''}${exNote(k)}`);
         } else if (mode === 'cat') {
           const by = keys.slice().sort((a, b) => pc(src.cur[b], src.ya[b]) - pc(src.cur[a], src.ya[a])), fast = by[0], slow = by[by.length - 1];
-          h = ui.msg('info', 'Categories', `iPhone was ${P((src.cur.iPhone / ai.revenue) * 100)} of sales and grew ${P(pc(src.cur.iPhone, src.ya.iPhone))}. ${fast} grew fastest (${SP(pc(src.cur[fast], src.ya[fast]))}); ${slow} ${pc(src.cur[slow], src.ya[slow]) < 0 ? 'was the only one that shrank' : 'grew slowest'} (${SP(pc(src.cur[slow], src.ya[slow]))}). Tap a bar for details.`);
+          const neg = by.filter((k) => src.cur[k] < src.ya[k]), lis = (a) => a.map((k) => `${k} (${SP(pc(src.cur[k], src.ya[k]))})`).join(' and ');
+          h = ui.msg('info', 'Categories', `iPhone was ${P((src.cur.iPhone / ai.revenue) * 100)} of sales and grew ${P(pc(src.cur.iPhone, src.ya.iPhone))}. ${fast} grew fastest (${SP(pc(src.cur[fast], src.ya[fast]))}); ${neg.length > 1 ? lis(neg) + ' shrank, against strong launches a year earlier' : neg.length ? lis(neg) + ' was the only one that shrank' : slow + ' grew slowest (' + SP(pc(src.cur[slow], src.ya[slow])) + ')'}. Tap a bar for details.`);
         } else {
           const by = keys.slice().sort((a, b) => pc(src.cur[b], src.ya[b]) - pc(src.cur[a], src.ya[a])), big = keys.slice().sort((a, b) => src.cur[b] - src.cur[a])[0];
           h = ui.msg('info', 'Regions', `Apple’s official segments are these regions. ${by[0]} (${SP(pc(src.cur[by[0]], src.ya[by[0]]))}) and ${by[1]} (${SP(pc(src.cur[by[1]], src.ya[by[1]]))}) grew fastest; the ${big}, the biggest, grew ${P(pc(src.cur[big], src.ya[big]))}. Tap a bar for details.`);
@@ -1083,6 +1114,12 @@
           { rows: [R('opInc', 'Operating income', 'm', { tot: 1, good: 1 }), { id: 'opm', k: 'opm', l: 'Operating margin %', kind: 'pct', cur: D.om, cmp: (p.opInc / p.revenue) * 100, calc: 1, good: 1 }] },
           { h: 'Below the operating line', rows: [R('other', 'Other income/(expense), net', 'm', { good: 1 }), R('pretax', 'Income before taxes', 'm', { tot: 1, good: 1 }), R('tax', 'Provision for income taxes'), { id: 'taxRate', k: 'taxRate', l: 'Effective tax rate', kind: 'pct', cur: D.tax, cmp: (p.tax / p.pretax) * 100, calc: 1 }, R('netInc', 'Net income', 'm', { tot: 1, good: 1 }), { id: 'nm', k: 'nm', l: 'Net margin %', kind: 'pct', cur: D.nm, cmp: (p.netInc / p.revenue) * 100, calc: 1, good: 1 }] },
           { h: 'Per share', rows: [R('epsBasic', 'Basic EPS', 'eps', { good: 1 }), R('epsDil', 'Diluted EPS', 'eps', { tot: 1, good: 1 }), R('shBasic', 'Shares used: basic', 'sh'), R('shDil', 'Shares used: diluted', 'sh')] },
+          { h: 'Full fiscal year (12 months to September)', cols: [A.labels.fy, A.labels.fyPrev], rows: [
+            { id: 'fyRev', noNote: 1, k: 'revenue', l: 'Total net sales', kind: 'm', cur: A.is.fy.revenue, cmp: A.is.fyPrev.revenue, good: 1 },
+            { id: 'fyGm', noNote: 1, k: 'gm', l: 'Gross margin %', kind: 'pct', cur: (A.is.fy.gross / A.is.fy.revenue) * 100, cmp: (A.is.fyPrev.gross / A.is.fyPrev.revenue) * 100, calc: 1, good: 1 },
+            { id: 'fyOp', noNote: 1, k: 'opInc', l: 'Operating income', kind: 'm', cur: A.is.fy.opInc, cmp: A.is.fyPrev.opInc, good: 1 },
+            { id: 'fyNet', noNote: 1, k: 'netInc', l: 'Net income', kind: 'm', cur: A.is.fy.netInc, cmp: A.is.fyPrev.netInc, good: 1 },
+            { id: 'fyEps', noNote: 1, k: 'epsDil', l: 'Diluted EPS', kind: 'eps', cur: A.is.fy.epsDil, cmp: A.is.fyPrev.epsDil, tot: 1, good: 1 }] },
         ],
       };
     }
@@ -1112,7 +1149,7 @@
 
   function modelBS(co, bk) {
     const B = co === 'apple' ? aB : xB, map = co === 'apple' ? AISK : XBSK, T = B.totals;
-    bk = co === 'spacex' && bk === 'mid' ? 'mid' : 'prev';
+    bk = bk === 'mid' ? 'mid' : 'prev';
     const ti = bk === 'mid' ? 2 : 1, tv = (arr) => [arr[0], arr[ti]];
     const item = (r, o) => Object.assign({ id: r.k, k: map[r.k] || r.k, l: r.name, kind: 'm', cur: r.cur, cmp: r[bk], sub: 1 }, o);
     const tot = (id, l, v, good) => ({ id, k: id, l, kind: 'm', cur: v[0], cmp: v[1], tot: 1, good: good ? 1 : 0 });
@@ -1126,8 +1163,8 @@
     if (B.mezzanine) { mez = [sum(B.mezzanine, (r) => r.cur), sum(B.mezzanine, (r) => r[bk])]; secs.push({ h: 'Between debt and equity', rows: B.mezzanine.map((r) => item(r, { sub: 0 })) }); }
     secs.push({ h: 'Shareholders’ equity', rows: B.equity.map((r) => item(r, { good: r.k === 're' || r.k === 'deficit' ? 1 : 0 })).concat([tot('tE', 'Total shareholders’ equity', tv(T.equity), 1)]) });
     secs.push({ rows: [{ id: 'tLE', k: 'tLE', l: B.mezzanine ? 'Total liabilities, preferred stock and equity' : 'Total liabilities and equity', kind: 'm', cur: T.liabilities[0] + mez[0] + T.equity[0], cmp: T.liabilities[ti] + mez[1] + T.equity[ti], tot: 1 }] });
-    const cm = co === 'apple' ? [D.aCashMs('cur'), D.aCashMs('prev')] : [D.xCashMs('cur'), D.xCashMs(bk)];
-    const db = co === 'apple' ? [D.aDebt('cur'), D.aDebt('prev')] : [D.xDebt('cur'), D.xDebt(bk)];
+    const cm = co === 'apple' ? [D.aCashMs('cur'), D.aCashMs(bk)] : [D.xCashMs('cur'), D.xCashMs(bk)];
+    const db = co === 'apple' ? [D.aDebt('cur'), D.aDebt(bk)] : [D.xDebt('cur'), D.xDebt(bk)];
     const key = [
       { id: 'cashMs', k: 'cashMs', l: 'Cash and marketable securities', kind: 'm', cur: cm[0], cmp: cm[1], calc: 1, good: 1 },
       { id: 'debtTot', k: 'debtTot', l: co === 'apple' ? 'Total debt (commercial paper + term debt)' : 'Total debt and finance leases', kind: 'm', cur: db[0], cmp: db[1], calc: 1 },
@@ -1135,7 +1172,7 @@
       { id: 'curRatio', k: 'curRatio', l: 'Current ratio', kind: 'x', cur: T.currentAssets[0] / T.currentLiab[0], cmp: T.currentAssets[ti] / T.currentLiab[ti], calc: 1, good: 1 },
       { id: 'de', k: 'de', l: 'Debt to equity', kind: 'x', cur: db[0] / T.equity[0], cmp: db[1] / T.equity[ti], calc: 1 },
     ];
-    if (co === 'apple') key.push({ id: 'bvps', k: 'bvps', l: 'Book value per share (≈, quarter’s basic shares)', kind: 'eps', cur: D.aBvps, cmp: null, calc: 1, good: 1 });
+    if (co === 'apple') key.push({ id: 'bvps', k: 'bvps', l: 'Book value per share (on shares outstanding)', kind: 'eps', cur: D.aBvps, cmp: bk === 'prev' ? D.aBvpsPrev : null, calc: 1, good: 1 });
     secs.push({ h: 'Key figures, computed by FiredBunny', rows: key });
     return { cols: [B.labels.cur, B.labels[bk]], unit: '$ millions', sections: secs };
   }
@@ -1150,7 +1187,13 @@
           { h: 'Investing activities', rows: C.investing.map((r) => it(r, CFKI)).concat([{ id: 'tInv', k: 'cfInvTot', l: 'Cash from (used in) investing', kind: 'm', cur: T.investing[0], cmp: T.investing[1], tot: 1 }]) },
           { h: 'Financing activities', rows: C.financing.map((r) => it(r, CFKF)).concat([{ id: 'tFin', k: 'cfFinTot', l: 'Cash used in financing', kind: 'm', cur: T.financing[0], cmp: T.financing[1], tot: 1 }]) },
           { h: 'Cash', rows: [{ id: 'chg', k: 'chg', l: 'Increase in cash', kind: 'm', cur: T.change[0], cmp: T.change[1], tot: 1, good: 1 }, { id: 'beg', k: 'beg', l: 'Cash at the start', kind: 'm', cur: T.begin[0], cmp: T.begin[1], sub: 1 }, { id: 'end', k: 'end', l: 'Cash at the end', kind: 'm', cur: T.end[0], cmp: T.end[1], sub: 1 }] },
-          { h: 'Computed and supplemental', rows: [{ id: 'fcf', k: 'fcf', l: 'Free cash flow (operating cash − capex)', kind: 'm', cur: D.aFcf[0], cmp: D.aFcf[1], calc: 1, tot: 1, good: 1 }, { id: 'cashTaxes', k: 'cashTaxes', l: 'Cash paid for income taxes', kind: 'm', cur: C.cashTaxes[0], cmp: C.cashTaxes[1] }] },
+          { h: 'Computed', rows: [{ id: 'fcf', k: 'fcf', l: 'Free cash flow (operating cash − capex)', kind: 'm', cur: D.aFcf[0], cmp: D.aFcf[1], calc: 1, tot: 1, good: 1 }] },
+          { h: 'September quarter alone (12 months − 9 months, our math)', cols: [C.labels.q.replace(' (derived)', ''), ''], noCmp: 1, rows: [
+            { id: 'qOp', noNote: 1, k: 'cfOp', l: 'Operating cash flow', kind: 'm', cur: T.operating[2], cmp: null, calc: 1, good: 1 },
+            { id: 'qCapex', noNote: 1, k: 'capex', l: 'Capex', kind: 'm', cur: bsv(C.investing, 'capex', 'q'), cmp: null, calc: 1, sub: 1 },
+            { id: 'qFcf', noNote: 1, k: 'fcf', l: 'Free cash flow', kind: 'm', cur: D.aFcfQ, cmp: null, calc: 1, tot: 1, good: 1 },
+            { id: 'qBuy', noNote: 1, k: 'cfBuyback', l: 'Buybacks', kind: 'm', cur: bsv(C.financing, 'buyback', 'q'), cmp: null, calc: 1, sub: 1 },
+            { id: 'qDiv', noNote: 1, k: 'cfDiv', l: 'Dividends paid', kind: 'm', cur: bsv(C.financing, 'div', 'q'), cmp: null, calc: 1, sub: 1 }] },
         ],
       };
     }
@@ -1203,23 +1246,28 @@
 
   /* company notes for the "At Apple / At SpaceX" row */
   const NOTE = {
-    'apple.revenue': () => `Apple called it its strongest June quarter ever. Analysts expected about ${Bn(EXA.revenue[0])}–${Bn(EXA.revenue[1])}.`,
-    'apple.servSales': () => `Services were ${P(D.servRevShare)} of sales but ${P(D.servGPShare)} of gross profit.`,
-    'apple.gross': () => `Apple said tariff refunds added about ${TR.grossMarginPts} points of gross margin; without them, about ${P(D.gmEx, 0)}.`,
-    'apple.gm': () => `About ${TR.grossMarginPts} points came from temporary tariff refunds. September-quarter guide: ${G.grossMargin[0]}%–${G.grossMargin[1]}%.`,
-    'apple.opex': () => `September-quarter guide: ${Bn(G.opex[0])}–${Bn(G.opex[1])}.`,
-    'apple.other': () => `September-quarter guide: about ${M(G.otherIncome)}.`,
-    'apple.tax': () => `A ${P(D.tax)} rate vs ${P(D.taxYa)} a year earlier. September-quarter guide: about ${G.taxRate}%.`,
-    'apple.epsDil': () => `Includes ${E$(TR.eps)} from tariff refunds (about ${E$(D.ref.eps)} without). Analysts expected about ${E$(EXA.eps[0])}–${E$(EXA.eps[1])}.`,
+    'apple.revenue': () => `A September-quarter record. Analysts expected about ${Bn(EXA.revenue)}; Apple’s July guide implied ${Bn(D.jLo)}–${Bn(D.jHi)} (our math).`,
+    'apple.servSales': () => `Services were ${P(D.servRevShare)} of sales but ${P(D.servGPShare)} of gross profit. Analysts expected about ${Bn(EXA.services, 2)}; growth slowed to ${P(D.servYoY)} from ${P(D.servYoYPq)} in June.`,
+    'apple.gross': () => `Apple said tariff refunds added about ${TR.grossMarginPts} point of gross margin; without them, about ${P(D.gmEx)}.`,
+    'apple.gm': () => `About ${TR.grossMarginPts} point came from temporary tariff refunds (about ${TR.pq.grossMarginPts} in June). December-quarter guide: ${G.grossMargin[0]}%–${G.grossMargin[1]}%, mainly because memory chips cost more.`,
+    'apple.opex': () => `Apple had guided ${Bn(GJ.opex[0])}–${Bn(GJ.opex[1])}. December-quarter guide: ${Bn(G.opex[0])}–${Bn(G.opex[1])}.`,
+    'apple.other': () => `Apple had guided about ${M(GJ.otherIncome)}. December-quarter guide: about ${M(G.otherIncome)}.`,
+    'apple.tax': () => `A ${P(D.tax)} rate vs ${P(D.taxYa)} a year earlier and the roughly ${GJ.taxRate}% guided. December-quarter guide: about ${G.taxRate}%.`,
+    'apple.epsDil': () => `Includes ${E$(TR.eps)} from tariff refunds (about ${E$(D.ref.eps)} without). Analysts expected about ${E$(EXA.eps)}.`,
     'apple.shBasic': () => `Buybacks cut it ${P(-pc(ai.shBasic, ay.shBasic))} in a year.`,
     'apple.shDil': () => `Buybacks cut it ${P(-D.shYoY)} in a year, so EPS grew ${P(D.epsYoY)} vs net income ${P(D.niYoY)}.`,
-    'apple.inv': () => 'Nearly doubled in nine months.',
-    'apple.re': () => `Flipped from ${Bn(bsv(aB.equity, 're', 'prev'))} to ${Bn(bsv(aB.equity, 're', 'cur'))}: nine months of profit outran buybacks and dividends.`,
-    'apple.tE': () => `Up ${Bn(aB.totals.equity[0] - aB.totals.equity[1])} in nine months.`,
-    'apple.netCash': () => 'Apple could repay every loan and still hold tens of billions.',
-    'apple.cf.buyback.f': () => `On the call Apple said it returned about ${Bn(A.call.quarterReturn.total, 0)} to shareholders in the June quarter alone.`,
-    'apple.cf.capex.i': () => 'Small next to Apple’s operating cash, which is why its free cash flow is so large.',
-    'apple.fcf': () => `Then ${Bn(-bsv(aCF.financing, 'buyback', 'cur'))} of buybacks and ${Bn(-bsv(aCF.financing, 'div', 'cur'))} of dividends.`,
+    'apple.inv': () => `About ${F.num(bsv(aB.assets, 'inv', 'cur') / bsv(aB.assets, 'inv', 'prev'), 1)} times its level a year earlier (${Bn(bsv(aB.assets, 'inv', 'mid'))} in June): Apple stocked up on parts and memory ahead of the holiday quarter.`,
+    'apple.ap': () => `Up from ${Bn(bsv(aB.liabilities, 'ap', 'mid'))} in June and ${Bn(bsv(aB.liabilities, 'ap', 'prev'))} a year earlier. Payables usually peak around the fall iPhone launch, when Apple buys the most parts.`,
+    'apple.vendor': () => `Up from ${Bn(bsv(aB.assets, 'vendor', 'mid'))} in June as production ramped for the new iPhones.`,
+    'apple.re': () => `Flipped from ${Bn(bsv(aB.equity, 're', 'prev'))} a year earlier to ${Bn(bsv(aB.equity, 're', 'cur'))}: a year of profit outran buybacks and dividends.`,
+    'apple.tE': () => `Up ${Bn(aB.totals.equity[0] - aB.totals.equity[1])} in the fiscal year.`,
+    'apple.netCash': () => `Down from ${Bn(D.aNetCash('mid'))} in June but up from ${Bn(D.aNetCash('prev'))} a year earlier. On the November call Apple said it no longer aims for “net cash neutral” (cash equal to debt).`,
+    'apple.cf.buyback.f': () => `In the September quarter alone Apple said it returned about ${Bn(A.call.quarterReturn.total, 0)} to shareholders: about ${Bn(A.call.quarterReturn.buybacks, 0)} of buybacks and ${Bn(A.call.quarterReturn.dividends)} of dividends.`,
+    'apple.cf.capex.i': () => `Down from ${Bn(-D.aCapex[1])} in fiscal 2025, and small next to Apple’s operating cash, which is why its free cash flow is so large.`,
+    'apple.fcf': () => `Up from ${Bn(D.aFcf[1])} in fiscal 2025. Then ${Bn(-bsv(aCF.financing, 'buyback', 'cur'))} of buybacks and ${Bn(-bsv(aCF.financing, 'div', 'cur'))} of dividends.`,
+    'apple.qOp': () => `Apple’s release said about ${Bn(aCF.totals.operating[2])} of operating cash flow in the quarter.`,
+    'apple.qBuy': () => `Apple said it returned about ${Bn(A.call.quarterReturn.total, 0)} in the quarter.`,
+    'apple.fyEps': () => `Fiscal 2026 EPS of ${E$(A.is.fy.epsDil)} is also Apple’s trailing 12-month EPS, the number a P/E ratio divides into the price.`,
     'spacex.revenue': () => `Analysts expected about ${Bn(EXX.revenue[0], 2)}–${Bn(EXX.revenue[1], 2)}. Super Intelligence brought in ${Bn(XSEG('ai').revenue)}, including ${M(X.segments.notes.cursorRevenue)} from Cursor (bought ${X.segments.notes.cursorClosed}).`,
     'spacex.opInc': () => `${segOpTxt()}.`,
     'spacex.netInc': () => `About ${Bn(D.xBelow)} came from below the operating line: other income ${M(X.belowTheLine.other)} (including ${M(X.belowTheLine.otherRelatedParty)} from a related party, per TIKR), net interest ${M(X.belowTheLine.netInterest)} and a ${M(X.belowTheLine.taxBenefit)} tax benefit. Nine months to September: ${M(X.is.ytd.netInc)}.`,
@@ -1252,7 +1300,7 @@
     let ck = opts.compare === 'pq' ? 'pq' : 'ya', bk = opts.compareBalance === 'mid' ? 'mid' : 'prev';
     let open = opts.open === undefined ? (stt === 'income' ? 'revenue' : stt === 'balance' ? 'tE' : co === 'apple' ? 'fcf' : 'fcf') : opts.open, lastW = 600;
     root.innerHTML = `
-      <div class="wg-bar">${ui.seg(id + '-c', [{ v: 'apple', label: 'Apple' }, { v: 'spacex', label: 'SpaceX' }], co, 'Company')}${ui.seg(id + '-s', [{ v: 'income', label: 'Income' }, { v: 'balance', label: 'Balance sheet' }, { v: 'cash', label: 'Cash flow' }], stt, 'Statement')}<span class="grow"></span><span id="${id}-kw">${ui.seg(id + '-k', [{ v: 'ya', label: 'vs year ago' }, { v: 'pq', label: 'vs prior qtr' }], ck, 'Compare with')}</span><span id="${id}-bw">${ui.seg(id + '-b', [{ v: 'prev', label: 'vs ' + xB.labels.prev }, { v: 'mid', label: 'vs ' + xB.labels.mid }], bk, 'Compare balance sheet with')}</span></div>
+      <div class="wg-bar">${ui.seg(id + '-c', [{ v: 'apple', label: 'Apple' }, { v: 'spacex', label: 'SpaceX' }], co, 'Company')}${ui.seg(id + '-s', [{ v: 'income', label: 'Income' }, { v: 'balance', label: 'Balance sheet' }, { v: 'cash', label: 'Cash flow' }], stt, 'Statement')}<span class="grow"></span><span id="${id}-kw">${ui.seg(id + '-k', [{ v: 'ya', label: 'vs year ago' }, { v: 'pq', label: 'vs prior qtr' }], ck, 'Compare with')}</span><span id="${id}-bw">${ui.seg(id + '-b', [{ v: 'prev', label: 'vs last year end' }, { v: 'mid', label: 'vs prior qtr end' }], bk, 'Compare balance sheet with')}</span></div>
       <div class="rci-xh" id="${id}-h"></div>
       <div class="wg-fig"></div>
       <div class="rci-tw" id="${id}-t"></div>
@@ -1299,7 +1347,7 @@
       });
       return h + '</tbody></table>';
     }
-    const esc2 = (s) => s.replace(/ qtr$/, '').replace(/^6 months to /, '6 mo to ').replace(/^9 months to /, '9 mo to ');
+    const esc2 = (s) => s.replace(/ qtr$/, '').replace(/ \(12 months\)$/, '').replace(/^Fiscal (\d{4})$/, 'FY$1').replace(/^6 months to /, '6 mo to ').replace(/^9 months to /, '9 mo to ');
 
     /* figures */
     function figIncome(W) {
@@ -1346,7 +1394,7 @@
     }
     function figBalance(W) {
       const B = co === 'apple' ? aB : xB, T = B.totals, compact = W < 520;
-      const pers = co === 'spacex' ? [['cur', 0], ['mid', 2], ['prev', 1]] : [['cur', 0], ['prev', 1]];
+      const pers = [['cur', 0], ['mid', 2], ['prev', 1]];
       const mx = Math.max(...pers.map((q) => T.assets[q[1]])), lw = compact ? 0 : 118, x = SML.lin(0, mx, lw, W - 4), bh = 24;
       let s = '', y = 4;
       pers.forEach(([pk, ti], pi) => {
@@ -1382,7 +1430,7 @@
         : [['x9op', 'Operating', X.cf9.operating[0], 'info'], ['x9inv', 'Investing', X.cf9.investing[0], 'vio'], ['x9fin', 'Financing', X.cf9.financing[0], 'acc'], ['x9capex', 'Capex', X.cf9.ppe[0], 'dn'], ['fcf', 'Free cash flow', D.xFcf9[0], D.xFcf9[0] < 0 ? 'dn' : 'up']];
       const vals = rows.map((r) => r[2]).concat([0]), lo = Math.min(...vals), hi = Math.max(...vals);
       const lw = compact ? 96 : 130, vw = compact ? 74 : 92, x = SML.lin(lo, hi, lw + 6, W - vw - 8), rowH = 30, top = 22;
-      let s = S.text(0, 12, co === 'apple' ? aCF.labels.cur : X.cf9.label, 'sm b acc');
+      let s = S.text(0, 12, co === 'apple' ? aCF.labels.cur + ' to September 26, 2026' : X.cf9.label, 'sm b acc');
       s += S.line(x(0), top - 4, x(0), top + rows.length * rowH, 's-mut');
       rows.forEach(([k, l, v, c], i) => {
         const y = top + i * rowH, cy = y + rowH / 2, on = open === k;
@@ -1400,10 +1448,10 @@
 
     function header() {
       const C = co === 'apple' ? A : X;
-      const per = stt === 'balance' ? `as of ${C.bs.labels.cur}, compared with ${C.bs.labels[co === 'spacex' ? bk : 'prev']}` : stt === 'cash' ? (co === 'apple' ? 'nine months to June 27, 2026 (Apple reports cash flow year to date)' : 'nine months to September 30, 2026 (SpaceX reports cash flow year to date)') : `${C.period}${co === 'apple' ? ', April to June 2026' : ', July to September 2026'}, three months ended ${C.periodEnd}`;
+      const per = stt === 'balance' ? `as of ${C.bs.labels.cur}, compared with ${C.bs.labels[bk]}` : stt === 'cash' ? (co === 'apple' ? 'the full fiscal year to September 26, 2026 (Apple reports cash flow year to date, so its fourth quarter closes the year)' : 'nine months to September 30, 2026 (SpaceX reports cash flow year to date)') : `${C.period}, July to September 2026, three months ended ${C.periodEnd}`;
       const nm = stt === 'income' ? 'Income statement' : stt === 'balance' ? 'Balance sheet' : 'Cash flow statement';
       const m = model();
-      return `<b>${coName()} · ${nm}</b> · latest reported quarter as of October 2026 · ${per} · reported ${C.reported} · <span class="mono">${m.unit}</span> · <a href="${C.sources[0].u}" target="_blank" rel="noopener noreferrer">source</a>`;
+      return `<b>${coName()} · ${nm}</b> · latest reported quarter as of November 2026 · ${per} · reported ${C.reported} · <span class="mono">${m.unit}</span> · <a href="${C.sources[0].u}" target="_blank" rel="noopener noreferrer">source</a>`;
     }
     function readHTML() {
       const S2 = (l, v, c) => `<div class="stat${c ? ' ' + c : ''}"><span class="stat-l">${l}</span><span class="stat-v">${v}</span></div>`;
@@ -1411,22 +1459,24 @@
       if (co === 'spacex' && stt === 'income') return S2('Gross margin', P(D.xGm)) + S2('Operating margin', P(D.xOm)) + S2('Adj. EBITDA margin', P(D.xEbitdaM)) + S2('Diluted EPS', E$(xi.eps), 'hl');
       if (co === 'apple' && stt === 'balance') return S2('Net cash', Bn(D.aCashMs('cur') - D.aDebt('cur'))) + S2('Current ratio', F.num(aB.totals.currentAssets[0] / aB.totals.currentLiab[0], 2)) + S2('Debt / equity', F.num(D.aDebt('cur') / aB.totals.equity[0], 2)) + S2('Book value / share', '≈' + E$(D.aBvps), 'hl');
       if (co === 'spacex' && stt === 'balance') return S2('Net cash', Bn(D.xCashMs('cur') - D.xDebt('cur'))) + S2('Current ratio', F.num(xB.totals.currentAssets[0] / xB.totals.currentLiab[0], 2)) + S2('Debt / equity', F.num(D.xDebt('cur') / xB.totals.equity[0], 2)) + S2('Equity', Bn(xB.totals.equity[0]), 'hl');
-      if (co === 'apple') return S2('Operating cash, 9 mo', Bn(aCF.totals.operating[0])) + S2('Capex, 9 mo', Bn(-D.aCapex[0])) + S2('Buybacks + dividends', Bn(-(bsv(aCF.financing, 'buyback', 'cur') + bsv(aCF.financing, 'div', 'cur')))) + S2('Free cash flow', Bn(D.aFcf[0]), 'hl');
+      if (co === 'apple') return S2('Operating cash, FY26', Bn(aCF.totals.operating[0])) + S2('Capex, FY26', Bn(-D.aCapex[0])) + S2('Buybacks + dividends', Bn(-(bsv(aCF.financing, 'buyback', 'cur') + bsv(aCF.financing, 'div', 'cur')))) + S2('Free cash flow, FY26', Bn(D.aFcf[0]), 'hl');
       return S2('Operating cash, 9 mo', Bn(X.cf9.operating[0])) + S2('Capex, 9 mo', Bn(-X.cf9.ppe[0])) + S2('Q3 capex ÷ revenue', F.num(X.capex.cur / xi.revenue, 1) + '×') + S2('Free cash flow, 9 mo', Bn(D.xFcf9[0]), 'hl');
     }
     function msgHTML() {
-      if (co === 'apple' && stt === 'income') return ui.msg('up', 'Profitable', `Apple turned ${Bn(ai.revenue)} of sales into ${Bn(ai.netInc)} of profit: ${F.num(D.nm, 1)} cents per dollar, up from ${F.num(D.nmYa, 1)} a year earlier. ${ck === 'pq' ? `Against the March quarter, sales were ${SP(D.revQoQ)}: the June quarter is seasonally smaller.` : 'Tap a line to see what it means.'}`);
+      if (co === 'apple' && stt === 'income') return ui.msg('up', 'Profitable', `Apple turned ${Bn(ai.revenue)} of sales into ${Bn(ai.netInc)} of profit: ${F.num(D.nm, 1)} cents per dollar, ${Math.abs(D.nm - D.nmYa) < 0.2 ? 'about the same as' : D.nm > D.nmYa ? 'up from' : 'down from'} ${F.num(D.nmYa, 1)} a year earlier. ${ck === 'pq' ? `Against the June quarter, sales were ${SP(D.revQoQ)}, but gross margin fell from ${P(D.gmPq)} to ${P(D.gm)} as tariff refunds shrank and memory got pricier.` : 'Tap a line to see what it means.'}`);
       if (co === 'spacex' && stt === 'income') return xi.netInc >= 0 ? ui.msg('up', 'Profit', `SpaceX’s revenue grew ${P(ck === 'pq' ? D.xRevQoQ : D.xRevYoY)} ${ck === 'pq' ? 'in one quarter' : 'in a year'} and it earned ${Bn(xi.netInc)}, its first profitable quarter as a public company. About ${Bn(D.xBelow)} of that came from below the operating line. Adjusted EBITDA, SpaceX’s own measure, was positive ${Bn(X.ebitda.cur)}.`) : ui.msg('dn', 'Still a loss', `SpaceX lost ${M(-xi.netInc)} this quarter.`);
-      if (co === 'apple' && stt === 'balance') return ui.msg('up', 'Net cash', `Apple owns ${Bn(aB.totals.assets[0])} and owes ${Bn(aB.totals.liabilities[0])}; the ${Bn(aB.totals.equity[0])} difference is shareholders’ equity. Cash and securities beat debt by ${Bn(D.aCashMs('cur') - D.aDebt('cur'))}.`);
+      if (co === 'apple' && stt === 'balance') return ui.msg('up', 'Net cash', `At the end of its fiscal year Apple owns ${Bn(aB.totals.assets[0])} and owes ${Bn(aB.totals.liabilities[0])}; the ${Bn(aB.totals.equity[0])} difference is shareholders’ equity. Cash and securities beat debt by ${Bn(D.aNetCash('cur'))}, down from ${Bn(D.aNetCash('mid'))} in June.`);
       if (co === 'spacex' && stt === 'balance') return ui.msg('info', 'After the IPO', `Since ${xB.labels.prev} SpaceX’s equity went from ${Bn(xB.totals.equity[1])} to ${Bn(xB.totals.equity[0])}, helped by the IPO and the conversion of ${Bn(bsv(xB.mezzanine, 'pref', 'prev'))} of preferred stock, and goodwill from ${Bn(bsv(xB.assets, 'gw', 'prev'))} to ${Bn(bsv(xB.assets, 'gw', 'cur'))} with the Cursor deal. Cash and securities: ${Bn(D.xCashMs('cur'))}, down from ${Bn(D.xCashMs('mid'))} on ${xB.labels.mid}.`);
-      if (co === 'apple') return ui.msg('up', 'Cash machine', `In nine months Apple’s operations brought in ${Bn(aCF.totals.operating[0])}. After ${Bn(-D.aCapex[0])} of capex, ${Bn(D.aFcf[0])} of free cash flow paid for ${Bn(-bsv(aCF.financing, 'buyback', 'cur'))} of buybacks and ${Bn(-bsv(aCF.financing, 'div', 'cur'))} of dividends.`);
+      if (co === 'apple') return ui.msg('up', 'Cash machine', `In fiscal 2026 Apple’s operations brought in ${Bn(aCF.totals.operating[0])}. After ${Bn(-D.aCapex[0])} of capex, ${Bn(D.aFcf[0])} of free cash flow paid for ${Bn(-bsv(aCF.financing, 'buyback', 'cur'))} of buybacks and ${Bn(-bsv(aCF.financing, 'div', 'cur'))} of dividends. The September quarter alone: ${Bn(aCF.totals.operating[2])} in, ${Bn(D.aFcfQ)} free (our math).`);
       return ui.msg('dn', 'Cash burn', `In nine months operations brought in ${Bn(X.cf9.operating[0])}, but capex was ${Bn(-X.cf9.ppe[0])}, so free cash flow was about ${Bn(D.xFcf9[0])}. IPO money (${Bn(X.cf9.ipoProceeds)}) paid for it, and SpaceX guided ${Bn(X.capex.q4Guide[0], 0)}–${Bn(X.capex.q4Guide[1], 0)} of capex for the fourth quarter alone.`);
     }
     function noteHTML() {
       const base = 'Figures in millions exactly as reported: 109,417 means $109.4 billion. Change shows % for like-signed values and the difference otherwise; pts = percentage points. Ratios and lines marked computed are FiredBunny’s math. ';
       if (co === 'spacex' && stt === 'cash') return base + 'SpaceX reports cash flow year to date (nine months), with totals only; capex is also given quarter by quarter, so free cash flow here is nine-month operating cash minus nine-month capex.';
-      if (co === 'spacex' && stt === 'income') return base + `Q3 2026 is SpaceX’s latest reported quarter as of October 2026 (reported ${X.reported}). Compare it with Q3 2025, or with Q2 2026, its first report as a public company. The nine-month section shows the year to date is still a small loss.`;
-      if (co === 'apple' && stt === 'cash') return base + 'Apple reports cash flow year to date (nine months), not for the quarter alone.';
+      if (co === 'spacex' && stt === 'income') return base + `Q3 2026 is SpaceX’s latest reported quarter as of November 2026 (reported ${X.reported}). Compare it with Q3 2025, or with Q2 2026, its first report as a public company. The nine-month section shows the year to date is still a small loss.`;
+      if (co === 'apple' && stt === 'cash') return base + 'Apple reports cash flow year to date, not for the quarter alone. This is the full fiscal year; the September quarter is the full year minus the nine months to June (our math).';
+      if (co === 'apple' && stt === 'income') return base + `The September quarter is Apple’s latest reported quarter as of November 2026 (reported ${A.reported}). Compare it with a year earlier or with the June quarter, the previous one. The fiscal-year section shows all of fiscal 2026.`;
+      if (stt === 'balance' && co === 'apple') return base + `Compare ${aB.labels.cur}, Apple’s fiscal year end, with ${aB.labels.prev} (a year earlier) or with ${aB.labels.mid} (the end of the June quarter).`;
       if (stt === 'balance' && co === 'spacex') return base + `Compare ${xB.labels.cur} with ${xB.labels.prev} (before the IPO) or with ${xB.labels.mid} (just after it). Preferred stock sits between liabilities and equity; it converted to common stock at the June 2026 IPO.`;
       return base + 'Education only, not investment advice.';
     }
@@ -1438,7 +1488,7 @@
     }
     function renderAll() {
       $id(id + '-kw').hidden = stt !== 'income';
-      $id(id + '-bw').hidden = !(stt === 'balance' && co === 'spacex');
+      $id(id + '-bw').hidden = stt !== 'balance';
       $id(id + '-h').innerHTML = header();
       renderFig(); renderTable();
       $id(id + '-rd').innerHTML = readHTML();
@@ -1468,7 +1518,9 @@
      Lessons
      ====================================================================== */
   const AS = A.sources, XS = X.sources;
+  const asrc = (re) => AS.find((x) => re.test(x.u));
   const tip = (h, l) => (SML.bunnyTip ? SML.bunnyTip(h, l) : '');
+  const servGrowthPq = D.servYoYPq;
   SML.lessons.push({
     id: 'l-rc-words', course: 'realco', order: 1, title: 'Earnings words in plain English', mins: 12, level: 'Beginner',
     summary: 'Every earnings word decoded with a coffee cart, then Apple and SpaceX.',
@@ -1489,89 +1541,100 @@
       <tr><td>Tax (20%)</td><td class="num">$760</td><td class="num">$480</td></tr>
       <tr><td><b>Net income</b></td><td class="num">$3,040</td><td class="num">$1,920</td></tr>
       <tr><td><b>EPS</b> (1,000 shares)</td><td class="num">$3.04</td><td class="num">$1.92</td></tr></tbody></table>`,
-      '<h3>The income statement, top to bottom</h3><ul><li><b>Revenue</b>, the <b>top line</b>: everything customers paid. Apple took in $109.4 billion in its April to June 2026 quarter.</li><li><b>Cost of sales</b>: what it cost to make exactly what was sold. Revenue minus cost of sales is <b>gross profit</b>; divide it by revenue for the <b>gross margin</b> (Hoppy’s 60%, Apple 50.1%).</li><li><b>Operating expenses</b>: <b>R&amp;D</b> (inventing the next product) plus <b>SG&amp;A</b> (selling and running the company). Gross profit minus these is <b>operating income</b>; as a share of sales it is the <b>operating margin</b> (Apple 32.6%).</li><li>After interest, other income and tax comes <b>net income</b>, the <b>bottom line</b>: Apple $29.8 billion.</li><li>Split net income across the shares and you get <b>EPS</b>. Headlines quote <b>diluted EPS</b>, which also counts shares promised to employees: Apple $2.02.</li></ul>',
-      '<h3>Compared with what? YoY, QoQ and fiscal quarters</h3><p><b>Year over year (YoY)</b> compares a quarter with the same quarter a year earlier. <b>Quarter over quarter (QoQ)</b>, also called sequential, compares it with the quarter right before. Apple’s sales were up 16% YoY and down 1.6% QoQ, and both are true. Apple sells far more in the October to December holiday quarter, and its June quarter is seasonally smaller than March, so for a seasonal business YoY is the fair test. For a fast grower like SpaceX, QoQ shows the pace: +86.5% in one quarter.</p><p>A <b>fiscal year</b> is a company’s own accounting year. Apple’s ends in late September, so October to December is its fiscal Q1 and April to June 2026 is <b>fiscal Q3 2026</b>. SpaceX uses the calendar year, so its July to September quarter is Q3 2026. These are the latest reported quarters as of October 2026: Apple’s covers April to June and SpaceX’s, reported on October 20, covers July to September. Apple reports its next one on November 2, 2026.</p>',
+      `<h3>The income statement, top to bottom</h3><ul><li><b>Revenue</b>, the <b>top line</b>: everything customers paid. Apple took in ${Bw(ai.revenue)} in its July to September 2026 quarter.</li><li><b>Cost of sales</b>: what it cost to make exactly what was sold. Revenue minus cost of sales is <b>gross profit</b>; divide it by revenue for the <b>gross margin</b> (Hoppy’s 60%, Apple ${P(D.gm)}).</li><li><b>Operating expenses</b>: <b>R&amp;D</b> (inventing the next product) plus <b>SG&amp;A</b> (selling and running the company). Gross profit minus these is <b>operating income</b>; as a share of sales it is the <b>operating margin</b> (Apple ${P(D.om)}).</li><li>After interest, other income and tax comes <b>net income</b>, the <b>bottom line</b>: Apple ${Bw(ai.netInc)}.</li><li>Split net income across the shares and you get <b>EPS</b>. Headlines quote <b>diluted EPS</b>, which also counts shares promised to employees: Apple ${E$(ai.epsDil)}.</li></ul>`,
+      `<h3>Compared with what? YoY, QoQ and fiscal quarters</h3><p><b>Year over year (YoY)</b> compares a quarter with the same quarter a year earlier. <b>Quarter over quarter (QoQ)</b>, also called sequential, compares it with the quarter right before. Apple’s sales were up ${P(D.revYoY)} YoY and ${P(D.revQoQ)} QoQ. Apple sells far more in the October to December holiday quarter, and new iPhones make its September quarter a little bigger than June, so for a seasonal business YoY is the fair test. For a fast grower like SpaceX, QoQ shows the pace: ${SP(D.xRevQoQ)} in one quarter.</p><p>A <b>fiscal year</b> is a company’s own accounting year. Apple’s ends in late September, so October to December is its fiscal Q1 and July to September 2026 is <b>fiscal Q4 2026</b>, the last quarter of its fiscal year. SpaceX uses the calendar year, so the very same months are its Q3 2026. These are the latest reported quarters as of November 2026: SpaceX reported on October 20 and Apple on November 2. Apple usually reports its December quarter in late January.</p>`,
       '<h3>When the lines turn red, and back to black</h3><p>SpaceX’s previous quarter shows a loss. In Q2 2026, its first report as a public company, revenue was $7.8 billion and the gross margin 55.3%, but research and other operating costs were bigger than gross profit. That is an <b>operating loss</b>: −$143 million. After interest and tax the <b>net loss</b> was −$541 million, or −$0.09 per share.</p><p>One quarter later the lines turned black. In Q3 2026 revenue rose 161% from a year earlier to $14.6 billion, operating income was +$2.8 billion and net income +$4.4 billion, or $0.35 per diluted share: its first profitable quarter as a public company. About $1.6 billion of that profit came from below the operating line (other income, net interest and a tax benefit), so investors also look at the $2.8 billion of operating income.</p>',
-      `<h3>Expectations: consensus, beat, miss and guidance</h3><p>Before results, analysts publish forecasts; their average is the <b>consensus</b>. A result above it is a <b>beat</b>, below it a <b>miss</b>. Apple’s revenue ($109.4 billion vs about $108.7 to $109.0 billion expected) and EPS ($2.02 vs about $1.88 to $1.89) were beats; Services ($30.7 billion vs about $31.2 billion) was a small miss.</p><p><b>Guidance</b> is management’s own forecast for the next quarter. Apple guided September-quarter sales growth of 9% to 11%, while analysts had hoped for about 12%, and its stock fell about 7% the next day. SpaceX did the opposite in October: it beat (revenue $14.6 billion vs about $12.7 to $12.9 billion expected) and guided first-quarter 2027 revenue of $33 to $37 billion vs about $22.2 billion expected, and its stock rose about 7.8%. A stock prices the future, so guidance often counts more than the quarter just reported. See <a href="#l-rc-price">how earnings move the stock price</a>, <a href="#l-earnings">earnings reports</a> and <a href="#l-earnings-season">earnings season</a>.</p>`,
-      '<h3>Adjusted numbers, one-time items, segments and cash</h3><ul><li>A <b>one-time item</b> is temporary or unusual, so it says little about the repeatable business. Apple’s EPS included $0.11 from tariff refunds; without them it was about $1.91. Refunds are temporary rather than gone overnight: Apple’s September guide still includes about 1 point of them.</li><li><b>GAAP</b> numbers follow the official rules. <b>Adjusted</b> (non-GAAP) numbers leave some costs out. <b>EBITDA</b> skips interest, taxes, depreciation and amortization. In Q3 2026 SpaceX showed positive $8.8 billion on its own adjusted EBITDA measure, double its $4.4 billion GAAP net income; <a href="#l-rc-spacex">the SpaceX lesson</a> goes deeper.</li><li>A <b>segment</b> is a part of the business reported on its own: SpaceX’s Starlink, Super Intelligence and Space, or Apple’s five regions.</li><li><b>Free cash flow</b> is operating cash minus capex: about $110.2 billion for Apple in nine months, and about −$35.0 billion for SpaceX in nine months as it built computing capacity. More in <a href="#l-rc-apple-cash">Apple’s cash flow</a>.</li></ul>' + tip('Read a results headline in this order: revenue against the consensus, EPS against the consensus, then guidance. The third one usually decides the next day.'),
+      `<h3>Expectations: consensus, beat, miss and guidance</h3><p>Before results, analysts publish forecasts; their average is the <b>consensus</b>. A result above it is a <b>beat</b>, below it a <b>miss</b>. Apple’s revenue (${Bw(ai.revenue)} vs about ${Bw(EXA.revenue)} expected) and EPS (${E$(ai.epsDil)} vs about ${E$(EXA.eps)}) were beats; Services (${Bw(ai.servSales, 2)} vs about ${Bw(EXA.services, 2)}) was in line.</p><p><b>Guidance</b> is management’s own forecast for the next quarter. For the December quarter Apple guided sales growth of ${G.revGrowth[0]}% to ${G.revGrowth[1]}% and a ${G.grossMargin[0]}% to ${G.grossMargin[1]}% gross margin, while analysts had hoped for about ${EXA.nextQtrGrowth}% growth and a margin near ${EXA.nextQtrGrossMargin}%, and its stock ${moveShort()}. July was the same story: a beat, a softer guide and a ${P(-Q3.reaction.closePct)} drop. SpaceX did the opposite in October: it beat (revenue $14.6 billion vs about $12.7 to $12.9 billion expected) and guided first-quarter 2027 revenue of $33 to $37 billion vs about $22.2 billion expected, and its stock rose about 7.8%. A stock prices the future, so guidance often counts more than the quarter just reported. See <a href="#l-rc-price">how earnings move the stock price</a>, <a href="#l-earnings">earnings reports</a> and <a href="#l-earnings-season">earnings season</a>.</p>`,
+      `<h3>Adjusted numbers, one-time items, segments and cash</h3><ul><li>A <b>one-time item</b> is temporary or unusual, so it says little about the repeatable business. Apple’s September EPS included ${E$(TR.eps)} from tariff refunds, down from ${E$(TR.pq.eps)} in June; without them it was about ${E$(D.ref.eps)}. The refunds are temporary, and they are fading.</li><li><b>GAAP</b> numbers follow the official rules. <b>Adjusted</b> (non-GAAP) numbers leave some costs out. <b>EBITDA</b> skips interest, taxes, depreciation and amortization. In Q3 2026 SpaceX showed positive $8.8 billion on its own adjusted EBITDA measure, double its $4.4 billion GAAP net income; <a href="#l-rc-spacex">the SpaceX lesson</a> goes deeper.</li><li>A <b>segment</b> is a part of the business reported on its own: SpaceX’s Starlink, Super Intelligence and Space, or Apple’s five regions.</li><li><b>Free cash flow</b> is operating cash minus capex: about ${Bw(D.aFcf[0])} for Apple in fiscal 2026 (our math), and about −$35.0 billion for SpaceX in nine months as it built computing capacity. More in <a href="#l-rc-apple-cash">Apple’s cash flow</a>.</li></ul>` + tip('Read a results headline in this order: revenue against the consensus, EPS against the consensus, then guidance. The third one usually decides the next day.'),
     ],
     example: {
       title: 'Decode Apple’s quarter in six steps',
-      intro: 'Apple’s fiscal Q3 2026 (April to June), in millions of dollars as Apple printed them.',
+      intro: 'Apple’s fiscal Q4 2026 (July to September), in millions of dollars as Apple printed them.',
       steps: [
-        `Top line: revenue was ${M(ai.revenue)} vs ${M(ay.revenue)} a year earlier. (${M(ai.revenue)} − ${M(ay.revenue)}) ÷ ${M(ay.revenue)} = ${SP(D.revYoY)} YoY. Against the March quarter’s ${M(ap.revenue)} it is ${SP(D.revQoQ)} QoQ, a normal seasonal dip.`,
+        `Top line: revenue was ${M(ai.revenue)} vs ${M(ay.revenue)} a year earlier. (${M(ai.revenue)} − ${M(ay.revenue)}) ÷ ${M(ay.revenue)} = ${SP(D.revYoY)} YoY. Against the June quarter’s ${M(ap.revenue)} it is ${SP(D.revQoQ)} QoQ: new iPhones make September a little bigger than June.`,
         `Gross profit: ${M(ai.revenue)} − ${M(ai.cost)} cost of sales = ${M(ai.gross)}. Gross margin: ${M(ai.gross)} ÷ ${M(ai.revenue)} = ${P(D.gm)}.`,
-        `Operating income: ${M(ai.gross)} − ${M(ai.rd)} R&D − ${M(ai.sga)} SG&A = ${M(ai.opInc)}, a ${P(D.om)} operating margin.`,
+        `Operating income: ${M(ai.gross)} − ${M(ai.rd)} R&D − ${M(ai.sga)} SG&A = ${M(ai.opInc)}, a ${P(D.om)} operating margin (${P(D.omYa)} a year earlier).`,
         `Bottom line: ${M(ai.opInc)} + ${M(ai.other)} other income − ${M(ai.tax)} tax = ${M(ai.netInc)}. Divided by ${shM(ai.shDil)} diluted shares, that is ${E$(ai.epsDil)} of EPS.`,
-        `Expectations: analysts expected about ${E$(EXA.eps[0])} to ${E$(EXA.eps[1])}, so ${E$(ai.epsDil)} beat by ${D.beat[0]} to ${D.beat[1]} cents. Take out the ${E$(TR.eps)} of temporary tariff refunds and the beat shrinks to ${D.beatEx[0]} to ${D.beatEx[1]} cents (${E$(D.ref.eps)}; FiredBunny’s math, assuming the consensus did not include the refunds).`,
-        `Guidance: ${G.revGrowth[0]}% to ${G.revGrowth[1]}% growth for the September quarter, below the roughly ${EXA.nextQtrGrowth}% analysts wanted. The stock fell about ${P(-A.reaction.closePct, 0)} the next day.`,
+        `Expectations: analysts expected about ${E$(EXA.eps)}, so ${E$(ai.epsDil)} beat by ${D.beat} cents. Take out the ${E$(TR.eps)} of temporary tariff refunds and the beat shrinks to ${D.beatEx} cents (${E$(D.ref.eps)}; FiredBunny’s math, assuming the consensus did not include the refunds).`,
+        `Guidance: ${G.revGrowth[0]}% to ${G.revGrowth[1]}% growth and a ${G.grossMargin[0]}% to ${G.grossMargin[1]}% gross margin for the December quarter, below the roughly ${EXA.nextQtrGrowth}% and ${EXA.nextQtrGrossMargin}% analysts wanted. The stock ${moveShort()}.`,
       ],
-      result: 'Same quarter, three readings: a record June-quarter top line, a smaller beat once the temporary refunds are removed, and a soft outlook. The stock followed the outlook.',
+      result: 'Same quarter, three readings: a record September-quarter top line, a smaller beat once the temporary refunds are removed, and a soft holiday-quarter outlook. The stock followed the outlook, just as it did in July.',
     },
     mistakes: [
-      'Calling Apple’s June quarter a slowdown because sales fell 1.6% from March. In a seasonal business, compare with the same quarter a year earlier (+16.4%).',
+      `Calling a quarter a boom or a slowdown from QoQ alone. Apple’s sales rose ${P(D.revQoQ)} from June to September mostly because new iPhones launch in September; the fair test is the same quarter a year earlier (${SP(D.revYoY)}).`,
       'Treating adjusted EBITDA as profit. In Q2 2026 SpaceX showed positive $3.5 billion on its own adjusted EBITDA measure in a quarter with a $541 million GAAP net loss.',
-      'Reading only the headline beat. Check temporary items (Apple’s $0.11 of tariff refunds, SpaceX’s $1.6 billion of non-operating profit from below the operating line, some of which may not recur) and the guidance before deciding what the number means.',
-      'Mixing up fiscal and calendar quarters. Apple’s fiscal Q3 is April to June; its fiscal Q1 is the holiday quarter.',
+      `Reading only the headline beat. Check temporary items (Apple’s ${E$(TR.eps)} of tariff refunds, SpaceX’s $1.6 billion of non-operating profit from below the operating line, some of which may not recur) and the guidance before deciding what the number means.`,
+      'Mixing up fiscal and calendar quarters. Apple’s fiscal Q4 is July to September; its fiscal Q1 is the holiday quarter.',
     ],
     points: [
       'Revenue is the top line, net income the bottom line, and EPS is net income per share.',
-      'Margins turn dollars into cents per sales dollar: Apple kept 50.1¢ after making its products and 27.2¢ as profit.',
+      `Margins turn dollars into cents per sales dollar: Apple kept ${cents(D.gm)} after making its products and ${cents(D.nm)} as profit.`,
       'Use YoY for seasonal businesses; QoQ shows the pace of a fast grower like SpaceX.',
       'Stocks move on results versus the consensus, and most of all on guidance.',
       'Always read adjusted numbers and one-time items next to the GAAP line.',
     ],
-    quiz: { q: 'Apple’s June 2026 quarter sales were 16% higher than a year earlier but 1.6% lower than the March quarter. What is the best reading?', options: ['Apple’s business is shrinking', 'Sales grew; the June quarter is just seasonally smaller than March', 'The two numbers contradict each other'], answer: 1, why: 'YoY removes the seasons, so +16% is the real growth. The QoQ dip is Apple’s normal seasonal pattern.' },
+    quiz: { q: `Apple’s September 2026 quarter sales were ${P(D.revYoY)} higher than a year earlier and ${P(D.revQoQ)} higher than the June quarter. Which number shows the real growth?`, options: [`The ${P(D.revQoQ)} QoQ, because it is the most recent`, `The ${P(D.revYoY)} YoY, because it compares the same season`, 'Neither: add them together'], answer: 1, why: 'YoY compares September with September, so the seasons cancel out. The QoQ rise is mostly the new iPhones that go on sale every September.' },
     terms: ['Revenue', 'Year over year', 'Quarter over quarter', 'Gross margin', 'Operating income', 'EPS'],
     glossary: [
       { t: 'Consensus', d: 'The average forecast of the analysts who follow a company; the same as the consensus estimate.' },
       { t: 'Sequential', d: 'Another word for quarter over quarter: compared with the quarter just before.' },
     ],
-    sources: [AS[0], AS[2]].concat([/sec\.gov/, /gelonghui/, /tikr\.com/, /teslarati/, /fool\.com\/coverage/].map((re) => XS.find((x) => re.test(x.u))).filter(Boolean)).concat([AS[4]]),
+    sources: [asrc(/FY26_Q4/), asrc(/2026\/11\/apple-reports/), asrc(/siliconangle/)].concat([/sec\.gov/, /gelonghui/, /tikr\.com/, /teslarati/, /fool\.com\/coverage/].map((re) => XS.find((x) => re.test(x.u)))).concat([asrc(/hl\.co\.uk/)]).filter(Boolean),
   });
 
   SML.lessons.push({
-    id: 'l-rc-apple-income', course: 'realco', order: 2, title: 'Apple’s earnings, line by line', mins: 13, level: 'Beginner',
-    summary: 'Apple’s June 2026 quarter, sales to EPS, and what each line did to the stock.',
-    idea: 'Follow $109.4 billion of sales down to $2.02 per share, and see which lines lifted the stock and which sank it.',
+    id: 'l-rc-apple-income', course: 'realco', order: 2, title: 'Apple’s earnings, line by line', mins: 14, level: 'Beginner',
+    summary: 'Apple’s September 2026 quarter, sales to EPS, and what each line did to the stock.',
+    idea: `Follow ${Bw(ai.revenue)} of sales down to ${E$(ai.epsDil)} per share, and see which lines lifted the stock and which sank it.`,
     widget: 'incomeWaterfall', opts: {},
-    try: 'Tap any row for its card. Flip to a year ago to watch every line grow, switch to cents per $1 of sales, and remove the tariff refund.',
+    try: 'Tap any row for its card. Flip to June or to a year ago, switch to cents per $1 of sales, and remove the tariff refund.',
     body: [
-      '<h3>The quarter at a glance</h3><p>Apple’s latest reported quarter as of October 2026 is its <b>fiscal Q3 2026</b>: the three months from April to June, ended June 27, 2026. Apple’s fiscal year ends in late September, which is why April to June is its Q3. Results came out on July 30, 2026, after the market closed. Tim Cook, CEO at the time, called it Apple’s strongest June quarter ever. John Ternus became CEO on September 1, 2026, and Apple reports its September quarter on November 2. If the words are new, start with <a href="#l-rc-words">earnings words in plain English</a>.</p>',
-      '<h3>Sales: products and services</h3><p>Revenue was <b>$109.4 billion, up 16.4%</b>. Products brought in $78.7 billion (+18.1%) and Services $30.7 billion (+12.1%). By category: iPhone $54.3 billion (+21.7%), Mac $10.4 billion (+28.7%), iPad $6.2 billion (−5.9%), and Wearables, Home and Accessories $7.9 billion (+6.5%). Apple’s official segments are regions: Greater China grew 22.4% to $18.8 billion.</p>',
-      '<h3>Margins and the tariff refund</h3><p>Gross margin jumped to <b>50.1%</b> from 46.5%. Products kept 40.1 cents of each sales dollar and Services 75.6 cents, so Services were 28.1% of sales but 42.4% of gross profit. Apple said <b>tariff refunds</b> added about 2 points of gross margin and $0.11 of EPS. Refunds are a temporary, non-recurring help: without them, gross margin was about 48% and EPS about $1.91. They do not vanish at once, though: the September-quarter guide still includes about 1 point of them.</p>',
-      '<h3>Spending and operating income</h3><p>R&amp;D rose 32.3% to $11.7 billion (10.7% of sales) and SG&amp;A 10.5% to $7.3 billion. Operating income grew 26.6% to <b>$35.7 billion</b>, an operating margin of 32.6% vs 30.0% a year earlier.</p>',
-      '<h3>Below the line: tax, net income and EPS</h3><p>Other income added $572 million (a year earlier it was −$171 million). Tax took $6.5 billion, a 17.9% rate vs 16.4%. Net income rose 27.1% to <b>$29.8 billion</b>. Diluted EPS rose 28.7% to <b>$2.02</b>, faster than profit, because buybacks cut the diluted share count 1.6% to 14.71 billion. The cash side of those buybacks is in <a href="#l-rc-apple-cash">Apple’s cash flow</a>.</p>',
-      '<h3>What each line meant for the stock</h3><ul><li><b>Revenue and EPS beat</b> the consensus (about $108.7 to $109.0 billion and $1.88 to $1.89).</li><li><b>Part of the beat was temporary</b>: $0.11 of tariff refunds, so the underlying beat was 2 to 3 cents (FiredBunny’s math, assuming the consensus did not include the refunds).</li><li><b>Services</b>, the high-margin engine, came in a little below the roughly $31.2 billion expected.</li><li><b>Guidance</b> for the September quarter: 9% to 11% growth (about $111.7 to $113.7 billion) vs about 12% hoped for, and a 47% to 48% gross margin that still includes about 1 point of refunds.</li><li>The stock closed at $333.43 on July 30 and fell about 7.4% on July 31, to near $309. Hear how the call unfolded in <a href="#l-rc-apple-call">Apple’s earnings call, explained</a>, and see the math in <a href="#l-rc-price">how earnings move the stock price</a>. For options traders, that kind of gap is why <a href="#l-iv-crush">IV crush</a> and position size matter around earnings.</li></ul>' + tip('A record quarter and a falling stock are not a contradiction. The price already expected a strong June; the news was in the temporary help and the September guide.'),
+      `<h3>The quarter at a glance</h3><p>Apple’s latest reported quarter as of November 2026 is its <b>fiscal Q4 2026</b>: the three months from July to September, ended September 26, 2026, which also closes Apple’s fiscal year. Results came out on November 2, 2026, after the market closed, on John Ternus’s first earnings call as CEO (he took over from Tim Cook on September 1). It was a September-quarter record: revenue ${Bw(ai.revenue)}, net income ${Bw(ai.netInc)} and diluted EPS ${E$(ai.epsDil)}. For the whole of fiscal 2026, revenue was ${Bw(A.is.fy.revenue)} (${SP(pc(A.is.fy.revenue, A.is.fyPrev.revenue), 0)}) and EPS ${E$(A.is.fy.epsDil)} (${SP(pc(A.is.fy.epsDil, A.is.fyPrev.epsDil), 0)}). The June quarter, the previous one, is the contrast all through this lesson. If the words are new, start with <a href="#l-rc-words">earnings words in plain English</a>.</p>`,
+      `<h3>Sales: products and services</h3><p>Revenue was <b>${Bw(ai.revenue)}, up ${P(D.revYoY)}</b>, above both Apple’s own July guide (${GJ.revGrowth[0]}% to ${GJ.revGrowth[1]}%) and the roughly ${Bw(EXA.revenue)} analysts expected. Products brought in ${Bw(ai.prodSales)} (${SP(pc(ai.prodSales, ay.prodSales))}) and Services ${Bw(ai.servSales)} (${SP(D.servYoY)}, slower than June’s ${P(servGrowthPq)}). By category: iPhone ${Bw(A.categories.cur.iPhone)} (${SP(pc(A.categories.cur.iPhone, A.categories.ya.iPhone))}), Mac ${Bw(A.categories.cur.Mac)} (${SP(pc(A.categories.cur.Mac, A.categories.ya.Mac))}; Apple said it has never sold more Macs in a fiscal year), iPad ${Bw(A.categories.cur.iPad)} (${SP(pc(A.categories.cur.iPad, A.categories.ya.iPad))}), and Wearables, Home and Accessories ${Bw(A.categories.cur['Wearables, Home & Accessories'])} (${SP(pc(A.categories.cur['Wearables, Home & Accessories'], A.categories.ya['Wearables, Home & Accessories']))}). Apple’s official segments are regions: Greater China grew ${P(pc(A.regions.cur['Greater China'], A.regions.ya['Greater China']))} to ${Bw(A.regions.cur['Greater China'])}, yet some analysts had expected about ${Bw(EXA.greaterChina)}.</p>`,
+      `<h3>Margins, memory and the tariff refund</h3><p>Gross margin rose to <b>${P(D.gm)}</b> from ${P(D.gmYa)} a year earlier, but fell from ${P(D.gmPq)} in June. Products kept ${F.num(D.prodGM, 1)} cents of each sales dollar and Services ${F.num(D.servGM, 1)} cents, so Services were ${P(D.servRevShare)} of sales but ${P(D.servGPShare)} of gross profit. Apple said <b>tariff refunds</b> added about ${TR.grossMarginPts} point of gross margin and ${E$(TR.eps)} of EPS this time (about ${TR.pq.grossMarginPts} points and ${E$(TR.pq.eps)} in June). Without them, gross margin was about ${P(D.gmEx)}, ${D.gmEx < D.gmYa ? 'a little below' : 'above'} a year earlier. The reason is memory: chip prices jumped, and the finance chief said that, refunds aside, margins slipped about 1 point from June mainly because of memory costs.</p>`,
+      `<h3>Spending and operating income</h3><p>R&amp;D rose ${P(pc(ai.rd, ay.rd))} to ${Bw(ai.rd)} (${P((ai.rd / ai.revenue) * 100)} of sales) and SG&amp;A ${P(pc(ai.sga, ay.sga))} to ${Bw(ai.sga)}. Operating expenses grew ${P(D.opexYoY)}, faster than gross profit (${SP(D.gpYoY)}), so operating income grew only ${P(D.opYoY)} to <b>${Bw(ai.opInc)}</b> and the operating margin slipped to ${P(D.om)} from ${P(D.omYa)}. That is negative <b>operating leverage</b>: for now costs are growing faster than profit. Apple said it is spending what its AI and product plans need.</p>`,
+      `<h3>Below the line: tax, net income and EPS</h3><p>Other income added ${M(ai.other)} (Apple had guided about ${M(GJ.otherIncome)}). Tax took ${Bw(ai.tax)}, a ${P(D.tax)} rate vs ${P(D.taxYa)} a year earlier and the roughly ${GJ.taxRate}% Apple had guided. Net income rose ${P(D.niYoY)} to <b>${Bw(ai.netInc)}</b>. Diluted EPS rose ${P(D.epsYoY)} to <b>${E$(ai.epsDil)}</b>, faster than profit, because buybacks cut the diluted share count ${P(-D.shYoY)} to ${F.num(ai.shDil / 1000, 2)} billion. The cash side of those buybacks is in <a href="#l-rc-apple-cash">Apple’s cash flow</a>.</p>`,
+      `<h3>What each line meant for the stock</h3><ul><li><b>Revenue and EPS beat</b> the consensus of about ${Bw(EXA.revenue)} and ${E$(EXA.eps)}, and iPhone and Mac beat too.</li><li><b>Part of the beat was temporary</b>: ${E$(TR.eps)} of tariff refunds, so the underlying beat was about ${D.beatEx} cents (FiredBunny’s math, assuming the consensus did not include the refunds).</li><li><b>Services</b>, the high-margin engine, matched the roughly ${Bw(EXA.services)} expected, but growth is slowing; iPad and Greater China came in light.</li><li><b>Guidance</b> for the December quarter: ${G.revGrowth[0]}% to ${G.revGrowth[1]}% growth (about ${Bw(D.gLo)} to ${Bw(D.gHi)}, our math) vs about ${EXA.nextQtrGrowth}% hoped for; Services ${G.servicesGrowth[0]}% to ${G.servicesGrowth[1]}% vs about ${EXA.nextQtrServicesGrowth}%; and a ${G.grossMargin[0]}% to ${G.grossMargin[1]}% gross margin vs about ${EXA.nextQtrGrossMargin}%, mainly because of memory costs. Apple still expects its best revenue quarter ever.</li><li>The stock closed at ${E$(RA.closeBefore)} on November 2 and ${moveLong()}. Hear how the call unfolded in <a href="#l-rc-apple-call">Apple’s earnings call, explained</a>, and see the math in <a href="#l-rc-price">how earnings move the stock price</a>. For options traders, that kind of gap is why <a href="#l-iv-crush">IV crush</a> and position size matter around earnings.</li></ul>` + tip('A record quarter and a falling stock are not a contradiction. The price already expected a strong September; the news was the holiday-quarter margin guide and slower Services.'),
+      `<h3>Two reports, one pattern</h3><p>Apple’s last two reports tell the same story, which is why investors read guidance first.</p>
+      <table class="tbl"><thead><tr><th>Line</th><th class="num">June 2026 qtr</th><th class="num">Sep 2026 qtr</th></tr></thead><tbody>
+      <tr><td>Reported</td><td class="num">July 30</td><td class="num">November 2</td></tr>
+      <tr><td>Revenue growth (YoY)</td><td class="num">${SP(pc(ap.revenue, ay2.revenue))}</td><td class="num">${SP(D.revYoY)}</td></tr>
+      <tr><td>Gross margin</td><td class="num">${P(D.gmPq)}</td><td class="num">${P(D.gm)}</td></tr>
+      <tr><td>Help from tariff refunds</td><td class="num">≈${TR.pq.grossMarginPts} pts, ${E$(TR.pq.eps)}</td><td class="num">≈${TR.grossMarginPts} pt, ${E$(TR.eps)}</td></tr>
+      <tr><td>EPS vs consensus</td><td class="num">${E$(ap.epsDil)} vs ${E$(Q3.expectations.eps[0])}–${E$(Q3.expectations.eps[1])}</td><td class="num">${E$(ai.epsDil)} vs ${E$(EXA.eps)}</td></tr>
+      <tr><td>Next-quarter growth guide</td><td class="num">${GJ.revGrowth[0]}–${GJ.revGrowth[1]}% vs ~${Q3.expectations.nextQtrGrowth}% hoped</td><td class="num">${G.revGrowth[0]}–${G.revGrowth[1]}% vs ~${EXA.nextQtrGrowth}% hoped</td></tr>
+      <tr><td>Next-quarter gross margin guide</td><td class="num">${GJ.grossMargin[0]}–${GJ.grossMargin[1]}%</td><td class="num">${G.grossMargin[0]}–${G.grossMargin[1]}%</td></tr>
+      <tr><td>Stock the next day</td><td class="num">${SP(Q3.reaction.closePct)}</td><td class="num">${moveCell()}</td></tr></tbody></table>
+      <p>Both times Apple beat, both times the help from refunds made the beat look bigger, and both times the next-quarter guide fell short of hopes. The July guide also proved cautious: September revenue grew ${P(D.revYoY)}, above its ${GJ.revGrowth[0]}% to ${GJ.revGrowth[1]}% range. Whether the December guide does the same is what the January report will show.</p>`,
     ],
-    extra: [{ widget: 'statementExplorer', opts: { company: 'apple', statement: 'income', open: 'gross' }, try: 'The same quarter as Apple printed it, in millions. Tap any line for its card, compare with the March quarter, or switch to the balance sheet, cash flow or SpaceX.' }],
+    extra: [{ widget: 'statementExplorer', opts: { company: 'apple', statement: 'income', open: 'gross' }, try: 'The same quarter as Apple printed it, in millions. Tap any line for its card, compare with the June quarter, see the full fiscal year, or switch to the balance sheet, cash flow or SpaceX.' }],
     example: {
       title: 'Strip out the tariff refund',
-      intro: 'How much of Apple’s $2.02 was repeatable? All figures from Apple’s release.',
+      intro: `How much of Apple’s ${E$(ai.epsDil)} was repeatable? All figures from Apple’s release.`,
       steps: [
         `Reported: ${M(ai.netInc)} net income ÷ ${shM(ai.shDil)} diluted shares = ${E$(ai.epsDil)} of diluted EPS.`,
         `Apple said tariff refunds added ${E$(TR.eps)}. ${E$(ai.epsDil)} − ${E$(TR.eps)} = ${E$(D.ref.eps)}.`,
         `Growth: reported (${E$(ai.epsDil)} − ${E$(ay.epsDil)}) ÷ ${E$(ay.epsDil)} = ${SP(D.epsYoY)}; without the refund (${E$(D.ref.eps)} − ${E$(ay.epsDil)}) ÷ ${E$(ay.epsDil)} = ${SP(D.epsExYoY)}.`,
-        `Against the ${E$(EXA.eps[0])} to ${E$(EXA.eps[1])} consensus, the beat shrinks from ${D.beat[0]} to ${D.beat[1]} cents to ${D.beatEx[0]} to ${D.beatEx[1]} cents (our math, assuming the consensus did not include the refunds).`,
-        `Gross margin: ${P(D.gm)} minus about ${TR.grossMarginPts} points ≈ ${P(D.gmEx, 0)}, the top of Apple’s ${G.grossMargin[0]}% to ${G.grossMargin[1]}% guide for September, which itself still includes about ${G.tariffRefundPts} point of refunds.`,
+        `Against the ${E$(EXA.eps)} consensus, the beat shrinks from ${D.beat} cents to ${D.beatEx} cents (our math, assuming the consensus did not include the refunds).`,
+        `Gross margin: ${P(D.gm)} minus about ${TR.grossMarginPts} point ≈ ${P(D.gmEx)}, ${D.gmEx < D.gmYa ? 'a little below' : 'above'} the ${P(D.gmYa)} of a year earlier. Apple’s December guide (${G.grossMargin[0]}% to ${G.grossMargin[1]}%) is lower still, mainly because of memory costs.`,
       ],
-      result: 'Still a beat and still strong growth, but smaller than the headline. That is one reason investors looked past it to the guidance.',
+      result: 'Still a beat and still double-digit growth, but the repeatable margin was slipping. That is why investors looked past the beat to the guidance.',
     },
     mistakes: [
-      'Reading the jump in gross margin as permanent. About 2 of the 3.6 points came from temporary tariff refunds.',
-      'Treating every category as equal. iPad fell 5.9%, but it is under 6% of sales; iPhone is about half.',
-      'Assuming EPS growth equals profit growth. Buybacks cut the share count 1.6%, so EPS grew 28.7% while net income grew 27.1%.',
-      'Expecting a record quarter to lift the stock. The September guidance and margin outlook mattered more.',
+      `Reading the higher gross margin as progress. About ${TR.grossMarginPts} point came from temporary tariff refunds; without it the margin was ${D.gmEx < D.gmYa ? 'a little below' : 'about level with'} a year ago.`,
+      `Treating every category as equal. iPad fell ${P(-pc(A.categories.cur.iPad, A.categories.ya.iPad))}, but it is about ${P((A.categories.cur.iPad / ai.revenue) * 100, 0)} of sales; iPhone is about half.`,
+      `Assuming sales growth flows straight to profit. Operating expenses grew ${P(D.opexYoY)}, so operating income grew only ${P(D.opYoY)} on ${P(D.revYoY)} sales growth.`,
+      'Expecting a record quarter to lift the stock. The December margin and Services guide mattered more.',
     ],
     points: [
-      'Apple turned $109.4 billion of sales into $29.8 billion of profit: 27.2 cents per dollar.',
-      'Services are 28% of sales but 42% of gross profit, thanks to a 75.6% margin.',
-      'About $0.11 of the $2.02 EPS came from temporary tariff refunds; without them, about $1.91.',
-      'Buybacks made EPS grow faster than net income.',
-      'The stock fell about 7% because the outlook, the margin guide and the temporary help outweighed the beat.',
+      `Apple turned ${Bw(ai.revenue)} of sales into ${Bw(ai.netInc)} of profit: ${F.num(D.nm, 1)} cents per dollar.`,
+      `Services are ${P(D.servRevShare, 0)} of sales but ${P(D.servGPShare, 0)} of gross profit, thanks to a ${P(D.servGM, 0)} margin.`,
+      `About ${E$(TR.eps)} of the ${E$(ai.epsDil)} EPS came from temporary tariff refunds, down from ${E$(TR.pq.eps)} in June.`,
+      'R&D grew fast, so operating income grew slower than sales; buybacks still made EPS grow faster than net income.',
+      'The stock fell because the holiday-quarter guide (margin, Services and growth) came in below hopes, just as in July.',
     ],
-    quiz: { q: 'Apple’s gross margin was 50.1%, including about 2 points from temporary tariff refunds. Which margin is the fair base for judging next quarter?', options: ['About 52%', 'About 48%', '50.1%, because the refund was real money'], answer: 1, why: 'Temporary items fade, so investors judge the next quarter against the margin excluding the refunds, about 48%. Apple’s 47%–48% September guide still includes about 1 point of them.' },
+    quiz: { q: `Apple’s September-quarter gross margin was ${P(D.gm)}, including about ${TR.grossMarginPts} point from temporary tariff refunds. A year earlier it was ${P(D.gmYa)}. What happened to the underlying margin?`, options: [`It rose by ${F.num(D.gm - D.gmYa, 1)} points`, `It slipped a little, to about ${P(D.gmEx)}`, 'It cannot be known'], answer: 1, why: `Take out the ${TR.grossMarginPts} point of refunds and the margin was about ${P(D.gmEx)}, a little below ${P(D.gmYa)}. Memory chips cost more, and Apple guided ${G.grossMargin[0]}% to ${G.grossMargin[1]}% for December.` },
     terms: ['Gross margin', 'Operating margin', 'Diluted EPS', 'One-time item', 'Guidance', 'Segment'],
-    sources: [AS[0], AS[1], AS[4], AS[5]],
+    sources: [asrc(/2026\/11\/apple-reports/), asrc(/FY26_Q4/), asrc(/investing\.com/), asrc(/siliconangle/), asrc(/tradingview/), asrc(/a8-kex991q3/), asrc(/hl\.co\.uk/)].filter(Boolean),
   });
 })();

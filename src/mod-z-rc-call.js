@@ -30,60 +30,60 @@
   const C = (id, sp, chapter, show, text, cp) => ({ id, speaker: sp === 'c' ? 'coach' : 'narrator', chapter, show, text, cp: cp || null });
 
   const APPLE = {
-    key: 'apple', file: 'apple-fq3-2026', company: 'Apple', ticker: 'AAPL',
-    title: 'Fiscal Q3 2026 earnings call', when: 'July 30, 2026 · 2:00 p.m. PT', sub: 'Results for April to June 2026',
-    people: [['SC', 'Investor relations', 'ir', 'IR'], ['TC', 'Tim Cook, CEO', 'ceo', 'CEO'], ['KP', 'Kevan Parekh, CFO', 'cfo', 'CFO'], ['JT', 'John Ternus, CEO from Sep 1', 'jt', 'Next CEO'], ['?', 'Analysts', 'an', 'Q&A']],
+    key: 'apple', file: 'apple-fq4-2026', company: 'Apple', ticker: 'AAPL',
+    title: 'Fiscal Q4 2026 earnings call', when: 'November 2, 2026 · 2:00 p.m. PT', sub: 'Results for July to September 2026 · John Ternus’s first call as CEO',
+    people: [['SC', 'Investor relations', 'ir', 'IR'], ['JT', 'John Ternus, CEO', 'ceo', 'CEO'], ['KP', 'Kevan Parekh, CFO', 'cfo', 'CFO'], ['SK', 'Sabih Khan, COO', 'coo', 'COO'], ['?', 'Analysts', 'an', 'Q&A']],
     chapters: [['open', 'Opening'], ['ceo', 'CEO highlights'], ['cfo', 'The numbers'], ['cash', 'Cash and buybacks'], ['guide', 'Guidance'], ['qa', 'Analyst Q&A'], ['after', 'After the call']],
     cues: [
-      C('a01', 'n', 'open', { k: 'title' }, `{July thirtieth, twenty twenty-six|July 30, 2026}, {two p m Pacific time|2:00 p.m. Pacific}. Apple has just published its results for April to June, and its earnings call begins.`),
-      C('a02', 'c', 'open', { k: 'fiscal' }, `Quick decoder. Apple's fiscal year ends in late September, so April to June is its [#q3]fiscal third quarter, or {Q three|“Q3”}.`),
-      C('a03', 'n', 'open', { k: 'title', ppl: true }, `Investor relations introduces [#ceo]chief executive Tim Cook [#cfo]and finance chief {Kevan Pah-reck|Kevan Parekh}. [#jt]John Ternus, who becomes CEO on {September first|September 1}, is also on the line.`),
+      C('a01', 'n', 'open', { k: 'title' }, `{November second, twenty twenty-six|November 2, 2026}, {two p m Pacific time|2:00 p.m. Pacific}. Apple has just published its results for July to September, and its earnings call begins.`),
+      C('a02', 'c', 'open', { k: 'fiscal' }, `Quick decoder. Apple's fiscal year ends in late September, so July to September is its [#q4]fiscal fourth quarter, or {Q four|“Q4”}. This report also closes the whole fiscal year.`),
+      C('a03', 'n', 'open', { k: 'title', ppl: true }, `Investor relations introduces [#ceo]John Ternus, on his first call as chief executive, [#cfo]and finance chief {Kevan Pah-reck|Kevan Parekh}. [#coo]Chief operating officer {Sah-bee Kahn|Sabih Khan} joins for the questions.`),
       C('a04', 'n', 'open', { k: 'doc' }, `[#s]First, the safe harbor: a legal reminder that anything said about the future is a forecast, and real results can differ.`),
-      C('a05', 'c', 'open', { k: 'cart', mode: 'safe' }, `Think of Hoppy's Coffee Cart. If Hoppy tells his bank July should be busy, that's a forecast nobody can hold him to. The safe harbor says the same in lawyer words, so don't read anything into it.`),
-      C('a06', 'n', 'ceo', { k: 'records' }, `In the results release, Tim Cook called it {our strongest June quarter ever|“our strongest June quarter ever”}, with June-quarter records for [#r1]revenue, [#r2]earnings per share, [#r3]iPhone, [#r4]Mac, [#r5]Services [#r6]and operating cash flow.`),
-      C('a07', 'c', 'ceo', { k: 'icons', set: 'frame' }, `CEOs lead with good news, and the price already assumes a strong quarter. What moves the stock is [#s]the surprise against expectations, [#g]the outlook, [#q]and the quality of the numbers.`),
-      C('a09', 'n', 'cfo', { k: 'big', m: 'rev' }, `Then the finance chief takes over. Revenue was [#v]{one hundred nine point four billion dollars|$109.4 billion}, [#y]up {sixteen percent|16%} from a year ago.`),
-      C('a10', 'c', 'cfo', { k: 'cart', mode: 'sales' }, `Revenue is the top line. [#a]Hoppy's cart sold {ten thousand dollars|$10,000} this June, [#b]up {twenty-five percent|25%} from {eight thousand|$8,000} last June. Comparing with the same month a year earlier is called year over year.`),
-      C('a11', 'c', 'cfo', { k: 'trend' }, `Apple has seasons, and the holiday quarter is always the biggest. [#q]So June was {one point six percent|1.6%} smaller than March, [#y]yet {sixteen percent|16%} bigger than last June. Year over year is the fair comparison.`),
-      C('a12', 'n', 'cfo', { k: 'bars', set: 'cats' }, `[#iphone]iPhone brought in {fifty-four point three billion dollars|$54.3 billion}, up {twenty-two percent|22%}. [#mac]Mac grew {twenty-nine percent|29%}, [#ipad]iPad fell {six percent|6%}, [#wear]and wearables rose {six point five percent|6.5%}.`),
-      C('a13', 'n', 'cfo', { k: 'bars', set: 'cats', hi: 'serv' }, `[#serv]Services, like the App Store and iCloud, brought in {thirty point seven billion dollars|$30.7 billion}, up {twelve percent|12%}.`),
-      C('a14', 'n', 'cfo', { k: 'bars', set: 'regions' }, `Every region grew. [#eu]Europe [#cn]and Greater China each jumped {twenty-two percent|22%}.`),
-      C('a15', 'n', 'cfo', { k: 'gauge', step: 'gm' }, `Gross margin, the share of sales left after the cost of making the products, was [#v]{fifty point one percent|50.1%}, [#y]up from {forty-six point five percent|46.5%}.`),
-      C('a16', 'c', 'cfo', { k: 'gauge', step: 'q' }, `Quick check. Part of that jump came from a temporary boost. How big was it? Pick an answer on screen.`, 'tariff'),
-      C('a17', 'n', 'cfo', { k: 'gauge', step: 'tariff' }, `The finance chief says [#t]tariff refunds added about {two percentage points|2 percentage points} to gross margin, [#e]and {eleven cents|11 cents} to earnings per share.`),
-      C('a18', 'c', 'cfo', { k: 'cart', mode: 'refund' }, `That's like Hoppy's bean supplier refunding an old overcharge: a nice boost, but temporary. Investors strip it out. [#x]Without the refunds, Apple's margin was about {forty-eight percent|48%}.`),
-      C('a19', 'c', 'cfo', { k: 'split' }, `Here's Apple's hidden engine. [#r]Services was {twenty-eight percent|28%} of sales [#g]but {forty-two percent|42%} of gross profit, [#m]because it keeps about {seventy-six cents|76 cents} of each dollar, against about {forty|40} for devices.`),
-      C('a20', 'n', 'cfo', { k: 'stmt', hi: 'opex' }, `[#o]Operating expenses were {nineteen point one billion dollars|$19.1 billion}. [#rd]Research and development jumped {thirty-two percent|32%}, to {eleven point seven billion|$11.7 billion}.`),
-      C('a21', 'c', 'cfo', { k: 'cart', mode: 'opex' }, `Operating expenses don't grow with every cup sold. At Hoppy's cart, that's [#rd]{five hundred dollars|$500} for recipes and training, [#sga]and {fifteen hundred|$1,500} for ads, the permit and the phone. Apple's fast-rising research budget is a bet on what comes next, including AI.`),
-      C('a22', 'n', 'cfo', { k: 'stmt', hi: 'profit' }, `[#op]Operating income was {thirty-five point seven billion dollars|$35.7 billion}, [#ni]and net income, the bottom line, was {twenty-nine point eight billion|$29.8 billion}, both up {twenty-seven percent|27%}.`),
-      C('a23', 'n', 'cfo', { k: 'eps', step: 'eps' }, `[#v]Earnings per share, or {E P S|EPS}, came in at {two dollars and two cents|$2.02}, [#y]up {twenty-nine percent|29%}.`),
-      C('a24', 'c', 'cfo', { k: 'eps', step: 'shares' }, `That's faster than profit grew, thanks to buybacks. [#s]Apple's diluted share count fell {one point six percent|1.6%}.`),
-      C('a25', 'c', 'cfo', { k: 'cart', mode: 'buyback' }, `If Hoppy bought back [#a]{one hundred|100} of his {one thousand|1,000} shares, [#b]the same {three thousand and forty dollars|$3,040} of profit would be [#c]{three dollars thirty-eight|$3.38} a share, instead of {three oh four|$3.04}.`),
-      C('a26', 'c', 'cfo', { k: 'eps', step: 'tariff' }, `[#t]Without the {eleven-cent|11-cent} refund, {E P S|EPS} was about {a dollar ninety-one|$1.91}, [#y]still up about {twenty-two percent|22%}.`),
-      C('a27', 'n', 'cash', { k: 'cash', step: 'return' }, `Apple returned about [#t]{thirty-three billion dollars|$33 billion} to shareholders, including [#b]{twenty-five point eight billion|$25.8 billion} of buybacks [#d]and about {four billion|$4 billion} of dividends.`),
-      C('a28', 'n', 'cash', { k: 'cash', step: 'net' }, `[#c]It holds about {one hundred forty-seven billion dollars|$147 billion} of cash and investments, [#d]against {eighty-four billion|$84 billion} of debt, [#v]and declared a {twenty-seven-cent|27-cent} dividend.`),
-      C('a29', 'c', 'cash', { k: 'cart', mode: 'netcash' }, `Cash minus debt is net cash. [#h]Hoppy has {six thousand dollars|$6,000} in the register and a {five thousand dollar|$5,000} loan, [#n]so {one thousand|$1,000} of net cash. [#a]Apple's is about {sixty-two billion|$62 billion}.`),
-      C('a30', 'n', 'guide', { k: 'icons', set: 'frame', hi: 'g' }, `Now the part that often moves a stock most: guidance, management's forecast for the next quarter.`),
+      C('a05', 'c', 'open', { k: 'cart', mode: 'safe' }, `Think of Hoppy's Coffee Cart. If Hoppy tells his bank December should be busy, that's a forecast nobody can hold him to. The safe harbor says the same in lawyer words, so don't read anything into it.`),
+      C('a06', 'n', 'ceo', { k: 'records' }, `Ternus opens with records: [#r1]September-quarter records for revenue, [#r2]earnings per share [#r3]and net income. [#r4]For the fiscal year, revenue [#r5]and earnings per share were the best ever, [#r6]and he says Apple has never sold more Macs in a year.`),
+      C('a07', 'n', 'ceo', { k: 'icons', set: 'launch' }, `He walks through the new lineup: [#duo]the foldable {iPhone Duo|iPhone Duo}, [#pro]the {iPhone eighteen Pro|iPhone 18 Pro}, [#mac]new Macs, [#siri]and Siri AI, which launched in a test version in September.`),
+      C('a08', 'c', 'ceo', { k: 'icons', set: 'frame' }, `CEOs lead with good news, and the price already assumes a strong quarter. What moves the stock is [#s]the surprise against expectations, [#g]the outlook, [#q]and the quality of the numbers.`),
+      C('a09', 'n', 'cfo', { k: 'big', m: 'rev' }, `Then the finance chief takes over. Revenue was [#v]{one hundred fourteen point five billion dollars|$114.5 billion}, [#y]up {twelve percent|12%} from a year ago, [#q]and almost {five percent|5%} above June.`),
+      C('a10', 'c', 'cfo', { k: 'cart', mode: 'sales' }, `Revenue is the top line. [#a]Hoppy's cart sold {ten thousand dollars|$10,000} this September, [#b]up {twenty-five percent|25%} from {eight thousand|$8,000} last September. Comparing with the same months a year earlier is called year over year.`),
+      C('a11', 'c', 'cfo', { k: 'gcheck' }, `Remember the forecast Apple gave in July for this quarter? [#r]Revenue growth of {nine to eleven percent|9 to 11%}: it delivered almost {twelve|12%}. [#g]Gross margin of {forty-seven to forty-eight|47 to 48%}: it landed near the top. [#o]Expenses came in on plan. Beating your own forecast builds trust.`),
+      C('a12', 'n', 'cfo', { k: 'bars', set: 'cats' }, `[#iphone]iPhone brought in {fifty-seven point six billion dollars|$57.6 billion}, up {seventeen percent|17%}. [#mac]Mac grew {twenty-four percent|24%}. [#ipad]iPad fell {ten percent|10%} [#wear]and wearables fell {eight percent|8%}, against strong launches a year earlier.`),
+      C('a13', 'n', 'cfo', { k: 'bars', set: 'cats', hi: 'serv' }, `[#serv]Services, like the App Store and iCloud, brought in a record {thirty-one point six billion dollars|$31.6 billion}, up almost {ten percent|10%}. That's slower than June's {twelve percent|12%}.`),
+      C('a14', 'n', 'cfo', { k: 'bars', set: 'regions' }, `[#cn]Greater China grew {twenty-one percent|21%}, the fastest of Apple's regions. [#jp]Only Japan slipped, by about one percent.`),
+      C('a15', 'n', 'cfo', { k: 'gauge', step: 'gm' }, `Gross margin, the share of sales left after the cost of making the products, was [#v]{forty-seven point nine percent|47.9%}, [#y]up from {forty-seven point two|47.2%} a year ago.`),
+      C('a16', 'c', 'cfo', { k: 'gauge', step: 'q' }, `Quick check. Tariff refunds helped again, as they did in June. Did they help more or less this time? Pick an answer on screen.`, 'tariff'),
+      C('a17', 'n', 'cfo', { k: 'gauge', step: 'tariff' }, `The finance chief says [#t]tariff refunds added about {one percentage point|1 percentage point} to gross margin, [#e]and {five cents|5 cents} to earnings per share: about half of June's help.`),
+      C('a18', 'c', 'cfo', { k: 'cart', mode: 'refund' }, `Investors strip that out, like Hoppy ignoring a one-off refund from his bean supplier. [#x]Without the refunds, Apple's margin was about {forty-six point nine percent|46.9%}: a little below a year ago, because memory chips cost more.`),
+      C('a19', 'c', 'cfo', { k: 'split' }, `Apple's hidden engine is still Services. [#r]It was {twenty-eight percent|28%} of sales [#g]but {forty-four percent|44%} of gross profit, [#m]because it keeps about {seventy-six cents|76 cents} of each dollar, against about {thirty-seven|37} for devices.`),
+      C('a20', 'n', 'cfo', { k: 'stmt', hi: 'opex' }, `[#o]Operating expenses were {nineteen point two billion dollars|$19.2 billion}, up {twenty-one percent|21%}. [#rd]Research and development jumped {thirty-two percent|32%}, to {eleven point seven billion|$11.7 billion}.`),
+      C('a21', 'c', 'cfo', { k: 'stmt', hi: 'op' }, `Here's the catch. [#g]Gross profit grew {thirteen percent|13%}, [#rd]but research grew {thirty-two|32%}, [#op]so operating income rose only {ten percent|10%}, slower than sales. The operating margin slipped to {thirty-one point one percent|31.1%}, from {thirty-one point seven|31.7%}.`),
+      C('a22', 'n', 'cfo', { k: 'stmt', hi: 'profit' }, `[#op]Operating income was {thirty-five point six billion dollars|$35.6 billion}, [#ni]and net income, the bottom line, was {thirty point seven billion|$30.7 billion}, up {twelve percent|12%}.`),
+      C('a23', 'n', 'cfo', { k: 'eps', step: 'eps' }, `[#v]Earnings per share, or {E P S|EPS}, came in at {two dollars and ten cents|$2.10}, [#y]up {fourteen percent|14%}.`),
+      C('a24', 'c', 'cfo', { k: 'eps', step: 'shares' }, `That's faster than profit grew. [#s]Buybacks cut the diluted share count {one point six percent|1.6%}, and a lower tax rate helped too.`),
+      C('a25', 'c', 'cfo', { k: 'eps', step: 'tariff' }, `[#t]Without the {five-cent|5-cent} refund, {E P S|EPS} was about {two dollars and five cents|$2.05}, [#y]still up about {eleven percent|11%}.`),
+      C('a26', 'n', 'cfo', { k: 'fy' }, `For the whole fiscal year, [#r]revenue reached {four hundred seventy-eight point eight billion dollars|$478.8 billion}, up {fifteen percent|15%}, [#n]net income {one hundred thirty-two billion|$132.2 billion}, [#e]and {E P S|EPS} {eight dollars ninety-eight|$8.98}, up {twenty percent|20%}.`),
+      C('a27', 'n', 'cash', { k: 'cash', step: 'return' }, `Apple brought in {twenty-eight point one billion dollars|$28.1 billion} of operating cash in the quarter, [#t]and returned about {twenty-eight billion|$28 billion} to shareholders: [#b]{twenty-four billion|$24 billion} of buybacks [#d]and about {four billion|$4 billion} of dividends.`),
+      C('a28', 'n', 'cash', { k: 'cash', step: 'net' }, `[#c]It ended the year with about {one hundred thirty-seven billion dollars|$137 billion} of cash and investments, [#d]against {eighty billion|$80 billion} of debt, [#v]and declared another {twenty-seven-cent|27-cent} dividend.`),
+      C('a29', 'c', 'cash', { k: 'cart', mode: 'netcash' }, `Cash minus debt is net cash. [#h]Hoppy has {six thousand dollars|$6,000} in the register and a {five thousand dollar|$5,000} loan, [#n]so {one thousand|$1,000} of net cash. [#a]Apple's is about {fifty-seven billion|$57 billion}, down from about {sixty-two|$62 billion} in June.`),
+      C('a30', 'n', 'guide', { k: 'icons', set: 'frame', hi: 'g' }, `Now the part that often moves a stock most: guidance, the forecast for the December quarter, the holiday season.`),
       C('a31', 'c', 'guide', { k: 'score', step: 'pre' }, `Your turn. Revenue and earnings both beat expectations. Before you hear the forecast, will the stock rise or fall tomorrow? Make your call on screen.`, 'dir'),
-      C('a32', 'n', 'guide', { k: 'range', step: 'guide' }, `For the September quarter, Apple expects [#g]revenue growth of {nine to eleven percent|9 to 11%}, [#fx]including a currency drag about {two and a half points|2.5 points} bigger than in June.`),
-      C('a33', 'c', 'guide', { k: 'range', step: 'cons' }, `[#c]Analysts expected about {twelve percent|12%}. [#r]On last year's {one hundred two point five billion|$102.5 billion}, Apple's range means about {one hundred twelve to one hundred fourteen billion|$112 to $114 billion}, [#k]short of the roughly {one hundred fifteen billion|$115 billion} analysts had.`),
-      C('a34', 'n', 'guide', { k: 'gauge', step: 'guide' }, `Gross margin should be [#g]{forty-seven to forty-eight percent|47 to 48%}, [#t]including about a point from refunds, [#n]down from {fifty point one|50.1%}.`),
-      C('a35', 'n', 'guide', { k: 'icons', set: 'supply' }, `Why? [#chip]Advanced chips for iPhone, Mac and iPad are scarce, and the squeeze grows in September. [#mem]Memory prices are soaring: Cook calls it a {hundred-year flood|“100-year flood”}, [#price]and Apple raised some iPad and Mac prices.`),
-      C('a36', 'c', 'guide', { k: 'cart', mode: 'supply' }, `For Hoppy, picture a bean shortage and pricier milk right after a record June. He'd warn the bank about fewer sales and thinner margins. That's this guidance.`),
-      C('a37', 'n', 'guide', { k: 'icons', set: 'guide2' }, `Apple also sees [#ip]iPhone growing in the mid-teens, [#ox]and operating expenses of {nineteen point one to nineteen point four billion dollars|$19.1 to $19.4 billion}.`),
-      C('a38', 'n', 'qa', { k: 'qa', i: 0 }, `[#q]In the Q and A, Evercore asks how much of the slowdown is supply and how much is currency. [#a]The finance chief says both: a currency drag about {two and a half points|2.5 points} bigger than in June, plus tighter supply.`),
-      C('a39', 'n', 'qa', { k: 'qa', i: 0, more: true }, `[#b]Cook adds that the bottleneck is the limited supply of the most advanced chips, at a time of very strong demand.`),
-      C('a40', 'n', 'qa', { k: 'qa', i: 1 }, `[#q]Goldman Sachs asks what the new Siri will cost to run. [#a]Cook says it's too early for a full plan to recover those costs, perhaps through higher iCloud tiers.`),
-      C('a41', 'n', 'qa', { k: 'qa', i: 2 }, `[#q]Morgan Stanley asks about pricing. [#a]Cook says Apple raised prices reluctantly, because memory costs jumped so much.`),
-      C('a42', 'n', 'qa', { k: 'qa', i: 3 }, `[#q]Bank of America asks how much data-center capacity the new Siri will need, and about competition. [#a]Cook describes a mix of outside cloud services and Apple's own data centers, [#b]and John Ternus takes the competition question, saying Apple sees a big opportunity in AI.`),
-      C('a43', 'n', 'qa', { k: 'qa', i: 4 }, `[#q]JPMorgan asks why margins dip in September. [#a]The finance chief says memory costs explain all of the dip, and more.`),
-      C('a44', 'c', 'qa', { k: 'icons', set: 'themes' }, `Notice the pattern: [#s]supply, [#m]memory costs [#g]and margins came up again and again. When the questions circle one worry, that worry often drives the stock next.`),
-      C('a45', 'n', 'after', { k: 'score', step: 'full' }, `After the call. Analysts expected [#r]revenue of about {one hundred eight point seven to one hundred nine billion dollars|$108.7 to $109 billion} [#e]and {E P S|EPS} of {a dollar eighty-eight to eighty-nine|$1.88 to $1.89}. Apple beat both, [#s]though Services missed the roughly {thirty-one point two billion|$31.2 billion} expected.`),
-      C('a46', 'c', 'after', { k: 'score', step: 'verdict' }, `So: [#b]a beat on the quarter, [#g]but softer guidance, [#m]a lower margin forecast, [#o]and {eleven cents|11 cents} of temporary help inside the beat.`),
-      C('a47', 'n', 'after', { k: 'stock' }, `The stock had closed at [#c]{three thirty-three forty-three|$333.43}. [#ah]It slipped about {three percent|3%} after hours, [#o]opened about {eight point six percent|8.6%} lower, [#l]touched about {three hundred two|$302}, [#e]and closed near {three hundred nine dollars|$309}, down about {seven point four percent|7.4%}.`),
-      C('a48', 'c', 'after', { k: 'pe' }, `[#y]How did your call do? A price is roughly {E P S|EPS} times the {P E|P/E} multiple. [#a]Apple's {P E|P/E} slid from about {thirty-eight|38} [#b]to about {thirty-five|35}: investors paid less for each dollar of profit, because the outlook got weaker.`),
-      C('a49', 'n', 'after', { k: 'targets' }, `Analysts split afterward. [#lo]Reported price targets ranged from {two hundred forty-five dollars|$245} at Barclays [#hi]to {four hundred|$400} at {T D Cowan|TD Cowen}. Same numbers, different conclusions.`),
-      C('a50', 'c', 'after', { k: 'next' }, `The lesson: stocks move on the surprise, and most of all on the outlook. Apple reports next on {November second|November 2}, John Ternus's first call as CEO. Start with the guidance. Hop hop.`),
+      C('a32', 'n', 'guide', { k: 'range', step: 'guide' }, `For the December quarter, Apple expects [#g]revenue growth of {seven to ten percent|7 to 10%}. [#b]The finance chief expects it to be the best revenue quarter in Apple's history.`),
+      C('a33', 'c', 'guide', { k: 'range', step: 'cons' }, `[#c]But analysts hoped for about {eleven percent|11%}. [#r]On last December's {one hundred forty-three point eight billion|$143.8 billion}, Apple's range means about {one hundred fifty-four to one hundred fifty-eight billion|$154 to $158 billion}, [#k]short of the roughly {one hundred sixty billion|$160 billion} analysts had.`),
+      C('a34', 'n', 'guide', { k: 'gauge', step: 'guide' }, `Gross margin should be [#g]{forty-five to forty-six percent|45 to 46%}, [#n]down from {forty-seven point nine|47.9%}, [#c]and below the roughly {forty-seven percent|47%} analysts expected.`),
+      C('a35', 'n', 'guide', { k: 'icons', set: 'supply' }, `Why? [#mem]Memory chips. Ternus calls today's memory pricing {unprecedented|“unprecedented”}. [#ai]Running Siri AI in Apple's cloud adds a little cost. [#price]Apple has raised Mac, iPad and iPhone prices, [#chip]and Mac and iPad supply stays tight.`),
+      C('a36', 'c', 'guide', { k: 'cart', mode: 'supply' }, `For Hoppy, picture milk prices doubling right before the holidays. He'd still expect his best month ever, but warn the bank that each cup will earn less. That's this guidance.`),
+      C('a37', 'n', 'guide', { k: 'icons', set: 'guide2' }, `Apple also sees [#sv]Services growing {eight to nine percent|8 to 9%}, below the roughly {eleven|11%} analysts wanted, [#ox]and operating expenses of {twenty point four to twenty point eight billion dollars|$20.4 to $20.8 billion}.`),
+      C('a38', 'n', 'qa', { k: 'qa', i: 0 }, `[#q]In the Q and A, Evercore asks what pulls the December margin down. [#a]The finance chief says mostly memory costs, [#b]with a little from running Siri AI in Apple's cloud.`),
+      C('a39', 'n', 'qa', { k: 'qa', i: 1 }, `[#q]Bank of America asks how Apple buys memory in a shortage. [#a]Sabih Khan points to long supplier relationships, and about {thirty-three billion dollars|$33 billion} more in purchase commitments since June. [#b]The finance chief adds the price increases.`),
+      C('a40', 'n', 'qa', { k: 'qa', i: 2 }, `[#q]JPMorgan asks about the foldable iPhone Duo. [#a]Khan says it's short of supply, and it's hard to predict when supply and demand will be in balance.`),
+      C('a41', 'n', 'qa', { k: 'qa', i: 3 }, `[#q]Morgan Stanley asks how durable Services growth is. [#a]The finance chief points to currency, which took about four points off growth since March, [#b]plus weaker mobile gaming and a court ruling on App Store links.`),
+      C('a42', 'n', 'qa', { k: 'qa', i: 4 }, `[#q]Melius asks about cash. [#a]The finance chief says Apple is no longer aiming for net cash neutral, meaning cash equal to debt. It will still return the cash it doesn't need.`),
+      C('a43', 'c', 'qa', { k: 'icons', set: 'themes' }, `Notice the pattern: [#m]memory costs, [#g]margins [#s]and supply came up again and again, [#v]plus Services. When the questions circle one worry, that worry often drives the stock next.`),
+      C('a44', 'n', 'after', { k: 'score', step: 'full' }, `After the call. Analysts expected [#r]revenue of about {one hundred thirteen point four billion dollars|$113.4 billion} [#e]and {E P S|EPS} of {a dollar ninety-nine|$1.99}. Apple beat both. [#s]Services was in line, [#c]but Greater China fell short.`),
+      C('a45', 'c', 'after', { k: 'score', step: 'verdict' }, `So: [#b]a beat on the quarter, [#g]but a softer holiday forecast, [#m]a lower margin outlook, [#o]and a little temporary help inside the beat.`),
+      C('a46', 'n', 'after', { k: 'stock' }, `The stock had already slipped almost {two percent|2%} that day, closing at [#c]{three thirty-eight thirty-two|$338.32}. [#ah]After hours it fell as much as {four percent|4%}, then settled about {three percent|3%} lower, [#pm]and early the next morning it traded about {four percent|4%} lower.`),
+      C('a47', 'c', 'after', { k: 'pe' }, `[#y]How did your call do? A price is roughly {E P S|EPS} times the {P E|P/E} multiple. [#a]On {eight ninety-eight|$8.98} of yearly earnings, Apple traded at almost {thirty-eight|38} times before the report. [#b]A weaker outlook means investors pay a little less for each dollar of profit.`),
+      C('a48', 'c', 'after', { k: 'twice' }, `[#j]Three months earlier, the June-quarter call had the same shape: a beat, a softer outlook, and a drop of about {seven percent|7%} the next day. [#n]Same lesson twice: the outlook matters most.`),
+      C('a49', 'c', 'after', { k: 'next' }, `Apple reports the December quarter next, usually in late January. [#g]Start with the guidance, then memory costs and margins. Hop hop.`),
     ],
   };
 
@@ -224,6 +224,11 @@
   const A_GUIDE = [AG.baseRevenue * (1 + AG.revGrowth[0] / 100), AG.baseRevenue * (1 + AG.revGrowth[1] / 100)];
   const A_EPSX = AI.epsDil - AP.tariffRefund.eps;
   const A_TTM = AP.trend.slice(-4);
+  const AQ3 = AP.q3;                                  // the June-quarter story (reported July 30, 2026)
+  const A_PE0 = AR.closeBefore / AP.ttmEps;           // trailing P/E at the Nov 2 close
+  /* Nov 3: the close once main fills it in, otherwise early trading (premarket, as reported) */
+  const A_NEXT = AR.closeAfter != null ? { p: AR.closeAfter, pct: AR.closePct, lab: 'Nov 3 close', s: 'Nov 3', close: true }
+    : { p: AR.closeBefore * (1 + AR.premarketPct / 100), pct: AR.premarketPct, lab: 'Nov 3, early', s: 'Early', close: false };
   const X_DEBT = (r) => SX.bs.liabilities.filter((x) => x.k === 'debtCur' || x.k === 'debtNon').reduce((s, x) => s + x[r], 0);
   const X_CASH = (r) => SX.bs.assets.filter((x) => x.k === 'cash' || x.k === 'ms').reduce((s, x) => s + x[r], 0);
   const X_FCF9 = SX.cf9.operating[0] - SX.capex.ytd;   // nine months to Sep 2026 (FiredBunny's math)
@@ -231,18 +236,16 @@
   /* Q3 call guidance, read from the outlook lines in SML.realco.spacex.call (no separate numeric fields there) */
   const X_Q1G = SX.call.guide && SX.call.guide.q1_2027Revenue ? SX.call.guide.q1_2027Revenue : (() => { const m = /\$(\d+) billion to \$(\d+) billion/.exec(SX.call.outlook[0]); return m ? [Number(m[1]) * 1000, Number(m[2]) * 1000] : [0, 0]; })();
   const X_GW = SX.call.guide && SX.call.guide.computeGWYearEnd ? SX.call.guide.computeGWYearEnd : (() => { const m = /([\d.]+) to ([\d.]+) GW/.exec(SX.call.outlook[2]); return m ? [Number(m[1]), Number(m[2])] : [0, 0]; })();
-  /* Reported after the calls (research/realco.md; news reports, not company figures). */
-  const A_TARGETS = [['Barclays', 245], ['JPMorgan', 340], ['Morgan Stanley', 360], ['BofA', 380], ['TD Cowen', 400]];
   /* Hoppy's Coffee Cart, the shared everyday example (SPEC-realco.md). */
   const HOP = { sales: [10000, 8000], gross: [6000, 4400], rd: [500, 400], sga: [1500, 1400], op: [4000, 2600], net: [3040, 1920], shares: 1000, eps: [3.04, 1.92], cash: 6000, loan: 5000, dep: 200 };
 
   const QA = {
     apple: [
-      { firm: 'Evercore', q: 'How much of the slowdown is supply, and how much is currency?', a: [['CFO', `Both: a currency drag about ${AG.fxHeadwindPts} points bigger than in June, plus tighter supply.`], ['CEO', 'The bottleneck: scarce advanced chips, with demand very strong.']] },
-      { firm: 'Goldman Sachs', q: 'What will the new Siri cost to run?', a: [['CEO', 'Too early for a full plan to recover those costs; perhaps higher iCloud+ tiers.']] },
-      { firm: 'Morgan Stanley', q: 'How is Apple thinking about prices?', a: [['CEO', 'Prices went up reluctantly, because memory costs jumped so much.']] },
-      { firm: 'Bank of America', q: 'How much data-center capacity will Siri AI need, and what about competition?', a: [['CEO', 'A mix of outside cloud services and Apple’s own data centers.'], ['John Ternus', 'On competition: Apple sees a big opportunity in AI.']] },
-      { firm: 'JPMorgan', q: 'Why does gross margin dip in September?', a: [['CFO', 'Memory costs explain all of the dip, and more.']] },
+      { firm: 'Evercore', q: 'What pulls the December-quarter gross margin down?', a: [['CFO', 'Mostly memory costs.'], ['CFO', 'A little from running Siri AI in Apple’s cloud, booked in Services costs.']] },
+      { firm: 'Bank of America', q: 'How does Apple buy memory in a shortage?', a: [['COO', `Long supplier relationships; purchase commitments rose about ${B(AP.call.purchaseObligationsUp, 0)} from June to September.`], ['CFO', 'Prices went up: Mac and iPad in late June, iPhone in September. Too early to judge the effect.']] },
+      { firm: 'JPMorgan', q: 'When will the foldable iPhone Duo catch up with demand?', a: [['COO', 'It is short of supply, and it is hard to predict when supply and demand will be in balance.']] },
+      { firm: 'Morgan Stanley', q: 'How durable is Services growth?', a: [['CFO', 'Currency took about 4 points off the growth rate from March to September.'], ['CFO', 'Mobile gaming was weaker, and a US court ruling on App Store link-outs weighs.']] },
+      { firm: 'Melius Research', q: 'What is the plan for Apple’s cash?', a: [['CFO', 'Net cash neutral is no longer the target. Apple will invest what it needs and return the excess.']] },
     ],
     spacex: [
       { firm: 'JPMorgan', q: 'Where will the power for the new data centers come from, and how will all that capex be funded?', a: [['Why it matters', 'Power and money set how fast the new data centers can come online.']] },
@@ -251,9 +254,9 @@
   };
 
   const CPS = {
-    tariff: { kind: 'quiz', q: `Gross margin jumped to ${P(A_GM)}. How much of that came from temporary tariff refunds?`, opts: ['None of it', `About ${AP.tariffRefund.grossMarginPts} points`, 'About 10 points'], ans: 1,
-      ok: `Right. Tariff refunds added about ${AP.tariffRefund.grossMarginPts} points of margin and ${F.usd(AP.tariffRefund.eps)} of EPS. Listen for it next.`,
-      no: `It was about ${AP.tariffRefund.grossMarginPts} points of margin, plus ${F.usd(AP.tariffRefund.eps)} of EPS: a temporary boost, so investors strip it out.` },
+    tariff: { kind: 'quiz', q: `In June, tariff refunds added about ${AP.tariffRefund.pq.grossMarginPts} points to gross margin. How much did they add in September?`, opts: ['More: about 3 points', `Less: about ${AP.tariffRefund.grossMarginPts} point`, 'None at all'], ans: 1,
+      ok: `Right. About ${AP.tariffRefund.grossMarginPts} point of margin and ${F.usd(AP.tariffRefund.eps)} of EPS, half of June’s help. Listen for it next.`,
+      no: `It was about ${AP.tariffRefund.grossMarginPts} point of margin and ${F.usd(AP.tariffRefund.eps)} of EPS, half of June’s ${AP.tariffRefund.pq.grossMarginPts} points and ${F.usd(AP.tariffRefund.pq.eps)}. Temporary help fades.` },
     seg: (() => { const si = SX.segments.cur.find((q) => q.k === 'ai'); const sh = P(si.revenue / XI.revenue * 100, 0);
       return { kind: 'quiz', q: 'Which SpaceX business brought in the most revenue in the September quarter?', opts: ['Starlink (Connectivity)', 'Super Intelligence (AI, Cursor, X)', 'Space (launches, Starship)'], ans: 1,
         ok: `Right. Super Intelligence brought in ${B(si.revenue)}, about ${sh} of all revenue. Starlink still earns the most operating profit.`,
@@ -261,7 +264,7 @@
     dir: { kind: 'predict', q: '', opts: ['Up', 'Down', 'Barely moves'], ans: 1 },
   };
   const dirQ = (k) => k === 'apple'
-    ? { q: 'Revenue and EPS beat. Before the guidance: what does the stock do tomorrow?', ans: 1 }
+    ? { q: 'Revenue and EPS beat, and Apple topped its own July forecast. Before the guidance: what does the stock do the next day?', ans: 1 }
     : { q: `A big beat, a first profit as a public company and a Q1 2027 revenue guide of ${B(X_Q1G[0], 0)}–${F.num(X_Q1G[1] / 1000, 0)}B vs about ${B(XE.q1_2027Revenue)} expected. But Q4 capex could reach ${B(SX.capex.q4Guide[1], 0)}. The next day?`, ans: 0 };
 
   /* ---------- small icons (stroke = currentColor, colored by the parent's class) ---------- */
@@ -624,18 +627,18 @@
     s += `<line x1="${pad + cw * 3}" y1="${y0 - 24}" x2="${pad + cw * 3}" y2="${y0 + bh + 26}" class="s-line dash2"/>`;
     for (let q = 0; q < 4; q++) {
       const x0 = pad + q * 3 * cw + 2, w = cw * 3 - 4;
-      const id = q === 2 ? x.A({ k: 'cls', cls: 'rcc-on', t0: x.m('q3', 0.4) }) : '';
-      s += `<g${id ? ` id="${id}"` : ''} class="rcc-fq${q === 2 ? ' q3' : ''}"><rect x="${(x0).toFixed(1)}" y="${y0}" width="${w.toFixed(1)}" height="${bh}" rx="6"/>`;
+      const id = q === 3 ? x.A({ k: 'cls', cls: 'rcc-on', t0: x.m('q4', 0.4) }) : '';
+      s += `<g${id ? ` id="${id}"` : ''} class="rcc-fq${q === 3 ? ' q3' : ''}"><rect x="${(x0).toFixed(1)}" y="${y0}" width="${w.toFixed(1)}" height="${bh}" rx="6"/>`;
       s += `<text x="${(x0 + w / 2).toFixed(1)}" y="${y0 + bh / 2 + 6}" text-anchor="middle" class="disp">Q${q + 1}</text></g>`;
       for (let k = 0; k < 3; k++) { const mx = pad + (q * 3 + k) * cw + cw / 2; s += `<text x="${mx.toFixed(1)}" y="${y0 + bh + 16}" text-anchor="middle" class="xs mut">${x.narrow ? months[q * 3 + k][0] : months[q * 3 + k]}</text>`; }
     }
-    const qx = pad + 7.5 * cw, ay = y0 + bh + 30;
-    const lab = x.A({ k: 'op', t0: x.m('q3', 0.4) + 0.2 });
+    const qx = pad + 10.5 * cw, ay = y0 + bh + 30;
+    const lab = x.A({ k: 'op', t0: x.m('q4', 0.4) + 0.2 });
     s += `<g id="${lab}"><path d="M${qx} ${ay + 26}V${ay}" class="nf s-flame w2"/><path d="M${qx - 5} ${ay + 7}l5-7 5 7" class="nf s-flame w2"/>`;
     const lx = x.narrow ? W / 2 : Math.min(qx, W - 10), la = x.narrow ? 'middle' : (qx > W * 0.6 ? 'end' : 'middle');
-    s += `<text x="${lx}" y="${ay + 44}" text-anchor="${la}" class="md ink b">This call: April to June = fiscal Q3</text>`;
-    s += `<text x="${lx}" y="${ay + 62}" text-anchor="${la}" class="sm mut">${x.narrow ? 'The fiscal year ends in late September' : 'The fiscal year ends in late September · next up: Q4 (July to September)'}</text></g>`;
-    return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Apple’s fiscal year: October to September, so April to June is the third quarter">${s}</svg>`;
+    s += `<text x="${lx}" y="${ay + 44}" text-anchor="${la}" class="md ink b">This call: July to September = fiscal Q4</text>`;
+    s += `<text x="${lx}" y="${ay + 62}" text-anchor="${la}" class="sm mut">${x.narrow ? 'It closes the fiscal year' : 'The fiscal year ends in late September: this report closes fiscal 2026'}</text></g>`;
+    return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Apple’s fiscal year: October to September, so July to September is the fourth quarter">${s}</svg>`;
   };
 
   SC.doc = (x) => {
@@ -651,21 +654,23 @@
   };
 
   SC.records = (x) => {
-    const items = [['r1', 'Revenue', B(AI.revenue)], ['r2', 'EPS', F.usd(AI.epsDil)], ['r3', 'iPhone', B(AP.categories.cur.iPhone)], ['r4', 'Mac', B(AP.categories.cur.Mac)], ['r5', 'Services', B(AI.servSales)], ['r6', 'Operating cash flow', 'record']];
-    return `<div class="rcc-quote">“our strongest June quarter ever”<div class="rcc-lab" style="margin-top:4px">Tim Cook, then CEO, in the results release</div></div>
-      ${tileHTML(x, items.map(([k, t, v]) => ({ k, ic: 'star', t: `${t} <span class="acc" style="display:inline;font:600 12px var(--mono)">${v}</span>`, s: x.narrow ? '' : 'June-quarter record' })), null, 'two')}`;
+    const FY = AP.is.fy;
+    const items = [['r1', 'Revenue', B(AI.revenue), 'September-quarter record'], ['r2', 'EPS', F.usd(AI.epsDil), 'September-quarter record'], ['r3', 'Net income', B(AI.netInc), 'September-quarter record'], ['r4', 'Revenue, fiscal 2026', B(FY.revenue), 'Best year ever'], ['r5', 'EPS, fiscal 2026', F.usd(FY.epsDil), 'Best year ever'], ['r6', 'Mac, fiscal 2026', B(AP.categories.fy.Mac), 'Most Macs sold in a year']];
+    return `<div class="rcc-quote">“We have never sold more Macs in a fiscal year”<div class="rcc-lab" style="margin-top:4px">John Ternus, CEO, on the call</div></div>
+      ${tileHTML(x, items.map(([k, t, v, sub]) => ({ k, ic: 'star', t: `${t} <span class="acc" style="display:inline;font:600 12px var(--mono)">${v}</span>`, s: x.narrow ? '' : sub })), null, 'two')}`;
   };
 
   const ICONSETS = {
     frame: () => [{ k: 's', ic: 'target', t: 'The surprise', s: 'Results against what analysts expected' }, { k: 'g', ic: 'chart', t: 'The outlook', s: 'Guidance for the next quarter, often the biggest mover' }, { k: 'q', ic: 'search', t: 'The quality', s: 'Temporary items, adjusted versus official numbers' }],
-    supply: () => [{ k: 'chip', ic: 'chip', t: 'Advanced chips', s: 'Tight for iPhone, Mac and iPad; the squeeze grows in September' }, { k: 'mem', ic: 'mem', t: 'Memory costs', s: 'Prices soaring: a “100-year flood”' }, { k: 'price', ic: 'tag', t: 'Prices', s: 'Some iPad and Mac prices raised' }],
-    guide2: () => [{ k: 'ip', ic: 'phone', t: 'iPhone', s: 'Growth in the mid-teens' }, { k: 'ox', ic: 'coin', t: 'Operating expenses', s: `${B(AG.opex[0])} to ${B(AG.opex[1])}` }, { k: 'tx', ic: 'gauge', t: 'Tax and other', s: `Tax rate about ${AG.taxRate}%, other income about ${Mn(AG.otherIncome)}` }],
-    themes: () => [{ k: 's', ic: 'chip', t: 'Supply', s: 'Evercore' }, { k: 'm', ic: 'mem', t: 'Memory costs', s: 'Morgan Stanley, JPMorgan' }, { k: 'g', ic: 'gauge', t: 'Margins', s: 'JPMorgan' }, { k: 'ai', ic: 'ai', t: 'AI', s: 'Goldman Sachs, Bank of America' }],
+    launch: () => [{ k: 'duo', ic: 'phone', t: 'iPhone Duo', s: 'The first foldable iPhone, short of supply' }, { k: 'pro', ic: 'phone', t: 'iPhone 18 Pro', s: 'The fall flagship' }, { k: 'mac', ic: 'chip', t: 'New Macs', s: 'A record year for Mac' }, { k: 'siri', ic: 'ai', t: 'Siri AI', s: 'Test version launched in September' }],
+    supply: () => [{ k: 'mem', ic: 'mem', t: 'Memory costs', s: 'Pricing “unprecedented”: the main reason for the lower margin' }, { k: 'ai', ic: 'ai', t: 'Siri AI in the cloud', s: 'Server costs, booked in Services' }, { k: 'price', ic: 'tag', t: 'Higher prices', s: 'Mac and iPad in late June, iPhone in September' }, { k: 'chip', ic: 'chip', t: 'Supply', s: 'Mac and iPad still tight, mainly memory' }],
+    guide2: () => [{ k: 'sv', ic: 'star', t: 'Services', s: `Growth ${AG.servicesGrowth[0]}–${AG.servicesGrowth[1]}% vs ≈${AE.nextQtrServicesGrowth}% expected` }, { k: 'ox', ic: 'coin', t: 'Operating expenses', s: `${B(AG.opex[0])} to ${B(AG.opex[1])}` }, { k: 'tx', ic: 'gauge', t: 'Tax and other', s: `Tax rate about ${AG.taxRate}%, other income about ${Mn(AG.otherIncome)}` }],
+    themes: () => [{ k: 'm', ic: 'mem', t: 'Memory costs', s: 'Evercore, Bank of America, TD Cowen' }, { k: 'g', ic: 'gauge', t: 'Margins', s: 'Evercore, TD Cowen' }, { k: 's', ic: 'chip', t: 'Supply', s: 'JPMorgan, Cleveland Research' }, { k: 'v', ic: 'star', t: 'Services', s: 'Morgan Stanley, Melius' }],
   };
   SC.icons = (x) => tileHTML(x, ICONSETS[x.show.set](), x.show.hi);
 
   const METRIC = {
-    rev: () => ({ lab: 'Revenue · June quarter', v: AI.revenue, ya: AY.revenue, bars: [['Jun 2025', AY.revenue, 'y'], ['Jun 2026', AI.revenue, 'v']] }),
+    rev: () => ({ lab: 'Revenue · September quarter', v: AI.revenue, ya: AY.revenue, pq: AQ.revenue, pqLab: 'June quarter', bars: [['Sep 2025', AY.revenue, 'y'], ['Jun 2026', AQ.revenue, 'q'], ['Sep 2026', AI.revenue, 'v']] }),
     sxrev: () => ({ lab: 'Revenue · September quarter', v: XI.revenue, ya: XY.revenue, pq: XQ.revenue, pqLab: 'June quarter', bars: [['Sep 2025', XY.revenue, 'y'], ['Jun 2026', XQ.revenue, 'q'], ['Sep 2026', XI.revenue, 'v']] }),
   };
   SC.big = (x) => {
@@ -702,14 +707,14 @@
     };
     s += brk(n - 2, n - 1, SP(yoy(AI.revenue, AQ.revenue)) + ' QoQ', 'dn', 'q', 46);
     s += brk(0, n - 1, SP(yoy(AI.revenue, AY.revenue)) + ' YoY', 'up', 'y', 26);
-    return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Apple revenue by quarter, June 2025 to June 2026">${s}</svg>`;
+    return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Apple revenue by quarter">${s}</svg>`;
   };
 
   const BARSETS = {
     cats: () => { const c = AP.categories, K = { iPhone: 'iphone', Mac: 'mac', iPad: 'ipad', 'Wearables, Home & Accessories': 'wear', Services: 'serv' }, L = { 'Wearables, Home & Accessories': 'Wearables' };
-      return { title: 'Revenue by product, June quarter', rows: Object.keys(c.cur).map((n) => ({ k: K[n], l: L[n] || n, v: c.cur[n], ya: c.ya[n] })) }; },
+      return { title: 'Revenue by product, September quarter', rows: Object.keys(c.cur).map((n) => ({ k: K[n], l: L[n] || n, v: c.cur[n], ya: c.ya[n] })) }; },
     regions: () => { const c = AP.regions, K = { Americas: 'am', Europe: 'eu', 'Greater China': 'cn', Japan: 'jp', 'Rest of Asia Pacific': 'ap' }, L = { 'Rest of Asia Pacific': 'Rest of Asia' };
-      return { title: 'Revenue by region, June quarter', rows: Object.keys(c.cur).map((n) => ({ k: K[n], l: L[n] || n, v: c.cur[n], ya: c.ya[n] })) }; },
+      return { title: 'Revenue by region, September quarter', rows: Object.keys(c.cur).map((n) => ({ k: K[n], l: L[n] || n, v: c.cur[n], ya: c.ya[n] })) }; },
   };
   SC.bars = (x) => {
     const D = BARSETS[x.show.set](), max = Math.max(...D.rows.map((r) => r.v)), hi = x.show.hi;
@@ -719,7 +724,7 @@
       const lit = marked && (x.has(r.k) || r.k === hi) ? x.A({ k: 'cls', cls: 'on', t0: x.has(r.k) ? x.m(r.k) : 0.2 }) : '';
       const dim = marked && !lit;
       return `<div class="rcc-hr${dim ? ' dim' : ''}"${lit ? ` id="${lit}"` : ''}><span class="l">${r.l}</span><span class="t"><i id="${x.A({ k: 'w', to: r.v / max * 100, t0, t1: t0 + 0.8 })}"></i></span><b>${B(r.v)}</b><em class="${g >= 0 ? 'up' : 'dn'}">${SP(g)}</em></div>`;
-    }).join('')}</div><div class="rcc-sub" style="margin-top:10px">Change is year over year, against the June 2025 quarter.</div>`;
+    }).join('')}</div><div class="rcc-sub" style="margin-top:10px">Change is year over year, against the September 2025 quarter.</div>`;
   };
 
   SC.split = (x) => {
@@ -730,7 +735,7 @@
     const m = x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m('m', 1.5), inv: true });
     return `<div style="display:flex;flex-direction:column;gap:14px">${row('Share of revenue', sr, 'r')}${row('Share of gross profit', sg, 'g')}
       <div class="rcc-chips rcc-fade" id="${m}"><span class="rcc-chip info">Devices keep ${Math.round(pm)}¢ of each $1</span><span class="rcc-chip flame">Services keep ${Math.round(sm)}¢ of each $1</span></div>
-      <span class="rcc-sub">Gross margin by type, June 2026 quarter. Services: App Store, iCloud, Apple Music, AppleCare and more.</span></div>`;
+      <span class="rcc-sub">Gross margin by type, September 2026 quarter. Services: App Store, iCloud, Apple Music, AppleCare and more.</span></div>`;
   };
 
   SC.gauge = (x) => {
@@ -751,24 +756,26 @@
       const id = x.A({ k: 'op', t0: st === 'q' ? 0.2 : x.m('t', 0.4), t1: (st === 'q' ? 0.2 : x.m('t', 0.4)) + 0.4 });
       s += `<g id="${id}" style="opacity:0"><rect x="${xf(gx0).toFixed(1)}" y="${y - 11}" width="${(xf(A_GM) - xf(gx0)).toFixed(1)}" height="22" rx="4" class="${st === 'q' ? 'f-flame-t s-flame w1' : 'hatch s-flame w1'}"/>
         <text x="${((xf(gx0) + xf(A_GM)) / 2).toFixed(1)}" y="${y + 42}" text-anchor="middle" class="md b flame">${st === 'q' ? 'How much of this was temporary?' : `≈${refund} points: tariff refunds (temporary)`}</text></g>`;
-      if (st === 'tariff') { const id2 = x.A({ k: 'op', t0: x.m('t', 0.4) + 1.2, t1: x.m('t', 0.4) + 1.6 }); s += `<g id="${id2}" style="opacity:0"><text x="${(W / 2).toFixed(1)}" y="${y + 64}" text-anchor="middle" class="md b ink">Without them: ≈${P(gx0, 0)}</text></g>`; }
+      if (st === 'tariff') { const id2 = x.A({ k: 'op', t0: x.m('t', 0.4) + 1.2, t1: x.m('t', 0.4) + 1.6 }); s += `<g id="${id2}" style="opacity:0"><text x="${(W / 2).toFixed(1)}" y="${y + 64}" text-anchor="middle" class="md b ink">Without them: ≈${P(gx0)} (a year ago: ${P(A_GMY)})</text></g>`; }
     }
     if (st === 'guide') {
       const g = AG.grossMargin, id = x.A({ k: 'op', t0: x.m('g', 0.3), t1: x.m('g', 0.3) + 0.4 });
       s += `<g id="${id}" style="opacity:0"><rect x="${xf(g[0]).toFixed(1)}" y="${y - 13}" width="${(xf(g[1]) - xf(g[0])).toFixed(1)}" height="26" rx="4" class="f-acc-t s-acc w15"/>
-        <text x="${((xf(g[0]) + xf(g[1])) / 2).toFixed(1)}" y="${y + 40}" text-anchor="middle" class="lg mono b acc">${g[0]}–${g[1]}%</text><text x="${((xf(g[0]) + xf(g[1])) / 2).toFixed(1)}" y="${y + 55}" text-anchor="middle" class="sm mut">Sep quarter guide, incl. ≈${AG.tariffRefundPts} pt refunds</text></g>`;
+        <text x="${((xf(g[0]) + xf(g[1])) / 2).toFixed(1)}" y="${y + 40}" text-anchor="middle" class="lg mono b acc">${g[0]}–${g[1]}%</text><text x="${((xf(g[0]) + xf(g[1])) / 2).toFixed(1)}" y="${y + 55}" text-anchor="middle" class="sm mut">December-quarter guide</text></g>`;
       const id2 = x.A({ k: 'op', t0: x.m('n', 1.5), t1: x.m('n', 1.5) + 0.4 });
       s += `<g id="${id2}" style="opacity:0">${SML.svg.arrow(xf(A_GM) - 4, y - 24, xf(g[1]) + 6, y - 24, 'dn', 8)}</g>`;
-      s += mk(A_GM, 'ink', P(A_GM), 'June quarter', 'zz', 0.1, true);
+      if (AE.nextQtrGrossMargin) { const cg = AE.nextQtrGrossMargin, cx = xf(cg), cid = x.A({ k: 'op', t0: x.m('c', 3), t1: x.m('c', 3) + 0.4 });
+        s += `<g id="${cid}" style="opacity:0"><path d="M${cx.toFixed(1)} ${y + 15}l-7 11h14z" class="f-info"/><text x="${cx.toFixed(1)}" y="${y + 72}" text-anchor="middle" class="sm b info">Analysts ≈${cg}%</text></g>`; }
+      s += mk(A_GM, 'ink', P(A_GM), 'September quarter', 'zz', 0.1, true);
     } else {
-      s += mk(A_GMY, 'mut', P(A_GMY), 'June 2025', 'y', st === 'gm' ? 1.2 : 0.1, true);
-      s += mk(A_GM, 'acc', P(A_GM), 'June 2026', 'v', 0.2, true);
+      if (st === 'gm') s += mk(A_GMY, 'mut', P(A_GMY), 'Sep 2025', 'y', 1.2, false);
+      s += mk(A_GM, 'acc', P(A_GM), 'Sep 2026', 'v', 0.2, true);
     }
     return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Apple gross margin">${s}</svg>`;
   };
 
   const STMT = {
-    apple: () => ({ unit: (v) => B(v), cur: 'Jun 2026', ya: 'Jun 2025', rows: [['rev', 'Revenue', AI.revenue, AY.revenue], ['cost', 'Cost of sales', -AI.cost, -AY.cost], ['gross', 'Gross profit', AI.gross, AY.gross, 'sub'], ['rd', 'R&D', -AI.rd, -AY.rd], ['sga', 'SG&A', -AI.sga, -AY.sga], ['op', 'Operating income', AI.opInc, AY.opInc, 'sub'], ['oth', 'Other income', AI.other, AY.other], ['tax', 'Income tax', -AI.tax, -AY.tax], ['net', 'Net income', AI.netInc, AY.netInc, 'sub'], ['eps', 'Diluted EPS', AI.epsDil, AY.epsDil, 'eps']] }),
+    apple: () => ({ unit: (v) => B(v), cur: 'Sep 2026', ya: 'Sep 2025', rows: [['rev', 'Revenue', AI.revenue, AY.revenue], ['cost', 'Cost of sales', -AI.cost, -AY.cost], ['gross', 'Gross profit', AI.gross, AY.gross, 'sub'], ['rd', 'R&D', -AI.rd, -AY.rd], ['sga', 'SG&A', -AI.sga, -AY.sga], ['op', 'Operating income', AI.opInc, AY.opInc, 'sub'], ['oth', 'Other income', AI.other, AY.other], ['tax', 'Income tax', -AI.tax, -AY.tax], ['net', 'Net income', AI.netInc, AY.netInc, 'sub'], ['eps', 'Diluted EPS', AI.epsDil, AY.epsDil, 'eps']] }),
     spacex: () => ({ unit: (v) => (v < 0 ? F.minus : '') + F.usd(Math.abs(v), 0) + 'M', cur: 'Sep 2026', ya: 'Sep 2025', rows: [['rev', 'Revenue', XI.revenue, XY.revenue], ['cost', 'Cost of revenue', -XI.cost, -XY.cost], ['gross', 'Gross profit', XI.gross, XY.gross, 'sub'], ['rd', 'R&D', -XI.rd, -XY.rd], ['sga', 'SG&A', -XI.sga, -XY.sga], ['rs', 'Restructuring, other', -(XI.restructuring + XI.impairment), -(XY.restructuring + XY.impairment)], ['op', XI.opInc >= 0 ? 'Operating income' : 'Operating loss', XI.opInc, XY.opInc, 'sub'], ['non', 'Interest, other, tax', XI.intExp + XI.intInc + XI.other - XI.tax, XY.intExp + XY.intInc + XY.other - XY.tax], ['net', XI.netInc >= 0 ? 'Net income' : 'Net loss', XI.netInc, XY.netInc, 'sub'], ['eps', 'Diluted EPS', XI.eps, XY.eps, 'eps']] }),
   };
   const HILITE = { opex: { rd: 'rd', sga: 'sga' }, profit: { op: 'op', net: 'ni' }, op: { gross: 'g', rd: 'rd', op: 'op' }, net: { net: 'n', eps: 'e' } };
@@ -813,28 +820,59 @@
 
   SC.cash = (x) => {
     if (x.show.step === 'return') {
-      const R = AP.call.quarterReturn, c9 = AP.cf9.financing;
+      const R = AP.call.quarterReturn, fin = AP.cf.financing, ocf = AP.cf.totals.operating[2];
       const t = (k, d, lab, v, cls) => `<div class="rcc-box ${cls || ''} rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m(k, d), inv: true })}"><small>${lab}</small><b>${v}</b></div>`;
-      return `<div class="rcc-lab" style="margin-bottom:10px">Returned to shareholders, June quarter</div>
-        <div class="rcc-eq">${t('t', 0.3, 'Total, about', B(R.total, 0), 'hl')}${t('b', 0.8, 'Buybacks', B(R.buybacks))}${t('d', 1.3, 'Dividends, about', B(R.dividends, 0))}</div>
-        <p class="rcc-sub" style="margin-top:12px">Nine months to June: ${B(-c9.find((r) => r.k === 'buyback').cur)} of buybacks and ${B(-c9.find((r) => r.k === 'div').cur)} of dividends (cash flow statement).</p>`;
+      return `<div class="rcc-lab" style="margin-bottom:10px">September quarter · operating cash flow ${B(ocf)}</div>
+        <div class="rcc-eq">${t('t', 0.3, 'Returned, about', B(R.total, 0), 'hl')}${t('b', 0.8, 'Buybacks, about', B(R.buybacks, 0))}${t('d', 1.3, 'Dividends, about', B(R.dividends, 0))}</div>
+        <p class="rcc-sub" style="margin-top:12px">Fiscal 2026: ${B(-fin.find((r) => r.k === 'buyback').cur)} of buybacks and ${B(-fin.find((r) => r.k === 'div').cur)} of dividends (cash flow statement).</p>`;
     }
     const max = A_CASHINV, t0 = x.m('c', 0.3), t1 = x.m('d', 1.2);
-    return `<div class="rcc-lab" style="margin-bottom:10px">June 27, 2026 balance sheet</div><div class="rcc-hb">
+    return `<div class="rcc-lab" style="margin-bottom:10px">${esc(AP.bs.labels.cur)} balance sheet (fiscal year end)</div><div class="rcc-hb">
         <div class="rcc-hr on"><span class="l">Cash and investments</span><span class="t"><i id="${x.A({ k: 'w', to: 100, t0, t1: t0 + 0.9 })}"></i></span><b>${B(A_CASHINV)}</b><em></em></div>
         <div class="rcc-hr"><span class="l">Debt</span><span class="t"><i class="mut" id="${x.A({ k: 'w', to: A_DEBT / max * 100, t0: t1, t1: t1 + 0.8 })}"></i></span><b>${B(A_DEBT)}</b><em></em></div></div>
       <div class="rcc-chips" style="margin-top:12px"><span class="rcc-chip up rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: t1 + 0.8, inv: true })}">Net cash ${B(A_CASHINV - A_DEBT)}</span><span class="rcc-chip acc rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m('v', 2.5), inv: true })}">Dividend ${F.usd(AP.dividend.perShare)} a share, paid ${AP.dividend.paid.replace(', 2026', '')}</span></div>`;
   };
 
+  /* July's forecast for this quarter vs what Apple delivered */
+  SC.gcheck = (x) => {
+    const rows = AP.call.guideCheck.filter((r) => r.k !== 'oth' || !x.narrow), mk = { rev: 'r', gm: 'g', opex: 'o', oth: 'o', tax: 'o' };
+    const cls = (v) => (/above|top|lower/.test(v) ? 'up' : 'info');
+    return `<div class="rcc-sc"><div class="rcc-scr h"><span>Apple’s July forecast for this quarter</span><span class="x">Guided</span><span class="g">Delivered</span><span style="text-align:right">Verdict</span></div>${rows.map((r, i) => {
+      const k = mk[r.k], t0 = x.has(k) ? x.m(k) + (k === 'o' ? i * 0.25 : 0) : 0.3 + i * 0.4;
+      return `<div class="rcc-scr" id="${x.A({ k: 'cls', cls: 'on', t0 })}"><span>${esc(r.name)}<small>guided ${esc(r.guide)}</small></span><span class="x">${esc(r.guide)}</span><span class="g">${esc(r.actual)}</span><span class="pill ${cls(r.verdict)} rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: t0 + 0.3, inv: true })}">${esc(r.verdict)}</span></div>`;
+    }).join('')}</div>`;
+  };
+
+  /* the full fiscal year, 2025 vs 2026 */
+  SC.fy = (x) => {
+    const A = AP.is.fy, Z = AP.is.fyPrev, fcf = AP.cf.fcf;
+    const rows = [['r', 'Revenue', A.revenue, Z.revenue, B], ['n', 'Net income', A.netInc, Z.netInc, B], ['e', 'Diluted EPS', A.epsDil, Z.epsDil, (v) => F.usd(v)], ['f', 'Free cash flow*', fcf[0], fcf[1], B]];
+    return `<div class="rcc-lab" style="margin-bottom:10px">Fiscal year 2026 vs 2025 (October to September)</div><div class="rcc-hb">${rows.map(([k, l, a, b, f], i) => {
+      const t0 = x.has(k) ? x.m(k, 0.3) : 0.4 + i * 0.5, g = yoy(a, b);
+      return `<div class="rcc-hr${x.has(k) ? ' on' : ''}"><span class="l">${l}</span><span class="t"><i class="mut" style="opacity:.55" id="${x.A({ k: 'w', to: b / a * 100, t0: 0.1, t1: 0.6 })}"></i></span><b id="${x.A({ k: 'count', from: b, to: a, fmt: f, t0, t1: t0 + 0.9 })}">${f(a)}</b><em class="up">${SP(g, 0)}</em></div>`;
+    }).join('')}</div><span class="rcc-sub" style="margin-top:10px;display:block">Bar: last year as a share of this year. *Operating cash flow minus capex, our math.</span>`;
+  };
+
+  /* the same shape twice: Apple's June-quarter call (July) and September-quarter call (November) */
+  SC.twice = (x) => {
+    const card = (when, rows, move, cls, t0) => `<div class="rcc-box rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: t0, inv: true })}" style="flex:1 1 0;gap:6px"><small>Apple · ${when}</small>
+      ${rows.map(([l, v, c]) => `<div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--text)"><span>${l}</span><span class="${c}" style="font-weight:600">${v}</span></div>`).join('')}
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--line);padding-top:6px"><span class="rcc-lab">Next day</span><b class="${cls}">${move}</b></div></div>`;
+    const now = A_NEXT.close ? SP(A_NEXT.pct) : `≈${SP(A_NEXT.pct, 0)} early`;
+    return `<div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;gap:10px">${card('Jul 30 (June qtr)', [['Results', 'Beat', 'up'], ['Guidance', 'Below', 'dn'], ['Refund help', F.usd(AP.tariffRefund.pq.eps), 'vio']], SP(AQ3.reaction.closePct), 'dn', x.m('j', 0.4))}${card('Nov 2 (Sep qtr)', [['Results', 'Beat', 'up'], ['Guidance', 'Below', 'dn'], ['Refund help', F.usd(AP.tariffRefund.eps), 'vio']], now, A_NEXT.pct < 0 ? 'dn' : 'up', 0.2)}</div>
+      <span class="rcc-chip acc rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m('n', 4), inv: true })}">Both beat. Both times the outlook decided the direction.</span></div>`;
+  };
+
   /* Hoppy's cart modes: rows [mark, label, this, last|null, flags] */
   const HOPM = {
-    safe: () => ({ sub: 'Talking to the bank', quote: '“July should be busy.”', note: 'That is a forecast. Nobody can hold Hoppy to it. A company’s safe harbor says the same thing about its outlook.' }),
-    sales: () => ({ sub: 'June vs last June', head: ['', 'This June', 'Last June'], rows: [['a', 'Sales (revenue)', U0(HOP.sales[0]), U0(HOP.sales[1])]], chip: ['b', 'up', `▲ ${SP(yoy(HOP.sales[0], HOP.sales[1]), 0)} year over year`], side: ['At Apple', B(AI.revenue), `${SP(yoy(AI.revenue, AY.revenue))} from ${B(AY.revenue)}`] }),
-    refund: () => ({ sub: 'June', head: ['', 'This June', ''], rows: [['', 'Gross profit', U0(HOP.gross[0]), ''], ['', '+ refund of an old overcharge', 'temporary', '']], chip: ['', 'flame', 'A nice boost, but temporary'], side: ['At Apple', `${P(A_GM)} → ≈${P(A_GM - AP.tariffRefund.grossMarginPts, 0)}`, 'Gross margin, with and without the tariff refunds', 'x'] }),
-    opex: () => ({ sub: 'Operating expenses, June', head: ['', 'This June', 'Last June'], rows: [['rd', 'Recipes and training (R&D)', U0(HOP.rd[0]), U0(HOP.rd[1])], ['sga', 'Ads, permit, phone (SG&A)', U0(HOP.sga[0]), U0(HOP.sga[1])], ['', 'Operating income', U0(HOP.op[0]), U0(HOP.op[1]), 'tot']], side: ['At Apple', B(AI.rd), `R&D, ${SP(yoy(AI.rd, AY.rd))} year over year`] }),
+    safe: () => ({ sub: 'Talking to the bank', quote: '“December should be busy.”', note: 'That is a forecast. Nobody can hold Hoppy to it. A company’s safe harbor says the same thing about its outlook.' }),
+    sales: () => ({ sub: 'September vs last September', head: ['', 'This Sep', 'Last Sep'], rows: [['a', 'Sales (revenue)', U0(HOP.sales[0]), U0(HOP.sales[1])]], chip: ['b', 'up', `▲ ${SP(yoy(HOP.sales[0], HOP.sales[1]), 0)} year over year`], side: ['At Apple', B(AI.revenue), `${SP(yoy(AI.revenue, AY.revenue))} from ${B(AY.revenue)}`] }),
+    refund: () => ({ sub: 'September', head: ['', 'This Sep', ''], rows: [['', 'Gross profit', U0(HOP.gross[0]), ''], ['', '+ refund of an old overcharge', 'temporary', '']], chip: ['', 'flame', 'A nice boost, but temporary'], side: ['At Apple', `${P(A_GM)} → ≈${P(A_GM - AP.tariffRefund.grossMarginPts)}`, `Gross margin with and without the tariff refunds (a year ago: ${P(A_GMY)})`, 'x'] }),
+    opex: () => ({ sub: 'Operating expenses, September', head: ['', 'This Sep', 'Last Sep'], rows: [['rd', 'Recipes and training (R&D)', U0(HOP.rd[0]), U0(HOP.rd[1])], ['sga', 'Ads, permit, phone (SG&A)', U0(HOP.sga[0]), U0(HOP.sga[1])], ['', 'Operating income', U0(HOP.op[0]), U0(HOP.op[1]), 'tot']], side: ['At Apple', B(AI.rd), `R&D, ${SP(yoy(AI.rd, AY.rd))} year over year`] }),
     buyback: () => ({ sub: 'What a buyback does', head: ['', 'Before', 'After'], rows: [['b', 'Profit', U0(HOP.net[0]), U0(HOP.net[0])], ['a', 'Shares', F.num(HOP.shares), F.num(HOP.shares - 100)], ['c', 'Profit per share', F.usd(HOP.net[0] / HOP.shares), F.usd(HOP.net[0] / (HOP.shares - 100)), 'tot']], side: ['At Apple', SP(yoy(AI.shDil, AY.shDil)), `Diluted shares, so EPS grew ${SP(yoy(AI.epsDil, AY.epsDil))} while net income grew ${SP(yoy(AI.netInc, AY.netInc))}`] }),
-    netcash: () => ({ sub: 'End of June', head: ['', '', ''], rows: [['h', 'Cash in the register and bank', U0(HOP.cash), ''], ['h', 'Cart loan', F.minus + U0(HOP.loan), ''], ['n', 'Net cash', U0(HOP.cash - HOP.loan), '', 'tot']], side: ['At Apple', B(A_CASHINV - A_DEBT), `${B(A_CASHINV)} of cash and investments minus ${B(A_DEBT)} of debt`, 'a'] }),
-    supply: () => ({ sub: 'What if, in August', rows: [['', 'Beans for August', 'short', ''], ['', 'Milk price', 'doubles', ''], ['', 'Sales and margin outlook', 'lower', '', 'tot']], note: 'A record June does not fix a tight August.', side: ['Apple’s guide', `+${AG.revGrowth[0]}–${AG.revGrowth[1]}%`, `September-quarter revenue growth; margin ${AG.grossMargin[0]}–${AG.grossMargin[1]}%`] }),
+    netcash: () => ({ sub: 'End of September', head: ['', '', ''], rows: [['h', 'Cash in the register and bank', U0(HOP.cash), ''], ['h', 'Cart loan', F.minus + U0(HOP.loan), ''], ['n', 'Net cash', U0(HOP.cash - HOP.loan), '', 'tot']], side: ['At Apple', B(A_CASHINV - A_DEBT), `${B(A_CASHINV)} of cash and investments minus ${B(A_DEBT)} of debt`, 'a'] }),
+    supply: () => ({ sub: 'What if, before the holidays', rows: [['', 'Holiday sales', 'best ever', ''], ['', 'Milk price', 'doubles', ''], ['', 'Profit per cup', 'lower', '', 'tot']], note: 'Record sales do not fix pricier milk.', side: ['Apple’s guide', `+${AG.revGrowth[0]}–${AG.revGrowth[1]}%`, `December-quarter revenue growth; gross margin ${AG.grossMargin[0]}–${AG.grossMargin[1]}%`] }),
     ipo: () => ({ sub: 'Selling slices to the public', quote: '“Who wants a slice of my cart?”', note: 'The cash raised pays for growth. The slices (shares) then trade every day, priced on what people expect the cart to earn.', side: ['SpaceX', B(SX.ipo.netProceeds), `Raised, net, in its June IPO at ${F.usd(SX.ipo.priced, 0)} a share`] }),
     oploss: () => ({ sub: 'What if: a giant recipe budget', head: ['', 'What if', 'Real June'], rows: [['', 'Gross profit', U0(HOP.gross[0]), U0(HOP.gross[0])], ['r', 'Recipes and training', F.minus + U0(7000), F.minus + U0(HOP.rd[0])], ['', 'Ads, permit, phone', F.minus + U0(HOP.sga[0]), F.minus + U0(HOP.sga[0])], ['l', 'Operating income', F.minus + U0(7000 + HOP.sga[0] - HOP.gross[0]), U0(HOP.op[0]), 'tot']], side: ['SpaceX, June quarter', SMn(XQ.opInc), `Operating loss: gross profit ${B(XQ.gross)} minus R&D ${B(XQ.rd)} and SG&A ${B(XQ.sga)}`] }),
     capex: () => { const k = SX.capex.cur / XI.revenue; return ({ sub: 'What if, in one month', rows: [['h', 'Coffee sold', U0(HOP.sales[0]), ''], ['h', 'New carts bought', U0(Math.round(HOP.sales[0] * k / 500) * 500), ''], ['h', 'Spending vs sales', F.num(k, 1) + '×', '', 'tot']], side: ['SpaceX, September quarter', B(SX.capex.cur), `Capex vs ${B(SX.ebitda.cur)} of adjusted EBITDA. Nine months: free cash flow ≈ ${SB(X_FCF9, 0)}`, 'f'] }); },
@@ -855,10 +893,12 @@
   };
 
   SC.range = (x) => {
-    const W = x.W - 28, lo = x.narrow ? 110 : 108, hi = x.narrow ? 116 : 117, L = 12, R = W - 12, y = 84, H = y + 110;
-    const xf = (v) => L + (v - lo) / (hi - lo) * (R - L), g0 = A_GUIDE[0] / 1000, g1 = A_GUIDE[1] / 1000, mid = (g0 + g1) / 2, cons = AE.nextQtrRevenue / 1000;
-    let s = `<text x="0" y="12" class="cap">September-quarter revenue, $ billions</text><line x1="${L}" y1="${y}" x2="${R}" y2="${y}" class="s-line w2"/>`;
-    for (let v = lo; v <= hi; v += 1) s += `<line x1="${xf(v).toFixed(1)}" y1="${y - 4}" x2="${xf(v).toFixed(1)}" y2="${y + 4}" class="s-line w15"/><text x="${xf(v).toFixed(1)}" y="${y + 18}" text-anchor="middle" class="xs mut mono">${v}</text>`;
+    const g0 = A_GUIDE[0] / 1000, g1 = A_GUIDE[1] / 1000, mid = (g0 + g1) / 2, cons = AE.nextQtrRevenue / 1000;
+    const span = x.narrow ? 1 : 2, lo = Math.floor(Math.min(g0, cons)) - span, hi = Math.ceil(Math.max(g1, cons)) + span, tick = hi - lo > 10 ? 2 : 1;
+    const W = x.W - 28, L = 12, R = W - 12, y = 84, H = y + 110;
+    const xf = (v) => L + (v - lo) / (hi - lo) * (R - L);
+    let s = `<text x="0" y="12" class="cap">December-quarter revenue, $ billions</text><line x1="${L}" y1="${y}" x2="${R}" y2="${y}" class="s-line w2"/>`;
+    for (let v = lo; v <= hi; v += tick) s += `<line x1="${xf(v).toFixed(1)}" y1="${y - 4}" x2="${xf(v).toFixed(1)}" y2="${y + 4}" class="s-line w15"/><text x="${xf(v).toFixed(1)}" y="${y + 18}" text-anchor="middle" class="xs mut mono">${v}</text>`;
     const tg = x.m('g', 0.3);
     const band = x.A({ k: 'sw', x0: xf(mid), w: xf(g1) - xf(g0), t0: tg, t1: tg + 0.8 });
     s += `<rect id="${band}" x="${xf(g0).toFixed(1)}" y="${y - 13}" width="${(xf(g1) - xf(g0)).toFixed(1)}" height="26" rx="5" class="f-acc-t s-acc w15"/>`;
@@ -866,8 +906,8 @@
     s += `<g id="${gl}" style="opacity:0"><text x="${xf(mid).toFixed(1)}" y="${y - 20}" text-anchor="middle" class="md b acc">Guide: +${AG.revGrowth[0]}% to +${AG.revGrowth[1]}%</text>
       <text x="${xf(mid).toFixed(1)}" y="${y + 36}" text-anchor="middle" class="sm mono acc">≈${F.usd(g0, 1)}–${F.num(g1, 1)}B</text></g>`;
     if (x.show.step === 'guide') {
-      const fx = x.A({ k: 'op', t0: x.m('fx', 2), t1: x.m('fx', 2) + 0.4 });
-      s += `<g id="${fx}" style="opacity:0"><text x="${(W / 2).toFixed(1)}" y="${y + 66}" text-anchor="middle" class="sm mut">Includes a currency drag ≈${AG.fxHeadwindPts} points bigger than in June</text></g>`;
+      const fx = x.A({ k: 'op', t0: x.m('b', 2), t1: x.m('b', 2) + 0.4 });
+      s += `<g id="${fx}" style="opacity:0"><text x="${(W / 2).toFixed(1)}" y="${y + 66}" text-anchor="middle" class="sm mut">“Best quarter for revenue in the history of the company”</text></g>`;
     } else {
       const tc = x.m('c', 0.3), c = x.A({ k: 'op', t0: tc, t1: tc + 0.4 }), cx = xf(cons);
       s += `<g id="${c}" style="opacity:0"><path d="M${cx.toFixed(1)} ${y - 15}l-7 -11h14z" class="f-info"/><line x1="${cx.toFixed(1)}" y1="${y - 15}" x2="${cx.toFixed(1)}" y2="${y + 13}" class="s-info w2 dash2"/>
@@ -875,7 +915,7 @@
       const k = x.A({ k: 'op', t0: x.m('k', 2.5), t1: x.m('k', 2.5) + 0.4 });
       s += `<g id="${k}" style="opacity:0"><path d="M${xf(mid).toFixed(1)} ${y + 46}v8H${cx.toFixed(1)}v-8" class="nf s-dn w15"/><text x="${Math.min((xf(mid) + cx) / 2, R - 90).toFixed(1)}" y="${y + 70}" text-anchor="middle" class="sm b dn">≈${F.usd(cons - mid, 1)}B short at the midpoint</text></g>`;
       const r = x.A({ k: 'op', t0: x.m('r', 1.2), t1: x.m('r', 1.2) + 0.4 });
-      s += `<g id="${r}" style="opacity:0"><text x="0" y="${H - 4}" class="sm mut">Base: last year’s September quarter, ${B(AG.baseRevenue)}</text></g>`;
+      s += `<g id="${r}" style="opacity:0"><text x="0" y="${H - 4}" class="sm mut">Base: last year’s December quarter, ${B(AG.baseRevenue)}</text></g>`;
     }
     return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Apple’s revenue guidance range against what analysts expected">${s}</svg>`;
   };
@@ -891,11 +931,12 @@
 
   const SCORE = {
     apple: () => [
-      { k: 'r', l: 'Revenue', x: `${B(AE.revenue[0])}–${F.num(AE.revenue[1] / 1000, 1)}B`, g: B(AI.revenue), v: ['up', 'Beat'] },
-      { k: 'e', l: 'EPS', x: `${F.usd(AE.eps[0])}–${F.num(AE.eps[1], 2)}`, g: F.usd(AI.epsDil), v: ['up', 'Beat'] },
-      { k: 's', l: 'Services', x: `≈${B(AE.services)}`, g: B(AI.servSales), v: ['dn', 'Miss'] },
-      { k: 'g', l: 'Sep-qtr growth', x: `≈${AE.nextQtrGrowth}%`, g: `${AG.revGrowth[0]}–${AG.revGrowth[1]}% guide`, v: ['dn', 'Below'], pre: true },
-      { k: 'm', l: 'Gross margin next', x: `${P(A_GM)} now`, g: `${AG.grossMargin[0]}–${AG.grossMargin[1]}% guide`, v: ['dn', 'Lower'] },
+      { k: 'r', l: 'Revenue', x: `≈${B(AE.revenue)}`, g: B(AI.revenue), v: ['up', 'Beat'] },
+      { k: 'e', l: 'EPS', x: `≈${F.usd(AE.eps)}`, g: F.usd(AI.epsDil), v: ['up', 'Beat'] },
+      { k: 's', l: 'Services', x: `≈${B(AE.services)}`, g: B(AI.servSales), v: ['info', 'In line'] },
+      { k: 'c', l: 'Greater China', x: `≈${B(AE.greaterChina)}`, g: B(AP.regions.cur['Greater China']), v: ['dn', 'Miss'] },
+      { k: 'g', l: 'Dec-qtr growth', x: `≈${AE.nextQtrGrowth}%`, g: `${AG.revGrowth[0]}–${AG.revGrowth[1]}% guide`, v: ['dn', 'Below'], pre: true },
+      { k: 'm', l: 'Dec-qtr margin', x: `≈${AE.nextQtrGrossMargin}%`, g: `${AG.grossMargin[0]}–${AG.grossMargin[1]}% guide`, v: ['dn', 'Below'] },
       { k: 'o', l: 'Temporary help', x: '—', xs: 'tariff refunds', g: `${F.usd(AP.tariffRefund.eps)} of EPS`, v: ['vio', 'Flag'] },
     ],
     spacex: () => [
@@ -929,8 +970,11 @@
     let pts, lo, hi, step;
     if (apple) {
       const c0 = AR.closeBefore;
-      pts = [{ k: 'c', l: 'Jul 30 close', s: 'Jul 30', p: c0, t: F.usd(c0) }, { k: 'ah', l: 'After hours', s: 'After hrs', p: c0 * (1 + AR.afterHoursPct / 100), t: '≈' + SP(AR.afterHoursPct, 0) }, { k: 'o', l: 'Jul 31 open', s: 'Open', p: c0 * (1 + AR.openPct / 100), t: '≈' + SP(AR.openPct) }, { k: 'l', l: 'Day low', s: 'Low', p: AR.low, t: '≈' + U0(AR.low) }, { k: 'e', l: 'Jul 31 close', s: 'Close', p: AR.closeAfter, t: `≈${U0(AR.closeAfter)}, ${SP(AR.closePct)}` }];
-      lo = 295; hi = 340; step = 10;
+      pts = [{ k: 'p0', l: 'Oct 30 close', s: 'Oct 30', p: AR.prevClose, t: F.usd(AR.prevClose) }, { k: 'c', l: 'Nov 2 close', s: 'Nov 2', p: c0, t: `${F.usd(c0)}, ${SP(yoy(c0, AR.prevClose))}` }, { k: 'ah', l: 'After hours', s: 'After hrs', p: c0 * (1 + AR.afterHoursPct / 100), t: '≈' + SP(AR.afterHoursPct) }];
+      if (!A_NEXT.close) pts.push({ k: 'pm', l: 'Nov 3, early', s: 'Early', p: A_NEXT.p, t: '≈' + SP(A_NEXT.pct, 0) });
+      else pts.push({ k: 'pm', l: 'Nov 3, early', s: 'Early', p: c0 * (1 + AR.premarketPct / 100), t: '≈' + SP(AR.premarketPct, 0) }, { k: 'e', l: 'Nov 3 close', s: 'Close', p: A_NEXT.p, t: `${F.usd(A_NEXT.p)}, ${SP(A_NEXT.pct)}` });
+      const ps = pts.map((q) => q.p);
+      step = 5; lo = Math.floor((Math.min(...ps) - 4) / step) * step; hi = Math.ceil((Math.max(...ps) + 4) / step) * step;
     } else {
       const c0 = XR.closeBefore;
       pts = [{ k: 'c', l: 'Oct 20 close', s: 'Oct 20', p: c0, t: F.usd(c0) }, { k: 'ah', l: 'After hours', s: 'After hrs', p: c0 * (1 + XR.afterHoursPct / 100), t: '≈' + SP(XR.afterHoursPct, 0) }, { k: 'e', l: 'Oct 21 close', s: 'Oct 21', p: XR.closeAfter, t: `${F.usd(XR.closeAfter)}, ${SP(XR.nextDayPct)}` }];
@@ -967,35 +1011,18 @@
   };
 
   SC.pe = (x) => {
-    const eps = AP.ttmEps, pe0 = AR.closeBefore / eps, pe1 = AR.closeAfter / eps, ta = x.m('a', 1), tb = x.m('b', 2.5);
+    const eps = AP.ttmEps, pe0 = A_PE0, pe1 = A_NEXT.p / eps, ta = x.m('a', 1), tb = x.m('b', 2.5);
     const row = (lab, pe, price, t0, cls, cnt) => `<div class="rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: t0, inv: true })}" style="display:flex;flex-direction:column;gap:4px"><span class="rcc-lab">${lab}</span><div class="rcc-eq"><span class="rcc-box"><small>12-mo EPS</small><b>${F.usd(eps)}</b></span><i>×</i><span class="rcc-box ${cls}"><small>P/E</small><b${cnt ? ` id="${x.A({ k: 'count', from: pe0, to: pe1, fmt: (v) => F.num(v, 1), t0, t1: t0 + 1.2 })}"` : ''}>${F.num(pe, 1)}</b></span><i>≈</i><span class="rcc-box"><small>Price</small><b>${price}</b></span></div></div>`;
     const yc = yourCall(x);
     return `<div style="display:flex;flex-direction:column;gap:${x.narrow ? 7 : 10}px">
-      ${row('July 30 close · price ≈ EPS × P/E', pe0, F.usd(AR.closeBefore), ta, 'hl', false)}${row('July 31 close', pe1, '≈' + U0(AR.closeAfter), tb, 'hl', true)}
-      <span class="rcc-sub">${x.narrow ? `EPS (last four quarters) did not change overnight; the multiple did.` : `12-month EPS: ${A_TTM.map((r) => F.usd(r.eps)).join(' + ')} = ${F.usd(eps)}. Earnings did not change overnight; the multiple did.`}</span>
+      ${row('November 2 close · price ≈ EPS × P/E', pe0, F.usd(AR.closeBefore), ta, 'hl', false)}${row(A_NEXT.close ? 'November 3 close' : 'November 3, early trading (as reported)', pe1, (A_NEXT.close ? '' : '≈') + F.usd(A_NEXT.p, A_NEXT.close ? 2 : 0), tb, 'hl', true)}
+      <span class="rcc-sub">${x.narrow ? 'Fiscal 2026 EPS did not change overnight; the multiple did.' : `12-month EPS = fiscal 2026, ${F.usd(eps)} (quarters: ${A_TTM.map((r) => F.usd(r.eps)).join(' + ')}, rounded). Earnings did not change overnight; the multiple did.`}</span>
       ${yc ? `<div class="rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m('y', 0.2), inv: true })}">${yc}</div>` : ''}</div>`;
-  };
-
-  SC.targets = (x) => {
-    const W = x.W - 28, y = 78, H = y + 84, lo = 230, hi = 410, L = 10, R = W - 10;
-    const xf = (v) => L + (v - lo) / (hi - lo) * (R - L), SHORT = { JPMorgan: 'JPM', 'Morgan Stanley': 'MS' };
-    let s = `<text x="0" y="14" class="cap">Reported price targets after the call</text><line x1="${L}" y1="${y}" x2="${R}" y2="${y}" class="s-line w2"/>`;
-    for (let v = 250; v <= 400; v += 50) s += `<line x1="${xf(v).toFixed(1)}" y1="${y - 4}" x2="${xf(v).toFixed(1)}" y2="${y + 4}" class="s-line"/>`;
-    const n = A_TARGETS.length;
-    A_TARGETS.forEach(([f, v], i) => {
-      const t0 = i === 0 ? x.m('lo', 0.5) : i === n - 1 ? x.m('hi', 2) : x.m('lo', 0.5) + 0.4 + i * 0.25, up = i % 2 === 0;
-      const id = x.A({ k: 'op', t0, t1: t0 + 0.3 }), anc = i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle', tx = xf(v) + (i === 0 ? -6 : i === n - 1 ? 6 : 0);
-      s += `<g id="${id}" style="opacity:0"><circle cx="${xf(v).toFixed(1)}" cy="${y}" r="6" class="f-info"/><line x1="${xf(v).toFixed(1)}" y1="${up ? y - 8 : y + 8}" x2="${xf(v).toFixed(1)}" y2="${up ? y - 22 : y + 22}" class="s-info w1"/>
-        <text x="${tx.toFixed(1)}" y="${up ? y - 40 : y + 36}" text-anchor="${anc}" class="sm b ink">${x.narrow ? SHORT[f] || f : f}</text><text x="${tx.toFixed(1)}" y="${up ? y - 27 : y + 50}" text-anchor="${anc}" class="sm mono info">${U0(v)}</text></g>`;
-    });
-    const px = xf(AR.closeAfter), pid = x.A({ k: 'op', t0: 0.2, t1: 0.5 });
-    s += `<g id="${pid}" style="opacity:0"><path d="M${px.toFixed(1)} ${y + 12}l-6 10h12z" class="f-acc"/><text x="${px.toFixed(1)}" y="${y + 76}" text-anchor="middle" class="sm mono acc">≈${U0(AR.closeAfter)} close, Jul 31</text></g>`;
-    return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Analyst price targets after Apple’s call, from 245 to 400 dollars">${s}</svg><div class="rcc-sub" style="text-align:center">${x.narrow ? 'Targets are opinions. JPM, MS and BofA targets as reported by MacDailyNews.' : 'Same quarter, very different views. Targets are opinions, not forecasts you can rely on. JPMorgan, Morgan Stanley and BofA targets as reported by MacDailyNews.'}</div>`;
   };
 
   SC.next = (x) => {
     const apple = x.script.key === 'apple';
-    const chips = apple ? (x.narrow ? ['Guidance first', 'Supply', 'Memory costs', 'Gross margin'] : ['Guidance first', 'Supply', 'Memory costs', 'Gross margin', 'Temporary items']) : x.narrow ? ['Capex vs the guide', 'Free cash flow', 'Below-the-line items', 'Share count'] : [`Capex vs the ${B(SX.capex.q4Guide[0], 0)}–${F.num(SX.capex.q4Guide[1] / 1000, 0)}B guide`, 'Free cash flow', 'Profit from operations vs below the line', 'Share count', 'Q1 2027 revenue guide'];
+    const chips = apple ? (x.narrow ? ['Guidance first', 'Memory costs', 'Gross margin', 'Services'] : ['Guidance first', 'Memory costs', 'Gross margin', 'Services growth', 'Supply']) : x.narrow ? ['Capex vs the guide', 'Free cash flow', 'Below-the-line items', 'Share count'] : [`Capex vs the ${B(SX.capex.q4Guide[0], 0)}–${F.num(SX.capex.q4Guide[1] / 1000, 0)}B guide`, 'Free cash flow', 'Profit from operations vs below the line', 'Share count', 'Q1 2027 revenue guide'];
     return `<div style="display:flex;flex-direction:column;gap:${x.narrow ? 8 : 12}px;align-items:flex-start"><span class="rcc-lab">Up next</span>
       <b style="font:600 ${x.narrow ? 16.5 : 19}px/1.35 var(--sans);color:var(--ink)">${apple ? esc(AP.next) : 'SpaceX’s next report covers the fourth quarter of 2026, expected in early 2027.'}</b>
       <span class="rcc-lab">Listen for</span><div class="rcc-chips">${chips.map((c, i) => `<span class="rcc-chip acc rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: 0.6 + i * 0.35, inv: true })}">${c}</span>`).join('')}</div>
@@ -1152,7 +1179,7 @@
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--line);padding-top:6px"><span class="rcc-lab">Next day</span><b class="${cls}">${move}</b></div></div>`;
     const yc = yourCall(x);
     return `<div style="display:flex;flex-direction:column;gap:10px">${yc ? `<div class="rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m('y', 0.2), inv: true })}">${yc}</div>` : ''}
-      <div style="display:flex;gap:10px">${card('Apple', 'Jul 30', [['Results', 'Beat', 'up'], ['Guidance', 'Below', 'dn']], SP(AR.closePct), 'dn', x.m('a', 1.5))}${card('SpaceX', 'Oct 20', [['Results', 'Beat', 'up'], ['Guidance', 'Far above', 'up']], SP(XR.nextDayPct), 'up', 0.2)}</div>
+      <div style="display:flex;gap:10px">${card('Apple', 'Jul 30', [['Results', 'Beat', 'up'], ['Guidance', 'Below', 'dn']], SP(AQ3.reaction.closePct), 'dn', x.m('a', 1.5))}${card('SpaceX', 'Oct 20', [['Results', 'Beat', 'up'], ['Guidance', 'Far above', 'up']], SP(XR.nextDayPct), 'up', 0.2)}</div>
       <span class="rcc-chip acc rcc-fade" id="${x.A({ k: 'cls', cls: 'rcc-hide', t0: -1, t1: x.m('b', 4), inv: true })}">Both beat. The outlook decided the direction.</span></div>`;
   };
 
@@ -1623,49 +1650,55 @@
      Lessons
      ====================================================================== */
   const pick = (arr, idx) => idx.map((i) => arr[i]).filter(Boolean);
-  const TRANSCRIPT_SRC = { t: 'Webull: Apple (AAPL) Q3 2026 earnings call transcript (used for the Q&A themes)', u: 'https://www.webull.com/news/15364638775387136' };
+  /* the next-day move, from the data (main fills in the Nov 3 close; until then, early trading as reported) */
+  const A_MOVE = AR.closePct == null
+    ? `traded about ${F.num(Math.abs(AR.premarketPct), 0)}% lower early the next morning`
+    : `closed ${F.num(Math.abs(AR.closePct), 1)}% ${AR.closePct < 0 ? 'lower' : 'higher'} at ${F.usd(AR.closeAfter)} on November 3`;
+  const A_GXR = (AI.gross / AI.revenue * 100) - AP.tariffRefund.grossMarginPts;   // gross margin without the refunds (our math)
 
   SML.lessons.push({
     id: 'l-rc-apple-call', course: 'realco', order: 5, title: 'Listen: Apple’s earnings call, explained', mins: 14, level: 'Intermediate',
-    summary: 'Hear Apple’s July 2026 call retold step by step, with every number explained.',
+    summary: 'Hear Apple’s November 2026 call, John Ternus’s first as CEO, retold step by step, with every number explained.',
     idea: 'The results tell you about the last three months. The call tells you about the next three, and that is what moves the stock.',
     widget: 'callPlayer', opts: { call: 'apple' },
     try: 'Press play and watch the stage light up each number as it is said. Answer the two checkpoints, then jump around with the transcript.',
     body: [
-      `<h3>What an earnings call is</h3><p>Every quarter, a public company publishes its results, usually right after the market closes, and then hosts a live call, often about an hour long. Anyone can listen to the webcast, and the replay and slides usually go up on the company’s investor relations page. This lesson replays the call for <b>Apple’s fiscal third quarter of 2026</b>, the latest reported quarter as of October 2026. Apple’s fiscal year ends in late September, so its fiscal Q3 is April to June. The call was on July 30, 2026, with Tim Cook as CEO; John Ternus took over as CEO on September 1, 2026.</p>`,
-      `<h3>Every call follows the same script</h3><ul><li><b>Opening and safe harbor.</b> Investor relations introduces the speakers and reads a legal notice: anything about the future is a forecast that can turn out wrong. It is routine.</li><li><b>CEO highlights.</b> The big picture and the best news first. In Apple’s results release that day, Tim Cook called it “our strongest June quarter ever”.</li><li><b>CFO walk-through.</b> Revenue, products and regions, gross margin, operating expenses, net income, EPS, cash and buybacks, the dividend.</li><li><b>Guidance.</b> Management’s forecast for the next quarter: revenue growth, gross margin, expenses and tax rate.</li><li><b>Analyst Q&A.</b> Analysts from banks and research firms ask questions. Their questions show what worries the market.</li></ul>`,
-      `<h3>Why the call can move the stock more than the numbers</h3><p>By the time the call starts, the stock price already reflects what analysts expected, the <b>consensus</b>. A beat or a miss against that consensus moves the price after hours. But the results describe the past. The call reveals the future: guidance changes what investors expect the company to earn next quarter and next year, and the tone of the answers changes how much they are willing to pay for those earnings. Price is roughly EPS × P/E, so a weaker outlook can cut both at once (see <a href="#l-rc-price">how earnings move the stock price</a>).</p><p>Apple is the textbook case. Revenue of $109.4 billion (up 16%) and EPS of $2.02 (up 29%) both beat estimates. But $0.11 of that EPS came from temporary tariff refunds (the September-quarter guide still counts on about 1 point of margin from them), the guide of 9% to 11% growth fell short of the roughly 12% analysts expected, and gross margin was guided down to 47% to 48% from 50.1%. The stock fell about 7.4% the next day. SpaceX shows the mirror image: on October 20, 2026 it beat and guided far above expectations, and its stock rose about 7.8%.</p>`,
-      `<h3>How to listen like an analyst</h3><ul><li><b>Know the bar first.</b> Write down the consensus for revenue, EPS and next-quarter guidance before the release (the <a href="#calendar">calendar</a> has the dates).</li><li><b>Strip temporary items.</b> Refunds, legal settlements and asset sales flatter a quarter for a while. Apple’s EPS without the refund was about $1.91.</li><li><b>Compare the guide with the consensus,</b> not with this quarter. A forecast that is good but below expectations is bad news for the price.</li><li><b>Count the worries in the Q&A.</b> On Apple’s call, supply, memory costs and margins came up again and again.</li><li><b>Respect the volatility.</b> Prices can gap overnight (Apple fell about 7% the next day; SpaceX rose about 8% after its latest report and fell about 14% after its first), and option prices often drop after the event (<a href="#l-iv-crush">IV crush</a>). Size positions for that (<a href="#l-position-size">position sizing</a>).</li></ul>`,
-      `<h3>About this replay</h3><p>The narration is a plain-words retelling written by FiredBunny, not the recording or the transcript. The voices are text-to-speech. Management’s comments are paraphrased and attributed; the only quotes are the two short phrases Apple’s CEO used publicly. For the line-by-line statements, see <a href="#l-rc-apple-income">Apple’s earnings, line by line</a>, <a href="#l-rc-apple-balance">the balance sheet</a> and <a href="#l-rc-apple-cash">cash flow</a>; for a fast grower that just turned profitable, listen to <a href="#l-rc-spacex-call">SpaceX’s third-quarter call</a>. Education only, not investment advice.</p>`,
+      `<h3>What an earnings call is</h3><p>Every quarter, a public company publishes its results, usually right after the market closes, and then hosts a live call, often about an hour long. Anyone can listen to the webcast, and the replay and slides usually go up on the company’s investor relations page. This lesson replays the call for <b>Apple’s fiscal fourth quarter of 2026</b> (July to September), the latest reported quarter as of November 2026. Apple’s fiscal year ends in late September, so this report also closes its fiscal year 2026. The call was on November 2, 2026: John Ternus’s first as CEO (he took over from Tim Cook on September 1), with finance chief Kevan Parekh on the numbers and chief operating officer Sabih Khan answering supply questions.</p>`,
+      `<h3>Every call follows the same script</h3><ul><li><b>Opening and safe harbor.</b> Investor relations introduces the speakers and reads a legal notice: anything about the future is a forecast that can turn out wrong. It is routine.</li><li><b>CEO highlights.</b> The big picture and the best news first. Ternus opened with September-quarter records for revenue, EPS and net income, and the best fiscal year ever for revenue and EPS (“We have never sold more Macs in a fiscal year”).</li><li><b>CFO walk-through.</b> Revenue, products and regions, gross margin, operating expenses, net income, EPS, cash and buybacks, the dividend.</li><li><b>Guidance.</b> Management’s forecast for the next quarter: revenue growth, gross margin, expenses and tax rate.</li><li><b>Analyst Q&A.</b> Analysts from banks and research firms ask questions. Their questions show what worries the market.</li></ul>`,
+      `<h3>Why the call can move the stock more than the numbers</h3><p>By the time the call starts, the stock price already reflects what analysts expected, the <b>consensus</b>. A beat or a miss against that consensus moves the price after hours. But the results describe the past. The call reveals the future: guidance changes what investors expect the company to earn next quarter and next year, and the tone of the answers changes how much they are willing to pay for those earnings. Price is roughly EPS × P/E, so a weaker outlook can cut both at once (see <a href="#l-rc-price">how earnings move the stock price</a>).</p><p>Apple is the textbook case, twice. In the September quarter, revenue of ${B(AI.revenue)} (up ${P(yoy(AI.revenue, AY.revenue), 0)}) and EPS of ${F.usd(AI.epsDil)} (up ${P(yoy(AI.epsDil, AY.epsDil), 0)}) both beat estimates of about ${B(AE.revenue)} and ${F.usd(AE.eps)}, and revenue growth even topped Apple’s own July forecast of ${AQ3.guidance.revGrowth[0]}% to ${AQ3.guidance.revGrowth[1]}%. But the holiday-quarter guide fell short: revenue growth of ${AG.revGrowth[0]}% to ${AG.revGrowth[1]}% against about ${F.num(AE.nextQtrGrowth, 0)}% hoped for, a gross margin of ${AG.grossMargin[0]}% to ${AG.grossMargin[1]}% against about ${AE.nextQtrGrossMargin}% as memory chips get pricier, and Services growth of ${AG.servicesGrowth[0]}% to ${AG.servicesGrowth[1]}% against about ${AE.nextQtrServicesGrowth}%. The stock had closed at ${F.usd(AR.closeBefore)}, fell about ${F.num(Math.abs(AR.afterHoursPct), 0)}% after hours and ${A_MOVE}. Three months earlier the June-quarter call had the same shape, a beat and a softer outlook, and the stock fell ${F.num(Math.abs(AQ3.reaction.closePct), 1)}% the next day. SpaceX shows the mirror image: on October 20, 2026 it beat and guided far above expectations, and its stock rose about 7.8%.</p>`,
+      `<h3>How to listen like an analyst</h3><ul><li><b>Know the bar first.</b> Write down the consensus for revenue, EPS and next-quarter guidance before the release (the <a href="#calendar">calendar</a> has the dates).</li><li><b>Check the last forecast.</b> Apple guided ${AQ3.guidance.revGrowth[0]}% to ${AQ3.guidance.revGrowth[1]}% growth for the September quarter and delivered ${P(yoy(AI.revenue, AY.revenue))}. A company that keeps beating its own guide earns trust.</li><li><b>Strip temporary items.</b> Tariff refunds added ${F.usd(AP.tariffRefund.eps)} to EPS and about ${AP.tariffRefund.grossMarginPts} point to gross margin (half of June’s help). Without them EPS was about ${F.usd(AI.epsDil - AP.tariffRefund.eps)} and gross margin about ${P(A_GXR)}, a little below a year ago.</li><li><b>Compare the guide with the consensus,</b> not with this quarter. “Best quarter ever” can still be below expectations.</li><li><b>Count the worries in the Q&A.</b> On Apple’s call, memory costs, margins, supply and Services came up again and again.</li><li><b>Respect the volatility.</b> Prices can gap overnight (Apple fell ${F.num(Math.abs(AQ3.reaction.closePct), 1)}% after the July call; SpaceX rose about 8% after its latest report and fell about 14% after its first), and option prices often drop after the event (<a href="#l-iv-crush">IV crush</a>). Size positions for that (<a href="#l-position-size">position sizing</a>).</li></ul>`,
+      `<h3>About this replay</h3><p>The narration is a plain-words retelling written by FiredBunny, not the recording or the transcript. The voices are text-to-speech. Management’s comments are paraphrased and attributed, using press summaries of the call; the only quotes are a few short phrases from the call and the results release. Expectations and price moves are as reported in the news. For the line-by-line statements, see <a href="#l-rc-apple-income">Apple’s earnings, line by line</a>, <a href="#l-rc-apple-balance">the balance sheet</a> and <a href="#l-rc-apple-cash">cash flow</a>; for a fast grower that just turned profitable, listen to <a href="#l-rc-spacex-call">SpaceX’s third-quarter call</a>. Education only, not investment advice.</p>`,
     ],
     example: {
-      title: 'Reading Apple’s July 30 call in five steps',
-      intro: 'Real figures from Apple’s release and the call, with analyst expectations as reported in the news.',
+      title: 'Reading Apple’s November 2 call in five steps',
+      intro: 'Real figures from Apple’s release and the call, with analyst expectations and price moves as reported in the news.',
       steps: [
-        'Results vs the bar: revenue $109.4 billion vs about $108.7 to $109.0 billion expected; EPS $2.02 vs about $1.88 to $1.89. Both beat.',
-        'Quality: temporary tariff refunds added $0.11 to EPS and about 2 points to gross margin. Without them, EPS was about $1.91 and gross margin about 48%.',
-        'Guidance: 9% to 11% growth on last September quarter’s $102.5 billion is about $111.7 to $113.7 billion, below the roughly $115 billion (about 12%) analysts expected.',
-        'Margin outlook: 47% to 48%, down from 50.1%, mainly because memory chips got more expensive.',
-        'Price: the stock closed at $333.43 before the report and near $309 the next day. On 12-month EPS of $8.72, the P/E went from about 38 to about 35.',
+        `Results vs the bar: revenue ${B(AI.revenue)} vs about ${B(AE.revenue)} expected; EPS ${F.usd(AI.epsDil)} vs about ${F.usd(AE.eps)}. Both beat, and growth of ${P(yoy(AI.revenue, AY.revenue))} topped Apple’s own July guide of ${AQ3.guidance.revGrowth[0]}% to ${AQ3.guidance.revGrowth[1]}%.`,
+        `Quality: tariff refunds added ${F.usd(AP.tariffRefund.eps)} to EPS and about ${AP.tariffRefund.grossMarginPts} point to gross margin. Without them, EPS was about ${F.usd(AI.epsDil - AP.tariffRefund.eps)} and gross margin about ${P(A_GXR)}, a little below a year ago’s ${P(AY.gross / AY.revenue * 100)}.`,
+        `Guidance: ${AG.revGrowth[0]}% to ${AG.revGrowth[1]}% growth on last December quarter’s ${B(AG.baseRevenue)} is about ${B(A_GUIDE[0])} to ${B(A_GUIDE[1])} (our math), below the roughly ${B(AE.nextQtrRevenue, 0)} (about ${AE.nextQtrGrowth}%) analysts expected.`,
+        `Margin outlook: ${AG.grossMargin[0]}% to ${AG.grossMargin[1]}%, down from ${P(AI.gross / AI.revenue * 100)} and below the roughly ${AE.nextQtrGrossMargin}% expected, mainly because memory chips cost more. Services growth was guided to ${AG.servicesGrowth[0]}% to ${AG.servicesGrowth[1]}% vs about ${AE.nextQtrServicesGrowth}%.`,
+        AR.closePct == null
+          ? `Price: the stock closed at ${F.usd(AR.closeBefore)} before the report. On fiscal 2026 EPS of ${F.usd(AP.ttmEps)} that is a P/E of about ${F.num(A_PE0, 1)}. Early on November 3 it traded about ${F.num(Math.abs(AR.premarketPct), 0)}% lower, near ${F.usd(A_NEXT.p, 0)}: a P/E of about ${F.num(A_NEXT.p / AP.ttmEps, 0)}.`
+          : `Price: the stock closed at ${F.usd(AR.closeBefore)} before the report and at ${F.usd(AR.closeAfter)} on November 3. On fiscal 2026 EPS of ${F.usd(AP.ttmEps)}, the P/E went from about ${F.num(A_PE0, 1)} to about ${F.num(AR.closeAfter / AP.ttmEps, 1)}.`,
       ],
-      result: 'A beat on the past and a softer outlook: the multiple shrank by about 3 points and the stock fell about 7%.',
+      result: 'A beat on the past and a softer outlook, for the second report in a row: the multiple shrank and the stock fell, as it did after the July call.',
     },
     mistakes: [
       'Trading the headline beat in the first minutes after hours, before the guidance is out.',
-      'Counting temporary items as real growth, like the $0.11 of EPS Apple got from tariff refunds.',
-      'Comparing a seasonal business with the previous quarter: Apple’s June quarter was 1.6% smaller than March but 16% bigger than a year earlier.',
-      'Treating “record quarter” language as news. The market already expected a strong quarter; only the surprise moves the price.',
+      `Counting temporary items as real growth: Apple’s tariff refunds added ${F.usd(AP.tariffRefund.eps)} of EPS this time and ${F.usd(AP.tariffRefund.pq.eps)} in June.`,
+      `Reading a higher gross margin as a stronger business without asking why: September’s ${P(AI.gross / AI.revenue * 100)} included about ${AP.tariffRefund.grossMarginPts} point of refunds, and underneath it was a little below a year ago.`,
+      'Treating “record quarter” or “best quarter ever” language as news. The market already expects records; only the surprise moves the price.',
     ],
     points: [
       'Calls follow a script: safe harbor, CEO highlights, CFO numbers, guidance, then analyst Q&A.',
       'Stocks move on the surprise against expectations, and most of all on the outlook.',
-      'Strip temporary items before you decide whether a quarter really beat.',
-      'The questions analysts repeat point to the risk the market cares about most.',
-      'Apple beat on July 30, 2026, guided below expectations and fell about 7% the next day.',
+      'Strip temporary items, and check results against the company’s own last forecast.',
+      'The questions analysts repeat point to the risk the market cares about most: on November 2 it was memory costs and margins.',
+      'Apple beat in July and again in November, guided below hopes both times, and the stock fell both times.',
     ],
-    terms: ['Earnings call', 'Guidance', 'Beat', 'One-time item', 'Diluted EPS', 'P/E'],
-    quiz: { q: 'Apple beat revenue and EPS estimates on July 30, 2026, yet the stock fell about 7% the next day. What was the main reason?', options: ['Investors had expected a loss', 'Its outlook for the next quarter, including growth and gross margin, came in below what analysts expected', 'Apple cut its dividend'], answer: 1, why: 'The quarter was strong, but the guidance of 9% to 11% growth and a 47% to 48% gross margin was below expectations, so investors lowered what they would pay for future earnings.' },
-    sources: pick(AP.sources, [0, 1, 4, 5, 6]).concat([TRANSCRIPT_SRC]),
+    terms: ['Earnings call', 'Guidance', 'Beat', 'One-time item', 'Gross margin', 'Diluted EPS', 'P/E'],
+    quiz: { q: 'Apple beat revenue and EPS estimates on November 2, 2026, and even topped its own forecast, yet the stock fell. What was the main reason?', options: ['It reported a loss', 'Its December-quarter outlook, especially a 45% to 46% gross margin and slower Services growth, came in below what analysts expected', 'Apple cut its dividend'], answer: 1, why: `The quarter was strong, but the holiday-quarter guide (${AG.revGrowth[0]}% to ${AG.revGrowth[1]}% growth, a ${AG.grossMargin[0]}% to ${AG.grossMargin[1]}% gross margin as memory costs rise, Services up ${AG.servicesGrowth[0]}% to ${AG.servicesGrowth[1]}%) was below expectations, so investors lowered what they would pay for future earnings. The same thing happened after the July call.` },
+    sources: pick(AP.sources, [0, 1, 5, 6, 7, 8, 9, 3, 11]),
   });
 
   SML.lessons.push({
@@ -1677,7 +1710,7 @@
     body: [
       `<h3>The latest call: October 20, 2026</h3><p>SpaceX listed on the Nasdaq as SPCX in June 2026. Its third-quarter report on October 20, 2026 (July to September) is the latest reported quarter as of October 2026, and its second as a public company. Revenue was $14.6 billion, up 161% from a year earlier and nearly double the June quarter, and SpaceX posted net income of $4.4 billion, or $0.35 a share: its first profitable quarter as a public company.</p>`,
       `<h3>Read the profit twice</h3><p>Operating income, the profit from the business itself, was $2.8 billion. About $1.6 billion more came from below the operating line: other income (part of it from a related party), interest earned on its cash and a tax benefit. Those items count, but investors usually value them less than profit from selling launches, Starlink service and computing. Then there is <b>adjusted EBITDA</b>, positive $8.8 billion on SpaceX’s own measure: it adds back $3.6 billion of depreciation and $2.4 billion of stock pay (including $1.2 billion tied to the Cursor deal) and takes the below-the-line gains back out. Useful, but it is the company’s own math; always read it next to the GAAP numbers (see <a href="#l-rc-spacex">the SpaceX statements lesson</a>).</p>`,
-      `<h3>Guidance far above expectations</h3><p>SpaceX guided first-quarter 2027 revenue to $33 billion to $37 billion, against about $22.2 billion analysts expected: even the low end was about 49% higher. Guidance like that makes analysts raise their estimates for every quarter after it, which is why the stock rose about 4% after hours and closed up 7.8% at $159.31 the next day. Apple’s call shows the mirror image: a beat with guidance below expectations, and a 7.4% drop (<a href="#l-rc-apple-call">listen to Apple’s call</a>).</p>`,
+      `<h3>Guidance far above expectations</h3><p>SpaceX guided first-quarter 2027 revenue to $33 billion to $37 billion, against about $22.2 billion analysts expected: even the low end was about 49% higher. Guidance like that makes analysts raise their estimates for every quarter after it, which is why the stock rose about 4% after hours and closed up 7.8% at $159.31 the next day. Apple’s July call showed the mirror image: a beat with guidance below expectations and a 7.4% drop, and its November call repeated the pattern (<a href="#l-rc-apple-call">listen to Apple’s latest call</a>).</p>`,
       `<h3>The costs of the plan</h3><ul><li><b>Capex:</b> $19.6 billion in the quarter, more than twice adjusted EBITDA, and $35 billion to $40 billion guided for the fourth quarter. Nine-month free cash flow was roughly −$35 billion (FiredBunny’s math: operating cash minus capex).</li><li><b>Dilution:</b> about 12.5 billion diluted shares on average, against 5.9 billion in June. Shares outstanding jumped with the preferred conversion, the IPO and other share issuance; the release does not break the weighted-average change down.</li><li><b>The questions analysts asked:</b> JPMorgan asked about power for the new data centers and how the capex will be funded; Deutsche Bank asked about a possible combination with Tesla (both companies formed special committees of independent directors; no terms agreed).</li><li><b>Margins:</b> gross margin was 62%, but the CFO said the fourth quarter’s should look more like the second quarter’s, because the third had one-time benefits and a helpful customer mix.</li></ul>`,
       `<h3>Three months earlier</h3><p>SpaceX’s first report, on August 4, 2026, also beat estimates, but capex of $18.4 billion blew past the roughly $13 billion expected, and the first lockup release, when some insiders could start selling, came on August 6 (more releases follow). The stock closed down 13.6% at $108.27 the day after the report. Same company, both reports beat: the outlook and the supply of shares decided the direction. Education only, not investment advice.</p>`,
     ],

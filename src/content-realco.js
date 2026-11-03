@@ -1,5 +1,5 @@
-/* Trading-track addition: "Read a Real Company" — Apple's and SpaceX's latest reported quarters (as of October 2026),
-   line by line. This file holds the course entry, tool entries, glossary terms and the verified numbers (SML.realco).
+/* Trading-track addition: "Read a Real Company" — Apple's and SpaceX's latest reported quarters (as of November 2026:
+   Apple fiscal Q4 2026, the September quarter; SpaceX Q3 2026), line by line. This file holds the course entry, tool entries, glossary terms and the verified numbers (SML.realco).
    Every figure here was copied from the company's own release and checked by summing all subtotals.
    Loaded after content-macro.js. Research notes: research/realco.md. */
 (function () {
@@ -330,7 +330,7 @@
     G('Quarter over quarter', 'QoQ, sequential', 'Compares a quarter with the one right before it. Useful for fast growers, but seasons can make it misleading.', 'l-rc-words'),
     G('Top line', '', 'Revenue, the first line of the income statement. "Top-line growth" means sales growth.', 'l-rc-words'),
     G('Bottom line', '', 'Net income, the last line of the income statement: what is left after every cost and tax.', 'l-rc-words'),
-    G('Fiscal year', '', 'A company’s own 12-month accounting year. Apple’s ends in late September, so its "Q1" is October to December.', 'l-rc-words'),
+    G('Fiscal year', '', 'A company’s own 12-month accounting year. Apple’s ends in late September, so its "Q1" is October to December and its "Q4" is July to September.', 'l-rc-words'),
     G('Cost of sales', 'COGS', 'What it cost to make or deliver what was sold: parts, factories, data centers, support.', 'l-rc-apple-income'),
     G('Gross profit', '', 'Revenue minus cost of sales. Apple’s income statement calls this line "gross margin" in dollars.', 'l-rc-apple-income'),
     G('Gross margin', '', 'Gross profit as a percent of revenue: how many cents of each sales dollar are left after making the product.', 'l-rc-apple-income'),
@@ -347,12 +347,12 @@
     G('Share count', '', 'How many shares the profit is split between. Buybacks shrink it; new stock grows it.', 'l-rc-apple-cash'),
     G('Dilution', '', 'When a company issues more shares, so each existing share owns a smaller slice of the profits.', 'l-rc-spacex'),
     G('Buyback', 'Share repurchase', 'A company buying its own stock. Fewer shares means each remaining share gets a bigger slice.', 'l-rc-apple-cash'),
-    G('Segment', '', 'A part of the business a company reports on its own, like Apple’s iPhone and Services or SpaceX’s Starlink.', 'l-rc-spacex'),
+    G('Segment', '', 'A part of the business a company reports on its own, like Apple’s regions (Americas, Europe, Greater China…) or SpaceX’s Starlink. Apple also breaks sales down by product: iPhone, Mac, Services and more.', 'l-rc-spacex'),
     G('Beat', '', 'Results above what analysts expected on average.', 'l-rc-price'),
     G('Miss', '', 'Results below what analysts expected on average.', 'l-rc-price'),
     G('Whisper number', '', 'An unofficial estimate traders expect, often higher than the published consensus.', 'l-rc-price'),
     G('Earnings call', '', 'A live call after results where executives explain the quarter, give guidance and answer analysts’ questions.', 'l-rc-apple-call'),
-    G('One-time item', 'Non-recurring item', 'A gain or cost outside normal business that will not last, like Apple’s 2026 tariff refunds. Investors often look at results with and without it.', 'l-rc-apple-call'),
+    G('One-time item', 'Non-recurring item', 'A gain or cost outside normal business that will not last, like Apple’s 2026 tariff refunds (11 cents of EPS in June, 5 cents in September). Investors often look at results with and without it.', 'l-rc-apple-call'),
     G('GAAP', 'Generally accepted accounting principles', 'The official US accounting rules every public company must report under.', 'l-rc-spacex'),
     G('Non-GAAP', 'Adjusted', 'A company’s own version of profit that leaves some costs out. Useful, but always compare it with GAAP.', 'l-rc-spacex'),
     G('EBITDA', 'Earnings before interest, taxes, depreciation and amortization', 'Earnings with interest, taxes and the wear-and-tear cost of equipment added back. A rough view of cash earnings before investment, not a profit figure.', 'l-rc-spacex'),
@@ -388,7 +388,7 @@
     G('Backlog', '', 'Signed orders not yet delivered or billed. A sign of future revenue.', 'l-rc-spacex'),
     G('ARPU', 'Average revenue per user', 'Revenue divided by customers, usually per month. Starlink’s consumer ARPU was $69 in the September 2026 quarter.', 'l-rc-spacex'),
     G('Run rate', '', 'A recent month or quarter of revenue scaled to a full year, like one month × 12.', 'l-rc-spacex'),
-    G('Installed base', '', 'How many of a company’s devices are in active use. Apple’s keeps setting records and feeds Services sales.', 'l-rc-apple-call'),
+    G('Installed base', '', 'How many of a company’s devices are in active use. Apple’s passed 2.5 billion active devices in 2026 and feeds Services sales.', 'l-rc-apple-call'),
     G('IPO', 'Initial public offering', 'When a private company first sells shares to the public and lists on an exchange.', 'l-rc-spacex'),
     G('Lockup', '', 'A period after an IPO, often months, when insiders may not sell. Releases can come in steps; each one lets more shares hit the market.', 'l-rc-spacex'),
     G('10-Q', '', 'The quarterly report US companies file with the SEC. The 10-K is the yearly one; an 8-K covers news like results.', 'l-rc-words'),

@@ -123,19 +123,47 @@
   X.g1Lo = g1m ? Number(g1m[1]) * 1000 : NaN; X.g1Hi = g1m ? Number(g1m[2]) * 1000 : NaN;
   X.g1Mid = (X.g1Lo + X.g1Hi) / 2;
 
-  /* ---------------- Apple numbers (from SML.realco.apple) ---------------- */
-  const A = { eps0: AP.ttmEps, p0: AP.reaction.closeBefore, p1: AP.reaction.closeAfter, sh: AP.is.cur.shBasic };
-  A.pe0 = A.p0 / A.eps0; A.pe1 = A.p1 / A.eps0;
-  A.mcap0 = A.p0 * A.sh; A.mcap1 = A.p1 * A.sh; A.mcapDrop = A.mcap0 - A.mcap1;
-  A.eps = AP.is.cur.epsDil; A.epsX = A.eps - AP.tariffRefund.eps;
+  /* ---------------- Apple numbers (from SML.realco.apple) ----------------
+     Two Apple reports. Latest: the September 2026 quarter (fiscal Q4), reported November 2, 2026 (`A`).
+     Earlier case: the June quarter (fiscal Q3), reported July 30, 2026 (`J`, from AP.q3 and AP.is.pq).
+     The November 3 close can still be null in the data, so every sentence about it goes through novMove()/novShort(). */
   const AEX = AP.expectations, AG = AP.call.guidance, AR = AP.reaction;
-  A.beatLo = A.eps - AEX.eps[1]; A.beatHi = A.eps - AEX.eps[0];
-  A.beatXLo = A.epsX - AEX.eps[1]; A.beatXHi = A.epsX - AEX.eps[0];
+  const Q3 = AP.q3 || {}, JE = Q3.expectations, JG = Q3.guidance, JR = Q3.reaction;
+  const ac = AP.is.cur, aq = AP.is.pq;
+  const A = { eps0: AP.ttmEps, p0: AR.closeBefore, sh: (AP.bs.sharesOutstanding || {}).cur || ac.shBasic };
+  A.pe0 = A.p0 / A.eps0; A.mcap0 = A.p0 * A.sh;
+  A.closed = AR.closePct != null && AR.closeAfter != null;
+  A.ah = A.p0 * (1 + AR.afterHoursPct / 100); A.ahLow = A.p0 * (1 + AR.afterHoursLowPct / 100); A.pre = A.p0 * (1 + AR.premarketPct / 100);
+  A.move = A.closed ? AR.closePct : AR.premarketPct; /* latest known move after the report */
+  A.p1 = A.closed ? AR.closeAfter : A.pre;
+  A.down = A.move < 0;
+  A.pe1 = A.p1 / A.eps0; A.peDrop = A.pe0 - A.pe1; A.mcapDrop = A.mcap0 - A.p1 * A.sh;
+  A.dayPct = pc(A.p0, AR.prevClose); /* Nov 2 regular session, before the report */
+  A.eps = ac.epsDil; A.epsX = A.eps - AP.tariffRefund.eps;
+  A.beat = A.eps - AEX.eps; A.beatX = A.epsX - AEX.eps;
+  A.revYoy = pc(ac.revenue, AP.is.ya.revenue); A.epsYoy = pc(A.eps, AP.is.ya.epsDil);
+  A.gm = (ac.gross / ac.revenue) * 100; A.gmYa = (AP.is.ya.gross / AP.is.ya.revenue) * 100; A.gmX = A.gm - AP.tariffRefund.grossMarginPts;
+  A.oiYoy = pc(ac.opInc, AP.is.ya.opInc); A.opexYoy = pc(ac.opex, AP.is.ya.opex);
+  A.china = AP.regions.cur['Greater China']; A.revBeat = pc(ac.revenue, AEX.revenue);
   A.gLo = AG.baseRevenue * (1 + AG.revGrowth[0] / 100); A.gHi = AG.baseRevenue * (1 + AG.revGrowth[1] / 100);
-  A.ttmRev = AP.trend.slice(-4).reduce((s, q) => s + q.revenue, 0);
+  A.ttmRev = AP.trend.slice(-4).reduce((t, q) => t + q.revenue, 0);
   A.ps = A.mcap0 / A.ttmRev;
-  A.ah = A.p0 * (1 + AR.afterHoursPct / 100); A.open = A.p0 * (1 + AR.openPct / 100);
-  A.peDrop = A.pe0 - A.pe1;
+  A.onePct = A.mcap0 / 100; /* $M of market value per 1% move */
+  const J = { eps0: AP.ttmEpsPrev, p0: JR.closeBefore, p1: JR.closeAfter, sh: aq.shBasic };
+  J.pe0 = J.p0 / J.eps0; J.pe1 = J.p1 / J.eps0; J.peDrop = J.pe0 - J.pe1;
+  J.mcap0 = J.p0 * J.sh; J.mcapDrop = J.mcap0 - J.p1 * J.sh;
+  J.eps = aq.epsDil; J.epsX = J.eps - AP.tariffRefund.pq.eps;
+  J.beatLo = J.eps - JE.eps[1]; J.beatHi = J.eps - JE.eps[0];
+  J.beatXLo = J.epsX - JE.eps[1]; J.beatXHi = J.epsX - JE.eps[0];
+  J.gLo = JG.baseRevenue * (1 + JG.revGrowth[0] / 100); J.gHi = JG.baseRevenue * (1 + JG.revGrowth[1] / 100);
+  J.ah = J.p0 * (1 + JR.afterHoursPct / 100); J.open = J.p0 * (1 + JR.openPct / 100);
+  const bn10 = (v) => '$' + F.num(Math.round(v / 10000) * 10, 0) + ' billion'; /* $M → nearest $10 billion */
+  /* "closed down 2.9% at $328.50 on November 3" or, before the close is in, the early moves */
+  const novMove = () => (A.closed
+    ? `closed ${A.down ? 'down' : 'up'} ${fP(Math.abs(AR.closePct))} at ${usd(AR.closeAfter)} on November 3`
+    : `traded about 2%–4% lower the next morning (about ${fP(-AR.afterHoursPct)} lower after hours and about ${fP(-AR.premarketPct, 0)} lower before the open on November 3)`);
+  const novShort = () => (A.closed ? `${A.down ? 'down' : 'up'} ${fP(Math.abs(AR.closePct))} on November 3` : 'about 2%–4% lower on the morning of November 3');
+  const julMove = () => `closed down about ${fP(-JR.closePct)} at about $${JR.closeAfter} on July 31`;
 
   /* ---------------- CSS ---------------- */
   SML.css(`
@@ -410,35 +438,37 @@
       why: `Analysts expected about ${fB(Q2.expectations.ebitda)} (reported), so it beat. Capex that quarter was ${fB(X.capexPq)}.` });
   }
 
-  /* Apple / price lesson cards (used in the l-rc-price body) */
+  /* Apple / price lesson cards (used in the l-rc-price body): the September 2026 quarter, with July as the echo */
   const APC = {
     formula: { t: 'Price ≈ EPS × P/E', what: 'A share price is the yearly profit per share investors count (EPS) times how many dollars they pay for each $1 of it (the P/E multiple).',
       hop: 'If every month were like June, Hoppy earns $3.04 × 12 = $36.48 a share a year. At a P/E of 10, a share is worth $364.80.',
-      real: `Trailing twelve-month EPS of ${usd(A.eps0)} (the four quarters through June 2026) × a P/E of about ${xx(A.pe0)} = ${usd(A.p0)}, the July 30, 2026 close.`,
+      real: `Trailing twelve-month EPS of ${usd(A.eps0)} (fiscal 2026: the four quarters through September 2026) × a P/E of about ${xx(A.pe0)} = ${usd(A.p0)}, the November 2, 2026 close.`,
       why: 'Every earnings report moves one or both dials. Results and guidance move EPS; growth, risk and interest rates move the multiple.' },
     surprise: { t: 'Expectations and surprise', what: 'Analysts publish forecasts before each report. Their average is the consensus. Above it is a beat; below it, a miss.',
       hop: 'Hoppy’s buyer expected June EPS of $2.80. It came in at $3.04, a $0.24 beat (about 8.6%).',
-      real: `EPS of ${usd(A.eps)} against about ${usd(AEX.eps[0])}–${usd(AEX.eps[1])} expected (reported): a beat of ${usd(A.beatLo)}–${usd(A.beatHi)}. Revenue ${fB(AP.is.cur.revenue)} against about ${fB(AEX.revenue[0])}–${fB(AEX.revenue[1])}.`,
+      real: `EPS of ${usd(A.eps)} against about ${usd(AEX.eps)} expected (reported): a beat of ${usd(A.beat)}, about ${fP(pc(A.eps, AEX.eps))}. Revenue ${fB(ac.revenue)} against about ${fB(AEX.revenue)}, ${fP(A.revBeat)} above. Services, ${fB(ac.servSales, 2)}, only matched the about ${fB(AEX.services, 2)} expected, and Greater China (${fB(A.china)}) missed the about ${fB(AEX.greaterChina)} hoped for.`,
       why: 'The price already reflects the consensus, so only the surprise is news. Traders also watch the unofficial whisper number, which is often higher.' },
     guidance: { t: 'Guidance and forward EPS', what: 'Management’s forecast for the next quarter or year. It resets what investors expect future EPS to be.',
       hop: 'Road works will block Hoppy’s corner in July, so Hoppy says July EPS will be about $2.50, not the $3.00 buyers expected.',
-      real: `For the September quarter Apple guided revenue growth of ${AG.revGrowth[0]}%–${AG.revGrowth[1]}% (about ${fB(A.gLo)}–${fB(A.gHi)}) when analysts expected about ${AEX.nextQtrGrowth}% (about ${fB(AEX.nextQtrRevenue, 0)}), and a ${AG.grossMargin[0]}%–${AG.grossMargin[1]}% gross margin including about ${AG.tariffRefundPts} point from tariff refunds.`,
+      real: `For the December quarter, its biggest of the year, Apple guided revenue growth of ${AG.revGrowth[0]}%–${AG.revGrowth[1]}% (about ${fB(A.gLo)}–${fB(A.gHi)}, our math) when analysts expected about ${AEX.nextQtrGrowth}%; a ${AG.grossMargin[0]}%–${AG.grossMargin[1]}% gross margin against about ${AEX.nextQtrGrossMargin}%; and Services growth of ${AG.servicesGrowth[0]}%–${AG.servicesGrowth[1]}% against about ${AEX.nextQtrServicesGrowth}% (reported). In July it had also guided below hopes: ${JG.revGrowth[0]}%–${JG.revGrowth[1]}% against about ${JE.nextQtrGrowth}%.`,
       why: 'Guidance covers the quarters still to come, so it usually moves the price more than the quarter just reported.' },
     quality: { t: 'Temporary items, adjusted vs GAAP', what: 'Part of a result may be temporary: a refund, a legal win, an asset sale. Companies also publish adjusted numbers that leave some costs out.',
       hop: 'June’s profit included a $200 one-time insurance refund (after tax). Without it, EPS is $2.84, not $3.04.',
-      real: `Tariff refunds added ${usd(AP.tariffRefund.eps)} to EPS and about ${AP.tariffRefund.grossMarginPts} points to gross margin, a temporary boost; the September-quarter guide still includes about ${AG.tariffRefundPts} point of refunds. Without them EPS was about ${usd(A.epsX)}, so the beat shrinks to ${usd(A.beatXLo)}–${usd(A.beatXHi)} (our math, assuming the estimates did not include the refunds).`,
+      real: `Tariff refunds added ${usd(AP.tariffRefund.eps)} to EPS and about ${AP.tariffRefund.grossMarginPts} point to gross margin, down from ${usd(AP.tariffRefund.pq.eps)} and ${AP.tariffRefund.pq.grossMarginPts} points in June: temporary help that is fading, and the December guide does not include it. Without it EPS was about ${usd(A.epsX)}, still ${usd(A.beatX)} above the ${usd(AEX.eps)} expected (our math, assuming the estimate did not include the refunds). But the underlying gross margin, about ${fP(A.gmX)}, was a little below the ${fP(A.gmYa)} of a year earlier as memory chips cost more.`,
       why: `Investors give less credit for profit that is temporary. At SpaceX, about ${fB(X.below)} of the September-quarter profit came from below the operating line, and adjusted EBITDA (positive ${fB(X.ebitda)} on its own measure) tells yet another story.` },
     multiple: { t: 'Multiple expansion and contraction', what: 'The P/E rises (expands) when investors expect faster growth or less risk, and falls (contracts) when they expect slower growth, more risk or higher interest rates.',
       hop: 'At 12× instead of 10×, the same $36.48 of yearly EPS is worth $437.76 a share instead of $364.80.',
-      real: `On July 31, 2026 the trailing EPS stayed ${usd(A.eps0)}, but the price fell from ${usd(A.p0)} to about $${F.num(A.p1, 0)}: the P/E went from about ${xx(A.pe0)} to about ${xx(A.pe1)}.`,
-      why: `A fall of about ${F.num(A.peDrop, 1)} points in the multiple moved Apple’s price about ${fP(-AR.closePct)}. At a high P/E, changes in mood move the price more than the quarter’s profit.` },
+      real: A.closed
+        ? `After the November 2 report the trailing EPS stayed ${usd(A.eps0)}, and the price went from ${usd(A.p0)} to ${usd(A.p1)} on November 3: the P/E went from about ${xx(A.pe0)} to about ${xx(A.pe1)}. On July 31 the same thing happened, bigger: about ${xx(J.pe0)} to about ${xx(J.pe1)}.`
+        : `After the November 2 report the trailing EPS stayed ${usd(A.eps0)}, but before the next open the price was about ${fP(-AR.premarketPct, 0)} lower, near $${F.num(A.pre, 0)}: the P/E slipped from about ${xx(A.pe0)} toward about ${xx(A.pe1)}. On July 31 the same thing happened, bigger: about ${xx(J.pe0)} to about ${xx(J.pe1)}.`,
+      why: `In July a fall of about ${F.num(J.peDrop, 1)} points in the multiple moved Apple’s price about ${fP(-JR.closePct)}. At a high P/E, changes in mood move the price more than the quarter’s profit.` },
     ttm: { t: 'Trailing vs forward P/E', what: 'Trailing (TTM) P/E uses the last four reported quarters of EPS. Forward P/E uses the EPS analysts expect over the next twelve months.',
       hop: 'At $360 a share, with $30 of EPS over the last 12 months and $36 expected over the next 12: trailing P/E 12, forward P/E 10.',
-      real: `At ${usd(A.p0)}, Apple’s trailing P/E was about ${xx(A.pe0)} on ${usd(A.eps0)} of TTM EPS. Its forward P/E depends on analysts’ estimates, which change after every report; check a current source.`,
+      real: `At ${usd(A.p0)}, Apple’s trailing P/E was about ${xx(A.pe0)} on ${usd(A.eps0)} of TTM EPS (its fiscal 2026). News reports put its forward P/E near 35×, but that rests on analysts’ estimates, which change after every report; check a current source.`,
       why: 'Growing companies look cheaper on forward P/E. When guidance cuts forward EPS, the forward P/E jumps even before the price moves.' },
     mcap: { t: 'Market cap', what: 'Share price × number of shares: what the market values the whole company at.',
       hop: '1,000 shares × $364.80 = $364,800.',
-      real: `About $${F.num(A.mcap0 / 1e6, 1)} trillion at ${usd(A.p0)} (× about ${F.num(A.sh / 1000, 2)} billion shares, the June quarter’s average count; our math). The July 31 drop erased about $${F.num(Math.round(A.mcapDrop / 10000) * 10, 0)} billion.`,
+      real: `About $${F.num(A.mcap0 / 1e6, 1)} trillion at ${usd(A.p0)} (× about ${F.num(A.sh / 1000, 2)} billion shares outstanding on September 26, 2026; our math). Every 1% move adds or erases about ${bil(A.onePct, 0)}.${A.closed ? ` The November 3 move ${A.down ? 'erased' : 'added'} about ${bn10(Math.abs(A.mcapDrop))}.` : ''}`,
       why: 'A move in a company this large shows up in the S&amp;P 500 and in every index fund that holds it.' },
   };
 
@@ -1036,7 +1066,7 @@
       cash: 'SpaceX publishes cash-flow totals for the year to date. Free cash flow is our math: nine-month operating cash flow minus nine-month capex. The fourth-quarter range is management’s guide, not a result.',
       bs: 'Balance sheets on December 31, 2025, June 30, 2026 and September 30, 2026. Preferred stock sat outside equity until it converted. "Other assets" holds receivables, inventory, leases, digital assets and more.',
       shares: 'Weighted average diluted shares used for EPS, and shares outstanding by class from the balance sheet. The release does not itemize why the weighted average rose. Calendar spacing is schematic.',
-      ps: 'The market value is your input, not SpaceX’s actual market value, which changes every day. Run rate = September 2026 quarter revenue × 4. The guide option uses the midpoint of management’s first-quarter 2027 revenue guide × 4: a forecast, not a result. Apple’s ≈10.5× is our math from its July 30 close.',
+      ps: `The market value is your input, not SpaceX’s actual market value, which changes every day. Run rate = September 2026 quarter revenue × 4. The guide option uses the midpoint of management’s first-quarter 2027 revenue guide × 4: a forecast, not a result. Apple’s ≈${xx(A.ps)} is our math: its November 2 close times its shares outstanding, divided by fiscal 2026 revenue.`,
     };
     const DRAW = { inc: drawInc, seg: drawSeg, ebitda: drawEbitda, cash: drawCash, bs: drawBS, shares: drawShares, ps: drawPS };
 
@@ -1061,38 +1091,114 @@
   };
 
   /* ======================================================================
-     earningsPrice ★: Price ≈ EPS × P/E with Apple's real start, the July 31 replay, a headline game, the SpaceX case
+     earningsPrice ★: Price ≈ EPS × P/E with Apple's real start, replays of November 3 and July 31, a headline game, the SpaceX case
      ====================================================================== */
   const PRESETS = [
     { k: 'real', label: 'Real start', v: [0, 0, 0, 0] },
     { k: 'br', label: 'Beat & raise', v: [0.10, 0, 4, 5] },
-    { k: 'bw', label: 'Beat, weak guide', v: [0.13, 0.11, -3, -6] },
+    { k: 'bw', label: 'Beat, weak guide', v: [0.11, 0.05, -2, -3] },
     { k: 'mr', label: 'Miss & raise', v: [-0.05, 0, 5, 3] },
     { k: 'sq', label: 'P/E squeeze', v: [0, 0, 0, -15] },
   ];
-  const REPLAY = [
-    { when: 'July 30, 4:00 pm ET', h: 'Before the report', pts: 1, rows: 0,
-      p: `Apple closes at ${usd(A.p0)}. On the last four reported quarters (TTM EPS ${usd(A.eps0)}), that is a P/E of about ${xx(A.pe0)}. Analysts expect revenue of about ${fB(AEX.revenue[0])}–${fB(AEX.revenue[1])} and EPS of about ${usd(AEX.eps[0])}–${usd(AEX.eps[1])} (reported).` },
-    { when: 'July 30, after the close', h: 'The headline: a beat', pts: 1, rows: 2, guess: true,
-      p: `Revenue ${fB(AP.is.cur.revenue)} and EPS ${usd(A.eps)}: a beat on both, up ${fP(pc(AP.is.cur.revenue, AP.is.ya.revenue), 0)} and ${fP(pc(A.eps, AP.is.ya.epsDil), 0)} from a year earlier. Tim Cook, then CEO, called it “our strongest June quarter ever”.` },
-    { when: 'Reading the details', h: 'Quality check: temporary help', pts: 1, rows: 4,
-      p: `${usd(AP.tariffRefund.eps)} of the ${usd(A.eps)} came from tariff refunds, a temporary boost that also added about ${AP.tariffRefund.grossMarginPts} points to gross margin (the September-quarter guide still includes about ${AG.tariffRefundPts} point of refunds). Without it EPS is about ${usd(A.epsX)}, and the beat shrinks to ${usd(A.beatXLo)}–${usd(A.beatXHi)} (our math, assuming the estimates did not include the refunds). Services, ${fB(AP.is.cur.servSales, 2)}, came in below the about ${fB(AEX.services, 1)} expected.` },
-    { when: 'July 30, 5:00 pm ET, the call', h: 'The outlook: softer than hoped', pts: 2, rows: 5,
-      p: `Apple guided September-quarter growth of ${AG.revGrowth[0]}%–${AG.revGrowth[1]}% (about ${fB(A.gLo)}–${fB(A.gHi)}) when analysts expected about ${AEX.nextQtrGrowth}% (about ${fB(AEX.nextQtrRevenue, 0)}), with a ${AG.grossMargin[0]}%–${AG.grossMargin[1]}% gross margin including about ${AG.tariffRefundPts} point of tariff refunds. It also said chip supply would get tighter and memory costs were rising. After hours the stock slipped about ${fP(-AR.afterHoursPct, 0)}.` },
-    { when: 'July 31, 9:30 am ET', h: 'The open', pts: 4, rows: 5,
-      p: `The stock opened down about ${fP(-AR.openPct)} and traded as low as about $${AR.low}. Nothing in the trailing numbers changed overnight; what changed was what investors expect next.` },
-    { when: 'July 31, 4:00 pm ET', h: 'The close: same EPS, lower multiple', pts: 5, rows: 5,
-      p: `Apple closed near $${AR.closeAfter}, down about ${fP(-AR.closePct)}. ${usd(A.eps0)} of trailing EPS × about ${xx(A.pe1)} ≈ $${AR.closeAfter}. Investors paid about ${F.num(A.peDrop, 1)} fewer dollars for each $1 of profit: a multiple contraction driven by the outlook. About $${F.num(Math.round(A.mcapDrop / 10000) * 10, 0)} billion of market value disappeared (our math).` },
+  /* Two real replays: November 2–3 (the September quarter, latest) and July 30–31 (the June quarter). */
+  const q4Steps = [
+    { when: 'Nov 2, 4:00 pm ET', h: 'Before the report', pts: 1, rows: 0,
+      p: `Apple closes at ${usd(A.p0)}, ${A.dayPct < 0 ? 'down' : 'up'} ${fP(Math.abs(A.dayPct))} on the day, before the report. On fiscal 2026’s EPS of ${usd(A.eps0)} (the last four quarters), that is a P/E of about ${xx(A.pe0)}. Analysts expect revenue of about ${fB(AEX.revenue)} and EPS of about ${usd(AEX.eps)} (reported).` },
+    { when: 'Nov 2, after the close', h: 'The headline: a record beat', pts: 1, rows: 2, guess: true,
+      p: `Revenue ${fB(ac.revenue)} and EPS ${usd(A.eps)}: a September-quarter record and a beat on both, up ${fP(A.revYoy, 0)} and ${fP(A.epsYoy, 0)} from a year earlier. Sales also topped Apple’s own July guide of ${JG.revGrowth[0]}%–${JG.revGrowth[1]}% growth. It was John Ternus’s first report as CEO.` },
+    { when: 'Reading the details', h: 'Quality check: thinner than the headline', pts: 1, rows: 5,
+      p: `${usd(AP.tariffRefund.eps)} of the ${usd(A.eps)} came from tariff refunds (about ${AP.tariffRefund.grossMarginPts} point of gross margin, half of June’s help). Without it EPS is about ${usd(A.epsX)}, still a beat of about ${usd(A.beatX)} (our math, assuming the estimate did not include the refunds). Underneath, gross margin was about ${fP(A.gmX)}, a little below a year earlier as memory chips cost more, and operating expenses rose ${fP(A.opexYoy, 0)}, so operating income grew only ${fP(A.oiYoy, 0)}. Services, ${fB(ac.servSales, 2)}, matched the about ${fB(AEX.services, 2)} expected; Greater China, ${fB(A.china)}, missed the about ${fB(AEX.greaterChina)} hoped for.` },
+    { when: 'Nov 2, 5:00 pm ET, the call', h: 'The outlook: a thinner holiday margin', pts: 3, rows: 6,
+      p: `Apple guided December-quarter revenue growth of ${AG.revGrowth[0]}%–${AG.revGrowth[1]}% (about ${fB(A.gLo)}–${fB(A.gHi)}, our math), its best quarter ever, but below the about ${AEX.nextQtrGrowth}% expected; gross margin of ${AG.grossMargin[0]}%–${AG.grossMargin[1]}% against about ${AEX.nextQtrGrossMargin}%; and Services growth of ${AG.servicesGrowth[0]}%–${AG.servicesGrowth[1]}% against about ${AEX.nextQtrServicesGrowth}% (reported). John Ternus called memory pricing “unprecedented”. After hours the stock fell as much as about ${fP(-AR.afterHoursLowPct, 0)}, then settled about ${fP(-AR.afterHoursPct)} lower.` },
+    { when: 'Nov 3, before the open', h: A.closed ? 'Premarket: the gap' : 'Premarket: same EPS, lower multiple', pts: 4, rows: 6,
+      p: `Before the open the stock traded about ${fP(-AR.premarketPct, 0)} lower, near $${F.num(A.pre, 0)} (reported). Trailing EPS did not change overnight; what changed was what investors expect from the holiday quarter. ${usd(A.eps0)} × about ${xx(A.pre / A.eps0)} ≈ $${F.num(A.pre, 0)}.${A.closed ? '' : ' The November 3 close is not in this lesson yet; the next step appears once it is.'}` },
   ];
+  if (A.closed) q4Steps.push({ when: 'Nov 3, 4:00 pm ET', h: A.down ? 'The close: same EPS, lower multiple' : 'The close: a recovery', pts: 5, rows: 6,
+    p: `Apple ${novMove()} (reported). ${usd(A.eps0)} of trailing EPS × about ${xx(A.pe1)} ≈ ${usd(A.p1)}. ${A.down ? `Investors paid about ${F.num(A.peDrop, 1)} fewer dollars for each $1 of profit, and about ${bn10(A.mcapDrop)} of market value disappeared (our math).` : 'The early drop faded by the close: early moves can reverse.'} On July 31 the same shape (a beat, a softer outlook) cost ${fP(-JR.closePct)}.` });
+  const q4Pts = [
+    { l: 'Nov 2 close', ls: 'Close', p: A.p0, t: usd(A.p0) },
+    { l: 'After hours, low', ls: 'AH low', p: A.ahLow, t: '≈$' + F.num(A.ahLow, 0) },
+    { l: 'After hours, later', ls: 'AH later', p: A.ah, t: '≈$' + F.num(A.ah, 0) },
+    { l: 'Nov 3 premarket', ls: 'Premkt', p: A.pre, t: '≈$' + F.num(A.pre, 0) },
+  ].concat(A.closed ? [{ l: 'Nov 3 close', ls: 'Close', p: A.p1, t: usd(A.p1) }] : []);
+  const q4Last = A.closed ? (A.down
+    ? `Trailing EPS did not change; the P/E fell from about ${xx(A.pe0)} to about ${xx(A.pe1)}. A beat on the quarter, a smaller temporary help and a softer holiday outlook: the outlook won again, as in July. SpaceX shows the mirror image in the SpaceX case tab.`
+    : `The stock fell on the outlook after hours, then recovered to close ${fP(AR.closePct)} higher. The first move after a report is not always the last. Compare July, when the drop held.`)
+    : `Trailing EPS did not change; before the next open the P/E had slipped from about ${xx(A.pe0)} to about ${xx(A.pe1)}. A beat on the quarter, a smaller temporary help and a softer holiday outlook: the same shape as July, when the stock fell ${fP(-JR.closePct)}. SpaceX shows the mirror image in the SpaceX case tab.`;
+  const APR = {
+    q4: {
+      label: 'November 2 to 3, 2026', pill: 'Apple · Nov 2–3, 2026', eps0: A.eps0, p0: A.p0, sh: A.sh, steps: q4Steps, pts: q4Pts,
+      final: A.closed ? AR.closePct : null, down: A.closed ? A.down : true, xr: [-8, 8], xt: [-8, -4, 0, 4, 8],
+      rows: [
+        { l: 'Revenue vs expected', ls: 'Revenue', a: pc(ac.revenue, AEX.revenue), b: pc(ac.revenue, AEX.revenue) },
+        { l: 'EPS vs expected', ls: 'EPS', a: pc(A.eps, AEX.eps), b: pc(A.eps, AEX.eps) },
+        { l: 'EPS without tariff refunds', ls: 'EPS without refunds', a: pc(A.epsX, AEX.eps), b: pc(A.epsX, AEX.eps) },
+        { l: 'Services vs expected', ls: 'Services', a: pc(ac.servSales, AEX.services), b: pc(ac.servSales, AEX.services) },
+        { l: 'Greater China vs expected', ls: 'Greater China', a: pc(A.china, AEX.greaterChina), b: pc(A.china, AEX.greaterChina) },
+        { l: 'December-quarter revenue guide', ls: 'Next-quarter guide', a: pc(A.gHi, AEX.nextQtrRevenue), b: pc(A.gLo, AEX.nextQtrRevenue) },
+      ],
+      msgs: [
+        ['acc', 'Set-up', 'The price already reflects these expectations. Only the surprise, and what it says about the future, can move it.'],
+        ['up', 'Beat', 'On the headline alone, many traders would expect a pop. Make your call, then keep going.'],
+        ['acc', 'Quality', 'The beat is real but thinner: a smaller temporary help, a slightly lower underlying margin, slower operating profit, Services only in line and a miss in Greater China.'],
+        ['dn', 'Outlook', 'Guidance resets the holiday quarter, Apple’s biggest, and its margin came in below what was expected. This is the piece that moves the multiple.'],
+      ].concat(A.closed ? [['dn', 'Gap down', 'Gaps like this jump straight past stop orders. It is why many traders cut size or step aside before earnings.']] : [])
+        .concat([[A.closed && !A.down ? 'acc' : 'vio', 'Lesson', q4Last]]),
+      note: `Prices, expectations and moves are as reported in the news (approximate); lines connect the reported points and are not an intraday chart. Revenue, EPS, the tariff refund and guidance are from Apple’s release and call. The December-quarter dollar range and the beat without tariff refunds are our math (consensus growth of about ${AEX.nextQtrGrowth}% on last year’s ${fB(AG.baseRevenue)} is about ${fB(AEX.nextQtrRevenue, 1)}).${A.closed ? '' : ' The November 3 close is added once it is in.'}`,
+    },
+    q3: {
+      label: 'July 30 to 31, 2026', pill: 'Apple · Jul 30–31, 2026', eps0: J.eps0, p0: J.p0, sh: J.sh, final: JR.closePct, down: true, xr: [-4, 8], xt: [-4, 0, 4, 8],
+      pts: [
+        { l: 'Jul 30 close', ls: 'Close', p: J.p0, t: usd(J.p0) },
+        { l: 'After hours', ls: 'After hrs', p: J.ah, t: '≈$' + F.num(J.ah, 0) },
+        { l: 'Jul 31 open', ls: 'Open', p: J.open, t: '≈$' + F.num(J.open, 0) },
+        { l: 'Day low', ls: 'Low', p: JR.low, t: '≈$' + JR.low },
+        { l: 'Jul 31 close', ls: 'Close', p: JR.closeAfter, t: '≈$' + JR.closeAfter },
+      ],
+      steps: [
+        { when: 'July 30, 4:00 pm ET', h: 'Before the report', pts: 1, rows: 0,
+          p: `Apple closes at ${usd(J.p0)}. On the four quarters through June 2026 (TTM EPS ${usd(J.eps0)}), that is a P/E of about ${xx(J.pe0)}. Analysts expect revenue of about ${fB(JE.revenue[0])}–${fB(JE.revenue[1])} and EPS of about ${usd(JE.eps[0])}–${usd(JE.eps[1])} (reported).` },
+        { when: 'July 30, after the close', h: 'The headline: a beat', pts: 1, rows: 2, guess: true,
+          p: `Revenue ${fB(aq.revenue)} and EPS ${usd(J.eps)}: a beat on both, up ${fP(pc(aq.revenue, AP.is.ya2.revenue), 0)} and ${fP(pc(J.eps, AP.is.ya2.epsDil), 0)} from a year earlier. Tim Cook, then CEO, called it “our strongest June quarter ever”.` },
+        { when: 'Reading the details', h: 'Quality check: temporary help', pts: 1, rows: 4,
+          p: `${usd(AP.tariffRefund.pq.eps)} of the ${usd(J.eps)} came from tariff refunds, a temporary boost that also added about ${AP.tariffRefund.pq.grossMarginPts} points to gross margin (the September-quarter guide still included about ${JG.tariffRefundPts} point of refunds). Without it EPS is about ${usd(J.epsX)}, and the beat shrinks to ${usd(J.beatXLo)}–${usd(J.beatXHi)} (our math, assuming the estimates did not include the refunds). Services, ${fB(aq.servSales, 2)}, came in below the about ${fB(JE.services, 1)} expected.` },
+        { when: 'July 30, 5:00 pm ET, the call', h: 'The outlook: softer than hoped', pts: 2, rows: 5,
+          p: `Apple guided September-quarter growth of ${JG.revGrowth[0]}%–${JG.revGrowth[1]}% (about ${fB(J.gLo)}–${fB(J.gHi)}) when analysts expected about ${JE.nextQtrGrowth}% (about ${fB(JE.nextQtrRevenue, 0)}), with a ${JG.grossMargin[0]}%–${JG.grossMargin[1]}% gross margin including about ${JG.tariffRefundPts} point of tariff refunds. It also said chip supply would get tighter and memory costs were rising. After hours the stock slipped about ${fP(-JR.afterHoursPct, 0)}.` },
+        { when: 'July 31, 9:30 am ET', h: 'The open', pts: 4, rows: 5,
+          p: `The stock opened down about ${fP(-JR.openPct)} and traded as low as about $${JR.low}. Nothing in the trailing numbers changed overnight; what changed was what investors expect next.` },
+        { when: 'July 31, 4:00 pm ET', h: 'The close: same EPS, lower multiple', pts: 5, rows: 5,
+          p: `Apple closed near $${JR.closeAfter}, down about ${fP(-JR.closePct)}. ${usd(J.eps0)} of trailing EPS × about ${xx(J.pe1)} ≈ $${JR.closeAfter}. Investors paid about ${F.num(J.peDrop, 1)} fewer dollars for each $1 of profit: a multiple contraction driven by the outlook. About ${bn10(J.mcapDrop)} of market value disappeared (our math). Three months later the November report had the same shape.` },
+      ],
+      rows: [
+        { l: 'Revenue vs expected', ls: 'Revenue', a: pc(aq.revenue, JE.revenue[1]), b: pc(aq.revenue, JE.revenue[0]) },
+        { l: 'EPS vs expected', ls: 'EPS', a: pc(J.eps, JE.eps[1]), b: pc(J.eps, JE.eps[0]) },
+        { l: 'EPS without tariff refunds', ls: 'EPS without refunds', a: pc(J.epsX, JE.eps[1]), b: pc(J.epsX, JE.eps[0]) },
+        { l: 'Services vs expected', ls: 'Services', a: pc(aq.servSales, JE.services), b: pc(aq.servSales, JE.services) },
+        { l: 'Sept-quarter revenue guide', ls: 'Next-quarter guide', a: pc(J.gHi, JE.nextQtrRevenue), b: pc(J.gLo, JE.nextQtrRevenue) },
+      ],
+      msgs: [
+        ['acc', 'Set-up', 'The price already reflects these expectations. Only the surprise, and what it says about the future, can move it.'],
+        ['up', 'Beat', 'On the headline alone, many traders would expect a pop. Make your call, then keep going.'],
+        ['acc', 'Quality', 'Strip the temporary help and the EPS beat is small. Services also missed. The good news is thinner than the headline.'],
+        ['dn', 'Outlook', 'Guidance resets next quarter’s numbers, and they came in below what was expected. This is the piece that moves the multiple.'],
+        ['dn', 'Gap down', 'Gaps like this jump straight past stop orders. It is why many traders cut size or step aside before earnings.'],
+        ['vio', 'Lesson', `Trailing EPS did not change; the P/E fell from about ${xx(J.pe0)} to about ${xx(J.pe1)}. A beat on the quarter, a softer outlook and temporary help: the outlook won. SpaceX shows the mirror image in the SpaceX case tab.`],
+      ],
+      note: 'Prices, expectations and moves are as reported in the news (approximate); lines connect the reported points and are not an intraday chart. Revenue, EPS, the tariff refund and guidance are from Apple’s release and call. Ranges reflect the range of reported estimates. The beat without tariff refunds is our math, assuming the estimates did not include them.',
+    },
+  };
   const HEADS = [
-    { real: true, co: 'Apple · July 30, 2026', h: 'Apple beats on revenue and EPS, but guides September-quarter growth to 9%–11%, below the about 12% analysts expected', ans: 'dn', d: ['up', 'dn', 'dn'],
-      res: `Fell about ${fP(-AR.closePct)} on July 31 (reported).`, why: `Part of the beat was temporary (${usd(AP.tariffRefund.eps)} of tariff refunds) and the outlook was softer than expected. Investors priced the future lower, so the P/E fell from about ${xx(A.pe0, 0)} to about ${xx(A.pe1, 0)}.` },
+    { real: true, co: 'Apple · November 2, 2026', h: `Apple posts a record September quarter and beats on revenue and EPS, but guides holiday-quarter gross margin to ${AG.grossMargin[0]}%–${AG.grossMargin[1]}%, below the about ${AEX.nextQtrGrossMargin}% expected, as memory costs climb`, ans: A.closed && !A.down ? 'up' : 'dn', d: ['up', 'dn', 'dn'],
+      res: A.closed ? `${A.down ? 'Fell' : 'Rose'} ${fP(Math.abs(AR.closePct))} to ${usd(AR.closeAfter)} on November 3 (reported).` : `Fell about ${fP(-AR.afterHoursPct)} after hours and was about ${fP(-AR.premarketPct, 0)} lower before the open on November 3 (reported).`,
+      why: `The beat was real but thinner (${usd(AP.tariffRefund.eps)} of tariff refunds, an underlying margin a little below a year earlier), and the outlook for the holiday quarter, Apple’s biggest, came in below hopes on margin, Services and growth. The same shape as July 31, when Apple fell ${fP(-JR.closePct)}.` },
     { co: 'Carrot Cloud · made-up company', h: 'Carrot Cloud misses EPS by 3 cents but raises its full-year forecast by 8%', ans: 'up', d: ['dn', 'up', 'up'],
       res: 'Typical reaction: up.', why: 'The quarter is behind us; the forecast covers the next four. A raised outlook lifts expected EPS, and often the multiple too.' },
     { real: true, co: 'SpaceX · October 20, 2026', h: `SpaceX swings to a ${bil(xc.netInc)} profit, beats estimates, and guides early-2027 revenue to ${bil(X.g1Lo, 0)}–${bil(X.g1Hi, 0)}, far above the about ${bil(SXE.q1_2027Revenue)} expected`, ans: 'up', d: ['up', 'up', 'up'],
       res: `Rose ${fP(SXR.nextDayPct)} to ${usd(SXR.closeAfter)} on October 21 (reported).`, why: `A beat plus a guide far above expectations: the outlook dial moved up. Note the quality check, though: about ${fB(X.below)} of the profit came from below the operating line, and fourth-quarter capex is guided to ${fB(X.q4Lo, 0)}–${fB(X.q4Hi, 0)}.` },
     { co: 'Hop Motors · made-up company', h: 'Hop Motors beats EPS by 10 cents; 8 cents came from a one-time tax benefit; outlook unchanged', ans: 'dn', d: ['flat', 'flat', 'dn'],
       res: 'Typical reaction: flat to down.', why: 'Strip the one-time item and the beat is only 2 cents. A low-quality beat does not raise future EPS, and it can make investors trust the numbers less.' },
+    { real: true, co: 'Apple · July 30, 2026', h: `Apple beats on revenue and EPS, but guides September-quarter growth to ${JG.revGrowth[0]}%–${JG.revGrowth[1]}%, below the about ${JE.nextQtrGrowth}% analysts expected`, ans: 'dn', d: ['up', 'dn', 'dn'],
+      res: `Fell about ${fP(-JR.closePct)} on July 31 (reported).`, why: `Part of the beat was temporary (${usd(AP.tariffRefund.pq.eps)} of tariff refunds) and the outlook was softer than expected. Investors priced the future lower, so the P/E fell from about ${xx(J.pe0, 0)} to about ${xx(J.pe1, 0)}.` },
     { real: true, co: 'SpaceX · August 4, 2026', h: `SpaceX revenue nearly doubles and beats; loss narrows; capex jumps to ${bil(X.capexPq)}; its first lockup release comes in two days`, ans: 'dn', d: ['up', 'dn', 'dn'],
       res: `Closed down ${fP(-Q2.reaction.nextDayPct)} at ${usd(Q2.reaction.nextDayClose)} on August 5 (reported).`, why: `The beat was big, but investors focused on cash: capex of ${fB(X.capexPq)} against about ${fB(Q2.expectations.capex, 0)} expected, and more shares able to trade after the first lockup release.` },
     { co: 'Clover Chips · made-up company', h: 'Clover Chips beats and raises, but the stock had already jumped 40% in the month before the report', ans: 'dn', d: ['up', 'up', 'dn'],
@@ -1105,12 +1211,14 @@
     opts = opts || {};
     root.classList.add('rcx');
     const id = SML.uid('ep');
-    const TB = [{ v: 'play', label: 'Playground' }, { v: 'replay', label: 'Replay July 31' }, { v: 'game', label: 'Headline game' }, { v: 'spacex', label: 'SpaceX case' }];
+    const TB = [{ v: 'play', label: 'Playground' }, { v: 'replay', label: 'Replay a report' }, { v: 'game', label: 'Headline game' }, { v: 'spacex', label: 'SpaceX case' }];
     const tab0 = TB.some((t) => t.v === opts.tab) ? opts.tab : 'play';
     let rstep = 0, guess = null, gi = 0, ans = null, score = { ok: 0, n: 0, marks: [] }, sxSel = null, playH = null, G = null;
+    const apq0 = opts.report === 'q3' ? 'q3' : 'q4';
     root.innerHTML = `
       <div class="wg-bar">${ui.seg(id + '-t', TB, tab0, 'View')}<span class="grow"></span><span class="pill" id="${id}-pill"></span></div>
       <div class="wg-bar rcx-bar2 rcx-c" data-t="play"><span class="rcx-lab">Scenario</span>${ui.seg(id + '-pre', PRESETS.map((p) => ({ v: p.k, label: p.label })), 'real', 'Scenario')}</div>
+      <div class="wg-bar rcx-bar2 rcx-c" data-t="replay"><span class="rcx-lab">Report</span>${ui.seg(id + '-apq', [{ v: 'q4', label: 'Nov 3: Sep quarter' }, { v: 'q3', label: 'Jul 31: Jun quarter' }], apq0, 'Apple report')}</div>
       <div class="wg-bar rcx-bar2 rcx-c" data-t="spacex"><span class="rcx-lab">Report</span>${ui.seg(id + '-sxq', [{ v: 'q3', label: 'Oct 20: Sep quarter' }, { v: 'q2', label: 'Aug 4: Jun quarter' }], 'q3', 'SpaceX report')}</div>
       <div class="rcx-head rcx-c" data-t="game" id="${id}-hl"></div>
       <div class="wg-fig"></div>
@@ -1135,24 +1243,27 @@
       else if (t && t.type === 'range') st.setSeg(id + '-pre', '');
       if (segEl && segEl.id === id + '-t') stopPlay();
       if (segEl && segEl.id === id + '-sxq') sxSel = null;
+      if (segEl && segEl.id === id + '-apq') { rstep = 0; guess = null; stopPlay(); }
       draw();
     });
     const tab = () => st.seg(id + '-t') || tab0;
+    const RC4 = () => APR[st.seg(id + '-apq') || apq0] || APR.q4;
     function stopPlay() { if (playH) { clearInterval(playH); playH = null; } root.querySelectorAll('[data-act="rplay"]').forEach((b) => { b.textContent = 'Play'; }); }
     SML.onCleanup(stopPlay);
     root.addEventListener('click', (e) => {
       const b = e.target.closest('[data-act]');
       if (b && root.contains(b)) {
         const a = b.dataset.act;
-        if (a === 'rnext') { rstep = Math.min(REPLAY.length - 1, rstep + 1); if (rstep === REPLAY.length - 1) stopPlay(); }
+        const RL = RC4().steps.length;
+        if (a === 'rnext') { rstep = Math.min(RL - 1, rstep + 1); if (rstep === RL - 1) stopPlay(); }
         else if (a === 'rback') { rstep = Math.max(0, rstep - 1); stopPlay(); }
         else if (a === 'rrestart') { rstep = 0; guess = null; stopPlay(); }
         else if (a === 'rplay') {
           if (playH) stopPlay();
           else {
-            if (rstep >= REPLAY.length - 1) { rstep = 0; }
+            if (rstep >= RL - 1) { rstep = 0; }
             b.textContent = 'Pause';
-            playH = setInterval(() => { rstep = Math.min(REPLAY.length - 1, rstep + 1); if (rstep >= REPLAY.length - 1) stopPlay(); draw(); }, SML.reduced() ? 6000 : 4200);
+            playH = setInterval(() => { const n = RC4().steps.length; rstep = Math.min(n - 1, rstep + 1); if (rstep >= n - 1) stopPlay(); draw(); }, SML.reduced() ? 6000 : 4200);
           }
         }
         else if (a === 'gup' || a === 'gdn') guess = a === 'gup' ? 'up' : 'dn';
@@ -1233,7 +1344,7 @@
       });
       s += `<g transform="translate(${bx},${by})">${sb}</g>`;
       const H = wide ? H1 : by + BH;
-      fig.innerHTML = S.wrap(W, H, `Apple price as EPS times P/E: ${usd(E1)} × ${xx(PE1)} = ${usd(P1)}, ${sP(chg)} from the July 30 close`, s);
+      fig.innerHTML = S.wrap(W, H, `Apple price as EPS times P/E: ${usd(E1)} × ${xx(PE1)} = ${usd(P1)}, ${sP(chg)} from the November 2 close`, s);
       reads(rd, [['EPS investors count', usd(E1)], ['P/E', xx(PE1)], ['Price', usd(P1), '', true], ['Change', sP(chg), up ? 'up' : dn ? 'dn' : ''], ['Market value', '≈$' + F.num((P1 * A.sh) / 1e6, 2) + 'T']]);
       const contrib = [['quarter', parts[1].v], ['one-time', parts[2].v], ['guidance', parts[3].v], ['multiple', parts[4].v]];
       const big = contrib.slice().sort((p, q) => Math.abs(q[1]) - Math.abs(p[1]))[0];
@@ -1243,89 +1354,77 @@
         guidance: 'Guidance moves a whole year of expected EPS, which is why it usually outweighs the quarter.',
         multiple: 'The multiple is the market’s mood about growth, risk and interest rates. A small change in P/E moves the price as much as a big change in profit.',
       };
-      if (Math.abs(chg) < 0.05 && Math.abs(s0) < 0.005 && o < 0.005 && g === 0 && m === 0) msgTo(msg, 'acc', 'Real start', `Apple’s trailing EPS of ${usd(A.eps0)} × a P/E of ${xx(A.pe0)} = ${usd(A.p0)}, the July 30, 2026 close. The rectangle’s area is the price. Pick a scenario or move a lever to see how a report changes each dial.`);
+      if (Math.abs(chg) < 0.05 && Math.abs(s0) < 0.005 && o < 0.005 && g === 0 && m === 0) msgTo(msg, 'acc', 'Real start', `Apple’s trailing EPS of ${usd(A.eps0)} × a P/E of ${xx(A.pe0)} = ${usd(A.p0)}, the November 2, 2026 close, just before its September-quarter report. The rectangle’s area is the price. Pick a scenario or move a lever to see how a report changes each dial.`);
       else msgTo(msg, up ? 'up' : dn ? 'dn' : 'acc', up ? 'Price up' : dn ? 'Price down' : 'Offsetting', `${usd(E1)} × ${xx(PE1)} = ${usd(P1)} (${sP(chg)}). The biggest push came from the ${big[0]} (${sUsd(big[1])}). ${L[big[0]]}${(E1 > A.eps0 && m < 0) || (E1 < A.eps0 && m > 0) ? ' Here EPS and the multiple pull in opposite directions.' : ''}`);
-      note.innerHTML = `The starting point is real: TTM EPS ${usd(A.eps0)} (the four quarters through June 2026) and the ${usd(A.p0)} close on July 30, 2026. The levers are illustrative what-ifs, not a forecast. A quarter’s surprise is added to the year’s EPS; guidance scales the whole year. Market value uses about ${F.num(A.sh / 1000, 2)} billion shares (the June quarter’s average), so it is approximate.`;
+      note.innerHTML = `The starting point is real: TTM EPS ${usd(A.eps0)} (fiscal 2026, the four quarters through September 2026) and the ${usd(A.p0)} close on November 2, 2026. The levers are illustrative what-ifs, not a forecast. A quarter’s surprise is added to the year’s EPS; guidance scales the whole year. Market value uses about ${F.num(A.sh / 1000, 2)} billion shares (outstanding on September 26, 2026), so it is approximate.`;
       $id(id + '-pill').textContent = 'Apple · illustrative levers';
     }
 
-    /* ---------- replay July 31 ---------- */
-    const RPTS = [
-      { l: 'Jul 30 close', ls: 'Close', p: A.p0, t: usd(A.p0) },
-      { l: 'After hours', ls: 'After hrs', p: A.ah, t: '≈$' + F.num(A.ah, 0) },
-      { l: 'Jul 31 open', ls: 'Open', p: A.open, t: '≈$' + F.num(A.open, 0) },
-      { l: 'Day low', ls: 'Low', p: AR.low, t: '≈$' + AR.low },
-      { l: 'Jul 31 close', ls: 'Close', p: AR.closeAfter, t: '≈$' + AR.closeAfter },
-    ];
-    const SROWS = [
-      { l: 'Revenue vs expected', ls: 'Revenue', a: pc(AP.is.cur.revenue, AEX.revenue[1]), b: pc(AP.is.cur.revenue, AEX.revenue[0]) },
-      { l: 'EPS vs expected', ls: 'EPS', a: pc(A.eps, AEX.eps[1]), b: pc(A.eps, AEX.eps[0]) },
-      { l: 'EPS without tariff refunds', ls: 'EPS without refunds', a: pc(A.epsX, AEX.eps[1]), b: pc(A.epsX, AEX.eps[0]) },
-      { l: 'Services vs expected', ls: 'Services', a: pc(AP.is.cur.servSales, AEX.services), b: pc(AP.is.cur.servSales, AEX.services) },
-      { l: 'Sept-quarter revenue guide', ls: 'Next-quarter guide', a: pc(A.gHi, AEX.nextQtrRevenue), b: pc(A.gLo, AEX.nextQtrRevenue) },
-    ];
-    function rangeTxt(a, b) { const lo = Math.min(a, b), hi = Math.max(a, b), d = lo % 1 === 0 && hi % 1 === 0 ? 0 : 1; return Math.abs(hi - lo) < 0.05 ? sP(lo, d) : `${sP(lo, d)} to ${sP(hi, d)}`; }
+    /* ---------- replay a report: November 2–3 (latest) or July 30–31 ---------- */
+    function rangeTxt(a, b) { const lo = Math.min(a, b), hi = Math.max(a, b), d = lo % 1 === 0 && hi % 1 === 0 ? 0 : 1; if (Math.abs(lo) < 0.05 && Math.abs(hi) < 0.05) return 'in line'; return Math.abs(hi - lo) < 0.05 ? sP(lo, d) : `${sP(lo, d)} to ${sP(hi, d)}`; }
     function drawReplay(W) {
-      const R = REPLAY[rstep], wide = W >= 640;
+      const C = RC4(), STEPS = C.steps, RPTS = C.pts, SROWS = C.rows;
+      if (rstep > STEPS.length - 1) rstep = STEPS.length - 1;
+      const R = STEPS[rstep], wide = W >= 640, last = rstep === STEPS.length - 1;
       const LW = wide ? Math.round(W * 0.5) : W, HP = 252;
       const ml = 44, mr = 12, top = 30, bot = HP - 60;
-      const y = SML.lin(296, 338, bot, top), slot = (LW - ml - mr) / RPTS.length, px = (i) => ml + slot * (i + 0.5);
+      const pv = RPTS.map((p) => p.p), span = Math.max(...pv) - Math.min(...pv), stp = span > 22 ? 10 : 5;
+      const yLo = Math.floor((Math.min(...pv) - stp * 0.6) / stp) * stp, yHi = Math.ceil((Math.max(...pv) + stp * 0.6) / stp) * stp;
+      const y = SML.lin(yLo, yHi, bot, top), slot = (LW - ml - mr) / RPTS.length, px = (i) => ml + slot * (i + 0.5);
       let s = S.text(LW < 420 ? 4 : ml, 12, LW < 420 ? 'APPLE PRICE · REPORTED POINTS' : 'APPLE SHARE PRICE · REPORTED POINTS', 'cap');
-      [300, 310, 320, 330].forEach((v) => { s += S.line(ml, y(v), LW - mr, y(v), 's-grid') + S.text(ml - 6, y(v) + 4, '$' + v, 'xs mono', 'end'); });
-      s += S.line(ml, y(A.p0), LW - mr, y(A.p0), 's-mut dash');
+      for (let v = yLo + stp; v < yHi; v += stp) s += S.line(ml, y(v), LW - mr, y(v), 's-grid') + S.text(ml - 6, y(v) + 4, '$' + v, 'xs mono', 'end');
+      s += S.line(ml, y(C.p0), LW - mr, y(C.p0), 's-mut dash');
       RPTS.forEach((p, i) => { s += S.text(px(i), bot + 16, wide ? p.l : p.ls, 'xs' + (i < R.pts ? ' ink' : ''), 'middle'); });
-      for (let i = 1; i < R.pts; i++) s += S.line(px(i - 1), y(RPTS[i - 1].p), px(i), y(RPTS[i].p), 's-dn w25');
+      for (let i = 1; i < R.pts; i++) s += S.line(px(i - 1), y(RPTS[i - 1].p), px(i), y(RPTS[i].p), (RPTS[i].p >= RPTS[i - 1].p ? 's-up' : 's-dn') + ' w25');
       RPTS.forEach((p, i) => {
         if (i >= R.pts) { s += S.circle(px(i), y(p.p), 4, 'nf s-line w15'); return; }
-        s += S.circle(px(i), y(p.p), 5, i === 0 ? 'f-ink' : 'f-dn');
-        const lc = 'sm mono b ' + (i === 0 ? 'ink' : 'dn');
-        if (i === 1) s += S.text(px(i) + 9, y(p.p) + 4, p.t, lc);
-        else if (i === 2 || i === 3) s += S.text(px(i), y(p.p) + 19, p.t, lc, 'middle');
-        else s += S.text(px(i), y(p.p) - 10, p.t, lc, 'middle');
+        const tone = i === 0 ? 'ink' : p.p >= C.p0 ? 'up' : 'dn';
+        s += S.circle(px(i), y(p.p), 5, 'f-' + tone);
+        const lc = 'sm mono b ' + tone, below = i > 0 && p.p < RPTS[i - 1].p;
+        s += S.text(px(i), y(p.p) + (below ? 19 : -10), p.t, lc, 'middle');
       });
-      const cur = RPTS[R.pts - 1], pe = cur.p / A.eps0;
-      const fx = R.pts === 1 ? `TTM EPS ${usd(A.eps0)} × ${xx(pe)} = ${usd(A.p0)}` : `${usd(A.eps0)} × ${xx(pe)} ≈ $${F.num(cur.p, 0)}${R.pts === 5 ? ` (${sP(AR.closePct)})` : ''}`;
-      s += S.text(ml, HP - 22, 'PRICE ≈ EPS × P/E', 'cap acc') + S.text(ml, HP - 4, fx, (LW < 400 ? 'md' : 'lg') + ' mono b ' + (R.pts === 1 ? 'ink' : 'dn'));
+      const cur = RPTS[R.pts - 1], pe = cur.p / C.eps0, isFinal = C.final != null && R.pts === RPTS.length;
+      const mv = R.pts === 1 ? 0 : isFinal ? C.final : pc(cur.p, C.p0), tone = R.pts === 1 ? 'ink' : mv >= 0 ? 'up' : 'dn';
+      const fx = R.pts === 1 ? `TTM EPS ${usd(C.eps0)} × ${xx(pe)} = ${usd(C.p0)}` : `${usd(C.eps0)} × ${xx(pe)} ≈ $${F.num(cur.p, 0)}${isFinal ? ` (${sP(C.final)})` : ''}`;
+      s += S.text(ml, HP - 22, 'PRICE ≈ EPS × P/E', 'cap acc') + S.text(ml, HP - 4, fx, (LW < 400 ? 'md' : 'lg') + ' mono b ' + tone);
       /* surprise rows */
       const bx = wide ? LW + 22 : 0, by = wide ? 0 : HP + 18, BW = wide ? W - LW - 22 : W;
-      const rowH = 42, labOnTop = true;
-      const x = SML.lin(-4, 8, 10, BW - 10);
+      const rowH = 42;
+      const x = SML.lin(C.xr[0], C.xr[1], 10, BW - 10);
       let sb = S.text(4, 12, BW < 420 ? 'SURPRISE VS EXPECTED' : 'SURPRISE VS WHAT ANALYSTS EXPECTED', 'cap');
       sb += S.line(x(0), 22, x(0), 22 + SROWS.length * rowH, 's-mut');
       SROWS.forEach((r, i) => {
         const yy = 22 + i * rowH, shown = i < R.rows;
-        sb += S.text(10, yy + 14, wide ? r.l : r.l, 'sm b ' + (shown ? 'ink' : 'mut'));
+        sb += S.text(10, yy + 14, r.l, 'sm b ' + (shown ? 'ink' : 'mut'));
         if (!shown) { sb += S.text(BW - 10, yy + 14, '?', 'sm b mut', 'end'); return; }
-        const near = Math.abs(r.a) < Math.abs(r.b) ? r.a : r.b, far = near === r.a ? r.b : r.a, c = near >= 0 ? 'up' : 'dn';
-        const a1 = x(Math.min(0, near)), b1 = x(Math.max(0, near));
+        const near = Math.abs(r.a) < Math.abs(r.b) ? r.a : r.b, far = near === r.a ? r.b : r.a;
+        const c = Math.abs(near) < 0.05 && Math.abs(far) < 0.05 ? 'mut' : near >= 0 ? 'up' : 'dn';
+        const cl = (v) => clamp(v, C.xr[0], C.xr[1]);
+        const a1 = x(Math.min(0, cl(near))), b1 = x(Math.max(0, cl(near)));
         sb += S.rect(a1, yy + 21, Math.max(2, b1 - a1), 12, 'f-' + c, 2);
-        if (Math.abs(far - near) > 0.05) { const a2 = x(Math.min(near, far)), b2 = x(Math.max(near, far)); sb += S.rect(a2, yy + 21, b2 - a2, 12, 'f-' + c + ' o35', 2); }
+        if (Math.abs(far - near) > 0.05) { const a2 = x(Math.min(cl(near), cl(far))), b2 = x(Math.max(cl(near), cl(far))); sb += S.rect(a2, yy + 21, b2 - a2, 12, 'f-' + c + ' o35', 2); }
         sb += S.text(BW - 10, yy + 14, rangeTxt(r.a, r.b), 'sm mono b ' + c, 'end');
       });
-      [-4, 0, 4, 8].forEach((v) => { sb += S.text(x(v), 22 + SROWS.length * rowH + 12, (v > 0 ? '+' : v < 0 ? MI : '') + Math.abs(v) + '%', 'xs mono', 'middle'); });
+      C.xt.forEach((v) => { sb += S.text(x(v), 22 + SROWS.length * rowH + 12, (v > 0 ? '+' : v < 0 ? MI : '') + Math.abs(v) + '%', 'xs mono', 'middle'); });
       s += `<g transform="translate(${bx},${by})">${sb}</g>`;
       const H = wide ? Math.max(HP, 22 + SROWS.length * rowH + 18) : by + 22 + SROWS.length * rowH + 18;
-      fig.innerHTML = S.wrap(W, H, `Replay of Apple’s July 30 to 31, 2026 earnings reaction, step ${rstep + 1} of ${REPLAY.length}: ${R.h}`, s);
+      fig.innerHTML = S.wrap(W, H, `Replay of Apple’s ${C.label} earnings reaction, step ${rstep + 1} of ${STEPS.length}: ${R.h}`, s);
       const stEl = $id(id + '-step');
       let extra = '';
       if (R.guess) extra = `<div class="rcx-guess"><span class="rcx-lab">Your call for tomorrow</span><button type="button" class="btn sm ${guess === 'up' ? 'btn-up' : 'btn-g'}" data-act="gup">▲ Up</button><button type="button" class="btn sm ${guess === 'dn' ? 'btn-dn' : 'btn-g'}" data-act="gdn">▼ Down</button>${guess ? '<span class="rcx-lab">Locked in. Press Next.</span>' : ''}</div>`;
-      if (rstep === REPLAY.length - 1 && guess) extra = `<p><b>You called ${guess === 'up' ? 'up' : 'down'}.</b> ${guess === 'dn' ? 'Right: the outlook mattered more than the beat.' : 'The headline beat pointed up, but the outlook and the one-time help pointed down, and the outlook won.'}</p>`;
-      stEl.innerHTML = nb(`<span class="rcx-when">${R.when} · step ${rstep + 1} of ${REPLAY.length}</span><h4>${R.h}</h4><p>${R.p}</p>${extra}`);
-      const dots = $id(id + '-rdots'); if (dots) dots.innerHTML = REPLAY.map((_, i) => `<i class="${i === rstep ? 'on' : i < rstep ? 'done' : ''}"></i>`).join('');
+      if (last && guess) {
+        const right = (guess === 'dn') === C.down;
+        extra = `<p><b>You called ${guess === 'up' ? 'up' : 'down'}.</b> ${right ? (C.down ? 'Right: the outlook mattered more than the beat.' : 'Right: the stock ended higher.') : (C.down ? 'The headline beat pointed up, but the outlook and the one-time help pointed down, and the outlook won.' : 'The outlook pointed down at first, but the stock recovered.')}</p>`;
+      }
+      stEl.innerHTML = nb(`<span class="rcx-when">${R.when} · step ${rstep + 1} of ${STEPS.length}</span><h4>${R.h}</h4><p>${R.p}</p>${extra}`);
+      const dots = $id(id + '-rdots'); if (dots) dots.innerHTML = STEPS.map((_, i) => `<i class="${i === rstep ? 'on' : i < rstep ? 'done' : ''}"></i>`).join('');
       root.querySelectorAll('[data-act="rback"]').forEach((b) => { b.disabled = rstep === 0; });
-      root.querySelectorAll('[data-act="rnext"]').forEach((b) => { b.disabled = rstep === REPLAY.length - 1; });
-      reads(rd, [['TTM EPS', usd(A.eps0)], ['P/E', xx(pe), R.pts > 1 ? 'dn' : ''], ['Price', R.pts === 1 ? usd(A.p0) : '≈$' + F.num(cur.p, 0), R.pts > 1 ? 'dn' : '', true], ['Move', R.pts === 1 ? '0%' : R.pts === 5 ? sP(AR.closePct) : sP(pc(cur.p, A.p0)), R.pts > 1 ? 'dn' : ''], ['Market value', '≈$' + F.num((cur.p * A.sh) / 1e6, 2) + 'T']]);
-      const M = [
-        ['acc', 'Set-up', 'The price already reflects these expectations. Only the surprise, and what it says about the future, can move it.'],
-        ['up', 'Beat', 'On the headline alone, many traders would expect a pop. Make your call, then keep going.'],
-        ['acc', 'Quality', 'Strip the temporary help and the EPS beat is small. Services also missed. The good news is thinner than the headline.'],
-        ['dn', 'Outlook', 'Guidance resets next quarter’s numbers, and they came in below what was expected. This is the piece that moves the multiple.'],
-        ['dn', 'Gap down', 'Gaps like this jump straight past stop orders. It is why many traders cut size or step aside before earnings.'],
-        ['vio', 'Lesson', `Trailing EPS did not change; the P/E fell from about ${xx(A.pe0)} to about ${xx(A.pe1)}. A beat on the quarter, a softer outlook and temporary help: the outlook won. SpaceX shows the mirror image in the SpaceX case tab.`],
-      ][rstep];
+      root.querySelectorAll('[data-act="rnext"]').forEach((b) => { b.disabled = last; });
+      reads(rd, [['TTM EPS', usd(C.eps0)], ['P/E', xx(pe), R.pts > 1 ? tone : ''], ['Price', R.pts === 1 ? usd(C.p0) : '≈$' + F.num(cur.p, 0), R.pts > 1 ? tone : '', true], ['Move', R.pts === 1 ? '0%' : sP(mv), R.pts > 1 ? tone : ''], ['Market value', '≈$' + F.num((cur.p * C.sh) / 1e6, 2) + 'T']]);
+      const M = C.msgs[Math.min(rstep, C.msgs.length - 1)];
       msgTo(msg, M[0], M[1], M[2]);
-      note.innerHTML = 'Prices, expectations and moves are as reported in the news (approximate); lines connect the reported points and are not an intraday chart. Revenue, EPS, the tariff refund and guidance are from Apple’s release and call. Ranges reflect the range of reported estimates. The beat without tariff refunds is our math, assuming the estimates did not include them.';
-      $id(id + '-pill').textContent = 'Apple · real event';
+      note.innerHTML = C.note;
+      $id(id + '-pill').textContent = C.pill;
     }
 
     /* ---------- headline game ---------- */
@@ -1407,7 +1506,8 @@
       },
     };
     const XCMP = [
-      { k: 'cApple', l: 'Apple, Jul 31', v: AR.closePct, tag: 'beat, guide below', m: `Apple beat on revenue and EPS but guided the September quarter below expectations: it closed down about ${fP(-AR.closePct)} on July 31 (reported).` },
+      { k: 'cApple', l: 'Apple, Jul 31', v: JR.closePct, tag: 'beat, guide below', m: `Apple’s June-quarter report beat on revenue and EPS but guided the September quarter below expectations: it ${julMove()} (reported).` },
+      { k: 'cApple4', l: A.closed ? 'Apple, Nov 3' : 'Apple, Nov 3 pre-open', v: A.move, tag: 'beat, holiday guide below', m: `Apple’s September-quarter report beat again, but guided the holiday quarter’s margin, Services and growth below expectations: it ${novMove()} (reported).` },
       { k: 'cQ2', l: 'SpaceX, Aug 5', v: Q2.reaction.nextDayPct, tag: 'beat, capex jump, lockup', m: `SpaceX’s first report beat, but capex jumped and the first lockup release was days away: down ${fP(-Q2.reaction.nextDayPct)} on August 5 (reported).` },
       { k: 'cQ3', l: 'SpaceX, Oct 21', v: SXR.nextDayPct, tag: 'beat, guide far above', m: `SpaceX beat again and guided far above expectations: up ${fP(SXR.nextDayPct)} on October 21 (reported). Same rule as Apple, opposite direction: the outlook moved the price.` },
     ];
@@ -1467,19 +1567,19 @@
       s += bars(D.moves, my);
       /* three reports, one lesson */
       const cy0 = my + D.moves.length * mh + 32;
-      s += S.text(4, cy0 - 10, wide ? 'THREE REPORTS, ONE LESSON · NEXT-DAY CLOSE' : 'THREE REPORTS, ONE LESSON', 'cap acc');
+      s += S.text(4, cy0 - 10, wide ? `FOUR REPORTS, ONE LESSON · NEXT-DAY ${A.closed ? 'CLOSE' : 'MOVE'}` : 'FOUR REPORTS, ONE LESSON', 'cap acc');
       s += bars(XCMP.map((r) => ({ k: r.k, l: r.l, a: r.v, b: r.v, tag: r.tag })), cy0);
       const H = cy0 + XCMP.length * mh + 8;
-      fig.innerHTML = S.wrap(W, H, q === 'q3' ? 'SpaceX September 2026 quarter: beats on revenue and EPS, a first-quarter 2027 revenue guide far above expectations and a bigger capex guide, the reported stock moves, and three reports compared' : 'SpaceX June 2026 quarter: beats on revenue, EPS and adjusted EBITDA while capex came in well above expectations, the reported stock moves, and three reports compared', s);
+      fig.innerHTML = S.wrap(W, H, q === 'q3' ? 'SpaceX September 2026 quarter: beats on revenue and EPS, a first-quarter 2027 revenue guide far above expectations and a bigger capex guide, the reported stock moves, and four reports compared' : 'SpaceX June 2026 quarter: beats on revenue, EPS and adjusted EBITDA while capex came in well above expectations, the reported stock moves, and four reports compared', s);
       if (q === 'q3') reads(rd, [['EPS, Sep qtr', usd(xc.eps), 'up'], ['Revenue beat', rng(pc(X.rev, SXE.revenue[1]), pc(X.rev, SXE.revenue[0])), 'up'], ['Q1 2027 guide vs expected', rng(pc(X.g1Lo, SXE.q1_2027Revenue), pc(X.g1Hi, SXE.q1_2027Revenue)), 'up', true], ['Oct 21 move', sP(SXR.nextDayPct), 'up'], ['Oct 21 close', usd(SXR.closeAfter)]]);
       else reads(rd, [['EPS, Jun qtr', usd(xq.eps), 'dn'], ['P/E', 'none (loss)', 'dn'], ['Revenue beat', rng(pc(X.revPq, Q2.expectations.revenue[1]), pc(X.revPq, Q2.expectations.revenue[0])), 'up'], ['Capex vs expected', sP(pc(X.capexPq, Q2.expectations.capex), 0), 'dn', true], ['Aug 5 move', sP(Q2.reaction.nextDayPct), 'dn']]);
       const all = D.rows.concat(D.moves).concat(XCMP);
       const r0 = all.find((r) => r.k === sxSel);
-      const PL = { rev: 'Revenue', eps: 'EPS', ebitda: 'EBITDA', capex: 'Capex', guide: 'Guide', aug4: 'Aug 4', ah2: 'After hours', aug5: 'Aug 5', ah3: 'After hours', oct21: 'Oct 21', cApple: 'Apple', cQ2: 'SpaceX Q2', cQ3: 'SpaceX Q3' };
-      if (r0) msgTo(msg, ['capex', 'ah2', 'aug5', 'cApple', 'cQ2'].indexOf(r0.k) >= 0 ? 'dn' : 'up', PL[r0.k], r0.m);
-      else if (q === 'q3') msgTo(msg, 'up', 'Beat and guide up', `SpaceX beat on revenue and EPS, swung to a profit, and guided first-quarter 2027 revenue to ${fB(X.g1Lo, 0)}–${fB(X.g1Hi, 0)} against about ${fB(SXE.q1_2027Revenue)} expected (reported). The stock rose about ${fP(SXR.afterHoursPct, 0)} after hours and closed up ${fP(SXR.nextDayPct)} at ${usd(SXR.closeAfter)} on October 21. Apple beat too but guided below expectations and fell ${fP(-AR.closePct)}: the outlook moved both stocks. Switch to the August report for the opposite reaction.`);
+      const PL = { rev: 'Revenue', eps: 'EPS', ebitda: 'EBITDA', capex: 'Capex', guide: 'Guide', aug4: 'Aug 4', ah2: 'After hours', aug5: 'Aug 5', ah3: 'After hours', oct21: 'Oct 21', cApple: 'Apple, July', cApple4: 'Apple, November', cQ2: 'SpaceX Q2', cQ3: 'SpaceX Q3' };
+      if (r0) msgTo(msg, ['capex', 'ah2', 'aug5', 'cApple', 'cQ2'].indexOf(r0.k) >= 0 || (r0.k === 'cApple4' && A.down) ? 'dn' : 'up', PL[r0.k], r0.m);
+      else if (q === 'q3') msgTo(msg, 'up', 'Beat and guide up', `SpaceX beat on revenue and EPS, swung to a profit, and guided first-quarter 2027 revenue to ${fB(X.g1Lo, 0)}–${fB(X.g1Hi, 0)} against about ${fB(SXE.q1_2027Revenue)} expected (reported). The stock rose about ${fP(SXR.afterHoursPct, 0)} after hours and closed up ${fP(SXR.nextDayPct)} at ${usd(SXR.closeAfter)} on October 21. Apple beat twice too but guided below expectations both times: down ${fP(-JR.closePct)} on July 31 and ${novShort()}. The outlook moved both stocks. Switch to the August report for the opposite reaction.`);
       else msgTo(msg, 'vio', 'Beat, then drop', `The first report (August 4): a big beat on revenue, EPS and adjusted EBITDA, yet the stock closed down ${fP(-Q2.reaction.nextDayPct)} at ${usd(Q2.reaction.nextDayClose)} on August 5 (reported). Investors focused on capex of ${fB(X.capexPq)} against about ${fB(Q2.expectations.capex, 0)} expected and on the first lockup release on August 6. Tap any line.`);
-      note.innerHTML = 'Expectations and stock moves are as reported in the news, so they are approximate. October: LSEG consensus via news reports, Motley Fool and TIKR. August: Zacks/Nasdaq and XTB for the estimates, Crypto Briefing for the ≈$13B capex estimate and the August 4 close, StartupHub for the August 5 close. Results are from SpaceX’s releases. Lighter bar ends show the range of reported estimates.';
+      note.innerHTML = `Expectations and stock moves are as reported in the news, so they are approximate. October: LSEG consensus via news reports, Motley Fool and TIKR. August: Zacks/Nasdaq and XTB for the estimates, Crypto Briefing for the ≈$13B capex estimate and the August 4 close, StartupHub for the August 5 close. Results are from SpaceX’s releases. Apple’s moves are as reported (July: Hargreaves Lansdown and MacDailyNews; November: Investing.com, TradingView and MacDailyNews).${A.closed ? '' : ' Apple’s November bar shows the move before the November 3 open, until the close is added.'} Lighter bar ends show the range of reported estimates.`;
       $id(id + '-pill').textContent = 'SpaceX · real events';
     }
 
@@ -1507,7 +1607,7 @@
     try: 'Switch tabs and quarters, and tap any bar or row for its card. On Adj. EBITDA, press Next to walk the bridge one step at a time.',
     extra: [
       { widget: 'growthVsProfit', opts: { part: 'ipo' }, try: 'Press Play the year to watch the balance sheet change through the IPO and the Cursor deal, split the same profit over more shares, then set your own market value to see price to sales.' },
-      { widget: 'earningsPrice', opts: { tab: 'spacex' }, try: 'Compare the October report (a beat and a big guide, up) with the August one (a beat, then down), next to Apple.' },
+      { widget: 'earningsPrice', opts: { tab: 'spacex' }, try: 'Compare the October report (a beat and a big guide, up) with the August one (a beat, then down), next to Apple’s two reports.' },
     ],
     body: [
       `<h3>The latest quarter: a first profit as a public company</h3><p>SpaceX listed on ${SX.ipo.exchange} in June 2026 (ticker ${SX.ticker}; priced at $${SX.ipo.priced}, opened at $${SX.ipo.open}). Its latest reported quarter as of October 2026 is July to September 2026, reported on October 20, 2026. Revenue rose ${fP(X.yoy, 0)} to ${bil(X.rev)}, the core business made an operating profit of ${bil(xc.opInc)} and net income was ${bil(xc.netInc)} (EPS ${usd(xc.eps)}): its first profitable quarter as a public company. Three months earlier, in its first report, it lost ${amt(-xq.netInc)}.</p>`,
@@ -1520,7 +1620,7 @@
       `<h3>The balance sheet: IPO, conversion, Cursor</h3><p>From December 31, 2025 to September 30, 2026:</p><ul><li><b>Cash and marketable securities</b> rose from ${bil(X.cash0)} to ${bil(X.cashSec)} (about ${bil(X.cashSecMid)} on June 30, right after the IPO).</li><li><b>Preferred stock</b> of ${bil(X.pref0)} converted into common shares.</li><li><b>Goodwill</b> jumped from ${bil(X.gw0)} to ${bil(X.gw)}, mostly from buying Cursor.</li><li><b>Paid-in capital</b> grew from ${bil(X.apic0)} to ${bil(X.apic)}. The <b>accumulated deficit</b> went from ${bil(X.def0)} to ${bil(X.defMid)} after the first-half losses, then to ${bil(X.def)} after the September profit.</li><li><b>Debt and finance leases</b> rose from ${bil(X.debt0)} to ${bil(X.debt)}. On the June-quarter call, the CFO said the IPO and a ${bil(Q2.bond, 0)} bond sale strengthened the balance sheet, with part of the bond money used to repay a ${bil(Q2.bridgeLoan, 0)} bridge loan.</li></ul>${tcard(SXC.gw)}${tcard(SXC.equity)}`,
       `<h3>Dilution: the same profit, more slices</h3>${tcard(SXC.dilution)}`,
       `<h3>Still no trailing P/E, so price to sales</h3><p>One profitable quarter is not a year: the nine months to September were still a loss (EPS ${usd(SX.is.ytd.eps)}). So investors lean on <b>price to sales</b>: market value divided by a year of revenue. A common shortcut for a fast grower is the run rate, the latest quarter × 4: ${bil(X.runRate)}. The market value changes every day, so the widget lets you set it.</p>${tcard(SXC.ps)}`,
-      `<h3>The reaction: two reports, opposite moves</h3><p><b>August 4 (the June quarter):</b> SpaceX beat on revenue, EPS and adjusted EBITDA, but capex jumped to ${bil(X.capexPq)} against about ${bil(Q2.expectations.capex, 0)} expected and the first lockup release was two days away. The stock closed down ${fP(-Q2.reaction.nextDayPct)} at ${usd(Q2.reaction.nextDayClose)} on August 5 (reported).</p><p><b>October 20 (the September quarter):</b> another beat (revenue ${bil(X.rev)} against about ${bil(SXE.revenue[0], 2)}–${bil(SXE.revenue[1], 2)}; EPS ${usd(xc.eps)} against about ${usd(SXE.eps[0])}–${usd(SXE.eps[1])}), plus a first-quarter 2027 revenue guide of ${bil(X.g1Lo, 0)}–${bil(X.g1Hi, 0)} against about ${bil(SXE.q1_2027Revenue)} expected. The stock rose about ${fP(SXR.afterHoursPct, 0)} after hours and closed up ${fP(SXR.nextDayPct)} at ${usd(SXR.closeAfter)} on October 21 (reported). Apple beat too but guided below expectations, and fell about ${fP(-AP.reaction.closePct)}. The outlook moved all three. More in <a href="#l-rc-price">How earnings move the stock price</a>; hear the call retold in the <a href="#l-rc-spacex-call">SpaceX earnings call lesson</a>, and try the <a href="#tool-earnings-price">earnings and price tool</a>.</p>${tip('When a company reports a big profit, check two lines before you celebrate: how much came from below the operating line, and how capex compares with adjusted EBITDA.')}`,
+      `<h3>The reaction: two reports, opposite moves</h3><p><b>August 4 (the June quarter):</b> SpaceX beat on revenue, EPS and adjusted EBITDA, but capex jumped to ${bil(X.capexPq)} against about ${bil(Q2.expectations.capex, 0)} expected and the first lockup release was two days away. The stock closed down ${fP(-Q2.reaction.nextDayPct)} at ${usd(Q2.reaction.nextDayClose)} on August 5 (reported).</p><p><b>October 20 (the September quarter):</b> another beat (revenue ${bil(X.rev)} against about ${bil(SXE.revenue[0], 2)}–${bil(SXE.revenue[1], 2)}; EPS ${usd(xc.eps)} against about ${usd(SXE.eps[0])}–${usd(SXE.eps[1])}), plus a first-quarter 2027 revenue guide of ${bil(X.g1Lo, 0)}–${bil(X.g1Hi, 0)} against about ${bil(SXE.q1_2027Revenue)} expected. The stock rose about ${fP(SXR.afterHoursPct, 0)} after hours and closed up ${fP(SXR.nextDayPct)} at ${usd(SXR.closeAfter)} on October 21 (reported). Apple beat in July and again in November but guided below expectations both times: down about ${fP(-JR.closePct)} on July 31 and ${novShort()}. The outlook moved them all. More in <a href="#l-rc-price">How earnings move the stock price</a>; hear the call retold in the <a href="#l-rc-spacex-call">SpaceX earnings call lesson</a>, and try the <a href="#tool-earnings-price">earnings and price tool</a>.</p>${tip('When a company reports a big profit, check two lines before you celebrate: how much came from below the operating line, and how capex compares with adjusted EBITDA.')}`,
     ],
     example: {
       title: 'SpaceX’s latest quarter in five lines',
@@ -1565,29 +1665,34 @@
     summary: 'Price ≈ EPS × P/E: surprises, guidance, temporary items and the multiple.',
     idea: 'Price is roughly EPS times P/E. Results move EPS, the outlook moves future EPS, and mood moves the multiple.',
     widget: 'earningsPrice', opts: {},
-    try: 'Start on the Playground with Apple’s real numbers, then replay July 31, 2026 step by step, play the headline game and open the SpaceX case.',
+    try: 'Start on the Playground with Apple’s real numbers, then replay November 3, 2026 (and July 31) step by step, play the headline game and open the SpaceX case.',
     body: [
-      `<h3>One formula</h3><p>Apple’s fiscal year ends in late September, so its April to June 2026 quarter is “fiscal Q3 2026”, reported on July 30, 2026: its latest reported quarter as of October 2026. Everything that happened to the stock next fits into one line.</p>${tcard(APC.formula, 'At Apple')}`,
+      `<h3>One formula</h3><p>Apple’s fiscal year ends in late September, so its July to September 2026 quarter is “fiscal Q4 2026”, the last quarter of its fiscal year, reported on November 2, 2026: its latest reported quarter as of November 2026. Its four quarters add up to fiscal 2026’s ${usd(A.eps0)} of EPS. Everything that happened to the stock next fits into one line.</p>${tcard(APC.formula, 'At Apple')}`,
       `<h3>Markets trade the surprise</h3>${tcard(APC.surprise, 'At Apple')}<p>That is why the same result can lift one stock and sink another: what matters is the gap between what happened and what was already priced in. See also <a href="#l-earnings">Earnings reports</a> and <a href="#l-earnings-season">Earnings season and the economy</a>.</p>`,
       `<h3>Guidance moves next year’s EPS</h3>${tcard(APC.guidance, 'At Apple')}`,
       `<h3>Quality: how much of the beat counts</h3>${tcard(APC.quality, 'At Apple')}<p>Always ask two questions: how much of this profit is temporary, and what does the adjusted number leave out? The <a href="#l-rc-apple-income">Apple income lesson</a> lets you remove the tariff refund line by line, and the <a href="#l-rc-spacex">SpaceX lesson</a> shows a profit with ${bil(X.below)} of help from below the operating line.</p>`,
       `<h3>The multiple: what investors will pay</h3>${tcard(APC.multiple, 'At Apple')}<p>Interest rates move multiples too: when bond yields rise, future profits are worth less today (<a href="#l-rates">rates and yields</a>).</p>`,
+      `<h3>Apple, twice: a beat, a softer outlook, a lower price</h3><p><b>July 30 (the June quarter):</b> EPS ${usd(J.eps)} against about ${usd(JE.eps[0])}–${usd(JE.eps[1])} expected, but ${usd(AP.tariffRefund.pq.eps)} of it was tariff refunds and the September-quarter guide (${JG.revGrowth[0]}%–${JG.revGrowth[1]}% growth) was below the about ${JE.nextQtrGrowth}% hoped for. The stock ${julMove()}.</p><p><b>November 2 (the September quarter):</b> EPS ${usd(A.eps)} against about ${usd(AEX.eps)}, with a smaller ${usd(AP.tariffRefund.eps)} refund, and a holiday-quarter guide below hopes on gross margin (${AG.grossMargin[0]}%–${AG.grossMargin[1]}% against about ${AEX.nextQtrGrossMargin}%), Services and growth. The stock ${novMove()}. Same shape, same direction: the replay tab above has both.</p>`,
       `<h3>Which P/E?</h3>${tcard(APC.ttm, 'At Apple')}`,
       `<h3>The whole company</h3>${tcard(APC.mcap, 'At Apple')}`,
       `<h3>The same rule at SpaceX, both ways</h3><p>In August, SpaceX’s first report beat on revenue, EPS and adjusted EBITDA, but capex jumped and the first lockup release was days away: the stock closed down ${fP(-Q2.reaction.nextDayPct)} (reported). In October it beat again and guided first-quarter 2027 revenue to ${bil(X.g1Lo, 0)}–${bil(X.g1Hi, 0)} against about ${bil(SXE.q1_2027Revenue)} expected: up ${fP(SXR.nextDayPct)}. That quarter was profitable (EPS ${usd(xc.eps)}), but with the nine months still at a loss there is no meaningful trailing P/E, so investors lean on sales and the outlook. Open the SpaceX case tab above, or the full <a href="#l-rc-spacex">SpaceX lesson</a>.</p>`,
-      `<h3>How traders use this</h3><ul><li>Check the date: earnings are on the <a href="#calendar">calendar</a>. Apple reports its September quarter on November 2, 2026.</li><li>Size down or step aside before the report: a gap can jump straight past your stop (<a href="#l-position-size">position sizing</a>, <a href="#l-one-percent">the 1% rule</a>).</li><li>Options get expensive before earnings and lose value after them (<a href="#l-iv-crush">IV and earnings</a>, <a href="#l-volatility">expected move</a>).</li><li>Read the outlook first, then the quality of the beat, then the headline.</li></ul>${tip('Before an earnings date, write down three things: what is expected, what would count as a real surprise, and what you will do if the stock gaps. Then you react to a plan, not to the headline.')}`,
+      `<h3>How traders use this</h3><ul><li>Check the date: earnings are on the <a href="#calendar">calendar</a>. ${AP.next}</li><li>Size down or step aside before the report: a gap can jump straight past your stop (<a href="#l-position-size">position sizing</a>, <a href="#l-one-percent">the 1% rule</a>).</li><li>Options get expensive before earnings and lose value after them (<a href="#l-iv-crush">IV and earnings</a>, <a href="#l-volatility">expected move</a>).</li><li>Read the outlook first, then the quality of the beat, then the headline.</li></ul>${tip('Before an earnings date, write down three things: what is expected, what would count as a real surprise, and what you will do if the stock gaps. Then you react to a plan, not to the headline.')}`,
     ],
     example: {
-      title: 'Apple’s July 31, 2026 in numbers',
-      intro: 'Expectations and moves are as reported; the arithmetic is ours.',
+      title: 'Apple’s November 2026 report in numbers',
+      intro: 'The September 2026 quarter. Expectations and moves are as reported; the arithmetic is ours.',
       steps: [
-        `July 30 close ${usd(A.p0)} ÷ TTM EPS ${usd(A.eps0)} = a P/E of about ${xx(A.pe0)}.`,
-        `Reported EPS ${usd(A.eps)} against about ${usd(AEX.eps[0])}–${usd(AEX.eps[1])} expected: a beat of ${usd(A.beatLo)}–${usd(A.beatHi)}, about ${fP(pc(A.eps, AEX.eps[1]), 0)}.`,
-        `Strip the ${usd(AP.tariffRefund.eps)} tariff refund: ${usd(A.eps)} − ${usd(AP.tariffRefund.eps)} = ${usd(A.epsX)}, a beat of only ${usd(A.beatXLo)}–${usd(A.beatXHi)} (our math, assuming the estimates did not include the refunds).`,
-        `Guidance: ${AG.revGrowth[0]}%–${AG.revGrowth[1]}% growth on last year’s ${fB(AG.baseRevenue)} = about ${fB(A.gLo)}–${fB(A.gHi)}, against about ${fB(AEX.nextQtrRevenue, 0)} expected.`,
-        `Close about $${AR.closeAfter} (${sP(AR.closePct)}). $${AR.closeAfter} ÷ ${usd(A.eps0)} ≈ ${xx(A.pe1)}: the same trailing EPS at a lower multiple.`,
+        `November 2 close ${usd(A.p0)} ÷ TTM EPS ${usd(A.eps0)} = a P/E of about ${xx(A.pe0)}.`,
+        `Reported EPS ${usd(A.eps)} against about ${usd(AEX.eps)} expected: a beat of ${usd(A.beat)}, about ${fP(pc(A.eps, AEX.eps))}.`,
+        `Strip the ${usd(AP.tariffRefund.eps)} tariff refund: ${usd(A.eps)} − ${usd(AP.tariffRefund.eps)} = ${usd(A.epsX)}, a beat of ${usd(A.beatX)} (our math, assuming the estimate did not include the refunds).`,
+        `Guidance: ${AG.revGrowth[0]}%–${AG.revGrowth[1]}% growth on last year’s ${fB(AG.baseRevenue)} December quarter = about ${fB(A.gLo)}–${fB(A.gHi)}, against about ${fB(AEX.nextQtrRevenue)} expected (${AEX.nextQtrGrowth}% growth).`,
+        A.closed
+          ? `Close ${usd(A.p1)} (${sP(AR.closePct)}) on November 3. ${usd(A.p1)} ÷ ${usd(A.eps0)} ≈ ${xx(A.pe1)}: the same trailing EPS at a ${A.down ? 'lower' : 'higher'} multiple.`
+          : `Before the open on November 3: about ${fP(-AR.premarketPct, 0)} lower, near $${F.num(A.pre, 0)}. $${F.num(A.pre, 0)} ÷ ${usd(A.eps0)} ≈ ${xx(A.pe1)}: the same trailing EPS at a lower multiple.`,
       ],
-      result: `About $${F.num(A.p0 - A.p1, 0)} a share, roughly $${F.num(Math.round(A.mcapDrop / 10000) * 10, 0)} billion of market value (our math), came off on a quarter that beat.`,
+      result: A.down
+        ? `About $${F.num(A.p0 - A.p1, 0)} a share, roughly ${bn10(A.mcapDrop)} of market value (our math), came off ${A.closed ? 'by the November 3 close' : 'by the November 3 open'} on a quarter that beat. In July the same shape cost about ${fP(-JR.closePct)}.`
+        : `The stock fell on the outlook at first but closed higher on November 3. In July the same shape cost about ${fP(-JR.closePct)}.`,
     },
     mistakes: [
       'Judging a report by the headline beat. Check what is temporary and, above all, the guidance.',
@@ -1599,8 +1704,8 @@
       'Price ≈ EPS × P/E: results move EPS, the outlook moves future EPS, and mood moves the P/E.',
       'Stocks move on the surprise against expectations, and most of all on guidance.',
       'Strip temporary items: a low-quality beat earns little credit.',
-      `A small change in the multiple moves the price as much as a big change in profit: on July 31 Apple’s trailing EPS stayed ${usd(A.eps0)} while its P/E fell from about ${xx(A.pe0, 0)} to about ${xx(A.pe1, 0)}.`,
-      'The outlook works both ways: Apple guided below expectations and fell; SpaceX guided far above and rose.',
+      `A small change in the multiple moves the price as much as a big change in profit: on July 31 Apple’s trailing EPS stayed ${usd(J.eps0)} while its P/E fell from about ${xx(J.pe0, 0)} to about ${xx(J.pe1, 0)}${A.down ? `; after the November report it went from about ${xx(A.pe0, 0)} to about ${xx(A.pe1, 0)}` : ''}.`,
+      `The outlook works both ways: Apple guided below expectations twice and fell ${A.down ? 'both times' : 'in July'}; SpaceX guided far above in October and rose.`,
     ],
     quiz: { q: 'A stock trades at $100 with yearly EPS of $5 (P/E 20). The quarter is in line, but guidance cuts next year’s EPS outlook by 10% and the P/E slips to 18. Roughly where does the price go?', options: ['About $90', 'About $81', 'It stays at $100, because the quarter was in line'], answer: 1, why: '$5 × 0.9 = $4.50 of expected EPS, × 18 = $81. A smaller EPS and a smaller multiple multiply.' },
     terms: ['P/E', 'Forward P/E', 'Trailing twelve months', 'Multiple', 'Beat', 'Market cap'],
@@ -1609,7 +1714,7 @@
       { t: 'Multiple contraction', d: 'When investors pay less per $1 of earnings, so the price falls even if profit holds.' },
       { t: 'Sell the news', d: 'When a stock that rose into an event falls after it, because the good news was already in the price.' },
     ],
-    sources: [APSRC[0], APSRC[1], APSRC[4], APSRC[5], srcBy(SXSRC, /Motley Fool: Stock market/), srcBy(SXSRC, /Zacks/), srcBy(SXSRC, /XTB/), srcBy(SXSRC, /Crypto Briefing/), srcBy(SXSRC, /StartupHub/)].filter(Boolean),
+    sources: [srcBy(APSRC, /fourth quarter results/), srcBy(APSRC, /Q4 FY2026 condensed/), srcBy(APSRC, /Investing\.com/), srcBy(APSRC, /SiliconANGLE/), srcBy(APSRC, /TradingView/), srcBy(APSRC, /MacDailyNews: Despite/), srcBy(APSRC, /Tech Portal/), srcBy(APSRC, /third quarter results/), srcBy(APSRC, /Q3 FY2026 results/), srcBy(APSRC, /Hargreaves/), srcBy(APSRC, /Analysts split/), srcBy(SXSRC, /Motley Fool: Stock market/), srcBy(SXSRC, /Zacks/), srcBy(SXSRC, /XTB/), srcBy(SXSRC, /Crypto Briefing/), srcBy(SXSRC, /StartupHub/)].filter(Boolean),
   });
 
   /* keep "−$" together in every lesson string */

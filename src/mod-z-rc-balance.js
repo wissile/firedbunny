@@ -1,12 +1,15 @@
-/* Read a Real Company (fork K1): Apple's balance sheet and cash flow, line by line.
+/* Read a Real Company: Apple's balance sheet and cash flow, line by line.
    Lessons l-rc-apple-balance (widget balanceBlocks) and l-rc-apple-cash (widget cashRiver).
+   Latest: the fiscal-year-end balance sheet (Sep 26, 2026, vs Sep 27, 2025, with Jun 27, 2026 as the last quarter)
+   and the full fiscal-2026 cash flow, plus the September quarter derived from it (12 months − 9 months, our math).
    Every figure is read from SML.realco (content-realco.js); every ratio is computed here. */
 (function () {
   'use strict';
   const SML = window.SML, S = SML.svg, ui = SML.ui, F = SML.fmt;
   const A = SML.realco && SML.realco.apple;
   if (!A) return;
-  const BS = A.bs, CF = A.cf9, IS = A.is, esc = SML.esc;
+  const BS = A.bs, CF = A.cf, CF9 = A.cf9, IS = A.is, esc = SML.esc;
+  if (!BS || !CF || !CF.totals) return;
   const sum = (a) => a.reduce((s, x) => s + x, 0);
   const tw = (s, px, f) => String(s).replace(/<[^>]*>/g, '').replace(/&[#a-z0-9]+;/gi, 'x').length * px * (f || 0.56);
   /* $ millions in */
@@ -16,7 +19,7 @@
   const sbn = (v, d) => F.susd(v / 1000, d == null ? 1 : d) + ' billion';
   const pc = (a, b) => (a / b - 1) * 100;
   const upDn = (d) => (d >= 0 ? 'up ' : 'down ') + bn(Math.abs(d));
-  const chg = (cur, prev, tail) => upDn(cur - prev) + (cur > 0 && prev > 0 ? ' (' + F.spct(pc(cur, prev), 1) + ')' : '') + (tail == null ? ' since September' : tail);
+  const chg = (cur, prev, tail) => upDn(cur - prev) + (cur > 0 && prev > 0 ? ' (' + F.spct(pc(cur, prev), 1) + ')' : '') + (tail == null ? ' from a year earlier' : tail);
   const x2 = (v) => F.num(v, 2);
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const DLT = (d) => (d >= 0 ? '▲ ' : '▼ ') + B(Math.abs(d));
@@ -25,7 +28,7 @@
   const sumFmt = (parts, total) => { const r = (v) => Math.round(v / 100) / 10; return Math.abs(parts.reduce((a, v) => a + r(v), 0) - r(total)) < 0.05 ? bn : mn; };
 
   /* ======================================================================
-     Data: balance sheet (Jun 27, 2026 vs Sep 27, 2025)
+     Data: balance sheet (Sep 26, 2026 vs Sep 27, 2025; mid = Jun 27, 2026)
      ====================================================================== */
   const LINES = {};
   BS.assets.forEach((x) => { LINES[x.k] = Object.assign({ side: 'a' }, x); });
@@ -34,7 +37,8 @@
   const AK = BS.assets.map((x) => x.k), LK = BS.liabilities.map((x) => x.k), EK = BS.equity.map((x) => x.k);
   const CUR = {}; BS.assets.concat(BS.liabilities).forEach((x) => { CUR[x.k] = !!x.current; });
   const snap = (d) => { const o = {}; Object.keys(LINES).forEach((k) => { o[k] = LINES[k][d]; }); return o; };
-  const V = { cur: snap('cur'), prev: snap('prev') };
+  const HAS_MID = BS.assets.every((x) => typeof x.mid === 'number');
+  const V = { cur: snap('cur'), prev: snap('prev') }; if (HAS_MID) V.mid = snap('mid');
   function M(v) {
     const ca = sum(AK.filter((k) => CUR[k]).map((k) => v[k])), ta = sum(AK.map((k) => v[k]));
     const cl = sum(LK.filter((k) => CUR[k]).map((k) => v[k])), tl = sum(LK.map((k) => v[k]));
@@ -42,23 +46,29 @@
     const cs = v.cash + v.msCur + v.msNon, debt = v.cp + v.debtCur + v.debtNon;
     return { ca, ta, cl, tl, eq, wc: ca - cl, cr: ca / cl, cs, debt, net: cs - debt, de: debt / eq };
   }
-  const MC = M(V.cur), MP = M(V.prev);
+  const MC = M(V.cur), MP = M(V.prev), MM = HAS_MID ? M(V.mid) : MC;
   const T = BS.totals;
-  if (MC.ta !== T.assets[0] || MP.ta !== T.assets[1] || MC.tl !== T.liabilities[0] || MP.tl !== T.liabilities[1] || MC.eq !== T.equity[0] || MP.eq !== T.equity[1] || MC.ca !== T.currentAssets[0] || MC.cl !== T.currentLiab[0] || MP.ca !== T.currentAssets[1] || MP.cl !== T.currentLiab[1]) console.warn('realco: Apple balance sheet lines do not add up to the totals');
+  const tieOK = (m, i) => m.ta === T.assets[i] && m.tl === T.liabilities[i] && m.eq === T.equity[i] && m.ca === T.currentAssets[i] && m.cl === T.currentLiab[i];
+  if (!tieOK(MC, 0) || !tieOK(MP, 1) || (HAS_MID && T.assets.length > 2 && !tieOK(MM, 2))) console.warn('realco: Apple balance sheet lines do not add up to the totals');
   const SH = IS.cur.shBasic, SHD = IS.cur.shDil, SHDY = IS.ya.shDil;
-  const BVPS = MC.eq / SH;
-  const PX = A.reaction.closeBefore, PX2 = A.reaction.closeAfter;
-  const KMAX = Math.max(MC.ta, MP.ta);
+  /* book value per share: shares outstanding on the balance-sheet date (fallback: the quarter's average basic shares) */
+  const SHO = (BS.sharesOutstanding && BS.sharesOutstanding.cur) || SH, SHOP = (BS.sharesOutstanding && BS.sharesOutstanding.prev) || IS.ya.shBasic;
+  const BVPS = MC.eq / SHO;
+  const RX = A.reaction || {}, PX = RX.closeBefore, PX2 = RX.closeAfter == null ? null : RX.closeAfter;
+  const PXD = 'Nov 2', PX2D = 'Nov 3'; /* the report came after the Nov 2 close */
+  const KMAX = Math.max(MC.ta, MP.ta, MM.ta);
+  const BSD = BS.labels || { cur: 'Sep 26, 2026', prev: 'Sep 27, 2025', mid: 'Jun 27, 2026' };
   const EQN_M = sumFmt([MC.tl, MC.eq], MC.ta) === mn;
   const EQN = (() => { const f = sumFmt([MC.tl, MC.eq], MC.ta); return `${f(MC.ta)} = ${f(MC.tl)} + ${f(MC.eq)}`; })();
 
   /* ======================================================================
-     Data: cash flow, nine months (Oct 2025 to Jun 2026 vs a year earlier)
+     Data: cash flow, fiscal 2026 (late Sep 2025 to Sep 26, 2026) vs fiscal 2025,
+     and the September quarter alone (`q`: full year minus the nine months reported in July, our math)
      ====================================================================== */
   const WCK = ['ar', 'vendor', 'inv', 'oa', 'ap', 'ol'];
   const WCN = { ar: ['Customers paid (receivables)', 'Receivables'], vendor: ['Vendor receivables', 'Vendor rec.'], inv: ['Inventory', 'Inventory'], oa: ['Other assets', 'Other assets'], ap: ['Supplier bills (payables)', 'Payables'], ol: ['Other liabilities', 'Other liab.'] };
   function cfData(d) {
-    const i = d === 'cur' ? 0 : 1;
+    const i = { cur: 0, ya: 1, q: 2 }[d];
     const g = (sec, k) => { const x = CF[sec].find((y) => y.k === k); return x ? x[d] : 0; };
     const o = { ni: g('operating', 'ni'), da: g('operating', 'da'), sbc: g('operating', 'sbc'), oth: g('operating', 'oth') };
     o.noncash = o.da + o.sbc + o.oth;
@@ -77,40 +87,60 @@
     o.invTot = CF.totals.investing[i]; o.finTot = CF.totals.financing[i];
     return o;
   }
-  const C = cfData('cur'), CY = cfData('ya');
-  if (C.ni + C.noncash + C.wc !== C.op || CY.ni + CY.noncash + CY.wc !== CY.op || C.fcf !== C.bb + C.div + C.debt + C.taxes + C.sec + C.other + C.cashUp || C.op + C.invTot + C.finTot !== C.cashUp || C.end !== V.cur.cash) console.warn('realco: Apple cash flow does not tie out');
+  const HAS_Q = CF.totals.operating.length > 2 && CF.operating.every((x) => typeof x.q === 'number');
+  const C = cfData('cur'), CY = cfData('ya'), CQ = HAS_Q ? cfData('q') : null;
+  const ties = (p) => p.ni + p.noncash + p.wc === p.op && p.fcf === p.bb + p.div + p.debt + p.taxes + p.sec + p.other + p.cashUp && p.op + p.invTot + p.finTot === p.cashUp;
+  if (!ties(C) || !ties(CY) || (CQ && !ties(CQ)) || C.end !== V.cur.cash) console.warn('realco: Apple cash flow does not tie out');
+  /* the September quarter, derived: full year − nine months (checked against the `q` column) */
+  const D9 = CF9 && CF9.totals ? { op: CF9.totals.operating[0], capex: CF9.capex ? -CF9.capex[0] : null, bb: CF9.buyback ? -CF9.buyback[0] : null, div: CF9.div ? -CF9.div[0] : null } : null;
+  if (D9 && CQ && (C.op - D9.op !== CQ.op || (D9.capex != null && C.capex - D9.capex !== CQ.capex) || (D9.bb != null && C.bb - D9.bb !== CQ.bb) || (D9.div != null && C.div - D9.div !== CQ.div))) console.warn('realco: Apple September-quarter cash flow does not match 12 months − 9 months');
   const NIQ = IS.cur.netInc, NIQY = IS.ya.netInc, EPSQ = IS.cur.epsDil, EPSQY = IS.ya.epsDil;
-  const DIV = A.dividend, QR = A.call.quarterReturn;
+  const FY = IS.fy || null, FYP = IS.fyPrev || null;
+  const DIV = A.dividend, QR = A.call.quarterReturn, CALL = A.call || {};
   const SPX_CAPEX = SML.realco.spacex && SML.realco.spacex.capex ? SML.realco.spacex.capex.cur : null;
+  /* wording helpers for signed working-capital lines: + = cash freed, − = cash used */
+  const wcv = (p, k) => { const w = p.wcItems.find((x) => x.k === k); return w ? w.v : 0; };
+  const qTail = (k, sec, neg) => { if (!CQ) return ''; const x = CF[sec].find((y) => y.k === k); if (!x) return ''; const v = neg ? -x.q : x.q; return ` The September quarter alone: ${bn(Math.abs(v))} (our math).`; };
 
   /* ======================================================================
      Term cards: What it is · At Hoppy's cart · At Apple · Why it matters
      ====================================================================== */
-  const lineCard = (k, what, hop, extra, why) => {
+  const MON = { Jan: 'January', Feb: 'February', Mar: 'March', Apr: 'April', Jun: 'June', Jul: 'July', Aug: 'August', Sep: 'September', Oct: 'October', Nov: 'November', Dec: 'December' };
+  const longDate = (d) => String(d).replace(/^([A-Z][a-z]{2})\b/, (m) => MON[m] || m);
+  const ONB = 'on ' + longDate(BSD.cur), JUN = 'June';
+  const midTxt = (k) => (HAS_MID && LINES[k] && typeof LINES[k].mid === 'number' ? ` It was ${bn(LINES[k].mid)} in ${JUN}.` : '');
+  const lineCard = (k, what, hop, extra, why, noMid) => {
     const x = LINES[k], d = x.cur - x.prev;
-    return { name: x.name, amt: B(x.cur), d: SB(d) + ' since Sep', dc: d >= 0 ? 'rcbs-up' : 'rcbs-dn', what, hop, apple: `<b>${bn(x.cur)}</b> on June 27, 2026, ${chg(x.cur, x.prev)}.` + (extra ? ' ' + extra : ''), why };
+    return { name: x.name, amt: B(x.cur), d: SB(d) + ' in a year', dc: d >= 0 ? 'rcbs-up' : 'rcbs-dn', what, hop, apple: `<b>${bn(x.cur)}</b> ${ONB}, ${chg(x.cur, x.prev)}.` + (noMid ? '' : midTxt(k)) + (extra ? ' ' + extra : ''), why };
   };
   const biggest = AK.slice().sort((a, b) => V.cur[b] - V.cur[a])[0];
+  const arV = wcv(C, 'ar'), venV = wcv(C, 'vendor'), apV = wcv(C, 'ap');
+  const usedFreed = (v, what) => (v >= 0 ? `${what} freed ${bn(v)} of cash` : `${what} used ${bn(-v)} of cash`);
+  const assetMove = (v, what) => (v < 0 ? 'the rise in ' + what : 'the fall in ' + what); /* an asset growing uses cash */
+  const invX = V.cur.inv / V.prev.inv;
+  const invWord = invX >= 2.4 ? 'grew about ' + F.num(invX, 1) + '-fold' : invX >= 2 ? 'more than doubled' : invX >= 1.8 ? 'nearly doubled' : 'rose ' + F.pct(pc(V.cur.inv, V.prev.inv), 0);
+  const aociSmaller = Math.abs(V.cur.aoci) < Math.abs(V.prev.aoci);
+  const POU = CALL.purchaseObligationsUp;
   const BT = {
-    assets: { name: 'Total assets', amt: B(MC.ta), d: SB(MC.ta - MP.ta) + ' since Sep', dc: 'rcbs-up',
+    assets: { name: 'Total assets', amt: B(MC.ta), d: SB(MC.ta - MP.ta) + ' in a year', dc: MC.ta >= MP.ta ? 'rcbs-up' : 'rcbs-dn',
       what: 'Everything the company owns or is owed that has value: cash, investments, money customers owe, products on the shelf, buildings and machines.',
       hop: 'Cash $6,000 + beans and cups $1,000 + an unpaid catering invoice $800 + the cart and espresso machine $12,000 = <b>$19,800</b>.',
-      apple: `<b>${bn(MC.ta)}</b> on June 27, 2026, ${chg(MC.ta, MP.ta)}. ${bn(MC.cs)} of it is cash and securities.`,
+      apple: `<b>${bn(MC.ta)}</b> ${ONB}, ${chg(MC.ta, MP.ta)}. ${bn(MC.cs)} of it is cash and securities.${HAS_MID ? ` In ${JUN} the total was ${bn(MM.ta)}.` : ''}`,
       why: 'Assets are the tools a company earns with and the cushion it pays bills from. The total says little on its own: what matters is how much is cash and how much is owed against it.' },
-    liabilities: { name: 'Total liabilities', amt: B(MC.tl), d: SB(MC.tl - MP.tl) + ' since Sep', dc: 'rcbs-dn',
+    liabilities: { name: 'Total liabilities', amt: B(MC.tl), d: SB(MC.tl - MP.tl) + ' in a year', dc: MC.tl <= MP.tl ? 'rcbs-up' : 'rcbs-dn',
       what: 'Everything the company owes: suppliers, lenders, customers who paid in advance, tax offices.',
       hop: 'Bean supplier $700 + gift cards sold but not yet used $300 + cart loan $5,000 = <b>$6,000</b>.',
-      apple: `<b>${bn(MC.tl)}</b>, ${chg(MC.tl, MP.tl)}. Apple paid suppliers down and cut debt by ${bn(MP.debt - MC.debt)}.`,
+      apple: `<b>${bn(MC.tl)}</b>, ${chg(MC.tl, MP.tl)}. Debt ${MC.debt <= MP.debt ? 'fell' : 'rose'} ${bn(Math.abs(MP.debt - MC.debt))}, while bills owed to suppliers ${V.cur.ap >= V.prev.ap ? 'rose' : 'fell'} ${bn(Math.abs(V.cur.ap - V.prev.ap))}.`,
       why: 'Bills come due whatever happens to sales. Debt with fixed dates is the part that can force a company to raise money at a bad time.' },
-    equity: { name: 'Shareholders’ equity (book value)', amt: B(MC.eq), d: SB(MC.eq - MP.eq) + ' since Sep', dc: 'rcbs-up',
+    equity: { name: 'Shareholders’ equity (book value)', amt: B(MC.eq), d: SB(MC.eq - MP.eq) + ' in a year', dc: MC.eq >= MP.eq ? 'rcbs-up' : 'rcbs-dn',
       what: 'Assets minus liabilities: what would be left for shareholders if every asset fetched its book value and every bill were paid. Also called book value.',
       hop: '$19,800 − $6,000 = <b>$13,800</b>. That is the owner’s stake on paper.',
-      apple: `<b>${bn(MC.eq)}</b>, ${chg(MC.eq, MP.eq)}. Nine months of profit (${bn(C.ni)}) was more than the ${bn(C.bb + C.div)} Apple paid out in buybacks and dividends.`,
+      apple: `<b>${bn(MC.eq)}</b>, ${chg(MC.eq, MP.eq)}. A full year of profit (${bn(C.ni)}) was more than the ${bn(C.bb + C.div)} Apple paid out in buybacks and dividends.`,
       why: 'Book value is small next to Apple’s stock market value, because its brand, software and loyal customers are not on the balance sheet. At Apple, equity tells you more about payouts than about worth.' },
     curr: { name: 'Current vs non-current', amt: '1-year line', d: '', dc: '',
       what: '"Current" means within a year. Current assets should turn into cash within 12 months; current liabilities are due within 12 months. Everything else is non-current, or long-term.',
       hop: 'Current assets: cash $6,000 + beans $1,000 + invoice $800 = <b>$7,800</b>. The $12,000 cart is long-term. Current liabilities: bean bill $700 + gift cards $300 = <b>$1,000</b>, plus any cart-loan payments due this year.',
-      apple: `Current assets <b>${bn(MC.ca)}</b> against current liabilities <b>${bn(MC.cl)}</b>: almost exactly level. Long-term assets: ${bn(MC.ta - MC.ca)}.`,
+      apple: `Current assets <b>${bn(MC.ca)}</b> against current liabilities <b>${bn(MC.cl)}</b>: almost level, with a ${MC.wc >= 0 ? 'cushion' : 'gap'} of ${bn(Math.abs(MC.wc))}. Long-term assets: ${bn(MC.ta - MC.ca)}.`,
       why: 'The split tells you whether next year’s bills are covered by money arriving next year. It is the first thing a lender checks.' },
     cash: lineCard('cash', 'Money in the bank plus very safe investments that mature within about three months, such as money market funds.',
       'The <b>$6,000</b> in the register and the bank.',
@@ -119,22 +149,22 @@
     msCur: lineCard('msCur', 'Bonds and similar investments the company can sell any day, that mature within a year.',
       'None: all of Hoppy’s $6,000 is plain cash. Parking $2,000 in a 3-month Treasury bill would put it here.',
       `With cash and the long-term securities, Apple holds ${bn(MC.cs)}.`,
-      'This pile is why people call Apple’s balance sheet a fortress. It earns interest and pays for buybacks in any economy.'),
+      'This pile is why people call Apple’s balance sheet a fortress. It earns interest and pays for buybacks in any economy.', true),
     ar: lineCard('ar', 'Money customers owe for things already delivered. Apple sells on credit to phone carriers, retailers and businesses.',
       'The <b>$800</b> catering invoice an office has not paid yet.',
-      `The cash flow statement counts ${bn(C.wcItems[0].v)} collected over nine months.`,
-      'Receivables growing much faster than sales can mean customers pay slowly, or a company is pushing product into stores. Apple’s fell, and that turned into cash.'),
+      `Over the year, ${usedFreed(arV, assetMove(arV, 'receivables'))} in the cash flow statement.`,
+      `Receivables growing much faster than sales can mean customers pay slowly, or a company is pushing product into stores. Apple’s grew ${F.pct(pc(V.cur.ar, V.prev.ar), 0)} in a year, close to its ${F.pct(pc(IS.cur.revenue, IS.ya.revenue), 0)} sales growth in the September quarter. They are usually highest at the end of September, right after the new iPhones start selling to carriers and stores.`),
     vendor: lineCard('vendor', 'Money the companies that assemble Apple’s products owe Apple for parts. Apple buys components such as chips and screens in huge volumes, then resells them to its manufacturing partners, who pay later.',
       'None. Hoppy’s would have one if it bought cups in bulk at a discount and resold some to the smoothie cart next door, to be paid at month end.',
-      `The cash flow statement counts that ${bn(C.wcItems[1].v)} as cash coming in.`,
-      'An unusual line that shows how tightly Apple runs its supply chain. It rises and falls with how much its partners are building.'),
+      `Over the year, ${usedFreed(venV, assetMove(venV, 'this line'))} in the cash flow statement.`,
+      'An unusual line that shows how tightly Apple runs its supply chain. It rises and falls with how much its partners are building, so it is usually high in September, when they build for the holiday quarter.'),
     inv: lineCard('inv', 'Finished products and parts waiting to be sold or used.',
       '<b>$1,000</b> of beans, milk and cups.',
-      `It nearly doubled, from ${bn(V.prev.inv)} to ${bn(V.cur.inv)}.`,
-      'A pile-up can warn that products are not selling. It can also be a choice: on the July call Apple said chip supply was tight and getting tighter and that memory prices were rising fast, and a company in that spot often buys parts early. Watch whether sales keep pace in the next quarters.'),
+      `That is about ${F.num(invX, 1)} times the level of a year earlier.`,
+      `A pile-up can warn that products are not selling. It can also be a choice: Apple has said for months that chips and memory are tight and getting pricier${POU ? `, and on the November 2 call it said its purchase commitments with manufacturers rose about ${bn(POU, 0)} from June to September, mostly for memory` : ''}. Parts bought early lock in supply, and Apple said memory it bought at lower prices has been helping its margins, a help that shrinks as it buys at today’s prices. Watch whether sales keep pace in the December quarter.`),
     oca: lineCard('oca', 'Smaller items that turn into cash or get used up within a year, such as costs paid in advance.',
       'None. Paying next month’s permit early would put that money here.', '',
-      'Rarely moves a stock. A big jump in a catch-all line is worth a look in the quarterly report’s notes.'),
+      'Rarely moves a stock. A big jump in a catch-all line is worth a look in the quarterly report’s notes.', true),
     msNon: lineCard('msNon', 'The same kind of investments, mostly bonds, maturing in more than a year. Apple can still sell most of them quickly, so investors count them with cash.',
       'None. A 2-year Treasury note bought with spare cash would go here.',
       biggest === 'msNon' ? 'The biggest single line on Apple’s balance sheet.' : '',
@@ -142,34 +172,34 @@
     ppe: lineCard('ppe', 'Property, plant and equipment: land, buildings, data centers, machines and store fittings, minus the wear and tear charged so far (depreciation).',
       'The cart and the espresso machine: <b>$12,000</b>.',
       `Only ${F.pct(V.cur.ppe / MC.ta * 100, 0)} of Apple’s assets.`,
-      'This is what capex buys. Apple’s partners do most of the assembly, so Apple needs little equipment for its size. That is one reason so much of its profit becomes free cash.'),
+      'This is what capex buys. Apple’s partners do most of the assembly, so Apple needs little equipment for its size. That is one reason so much of its profit becomes free cash.', true),
     intang: lineCard('intang', 'Valuable things you cannot touch, such as patents, licenses or technology a company bought, recorded at cost and written down over their useful life.',
       'None. Buying a secret syrup recipe from a closing café would go here.',
-      'The quarterly report’s notes say what was added.',
+      'The notes in Apple’s quarterly reports say what was added.',
       'A fast jump usually means a purchase or a large license. Investors check what was bought and whether it will pay off.'),
     onca: lineCard('onca', 'Long-term items that do not fit another line, such as tax benefits the company can use in later years.',
       'None.', '',
-      'Big but slow-moving. It matters mostly when it jumps without an explanation.'),
+      'Big but slow-moving. It matters mostly when it jumps without an explanation.', true),
     ap: lineCard('ap', 'Bills the company owes its suppliers for parts and services already received.',
       '<b>$700</b> owed to the bean supplier.',
-      `Paying suppliers down used ${bn(-C.wcItems[4].v)} of cash over nine months.`,
-      'Large payables are a sign of bargaining power: suppliers wait to be paid, which works like a free loan. When payables shrink, cash goes out the door.'),
+      `Over the year, ${usedFreed(apV, 'owing suppliers ' + (apV >= 0 ? 'more' : 'less'))}${CQ ? ` (${bn(Math.abs(wcv(CQ, 'ap')))} of it in the September quarter alone, our math)` : ''}.`,
+      'Large payables are a sign of bargaining power: suppliers wait to be paid, which works like a free loan. They usually swell at the end of September, when Apple is buying parts for the holiday quarter. When payables shrink, cash goes out the door.'),
     ocl: lineCard('ocl', 'Other bills due within a year: taxes, wages, warranty costs and similar items.',
       'None on this sheet. June’s barista wages, if still unpaid at the end of the month, would go here.', '',
-      'Together with payables it is why Apple’s current liabilities are as big as its current assets.'),
+      'Together with payables it is why Apple’s current liabilities are as big as its current assets.', true),
     defrev: lineCard('defrev', 'Cash customers paid in advance for something not yet delivered, such as AppleCare plans, subscriptions and services still to come.',
       '<b>$300</b> of gift cards sold but not yet used.', '',
-      'A liability that is good news: the cash is already in, and it turns into revenue as Apple delivers. Growing deferred revenue hints at future sales.'),
+      'A liability that is good news: the cash is already in, and it turns into revenue as Apple delivers. Growing deferred revenue hints at future sales.', true),
     cp: lineCard('cp', 'Very short IOUs, usually lasting a few weeks to a few months, that large companies with top credit ratings sell to borrow cheaply.',
       'None. No one lends to a coffee cart this way; its only borrowing is the cart loan.',
-      `Apple paid down ${bn(C.cpRepay)} of it, net, over nine months.`,
-      'Paying it down cuts debt and lifts net cash. A company that suddenly cannot roll over its commercial paper is in trouble, which is why credit markets watch it.'),
+      `Apple paid down ${bn(C.cpRepay)} of it, net, during fiscal 2026${CQ && CQ.cpRepay === 0 ? ', all of it by June' : ''}.`,
+      'Paying it down cuts debt and lifts net cash. A company that suddenly cannot roll over its commercial paper is in trouble, which is why credit markets watch it.', true),
     debtCur: lineCard('debtCur', 'Bonds the company sold in past years that come due within the next 12 months.',
       'This year’s payments on the $5,000 cart loan.', '',
       'Apple can pay this from cash. A company that cannot has to borrow again, maybe at higher rates, and that risk weighs on its stock.'),
     debtNon: lineCard('debtNon', 'Bonds that come due in more than a year.',
       'The rest of the $5,000 cart loan.',
-      `Over nine months Apple repaid ${bn(C.repay)} of term debt and ${C.issue ? 'issued ' + bn(C.issue) + ' of new bonds' : 'issued no new bonds'}.`,
+      `In fiscal 2026 Apple repaid ${bn(C.repay)} of term debt and ${C.issue ? 'issued ' + bn(C.issue) + ' of new bonds' : 'issued no new bonds'}.`,
       'Debt is not bad when it is cheap and easy to repay. The warning sign is debt rising while cash falls.'),
     oncl: lineCard('oncl', 'Long-term obligations that are not bonds, such as taxes due in later years.',
       'None.', '',
@@ -177,51 +207,51 @@
     stock: lineCard('stock', 'Money shareholders paid in when shares were first sold, plus the value of stock given to employees.',
       'The money Hoppy’s owner put in to start the cart. The coffee-cart sheet keeps it inside the $13,800 of equity.',
       'It grows every year as employees are paid in stock.',
-      'At a young company this is most of the equity. At Apple it mostly reflects years of stock pay to employees.'),
-    re: { name: LINES.re.name, amt: SB(V.cur.re), d: 'was ' + B(V.prev.re), dc: 'rcbs-up',
+      'At a young company this is most of the equity. At Apple it mostly reflects years of stock pay to employees.', true),
+    re: { name: LINES.re.name, amt: SB(V.cur.re), d: 'was ' + B(V.prev.re), dc: V.cur.re >= V.prev.re ? 'rcbs-up' : 'rcbs-dn',
       what: 'All the profit a company has earned since it began, minus what it paid out in dividends and, at companies like Apple that retire the shares they buy back, buybacks.',
       hop: 'June’s $3,040 profit minus the $1,000 dividend adds <b>$2,040</b> to Hoppy’s retained earnings.',
-      apple: `<b>${sbn(V.cur.re)}</b> on June 27, 2026, up from <b>${bn(V.prev.re)}</b> in September. For years Apple paid out more in buybacks and dividends than all the profit it had ever earned, so the total sank below zero. Nine months of profit (${bn(C.ni)}) beat the payouts (${bn(C.bb + C.div)}) and flipped it back above zero.`,
+      apple: `<b>${sbn(V.cur.re)}</b> ${ONB}, up from <b>${bn(V.prev.re)}</b> a year earlier${HAS_MID ? `; it was ${sbn(V.mid.re)} in ${JUN}` : ''}. For years Apple paid out more in buybacks and dividends than all the profit it had ever earned, so the total sank below zero. A full year of profit (${bn(C.ni)}) beat the payouts (${bn(C.bb + C.div)}) and flipped it back above zero.`,
       why: 'A negative number here usually means years of losses. At Apple it meant "gave it all back to shareholders". Same sign, opposite story: always ask why.' },
-    aoci: { name: LINES.aoci.name, amt: B(V.cur.aoci), d: SB(V.cur.aoci - V.prev.aoci) + ' since Sep', dc: 'rcbs-up',
+    aoci: { name: LINES.aoci.name, amt: B(V.cur.aoci), d: SB(V.cur.aoci - V.prev.aoci) + ' in a year', dc: aociSmaller ? 'rcbs-up' : 'rcbs-dn',
       what: 'Gains and losses not yet counted in profit, mostly price changes on bond investments and currency moves. Short name: AOCI.',
       hop: 'None.',
-      apple: `<b>${bn(V.cur.aoci)}</b>, a smaller loss than ${bn(V.prev.aoci)} in September.`,
-      why: 'Mostly paper moves in bond prices as interest rates change. It rarely moves the stock.' },
-    buyback: { name: 'Share buyback', amt: B(C.bb), d: 'in 9 months', dc: '',
+      apple: `<b>${bn(V.cur.aoci)}</b>, a ${aociSmaller ? 'smaller' : 'bigger'} loss than ${bn(V.prev.aoci)} a year earlier.`,
+      why: 'Mostly paper moves in bond prices and currencies. It rarely moves the stock.' },
+    buyback: { name: 'Share buyback', amt: B(C.bb), d: 'in fiscal 2026', dc: '',
       what: 'The company buys its own shares on the market and retires them. Cash goes out, equity shrinks by the same amount, and profit is split among fewer shares.',
       hop: 'Hoppy’s has one owner, so there is nobody to buy shares from. Its $1,000 dividend shows the same balance-sheet move: cash −$1,000 and equity −$1,000.',
-      apple: `<b>${bn(C.bb)}</b> of buybacks in the nine months to June 2026, about ${bn(QR.buybacks)} of it in the June quarter alone, Apple said on the July 30 call.`,
+      apple: `<b>${bn(C.bb)}</b> of buybacks in fiscal 2026. About ${bn(QR.buybacks)} came in the September quarter alone, Apple said on the November 2 call (${CQ ? bn(CQ.bb) + ' in the cash flow statement, our math' : 'see the cash flow lesson'}). Shares outstanding fell from ${F.num(SHOP / 1000, 2)} billion to ${F.num(SHO / 1000, 2)} billion in a year.`,
       why: 'Fewer shares lift EPS even when profit is flat. Buying above book value lowers book value per share, one more reason price to book says little about Apple.' },
-    wc: { name: 'Working capital', amt: SB(MC.wc), d: 'was ' + B(MP.wc), dc: 'rcbs-up',
+    wc: { name: 'Working capital', amt: SB(MC.wc), d: 'was ' + B(MP.wc), dc: MC.wc >= MP.wc ? 'rcbs-up' : 'rcbs-dn',
       what: 'Current assets minus current liabilities: the cushion between money arriving in the next year and bills due in the next year.',
       hop: '$7,800 − $1,000 = <b>$6,800</b>, before any loan payments due this year.',
-      apple: `${bn(MC.ca)} − ${bn(MC.cl)} = <b>${sbn(MC.wc)}</b> in June, up from <b>${bn(MP.wc)}</b> in September.`,
+      apple: `${bn(MC.ca)} − ${bn(MC.cl)} = <b>${sbn(MC.wc)}</b> ${ONB}, up from <b>${bn(MP.wc)}</b> a year earlier${HAS_MID ? ` (${sbn(MM.wc)} in ${JUN})` : ''}.`,
       why: `Near zero looks scary on paper. For Apple it is less scary than it looks: it also holds ${bn(V.cur.msNon)} of long-term securities it can sell any day. At a small company with no other savings, negative working capital is a real warning.` },
-    cr: { name: 'Current ratio', amt: x2(MC.cr), d: 'was ' + x2(MP.cr), dc: 'rcbs-up',
+    cr: { name: 'Current ratio', amt: x2(MC.cr), d: 'was ' + x2(MP.cr), dc: MC.cr >= MP.cr ? 'rcbs-up' : 'rcbs-dn',
       what: 'Current assets divided by current liabilities. 1.00 means next year’s bills are exactly covered by money arriving next year.',
       hop: '$7,800 ÷ $1,000 = <b>7.8</b>, before any loan payments due this year. A small business needs a fat cushion.',
-      apple: `${bn(MC.ca)} ÷ ${bn(MC.cl)} = <b>${x2(MC.cr)}</b>, up from ${x2(MP.cr)} in September.`,
+      apple: `${bn(MC.ca)} ÷ ${bn(MC.cl)} = <b>${x2(MC.cr)}</b>, up from ${x2(MP.cr)} a year earlier${HAS_MID ? ` (${x2(MM.cr)} in ${JUN})` : ''}.`,
       why: 'Many analysts like well above 1 for an ordinary company. Apple runs near 1 partly because it keeps most of its savings in long-term securities, which do not count as current.' },
-    netcash: { name: 'Net cash', amt: B(MC.net), d: 'was ' + B(MP.net), dc: 'rcbs-up',
+    netcash: { name: 'Net cash', amt: B(MC.net), d: 'was ' + B(MP.net), dc: MC.net >= MP.net ? 'rcbs-up' : 'rcbs-dn',
       what: 'Cash and investments minus all debt. Positive means the company could pay off every loan today and still have money left.',
       hop: '$6,000 cash − $5,000 cart loan = <b>$1,000</b> net cash.',
-      apple: `Cash and securities ${bn(MC.cs)} − debt ${bn(MC.debt)} = <b>${bn(MC.net)}</b>, up from ${bn(MP.net)} in September.`,
-      why: 'Net cash is safety and fuel. It lets Apple keep buying back shares in a bad year and makes it very unlikely to be forced to raise money at a bad time. Investors pay more for that safety.' },
-    de: { name: 'Debt to equity', amt: x2(MC.de), d: 'was ' + x2(MP.de), dc: 'rcbs-up',
+      apple: `Cash and securities ${bn(MC.cs)} − debt ${bn(MC.debt)} = <b>${bn(MC.net)}</b>, up from ${bn(MP.net)} a year earlier${HAS_MID ? `. It was ${bn(MM.net)} in ${JUN}: in the September quarter Apple paid out more than the free cash it made` : ''}.`,
+      why: `Net cash is safety and fuel. It lets Apple keep buying back shares in a bad year and makes it very unlikely to be forced to raise money at a bad time. For years Apple said it aimed to bring net cash down to zero ("net cash neutral") by returning it to shareholders. ${CALL.netCashNeutral ? 'On the November 2 call it dropped that goal to keep more flexibility, while still planning to invest what it needs and return the excess. Watch the buyback pace from here.' : ''}` },
+    de: { name: 'Debt to equity', amt: x2(MC.de), d: 'was ' + x2(MP.de), dc: MC.de <= MP.de ? 'rcbs-up' : 'rcbs-dn',
       what: 'Total debt divided by shareholders’ equity: how much the company borrowed for each dollar of book value.',
       hop: '$5,000 ÷ $13,800 = <b>0.36</b>.',
-      apple: `${bn(MC.debt)} ÷ ${bn(MC.eq)} = <b>${x2(MC.de)}</b>, down from ${x2(MP.de)} in September.`,
+      apple: `${bn(MC.debt)} ÷ ${bn(MC.eq)} = <b>${x2(MC.de)}</b>, down from ${x2(MP.de)} a year earlier.`,
       why: 'Higher means more risk when sales drop. For Apple the ratio overstates the risk: buybacks keep equity small, while its cash and securities are bigger than its debt.' },
     bvps: { name: 'Book value per share', amt: F.usd(BVPS), d: '', dc: '',
       what: 'Shareholders’ equity divided by the number of shares: the book value behind each share.',
       hop: '$13,800 ÷ 1,000 shares = <b>$13.80</b> a share.',
-      apple: `${bn(MC.eq)} ÷ ${F.num(SH / 1000, 2)} billion shares (the June quarter’s average) = <b>${F.usd(BVPS)}</b>.`,
+      apple: `${bn(MC.eq)} ÷ ${F.num(SHO / 1000, 2)} billion shares (outstanding ${ONB}) = <b>${F.usd(BVPS)}</b>.`,
       why: 'Value investors compare it with the share price. For companies whose worth lives in brands, software and people, it says little.' },
     pb: { name: 'Price to book', amt: F.num(PX / BVPS, 1) + '×', d: 'at ' + F.usd(PX), dc: '',
       what: 'Share price divided by book value per share: how many dollars investors pay for each dollar of equity.',
       hop: 'A buyer paying $27,600 for all of Hoppy’s ($27.60 a share) pays <b>2 times</b> book: for the profits, not just the cart.',
-      apple: `At the July 30 close of ${F.usd(PX)}: ${F.usd(PX)} ÷ ${F.usd(BVPS)} ≈ <b>${F.num(PX / BVPS, 0)}</b>. At about ${F.usd(PX2, 0)} the next day: about ${F.num(PX2 / BVPS, 0)}.`,
+      apple: `At the ${PXD} close of ${F.usd(PX)}, just before the report: ${F.usd(PX)} ÷ ${F.usd(BVPS)} ≈ <b>${F.num(PX / BVPS, 0)}</b>.${PX2 ? ` At the ${PX2D} close of ${F.usd(PX2)}: about ${F.num(PX2 / BVPS, 0)}.` : ''}`,
       why: 'Apple trades at many times book because investors pay for its earning power and buybacks, not its assets. Price to book matters most for banks and insurers, whose assets are mostly money.' },
   };
   const BGROUPS = [
@@ -232,23 +262,27 @@
     { id: 'chk', t: 'Health checks', keys: ['wc', 'cr', 'netcash', 'de', 'bvps', 'pb'] },
   ];
 
+  const wcList = (p) => { const nm = (k) => ({ ar: 'receivables', vendor: 'vendor receivables', inv: 'inventory', oa: 'other assets', ap: 'owing suppliers more', ol: 'other liabilities' }[k]);
+    const nmUsed = (k) => ({ ar: 'customers owing more', vendor: 'vendor receivables', inv: 'building inventory', oa: 'other assets', ap: 'paying suppliers down', ol: 'other liabilities' }[k]);
+    const fr = p.wcItems.filter((w) => w.v > 0).map((w) => `${nm(w.k)} ${sbn(w.v)}`), us = p.wcItems.filter((w) => w.v < 0).map((w) => `${nmUsed(w.k)} ${sbn(w.v)}`);
+    return (fr.length ? `Freed: ${fr.join(', ')}.` : '') + (us.length ? ` Used: ${us.join(', ')}.` : ''); };
   const CT = {
     ni: { name: 'Net income (the starting point)', amt: B(C.ni), d: F.spct(pc(C.ni, CY.ni), 1) + ' YoY', dc: 'rcbs-up',
       what: 'Profit after every cost and tax. The cash flow statement starts here, then corrects it to actual cash.',
       hop: 'June profit: <b>$3,040</b>.',
-      apple: `<b>${bn(C.ni)}</b> in the nine months to June 2026 (late September 2025 to June 2026), ${chg(C.ni, CY.ni, ' from a year earlier')}.`,
+      apple: `<b>${bn(C.ni)}</b> in fiscal 2026 (late September 2025 to September 26, 2026), ${chg(C.ni, CY.ni, ' from fiscal 2025')}. The September quarter alone: ${bn(NIQ)}.`,
       why: 'Profit is what EPS and the P/E ratio are built on. But dividends are paid with cash, not profit, so investors check that one turns into the other.' },
     da: { name: 'Depreciation and amortization', amt: SB(C.da), d: 'added back', dc: 'rcbs-up',
       what: 'The cost of equipment and intangibles spread over the years they are used. It lowers profit, but no cash leaves this year: the cash left when the thing was bought.',
       hop: '<b>$200</b> of wear on the espresso machine: a cost on paper, but nothing left the register in June.',
-      apple: `<b>${bn(C.da)}</b> added back, against ${bn(C.capex)} of capex.`,
+      apple: `<b>${bn(C.da)}</b> added back, ${C.da > C.capex ? 'more than' : 'against'} the ${bn(C.capex)} Apple spent on capex.`,
       why: 'Comparing it with capex shows whether a company is replacing what wears out. It is also why profit and cash differ.' },
     sbc: { name: 'Stock-based compensation', amt: SB(C.sbc), d: 'added back', dc: 'rcbs-up',
       what: 'Paying employees in shares instead of cash. It counts as a cost in profit, but no cash leaves, so it is added back.',
       hop: 'None: Hoppy’s pays its barista in cash.',
-      apple: `<b>${bn(C.sbc)}</b> added back.`,
+      apple: `<b>${bn(C.sbc)}</b> added back in fiscal 2026.`,
       why: 'It is a real cost to shareholders: new shares dilute them. Part of every buyback just soaks up these new shares, so check how much the share count actually falls.' },
-    oth: { name: 'Other adjustments', amt: SB(C.oth), d: '', dc: 'rcbs-dn',
+    oth: { name: 'Other adjustments', amt: SB(C.oth), d: '', dc: C.oth >= 0 ? 'rcbs-up' : 'rcbs-dn',
       what: 'Other non-cash items, such as deferred taxes and gains or losses that did not involve cash.',
       hop: 'None.',
       apple: `<b>${sbn(C.oth)}</b>.`,
@@ -261,72 +295,72 @@
     wc: { name: 'Working capital (change)', amt: SB(C.wc), d: 'net', dc: C.wc >= 0 ? 'rcbs-up' : 'rcbs-dn',
       what: 'Cash tied up in, or freed from, the day-to-day loop: collecting from customers, stocking inventory, paying suppliers.',
       hop: 'Extra beans stocked −$300, bean bill not yet paid +$100 → <b>−$200</b>. With the $200 of depreciation added back, operating cash equals the $3,040 profit.',
-      apple: `<b>${sbn(C.wc)}</b> net. Freed: receivables ${sbn(C.wcItems[0].v)}, vendor receivables ${sbn(C.wcItems[1].v)}, other liabilities ${sbn(C.wcItems[5].v)}. Used: inventory ${sbn(C.wcItems[2].v)}, other assets ${sbn(C.wcItems[3].v)}, paying suppliers ${sbn(C.wcItems[4].v)}.`,
-      why: 'This is where profit and cash split apart. A drain can be fine, like stocking up before a launch, or a warning, like customers not paying. Watch the trend.' },
-    op: { name: 'Operating cash flow', amt: B(C.op), d: F.spct(pc(C.op, CY.op), 1) + ' YoY', dc: 'rcbs-up',
+      apple: `<b>${sbn(C.wc)}</b> net in fiscal 2026. ${wcList(C)}`,
+      why: 'This is where profit and cash split apart. A drain can be fine, like stocking up parts before a busy season, or a warning, like customers not paying. Watch the trend.' },
+    op: { name: 'Operating cash flow', amt: B(C.op), d: F.spct(pc(C.op, CY.op), 1) + ' YoY', dc: C.op >= CY.op ? 'rcbs-up' : 'rcbs-dn',
       what: 'Cash the business itself brought in: profit, plus non-cash costs, plus or minus working capital.',
       hop: '$3,040 + $200 − $300 + $100 = <b>$3,040</b>.',
-      apple: `<b>${bn(C.op)}</b>, ${chg(C.op, CY.op, ' from a year earlier')}. That is ${x2(C.op / C.ni)} times net income.`,
+      apple: `<b>${bn(C.op)}</b> in fiscal 2026, ${chg(C.op, CY.op, ' from fiscal 2025')}. That is ${x2(C.op / C.ni)} times net income.${CQ ? ` The September quarter alone: ${bn(CQ.op)} (our math, matching the ${bn(CQ.op)} Apple reported).` : ''}`,
       why: 'Operating cash at or above net income, year after year, is a sign of high-quality earnings. Below it for long is a warning.' },
     capex: { name: 'Capex (capital expenditures)', amt: B(C.capex), d: F.spct(pc(C.capex, CY.capex), 1) + ' YoY', dc: 'rcbs-dn',
       what: 'Money spent on long-lasting things like buildings, data centers and machines.',
       hop: 'A new grinder: <b>$600</b>.',
-      apple: `<b>${bn(C.capex)}</b>, ${chg(C.capex, CY.capex, ' from a year earlier')}.`,
-      why: `Capex keeps a business running and growing. Light capex leaves more free cash; compare SpaceX, which spent ${SPX_CAPEX ? bn(SPX_CAPEX) : 'far more'} on capex in a single quarter.` },
-    fcf: { name: 'Free cash flow', amt: B(C.fcf), d: F.spct(pc(C.fcf, CY.fcf), 1) + ' YoY', dc: 'rcbs-up',
+      apple: `<b>${bn(C.capex)}</b> in fiscal 2026, ${chg(C.capex, CY.capex, ' from fiscal 2025')}.${qTail('capex', 'investing', true)}`,
+      why: `Capex keeps a business running and growing. Light capex leaves more free cash; compare SpaceX, which spent ${SPX_CAPEX ? bn(SPX_CAPEX) : 'far more'} on capex in a single quarter${SPX_CAPEX && SPX_CAPEX > C.capex ? ', more than Apple spent in its whole fiscal year' : ''}.` },
+    fcf: { name: 'Free cash flow', amt: B(C.fcf), d: F.spct(pc(C.fcf, CY.fcf), 1) + ' YoY', dc: C.fcf >= CY.fcf ? 'rcbs-up' : 'rcbs-dn',
       what: 'Operating cash minus capex: the cash left that the company can freely use for dividends, buybacks, debt or savings.',
       hop: '$3,040 − $600 = <b>$2,440</b>.',
-      apple: `${bn(C.op)} − ${bn(C.capex)} = <b>${bn(C.fcf)}</b>, ${chg(C.fcf, CY.fcf, ' from a year earlier')}.`,
+      apple: `${bn(C.op)} − ${bn(C.capex)} = <b>${bn(C.fcf)}</b> in fiscal 2026 (our math), ${chg(C.fcf, CY.fcf, ' from fiscal 2025')}.${CQ ? ` The September quarter alone: ${bn(CQ.op)} − ${bn(CQ.capex)} = ${bn(CQ.fcf)}.` : ''}`,
       why: 'Many investors value companies on free cash flow more than on profit, because it is what can actually be paid out. It funds Apple’s buybacks and dividends.' },
     buyback: { name: 'Buybacks', amt: B(C.bb), d: F.pct(C.bb / C.fcf * 100, 0) + ' of FCF', dc: '',
       what: 'The company buys back its own shares and retires them.',
       hop: 'None: Hoppy’s has one owner.',
-      apple: `<b>${bn(C.bb)}</b> in nine months (${bn(CY.bb)} a year earlier), ${F.pct(C.bb / C.fcf * 100, 0)} of free cash flow. About ${bn(QR.buybacks)} came in the June quarter.`,
+      apple: `<b>${bn(C.bb)}</b> in fiscal 2026 (${bn(CY.bb)} a year earlier), ${F.pct(C.bb / C.fcf * 100, 0)} of free cash flow.${CQ ? ` The September quarter alone: ${bn(CQ.bb)} (our math; Apple said about ${bn(QR.buybacks, 0)}).` : ''}`,
       why: 'Fewer shares means each remaining share earns more, so EPS grows faster than profit. That is the most direct way Apple’s cash reaches the share price.' },
     div: { name: 'Dividends', amt: B(C.div), d: '$' + DIV.perShare.toFixed(2) + ' a share', dc: '',
       what: 'Cash paid to shareholders per share, usually every quarter.',
       hop: 'The owner takes a <b>$1,000</b> dividend.',
-      apple: `<b>${bn(C.div)}</b> in nine months. The latest: <b>$${DIV.perShare.toFixed(2)}</b> a share, announced with the July 30 results, paid ${DIV.paid} to shareholders on record ${DIV.record}.`,
-      why: `A steady, rising dividend signals confidence. Apple’s is small next to its buybacks: about ${bn(QR.dividends, 0)} a quarter against ${bn(QR.buybacks)} of buybacks in the June quarter.` },
+      apple: `<b>${bn(C.div)}</b> in fiscal 2026. The latest: <b>$${DIV.perShare.toFixed(2)}</b> a share, announced with the November 2 results, payable ${DIV.paid} to shareholders on record ${DIV.record}.`,
+      why: `A steady, rising dividend signals confidence. Apple’s is small next to its buybacks: about ${bn(QR.dividends, 1)} in the September quarter against about ${bn(QR.buybacks, 0)} of buybacks.` },
     debt: { name: 'Debt repaid', amt: B(C.debt), d: 'net', dc: '',
       what: 'Paying back bonds as they come due, plus short-term commercial paper.',
       hop: 'Paying down the principal on the cart loan would show up here.',
-      apple: (() => { const f = sumFmt([C.repay, C.cpRepay, -C.issue], C.debt); return `Term debt ${f(C.repay)} + commercial paper ${f(C.cpRepay)} = <b>${f(C.debt)}</b>${C.issue ? ', minus ' + f(C.issue) + ' of new bonds' : ', with no new bonds issued'}.`; })(),
+      apple: (() => { const f = sumFmt([C.repay, C.cpRepay, -C.issue], C.debt); return `Term debt ${f(C.repay)} + commercial paper ${f(C.cpRepay)} = <b>${f(C.debt)}</b> in fiscal 2026${C.issue ? ', minus ' + f(C.issue) + ' of new bonds' : ', with no new bonds issued'}.`; })(),
       why: 'Repaying debt from cash is a quiet way to return value: less interest, more safety. Borrowing to pay dividends would be the warning sign.' },
     taxes: { name: 'Taxes on employee stock awards', amt: B(C.taxes), d: '', dc: '',
       what: 'When employee shares vest, the company keeps some of the shares and pays the employees’ income tax in cash. It works like a small buyback.',
       hop: 'None.',
-      apple: `<b>${bn(C.taxes)}</b> in nine months.`,
+      apple: `<b>${bn(C.taxes)}</b> in fiscal 2026.`,
       why: 'Part of the true cost of paying people in stock.' },
-    sec: { name: 'Parked in securities (net)', amt: B(C.sec), d: 'net', dc: '',
+    sec: { name: C.sec >= 0 ? 'Parked in securities (net)' : 'Taken out of securities (net)', amt: B(Math.abs(C.sec)), d: 'net', dc: '',
       what: 'Buying bonds and other investments, minus those that matured or were sold. The money is parked, not spent.',
       hop: 'Like moving spare cash from the register into a savings bond: still Hoppy’s money.',
-      apple: `Bought ${bn(C.secBuy)}, matured ${bn(C.secMat)}, sold ${bn(C.secSold)}: <b>${bn(C.sec)}</b> more parked in securities.`,
+      apple: `Bought ${bn(C.secBuy)}, matured ${bn(C.secMat)}, sold ${bn(C.secSold)}: <b>${bn(Math.abs(C.sec))}</b> ${C.sec >= 0 ? 'more parked in' : 'taken out of'} securities in fiscal 2026.`,
       why: 'It moves cash from one pocket to another. That is why investors add securities to cash when they judge a balance sheet.' },
     other: { name: 'Other items', amt: B(C.other), d: '', dc: '',
       what: 'Smaller investing and financing payments that do not fit the other lines.',
       hop: 'None.',
-      apple: `<b>${bn(C.other)}</b> in nine months.`,
+      apple: `<b>${bn(C.other)}</b> in fiscal 2026.`,
       why: 'Small at Apple. Large, repeated "other" items deserve a look in the notes.' },
-    cashUp: { name: 'Change in cash', amt: SB(C.cashUp), d: '', dc: 'rcbs-up',
+    cashUp: { name: 'Change in cash', amt: SB(C.cashUp), d: '', dc: C.cashUp >= 0 ? 'rcbs-up' : 'rcbs-dn',
       what: 'What is left after everything: the change in the cash balance.',
       hop: '$3,040 − $600 grinder − $1,000 dividend = <b>+$1,440</b> more in the register.',
       apple: `<b>${sbn(C.cashUp)}</b>: cash went from ${bn(C.begin)} to ${bn(C.end)}, the exact number on the balance sheet.`,
       why: 'This is where the statements tie together: the cash flow statement explains the cash line on the balance sheet.' },
-    niq: { name: 'Net income, June quarter', amt: B(NIQ), d: F.spct(pc(NIQ, NIQY), 1) + ' YoY', dc: 'rcbs-up',
-      what: 'Profit for the three months April to June, the quarter behind the July 30 report.',
+    niq: { name: 'Net income, September quarter', amt: B(NIQ), d: F.spct(pc(NIQ, NIQY), 1) + ' YoY', dc: NIQ >= NIQY ? 'rcbs-up' : 'rcbs-dn',
+      what: 'Profit for the three months from late June to late September, the quarter behind the November 2 report.',
       hop: '<b>$3,040</b> this June vs $1,920 last June: +58.3%.',
-      apple: `<b>${bn(NIQ)}</b> vs ${bn(NIQY)} a year earlier: ${F.spct(pc(NIQ, NIQY), 1)}.`,
+      apple: `<b>${bn(NIQ)}</b> vs ${bn(NIQY)} a year earlier: ${F.spct(pc(NIQ, NIQY), 1)}.${FY && FYP ? ` For all of fiscal 2026: ${bn(FY.netInc)}, ${F.spct(pc(FY.netInc, FYP.netInc), 1)}.` : ''}`,
       why: 'The size of the pie. EPS divides it among the shares.' },
     shares: { name: 'Diluted share count', amt: F.num(SHD / 1000, 2) + 'B', d: F.spct(pc(SHD, SHDY), 1) + ' YoY', dc: 'rcbs-dn',
       what: 'How many shares the profit is split between. "Diluted" also counts shares that employee awards could add.',
       hop: '1,000 shares this June and last June: unchanged.',
-      apple: `<b>${F.num(SHD, 1)} million</b> in the June quarter vs ${F.num(SHDY, 1)} million a year earlier: ${F.spct(pc(SHD, SHDY), 1)}.`,
+      apple: `<b>${F.num(SHD, 1)} million</b> in the September quarter vs ${F.num(SHDY, 1)} million a year earlier: ${F.spct(pc(SHD, SHDY), 1)}.`,
       why: 'A falling share count lifts EPS on its own. Buybacks have to outrun the new shares from stock pay to shrink it.' },
-    eps: { name: 'Diluted EPS', amt: F.usd(EPSQ), d: F.spct(pc(EPSQ, EPSQY), 1) + ' YoY', dc: 'rcbs-up',
+    eps: { name: 'Diluted EPS', amt: F.usd(EPSQ), d: F.spct(pc(EPSQ, EPSQY), 1) + ' YoY', dc: EPSQ >= EPSQY ? 'rcbs-up' : 'rcbs-dn',
       what: 'Net income divided by diluted shares: the profit behind each share.',
       hop: '$3,040 ÷ 1,000 = <b>$3.04</b>, up from $1.92. Same share count, so EPS grows exactly as fast as profit: +58.3%.',
-      apple: `<b>${F.usd(EPSQ)}</b> vs ${F.usd(EPSQY)}: ${F.spct(pc(EPSQ, EPSQY), 1)}, faster than net income (${F.spct(pc(NIQ, NIQY), 1)}) because the profit was split among ${F.pct(-pc(SHD, SHDY), 1)} fewer shares.`,
+      apple: `<b>${F.usd(EPSQ)}</b> vs ${F.usd(EPSQY)}: ${F.spct(pc(EPSQ, EPSQY), 1)}, faster than net income (${F.spct(pc(NIQ, NIQY), 1)}) because the profit was split among ${F.pct(-pc(SHD, SHDY), 1)} fewer shares.${FY && FYP ? ` Fiscal 2026: ${F.usd(FY.epsDil)}, ${F.spct(pc(FY.epsDil, FYP.epsDil), 1)}.` : ''}`,
       why: 'Price ≈ EPS × P/E. Faster EPS growth from buybacks supports the price even when profit growth is the same.' },
   };
   const CGROUPS = [
@@ -498,18 +532,18 @@
     const id = SML.uid('rkb');
     const state = { view: opts.view || 'cur', t: 1, sel: 'cash', played: false };
     root.innerHTML = `
-      <div class="wg-bar">${ui.seg(id + '-v', [{ v: 'prev', label: 'Sep 2025' }, { v: 'cur', label: 'Jun 2026' }, { v: 'chg', label: 'What changed' }, { v: 'bb', label: 'Buyback' }], state.view, 'Which balance sheet')}<span class="grow"></span><button type="button" class="btn btn-a sm" id="${id}-play">▶ Play Sep → Jun</button></div>
+      <div class="wg-bar">${ui.seg(id + '-v', [{ v: 'prev', label: 'Sep 2025' }].concat(HAS_MID ? [{ v: 'mid', label: 'Jun 2026' }] : [], [{ v: 'cur', label: 'Sep 2026' }, { v: 'chg', label: 'A year of change' }, { v: 'bb', label: 'Buyback' }]), state.view, 'Which balance sheet')}<span class="grow"></span><button type="button" class="btn btn-a sm" id="${id}-play">▶ Play the year</button></div>
       <div class="wg-fig"></div>
       <div class="rcbs-legend"><span><i style="--c:var(--info)"></i>Current asset</span><span><i style="--c:color-mix(in srgb,var(--info) 40%,var(--bg))"></i>Long-term asset</span><span><i style="--c:var(--down)"></i>Current liability</span><span><i style="--c:color-mix(in srgb,var(--down) 40%,var(--bg))"></i>Long-term liability</span><span><i style="--c:var(--up)"></i>Equity</span><span><i class="dash"></i>1-year line</span></div>
       <div class="rcbs-cw" id="${id}-cw"></div>
       <div class="wg-ctrl" id="${id}-ctrl">
         ${ui.slider({ id: id + '-px', label: 'Share price (for P/B and buybacks)', min: 150, max: 450, step: 0.01, value: PX, fmt: 'usd' })}
-        <div class="rcbs-quick"><button type="button" class="btn btn-g sm" data-px="${PX}">Jul 30 close ${F.usd(PX)}</button><button type="button" class="btn btn-g sm" data-px="${PX2}">Jul 31 close, about ${F.usd(PX2, 0)}</button></div>
+        <div class="rcbs-quick"><button type="button" class="btn btn-g sm" data-px="${PX}">${PXD} close ${F.usd(PX)}</button>${PX2 ? `<button type="button" class="btn btn-g sm" data-px="${PX2}">${PX2D} close ${F.usd(PX2)}</button>` : ''}</div>
         <div data-only="bb">${ui.slider({ id: id + '-amt', label: 'Buyback size', min: 5000, max: 100000, step: 5000, value: 25000, fmt: (v) => B(v, 0) })}</div>
       </div>
       <div class="wg-read rcbs-read" id="${id}-read"></div>
       <div class="wg-msg" id="${id}-msg"></div>
-      <div class="wg-note">Apple’s balance sheet on June 27, 2026 (end of fiscal Q3 2026, the latest reported quarter as of October 2026) and September 27, 2025 (end of fiscal 2025), from Apple’s 8-K. Book value per share uses the June quarter’s average basic shares (${F.num(SH / 1000, 2)} billion). The buyback is taken from cash first, then securities, and from retained earnings for simplicity; it ignores the interest the cash would have earned. Prices are reported closes, not a live quote. Billions are rounded, so they may not add up exactly.</div>`;
+      <div class="wg-note">Apple’s balance sheet on ${longDate(BSD.cur)} (the end of fiscal 2026 and of its fiscal fourth quarter, the latest reported quarter as of November 2026), ${HAS_MID ? longDate(BSD.mid) + ' (one quarter earlier) and ' : ''}${longDate(BSD.prev)} (the end of fiscal 2025), from Apple’s quarterly results. Book value per share uses the ${F.num(SHO / 1000, 2)} billion shares outstanding ${ONB}. The buyback is taken from cash first, then securities, and from retained earnings for simplicity; it ignores the interest the cash would have earned. Prices are reported closes, not a live quote. Billions are rounded, so they may not add up exactly.</div>`;
     const fig = root.querySelector('.wg-fig');
     const cw = root.querySelector('#' + id + '-cw');
     const card = makeCard(root, cw, BGROUPS, BT, (k) => pick(k));
@@ -527,7 +561,7 @@
       stopAnim(); state.played = true;
       if (SML.reduced()) { state.view = 'chg'; st.setSeg(id + '-v', 'chg'); draw(); return; }
       state.view = 'anim'; state.t = 0; st.setSeg(id + '-v', '__none');
-      const t0 = performance.now(), dur = 2800;
+      const t0 = performance.now(), dur = HAS_MID ? 3600 : 2800;
       const step = (now) => {
         if (!alive || !root.isConnected) return;
         const t = Math.min(1, (now - t0) / dur); state.t = ease(t); draw();
@@ -547,7 +581,13 @@
     function valsFor() {
       const vw = state.view;
       if (vw === 'prev') return Object.assign({}, V.prev);
-      if (vw === 'anim') { const o = {}; Object.keys(V.cur).forEach((k) => { o[k] = SML.lerp(V.prev[k], V.cur[k], state.t); }); return o; }
+      if (vw === 'mid' && HAS_MID) return Object.assign({}, V.mid);
+      if (vw === 'anim') {
+        const o = {};
+        if (HAS_MID) { const t = state.t, a = t < 0.75 ? V.prev : V.mid, b = t < 0.75 ? V.mid : V.cur, u = t < 0.75 ? t / 0.75 : (t - 0.75) / 0.25; Object.keys(V.cur).forEach((k) => { o[k] = SML.lerp(a[k], b[k], u); }); }
+        else Object.keys(V.cur).forEach((k) => { o[k] = SML.lerp(V.prev[k], V.cur[k], state.t); });
+        return o;
+      }
       const o = Object.assign({}, V.cur);
       if (vw === 'bb') { const amt = st.n(id + '-amt'); let rem = amt; ['cash', 'msCur', 'msNon'].forEach((k) => { const take = Math.min(o[k], rem); o[k] -= take; rem -= take; }); o.re -= amt; }
       return o;
@@ -587,8 +627,8 @@
       /* headers */
       const hdr = (cx, cap, val, sub, tapK) => `<g class="rcbs-tap" data-k="${tapK}" tabindex="0" role="button" aria-label="${esc(cap + ' ' + val)}">${S.rect(cx - colW / 2 - 4, 2, colW + 8, 56, 'rcbs-hit')}${S.text(cx, 16, cap, 'cap', 'middle')}${S.text(cx, 36, val, (compact ? 'md' : 'lg') + ' mono b ink', 'middle')}${sub ? S.text(cx, 53, sub, 'sm mono ' + (sub.indexOf('▼') === 0 ? 'dn' : 'up'), 'middle') : ''}</g>`;
       const showD = vw === 'chg';
-      s += hdr(xL + colW / 2, 'ASSETS', B(m.ta), showD ? DLT(m.ta - MP.ta) + ' since Sep' : '', 'assets');
-      s += hdr(xR + colW / 2, compact ? 'LIAB. + EQUITY' : 'LIABILITIES + EQUITY', compact ? B(m.tl) + ' + ' + B(m.eq) : B(m.tl) + ' + ' + B(m.eq), showD ? DLT(m.tl + m.eq - MP.tl - MP.eq) + ' since Sep' : '', 'liabilities');
+      s += hdr(xL + colW / 2, 'ASSETS', B(m.ta), showD ? DLT(m.ta - MP.ta) + ' in a year' : '', 'assets');
+      s += hdr(xR + colW / 2, compact ? 'LIAB. + EQUITY' : 'LIABILITIES + EQUITY', compact ? B(m.tl) + ' + ' + B(m.eq) : B(m.tl) + ' + ' + B(m.eq), showD ? DLT(m.tl + m.eq - MP.tl - MP.eq) + ' in a year' : '', 'liabilities');
       /* blocks */
       const ext = { l: [], r: [] };
       const sel = state.sel, hl = hlKeys(sel);
@@ -693,7 +733,7 @@
         if (!r.abs) { run = b2; prun = pb; } else { run = r.v; prun = r.pv; }
       });
       const H = y0 + 12 + 4 * 21 + 6;
-      const label = 'Apple balance sheet as two stacked columns: assets on the left equal liabilities plus equity on the right';
+      const label = 'Apple balance sheet as two stacked columns: assets on the left equal liabilities plus equity on the right' + (vw === 'prev' ? ', September 27, 2025' : vw === 'mid' ? ', June 27, 2026' : vw === 'anim' ? ', playing the year' : ', September 26, 2026');
       fig.innerHTML = S.wrap(W, H, label, s);
       if (refocus) { const el = fig.querySelector(`[data-k="${state.sel === 'equity' ? 'EQ' : state.sel}"]`); if (el && el.focus) el.focus(); refocus = false; }
       updateSide(v, m);
@@ -707,22 +747,25 @@
       let tiles = '', msg = '';
       if (vw === 'prev') {
         tiles = tile('netcash', 'Net cash', B(m.net), 'up', 'cash + securities − debt', sel === 'netcash') + tile('cr', 'Current ratio', x2(m.cr), 'dn', 'below 1', sel === 'cr') + tile('wc', 'Working capital', B(m.wc), 'dn', 'current assets − liabilities', sel === 'wc') + tile('de', 'Debt / equity', x2(m.de), '', B(m.debt) + ' of debt', sel === 'de') + tile('equity', 'Equity', B(m.eq), '', 'book value', sel === 'equity');
-        msg = ui.msg('info', 'Sep 27, 2025', `At its fiscal year end Apple owed ${bn(-m.wc)} more in the next 12 months than its current assets (current ratio ${x2(m.cr)}). Not a crisis: it also held ${bn(v.msNon)} of long-term securities it could sell. Retained earnings were below zero, at ${bn(v.re)}.`);
+        msg = ui.msg('info', 'Sep 27, 2025', `A year earlier, at the end of fiscal 2025, Apple owed ${bn(-m.wc)} more in the next 12 months than its current assets (current ratio ${x2(m.cr)}). Not a crisis: it also held ${bn(v.msNon)} of long-term securities it could sell. Retained earnings were below zero, at ${bn(v.re)}.`);
+      } else if (vw === 'mid') {
+        tiles = tile('netcash', 'Net cash', B(m.net), 'up', 'cash + securities − debt', sel === 'netcash') + tile('cr', 'Current ratio', x2(m.cr), '', 'current assets ÷ liabilities', sel === 'cr') + tile('inv', 'Inventory', B(v.inv), 'acc', 'Sep 2026: ' + B(V.cur.inv), sel === 'inv') + tile('ap', 'Payables', B(v.ap), '', 'Sep 2026: ' + B(V.cur.ap), sel === 'ap') + tile('equity', 'Equity', B(m.eq), '', 'Sep 2026: ' + B(MC.eq), sel === 'equity');
+        msg = ui.msg('info', 'Jun 27, 2026', `One quarter before the year end. In the September quarter that followed, payables rose ${bn(V.cur.ap - v.ap)} and receivables ${bn(V.cur.ar - v.ar)} as Apple built and shipped the new iPhones, inventory grew to ${bn(V.cur.inv)}, and net cash slipped from ${bn(m.net)} to ${bn(MC.net)}: Apple handed back about ${bn(QR.total, 0)}${CQ ? `, more than the ${bn(CQ.fcf)} of free cash it made (our math)` : ''}.`);
       } else if (vw === 'anim') {
         tiles = tile('equity', 'Equity', B(m.eq), 'up', '', false) + tile('re', 'Retained earnings', SB(v.re), v.re >= 0 ? 'up' : 'dn', '', false) + tile('netcash', 'Net cash', B(m.net), 'up', '', false) + tile('cr', 'Current ratio', x2(m.cr), '', '', false) + tile('inv', 'Inventory', B(v.inv), '', '', false);
-        msg = ui.msg('acc', 'Playing', `Nine months of Apple’s business, from September 27, 2025 to June 27, 2026. Watch equity grow and retained earnings cross zero.`);
+        msg = ui.msg('acc', 'Playing', `A full fiscal year of Apple’s business, from September 27, 2025${HAS_MID ? ' through June 27, 2026' : ''} to September 26, 2026. Watch equity grow and retained earnings cross zero.`);
       } else if (vw === 'chg') {
-        tiles = tile('equity', 'Equity', SB(MC.eq - MP.eq), 'up', B(MP.eq) + ' → ' + B(MC.eq), sel === 'equity') + tile('re', 'Retained earnings', SB(V.cur.re - V.prev.re), 'up', B(V.prev.re) + ' → ' + SB(V.cur.re), sel === 're') + tile('netcash', 'Net cash', SB(MC.net - MP.net), 'up', B(MP.net) + ' → ' + B(MC.net), sel === 'netcash') + tile('de', 'Debt', SB(MC.debt - MP.debt), 'dn', B(MP.debt) + ' → ' + B(MC.debt), sel === 'de') + tile('inv', 'Inventory', F.spct(pc(V.cur.inv, V.prev.inv), 0), 'acc', B(V.prev.inv) + ' → ' + B(V.cur.inv), sel === 'inv');
-        msg = ui.msg('up', 'Nine months', `Equity rose ${bn(MC.eq - MP.eq)} to ${bn(MC.eq)}, and retained earnings flipped from ${bn(V.prev.re)} to ${sbn(V.cur.re)}. Debt fell ${bn(MP.debt - MC.debt)} (commercial paper alone ${bn(V.prev.cp - V.cur.cp)}), so net cash grew from ${bn(MP.net)} to ${bn(MC.net)}. Inventory nearly doubled: tap it to see why that can go either way.`);
+        tiles = tile('equity', 'Equity', SB(MC.eq - MP.eq), MC.eq >= MP.eq ? 'up' : 'dn', B(MP.eq) + ' → ' + B(MC.eq), sel === 'equity') + tile('re', 'Retained earnings', SB(V.cur.re - V.prev.re), V.cur.re >= V.prev.re ? 'up' : 'dn', B(V.prev.re) + ' → ' + SB(V.cur.re), sel === 're') + tile('netcash', 'Net cash', SB(MC.net - MP.net), MC.net >= MP.net ? 'up' : 'dn', B(MP.net) + ' → ' + B(MC.net), sel === 'netcash') + tile('de', 'Debt', SB(MC.debt - MP.debt), 'dn', B(MP.debt) + ' → ' + B(MC.debt), sel === 'de') + tile('inv', 'Inventory', F.spct(pc(V.cur.inv, V.prev.inv), 0), 'acc', B(V.prev.inv) + ' → ' + B(V.cur.inv), sel === 'inv');
+        msg = ui.msg('up', 'Fiscal 2026', `Over the year, equity rose ${bn(MC.eq - MP.eq)} to ${bn(MC.eq)}, and retained earnings flipped from ${bn(V.prev.re)} to ${sbn(V.cur.re)}. Debt fell ${bn(MP.debt - MC.debt)} (commercial paper alone ${bn(V.prev.cp - V.cur.cp)}), so net cash grew from ${bn(MP.net)} to ${bn(MC.net)}. Inventory ${invWord}: tap it to see why that can go either way.`);
       } else if (vw === 'bb') {
-        const amt = st.n(id + '-amt'), ret = amt / px, sh1 = SH - ret, shd1 = SHD - ret;
+        const amt = st.n(id + '-amt'), ret = amt / px, sh1 = SHO - ret, shd1 = SHD - ret;
         const eps0 = NIQ / SHD, eps1 = NIQ / shd1, bv0 = BVPS, bv1 = m.eq / sh1;
-        tiles = tile('buyback', 'Shares retired', F.num(ret, 1) + 'M', 'vio', F.pct(ret / SH * 100, 2) + ' of all shares', sel === 'buyback') + tile('cash', 'Cash + securities', B(m.cs), 'dn', 'was ' + B(MC.cs), sel === 'cash') + tile('equity', 'Equity', B(m.eq), 'dn', 'was ' + B(MC.eq), sel === 'equity') + tile('eps', 'EPS, June qtr', F.usd(eps1), 'up', 'was ' + F.usd(eps0) + ' (' + F.spct(pc(eps1, eps0), 2) + ')', false) + tile('bvps', 'Book value / share', F.usd(bv1), 'dn', 'was ' + F.usd(bv0), sel === 'bvps');
-        msg = ui.msg('vio', 'Buyback', `Spending ${bn(amt, 0)} at ${F.usd(px)} a share retires ${F.num(ret, 1)} million shares. Cash and equity both drop ${bn(amt, 0)}, so the sheet still balances. June-quarter EPS rises from ${F.usd(eps0)} to ${F.usd(eps1)} because the same profit is split among fewer shares, while book value per share falls from ${F.usd(bv0)} to ${F.usd(bv1)} because Apple pays far more than book for each share.`);
+        tiles = tile('buyback', 'Shares retired', F.num(ret, 1) + 'M', 'vio', F.pct(ret / SHO * 100, 2) + ' of all shares', sel === 'buyback') + tile('cash', 'Cash + securities', B(m.cs), 'dn', 'was ' + B(MC.cs), sel === 'cash') + tile('equity', 'Equity', B(m.eq), 'dn', 'was ' + B(MC.eq), sel === 'equity') + tile('eps', 'EPS, Sep qtr', F.usd(eps1), 'up', 'was ' + F.usd(eps0) + ' (' + F.spct(pc(eps1, eps0), 2) + ')', false) + tile('bvps', 'Book value / share', F.usd(bv1), 'dn', 'was ' + F.usd(bv0), sel === 'bvps');
+        msg = ui.msg('vio', 'Buyback', `Spending ${bn(amt, 0)} at ${F.usd(px)} a share retires ${F.num(ret, 1)} million shares. Cash and equity both drop ${bn(amt, 0)}, so the sheet still balances. September-quarter EPS rises from ${F.usd(eps0)} to ${F.usd(eps1)} because the same profit is split among fewer shares, while book value per share falls from ${F.usd(bv0)} to ${F.usd(bv1)} because Apple pays far more than book for each share. Apple’s real buybacks in the September quarter were about ${bn(QR.buybacks, 0)}.`);
       } else {
         const pb = px / BVPS;
-        tiles = tile('netcash', 'Net cash', B(m.net), 'up', 'cash + securities − debt', sel === 'netcash') + tile('cr', 'Current ratio', x2(m.cr), 'acc', 'current assets ÷ liabilities', sel === 'cr') + tile('de', 'Debt / equity', x2(m.de), '', B(m.debt) + ' ÷ ' + B(m.eq), sel === 'de') + tile('bvps', 'Book value / share', F.usd(BVPS), '', B(m.eq) + ' ÷ ' + F.num(SH / 1000, 2) + 'B sh.', sel === 'bvps') + tile('pb', 'Price / book', F.num(pb, 1) + '×', 'acc', 'at ' + F.usd(px), sel === 'pb');
-        msg = ui.msg('up', 'Balanced', `Apple owns ${bn(m.ta)} and owes ${bn(m.tl)}; the ${bn(m.eq)} left over is shareholders’ equity. The 1-year line sits almost level on both sides (current ratio ${x2(m.cr)}), and cash plus securities beat all debt by ${bn(m.net)}. At ${F.usd(px)} a share, investors pay ${F.num(pb, 0)} times book value.`);
+        tiles = tile('netcash', 'Net cash', B(m.net), 'up', 'cash + securities − debt', sel === 'netcash') + tile('cr', 'Current ratio', x2(m.cr), 'acc', 'current assets ÷ liabilities', sel === 'cr') + tile('de', 'Debt / equity', x2(m.de), '', B(m.debt) + ' ÷ ' + B(m.eq), sel === 'de') + tile('bvps', 'Book value / share', F.usd(BVPS), '', B(m.eq) + ' ÷ ' + F.num(SHO / 1000, 2) + 'B sh.', sel === 'bvps') + tile('pb', 'Price / book', F.num(pb, 1) + '×', 'acc', 'at ' + F.usd(px), sel === 'pb');
+        msg = ui.msg('up', 'Balanced', `On September 26, 2026, the last day of its fiscal year, Apple owned ${bn(m.ta)} and owed ${bn(m.tl)}; the ${bn(m.eq)} left over is shareholders’ equity. The 1-year line sits almost level on both sides (current ratio ${x2(m.cr)}), and cash plus securities beat all debt by ${bn(m.net)}. At ${F.usd(px)} a share, investors pay ${F.num(pb, 0)} times book value.`);
       }
       const rd = $(id + '-read'); if (rd) rd.innerHTML = tiles;
       const mg = $(id + '-msg'); if (mg) mg.innerHTML = msg;
@@ -735,7 +778,7 @@
   };
 
   /* ======================================================================
-     cashRiver: nine months of Apple cash as a river, profit vs cash, shares and EPS
+     cashRiver: a fiscal year of Apple cash as a river, profit vs cash (two years and the September quarter), shares and EPS
      ====================================================================== */
   const USES = [
     { k: 'buyback', v: C.bb, n: ['Buybacks', 'Buybacks'], c: 'vio' },
@@ -755,20 +798,24 @@
     r.push({ k: 'op', n: ['= Operating cash', '= Operating cash'], v: p.op, abs: true, c: 'info', tot: true }, { k: 'capex', n: ['− Capex', '− Capex'], v: -p.capex }, { k: 'fcf', n: ['= Free cash flow', '= Free cash'], v: p.fcf, abs: true, c: 'acc', tot: true });
     return r;
   }
-  const BRIDGE_MAX = (() => { let mx = 0; [C, CY].forEach((p) => [false, true].forEach((brk) => { let run = 0; bridgeRows(p, brk).forEach((r) => { run = r.abs ? r.v : run + r.v; mx = Math.max(mx, run); }); })); return mx * 1.03; })();
+  /* one scale for the two fiscal years (so they compare), its own scale for the single quarter */
+  const bmax = (ps) => { let mx = 0; ps.forEach((p) => [false, true].forEach((brk) => { let run = 0; bridgeRows(p, brk).forEach((r) => { run = r.abs ? r.v : run + r.v; mx = Math.max(mx, run); }); })); return mx * 1.03; };
+  const BMAX = { cur: bmax([C, CY]), ya: bmax([C, CY]), q: CQ ? bmax([CQ]) : 1 };
+  const PER = { cur: C, ya: CY, q: CQ };
+  const PERN = { cur: 'In fiscal 2026', ya: 'In fiscal 2025', q: 'In the September quarter (our math)' };
   const lerpCF = (a, b, t) => { const o = {}; Object.keys(a).forEach((k) => { o[k] = typeof a[k] === 'number' ? SML.lerp(a[k], b[k], t) : a[k]; }); o.wcItems = a.wcItems.map((w, i) => ({ k: w.k, v: SML.lerp(w.v, b.wcItems[i].v, t) })); return o; };
 
   SML.widgets.cashRiver = function (root, opts) {
     opts = opts || {};
     root.classList.add('rcbs');
     const id = SML.uid('rkc');
-    const state = { view: opts.view || 'river', sel: 'fcf', per: 'cur', p: C, brk: false };
+    const state = { view: opts.view || 'river', sel: 'fcf', per: 'cur', p: C, brk: false, scale: BMAX.cur };
     root.innerHTML = `
-      <div class="wg-bar">${ui.seg(id + '-v', [{ v: 'river', label: 'Cash river' }, { v: 'bridge', label: 'Profit vs cash' }, { v: 'eps', label: 'Shares & EPS' }], state.view, 'View')}<span class="grow"></span><span class="pill" id="${id}-pill">9 months to Jun 27, 2026</span></div>
-      <div class="wg-bar rcbs-bar2" data-only="bridge">${ui.seg(id + '-p', [{ v: 'cur', label: '9 mo to Jun 2026' }, { v: 'ya', label: '9 mo to Jun 2025' }], 'cur', 'Period')}${ui.chips(id + '-wc', [{ k: 'wc', label: 'Break out working capital', color: 'var(--down)' }])}</div>
+      <div class="wg-bar">${ui.seg(id + '-v', [{ v: 'river', label: 'Cash river' }, { v: 'bridge', label: 'Profit vs cash' }, { v: 'eps', label: 'Shares & EPS' }], state.view, 'View')}<span class="grow"></span><span class="pill" id="${id}-pill">Fiscal 2026, 12 months to Sep 26, 2026</span></div>
+      <div class="wg-bar rcbs-bar2" data-only="bridge">${ui.seg(id + '-p', [{ v: 'cur', label: 'Fiscal 2026' }, { v: 'ya', label: 'Fiscal 2025' }].concat(CQ ? [{ v: 'q', label: 'Sep 2026 qtr' }] : []), 'cur', 'Period')}${ui.chips(id + '-wc', [{ k: 'wc', label: 'Break out working capital', color: 'var(--down)' }])}</div>
       <div class="wg-fig"></div>
       <div class="rcbs-cw" id="${id}-cw"></div>
-      <div class="wg-ctrl" data-only="eps">${ui.slider({ id: id + '-sh', label: 'What if the share count were… (diluted, millions)', min: 14000, max: 15500, step: 0.1, value: Math.round(SHD * 10) / 10, fmt: (v) => F.num(v, 1) + 'M' })}<div class="rcbs-quick"><button type="button" class="btn btn-g sm" data-sh="${Math.round(SHD * 10) / 10}">Actual, June 2026</button><button type="button" class="btn btn-g sm" data-sh="${Math.round(SHDY * 10) / 10}">A year earlier (no shrink)</button></div></div>
+      <div class="wg-ctrl" data-only="eps">${ui.slider({ id: id + '-sh', label: 'What if the share count were… (diluted, millions)', min: 14000, max: 15500, step: 0.1, value: Math.round(SHD * 10) / 10, fmt: (v) => F.num(v, 1) + 'M' })}<div class="rcbs-quick"><button type="button" class="btn btn-g sm" data-sh="${Math.round(SHD * 10) / 10}">Actual, Sep 2026 qtr</button><button type="button" class="btn btn-g sm" data-sh="${Math.round(SHDY * 10) / 10}">A year earlier (no shrink)</button></div></div>
       <div class="wg-read rcbs-read" id="${id}-read"></div>
       <div class="wg-msg" id="${id}-msg"></div>
       <div class="wg-note" id="${id}-note"></div>`;
@@ -785,11 +832,11 @@
     let raf = 0, alive = true;
     SML.onCleanup(() => { alive = false; cancelAnimationFrame(raf); });
     function morph(np) {
-      const from = state.p, to = np === 'cur' ? C : CY; state.per = np;
+      const from = state.p, to = PER[np] || C, s0 = state.scale, s1 = BMAX[np] || BMAX.cur; state.per = np;
       cancelAnimationFrame(raf);
-      if (SML.reduced()) { state.p = to; draw(); return; }
+      if (SML.reduced()) { state.p = to; state.scale = s1; draw(); return; }
       const t0 = performance.now(), dur = 650;
-      const step = (now) => { if (!alive || !root.isConnected) return; const t = Math.min(1, (now - t0) / dur); state.p = t < 1 ? lerpCF(from, to, ease(t)) : to; draw(); if (t < 1) raf = requestAnimationFrame(step); };
+      const step = (now) => { if (!alive || !root.isConnected) return; const t = Math.min(1, (now - t0) / dur), e = ease(t); state.p = t < 1 ? lerpCF(from, to, e) : to; state.scale = t < 1 ? SML.lerp(s0, s1, e) : s1; draw(); if (t < 1) raf = requestAnimationFrame(step); };
       raf = requestAnimationFrame(step);
     }
     root.addEventListener('click', (e) => {
@@ -874,15 +921,15 @@
         labels += '</g>';
       });
       const H = Math.max(dBottom, sinkY + sinkH + (compact ? 36 : 24), yy, ncY + C.noncash * k) + 10;
-      return { H, body: `<defs>${defs}</defs>${s}${nodes}${labels}`, label: 'Apple nine-month cash flow drawn as a river from net income to operating cash, free cash flow, buybacks, dividends and debt' };
+      return { H, body: `<defs>${defs}</defs>${s}${nodes}${labels}`, label: 'Apple fiscal 2026 cash flow drawn as a river from net income to operating cash, free cash flow, buybacks, dividends and debt' };
     }
 
     /* ---------- profit vs cash bridge ---------- */
     function bridge(W) {
       const compact = W < 520, p = state.p, rows = bridgeRows(p, state.brk), sel = state.sel;
       const labW = compact ? 0 : 170, valW = compact ? 0 : 84, x0 = compact ? 4 : labW + 6, x1 = compact ? W - 4 : W - valW - 6;
-      const X = SML.lin(0, BRIDGE_MAX, x0, x1), rh = compact ? 34 : 27, top = 30;
-      const per = state.per === 'cur' ? 'LATE SEP 2025 – JUN 2026' : 'LATE SEP 2024 – JUN 2025';
+      const X = SML.lin(0, state.scale, x0, x1), rh = compact ? 34 : 27, top = 30;
+      const per = { cur: 'FISCAL 2026 · LATE SEP 2025 – SEP 2026', ya: 'FISCAL 2025 · LATE SEP 2024 – SEP 2025', q: 'SEP 2026 QUARTER · OUR MATH' }[state.per];
       let s = compact ? S.text(0, 14, per, 'cap') : S.text(0, 14, 'FROM PROFIT TO CASH', 'cap') + S.text(W, 14, per, 'cap', 'end');
       let run = 0;
       rows.forEach((r, i) => {
@@ -924,7 +971,7 @@
       const compact = W < 520, shN = st.n(id + '-sh'), eps1 = NIQ / shN, sel = state.sel;
       const rmax = compact ? 54 : 74, r2 = rmax, r1 = rmax * Math.sqrt(NIQY / NIQ);
       const cx1 = Math.round(W * (compact ? 0.26 : 0.3)), cx2 = Math.round(W * (compact ? 0.74 : 0.7)), cy = 34 + rmax;
-      let s = S.text(cx1, 16, compact ? 'JUN 2025 QTR' : 'JUNE 2025 QUARTER', 'cap', 'middle') + S.text(cx2, 16, compact ? 'JUN 2026 QTR' : 'JUNE 2026 QUARTER', 'cap', 'middle');
+      let s = S.text(cx1, 16, compact ? 'SEP 2025 QTR' : 'SEPTEMBER 2025 QUARTER', 'cap', 'middle') + S.text(cx2, 16, compact ? 'SEP 2026 QTR' : 'SEPTEMBER 2026 QUARTER', 'cap', 'middle');
       s += pizza(cx1, cy, r1, SHDY / 1000, 'rcbs-pz3', 'eps') + pizza(cx2, cy, r2, shN / 1000, 'rcbs-pz3', 'eps');
       s += S.arrow(cx1 + r1 + 12, cy, cx2 - r2 - 12, cy, 'mut', 8);
       if (!compact) s += S.text((cx1 + cx2) / 2, cy - 10, 'pie +' + F.num(pc(NIQ, NIQY), 1) + '%', 'sm acc', 'middle');
@@ -963,25 +1010,28 @@
     });
     function side() {
       const vw = state.view, sel = state.sel;
-      const pill = $(id + '-pill'); if (pill) pill.textContent = vw === 'eps' ? 'June quarter 2026 vs 2025' : vw === 'bridge' ? 'Nine months, two years' : '9 months to Jun 27, 2026';
+      const pill = $(id + '-pill'); if (pill) pill.textContent = vw === 'eps' ? 'September quarter 2026 vs 2025' : vw === 'bridge' ? 'Two fiscal years + the Sep quarter' : 'Fiscal 2026, 12 months to Sep 26, 2026';
       let tiles = '', msg = '', note = '';
       if (vw === 'river') {
         tiles = tile('op', 'Operating cash', B(C.op), '', F.spct(pc(C.op, CY.op), 1) + ' vs a year ago', sel === 'op') + tile('capex', 'Capex', B(C.capex), '', 'new equipment', sel === 'capex') + tile('fcf', 'Free cash flow', B(C.fcf), 'acc', 'operating cash − capex', sel === 'fcf') + tile('buyback', 'Buybacks + dividends', B(C.bb + C.div), 'vio', F.pct((C.bb + C.div) / C.fcf * 100, 0) + ' of free cash flow', sel === 'buyback');
-        msg = ui.msg('acc', 'Follow the cash', `Profit of ${bn(C.ni)}, with non-cash costs added back and a little cash tied up in working capital, became ${bn(C.op)} of operating cash. After ${bn(C.capex)} of capex, ${bn(C.fcf)} was free. The biggest stream, ${bn(C.bb)}, went to buying back shares.`);
-        note = 'Apple’s cash flow statement for the nine months ended June 27, 2026 (Apple’s fiscal year starts in late September), from Apple’s 8-K. "Debt repaid" is term debt plus commercial paper, net. Band widths are to scale. Tap any stream, node or label.';
+        msg = ui.msg('acc', 'Follow the cash', `In fiscal 2026, profit of ${bn(C.ni)}, with non-cash costs added back and ${bn(Math.abs(C.wc))} of cash ${C.wc < 0 ? 'tied up in' : 'freed from'} working capital, became ${bn(C.op)} of operating cash. After ${bn(C.capex)} of capex, ${bn(C.fcf)} was free. The biggest stream, ${bn(C.bb)}, went to buying back shares.`);
+        note = 'Apple’s cash flow statement for fiscal 2026, the twelve months ended September 26, 2026 (Apple’s fiscal year starts in late September), from Apple’s fourth-quarter results. Free cash flow is our math (operating cash − capex). "Debt repaid" is term debt plus commercial paper, net. Band widths are to scale. Tap any stream, node or label.';
       } else if (vw === 'bridge') {
-        const p = state.per === 'cur' ? C : CY, gapPC = p.op - p.ni;
+        const p = PER[state.per] || C, gapPC = p.op - p.ni, pn = PERN[state.per] || PERN.cur;
         tiles = tile('ni', 'Net income', B(p.ni), 'up', '', sel === 'ni') + tile('op', 'Operating cash', B(p.op), '', x2(p.op / p.ni) + '× net income', sel === 'op') + tile('wc', 'Working capital', SB(p.wc), p.wc >= 0 ? 'up' : 'dn', 'cash tied up (−) or freed (+)', sel === 'wc') + tile('fcf', 'Free cash flow', B(p.fcf), 'acc', '', sel === 'fcf');
-        if (gapPC >= 0) msg = ui.msg('up', 'Cash beat profit', `Operating cash of ${bn(p.op)} beat profit of ${bn(p.ni)} by ${bn(gapPC)}: ${bn(p.noncash)} of non-cash costs were added back, and working capital used only ${bn(-p.wc)}.`);
-        else { const big = p.wcItems.slice().sort((a, b) => a.v - b.v); msg = ui.msg('dn', 'Cash trailed profit', `A year earlier, operating cash of ${bn(p.op)} came in ${bn(-gapPC)} below profit of ${bn(p.ni)}. Working capital used ${bn(-p.wc)}, mostly ${WCN[big[0].k][0].toLowerCase()} (${sbn(big[0].v)}) and ${WCN[big[1].k][0].toLowerCase()} (${sbn(big[1].v)}).`); }
-        note = 'Same nine months, two years: late September to June of fiscal 2026 and of fiscal 2025. Green steps add cash, red steps use it. The dashed line marks net income, so you can see whether cash ended up above or below profit.';
+        const big = p.wcItems.slice().sort((a, b) => a.v - b.v), wcBit = p.wc < 0 ? `Working capital used ${bn(-p.wc)}, mostly ${WCN[big[0].k][0].toLowerCase()} (${sbn(big[0].v)}) and ${WCN[big[1].k][0].toLowerCase()} (${sbn(big[1].v)})` : `Working capital freed ${bn(p.wc)}`;
+        if (gapPC >= 0) msg = ui.msg('up', 'Cash beat profit', `${pn}, operating cash of ${bn(p.op)} beat profit of ${bn(p.ni)} by ${bn(gapPC)}: ${bn(p.noncash)} of non-cash costs were added back. ${wcBit}.`);
+        else msg = ui.msg('dn', 'Cash trailed profit', `${pn}, operating cash of ${bn(p.op)} came in ${bn(-gapPC)} below profit of ${bn(p.ni)}. ${wcBit}.${state.per === 'q' ? ' That is normal for a September quarter: new iPhones ship late in the quarter, so customers and Apple’s manufacturing partners owe it more at the end of September. Payables rose too, which offset part of it.' : ''}`);
+        note = state.per === 'q'
+          ? 'The September quarter alone, our math: Apple’s full-year statement minus the nine months it reported in July (for example, operating cash ' + bn(C.op) + ' − ' + bn(C.op - (CQ ? CQ.op : 0)) + ' = ' + bn(CQ ? CQ.op : 0) + '). A single quarter is drawn on its own, larger scale. Green steps add cash, red steps use it. The dashed line marks net income.'
+          : 'Two full fiscal years, late September to late September, drawn on the same scale. Green steps add cash, red steps use it. The dashed line marks net income, so you can see whether cash ended up above or below profit.';
       } else {
         const shN = st.n(id + '-sh'), e1 = NIQ / shN, g1 = (e1 / (NIQY / SHDY) - 1) * 100;
         tiles = tile('niq', 'Net income', F.spct(pc(NIQ, NIQY), 1), 'up', B(NIQY) + ' → ' + B(NIQ), sel === 'niq') + tile('shares', 'Diluted shares', F.spct(pc(SHD, SHDY), 1), 'dn', F.num(SHDY, 0) + 'M → ' + F.num(SHD, 0) + 'M', sel === 'shares') + tile('eps', 'EPS, reported', F.spct(pc(EPSQ, EPSQY), 1), 'up', F.usd(EPSQY) + ' → ' + F.usd(EPSQ), sel === 'eps') + tile('eps', 'EPS at your count', F.usd(e1), 'acc', F.spct(g1, 1) + ' vs a year ago, unrounded', false);
         const atYa = Math.abs(shN - SHDY) < 1;
         msg = atYa ? ui.msg('info', 'No shrink', `With last year’s share count, EPS would be ${F.usd(e1)}, growing exactly as fast as profit (${F.spct(g1, 1)}). The buybacks are what pushed reported EPS up to ${F.usd(EPSQ)}.`)
           : ui.msg('up', 'Fewer slices', `Profit grew ${F.pct(pc(NIQ, NIQY), 1)}, but it was split among ${F.pct(-pc(SHD, SHDY), 1)} fewer shares, so each share’s slice grew faster: reported EPS rose ${F.pct(pc(EPSQ, EPSQY), 1)}, from ${F.usd(EPSQY)} to ${F.usd(EPSQ)}. Drag the share count to see EPS at ${F.num(shN, 1)} million shares: ${F.usd(e1)}.`);
-        note = 'June quarter (April to June) 2026 vs 2025. One slice = the profit for one billion shares, so a slice in billions of dollars equals EPS in dollars. The orange sliver is the last, partial billion. Pie areas are to scale.';
+        note = 'September quarter (late June to late September) 2026 vs 2025. One slice = the profit for one billion shares, so a slice in billions of dollars equals EPS in dollars. The orange sliver is the last, partial billion. Pie areas are to scale.';
       }
       const rd = $(id + '-read'); if (rd) rd.innerHTML = tiles;
       const mg = $(id + '-msg'); if (mg) mg.innerHTML = msg;
@@ -994,34 +1044,36 @@
   /* ======================================================================
      Lessons
      ====================================================================== */
-  const SRC = A.sources;
-  const srcPick = (...idx) => idx.map((i) => SRC[i]).filter(Boolean);
+  const SRC = A.sources || [];
+  /* pick sources by URL fragment, so a reordered list in content-realco.js cannot shift them */
+  const srcBy = (...keys) => keys.map((k) => SRC.find((x) => x.u && x.u.indexOf(k) >= 0)).filter((x, i, arr) => x && arr.indexOf(x) === i);
   const tip = (html) => { try { return SML.bunnyTip ? SML.bunnyTip(html) : ''; } catch (e) { return ''; } };
+  const reportedLine = 'It is the latest reported quarter as of November 2026: Apple reported it on November 2, 2026.';
 
   SML.lessons.push({
     id: 'l-rc-apple-balance', course: 'realco', order: 3, title: 'Apple’s balance sheet, line by line', mins: 14, level: 'Beginner',
-    summary: 'What Apple owns, owes and keeps, with every real number and why it matters.',
+    summary: 'What Apple owns, owes and keeps at the end of fiscal 2026, with every real number and why it matters.',
     idea: 'A balance sheet is a snapshot: what a company owns, what it owes, and what is left for shareholders. It always balances.',
     widget: 'balanceBlocks', opts: {},
-    try: 'Tap any block for its card, flip between September and June, press Play, then try a buyback.',
+    try: 'Tap any block for its card, flip between September 2025, June 2026 and September 2026, press Play, then try a buyback.',
     body: [
-      `<h3>One snapshot, one equation</h3><p>A balance sheet is a photo of a single day. Apple’s latest is from <b>June 27, 2026</b>, the last day of its fiscal third quarter: ${A.fiscalNote} It is the latest reported quarter as of October 2026; the next report comes on November 2, 2026. Apple compares it with <b>September 27, 2025</b>, the end of its last fiscal year, so we do too.</p><p>Every balance sheet obeys one rule: <b>assets = liabilities + shareholders’ equity</b>. Everything the company owns was paid for with other people’s money (liabilities) or with the owners’ money (equity). At Hoppy’s Coffee Cart: $19,800 = $6,000 + $13,800. At Apple${EQN_M ? ', which reports in millions' : ''}: ${EQN}.${EQN_M ? ` Rounded, that is about ${bn(MC.ta)} of assets.` : ''}</p>`,
-      `<h3>The 1-year line</h3><p>Each side is split by time. <b>Current</b> assets should turn into cash within 12 months; <b>current</b> liabilities are due within 12 months. Everything else is long-term. Apple’s current assets (${bn(MC.ca)}) and current liabilities (${bn(MC.cl)}) are almost exactly level: a current ratio of ${x2(MC.cr)}. In September it was ${x2(MP.cr)}.</p>` + linesHTML(BGROUPS, BT, ['big']),
-      `<h3>What Apple owns</h3><p>Ten lines, from the most liquid to the least. Tap a line to open its card. The big stories: ${bn(MC.cs)} of cash and securities, and inventory that nearly doubled.</p>` + linesHTML(BGROUPS, BT, ['own']),
-      `<h3>What Apple owes</h3><p>Seven lines. Most of what Apple owes is bills to suppliers and other short-term items. Debt (commercial paper plus term debt) is ${bn(MC.debt)}, down from ${bn(MP.debt)} in September.</p>` + linesHTML(BGROUPS, BT, ['owe']),
-      `<h3>What belongs to shareholders</h3><p>Equity rose ${bn(MC.eq - MP.eq)} in nine months, to ${bn(MC.eq)}. The headline: <b>retained earnings flipped from ${bn(V.prev.re)} to ${sbn(V.cur.re)}</b>. A negative number there did not mean Apple lost money. It meant Apple had handed back more through buybacks and dividends than all the profit it had ever earned.</p>` + linesHTML(BGROUPS, BT, ['eq']) + tip('Before you judge any line, ask "compared with what?" A number next to last quarter, last year and the company’s own sales tells you far more than the number alone.'),
+      `<h3>One snapshot, one equation</h3><p>A balance sheet is a photo of a single day. Apple’s latest is from <b>${longDate(BSD.cur)}</b>, the last day of its fiscal year 2026 and of its fiscal fourth quarter: ${A.fiscalNote} ${reportedLine} Apple compares it with <b>${longDate(BSD.prev)}</b>, the end of the year before, so we do too.${HAS_MID ? ` We also show <b>${longDate(BSD.mid)}</b>, one quarter earlier, to see what moved in the latest three months.` : ''}</p><p>Every balance sheet obeys one rule: <b>assets = liabilities + shareholders’ equity</b>. Everything the company owns was paid for with other people’s money (liabilities) or with the owners’ money (equity). At Hoppy’s Coffee Cart: $19,800 = $6,000 + $13,800. At Apple${EQN_M ? ', which reports in millions' : ''}: ${EQN}.${EQN_M ? ` Rounded, that is about ${bn(MC.ta)} of assets.` : ''}</p>`,
+      `<h3>The 1-year line</h3><p>Each side is split by time. <b>Current</b> assets should turn into cash within 12 months; <b>current</b> liabilities are due within 12 months. Everything else is long-term. Apple’s current assets (${bn(MC.ca)}) and current liabilities (${bn(MC.cl)}) are almost level: a current ratio of ${x2(MC.cr)}. A year earlier it was ${x2(MP.cr)}${HAS_MID ? `, and ${x2(MM.cr)} in June` : ''}.</p>` + linesHTML(BGROUPS, BT, ['big']),
+      `<h3>What Apple owns</h3><p>Ten lines, from the most liquid to the least. Tap a line to open its card. The big stories: ${bn(MC.cs)} of cash and securities; inventory that ${invWord} in a year, to ${bn(V.cur.inv)}; and receivables that jump every September, when the new iPhones start shipping.</p>` + linesHTML(BGROUPS, BT, ['own']),
+      `<h3>What Apple owes</h3><p>Seven lines. Most of what Apple owes is bills to suppliers and other short-term items. Debt (commercial paper plus term debt) is ${bn(MC.debt)}, down from ${bn(MP.debt)} a year earlier. Bills owed to suppliers went the other way: ${bn(V.cur.ap)}, up from ${bn(V.prev.ap)}${HAS_MID ? `, most of the rise in the September quarter (${bn(V.mid.ap)} in June)` : ''}, as Apple bought parts for the holiday quarter.</p>` + linesHTML(BGROUPS, BT, ['owe']),
+      `<h3>What belongs to shareholders</h3><p>Equity rose ${bn(MC.eq - MP.eq)} in fiscal 2026, to ${bn(MC.eq)}. The headline: <b>retained earnings flipped from ${bn(V.prev.re)} to ${sbn(V.cur.re)}</b>. A negative number there did not mean Apple lost money. It meant Apple had handed back more through buybacks and dividends than all the profit it had ever earned. A record year of profit (${bn(C.ni)}) was bigger than the ${bn(C.bb + C.div)} it paid out.</p>` + linesHTML(BGROUPS, BT, ['eq']) + tip('Before you judge any line, ask "compared with what?" A number next to last quarter, last year and the company’s own sales tells you far more than the number alone.'),
       `<h3>Six health checks</h3><p>Ratios turn the raw lines into answers: can Apple pay its bills, how much debt does it carry, and what do investors pay for its book value? These are the same checks from <a href="#l-ratios">Five numbers to check</a>, with real numbers.</p>` + linesHTML(BGROUPS, BT, ['chk']),
-      `<h3>How the balance sheet moves the stock</h3><ul><li><b>Safety sets the multiple.</b> ${bn(MC.net)} of net cash makes it very unlikely Apple is ever forced to raise money at a bad time. Investors pay a higher P/E for lower risk (<a href="#l-rc-price">how earnings move the price</a>).</li><li><b>Cash is fuel for payouts.</b> The pile pays for buybacks, which shrink the share count and lift EPS. The <a href="#l-rc-apple-cash">cash flow lesson</a> follows that money.</li><li><b>Changes are early clues.</b> Inventory, receivables and debt moving fast get questions on the <a href="#l-rc-apple-call">earnings call</a> before they show up in profits.</li><li><b>Book value rarely sets Apple’s price.</b> At about ${F.num(PX / BVPS, 0)} times book, investors pay for earning power, not assets.</li><li><b>Slow, not sudden.</b> On results day, prices jump on earnings and guidance. The balance sheet works more slowly, through risk and payouts.</li></ul><p>Want every line side by side? Open the <a href="#tool-statements">real statement explorer</a>, or review the basics in <a href="#l-statements">The three statements</a>.</p>`,
+      `<h3>How the balance sheet moves the stock</h3><ul><li><b>Safety sets the multiple.</b> ${bn(MC.net)} of net cash makes it very unlikely Apple is ever forced to raise money at a bad time. Investors pay a higher P/E for lower risk (<a href="#l-rc-price">how earnings move the price</a>).</li><li><b>Cash is fuel for payouts.</b> The pile pays for buybacks, which shrink the share count and lift EPS. The <a href="#l-rc-apple-cash">cash flow lesson</a> follows that money.${CALL.netCashNeutral ? ' On the November 2 call Apple dropped its long-time goal of bringing net cash down to zero ("net cash neutral"), to keep more flexibility. It still plans to return excess cash, so watch the buyback pace in the next reports.' : ''}</li><li><b>Changes are early clues.</b> Inventory, receivables, payables and debt moving fast get questions on the <a href="#l-rc-apple-call">earnings call</a> before they show up in profits. This year’s clue: inventory up to ${bn(V.cur.inv)} while memory chips got more expensive.</li><li><b>Book value rarely sets Apple’s price.</b> At about ${F.num(PX / BVPS, 0)} times book, investors pay for earning power, not assets.</li><li><b>Slow, not sudden.</b> On results day, prices jump on earnings and guidance. The balance sheet works more slowly, through risk and payouts.</li></ul><p>Want every line side by side? Open the <a href="#tool-statements">real statement explorer</a>, or review the basics in <a href="#l-statements">The three statements</a>.</p>`,
     ],
     example: {
       title: 'Check Apple’s balance sheet in five steps',
-      intro: 'June 27, 2026 figures from Apple’s statement.',
+      intro: `${longDate(BSD.cur)} figures from Apple’s fourth-quarter results.`,
       steps: [
         `Check that it balances${EQN_M ? '. Apple reports in millions' : ''}: ${EQN.replace(' = ', ' of assets = ').replace(' + ', ' of liabilities + ')} of equity.`,
         `Current ratio: current assets ${bn(MC.ca)} ÷ current liabilities ${bn(MC.cl)} = ${x2(MC.cr)}. Next year’s bills are just covered.`,
         `Net cash: cash ${bn(V.cur.cash)} + securities ${bn(V.cur.msCur + V.cur.msNon)} = ${bn(MC.cs)}, minus debt ${bn(MC.debt)} (commercial paper ${bn(V.cur.cp)} + term debt ${bn(V.cur.debtCur + V.cur.debtNon)}) = ${bn(MC.net)}.`,
         `Debt to equity: ${bn(MC.debt)} ÷ ${bn(MC.eq)} = ${x2(MC.de)}.`,
-        `Book value per share: ${bn(MC.eq)} ÷ ${F.num(SH / 1000, 2)} billion shares = ${F.usd(BVPS)}. At the July 30 close of ${F.usd(PX)}, price to book is about ${F.num(PX / BVPS, 0)}.`,
+        `Book value per share: ${bn(MC.eq)} ÷ ${F.num(SHO / 1000, 2)} billion shares = ${F.usd(BVPS)}. At the ${PXD} close of ${F.usd(PX)}, price to book is about ${F.num(PX / BVPS, 0)}.`,
       ],
       result: 'A cash-rich company with a thin 1-year cushion backed by long-term securities, modest debt, and a price set by its earning power rather than its book value.',
     },
@@ -1029,13 +1081,15 @@
       'Reading negative retained earnings as "Apple lost money". At Apple it came from years of buybacks and dividends larger than all the profit it had ever earned.',
       'Panicking at a current ratio near 1 without checking the long-term securities a company can sell any day.',
       'Counting only cash and forgetting marketable securities, or forgetting commercial paper when you add up debt.',
+      'Comparing a September balance sheet with a June one without allowing for the season: receivables, vendor receivables and payables swell every September as the new iPhones ship.',
       'Using price to book on a company whose real value (brand, software, loyal customers) is not on the balance sheet, or ignoring a line that suddenly doubles, like inventory, without asking why.',
     ],
     points: [
       `Assets = liabilities + equity, always. Apple: ${EQN}.`,
       `Current means within a year; Apple’s current ratio is ${x2(MC.cr)}.`,
-      `Net cash (cash and securities minus debt) is ${bn(MC.net)}, up from ${bn(MP.net)} in September.`,
-      `Retained earnings turned positive (${sbn(V.cur.re)}) as nine months of profit beat dividends and buybacks.`,
+      `Net cash (cash and securities minus debt) is ${bn(MC.net)}, up from ${bn(MP.net)} a year earlier${HAS_MID ? ` but down from ${bn(MM.net)} in June` : ''}.`,
+      `Retained earnings turned positive (${sbn(V.cur.re)}) as a year of profit beat dividends and buybacks.`,
+      `Inventory ${invWord} in a year, to ${bn(V.cur.inv)}, as Apple stocked parts while chips and memory were tight and getting pricier.`,
       `Equity grew ${bn(MC.eq - MP.eq)}; book value is about ${F.usd(BVPS)} a share, far below the share price.`,
     ],
     terms: ['Balance sheet', 'Shareholders’ equity', 'Current ratio', 'Net cash', 'Retained earnings', 'Price to book'],
@@ -1043,55 +1097,68 @@
       { t: 'Vendor non-trade receivables', d: 'Money Apple’s manufacturing partners owe it for components Apple bought and resold to them.' },
       { t: 'Book value per share', d: 'Shareholders’ equity divided by the number of shares.' },
       { t: 'Accumulated other comprehensive income', full: 'AOCI', d: 'Gains and losses not yet counted in profit, mostly on bond investments and currency.' },
+      { t: 'Net cash neutral', d: 'Apple’s long-time goal of returning cash until its cash and investments equal its debt. It dropped the goal in November 2026.' },
     ],
-    quiz: { q: `Apple’s retained earnings were ${bn(V.prev.re)} in September 2025. What does that most likely mean?`, options: ['Apple lost money for years', 'Apple had paid out more in buybacks and dividends than all the profit it had ever earned', 'Apple owed more than it owned'], answer: 1, why: `Apple earned ${bn(C.ni)} in just nine months. The negative number came from returning even more than it had ever earned, mostly through buybacks; equity overall was still positive.` },
-    sources: srcPick(0, 3, 1),
+    quiz: { q: `Apple’s retained earnings were ${bn(V.prev.re)} in September 2025. What does that most likely mean?`, options: ['Apple lost money for years', 'Apple had paid out more in buybacks and dividends than all the profit it had ever earned', 'Apple owed more than it owned'], answer: 1, why: `Apple earned ${bn(C.ni)} in fiscal 2026 alone. The negative number came from returning even more than it had ever earned, mostly through buybacks; equity overall was still positive.` },
+    sources: srcBy('FY26_Q4', 'fourth-quarter-results', 'a8-kex991q4202509272025', 'investing.com'),
   });
+
+  /* the September quarter derived from the full year: rows for the lesson */
+  const derRows = D9 && CQ ? [
+    ['Operating cash', C.op, D9.op, CQ.op],
+    D9.capex != null ? ['Capex', C.capex, D9.capex, CQ.capex] : null,
+    D9.capex != null ? ['Free cash flow', C.fcf, D9.op - D9.capex, CQ.fcf] : null,
+    D9.bb != null ? ['Buybacks', C.bb, D9.bb, CQ.bb] : null,
+    D9.div != null ? ['Dividends', C.div, D9.div, CQ.div] : null,
+  ].filter(Boolean) : [];
+  const derTable = derRows.length ? `<div class="scroll"><table class="tbl"><thead><tr><th>Line</th><th class="num">Fiscal 2026</th><th class="num">− First 9 months</th><th class="num">= Sep quarter</th></tr></thead><tbody>${derRows.map((r) => `<tr><td>${r[0]}</td><td class="num">${B(r[1])}</td><td class="num">${B(r[2])}</td><td class="num"><b>${B(r[3])}</b></td></tr>`).join('')}</tbody></table></div>` : '';
 
   SML.lessons.push({
     id: 'l-rc-apple-cash', course: 'realco', order: 4, title: 'Apple’s cash flow: where the money went', mins: 12, level: 'Beginner',
-    summary: 'Nine months of Apple’s real cash: from profit to buybacks, dividends and debt.',
+    summary: 'A full year of Apple’s real cash, fiscal 2026: from profit to buybacks, dividends and debt, plus the September quarter.',
     idea: 'Profit is an accounting number; cash is what actually lands in the bank. Follow Apple’s cash from the register to shareholders.',
     widget: 'cashRiver', opts: {},
-    try: 'Tap any stream of the river for its card, then switch to Profit vs cash and Shares & EPS.',
+    try: 'Tap any stream of the river for its card, then switch to Profit vs cash (try the September quarter) and Shares & EPS.',
     body: [
-      `<h3>Why profit and cash differ</h3><p>At Hoppy’s Coffee Cart, June profit was $3,040. Add back $200 of wear on the espresso machine (a cost, but no cash left), subtract $300 for extra beans stocked, add $100 for a bean bill not yet paid: operating cash is $3,040. A new $600 grinder leaves $2,440 of free cash flow, and the owner takes a $1,000 dividend.</p><p>Apple works the same way, only bigger. Its cash flow statement covers the nine months from late September 2025 to June 27, 2026, the first three quarters of its fiscal year. Net income was ${bn(C.ni)}; operating cash was ${bn(C.op)}.</p>`,
-      `<h3>Three sections, one change in cash</h3><ul><li><b>Operating:</b> cash from running the business, ${sbn(C.op)}.</li><li><b>Investing:</b> equipment and securities, ${sbn(C.invTot)}.</li><li><b>Financing:</b> buybacks, dividends and debt, ${sbn(C.finTot)}.</li></ul><p>Add them up and cash rose ${bn(C.cashUp)}, from ${bn(C.begin)} to ${bn(C.end)}: exactly the cash line on the <a href="#l-rc-apple-balance">balance sheet</a>.</p>`,
-      `<h3>From net income to operating cash</h3><p>Two kinds of corrections turn profit into cash: costs that used no cash this period, and money tied up in or freed from the day-to-day loop of customers, inventory and suppliers.</p>` + linesHTML(CGROUPS, CT, ['op']),
-      `<h3>Capex and free cash flow</h3><p>Apple spent ${bn(C.capex)} on equipment and buildings, so <b>free cash flow was ${bn(C.fcf)}</b>. That is the money it could use any way it liked.</p>` + linesHTML(CGROUPS, CT, ['inv']),
+      `<h3>Why profit and cash differ</h3><p>At Hoppy’s Coffee Cart, June profit was $3,040. Add back $200 of wear on the espresso machine (a cost, but no cash left), subtract $300 for extra beans stocked, add $100 for a bean bill not yet paid: operating cash is $3,040. A new $600 grinder leaves $2,440 of free cash flow, and the owner takes a $1,000 dividend.</p><p>Apple works the same way, only bigger. Its latest cash flow statement, released with the September-quarter results on November 2, 2026, covers its whole <b>fiscal year 2026</b>: the twelve months from late September 2025 to September 26, 2026. Net income was ${bn(C.ni)}; operating cash was ${bn(C.op)}.</p>`,
+      `<h3>Three sections, one change in cash</h3><ul><li><b>Operating:</b> cash from running the business, ${sbn(C.op)}.</li><li><b>Investing:</b> equipment and securities, ${sbn(C.invTot)}.</li><li><b>Financing:</b> buybacks, dividends and debt, ${sbn(C.finTot)}.</li></ul><p>Add them up and cash ${C.cashUp >= 0 ? 'rose' : 'fell'} ${bn(Math.abs(C.cashUp))}, from ${bn(C.begin)} to ${bn(C.end)}: exactly the cash line on the <a href="#l-rc-apple-balance">balance sheet</a>. Almost everything the business made went back out, mostly to shareholders.</p>`,
+      `<h3>From net income to operating cash</h3><p>Two kinds of corrections turn profit into cash: costs that used no cash this period, and money tied up in or freed from the day-to-day loop of customers, inventory and suppliers. In fiscal 2026 the loop tied up ${bn(Math.abs(C.wc))}: Apple stocked up on parts (inventory ${sbn(wcv(C, 'inv'))}) and was owed more by customers and partners, while owing its own suppliers more (${sbn(wcv(C, 'ap'))}).</p>` + linesHTML(CGROUPS, CT, ['op']),
+      `<h3>Capex and free cash flow</h3><p>Apple spent ${bn(C.capex)} on equipment and buildings, ${C.capex < CY.capex ? 'less than' : 'more than'} the ${bn(CY.capex)} of a year earlier, so <b>free cash flow was ${bn(C.fcf)}</b> (our math: operating cash minus capex), ${F.spct(pc(C.fcf, CY.fcf), 0)} from fiscal 2025. That is the money it could use any way it liked.</p>` + linesHTML(CGROUPS, CT, ['inv']),
       `<h3>Where the cash went</h3><p>Buybacks took the biggest share, ${bn(C.bb)}. Dividends were ${bn(C.div)}, and Apple repaid ${bn(C.repay)} of term debt and ${bn(C.cpRepay)} of commercial paper.</p>` + linesHTML(CGROUPS, CT, ['use']),
-      `<h3>Fewer shares, faster EPS</h3><p>In the June quarter, net income rose ${F.pct(pc(NIQ, NIQY), 1)} but diluted EPS rose ${F.pct(pc(EPSQ, EPSQY), 1)}, from ${F.usd(EPSQY)} to ${F.usd(EPSQ)}. The difference is the buybacks: the diluted share count fell ${F.pct(-pc(SHD, SHDY), 1)}, so the same pie was cut into fewer slices. At Hoppy’s the share count never changes, so its EPS grows exactly as fast as its profit.</p>` + linesHTML(CGROUPS, CT, ['ps']) + tip('When a company brags about EPS growth, put it next to net income growth. If EPS grows much faster, ask how much came from shrinking the share count and how much from the business.'),
-      `<h3>How cash flow moves the stock</h3><ul><li><b>Free cash flow pays for EPS growth.</b> Steady buybacks shrink the share count, and price ≈ EPS × P/E (<a href="#l-rc-price">how earnings move the price</a>).</li><li><b>Quality check.</b> Operating cash of ${x2(C.op / C.ni)} times net income says the profit is real cash. Watch one-time items too, like Apple’s tariff refunds (<a href="#l-rc-apple-income">the income statement</a>).</li><li><b>Capex tells the strategy.</b> Apple spent ${bn(C.capex)} in nine months; ${SPX_CAPEX ? `SpaceX spent ${bn(SPX_CAPEX)} in one quarter` : 'SpaceX spent far more'} and burns cash as a result (<a href="#l-rc-spacex">SpaceX lesson</a>).</li><li><b>Payouts set expectations.</b> Investors count on Apple’s buybacks and dividend. A cut would be read as a warning about future cash.</li></ul>`,
+      ...(derRows.length ? [`<h3>The September quarter, by subtraction</h3><p>Apple’s fourth-quarter release shows the cash flow for the full year, not for the quarter on its own. To see the September quarter, subtract the first nine months, which Apple reported in July. That gives the quarter (our math):</p>${derTable}<p>Operating cash of ${bn(CQ.op)} matches the ${bn(CQ.op)} Apple reported for the quarter, and buybacks plus dividends of ${bn(CQ.bb + CQ.div)} match the "about ${bn(QR.total, 0)} returned" from the call. In the quarter Apple handed back more than its ${bn(CQ.fcf)} of free cash, which helps explain why net cash dipped from June. The same subtraction works for any company’s fourth quarter; our <a href="#tool-earnings">earnings lookup</a> does it for you.</p>`] : []),
+      `<h3>Fewer shares, faster EPS</h3><p>In the September quarter, net income rose ${F.pct(pc(NIQ, NIQY), 1)} but diluted EPS rose ${F.pct(pc(EPSQ, EPSQY), 1)}, from ${F.usd(EPSQY)} to ${F.usd(EPSQ)}. The difference is the buybacks: the diluted share count fell ${F.pct(-pc(SHD, SHDY), 1)}, so the same pie was cut into fewer slices.${FY && FYP ? ` Over the whole fiscal year: net income ${F.spct(pc(FY.netInc, FYP.netInc), 1)}, shares ${F.spct(pc(FY.shDil, FYP.shDil), 1)}, EPS ${F.spct(pc(FY.epsDil, FYP.epsDil), 1)} to ${F.usd(FY.epsDil)}.` : ''} At Hoppy’s the share count never changes, so its EPS grows exactly as fast as its profit.</p>` + linesHTML(CGROUPS, CT, ['ps']) + tip('When a company brags about EPS growth, put it next to net income growth. If EPS grows much faster, ask how much came from shrinking the share count and how much from the business.'),
+      `<h3>How cash flow moves the stock</h3><ul><li><b>Free cash flow pays for EPS growth.</b> Steady buybacks shrink the share count, and price ≈ EPS × P/E (<a href="#l-rc-price">how earnings move the price</a>).</li><li><b>Quality check.</b> Operating cash of ${x2(C.op / C.ni)} times net income says the profit is real cash. Watch one-time items too, like Apple’s tariff refunds (<a href="#l-rc-apple-income">the income statement</a>).</li><li><b>Capex tells the strategy.</b> Apple spent ${bn(C.capex)} in a whole year; ${SPX_CAPEX ? `SpaceX spent ${bn(SPX_CAPEX)} in one quarter` : 'SpaceX spent far more'} and burns cash as a result (<a href="#l-rc-spacex">SpaceX lesson</a>).</li><li><b>Payouts set expectations.</b> Investors count on Apple’s buybacks and dividend. A cut would be read as a warning about future cash.${CALL.netCashNeutral ? ' Apple dropped its "net cash neutral" goal on the November 2 call but said it still plans to return excess cash, so the buyback line is the one to watch.' : ''}</li></ul>`,
     ],
     example: {
-      title: 'Follow nine months of Apple’s cash',
-      intro: 'Nine months to June 27, 2026, from Apple’s cash flow statement.',
+      title: 'Follow a year of Apple’s cash',
+      intro: 'Fiscal 2026, the twelve months to September 26, 2026, from Apple’s cash flow statement.',
       steps: [
         `Start with net income: ${bn(C.ni)}.`,
         `Add back non-cash costs: depreciation ${bn(C.da)} + stock pay ${bn(C.sbc)} + other ${sbn(C.oth)} = ${sbn(C.noncash)}.`,
-        (() => { const f = sumFmt([C.ni, C.noncash, C.wc], C.op); return `Working capital used ${bn(-C.wc)} net. ${f === mn ? 'In Apple’s own millions: ' : 'So '}operating cash = ${f(C.ni)} + ${f(C.noncash)} − ${f(-C.wc)} = ${f(C.op)}.`; })(),
+        (() => { const f = sumFmt([C.ni, C.noncash, C.wc], C.op); return `Working capital ${C.wc < 0 ? 'used' : 'freed'} ${bn(Math.abs(C.wc))} net. ${f === mn ? 'In Apple’s own millions: ' : 'So '}operating cash = ${f(C.ni)} + ${f(C.noncash)} ${C.wc < 0 ? '−' : '+'} ${f(Math.abs(C.wc))} = ${f(C.op)}.`; })(),
         `Subtract capex of ${bn(C.capex)}: free cash flow = ${bn(C.fcf)}.`,
         `Pay out: buybacks ${bn(C.bb)} + dividends ${bn(C.div)} = ${bn(C.bb + C.div)}, or ${F.pct((C.bb + C.div) / C.fcf * 100, 0)} of free cash flow. Repay ${bn(C.debt)} of debt.`,
-        `The rest went to securities (${bn(C.sec)}, still Apple’s money), taxes on employee stock (${bn(C.taxes)}) and other items (${bn(C.other)}). Cash itself rose ${bn(C.cashUp)}, from ${bn(C.begin)} to ${bn(C.end)}.`,
+        `The rest went to securities (${bn(Math.abs(C.sec))}${C.sec >= 0 ? ', still Apple’s money' : ' taken out'}), taxes on employee stock (${bn(C.taxes)}) and other items (${bn(C.other)}). Cash itself ${C.cashUp >= 0 ? 'rose' : 'fell'} ${bn(Math.abs(C.cashUp))}, from ${bn(C.begin)} to ${bn(C.end)}.`,
       ],
-      result: `Net income ${F.spct(pc(NIQ, NIQY), 1)}, shares ${F.spct(pc(SHD, SHDY), 1)}, EPS ${F.spct(pc(EPSQ, EPSQY), 1)}: the buybacks turned profit growth into faster EPS growth.`,
+      result: `September quarter: net income ${F.spct(pc(NIQ, NIQY), 1)}, shares ${F.spct(pc(SHD, SHDY), 1)}, EPS ${F.spct(pc(EPSQ, EPSQY), 1)}. The buybacks turned profit growth into faster EPS growth.`,
     },
     mistakes: [
       'Treating net income as cash. Check operating cash flow and free cash flow every time.',
       'Forgetting capex: operating cash looks great at companies that must spend heavily just to keep going.',
       'Counting cash parked in securities as "spent". It is still the company’s money, in another pocket.',
+      'Reading a fourth-quarter cash flow statement as one quarter. Many companies, Apple included, show the full year; subtract the first nine months to get the quarter.',
       'Ignoring stock pay: it is added back as non-cash, but it creates new shares that buybacks must soak up.',
     ],
     points: [
-      `Operating cash = profit + non-cash costs ± working capital: ${bn(C.op)} against ${bn(C.ni)} of profit.`,
-      `Free cash flow = operating cash − capex: ${bn(C.fcf)} in nine months.`,
+      `Operating cash = profit + non-cash costs ± working capital: ${bn(C.op)} against ${bn(C.ni)} of profit in fiscal 2026.`,
+      `Free cash flow = operating cash − capex: ${bn(C.fcf)} for the year${CQ ? `, ${bn(CQ.fcf)} in the September quarter (our math)` : ''}.`,
       `Buybacks (${bn(C.bb)}) were the biggest use of cash, then debt repayment (${bn(C.debt)}) and dividends (${bn(C.div)}).`,
-      `A shrinking share count makes EPS grow faster than net income: ${F.spct(pc(EPSQ, EPSQY), 1)} vs ${F.spct(pc(NIQ, NIQY), 1)}.`,
+      `A shrinking share count makes EPS grow faster than net income: ${F.spct(pc(EPSQ, EPSQY), 1)} vs ${F.spct(pc(NIQ, NIQY), 1)} in the September quarter.`,
       `The dividend is $${DIV.perShare.toFixed(2)} a share each quarter.`,
     ],
     terms: ['Cash flow statement', 'Operating cash flow', 'Free cash flow', 'Capex', 'Buyback', 'Share count'],
     glossary: [{ t: 'Working capital (change)', d: 'Cash tied up in or freed from receivables, inventory and payables during a period.' }],
-    quiz: { q: `Apple’s June-quarter net income rose ${F.pct(pc(NIQ, NIQY), 1)}, but EPS rose ${F.pct(pc(EPSQ, EPSQY), 1)}. Why?`, options: ['Apple sold more iPhones', 'Buybacks cut the number of shares, so each share got a bigger slice', 'Apple paid less tax'], answer: 1, why: `The diluted share count fell ${F.pct(-pc(SHD, SHDY), 1)}, so the same profit was split among fewer shares.` },
-    sources: srcPick(0, 1),
+    quiz: { q: `Apple’s September-quarter net income rose ${F.pct(pc(NIQ, NIQY), 1)}, but EPS rose ${F.pct(pc(EPSQ, EPSQY), 1)}. Why?`, options: ['Apple sold more iPhones', 'Buybacks cut the number of shares, so each share got a bigger slice', 'Apple paid less tax'], answer: 1, why: `The diluted share count fell ${F.pct(-pc(SHD, SHDY), 1)}, so the same profit was split among fewer shares. (More iPhones and a lower tax rate raised net income itself, but they cannot explain why EPS grew faster than net income.)` },
+    sources: srcBy('FY26_Q4', 'fourth-quarter-results', 'a8-kex991q3202606272026', 'investing.com'),
   });
 })();

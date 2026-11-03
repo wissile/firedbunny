@@ -98,7 +98,7 @@
       if (m) return m[1].split('').join(' ') + (m[2] ? (m[2] === 's' ? 's' : "'s") : '');
       return w;
     });
-    s = s.replace(/\s+([.,;:!?])/g, '$1').replace(/[,;:]+\s*([.!?])/g, '$1').replace(/([.!?:;])\s*[.,;:]+/g, '$1').replace(/,(\s*,)+/g, ',').replace(/^[\s,.;:]+/, '').replace(/[,;:]+\s*$/, '').replace(/\s{2,}/g, ' ').trim();
+    s = s.replace(/\s+([.,;:!?])/g, '$1').replace(/[,;:]+\s*([.!?])/g, '$1').replace(/,\s*([:;])/g, '$1').replace(/([.!?:;])\s*[.,;:]+/g, '$1').replace(/,(\s*,)+/g, ',').replace(/^[\s,.;:]+/, '').replace(/[,;:]+\s*$/, '').replace(/\s{2,}/g, ' ').trim();
     if (s && !/[.!?"]$/.test(s)) s += '.';
     return s;
   }
