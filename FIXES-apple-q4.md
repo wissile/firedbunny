@@ -41,7 +41,7 @@ education not advice, Hoppy's Coffee Cart as the made-up everyday example.
    supply), Services +9.8% (in line, but slower than June's 12.1%), Greater China +21% yet below the $18.8B hoped for.
 3. Margins: gross margin rose to 47.9% from 47.2%, but about 1 point was refunds; underlying ≈ 46.9% was a little BELOW a
    year ago because memory chips cost more. Opex +20.6% (R&D +32%) grew faster than gross profit (+13.4%), so the
-   OPERATING margin fell to 31.1% from 31.7%: operating income grew only 9.9%, slower than sales. A lower tax rate
+   OPERATING margin fell to 31.1% from 31.6%: operating income grew only 9.9%, slower than sales. A lower tax rate
    (15.0% vs 16.3%) and buybacks (−1.6% diluted shares) lifted EPS to +13.5%.
 4. Fiscal 2026 as a whole: revenue $478.8B (+15%), net income $132.2B (+18%), EPS $8.98 (+20%), free cash flow
    $136.1B (our math), buybacks $86.4B, dividends $15.7B.
