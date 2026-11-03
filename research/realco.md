@@ -66,8 +66,15 @@ EXPECTATIONS AND REACTION (press reports):
   Services 10.7% (TradingView).
 * Stock: Nov 2 close $338.32 (−1.8% in the regular session, before the report; prior close $344.63). After hours down as
   much as ~4%, then ≈ −2.8% ($328.85). Nov 3 premarket ≈ −4% near $325. Valuation ≈ 35× forward earnings; trailing
-  P/E at $338.32 ≈ 37.7 (on $8.98). Close on Nov 3: see `SML.realco.apple.reaction`.
-* Teaching contrast with June: same shape both times — beat, then a guide below hopes — and the stock fell.
+  P/E at $338.32 ≈ 37.7 (on $8.98).
+* Nov 3 close: $331.82, −$6.50 (−1.92%) vs $338.32 (Investing.com close-of-trade quote,
+  https://www.investing.com/news/stock-market-news/us-stocks-mixed-at-close-of-trade-dow-jones-industrial-average-down-046-4996317 ;
+  Kiplinger closing recap "AAPL, -1.9%", https://www.kiplinger.com/investing/stocks/nasdaq-bounces-as-chips-lead-ai-revival-stock-market-today ).
+  The early drop (≈ −4% premarket, ≈ $325) roughly halved by the close. Trailing P/E at the close ≈ 37.0 (331.82 ÷ 8.98).
+  Market value change ≈ −$94B (our math: 6.50 × 14,532M shares outstanding). Nasdaq and S&P rose that day; the Dow fell
+  0.46%, with Apple weighing on it.
+* Teaching contrast with June: same shape both times — beat, then a guide below hopes — and the stock fell (−7.4% on
+  July 31; −1.9% on November 3, a smaller drop).
 
 ## Apple — fiscal Q3 2026 (three months ended June 27, 2026), reported July 30, 2026 after the close (PREVIOUS quarter)
 

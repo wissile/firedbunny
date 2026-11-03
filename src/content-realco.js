@@ -168,8 +168,8 @@
       // Greater China (Bloomberg via TradingView), December-quarter expectations (SiliconANGLE, TradingView, MacDailyNews)
       expectations: { revenue: 113380, eps: 1.99, iPhone: 56600, services: 31580, Mac: 9610, iPad: 6700, greaterChina: 18800,
         nextQtrGrowth: 11.4, nextQtrRevenue: 160100 /* our math: 143,756 × 1.114 */, nextQtrGrossMargin: 47, nextQtrServicesGrowth: 10.7 },
-      // closePct / closeAfter are filled in after the Nov 3 close
-      reaction: { prevClose: 344.63, closeBefore: 338.32, afterHoursPct: -2.8, afterHoursLowPct: -4, premarketPct: -4, closePct: null, closeAfter: null, day: 'November 3, 2026' },
+      // Nov 3 close: $331.82, −$6.50 (−1.92%) vs $338.32 (Investing.com close-of-trade quote; Kiplinger closing recap: −1.9%)
+      reaction: { prevClose: 344.63, closeBefore: 338.32, afterHoursPct: -2.8, afterHoursLowPct: -4, premarketPct: -4, closePct: -1.9, closeAfter: 331.82, day: 'November 3, 2026' },
       // the previous story (June quarter, reported July 30, 2026): kept as the contrast
       q3: {
         period: 'Fiscal Q3 2026', periodEnd: 'June 27, 2026', reported: 'July 30, 2026 (after the close)',
@@ -195,6 +195,8 @@
         { t: 'SiliconANGLE: Apple’s stock drops as new CEO John Ternus delivers his first earnings call', u: 'https://siliconangle.com/2026/11/02/apples-stock-drops-as-new-ceo-john-ternus-delivers-his-first-earnings-call/' },
         { t: 'TradingView News: Apple stock slides 3% after Ternus’ first earnings beat, holiday margins disappoint', u: 'https://www.tradingview.com/news/tradingview:3eb79822e094b:0-aapl-apple-stock-slides-3-after-ternus-first-earnings-beat-holiday-margins-disappoint/' },
         { t: 'MacDailyNews: Despite posting record earnings, Apple stock swoons (November 3, 2026)', u: 'https://macdailynews.com/2026/11/03/despite-posting-record-earnings-apple-stock-swoons/' },
+        { t: 'Investing.com: U.S. stocks mixed at close of trade (November 3, 2026), with the AAPL closing quote', u: 'https://www.investing.com/news/stock-market-news/us-stocks-mixed-at-close-of-trade-dow-jones-industrial-average-down-046-4996317' },
+        { t: 'Kiplinger: Nasdaq bounces as chips lead AI revival, stock market today (November 3, 2026 close)', u: 'https://www.kiplinger.com/investing/stocks/nasdaq-bounces-as-chips-lead-ai-revival-stock-market-today' },
         { t: 'The Tech Portal: Apple stock falls nearly 4% as Ternus guides margin to 45–46% on rising memory costs', u: 'https://thetechportal.com/2026/11/03/apple-stock-falls-nearly-4-as-ternus-guides-down-q326-margin-to-45-46-on-rising-memory-costs/' },
         { t: 'Hargreaves Lansdown / Sharecast: Apple tops Q3 forecasts, but shares sink on weak Q4 guidance', u: 'https://www.hl.co.uk/shares/stock-market-news/company--news/apple-tops-q3-forecasts,-but-shares-sink-on-weak-q4-guidance' },
         { t: 'MacDailyNews: Analysts split on Apple after strong Q3 beat overshadowed by soft Q4 guidance', u: 'https://macdailynews.com/2026/07/31/analysts-split-on-apple-after-strong-q3-beat-overshadowed-by-soft-q4-guidance/' },
