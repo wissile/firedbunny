@@ -1,9 +1,75 @@
-# Real-company research: Apple FQ3 2026 and SpaceX Q3 2026 (with Q2 2026) (checked October 22, 2026)
+# Real-company research: Apple FQ4 2026 (with FQ3) and SpaceX Q3 2026 (with Q2 2026) (Apple checked November 3, 2026; SpaceX October 22, 2026)
 
 All statement figures are copied from the companies' own releases and checked by summing every subtotal (all tie out).
 Numbers live in `src/content-realco.js` (`SML.realco`). Use that object in code; do not retype figures.
 
-## Apple — fiscal Q3 2026 (three months ended June 27, 2026), reported July 30, 2026 after the close
+## Apple — fiscal Q4 2026 (three months ended September 26, 2026), reported November 2, 2026 after the close — LATEST QUARTER
+
+Primary source: Apple's condensed consolidated financial statements for Q4 FY2026,
+https://www.apple.com/newsroom/pdfs/fy2026q4/FY26_Q4_Consolidated_Financial_Statements.pdf (every subtotal re-added: all tie out).
+Press release: https://www.apple.com/newsroom/2026/11/apple-reports-fourth-quarter-results/ . The 10-K was due November 3.
+Call (Nov 2, 2:00 p.m. PT; John Ternus's first as CEO): Investing.com transcript summary, MacRumors, SiliconANGLE, TradingView.
+
+VERIFIED (company documents):
+* Revenue $114,477M (+11.7% YoY from $102,466M; +4.6% vs June's $109,417M). A September-quarter record. Apple's July guide
+  was +9–11%: it came in above the top.
+* Products $82,904M (+12.5%), Services $31,573M (+9.8%; June was +12.1%: Services growth slowed). Services = 27.6% of
+  revenue, 43.7% of gross profit.
+* Gross margin $54,820M = 47.89% (year ago 47.18%; June 50.06%). Products GM 37.20% (June 40.07%, year ago 36.22%),
+  Services GM 75.95% (year ago 75.28%). Press release: GM "included a favorable impact of about 1 percentage point from
+  tariff refunds"; diluted EPS $2.10 "included a $0.05 favorable impact". Ex-refund: GM ≈ 46.9% (below the year-ago 47.2%),
+  EPS ≈ $2.05 (+10.8%). CFO: excluding refunds, both company and products margin were down about 1 point from June,
+  mainly memory costs.
+* R&D $11,730M (+32.3%, 10.2% of revenue), SG&A $7,459M (+5.8%), opex $19,189M (+20.6%; July guide $19.1–19.4B).
+* Operating income $35,631M (+9.9%: slower than revenue); operating margin 31.13% vs 31.65% a year ago (June 32.62%).
+* Other income $504M (guide ~$350M; year ago $377M). Pretax $36,135M. Tax $5,424M = 15.0% (guide ~16.5%; year ago 16.3%).
+* Net income $30,711M (+11.8%); net margin 26.8%. Diluted EPS $2.10 (+13.5% from $1.85); diluted shares 14,630.3M vs
+  14,863.6M (−1.6%).
+* Categories: iPhone $57,583M (+17.5%), Mac $10,792M (+23.7%), iPad $6,229M (−10.4%), Wearables/Home/Acc $8,300M (−7.9%),
+  Services $31,573M (+9.8%). Regions: Americas $48,680M (+10.2%), Europe $32,008M (+11.5%), Greater China $17,539M
+  (+21.0%), Japan $6,540M (−1.4%), Rest of Asia Pacific $9,710M (+15.0%).
+* Fiscal 2026: revenue $478,834M (+15.1%), net income $132,175M (+18.0%), diluted EPS $8.98 (+20.4% from $7.46).
+* Balance sheet Sep 26, 2026: total assets $404,548M; cash $36,305M + securities $20,417M + $80,213M = $136,935M; debt =
+  CP $1,997M + term $9,906M + $68,208M = $80,111M; net cash $56,824M (June $62,173M; Sep 2025 $33,763M). Inventory
+  $14,541M (Sep 2025 $5,718M), accounts payable $82,252M, vendor non-trade receivables $39,896M. Current assets $173,857M
+  vs current liabilities $169,915M (current ratio 1.02). Equity $112,093M (from $73,733M); retained earnings +$13,700M
+  (from −$14,264M). Shares outstanding 14,532.3M (from 14,773.3M).
+* Cash flow, fiscal 2026: operating $145,097M (FY25 $111,482M), capex $9,041M (FY25 $12,715M), FCF $136,056M (our math;
+  FY25 $98,767M), buybacks $86,390M, dividends $15,721M, term debt repaid $12,396M, CP repaid $5,911M.
+  September quarter alone (12 months − 9 months, our math): operating $28,101M (release: $28.1B), capex $2,242M,
+  FCF $25,859M, buybacks $24,296M, dividends $3,943M ("$28B returned").
+* Dividend $0.27, record Nov 12, payable Nov 16, 2026.
+* December-quarter guide: revenue +7–10% (on $143,756M: ≈ $153.8–158.1B, our math), "best quarter for revenue in the
+  history of the company"; Services +8–9%; gross margin 45–46%; opex $20.4–20.8B; other income ≈ $300M (excluding
+  mark-to-market on minority investments); tax ≈ 17%.
+
+CALL (paraphrased from transcript summaries; no direct recording):
+* Ternus: memory pricing "unprecedented"; Mac record year ("We have never sold more Macs in a fiscal year"); iPhone Duo
+  (foldable) supply-constrained; Siri AI beta (US English in September, more languages in October); installed base
+  2.5B+ active devices; 1.5B+ paid subscriptions; Greater China +21% (record), +28% for the year.
+* Parekh: ~2 points sequential FX headwind on revenue; Services ~1.5 points; ex-refund margins −1 point sequentially on
+  memory; manufacturing purchase obligations +$33B June→September; Siri AI cloud inference costs go to Services cost of
+  sales; Apple "is no longer targeting" net cash neutral; Mac/iPad price increases end of June, iPhone in September,
+  too early to judge elasticity; Services headwinds: FX (~4 points over March–September), mobile gaming, US court ruling
+  on App Store link-outs.
+* Sabih Khan (COO): memory relationships; "hard to predict when supply and demand will be in balance" for iPhone Duo;
+  December constraints on Mac and iPad, memory-driven.
+* Q&A order (firm: topic): Goldman Sachs (standard iPhone, iCloud+), Morgan Stanley (Siri agentic, Services durability),
+  Evercore (agents, gross margin bridge), Melius (net cash neutral, Services), BofA (memory procurement, Siri compute),
+  JPMorgan (iPhone Duo supply), TD Cowen (memory and margin), UBS (price vs volume, opex), Arete (macOS/iOS, China),
+  Cleveland Research (affordability, supply).
+
+EXPECTATIONS AND REACTION (press reports):
+* Consensus: revenue ≈ $113.38B, EPS $1.99 (Investing.com); iPhone $56.6B (LSEG); Services $31.58B, Mac $9.61B, iPad
+  $6.7B (SiliconANGLE); Greater China $18.8B (Bloomberg) → beat on revenue, EPS, iPhone, Mac; in line on Services; miss on
+  iPad and China. December quarter: revenue growth 11.4% expected (SiliconANGLE), gross margin ≈ 47% (MacDailyNews),
+  Services 10.7% (TradingView).
+* Stock: Nov 2 close $338.32 (−1.8% in the regular session, before the report; prior close $344.63). After hours down as
+  much as ~4%, then ≈ −2.8% ($328.85). Nov 3 premarket ≈ −4% near $325. Valuation ≈ 35× forward earnings; trailing
+  P/E at $338.32 ≈ 37.7 (on $8.98). Close on Nov 3: see `SML.realco.apple.reaction`.
+* Teaching contrast with June: same shape both times — beat, then a guide below hopes — and the stock fell.
+
+## Apple — fiscal Q3 2026 (three months ended June 27, 2026), reported July 30, 2026 after the close (PREVIOUS quarter)
 
 Primary source: Apple 8-K Exhibit 99.1, https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000018/a8-kex991q3202606272026.htm
 Press release: https://www.apple.com/newsroom/2026/07/apple-reports-third-quarter-results/ (headline "Apple reports third quarter results")

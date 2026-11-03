@@ -57,6 +57,7 @@ def main():
     ap.add_argument('--speed', type=float, default=1.0)
     ap.add_argument('--bitrate', default='40k')
     ap.add_argument('--stage', default='')
+    ap.add_argument('--skip', default='', help='comma-separated id prefixes to leave for later (e.g. l-rc-)')
     a = ap.parse_args()
     stage = os.path.abspath(a.stage) if a.stage else ''
     out_dir = os.path.join(stage, 'lessons') if stage else OUT
@@ -82,7 +83,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     t_start = time.time()
     done = 0
-    todo = [s for s in scripts if (not want or s['id'] in want)
+    skip = tuple(filter(None, a.skip.split(',')))
+    todo = [s for s in scripts if (not want or s['id'] in want) and not (skip and s['id'].startswith(skip))
             and not (s['id'] in man and man[s['id']]['hash'] == s['hash'] and have(man[s['id']]))]
     print(f'{len(todo)} lessons to render', flush=True)
     for s in todo:
