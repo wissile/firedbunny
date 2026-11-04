@@ -1,4 +1,4 @@
-# build output (Cloudflare Pages builds dist/ itself from src/ + public/)
+# build output (the deploy builds dist/ itself from src/ + public/)
 dist/
 build/
 # local test output and scratch

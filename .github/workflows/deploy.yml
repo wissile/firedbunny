@@ -1,0 +1,97 @@
+# Deploys the site to the Cloudflare Worker "firedbunny" on every push to main, then checks the live site.
+#
+# One-time setup, in GitHub: Settings > Secrets and variables > Actions > New repository secret
+#   CLOUDFLARE_API_TOKEN   a Cloudflare API token made from the "Edit Cloudflare Workers" template
+#   CLOUDFLARE_ACCOUNT_ID  your Cloudflare account ID (Workers & Pages overview, right-hand column)
+# Optional repository variable (same page, Variables tab): SITE_URL, e.g. https://firedbunny.com. It is used for
+# link previews and for the live-site check; without it the check uses the workers.dev address.
+#
+# Other branches never deploy, so unfinished work can live on a branch until it is merged into main.
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to Cloudflare
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      SITE_URL: ${{ vars.SITE_URL }}
+      WRANGLER_VERSION: 4.151.3
+      WRANGLER_SEND_METRICS: "false"
+    steps:
+      - name: Check the Cloudflare secrets
+        run: |
+          missing=""
+          [ -n "$CLOUDFLARE_API_TOKEN" ] || missing="$missing CLOUDFLARE_API_TOKEN"
+          [ -n "$CLOUDFLARE_ACCOUNT_ID" ] || missing="$missing CLOUDFLARE_ACCOUNT_ID"
+          if [ -n "$missing" ]; then
+            echo "::error title=Not deployed::Add these repository secrets in Settings > Secrets and variables > Actions:$missing"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      # wrangler runs the build in wrangler.jsonc (python3 tools/build.py) and then uploads dist/ and worker/index.js.
+      - name: Build and deploy
+        id: deploy
+        run: |
+          set -o pipefail
+          npx --yes "wrangler@$WRANGLER_VERSION" deploy 2>&1 | tee deploy.log
+          url=$(grep -oE 'https://[A-Za-z0-9.-]+\.workers\.dev' deploy.log | head -1 || true)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Check the live site
+        env:
+          URL: ${{ vars.SITE_URL || steps.deploy.outputs.url }}
+        run: |
+          short=${GITHUB_SHA::7}
+          if [ -z "$URL" ]; then
+            echo "::warning title=Deployed $short::Deployed, but no address to check. Set the SITE_URL repository variable."
+            exit 0
+          fi
+          URL=${URL%/}
+          code=000
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o home.html -w '%{http_code}' "$URL/" || true)
+            [ "$code" = 200 ] && grep -q '<title>FiredBunny' home.html && break
+            sleep 5
+          done
+          if [ "$code" != 200 ] || ! grep -q '<title>FiredBunny' home.html; then
+            echo "::error title=Live site check failed::$URL/ answered $code after deploying $short"
+            exit 1
+          fi
+          if cmp -s home.html dist/index.html; then
+            echo "::notice title=Deployed $short::$URL is live and serving this commit."
+          else
+            echo "::warning title=Deployed $short::$URL answers, but its page differs from this build (a cache or a page rule may change it)."
+          fi
+          curl -s -o health.json "$URL/api/health" || true
+          python3 - "$URL" <<'PY'
+          import json, sys
+          url = sys.argv[1]
+          try:
+              h = json.load(open('health.json'))
+          except Exception:
+              print(f'::warning title=Live data::{url}/api/health did not answer with data, so the earnings relay is not running.')
+              sys.exit(0)
+          level = 'notice' if h.get('ok') else 'warning'
+          print(f"::{level} title=Live data::{h.get('verdict', '')} ({h.get('secUserAgent', '')})")
+          PY

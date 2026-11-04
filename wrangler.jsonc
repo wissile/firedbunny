@@ -1,5 +1,6 @@
-// Cloudflare Worker with static assets. Workers Builds runs `npx wrangler deploy`, which first runs the build below
-// (src/ + public/ -> dist/) and then uploads dist/ plus worker/index.js (the small /api relay for the Earnings lookup).
+// Cloudflare Worker with static assets. GitHub Actions (.github/workflows/deploy.yml) runs `wrangler deploy` on every
+// push to main, which first runs the build below (src/ + public/ -> dist/) and then uploads dist/ plus worker/index.js
+// (the small /api relay for the Earnings lookup).
 {
   "name": "firedbunny",
   "main": "worker/index.js",

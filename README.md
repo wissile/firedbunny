@@ -18,17 +18,30 @@ Preview locally: `python3 -m http.server 8000 --directory dist` and open http://
 
 ## Deploy on Cloudflare (auto-deploy from GitHub)
 
-The repo deploys as a **Cloudflare Worker with static assets** (what the dashboard creates by default when you
-import a Git repository). `wrangler.jsonc` holds everything: the Worker name (`firedbunny`, must match the name in
-the dashboard), the build command and the `dist` folder. In the dashboard keep the defaults: Deploy command
-`npx wrangler deploy`, build command empty, root directory `/`. Every push to `main` deploys; other branches get
-preview URLs if "non-production branch builds" is on.
+The repo deploys as a **Cloudflare Worker with static assets**. `wrangler.jsonc` holds everything: the Worker name
+(`firedbunny`), the build command and the `dist` folder.
+
+Every push to `main` deploys through GitHub Actions (`.github/workflows/deploy.yml`): it builds the site, runs
+`wrangler deploy`, then checks that the live page matches the build and reads `/api/health`. The result appears as
+a green check or red cross on the commit, with the live address in the run's notes. Other branches do not deploy.
+
+One-time setup in GitHub, **Settings → Secrets and variables → Actions → New repository secret**:
+
+| Secret | Where to get it |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare → My Profile → API Tokens → Create Token → template **Edit Cloudflare Workers** |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare → Workers & Pages → Account ID in the right-hand column |
+
+Optionally add a repository *variable* `SITE_URL` (your custom domain) on the Variables tab. Then run the workflow
+once from the Actions tab (Run workflow) or push any commit. If Cloudflare's own Git integration (Workers Builds) is
+also connected, disconnect it so pushes do not deploy twice.
 
 Cloudflare **Pages** serves the lessons too (Production branch `main`, Framework preset None, Build command
 `python3 tools/build.py`, Build output directory `dist`), but Pages does not run `worker/index.js`, so the
 Earnings lookup has no live data there and shows its sample. Use the Worker deploy for live lookups.
 
-Optional build variable: `SITE_URL` = your final address, e.g. `https://firedbunny.com` (used in link previews).
+`SITE_URL` = your final address, e.g. `https://firedbunny.com`, is used in link previews (GitHub repository variable
+for the Worker deploy, build variable on Pages).
 
 ### Live earnings data (the `/api` relay)
 
