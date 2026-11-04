@@ -637,6 +637,35 @@
   "hash": "2i3khf",
   "voice": "af_heart"
  },
+ "l-blockchain": {
+  "bytes": 1611335,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.85,
+    "how"
+   ],
+   [
+    189.82,
+    "ex"
+   ],
+   [
+    253.92,
+    "mis"
+   ],
+   [
+    285.51,
+    "pts"
+   ]
+  ],
+  "dur": 311.0,
+  "file": "audio/lessons/l-blockchain.mp4",
+  "hash": "rg5xcd",
+  "voice": "af_heart"
+ },
  "l-bonds": {
   "bytes": 683478,
   "chapters": [
@@ -1014,6 +1043,151 @@
   "hash": "6jt1n0",
   "voice": "af_heart"
  },
+ "l-crypto-coins": {
+  "bytes": 2422224,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    17.07,
+    "how"
+   ],
+   [
+    338.75,
+    "ex"
+   ],
+   [
+    410.43,
+    "mis"
+   ],
+   [
+    439.41,
+    "pts"
+   ]
+  ],
+  "dur": 464.6,
+  "file": "audio/lessons/l-crypto-coins.mp4",
+  "hash": "1ooa2g0",
+  "voice": "af_heart"
+ },
+ "l-crypto-custody": {
+  "bytes": 1707722,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    15.06,
+    "how"
+   ],
+   [
+    212.83,
+    "ex"
+   ],
+   [
+    276.5,
+    "mis"
+   ],
+   [
+    304.63,
+    "pts"
+   ]
+  ],
+  "dur": 331.5,
+  "file": "audio/lessons/l-crypto-custody.mp4",
+  "hash": "13pr7c",
+  "voice": "af_heart"
+ },
+ "l-crypto-drivers": {
+  "bytes": 2765292,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    13.5,
+    "how"
+   ],
+   [
+    353.83,
+    "ex"
+   ],
+   [
+    468.86,
+    "mis"
+   ],
+   [
+    497.86,
+    "pts"
+   ]
+  ],
+  "dur": 531.1,
+  "file": "audio/lessons/l-crypto-drivers.mp4",
+  "hash": "603d94",
+  "voice": "af_heart"
+ },
+ "l-crypto-risks": {
+  "bytes": 2913841,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.12,
+    "how"
+   ],
+   [
+    395.53,
+    "ex"
+   ],
+   [
+    507.27,
+    "mis"
+   ],
+   [
+    532.31,
+    "pts"
+   ]
+  ],
+  "dur": 562.7,
+  "file": "audio/lessons/l-crypto-risks.mp4",
+  "hash": "j9x02d",
+  "voice": "af_heart"
+ },
+ "l-crypto-trading": {
+  "bytes": 2581162,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.37,
+    "how"
+   ],
+   [
+    316.67,
+    "ex"
+   ],
+   [
+    440.37,
+    "mis"
+   ],
+   [
+    464.28,
+    "pts"
+   ]
+  ],
+  "dur": 496.9,
+  "file": "audio/lessons/l-crypto-trading.mp4",
+  "hash": "ps87pj",
+  "voice": "af_heart"
+ },
  "l-cycle": {
   "bytes": 1950909,
   "chapters": [
@@ -1128,6 +1302,35 @@
   "dur": 141.7,
   "file": "audio/lessons/l-delta-gamma.mp4",
   "hash": "5utgsy",
+  "voice": "af_heart"
+ },
+ "l-dollar": {
+  "bytes": 1811184,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    11.95,
+    "how"
+   ],
+   [
+    186.54,
+    "ex"
+   ],
+   [
+    283.71,
+    "mis"
+   ],
+   [
+    317.58,
+    "pts"
+   ]
+  ],
+  "dur": 349.5,
+  "file": "audio/lessons/l-dollar.mp4",
+  "hash": "1idk26n",
   "voice": "af_heart"
  },
  "l-drawdowns": {
