@@ -956,6 +956,35 @@
   "hash": "1lhc3",
   "voice": "af_heart"
  },
+ "l-copper": {
+  "bytes": 1587276,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.02,
+    "how"
+   ],
+   [
+    191.1,
+    "ex"
+   ],
+   [
+    257.34,
+    "mis"
+   ],
+   [
+    284.75,
+    "pts"
+   ]
+  ],
+  "dur": 306.3,
+  "file": "audio/lessons/l-copper.mp4",
+  "hash": "uu5j9l",
+  "voice": "af_heart"
+ },
  "l-credit-score": {
   "bytes": 1840547,
   "chapters": [
@@ -983,6 +1012,64 @@
   "dur": 356.6,
   "file": "audio/lessons/l-credit-score.mp4",
   "hash": "6jt1n0",
+  "voice": "af_heart"
+ },
+ "l-cycle": {
+  "bytes": 1950909,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.29,
+    "how"
+   ],
+   [
+    245.17,
+    "ex"
+   ],
+   [
+    322.26,
+    "mis"
+   ],
+   [
+    351.12,
+    "pts"
+   ]
+  ],
+  "dur": 379.2,
+  "file": "audio/lessons/l-cycle.mp4",
+  "hash": "u548wm",
+  "voice": "af_heart"
+ },
+ "l-data-day": {
+  "bytes": 2088077,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    13.55,
+    "how"
+   ],
+   [
+    259.82,
+    "ex"
+   ],
+   [
+    346.19,
+    "mis"
+   ],
+   [
+    378.87,
+    "pts"
+   ]
+  ],
+  "dur": 405.7,
+  "file": "audio/lessons/l-data-day.mp4",
+  "hash": "18c57su",
   "voice": "af_heart"
  },
  "l-deductions": {
@@ -1128,6 +1215,35 @@
   "dur": 165.6,
   "file": "audio/lessons/l-earnings.mp4",
   "hash": "fiicbt",
+  "voice": "af_heart"
+ },
+ "l-earnings-season": {
+  "bytes": 1945481,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    13.46,
+    "how"
+   ],
+   [
+    245.24,
+    "ex"
+   ],
+   [
+    325.47,
+    "mis"
+   ],
+   [
+    350.03,
+    "pts"
+   ]
+  ],
+  "dur": 375.8,
+  "file": "audio/lessons/l-earnings-season.mp4",
+  "hash": "xwl4tj",
   "voice": "af_heart"
  },
  "l-ema-stack": {
@@ -1391,6 +1507,35 @@
   "hash": "19sd2sg",
   "voice": "af_heart"
  },
+ "l-fed": {
+  "bytes": 2871229,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.18,
+    "how"
+   ],
+   [
+    402.1,
+    "ex"
+   ],
+   [
+    484.46,
+    "mis"
+   ],
+   [
+    509.77,
+    "pts"
+   ]
+  ],
+  "dur": 550.9,
+  "file": "audio/lessons/l-fed.mp4",
+  "hash": "1peq4xa",
+  "voice": "af_heart"
+ },
  "l-fire-intro": {
   "bytes": 1523411,
   "chapters": [
@@ -1592,6 +1737,64 @@
   "dur": 496.5,
   "file": "audio/lessons/l-geo-arbitrage.mp4",
   "hash": "yxblfc",
+  "voice": "af_heart"
+ },
+ "l-geopolitics": {
+  "bytes": 3002333,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    16.6,
+    "how"
+   ],
+   [
+    401.75,
+    "ex"
+   ],
+   [
+    495.31,
+    "mis"
+   ],
+   [
+    535.6,
+    "pts"
+   ]
+  ],
+  "dur": 575.4,
+  "file": "audio/lessons/l-geopolitics.mp4",
+  "hash": "2mrzfm",
+  "voice": "af_heart"
+ },
+ "l-gold-silver": {
+  "bytes": 2236123,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    15.04,
+    "how"
+   ],
+   [
+    286.36,
+    "ex"
+   ],
+   [
+    373.42,
+    "mis"
+   ],
+   [
+    401.14,
+    "pts"
+   ]
+  ],
+  "dur": 432.1,
+  "file": "audio/lessons/l-gold-silver.mp4",
+  "hash": "69n00u",
   "voice": "af_heart"
  },
  "l-guardrails": {
@@ -1797,6 +2000,35 @@
   "hash": "1bfarbj",
   "voice": "af_heart"
  },
+ "l-inflation": {
+  "bytes": 2301409,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    16.13,
+    "how"
+   ],
+   [
+    291.59,
+    "ex"
+   ],
+   [
+    373.91,
+    "mis"
+   ],
+   [
+    412.38,
+    "pts"
+   ]
+  ],
+  "dur": 445.2,
+  "file": "audio/lessons/l-inflation.mp4",
+  "hash": "1j5xsv4",
+  "voice": "af_heart"
+ },
  "l-insurance": {
   "bytes": 2221841,
   "chapters": [
@@ -1884,6 +2116,35 @@
   "hash": "1qqxklp",
   "voice": "af_heart"
  },
+ "l-jobs": {
+  "bytes": 1685190,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    16.17,
+    "how"
+   ],
+   [
+    202.23,
+    "ex"
+   ],
+   [
+    271.84,
+    "mis"
+   ],
+   [
+    299.39,
+    "pts"
+   ]
+  ],
+  "dur": 325.9,
+  "file": "audio/lessons/l-jobs.mp4",
+  "hash": "tmp80d",
+  "voice": "af_heart"
+ },
  "l-journal": {
   "bytes": 811754,
   "chapters": [
@@ -1911,6 +2172,35 @@
   "dur": 158.1,
   "file": "audio/lessons/l-journal.mp4",
   "hash": "qyyui8",
+  "voice": "af_heart"
+ },
+ "l-key-dates": {
+  "bytes": 2593689,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.05,
+    "how"
+   ],
+   [
+    293.19,
+    "ex"
+   ],
+   [
+    416.69,
+    "mis"
+   ],
+   [
+    453.63,
+    "pts"
+   ]
+  ],
+  "dur": 499.6,
+  "file": "audio/lessons/l-key-dates.mp4",
+  "hash": "1dwoiho",
   "voice": "af_heart"
  },
  "l-kids-money": {
@@ -1998,6 +2288,35 @@
   "dur": 178.1,
   "file": "audio/lessons/l-levels.mp4",
   "hash": "wgedrh",
+  "voice": "af_heart"
+ },
+ "l-macro-intro": {
+  "bytes": 1464312,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    11.8,
+    "how"
+   ],
+   [
+    162.0,
+    "ex"
+   ],
+   [
+    231.95,
+    "mis"
+   ],
+   [
+    259.12,
+    "pts"
+   ]
+  ],
+  "dur": 285.1,
+  "file": "audio/lessons/l-macro-intro.mp4",
+  "hash": "n8irxd",
   "voice": "af_heart"
  },
  "l-medicare-rmd": {
@@ -2143,6 +2462,35 @@
   "dur": 265.5,
   "file": "audio/lessons/l-net-worth.mp4",
   "hash": "j44ofo",
+  "voice": "af_heart"
+ },
+ "l-oil": {
+  "bytes": 2880781,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.61,
+    "how"
+   ],
+   [
+    381.55,
+    "ex"
+   ],
+   [
+    488.17,
+    "mis"
+   ],
+   [
+    520.63,
+    "pts"
+   ]
+  ],
+  "dur": 554.4,
+  "file": "audio/lessons/l-oil.mp4",
+  "hash": "1js5s8y",
   "voice": "af_heart"
  },
  "l-one-percent": {
@@ -2319,6 +2667,35 @@
   "hash": "5g80y9",
   "voice": "af_heart"
  },
+ "l-pmi": {
+  "bytes": 2458613,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    17.49,
+    "how"
+   ],
+   [
+    338.83,
+    "ex"
+   ],
+   [
+    411.14,
+    "mis"
+   ],
+   [
+    444.67,
+    "pts"
+   ]
+  ],
+  "dur": 472.3,
+  "file": "audio/lessons/l-pmi.mp4",
+  "hash": "19yfqs9",
+  "voice": "af_heart"
+ },
  "l-position-size": {
   "bytes": 888577,
   "chapters": [
@@ -2406,6 +2783,35 @@
   "hash": "yhac02",
   "voice": "af_heart"
  },
+ "l-rates": {
+  "bytes": 1799773,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    13.1,
+    "how"
+   ],
+   [
+    218.5,
+    "ex"
+   ],
+   [
+    289.02,
+    "mis"
+   ],
+   [
+    319.16,
+    "pts"
+   ]
+  ],
+  "dur": 348.6,
+  "file": "audio/lessons/l-rates.mp4",
+  "hash": "9fdzke",
+  "voice": "af_heart"
+ },
  "l-ratios": {
   "bytes": 889751,
   "chapters": [
@@ -2433,6 +2839,238 @@
   "dur": 173.6,
   "file": "audio/lessons/l-ratios.mp4",
   "hash": "18isajc",
+  "voice": "af_heart"
+ },
+ "l-rc-apple-balance": {
+  "bytes": 11760585,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    13.12,
+    "how"
+   ],
+   [
+    2048.31,
+    "ex"
+   ],
+   [
+    2155.14,
+    "mis"
+   ],
+   [
+    2205.57,
+    "pts"
+   ]
+  ],
+  "dur": 2270.0,
+  "file": "audio/lessons/l-rc-apple-balance.mp4",
+  "hash": "uiqwbp",
+  "voice": "af_heart"
+ },
+ "l-rc-apple-call": {
+  "bytes": 2919208,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.91,
+    "how"
+   ],
+   [
+    357.15,
+    "ex"
+   ],
+   [
+    485.36,
+    "mis"
+   ],
+   [
+    523.36,
+    "pts"
+   ]
+  ],
+  "dur": 558.3,
+  "file": "audio/lessons/l-rc-apple-call.mp4",
+  "hash": "qzsq7s",
+  "voice": "af_heart"
+ },
+ "l-rc-apple-cash": {
+  "bytes": 7346141,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    13.5,
+    "how"
+   ],
+   [
+    1213.7,
+    "ex"
+   ],
+   [
+    1327.02,
+    "mis"
+   ],
+   [
+    1364.71,
+    "pts"
+   ]
+  ],
+  "dur": 1419.8,
+  "file": "audio/lessons/l-rc-apple-cash.mp4",
+  "hash": "erpkz4",
+  "voice": "af_heart"
+ },
+ "l-rc-apple-income": {
+  "bytes": 3100178,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    15.74,
+    "how"
+   ],
+   [
+    413.37,
+    "ex"
+   ],
+   [
+    510.07,
+    "mis"
+   ],
+   [
+    550.43,
+    "pts"
+   ]
+  ],
+  "dur": 596.3,
+  "file": "audio/lessons/l-rc-apple-income.mp4",
+  "hash": "ydnr3e",
+  "voice": "af_heart"
+ },
+ "l-rc-price": {
+  "bytes": 4802232,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.42,
+    "how"
+   ],
+   [
+    734.08,
+    "ex"
+   ],
+   [
+    840.85,
+    "mis"
+   ],
+   [
+    871.13,
+    "pts"
+   ]
+  ],
+  "dur": 922.4,
+  "file": "audio/lessons/l-rc-price.mp4",
+  "hash": "1ad4st4",
+  "voice": "af_heart"
+ },
+ "l-rc-spacex": {
+  "bytes": 7494247,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    14.53,
+    "how"
+   ],
+   [
+    1195.78,
+    "ex"
+   ],
+   [
+    1333.19,
+    "mis"
+   ],
+   [
+    1380.26,
+    "pts"
+   ]
+  ],
+  "dur": 1440.1,
+  "file": "audio/lessons/l-rc-spacex.mp4",
+  "hash": "1p3igr9",
+  "voice": "af_heart"
+ },
+ "l-rc-spacex-call": {
+  "bytes": 2166301,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.59,
+    "how"
+   ],
+   [
+    252.48,
+    "ex"
+   ],
+   [
+    348.99,
+    "mis"
+   ],
+   [
+    381.77,
+    "pts"
+   ]
+  ],
+  "dur": 418.0,
+  "file": "audio/lessons/l-rc-spacex-call.mp4",
+  "hash": "141a07z",
+  "voice": "af_heart"
+ },
+ "l-rc-words": {
+  "bytes": 3756278,
+  "chapters": [
+   [
+    0.25,
+    "intro"
+   ],
+   [
+    12.52,
+    "how"
+   ],
+   [
+    435.72,
+    "ex"
+   ],
+   [
+    619.37,
+    "mis"
+   ],
+   [
+    682.1,
+    "pts"
+   ]
+  ],
+  "dur": 717.1,
+  "file": "audio/lessons/l-rc-words.mp4",
+  "hash": "wotiux",
   "voice": "af_heart"
  },
  "l-rent-vs-buy": {
