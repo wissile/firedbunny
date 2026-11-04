@@ -1,5 +1,7 @@
 # Working on FiredBunny
 
+Live site: https://firedbunny.dosfirm.workers.dev (Cloudflare Worker `firedbunny`, deployed from `main`).
+
 ## Every change ships: commit, push, confirm the deploy
 
 The owner wants every change committed to GitHub and deployed to Cloudflare, without being asked each time.
