@@ -69,6 +69,9 @@ The website works offline and installs as an app (phone home screen, or its own 
   has no offline mode.
 - `worker/index.js` answers byte-range requests for `/audio/*` (static assets alone always send the whole file, and
   iPhones and iPads need ranges to play and seek audio).
+- If the service worker ever misbehaves, deploy a `src/sw.js` whose `activate` handler calls
+  `self.registration.unregister()` and deletes its caches; browsers pick it up on the next visit (`/sw.js` is served
+  with `Cache-Control: no-cache`).
 
 ## Where things live
 
