@@ -69,9 +69,10 @@ jobs:
           fi
           URL=${URL%/}
           code=000
-          for i in 1 2 3 4 5 6; do
-            code=$(curl -s -o home.html -w '%{http_code}' "$URL/" || true)
-            [ "$code" = 200 ] && grep -q '<title>FiredBunny' home.html && break
+          # a new version takes a few seconds to reach every Cloudflare location, so retry until the page matches
+          for i in 1 2 3 4 5 6 7 8; do
+            code=$(curl -s -o home.html -w '%{http_code}' "$URL/?deploy=$short-$i" || true)
+            [ "$code" = 200 ] && cmp -s home.html dist/index.html && break
             sleep 5
           done
           if [ "$code" != 200 ] || ! grep -q '<title>FiredBunny' home.html; then
