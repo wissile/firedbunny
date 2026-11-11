@@ -1,8 +1,9 @@
 """Build FiredBunny from src/.
 
 Outputs
-  dist/                    the deployable website: a full index.html plus everything in public/ (audio, fonts, icons,
-                           _headers, robots.txt, manifest) and sw.js, the service worker that makes it work offline
+  dist/                    the deployable website: a small index.html (styles, loading screen), app.<hash>.js (every
+                           script), sw.js (the service worker that makes it fast and offline) and everything in public/
+                           (audio, fonts, icons, _headers, robots.txt, manifest)
   build/fragment.html      the same page as a fragment, for publishing as a claude.ai artifact
 Usage: python3 tools/build.py [--no-mods] [--mods mod-a.js,mod-b.js]
 Only the Python standard library is used, so it runs on Cloudflare's build image as is.
@@ -42,19 +43,10 @@ HEAD = f'''<title>FiredBunny</title>
 {read('style.css')}
 </style>
 '''
-BODY = f'''{read('loader.html')}<main id="view" class="view" tabindex="-1"></main>
-{script('core.js')}
-{script('brand.js')}
-{script('content.js')}
-{script('content-money.js')}
-{script('content-macro.js')}
-{script('content-realco.js')}
-{script('account.js')}
-{script('assets.js')}
-{chr(10).join(script(m) for m in mods)}
-{script('hero.js')}
-{script('pages.js')}
-'''
+# every script of the site, in load order
+SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'account.js',
+           'assets.js'] + mods + ['hero.js', 'pages.js']
+BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 
 DESC = 'FiredBunny: the money school they skipped. Learn trading, macro, crypto, retirement and FIRE by playing with interactive lessons, tools and a self-assessment.'
 site = (os.environ.get('SITE_URL') or os.environ.get('CF_PAGES_URL') or '').rstrip('/')
@@ -81,10 +73,38 @@ for path in sorted(glob.glob(os.path.join(pub, 'audio', '**', '*.*'), recursive=
     rel = os.path.relpath(path, pub).replace(os.sep, '/')
     assets[rel] = [os.path.getsize(path), file_hash(path)]
 fonts_css = read('fonts.css') if os.path.exists(os.path.join(SRC, 'fonts.css')) else ''
+# All scripts go into one file named by its content (app.<hash>.js): the page itself stays small, so the loading screen
+# paints at once, and browsers keep a compiled copy of the script between visits. Each module is wrapped so one that
+# fails cannot stop the others, as separate <script> tags did.
+def module(name):
+    return f'/* {name} */\ntry {{\n{read(name)}\n}} catch (e) {{ console.error("[FiredBunny] {name} failed to start", e); }}\n'
+app_js = ''.join(module(n) for n in SCRIPTS)
+app_name = 'app.' + hashlib.sha1(app_js.encode('utf-8')).hexdigest()[:10] + '.js'
+# fonts the first screen uses: fetched straight away so text never repaints in a fallback font
+PRELOAD_FONTS = ['ibm-plex-sans-latin-400-normal', 'ibm-plex-sans-latin-600-normal', 'ibm-plex-sans-latin-700-normal',
+                 'ibm-plex-mono-latin-500-normal', 'bebas-neue-latin-400-normal']
+preloads = ''.join(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>\n' for f in PRELOAD_FONTS
+                   if os.path.exists(os.path.join(pub, 'fonts', f + '.woff2')))
+preloads += f'<link rel="preload" href="/{app_name}" as="script">\n'
 web_head = HEAD.replace('<meta name="claude:viewport-fit-sides" content="cover">\n', '')
 if fonts_css:
-    web_head = web_head.replace(GOOGLE_FONTS, f'<style>\n{fonts_css}</style>\n')
-version = hashlib.sha1((web_head + BODY + json.dumps(assets, sort_keys=True) + read('sw.js')).encode('utf-8')).hexdigest()[:12]
+    web_head = web_head.replace(GOOGLE_FONTS, f'{preloads}<style>\n{fonts_css}</style>\n')
+# start the site only after the loading screen has painted
+starter = f"""<script>(function () {{
+  var started = false;
+  function start() {{
+    if (started) return; started = true;
+    var s = document.createElement('script'); s.src = '/{app_name}';
+    s.onerror = function () {{ var m = document.querySelector('#boot .boot-msg'); if (m) m.innerHTML = '<span class="boot-err">FiredBunny could not load. Check your connection, then reload.</span>'; }};
+    document.body.appendChild(s);
+  }}
+  // two frames: the loading screen paints and its animation starts, so it keeps running while the script works
+  requestAnimationFrame(function () {{ requestAnimationFrame(function () {{ setTimeout(start, 0); }}); }});
+  setTimeout(start, 150); // a tab opened in the background gets no frames
+}})();</script>
+"""
+web_body = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + starter
+version = hashlib.sha1((web_head + web_body + app_js + json.dumps(assets, sort_keys=True) + read('sw.js')).encode('utf-8')).hexdigest()[:12]
 asset_js = '<script>window.FB_ASSETS=' + json.dumps({'v': version, 'files': assets}, separators=(',', ':')) + ';</script>\n'
 page = f"""<!doctype html>
 <html lang="en">
@@ -110,7 +130,7 @@ page = f"""<!doctype html>
 <meta name="twitter:card" content="summary_large_image">
 {asset_js}{web_head}</head>
 <body>
-{BODY}</body>
+{web_body}</body>
 </html>
 """
 dist = os.path.join(ROOT, 'dist')
@@ -122,10 +142,11 @@ else:
     os.makedirs(dist)
 out = os.path.join(dist, 'index.html')
 open(out, 'w', encoding='utf-8').write(page)
+open(os.path.join(dist, app_name), 'w', encoding='utf-8').write(app_js)
 # the service worker: saves the page, fonts, icons and manifest at install (audio only when the visitor asks)
-shell = ['/', '/site.webmanifest'] + sorted('/' + os.path.relpath(p, dist).replace(os.sep, '/') for p in
+shell = ['/', '/' + app_name, '/site.webmanifest'] + sorted('/' + os.path.relpath(p, dist).replace(os.sep, '/') for p in
         glob.glob(os.path.join(dist, 'fonts', '*.woff2')) + glob.glob(os.path.join(dist, '*.png')) + glob.glob(os.path.join(dist, '*.svg')))
 sw = '/* Generated by tools/build.py from src/sw.js. */\nconst BUILD = ' + json.dumps({'version': version, 'shell': shell}) + ';\n' + read('sw.js')
 open(os.path.join(dist, 'sw.js'), 'w', encoding='utf-8').write(sw)
-print(out, f'{len(page)/1024:.0f} KB;', frag_out, f'{len(frag)/1024:.0f} KB;', f'version {version}, {len(shell)} files saved for offline;',
+print(out, f'{len(page)/1024:.0f} KB + {app_name} {len(app_js)/1024:.0f} KB;', frag_out, f'{len(frag)/1024:.0f} KB;', f'version {version}, {len(shell)} files saved for offline;',
       'modules:', ', '.join(mods) or '(none)')

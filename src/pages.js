@@ -710,11 +710,20 @@
   SML.rerender = () => { const y = window.scrollY; render(); window.scrollTo(0, y); };
   SML.go = (tok) => { if (location.hash === '#' + tok) render(); else location.hash = tok; };
 
-  /* the running-bunny loading screen (src/loader.html) fades out once the first page has drawn */
+  /* the running-bunny loading screen (src/loader.html) fades out once the first page has drawn and its fonts are in,
+     so text never visibly switches font; it waits for fonts at most 1.2 s */
   function hideLoader() {
     const el = document.getElementById('boot'); if (!el) return;
-    el.classList.add('boot-out'); el.setAttribute('aria-hidden', 'true');
-    setTimeout(() => el.remove(), 350);
+    let done = false;
+    const go = () => { if (done) return; done = true; el.classList.add('boot-out'); el.setAttribute('aria-hidden', 'true'); setTimeout(() => el.remove(), 260); };
+    try {
+      const F = document.fonts;
+      if (!F || !F.load) return go();
+      void document.body.offsetHeight; // lay the page out now, which queues the fonts it uses
+      Promise.all(['400 16px "IBM Plex Sans"', '600 16px "IBM Plex Sans"', '700 16px "IBM Plex Sans"', '500 12px "IBM Plex Mono"', '32px "Bebas Neue"'].map((f) => F.load(f).catch(() => {})))
+        .then(() => F.ready).then(go, go);
+      setTimeout(go, 1200);
+    } catch (e) { go(); }
   }
   function boot() {
     try { buildShell(); window.addEventListener('hashchange', render); render(); } finally { hideLoader(); }

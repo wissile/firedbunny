@@ -85,9 +85,11 @@ jobs:
             echo "::warning title=Deployed $short::$URL answers, but its page differs from this build (a cache or a page rule may change it)."
           fi
           # how much a visitor downloads for the page (Cloudflare compresses it on the way)
+          app=$(cd dist && ls app.*.js | head -1)
           sz=$(curl -s -o /dev/null -H 'Accept-Encoding: br, gzip' -w '%{size_download}' "$URL/" || echo 0)
-          enc=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' "$URL/" | tr -d '\r' | awk -F': ' 'tolower($1)=="content-encoding"{print $2}')
-          echo "::notice title=Page size::$((sz / 1024)) KB to download (${enc:-not compressed}), $(( $(stat -c %s dist/index.html) / 1024 )) KB unpacked."
+          asz=$(curl -s -o /dev/null -H 'Accept-Encoding: br, gzip' -w '%{size_download}' "$URL/$app" || echo 0)
+          enc=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' "$URL/$app" | tr -d '\r' | awk -F': ' 'tolower($1)=="content-encoding"{print $2}')
+          echo "::notice title=Page size::first visit downloads $(((sz + asz) / 1024)) KB (${enc:-not compressed}): page $((sz / 1024)) KB, $app $((asz / 1024)) KB. Later visits open from the device."
           # offline mode: the service worker is live, and audio answers byte ranges (iPhones need them)
           swc=$(curl -s -o sw.js -w '%{http_code}' "$URL/sw.js" || true)
           if [ "$swc" = 200 ] && cmp -s sw.js dist/sw.js; then

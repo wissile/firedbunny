@@ -44,6 +44,17 @@
       return checkShell();
     }).catch((e) => { swState = 'failed'; console.warn('[offline] service worker did not register', e); emit(); });
     if (document.readyState === 'complete') reg(); else window.addEventListener('load', reg);
+    // The site opens from the copy saved on this device, so a new deploy arrives in the background: when its service
+    // worker takes over from the one this page started with, offer a reload. (No offer on the very first visit.)
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController) showUpdate(); checkShell(); });
+  }
+  function showUpdate() {
+    if (document.getElementById('fb-upd')) return;
+    const d = document.createElement('div'); d.id = 'fb-upd'; d.className = 'fb-upd'; d.setAttribute('role', 'status');
+    d.innerHTML = '<span>A new version of FiredBunny is ready.</span><button type="button" class="btn btn-p sm" data-upd="go">Reload</button><button type="button" class="fb-upd-x" data-upd="x" aria-label="Later">×</button>';
+    d.addEventListener('click', (e) => { const b = e.target.closest('[data-upd]'); if (!b) return; if (b.dataset.upd === 'go') location.reload(); else d.remove(); });
+    document.body.appendChild(d);
   }
 
   /* ---------------- downloads ---------------- */
@@ -180,6 +191,8 @@
 
   /* ---------------- the #offline page ---------------- */
   SML.css(`
+    .fb-upd{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:10px;width:max-content;max-width:calc(100vw - 24px);padding:8px 8px 8px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--surface) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 10px 40px -10px rgba(0,0,0,.6);font:500 14px var(--sans);color:var(--ink)}
+    .fb-upd-x{background:transparent;border:0;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;min-height:34px}
     .off{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;padding-block:32px 80px}
     .off-card{border:1px solid var(--line);border-radius:calc(var(--r) * 2);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
     .off-wide{grid-column:1 / -1}

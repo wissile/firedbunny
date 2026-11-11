@@ -1,8 +1,9 @@
-/* Loading screen: shown while the page downloads and starts, removed by pages.js once the site has drawn.
+/* Loading screen: shown while the site downloads and starts, removed by pages.js once the first page has drawn and
+   its fonts are in. Its own text uses system fonts, so nothing in it repaints when the web fonts arrive.
    Every moving part is its own element animated with transform or opacity, so the browser can keep it running
    while the page's scripts are busy. */
-#boot{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#0b0f19;color:#e8edf5;animation:boot-in .3s ease .35s both;transition:opacity .3s ease}
-#boot.boot-out{opacity:0;pointer-events:none}
+#boot{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#0b0f19;color:#e8edf5;transition:opacity .22s ease;will-change:opacity}
+#boot.boot-out{opacity:0;pointer-events:none;animation:none}
 .boot-stage{position:relative;width:240px;height:132px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
 .boot-stage svg{display:block}
 .boot-candles{position:absolute;left:0;top:0;display:flex;width:480px;opacity:.28;animation:boot-pan 2.6s linear infinite;will-change:transform}
@@ -17,12 +18,12 @@
 .boot-legf{transform-origin:123px 94px;animation:boot-legf .44s ease-in-out infinite;will-change:transform}
 .boot-ear{transform-origin:126px 50px;animation:boot-ear .44s ease-in-out infinite;will-change:transform}
 .boot-ear2{transform-origin:130px 50px;animation:boot-ear .44s ease-in-out .06s infinite;will-change:transform}
-.boot-name{margin:10px 0 0;font:700 20px/1 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:-.01em;color:#e8edf5}
+.boot-name{margin:10px 0 0;font:700 20px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:-.01em;color:#e8edf5}
 .boot-name b{color:#e8ad4f;font-style:italic}
-.boot-msg{position:relative;margin:0;width:280px;height:20px;font:500 13px/20px 'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;color:#8b95a8;text-align:center}
+.boot-msg{position:relative;margin:0;width:280px;height:20px;font:500 13px/20px ui-monospace,'SF Mono',Menlo,Consolas,monospace;color:#8b95a8;text-align:center}
 .boot-msg span{position:absolute;inset:0;opacity:0;animation:boot-msg 8s ease infinite;will-change:opacity,transform}
-.boot-msg span:nth-child(2){animation-delay:2s}.boot-msg span:nth-child(3){animation-delay:4s}.boot-msg span:nth-child(4){animation-delay:6s}
-@keyframes boot-in{from{opacity:0}to{opacity:1}}
+.boot-msg span:nth-child(1){animation-delay:-.4s}.boot-msg span:nth-child(2){animation-delay:1.6s}.boot-msg span:nth-child(3){animation-delay:3.6s}.boot-msg span:nth-child(4){animation-delay:5.6s}
+#boot .boot-err{opacity:1;animation:none;color:#e2685c;white-space:normal}
 @keyframes boot-pan{to{transform:translateX(-240px)}}
 @keyframes boot-dash{to{transform:translateX(-40px)}}
 @keyframes boot-hop{0%,100%{transform:translateY(0) rotate(2deg)}38%{transform:translateY(-17px) rotate(-7deg)}70%{transform:translateY(-7px) rotate(4deg)}}

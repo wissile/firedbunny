@@ -1,8 +1,10 @@
 /* FiredBunny service worker: keeps the site working offline.
    tools/build.py writes dist/sw.js as `const BUILD = { version, shell: [...] };` followed by this file.
 
-   - The page (one HTML file holds every lesson) is fetched fresh when online and saved; offline, the saved copy opens.
-   - Fonts, icons and the manifest are saved at install.
+   - The page and its script (app.<hash>.js) are saved at install and opened from the device on every visit, so the
+     site starts at once, online or not. A new deploy changes this file (its version), the browser installs it in the
+     background, and the page offers a reload (mod-z-offline.js).
+   - Fonts, icons and the manifest are saved at install too.
    - Audio is saved only when the visitor taps Download (the page writes it to the AUDIO cache). Saved audio is served
      from here, including the byte ranges that phones ask for when playing or seeking.
    - Live data (/api/*): the network answer when online; offline, the last answer this device got for that request. */
@@ -13,7 +15,6 @@ const AUDIO = 'fb-audio-v1'; // kept across site updates; keys carry ?v=<file ha
 const API = 'fb-api-v1';
 const API_KEEP = 40; // most recent live-data answers kept for offline use
 const PAGE = '/';
-const NET_WAIT = 5000; // ms to wait for the network before showing the saved page
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
@@ -28,7 +29,9 @@ self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
     await Promise.all(names.filter((n) => n.startsWith('fb-shell-') && n !== SHELL).map((n) => caches.delete(n)));
-    if (self.registration.navigationPreload) { try { await self.registration.navigationPreload.enable(); } catch (e) { /* not supported */ } }
+    // the page comes from the device, so a parallel network request per visit would be wasted (an earlier version
+    // switched it on, and the setting stays with the registration)
+    if (self.registration.navigationPreload) { try { await self.registration.navigationPreload.disable(); } catch (e) { /* not supported */ } }
     await self.clients.claim();
   })());
 });
@@ -50,28 +53,22 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(asset(req));
 });
 
-/* The page: network first (so an online visit always gets the latest site), saved copy when offline or very slow. */
+/* The page: the saved copy of this version, straight away. Only a device without it (first visit, storage cleared)
+   asks the network, and saving that answer never holds the page back. */
 async function page(event) {
   const cache = await caches.open(SHELL);
-  const network = (async () => {
-    const res = (await event.preloadResponse) || (await fetch(event.request));
-    if (res && res.ok && /text\/html/i.test(res.headers.get('content-type') || '')) await cache.put(PAGE, res.clone());
-    return res;
-  })();
-  event.waitUntil(network.catch(() => {}));
-  const saved = () => cache.match(PAGE);
+  const hit = await cache.match(PAGE);
+  if (hit) return hit;
   try {
-    const first = await Promise.race([network, new Promise((r) => setTimeout(() => r(null), NET_WAIT))]);
-    if (first) return first;
-    return (await saved()) || (await network);
+    const res = await fetch(event.request);
+    if (res.ok && /text\/html/i.test(res.headers.get('content-type') || '')) event.waitUntil(cache.put(PAGE, res.clone()).catch(() => {}));
+    return res;
   } catch (e) {
-    const hit = await saved();
-    if (hit) return hit;
-    return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>FiredBunny</title><body style="font:16px system-ui;background:#0b0f19;color:#e8ecf4;padding:32px">You are offline, and FiredBunny has not been saved on this device yet. Open it once while online, then it works offline.</body>', { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
+    return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>FiredBunny</title><body style="font:16px system-ui;background:#0b0f19;color:#e8edf5;padding:32px">You are offline, and FiredBunny has not been saved on this device yet. Open it once while online, then it works offline.</body>', { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
   }
 }
 
-/* Fonts, icons, manifest: saved copy first, network otherwise (and keep fonts for next time). */
+/* Script, fonts, icons, manifest: saved copy first, network otherwise (and keep fonts for next time). */
 async function asset(req) {
   const cache = await caches.open(SHELL);
   const hit = await cache.match(req, { ignoreSearch: true });

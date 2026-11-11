@@ -285,6 +285,7 @@
   ui.responsive = function (el, draw) {
     let lastW = -1;
     const go = (force) => {
+      if (!force && !el.isConnected) return; // a resize that lands after the page has changed: nothing to draw into
       const cs = getComputedStyle(el);
       const W = Math.max(260, Math.floor(el.clientWidth - parseFloat(cs.paddingLeft || 0) - parseFloat(cs.paddingRight || 0)));
       if (force || W !== lastW) { lastW = W; try { draw(W); } catch (err) { console.error(err); } }

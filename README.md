@@ -11,7 +11,7 @@ python3 tools/build.py        # Python 3.8+ standard library only
 
 | Output | What it is |
 |---|---|
-| `dist/` | The website: `index.html` plus everything from `public/` (audio, icons, `_headers`, manifest). Deploy this folder. |
+| `dist/` | The website: `index.html`, `app.<hash>.js`, `sw.js` and everything from `public/` (audio, fonts, icons, `_headers`, manifest). Deploy this folder. |
 | `build/fragment.html` | The same page without the document skeleton, used to publish the claude.ai artifact version. |
 
 Preview locally: `python3 -m http.server 8000 --directory dist` and open http://localhost:8000.
@@ -58,8 +58,15 @@ set, never its value. When a lookup fails, the page also shows the reason and a 
 
 The website works offline and installs as an app (phone home screen, or its own window on a computer):
 
+- The website build is a small `index.html` (styles, the running-bunny loading screen, a starter) plus one script file
+  named by its content, `app.<hash>.js`, cached for a year. The loading screen paints at once and keeps running while
+  the script starts; browsers keep a compiled copy of the script between visits. (The claude.ai copy stays one file.)
 - `src/sw.js` is the service worker; `tools/build.py` writes it to `dist/sw.js` with a build version and the list of
-  files to save at install (the page, fonts, icons, manifest). Online visits always load the newest page and save it.
+  files to save at install (page, script, fonts, icons, manifest). Every visit opens the saved copy at once. A new
+  deploy changes `sw.js`, the browser installs it in the background, and the page shows "A new version of FiredBunny
+  is ready" with a Reload button.
+- The main fonts are preloaded and the loading screen stays until they are in (at most 1.2 s), so text never
+  repaints in a fallback font.
 - Lesson audio is saved only when the visitor asks: the Download button in each lesson's player, or the
   **Offline & app** page (`#offline`, `src/mod-z-offline.js`) with download all, per track, remove, storage use and
   install steps for Android, iPhone and computers. Saved audio plays offline in the natural voice, with seeking.
