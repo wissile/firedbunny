@@ -510,6 +510,11 @@
               <a class="acx-link" href="#apps">${ico.phone}<span><b>See the apps</b><small>What’s coming, and what each one does.</small></span></a>
             </section>
 
+            ${SML.host === 'web' ? `<section class="acx-card" aria-labelledby="acx-s9"><div class="acx-h"><h2 id="acx-s9">${ico.down}Offline &amp; app</h2></div>
+              <p class="acx-sub">Install FiredBunny on your phone or computer, and download lesson audio to listen without a connection.</p>
+              <a class="acx-link" href="#offline">${ico.down}<span><b>Offline &amp; app</b><small>Install the app, manage downloads and storage.</small></span></a>
+            </section>` : ''}
+
             <section class="acx-card acx-hide" data-acx="perm" aria-labelledby="acx-s7"><div class="acx-h"><h2 id="acx-s7">${ico.key}Permissions</h2></div>
               <p class="acx-note">Review what this page may do for you, such as saving files and storing your data.</p>
               <div class="acx-row"><button type="button" class="btn btn-g sm" data-acx-act="perm">Manage permissions</button><span class="acx-note" data-acx="perm-msg"></span></div>

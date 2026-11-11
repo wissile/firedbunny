@@ -15,6 +15,7 @@
     unavailable: 'Live lookups run on the FiredBunny website.',
     sec_error: 'The SEC or the price service did not answer. Try again in a minute.',
     no_api: 'Live lookups are not switched on for this copy of the site: its data relay is not running.',
+    offline: 'Live lookups need an internet connection. Companies you looked up before on this device still open offline.',
   };
   const fail = (code) => err(code, MSG[code]);
 
@@ -292,13 +293,14 @@
     const ct = r.headers.get('content-type') || '';
     if (!/json/i.test(ct)) throw Object.assign(fail('no_api'), { status: r.status, hint: 'GET ' + API + path + ' returned ' + (ct.split(';')[0] || 'no content type') + ' instead of JSON: the /api Worker is not running on this deployment.' });
     let d = null; try { d = await r.json(); } catch (e) { d = undefined; }
+    if (d && d.error === 'offline') throw fail('offline'); // the service worker: no connection and nothing saved
     if (r.status === 404 && !(d && d.error === 'upstream')) return null;
     if (!r.ok || d === undefined) {
       const e = d && typeof d.message === 'string' ? err('sec_error', d.message + ' Try again in a minute.') : fail('sec_error');
       throw Object.assign(e, { status: d ? d.status : r.status, source: d && d.source, hint: d && d.hint });
     }
     return d;
-  }, () => { throw fail(live() ? 'sec_error' : 'unavailable'); });
+  }, () => { throw fail(navigator.onLine === false ? 'offline' : live() ? 'sec_error' : 'unavailable'); });
   let tickers = null;
   function tickerList() {
     if (!live()) return Promise.reject(fail('unavailable'));

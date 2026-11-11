@@ -1431,9 +1431,9 @@
       audio.preload = 'auto';
       const can = (m) => { try { return audio.canPlayType(m); } catch (e) { return ''; } };
       const ext = can('audio/mp4; codecs="mp4a.40.2"') ? 'mp4' : can('audio/webm; codecs="opus"') ? 'webm' : 'mp4';
-      audio.src = `audio/${script.file}.${ext}`;
+      audio.src = SML.assetURL ? SML.assetURL(`audio/${script.file}.${ext}`) : `audio/${script.file}.${ext}`;
       audioState = 'loading';
-      audio.addEventListener('error', () => { if (destroyed) return; audioState = 'err'; if (st.mode === 'audio') { st.playing = false; showFallback('The recording could not load here (offline, or the page was opened as a file).'); updatePlay(); } });
+      audio.addEventListener('error', () => { if (destroyed) return; audioState = 'err'; if (st.mode === 'audio') { st.playing = false; showFallback((navigator.onLine === false ? 'You’re offline and this recording is not downloaded. Save it on the Offline & app page next time you’re online.' : 'The recording could not load here (offline, or the page was opened as a file).')); updatePlay(); } });
       audio.addEventListener('playing', () => { audioState = 'ok'; playBtn.classList.remove('busy'); clearTimeout(loadTimer); hideFallback(); });
       audio.addEventListener('waiting', () => { if (st.playing) playBtn.classList.add('busy'); });
       audio.addEventListener('canplay', () => { if (audioState === 'loading') audioState = 'ok'; playBtn.classList.remove('busy'); });
@@ -1442,7 +1442,7 @@
     }
     function playAudio() {
       const a = ensureAudio();
-      if (audioState === 'err') { showFallback('The recording could not load here (offline, or the page was opened as a file).'); return false; }
+      if (audioState === 'err') { showFallback((navigator.onLine === false ? 'You’re offline and this recording is not downloaded. Save it on the Offline & app page next time you’re online.' : 'The recording could not load here (offline, or the page was opened as a file).')); return false; }
       a.playbackRate = st.rate;
       if (Math.abs(a.currentTime - st.t) > 0.3) { try { a.currentTime = st.t; } catch (e) {} }
       playBtn.classList.add('busy');

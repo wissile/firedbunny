@@ -941,7 +941,7 @@ svg .ern-ring{fill:none;stroke:var(--accent);stroke-width:2}
         if (!m.sample) SML.store.set(STORE, t);
       }, (e) => {
         if (!ok(my)) return;
-        if (e && e.code !== 'bad_ticker' && e.code !== 'not_found' && e.code !== 'no_quarterly') console.warn('[earnings] lookup failed', t, e && e.code, e && e.status, e && (e.hint || e.message));
+        if (e && e.code !== 'bad_ticker' && e.code !== 'not_found' && e.code !== 'no_quarterly' && e.code !== 'offline') console.warn('[earnings] lookup failed', t, e && e.code, e && e.status, e && (e.hint || e.message));
         if (e && (e.code === 'unavailable' || e.code === 'no_api')) showSample(t, true, e.code === 'no_api' ? e : null); else showError(e || {}, t);
       });
     }
@@ -960,14 +960,14 @@ svg .ern-ring{fill:none;stroke:var(--accent);stroke-width:2}
       runLocal(); setStatus('');
       out.innerHTML = `<div class="ern-panel ern-empty ern-err"><h4>The data engine did not load</h4><p>Earnings lookups need the site’s data module. Reload the page; if this keeps happening, the lookup is temporarily unavailable.</p></div>`;
     }
-    const ERRH = { bad_ticker: 'That does not look like a ticker', not_found: 'No company found', no_quarterly: 'No quarterly reports to explain', sec_error: 'The data service did not answer' };
+    const ERRH = { bad_ticker: 'That does not look like a ticker', not_found: 'No company found', no_quarterly: 'No quarterly reports to explain', sec_error: 'The data service did not answer', offline: 'You’re offline' };
     const ERRM = { bad_ticker: 'Tickers are short codes of letters, like AAPL or BRK.B. You can also type part of a company name and pick from the list.', not_found: 'No US-listed company files with the SEC under that ticker. Check the spelling, or type the company name and pick from the list.', no_quarterly: 'This company does not file quarterly US (GAAP) reports with the SEC. Many foreign companies file yearly reports under international rules instead.', sec_error: 'The SEC or the price service did not answer. Try again in a minute.' };
     function showError(e, t) {
       runLocal(); setStatus('');
       const code = ERRH[e.code] ? e.code : 'sec_error';
       const msg = typeof e.message === 'string' && e.message.trim() ? e.message : ERRM[code];
       out.innerHTML = `<div class="ern-panel ern-empty ern-err" role="alert"><p class="ern-lk">${esc(t)}</p><h4>${ERRH[code]}${code === 'not_found' ? ` for “${esc(t)}”` : ''}</h4><p>${esc(msg)}</p>${code === 'sec_error' ? ownerHint(e) : ''}
-        <div class="ern-quick">${code === 'sec_error' ? `<button type="button" class="btn btn-p sm" data-retry="${esc(t)}">Try again</button>` : ''}<span class="ern-lk">Try</span>${QUICK.slice(0, 5).map((q) => `<button type="button" class="ern-qk" data-t="${q}">${q}</button>`).join('')}</div></div>`;
+        <div class="ern-quick">${code === 'sec_error' || code === 'offline' ? `<button type="button" class="btn btn-p sm" data-retry="${esc(t)}">Try again</button>` : ''}<span class="ern-lk">Try</span>${QUICK.slice(0, 5).map((q) => `<button type="button" class="ern-qk" data-t="${q}">${q}</button>`).join('')}</div></div>`;
     }
     function showEmpty() {
       setStatus('');

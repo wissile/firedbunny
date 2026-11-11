@@ -144,6 +144,12 @@
     .nar-play small{font:500 12px var(--mono);color:var(--muted);letter-spacing:.04em}
     .nar-speed{min-height:36px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 12px var(--mono)}
     .nar-src{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .nar-dl{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 12px var(--sans);cursor:pointer}
+    .nar-dl:hover{border-color:var(--input)}
+    .nar-dl small{font:500 11px var(--mono);color:var(--muted)}
+    .nar-dl svg{width:14px;height:14px;flex:0 0 14px}
+    .nar-dl[data-s="done"]{color:var(--up);border-color:color-mix(in srgb,var(--up) 45%,var(--line))}
+    .nar-dl[data-s="busy"]{color:var(--accent);cursor:default}
     .nar-bar{position:relative;height:6px;border-radius:3px;background:var(--line);cursor:pointer;touch-action:none}
     .nar-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--accent)}
     .nar-bar b{position:absolute;top:-3px;width:2px;height:12px;background:var(--muted);opacity:.6}
@@ -189,11 +195,16 @@
     if (rec) { estDur = rec.dur; chapStarts = (rec.chapters || []).map((c) => c[0]); if (chapStarts.length !== sc.chapters.length) chapStarts = sc.chapters.map((c, i) => (rec.chapters[i] ? rec.chapters[i][0] : 0)); } else ttsPlan();
     const ticks = () => chapStarts.slice(1).map((t) => `<b style="left:${(t / (estDur || 1)) * 100}%"></b>`).join('');
     let speed = +store.get('narSpeed', 1) || 1;
+    // the recording's address carries a version (?v=) on the website; offline downloads are keyed by it
+    const src = rec ? (SML.assetURL ? SML.assetURL(rec.file) : rec.file) : '';
+    const OFF = rec && SML.offline && SML.offline.enabled ? SML.offline : null;
+    const dlUrl = OFF ? new URL(src, location.origin + '/').href : '';
     el.innerHTML = `<div class="nar" role="region" aria-label="Listen to this lesson">
       <div class="nar-row">
         <button type="button" class="nar-play" data-n="toggle"><span class="nar-ic">${IC.play}</span><span>Listen to this lesson</span><small>${fmtT(estDur)}</small></button>
         <select class="nar-speed" data-n="speed" aria-label="Playback speed">${[0.8, 0.9, 1, 1.15, 1.25, 1.5].map((v) => `<option value="${v}"${v === speed ? ' selected' : ''}>${v}×</option>`).join('')}</select>
         <span class="nar-src">${mode === 'audio' ? 'Natural voice' : 'Your device’s voice'}</span>
+        ${OFF ? '<button type="button" class="nar-dl" data-n="dl"></button>' : ''}
       </div>
       <div class="nar-more" hidden>
         <div class="nar-bar" data-n="bar" role="slider" aria-label="Position" tabindex="0" aria-valuemin="0" aria-valuemax="${Math.round(estDur)}" aria-valuenow="0"><i style="width:0"></i>${ticks()}</div>
@@ -233,7 +244,7 @@
     }
     function ensureAudio() {
       if (audio) return audio;
-      audio = new Audio(); audio.preload = 'metadata'; audio.src = rec.file; audio.playbackRate = speed;
+      audio = new Audio(); audio.preload = 'metadata'; audio.src = src; audio.playbackRate = speed;
       audio.addEventListener('timeupdate', paint); audio.addEventListener('loadedmetadata', paint);
       audio.addEventListener('ended', () => { playing = false; paint(); });
       audio.addEventListener('pause', () => { playing = false; paint(); });
@@ -281,10 +292,31 @@
     bar.addEventListener('pointerdown', (ev) => barSeek(bar, ev));
     mini.querySelector('[data-n="mbar"]').addEventListener('pointerdown', (ev) => barSeek(ev.currentTarget, ev));
     bar.addEventListener('keydown', (ev) => { if (ev.key === 'ArrowRight') { seek(pos() + 10); ev.preventDefault(); } if (ev.key === 'ArrowLeft') { seek(pos() - 10); ev.preventDefault(); } });
+    // download for offline listening (website only)
+    let offSub = null;
+    const dlBtn = $('[data-n="dl"]');
+    if (OFF && dlBtn) {
+      const OI = SML.offlineIcons || {};
+      const mb = (OFF.sizeOf(rec.file) / 1e6).toFixed(1) + ' MB';
+      const paintDl = () => {
+        const s = OFF.status(dlUrl); const p = Math.round(OFF.progress(dlUrl) * 100);
+        dlBtn.dataset.s = s;
+        dlBtn.innerHTML = s === 'done' ? `${OI.check || ''}<span>Saved offline</span>` : s === 'busy' ? `<span>Saving${p ? ' ' + p + '%' : '…'}</span>` : `${OI.down || ''}<span>${s === 'old' ? 'Update download' : 'Download'}</span><small>${mb}</small>`;
+        dlBtn.setAttribute('aria-label', s === 'done' ? 'Saved for offline listening. Tap to remove the download.' : s === 'busy' ? 'Downloading for offline listening' : 'Download this lesson’s audio for offline listening');
+        dlBtn.title = s === 'done' ? 'Saved on this device. Tap to remove.' : s === 'busy' ? 'Downloading' : 'Save on this device to listen offline';
+      };
+      dlBtn.addEventListener('click', () => {
+        const s = OFF.status(dlUrl);
+        if (s === 'busy') return;
+        if (s === 'done') OFF.remove([dlUrl]).then(() => SML.toast('Download removed.'));
+        else OFF.get([dlUrl]);
+      });
+      offSub = OFF.on(paintDl); paintDl();
+    }
     let io = null;
     if ('IntersectionObserver' in window) { io = new IntersectionObserver((es) => { visible = es[0].isIntersecting; paint(); }); io.observe(el); }
     if (mode === 'tts' && window.speechSynthesis.onvoiceschanged === null) window.speechSynthesis.onvoiceschanged = () => {};
-    SML.onCleanup(() => { try { if (audio) { audio.pause(); audio.src = ''; } if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch (e) {} clearInterval(ttsTimer); if (io) io.disconnect(); mini.remove(); playing = false; });
+    SML.onCleanup(() => { try { if (audio) { audio.pause(); audio.src = ''; } if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch (e) {} clearInterval(ttsTimer); if (io) io.disconnect(); if (offSub) offSub(); mini.remove(); playing = false; });
     paint();
   }
 

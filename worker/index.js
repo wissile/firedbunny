@@ -8,6 +8,9 @@
    GET /api/sec/submissions/<cik>  filing index (10-Q, 10-K, 8-K)    (data.sec.gov/submissions)
    GET /api/price/<ticker>         ~5 years of daily closes as JSON  (Yahoo Finance chart API, Stooq fallback)
 
+   GET /audio/...                  the recordings, with byte ranges (206): static assets alone always send the whole
+                                   file, and iPhones and iPads need ranges to play and seek audio
+
    SEC asks automated tools to identify themselves with a contact email in the User-Agent and turns other requests
    away (403). Set the SEC_UA variable to "FiredBunny <contact email>" in Cloudflare (Worker > Settings > Variables
    and Secrets). /api/health says whether it is set, never what it is. */
@@ -27,9 +30,36 @@ export default {
       try { return await api(url, request, env, ctx); }
       catch (e) { return json({ error: 'server_error', message: 'Something went wrong in the data relay. Try again in a moment.', detail: String((e && e.message) || e).slice(0, 200) }, 502); }
     }
+    if (url.pathname.startsWith('/audio/') && (request.method === 'GET' || request.method === 'HEAD')) return audio(request, env);
     return env.ASSETS.fetch(request);
   },
 };
+
+/* Audio with byte ranges. Files are a few MB, so reading one whole and slicing it is cheap. */
+async function audio(request, env) {
+  const range = (request.headers.get('range') || '').trim();
+  const m = /^bytes=(\d*)-(\d*)$/.exec(range);
+  if (!m || (!m[1] && !m[2])) return withRanges(await env.ASSETS.fetch(request));
+  const res = await env.ASSETS.fetch(new Request(request.url, { method: 'GET' }));
+  const ifRange = request.headers.get('if-range');
+  if (!res.ok || (ifRange && ifRange !== res.headers.get('etag'))) return withRanges(res);
+  const buf = await res.arrayBuffer();
+  const total = buf.byteLength;
+  let start, end;
+  if (!m[1]) { start = Math.max(0, total - Number(m[2])); end = total - 1; } // "bytes=-500": the last 500 bytes
+  else { start = Number(m[1]); end = m[2] ? Math.min(Number(m[2]), total - 1) : total - 1; }
+  if (start >= total || start > end) return new Response(null, { status: 416, headers: { 'Content-Range': `bytes */${total}`, 'Accept-Ranges': 'bytes' } });
+  const h = new Headers(res.headers);
+  h.set('Content-Range', `bytes ${start}-${end}/${total}`);
+  h.set('Content-Length', String(end - start + 1));
+  h.set('Accept-Ranges', 'bytes');
+  return new Response(request.method === 'HEAD' ? null : buf.slice(start, end + 1), { status: 206, headers: h });
+}
+function withRanges(res) {
+  const h = new Headers(res.headers);
+  if (res.ok) h.set('Accept-Ranges', 'bytes');
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+}
 
 async function api(url, request, env, ctx) {
   if (request.method !== 'GET' && request.method !== 'HEAD') return json({ error: 'method_not_allowed' }, 405);

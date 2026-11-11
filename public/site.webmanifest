@@ -1,13 +1,20 @@
 {
+  "id": "/",
   "name": "FiredBunny",
   "short_name": "FiredBunny",
-  "description": "The money school they skipped: trading, retirement and FIRE, learned by playing.",
+  "description": "The money school they skipped: trading, retirement and FIRE, learned by playing. Works offline.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0b0f19",
   "theme_color": "#0b0f19",
+  "categories": ["education", "finance"],
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "shortcuts": [
+    { "name": "Lessons", "url": "/#learn" },
+    { "name": "Downloads", "short_name": "Downloads", "url": "/#offline" }
   ]
 }

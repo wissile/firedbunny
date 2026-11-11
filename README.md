@@ -54,6 +54,22 @@ To check the relay, open **`/api/health`** on your site. It tests the SEC ticker
 index plus both price sources (Yahoo Finance, Stooq) and gives a one-line verdict. It reports whether `SEC_UA` is
 set, never its value. When a lookup fails, the page also shows the reason and a "For the site owner" hint.
 
+## Offline and the app
+
+The website works offline and installs as an app (phone home screen, or its own window on a computer):
+
+- `src/sw.js` is the service worker; `tools/build.py` writes it to `dist/sw.js` with a build version and the list of
+  files to save at install (the page, fonts, icons, manifest). Online visits always load the newest page and save it.
+- Lesson audio is saved only when the visitor asks: the Download button in each lesson's player, or the
+  **Offline & app** page (`#offline`, `src/mod-z-offline.js`) with download all, per track, remove, storage use and
+  install steps for Android, iPhone and computers. Saved audio plays offline in the natural voice, with seeking.
+- Audio URLs carry `?v=<file hash>` (from `window.FB_ASSETS`, written by the build), so a re-recorded lesson never
+  plays from an old copy and the Offline page offers to update it.
+- Fonts are self-hosted in `public/fonts/` (`tools/vendor_fonts.py`); the claude.ai copy still uses Google Fonts and
+  has no offline mode.
+- `worker/index.js` answers byte-range requests for `/audio/*` (static assets alone always send the whole file, and
+  iPhones and iPads need ranges to play and seek audio).
+
 ## Where things live
 
 | Path | What to edit there |
@@ -64,7 +80,8 @@ set, never its value. When a lookup fails, the page also shows the reason and a 
 | `src/mod-*.js` | Lessons and their interactive widgets, one file per group of courses |
 | `src/account.js`, `src/mod-y-*.js` | Profile storage, self-assessment, results, dashboard, settings, About |
 | `src/pages.js` | Navigation, footer, home, course, lesson, tools and glossary pages |
-| `public/` | Files served as-is: `audio/` (narrated earnings calls), icons, `og-image.jpg`, `_headers`, `robots.txt` |
+| `public/` | Files served as-is: `audio/` (lesson narration and earnings calls), `fonts/`, icons, `og-image.jpg`, `_headers`, `robots.txt`, `site.webmanifest` |
+| `src/sw.js`, `src/mod-z-offline.js` | Offline mode: the service worker, audio downloads, install steps and the Offline & app page |
 | `research/` | Sources and verified figures behind the lessons |
 | `SPEC*.md` | Conventions for lessons and widgets |
 

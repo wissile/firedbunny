@@ -83,6 +83,20 @@ jobs:
           else
             echo "::warning title=Deployed $short::$URL answers, but its page differs from this build (a cache or a page rule may change it)."
           fi
+          # offline mode: the service worker is live, and audio answers byte ranges (iPhones need them)
+          swc=$(curl -s -o sw.js -w '%{http_code}' "$URL/sw.js" || true)
+          if [ "$swc" = 200 ] && cmp -s sw.js dist/sw.js; then
+            echo "::notice title=Offline mode::$URL/sw.js is live and matches this build."
+          else
+            echo "::warning title=Offline mode::$URL/sw.js answered $swc or differs from this build."
+          fi
+          f=$(cd dist && ls audio/lessons/*.mp4 | head -1)
+          rc=$(curl -s -o /dev/null -w '%{http_code}' -H 'Range: bytes=0-1' "$URL/$f" || true)
+          if [ "$rc" = 206 ]; then
+            echo "::notice title=Audio ranges::$URL/$f answers byte-range requests (206), so phones can play and seek."
+          else
+            echo "::warning title=Audio ranges::$URL/$f answered $rc to a byte-range request, not 206."
+          fi
           curl -s -o health.json "$URL/api/health" || true
           python3 - "$URL" <<'PY'
           import json, sys
