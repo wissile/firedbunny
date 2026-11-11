@@ -31,14 +31,18 @@ GOOGLE_FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap">
 '''
+# the running-bunny loading screen: its style comes first and its markup opens the body, so it shows while the
+# rest of the page (mostly scripts) downloads; pages.js removes it once the site has drawn
 HEAD = f'''<title>FiredBunny</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="FiredBunny: the money school they skipped. Learn trading, macro, crypto, retirement and FIRE by playing with interactive lessons, tools and a self-assessment.">
+<style>
+{read('loader.css')}</style>
 {GOOGLE_FONTS}<style>
 {read('style.css')}
 </style>
 '''
-BODY = f'''<main id="view" class="view" tabindex="-1"></main>
+BODY = f'''{read('loader.html')}<main id="view" class="view" tabindex="-1"></main>
 {script('core.js')}
 {script('brand.js')}
 {script('content.js')}

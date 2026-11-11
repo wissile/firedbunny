@@ -710,8 +710,14 @@
   SML.rerender = () => { const y = window.scrollY; render(); window.scrollTo(0, y); };
   SML.go = (tok) => { if (location.hash === '#' + tok) render(); else location.hash = tok; };
 
+  /* the running-bunny loading screen (src/loader.html) fades out once the first page has drawn */
+  function hideLoader() {
+    const el = document.getElementById('boot'); if (!el) return;
+    el.classList.add('boot-out'); el.setAttribute('aria-hidden', 'true');
+    setTimeout(() => el.remove(), 350);
+  }
   function boot() {
-    buildShell(); window.addEventListener('hashchange', render); render();
+    try { buildShell(); window.addEventListener('hashchange', render); render(); } finally { hideLoader(); }
     const live = ['dashboard', 'profile', 'settings', 'results', 'signin'];
     document.addEventListener('sml:account', (e) => { const t = e.detail && e.detail.type; if ((t === 'ready' || t === 'mode') && live.indexOf(current) >= 0) SML.rerender(); });
   }

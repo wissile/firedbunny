@@ -83,6 +83,10 @@ jobs:
           else
             echo "::warning title=Deployed $short::$URL answers, but its page differs from this build (a cache or a page rule may change it)."
           fi
+          # how much a visitor downloads for the page (Cloudflare compresses it on the way)
+          sz=$(curl -s -o /dev/null -H 'Accept-Encoding: br, gzip' -w '%{size_download}' "$URL/" || echo 0)
+          enc=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' "$URL/" | tr -d '\r' | awk -F': ' 'tolower($1)=="content-encoding"{print $2}')
+          echo "::notice title=Page size::$((sz / 1024)) KB to download (${enc:-not compressed}), $(( $(stat -c %s dist/index.html) / 1024 )) KB unpacked."
           # offline mode: the service worker is live, and audio answers byte ranges (iPhones need them)
           swc=$(curl -s -o sw.js -w '%{http_code}' "$URL/sw.js" || true)
           if [ "$swc" = 200 ] && cmp -s sw.js dist/sw.js; then
