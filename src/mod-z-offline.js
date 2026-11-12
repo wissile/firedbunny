@@ -17,7 +17,8 @@
   const PAR = 3; // files downloaded at once
 
   const rel = (p) => String(p || '').replace(/^\/+/, '').split('?')[0];
-  SML.assetURL = (p) => { const f = A && A.files[rel(p)]; return isWeb && f ? '/' + rel(p) + '?v=' + f[1] : p; };
+  // root-absolute on the website, so a file resolves the same from /lessons/x/ as from / (versioned when the build knows it)
+  SML.assetURL = (p) => { const f = A && A.files[rel(p)]; return isWeb && !/^[a-z]+:/i.test(String(p || '')) ? '/' + rel(p) + (f ? '?v=' + f[1] : '') : p; };
   const sizeOf = (u) => { const f = A && A.files[rel(u)]; return f ? f[0] : 0; };
   const abs = (u) => new URL(u, location.origin + '/');
   const MB = (b) => (b >= 1e9 ? (b / 1e9).toFixed(1) + ' GB' : b >= 1e7 ? Math.round(b / 1e6) + ' MB' : (b / 1e6).toFixed(1) + ' MB');

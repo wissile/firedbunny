@@ -45,7 +45,7 @@ HEAD = f'''<title>FiredBunny</title>
 '''
 # every script of the site, in load order
 SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'account.js',
-           'assets.js'] + mods + ['hero.js', 'pages.js']
+           'assets.js', 'routes.js'] + mods + ['hero.js', 'pages.js']
 BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 
 DESC = 'FiredBunny: the money school they skipped. Learn trading, macro, crypto, retirement and FIRE by playing with interactive lessons, tools and a self-assessment.'

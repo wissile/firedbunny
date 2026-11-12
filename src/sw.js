@@ -61,7 +61,8 @@ async function page(event) {
   if (hit) return hit;
   try {
     const res = await fetch(event.request);
-    if (res.ok && /text\/html/i.test(res.headers.get('content-type') || '')) event.waitUntil(cache.put(PAGE, res.clone()).catch(() => {}));
+    // keep only the home document as the app shell: every page address opens from it, and the router draws the page
+    if (res.ok && new URL(event.request.url).pathname === PAGE && /text\/html/i.test(res.headers.get('content-type') || '')) event.waitUntil(cache.put(PAGE, res.clone()).catch(() => {}));
     return res;
   } catch (e) {
     return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>FiredBunny</title><body style="font:16px system-ui;background:#0b0f19;color:#e8edf5;padding:32px">You are offline, and FiredBunny has not been saved on this device yet. Open it once while online, then it works offline.</body>', { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });

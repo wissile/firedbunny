@@ -677,8 +677,40 @@
     return 'Not found';
   }
 
-  /* ---------------- router ---------------- */
+  /* ---------------- router ----------------
+     The website uses real addresses (/lessons/wheel-strategy/, see routes.js) with the History API; the claude.ai copy
+     keeps #token addresses. Pages still write href="#token" in their templates: on the website, linkify() turns those
+     into real paths as they appear (so the pre-built HTML has crawlable links), and clicks on them are handled here. */
+  const R = SML.routes;
+  const PATHS = !!R && R.mode === 'path';
+  const MISSING = 'not-found';
   let current = null;
+  // the page the address asks for; on the website an old #token link is moved to the page's real address
+  function routeTok() {
+    if (PATHS) {
+      const h = (location.hash || '').replace(/^#/, '');
+      if (h && R.exists(h)) { try { history.replaceState(history.state, '', R.path(h) + location.search); } catch (e) {} return h; }
+      return R.token(location.pathname) || MISSING;
+    }
+    let tok = (location.hash || '').replace(/^#/, '') || 'home';
+    if (!/^[A-Za-z0-9._~-]+$/.test(tok)) tok = 'home';
+    return tok;
+  }
+  function fixLink(a) {
+    const h = a.getAttribute('href'); if (!h || h.charAt(0) !== '#' || h.length < 2) return;
+    const t = h.slice(1); if (R.exists(t)) a.setAttribute('href', R.path(t));
+  }
+  function linkify(root) {
+    if (!PATHS || !root) return;
+    if (root.tagName === 'A') fixLink(root);
+    if (root.querySelectorAll) root.querySelectorAll('a[href^="#"]').forEach(fixLink);
+  }
+  SML.linkify = linkify;
+  function scrollToHash() {
+    if (!location.hash || location.hash.length < 2) return;
+    let el = null; try { el = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+    if (el) el.scrollIntoView();
+  }
   function navBar(p) {
     const bar = document.getElementById('nav-bar'), nav = bar && bar.parentNode; if (!bar) return;
     if (p == null) { bar.hidden = true; nav.classList.remove('has-bar'); return; }
@@ -686,15 +718,15 @@
     const i = bar.firstElementChild; requestAnimationFrame(() => { i.style.width = p + '%'; });
   }
   function render() {
-    let tok = (location.hash || '').replace(/^#/, '') || 'home';
-    if (!/^[A-Za-z0-9._~-]+$/.test(tok)) tok = 'home';
+    const tok = routeTok();
     const view = $('#view');
     SML.runCleanup();
     view.innerHTML = '';
     if (tok.indexOf('l-') !== 0) navBar(null);
     let title;
     try {
-      if (SML.pages[tok]) title = SML.pages[tok](view, tok);
+      if (tok === MISSING) title = notFound(view);
+      else if (SML.pages[tok]) title = SML.pages[tok](view, tok);
       else if (tok.indexOf('l-') === 0) title = lessonPage(view, tok);
       else if (tok.indexOf('c-') === 0) title = coursePage(view, tok);
       else if (tok.indexOf('tool-') === 0) title = toolPage(view, tok);
@@ -713,8 +745,11 @@
     }
     const sec = section(tok);
     $$('.nav-links a, .drawer a.dl, .nav-acct').forEach((a) => { const on = a.dataset.sec === sec; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-    document.title = (title && tok !== 'home' ? title + ' · ' : '') + BRAND;
+    document.title = SML.seo ? SML.seo.title(tok, title) : (title && tok !== 'home' ? title + ' · ' : '') + BRAND;
+    if (SML.seo) SML.seo.apply(tok);
+    linkify(view);
     if (current !== null) { window.scrollTo(0, 0); try { view.focus({ preventScroll: true }); } catch (e) {} }
+    if (PATHS) scrollToHash();
     const same = current === tok; // drawn again in place (SML.rerender), not a new page
     current = tok;
     updateCta();
@@ -723,7 +758,31 @@
   SML.route = render;
   /* Re-render the current page in place (keeps the scroll position), e.g. after the account finishes loading. */
   SML.rerender = () => { const y = window.scrollY; render(); window.scrollTo(0, y); };
-  SML.go = (tok) => { if (location.hash === '#' + tok) render(); else location.hash = tok; };
+  SML.go = (tok) => {
+    if (PATHS && R.path(tok)) {
+      const p = R.path(tok);
+      if (location.pathname !== p || location.hash) history.pushState(null, '', p + location.search);
+      render(); return;
+    }
+    if (location.hash === '#' + tok) render(); else location.hash = tok;
+  };
+  // back and forward, or a #token set by older code: draw the page unless it is the one already showing (then the
+  // change is only an in-page #anchor and the browser scrolls to it)
+  function onNav() { const t = routeTok(); if (t !== current) render(); }
+  // clicks on links to other pages of the site: draw them in place instead of loading a new document
+  function onClick(e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    if ((a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+    const href = a.getAttribute('href'), tok = R.fromHref(href); if (!tok) return;
+    e.preventDefault();
+    let hash = ''; if (href.charAt(0) !== '#') { try { hash = new URL(a.href).hash; } catch (err) {} }
+    const p = R.path(tok) + hash;
+    if (location.pathname + location.hash !== p || tok !== current) {
+      if (location.pathname + location.hash !== p) history.pushState(null, '', p);
+      render();
+    }
+  }
 
   /* the running-bunny loading screen (src/loader.html) fades out once the first page has drawn and its fonts are in,
      so text never visibly switches font; it waits for fonts at most 1.2 s */
@@ -744,7 +803,22 @@
   function boot() {
     // the pre-built home page goes in the same task as the live one is drawn, so nothing flashes in between
     const pre = document.getElementById('pre'); snapshot = !!pre && getComputedStyle(pre).display !== 'none'; if (pre) pre.remove();
-    try { buildShell(); window.addEventListener('hashchange', render); render(); } finally { hideLoader(); }
+    try {
+      buildShell();
+      if (PATHS) {
+        window.addEventListener('popstate', onNav); window.addEventListener('hashchange', onNav);
+        document.addEventListener('click', onClick);
+        linkify(document.body);
+        // links added later (menus, widgets, the call-to-action) get their real address too
+        new MutationObserver((muts) => {
+          for (const m of muts) {
+            if (m.type === 'attributes') { if (m.target.tagName === 'A') fixLink(m.target); continue; }
+            m.addedNodes.forEach((n) => { if (n.nodeType === 1 && (n.tagName === 'A' || n.firstElementChild)) linkify(n); });
+          }
+        }).observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['href'] });
+      } else window.addEventListener('hashchange', render);
+      render();
+    } finally { hideLoader(); }
     const live = ['dashboard', 'profile', 'settings', 'results', 'signin'];
     document.addEventListener('sml:account', (e) => { const t = e.detail && e.detail.type; if ((t === 'ready' || t === 'mode') && live.indexOf(current) >= 0) SML.rerender(); });
   }

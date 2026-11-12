@@ -81,7 +81,7 @@ def prerender(dist):
     style = ('<style data-fb="pre">\n' + snap['css'] + '\n'
              'html:not(.fb-deep) #boot{display:none}\n.fb-deep #pre{display:none}\n'
              '#pre .pre-view{animation:none}\n</style>\n')
-    head_js = "<script>if(/^#(?!home$)./.test(location.hash))document.documentElement.classList.add('fb-deep');</script>\n"
+    head_js = "<script>if(!/^\\/(index\\.html)?$/.test(location.pathname)||/^#(?!home$)./.test(location.hash))document.documentElement.classList.add('fb-deep');</script>\n"
     if '</head>' not in page_html or '<div id="boot"' not in page_html:
         print('home page snapshot skipped: unexpected page layout')
         return False

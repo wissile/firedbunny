@@ -103,8 +103,11 @@
   const courseById = (id) => (SML.courses || []).find((c) => c.id === id);
   const trackTitle = (id) => { const t = (SML.tracks || []).find((x) => x.id === id); return t ? t.title : undefined; };
   function describe(tok) {
-    const o = { page_location: location.origin + '/' + (tok === 'home' ? '' : tok), page_title: document.title, page_type: 'page', content_id: tok };
+    // the page's real address (routes.js), also in the claude.ai copy, so reports group pages the same way
+    const p = SML.routes && SML.routes.path(tok);
+    const o = { page_location: location.origin + (p || location.pathname), page_title: document.title, page_type: 'page', content_id: tok };
     if (tok === 'home') o.page_type = 'home';
+    else if (tok === 'not-found') o.page_type = 'not_found'; // a broken link: page_location shows which address
     else if (tok.indexOf('l-') === 0) { const l = lessonById(tok); o.page_type = 'lesson'; if (l) { const c = courseById(l.course); o.content_title = l.title; o.course_name = c && c.title; o.track_name = trackTitle(c && c.track || 'trading'); } }
     else if (tok.indexOf('c-') === 0) { const c = courseById(tok.slice(2)) || courseById(tok); o.page_type = 'course'; if (c) { o.content_title = c.title; o.course_name = c.title; o.track_name = trackTitle(c.track || 'trading'); } }
     else if (tok.indexOf('tool-') === 0) { const t = (SML.tools || []).find((x) => x.id === tok); o.page_type = 'tool'; if (t) { o.content_title = t.title; o.track_name = trackTitle(t.track || 'trading'); } }
@@ -153,8 +156,9 @@
   }
   document.addEventListener('click', (e) => {
     if (!e.target.closest) return;
-    const a = e.target.closest('a[href^="#"]');
-    if (a && a.getAttribute('href').length > 1) SML.track('select_content', { target: a.getAttribute('href').slice(1), label: text(a), target_type: area(a) });
+    const a = e.target.closest('a[href]'); // '#token' in the claude.ai copy, a real path on the website
+    const to = a && (SML.routes ? SML.routes.fromHref(a.getAttribute('href')) : (/^#./.test(a.getAttribute('href')) ? a.getAttribute('href').slice(1) : null));
+    if (to) SML.track('select_content', { target: to, label: text(a), target_type: area(a) });
     const s = e.target.closest('[data-acx-act]'); // Settings and dashboard actions: export, import, delete, reset, save...
     if (s) SML.track('settings_action', { label: s.dataset.acxAct });
     const m = e.target.closest('#nav-menu'); if (m) SML.track('menu_toggle', { label: m.getAttribute('aria-expanded') === 'true' ? 'close' : 'open' });
