@@ -53,7 +53,7 @@
     if (document.getElementById('fb-upd')) return;
     const d = document.createElement('div'); d.id = 'fb-upd'; d.className = 'fb-upd'; d.setAttribute('role', 'status');
     d.innerHTML = '<span>A new version of FiredBunny is ready.</span><button type="button" class="btn btn-p sm" data-upd="go">Reload</button><button type="button" class="fb-upd-x" data-upd="x" aria-label="Later">×</button>';
-    d.addEventListener('click', (e) => { const b = e.target.closest('[data-upd]'); if (!b) return; if (b.dataset.upd === 'go') location.reload(); else d.remove(); });
+    d.addEventListener('click', (e) => { const b = e.target.closest('[data-upd]'); if (!b) return; SML.track('app_update', { label: b.dataset.upd === 'go' ? 'reload' : 'later' }); if (b.dataset.upd === 'go') setTimeout(() => location.reload(), 150); else d.remove(); });
     document.body.appendChild(d);
   }
 
@@ -183,7 +183,7 @@
   async function install() {
     if (!deferred) return false;
     const e = deferred; deferred = null;
-    try { await e.prompt(); const c = await e.userChoice; emit(); return c && c.outcome === 'accepted'; } catch (err) { emit(); return false; }
+    try { await e.prompt(); const c = await e.userChoice; SML.track('app_install_prompt', { label: (c && c.outcome) || 'unknown', method: 'offline_page' }); emit(); return c && c.outcome === 'accepted'; } catch (err) { emit(); return false; }
   }
 
   SML.offline = { enabled, status, progress, get, remove, removeAll, cancel, catalog, on, sizeOf, queue: Q, install, canInstall: () => !!deferred, standalone };
@@ -337,12 +337,13 @@
     $('[data-off="root"]').addEventListener('click', (e) => {
       const t = e.target.closest('button'); if (!t) return;
       const cat = catalog();
-      if (t.dataset.offGet) get([t.dataset.offGet]);
-      else if (t.dataset.offRm) remove([t.dataset.offRm]).then(storage);
-      else if (t.dataset.offGrp) { const g = cat.find((x) => x.id === t.dataset.offGrp); if (g) get(g.items.map((it) => it.url)); }
-      else if (t.dataset.offAct === 'all') get(cat.flatMap((g) => g.items.map((it) => it.url)));
+      const DT = (p) => SML.track('audio_download', Object.assign({ method: 'offline_page' }, p));
+      if (t.dataset.offGet) { DT({ label: 'save', item_category: 'lesson', item_name: (cat.flatMap((g) => g.items).find((it) => it.url === t.dataset.offGet) || {}).id, value: 1 }); get([t.dataset.offGet]); }
+      else if (t.dataset.offRm) { DT({ label: 'remove', item_category: 'lesson', item_name: (cat.flatMap((g) => g.items).find((it) => it.url === t.dataset.offRm) || {}).id }); remove([t.dataset.offRm]).then(storage); }
+      else if (t.dataset.offGrp) { const g = cat.find((x) => x.id === t.dataset.offGrp); if (g) { DT({ label: 'save', item_category: 'track', item_name: g.title, value: g.items.length }); get(g.items.map((it) => it.url)); } }
+      else if (t.dataset.offAct === 'all') { const all = cat.flatMap((g) => g.items.map((it) => it.url)); DT({ label: 'save', item_category: 'all', value: all.length }); get(all); }
       else if (t.dataset.offAct === 'cancel') cancel();
-      else if (t.dataset.offAct === 'rmall') { if (t.dataset.sure) removeAll().then(storage); else { t.dataset.sure = '1'; t.textContent = 'Tap again to remove all'; setTimeout(() => { if (t.isConnected) { delete t.dataset.sure; t.textContent = 'Remove all downloads'; } }, 4000); } }
+      else if (t.dataset.offAct === 'rmall') { if (t.dataset.sure) { DT({ label: 'remove', item_category: 'all' }); removeAll().then(storage); } else { t.dataset.sure = '1'; t.textContent = 'Tap again to remove all'; setTimeout(() => { if (t.isConnected) { delete t.dataset.sure; t.textContent = 'Remove all downloads'; } }, 4000); } }
       else if (t.dataset.offAct === 'install') install();
     });
     return 'Offline & app';

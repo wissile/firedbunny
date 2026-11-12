@@ -98,7 +98,7 @@
         <div class="fb"><a class="brand" href="#home" aria-label="${BRAND} home">${logo}${wordmark}</a><p class="fb-tag">Ten years of money lessons, shared free. Learn it early, keep your cool, buy back your time.</p><p>Education only. Nothing here is financial, investment or tax advice. Most charts use simulated prices and most examples use made-up numbers; the Read a Real Company course uses real reported figures, checked October 2026. Trading and investing can lose money, including more than you put in with options or margin.</p></div>
         <div><h4>Learn</h4><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
         <div><h4>Practice</h4><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
-        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a></nav></div>
+        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
       <div class="foot-base"><span>© 2026 FiredBunny · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
     </div>`;
@@ -562,6 +562,7 @@
     if (qz) qz.addEventListener('click', (e) => {
       const b = e.target.closest('.qopt'); if (!b || qz.dataset.done) return;
       const i = Number(b.dataset.i), ok = i === l.quiz.answer;
+      SML.track('quiz_answer', { item_name: l.id, label: ok ? 'correct' : 'wrong', value: i });
       b.classList.add(ok ? 'right' : 'wrong');
       const why = $('#quiz-why', view); why.hidden = false; why.className = 'quiz-why' + (ok ? '' : ' no');
       if (ok) { qz.dataset.done = '1'; $$('.qopt', qz).forEach((x) => { x.disabled = true; }); why.innerHTML = '<b>Right.</b> ' + l.quiz.why; if (!SML.progress.isDone(l.id)) { SML.progress.set(l.id, true); setMark(true); } }
@@ -661,7 +662,9 @@
       </section>`;
     const q = $('#gl-q', view), cnt = $('#gl-count', view); let letter = '';
     let trk = 'All';
-    const apply = () => { const t = q.value.trim().toLowerCase(); let n = 0; $$('#gl-list > div', view).forEach((el) => { const show = (!t || el.dataset.s.includes(t)) && (!letter || el.dataset.s[0].toUpperCase() === letter) && (trk === 'All' || el.dataset.t === trk); el.hidden = !show; if (show) n++; }); cnt.textContent = t || letter || trk !== 'All' ? `${n} match${n === 1 ? '' : 'es'}` : `${list.length} terms`; };
+    let searchT = 0;
+    const apply = () => { const t = q.value.trim().toLowerCase(); let n = 0;
+      clearTimeout(searchT); if (t.length > 1) searchT = setTimeout(() => SML.track('search', { search_term: t.slice(0, 40), item_category: 'glossary', value: n }), 1200); $$('#gl-list > div', view).forEach((el) => { const show = (!t || el.dataset.s.includes(t)) && (!letter || el.dataset.s[0].toUpperCase() === letter) && (trk === 'All' || el.dataset.t === trk); el.hidden = !show; if (show) n++; }); cnt.textContent = t || letter || trk !== 'All' ? `${n} match${n === 1 ? '' : 'es'}` : `${list.length} terms`; };
     const gst = ui.wire(view, () => { trk = gst.seg('gl-trk'); apply(); });
     q.addEventListener('input', apply);
     $('#gl-az', view).addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; letter = b.dataset.l; $$('#gl-az button', view).forEach((x) => x.classList.toggle('on', x === b)); apply(); });
@@ -714,6 +717,7 @@
     if (current !== null) { window.scrollTo(0, 0); try { view.focus({ preventScroll: true }); } catch (e) {} }
     current = tok;
     updateCta();
+    try { document.dispatchEvent(new CustomEvent('sml:route', { detail: { tok, title: document.title } })); } catch (e) {} // analytics page view
   }
   SML.route = render;
   /* Re-render the current page in place (keeps the scroll position), e.g. after the account finishes loading. */

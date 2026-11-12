@@ -1496,9 +1496,11 @@
     function stopSpeech() { if (speech) { speech = null; try { window.speechSynthesis.cancel(); } catch (e) {} } }
 
     /* ---------- transport ---------- */
+    const CT = (ev, p) => SML.track(ev, Object.assign({ item_name: script.file, item_category: 'earnings_call', content_title: script.company + ': ' + script.title, voice: st.mode === 'audio' ? 'natural' : 'device', position_sec: Math.round(st.t || 0), duration_sec: Math.round(script.dur || 0) }, p));
     function play() {
       if (st.cpOpen) return;
       if (st.ended || st.t >= script.dur - 0.1) { st.t = 0; st.ended = false; }
+      CT(st.started ? 'audio_resume' : 'audio_start', { method: 'button' });
       st.started = true; lastActive = me;
       if (st.mode === 'audio') { st.playing = true; if (!playAudio()) { st.playing = false; updatePlay(); return; } }
       else if (st.mode === 'speech') { st.playing = true; startSpeech(); }
@@ -1512,7 +1514,7 @@
       stopSpeech(); vclock = null; playBtn.classList.remove('busy');
       updatePlay(); render();
     }
-    function finish() { st.playing = false; st.ended = true; if (audio) { try { audio.pause(); } catch (e) {} } stopSpeech(); vclock = null; updatePlay(); render(); }
+    function finish() { CT('audio_complete', { percent: 100 }); st.playing = false; st.ended = true; if (audio) { try { audio.pause(); } catch (e) {} } stopSpeech(); vclock = null; updatePlay(); render(); }
     function toggle() { if (st.playing) pause(); else play(); }
     function seek(t) {
       t = SML.clamp(t, 0, script.dur); st.t = t; st.ended = false; st.started = true;
@@ -1598,6 +1600,7 @@
       const o = e.target.closest('button[data-o]'), x2 = e.target.closest('button[data-x]');
       if (o) {
         const j = Number(o.dataset.o); st.answers[k] = j; st.cpDone[k] = true;
+        CT('quiz_answer', { method: 'call_checkpoint', label: q.kind === 'quiz' ? (j === q.ans ? 'correct' : 'wrong') : 'prediction', value: j });
         cpEl.querySelectorAll('button[data-o]').forEach((b, n) => { b.classList.remove('pick', 'ok', 'bad'); if (q.kind === 'quiz') { if (n === q.ans) b.classList.add('ok'); else if (n === j) b.classList.add('bad'); } else if (n === j) b.classList.add('pick'); });
         const f = cpEl.querySelector('.rcc-cpf'); f.hidden = false;
         f.textContent = q.kind === 'quiz' ? (j === q.ans ? q.ok : q.no) : `Locked in: ${q.opts[j]}. Keep listening; the answer comes after the call.`;

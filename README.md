@@ -85,6 +85,14 @@ The website works offline and installs as an app (phone home screen, or its own 
   `self.registration.unregister()` and deletes its caches; browsers pick it up on the next visit (`/sw.js` is served
   with `Cache-Control: no-cache`).
 
+## Analytics
+
+Google Tag Manager `GTM-PJR6KKW9` with Google Analytics 4: every page view and the key interactions (lessons, quiz,
+audio, tools, searches, assessment, downloads, app install). Consent: Europe asks first, everyone can switch it off in
+Settings. Setup, privacy rules and the full event list: `analytics/README.md`. Modules report events with
+`SML.track('event_name', { ... })`; after adding events run `python3 tools/gtm_container.py` to refresh the Tag
+Manager import file `analytics/gtm-firedbunny.json`.
+
 ## Where things live
 
 | Path | What to edit there |

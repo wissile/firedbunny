@@ -939,8 +939,12 @@ svg .ern-ring{fill:none;stroke:var(--accent);stroke-width:2}
         setStatus(m.sample ? sampleNote(null) : '');
         render(m);
         if (!m.sample) SML.store.set(STORE, t);
+        SML.track('earnings_lookup', { item_name: String(t).toUpperCase(), label: m.sample ? 'sample' : 'ok', content_title: m.name });
+        SML.track('search', { search_term: String(t).toUpperCase(), item_category: 'earnings', value: m.sample ? 0 : 1 });
       }, (e) => {
         if (!ok(my)) return;
+        SML.track('earnings_lookup', { item_name: String(t).toUpperCase(), label: (e && e.code) || 'error' });
+        SML.track('search', { search_term: String(t).toUpperCase(), item_category: 'earnings', value: 0 });
         if (e && e.code !== 'bad_ticker' && e.code !== 'not_found' && e.code !== 'no_quarterly' && e.code !== 'offline') console.warn('[earnings] lookup failed', t, e && e.code, e && e.status, e && (e.hint || e.message));
         if (e && (e.code === 'unavailable' || e.code === 'no_api')) showSample(t, true, e.code === 'no_api' ? e : null); else showError(e || {}, t);
       });

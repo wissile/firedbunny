@@ -458,7 +458,7 @@
       readonly: 'You’re signed in, but this page was shared with you in a way that lets you read it, not save to it, so your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Export a file to move it, or ask for Contributor access to save to your account.',
       guest: 'You’re not signed in, so your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Clearing browser data loses it: export a file to keep a copy or move it.',
     }[kind];
-    const syncWeb = 'FiredBunny saves your profile, goals, net worth, assessments and lesson progress in this browser only. Nothing is sent to a server, and there is no account to create. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Clearing browser data loses it: export a file to keep a copy or move it to another device.';
+    const syncWeb = 'FiredBunny saves your profile, goals, net worth, assessments and lesson progress in this browser only. None of it is sent to a server, and there is no account to create. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Clearing browser data loses it: export a file to keep a copy or move it to another device.';
     view.innerHTML = `
       ${SML.pageHeader('', 'Settings', `Your data, <em>your</em> rules.`, `<p>Sync, preferences, lesson progress, and full control over your data: export it, import it or delete it.</p>`)}
       <div class="wrap acx">
@@ -523,13 +523,15 @@
             <section class="acx-card" aria-labelledby="acx-s8"><div class="acx-h"><h2 id="acx-s8">${ico.shield}Privacy</h2></div>
               <ul class="acx-list">
                 ${SML.host === 'web' ? `<li>${ico.check}<span>Your data is saved in this browser only. FiredBunny has no server copy of it. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>
-                <li>${ico.check}<span>No accounts and no passwords to leak.</span></li>` : `<li>${ico.check}<span>Signed in, your data is saved to your private FiredBunny profile. Other visitors and the site owner can’t read it.</span></li>
+                <li>${ico.check}<span>No accounts and no passwords to leak.</span></li>
+                <li>${ico.check}<span>Usage stats: FiredBunny uses Google Analytics (through Google Tag Manager) to count visits and see which pages, lessons, tools and audio people use, so it can make better ones. It never sends your profile, goals, money figures or anything you type into the tools.</span></li>` : `<li>${ico.check}<span>Signed in, your data is saved to your private FiredBunny profile. Other visitors and the site owner can’t read it.</span></li>
                 <li>${ico.check}<span>As a guest, your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>
                 <li>${ico.check}<span>No passwords: FiredBunny uses your Claude account, so there is no FiredBunny password to leak.</span></li>`}
                 <li>${ico.check}<span>Never enter account numbers, logins or your Social Security number. FiredBunny only needs rough amounts.</span></li>
                 ${SML.host === 'web' ? '' : `<li>${ico.check}<span>Feedback you send from the About page is the only thing the owner reads.</span></li>`}
                 <li>${ico.check}<span>Delete everything any time with the button on this page.</span></li>
               </ul>
+              ${SML.host === 'web' && SML.analytics && (SML.analytics.available || SML.analytics.debug()) ? `<div class="acx-toggle"><span><b>Share usage stats</b><small>Google Analytics. Off means nothing is sent from this browser.</small></span><button type="button" class="acx-sw" role="switch" aria-checked="${SML.analytics.allowed()}" data-analytics aria-label="Share usage stats with Google Analytics"></button></div>` : ''}
             </section>
             ${prefs.showTips !== false ? SML.bunnyTip('Export a copy once a month. It takes two seconds and it is the best insurance for your data, especially in guest mode.') : ''}
           </div>
@@ -555,6 +557,10 @@
       await A().save((q) => { q.prefs = Object.assign({}, q.prefs, { [k]: on }); }); flash();
       if (k === 'showTips') SML.rerender();
     }));
+
+    /* usage stats switch */
+    const asw = $('[data-analytics]', view);
+    if (asw) asw.addEventListener('click', () => { const on = asw.getAttribute('aria-checked') !== 'true'; if (!on) SML.track('analytics_opt_out', { label: 'settings' }); SML.analytics.set(on); asw.setAttribute('aria-checked', String(on)); SML.toast(on ? 'Thanks: usage stats are on.' : 'Usage stats are off for this browser.'); });
 
     /* reset progress */
     const rw = $('[data-acx="reset-wrap"]', view);

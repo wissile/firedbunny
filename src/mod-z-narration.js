@@ -274,12 +274,17 @@
     mini.innerHTML = `<button type="button" class="nar-ic" data-n="mtoggle" aria-label="Play or pause">${IC.pause}</button><div class="nar-mt"><span>${esc(lesson.title)}</span><div class="nar-bar" data-n="mbar"><i style="width:0"></i></div></div><button type="button" class="nar-mskip" data-n="mnext"${nextL ? ` aria-label="Next lesson: ${esc(nextL.title)}"` : ' disabled aria-label="No next lesson"'}>${IC.next}</button><button type="button" class="nar-x" data-n="mclose" aria-label="Stop">×</button>`;
     document.body.appendChild(mini);
     let playing = false, started = false, visible = true;
+    // analytics: what started this lesson's audio (a tap, autoplay, a skip from the player, mini player or lock screen)
+    const startHow = incoming && incoming.how ? incoming.how : 'button';
+    const seen = { start: false, pct: {} };
+    const T = (ev, p) => SML.track(ev, Object.assign({ item_name: lesson.id, item_category: 'lesson', voice: mode === 'audio' ? 'natural' : 'device', speed, position_sec: Math.round(pos()), duration_sec: Math.round(total()) }, p));
 
     /* --- engine: recorded audio (the shared element) --- */
     let audio = null; const ac = 'AbortController' in window ? new AbortController() : null;
     /* --- engine: device voice --- */
     let idx = 0, ttsT = 0, ttsTimer = 0, utt = null;
     function toTTS(at) { // recorded file failed to load: carry on with the device voice from about the same place
+      T('audio_fallback', { label: navigator.onLine === false ? 'offline' : 'load_error' });
       if (audio) { audio.pause(); audio = null; } mode = 'tts'; const frac = at / (estDur || 1); ttsPlan();
       el.querySelector('.nar-src').textContent = 'Your device’s voice'; cap.hidden = false;
       bar.innerHTML = '<i style="width:0"></i>' + ticks(); bar.setAttribute('aria-valuemax', String(Math.round(estDur)));
@@ -298,6 +303,7 @@
       const ic = playing ? IC.pause : IC.play; btn.querySelector('.nar-ic').innerHTML = ic; mini.querySelector('[data-n="mtoggle"]').innerHTML = ic;
       btn.querySelector('span:nth-child(2)').textContent = playing ? 'Pause' : (started ? 'Resume' : 'Listen to this lesson');
       mini.classList.toggle('show', started && !visible);
+      if (playing && seen.start) { const pc = (pos() / (total() || 1)) * 100; [25, 50, 75].forEach((m) => { if (pc >= m && !seen.pct[m]) { seen.pct[m] = true; T('audio_progress', { percent: m }); } }); }
       // lock screen and notification: progress bar
       const now = Date.now();
       if ('mediaSession' in navigator && started && (now - lastPos > 900 || !playing)) {
@@ -305,7 +311,7 @@
         try { navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'; const d = total(); if (d > 0 && isFinite(d)) navigator.mediaSession.setPositionState({ duration: d, playbackRate: mode === 'audio' ? speed : 1, position: Math.min(pos(), d) }); } catch (e) {}
       }
     }
-    function ended() { playing = false; paint(); if (autoNext() && nextL) goTo(nextL, true); }
+    function ended() { playing = false; paint(); T('audio_complete', { percent: 100, label: autoNext() && nextL ? 'autoplay_next' : 'stop' }); if (autoNext() && nextL) goTo(nextL, true, 'autoplay'); }
     function ensureAudio() {
       if (audio) return audio;
       audio = getAudio();
@@ -333,19 +339,25 @@
     }
     function seekTTS(t) { let i = 0; while (i + 1 < flat.length && flat[i + 1].t <= t) i++; idx = i; ttsT = flat[i] ? flat[i].t : 0; paint(); }
     function playTTS() { playing = true; started = true; speakFrom(idx); paint(); }
-    function play() {
+    function play(how) {
+      if (!seen.start) { seen.start = true; setTimeout(() => T('audio_start', { method: typeof how === 'string' ? how : startHow }), 0); }
+      else if (!playing) T('audio_resume', { method: typeof how === 'string' ? how : 'button' });
       started = true; more.hidden = false;
       if (mode === 'audio') { const a = ensureAudio(); const p = a.play(); if (p && p.catch) p.catch(() => { playing = false; paint(); }); }
       else { if (shared) shared.pause(); playTTS(); }
       media(); paint();
     }
-    function pause() { if (mode === 'audio') { if (audio) audio.pause(); } else { playing = false; utt = null; window.speechSynthesis.cancel(); clearInterval(ttsTimer); } paint(); }
+    function pause(how) {
+      if (playing) T('audio_pause', { method: typeof how === 'string' ? how : 'button', percent: Math.round((pos() / (total() || 1)) * 100) });
+      if (mode === 'audio') { if (audio) audio.pause(); } else { playing = false; utt = null; window.speechSynthesis.cancel(); clearInterval(ttsTimer); } paint();
+    }
     function seek(t) { t = Math.max(0, Math.min(total() - 0.2, t)); if (mode === 'audio') { const a = ensureAudio(); a.currentTime = t; paint(); } else { const was = playing; utt = null; window.speechSynthesis.cancel(); seekTTS(t); if (was) speakFrom(idx); } }
-    function stop() { pause(); if (mode === 'audio' && audio) { audio.currentTime = 0; } else { idx = 0; ttsT = 0; } started = false; more.hidden = true; paint(); }
+    function stop() { pause('stop'); if (mode === 'audio' && audio) { audio.currentTime = 0; } else { idx = 0; ttsT = 0; } started = false; more.hidden = true; paint(); }
     /* move to another lesson; its page starts playing when we were playing (or the lesson just ended with autoplay on) */
-    function goTo(l, keepPlaying) {
+    function goTo(l, keepPlaying, how) {
       if (!l) return;
-      const h = handoff = { play: !!keepPlaying };
+      if (how !== 'autoplay') T('audio_skip', { method: how || 'button', label: l === nextL ? 'next' : 'previous', item_name: l.id, value: keepPlaying ? 1 : 0 });
+      const h = handoff = { play: !!keepPlaying, how: how || 'button' };
       setTimeout(() => { if (handoff === h) { handoff = null; if (shared) shared.pause(); } }, 4000); // the next page never took over
       if (mode === 'tts') { playing = false; window.speechSynthesis.cancel(); clearInterval(ttsTimer); }
       SML.go(l.id);
@@ -354,21 +366,21 @@
       if (!('mediaSession' in navigator)) return;
       const ms = navigator.mediaSession; const set = (a, fn) => { try { ms.setActionHandler(a, fn); } catch (e) { /* not supported here */ } };
       try { ms.metadata = new window.MediaMetadata({ title: lesson.title, artist: 'FiredBunny', album: (SML.courses.find((c) => c.id === lesson.course) || {}).title || 'Lessons', artwork: [{ src: '/icon-512.png', sizes: '512x512', type: 'image/png' }, { src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] }); } catch (e) {}
-      set('play', play); set('pause', pause);
+      set('play', () => play('lock_screen')); set('pause', () => pause('lock_screen'));
       set('seekbackward', (d) => seek(pos() - ((d && d.seekOffset) || 15))); set('seekforward', (d) => seek(pos() + ((d && d.seekOffset) || 15)));
       set('seekto', (d) => { if (d && typeof d.seekTime === 'number') seek(d.seekTime); });
-      set('previoustrack', prevL ? () => goTo(prevL, true) : null);
-      set('nexttrack', nextL ? () => goTo(nextL, true) : null);
+      set('previoustrack', prevL ? () => goTo(prevL, true, 'lock_screen') : null);
+      set('nexttrack', nextL ? () => goTo(nextL, true, 'lock_screen') : null);
       set('stop', stop);
     }
     btn.addEventListener('click', () => (playing ? pause() : play()));
-    el.querySelectorAll('[data-n="prev"],[data-n="next"]').forEach((b) => b.addEventListener('click', () => goTo(b.dataset.n === 'prev' ? prevL : nextL, playing)));
-    mini.querySelector('[data-n="mtoggle"]').addEventListener('click', () => (playing ? pause() : play()));
-    mini.querySelector('[data-n="mnext"]').addEventListener('click', () => goTo(nextL, playing));
+    el.querySelectorAll('[data-n="prev"],[data-n="next"]').forEach((b) => b.addEventListener('click', () => goTo(b.dataset.n === 'prev' ? prevL : nextL, playing, 'button')));
+    mini.querySelector('[data-n="mtoggle"]').addEventListener('click', () => (playing ? pause('mini_player') : play('mini_player')));
+    mini.querySelector('[data-n="mnext"]').addEventListener('click', () => goTo(nextL, playing, 'mini_player'));
     mini.querySelector('[data-n="mclose"]').addEventListener('click', stop);
-    $('[data-n="speed"]').addEventListener('change', (e) => { speed = +e.target.value || 1; store.set('narSpeed', speed); if (audio) audio.playbackRate = speed; if (mode === 'tts' && playing) speakFrom(idx); });
-    $('[data-n="auto"]').addEventListener('change', (e) => { store.set('narAuto', !!e.target.checked); SML.toast(e.target.checked ? 'The next lesson will play on its own.' : 'Autoplay is off.'); });
-    el.querySelectorAll('[data-chap]').forEach((b) => b.addEventListener('click', () => { seek(chapStarts[+b.dataset.chap] || 0); if (!playing) play(); }));
+    $('[data-n="speed"]').addEventListener('change', (e) => { speed = +e.target.value || 1; store.set('narSpeed', speed); T('audio_setting', { method: 'speed', label: speed + 'x' }); if (audio) audio.playbackRate = speed; if (mode === 'tts' && playing) speakFrom(idx); });
+    $('[data-n="auto"]').addEventListener('change', (e) => { store.set('narAuto', !!e.target.checked); T('audio_setting', { method: 'autoplay', label: e.target.checked ? 'on' : 'off' }); SML.toast(e.target.checked ? 'The next lesson will play on its own.' : 'Autoplay is off.'); });
+    el.querySelectorAll('[data-chap]').forEach((b) => b.addEventListener('click', () => { T('audio_chapter', { label: b.textContent }); seek(chapStarts[+b.dataset.chap] || 0); if (!playing) play('chapter'); }));
     const barSeek = (target, ev) => { const r = target.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width; seek(x * total()); };
     bar.addEventListener('pointerdown', (ev) => barSeek(bar, ev));
     mini.querySelector('[data-n="mbar"]').addEventListener('pointerdown', (ev) => barSeek(ev.currentTarget, ev));
@@ -389,8 +401,8 @@
       dlBtn.addEventListener('click', () => {
         const s = OFF.status(dlUrl);
         if (s === 'busy') return;
-        if (s === 'done') OFF.remove([dlUrl]).then(() => SML.toast('Download removed.'));
-        else OFF.get([dlUrl]);
+        if (s === 'done') { T('audio_download', { label: 'remove', method: 'player' }); OFF.remove([dlUrl]).then(() => SML.toast('Download removed.')); }
+        else { T('audio_download', { label: 'save', method: 'player', value: 1 }); OFF.get([dlUrl]); }
       });
       offSub = OFF.on(paintDl); paintDl();
     }
@@ -409,7 +421,7 @@
     });
     paint();
     // arrived here by autoplay, Next or Previous while playing: keep going
-    if (incoming && incoming.play) play();
+    if (incoming && incoming.play) play(incoming.how);
     else if (incoming) { if (shared && shared.src !== srcAbs) shared.pause(); media(); }
   }
 
