@@ -730,11 +730,11 @@ ${CATS.map((c) => `.xc [data-cat="${c.k}"],.xcl [data-cat="${c.k}"]{--cc:${CC[c.
     $('#xc-export', view).addEventListener('click', () => {
       const list = events.filter((e) => visible(e) && e.d >= tISO);
       saveICS('investor-calendar.ics', list, 'Investor calendar');
-      SML.track('file_download', { label: 'investor-calendar.ics', item_category: 'calendar', value: list.length });
+      SML.track('file_download', { label: 'investor-calendar.ics', target_type: 'calendar', count: list.length });
     });
     $('.xc', view).addEventListener('click', (e) => {
       if (e.target.closest('[data-more]')) { st.ag += 3; render(); return; }
-      const ib = e.target.closest('[data-ics]'); if (ib) { const ev = events.find((x) => x.id === ib.dataset.ics); if (ev) { saveICS(`${ev.kind}-${ev.d}.ics`, [ev], ev.title); SML.track('file_download', { label: ev.title, item_name: ev.kind, item_category: 'calendar_event', value: 1 }); } return; }
+      const ib = e.target.closest('[data-ics]'); if (ib) { const ev = events.find((x) => x.id === ib.dataset.ics); if (ev) { saveICS(`${ev.kind}-${ev.d}.ics`, [ev], ev.title); SML.track('file_download', { label: ev.title, target: ev.kind, target_type: 'calendar_event', count: 1 }); } return; }
       const cell = e.target.closest('.xc-cell'); if (cell) { st.sel = cell.dataset.d; const evs = events.filter((x) => x.d === st.sel && visible(x)); st.ev = evs.length === 1 ? evs[0].id : null; const d = parse(st.sel); if (d.getMonth() !== st.m) { st.m = d.getMonth(); st.y = d.getFullYear(); } render(); if (window.innerWidth < 1100) detail.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'nearest' }); return; }
       const row = e.target.closest('[data-ev]'); if (row) { const ev = events.find((x) => x.id === row.dataset.ev); if (ev) { st.ev = st.view === 'agenda' && st.ev === ev.id ? null : ev.id; st.sel = ev.d; render(); if (row.closest('#xc-next') && window.innerWidth < 1100) detail.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'nearest' }); } }
     });

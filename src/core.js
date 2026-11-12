@@ -316,21 +316,17 @@
   /* module-specific CSS (use tokens only, prefix selectors with your module's class names) */
   /* ---------------- analytics ---------------- */
   /* Modules report what visitors do with SML.track('event_name', { param: value }). mod-a-analytics.js switches it on
-     (website only, and only with the visitor's consent) and sends it through Google Tag Manager; elsewhere it does
-     nothing. Every event carries the same parameter set, unused ones empty, so a value can never carry over from one
-     event to the next inside Tag Manager. Never pass anything a visitor typed about themselves or their money. */
-  SML.trackKeys = ['page_location', 'page_title', 'page_referrer', 'page_type', 'content_id', 'content_title', 'course_name', 'track_name',
-    'item_name', 'item_category', 'label', 'method', 'value', 'percent', 'position_sec', 'duration_sec', 'voice', 'speed', 'search_term',
-    'connection', 'display_mode', 'lessons_done'];
+     (website only, and only with the visitor's consent) and sends it to Google Analytics; elsewhere it does nothing.
+     The page's own details (path, page type, lesson, course, track) are attached to every event by mod-a-analytics.js.
+     Event parameters: target, target_type, label, method, count, score, percent, position_sec, duration_sec, voice,
+     speed, search_term. Never pass anything a visitor typed about themselves or their money. */
   SML.trackOn = false;
   SML.track = function (event, params) {
-    if (!SML.trackOn) return;
+    if (!SML.trackOn || !SML.trackSend) return;
     try {
-      const o = { event: event };
-      SML.trackKeys.forEach((k) => { o[k] = undefined; });
-      Object.assign(o, SML.trackContext ? SML.trackContext() : null, params || {});
-      Object.keys(o).forEach((k) => { if (typeof o[k] === 'string' && o[k].length > 100) o[k] = o[k].slice(0, 100); });
-      (window.dataLayer = window.dataLayer || []).push(o);
+      const o = {};
+      Object.keys(params || {}).forEach((k) => { let v = params[k]; if (v === undefined || v === null || v === '') return; if (typeof v === 'string' && v.length > 100) v = v.slice(0, 100); o[k] = v; });
+      SML.trackSend(event, o);
     } catch (e) { /* analytics must never break the page */ }
   };
   SML.css = function (txt) { const s = document.createElement('style'); s.textContent = txt; document.head.appendChild(s); };

@@ -562,7 +562,7 @@
     if (qz) qz.addEventListener('click', (e) => {
       const b = e.target.closest('.qopt'); if (!b || qz.dataset.done) return;
       const i = Number(b.dataset.i), ok = i === l.quiz.answer;
-      SML.track('quiz_answer', { item_name: l.id, label: ok ? 'correct' : 'wrong', value: i });
+      SML.track('quiz_answer', { target: l.id, label: ok ? 'correct' : 'wrong' });
       b.classList.add(ok ? 'right' : 'wrong');
       const why = $('#quiz-why', view); why.hidden = false; why.className = 'quiz-why' + (ok ? '' : ' no');
       if (ok) { qz.dataset.done = '1'; $$('.qopt', qz).forEach((x) => { x.disabled = true; }); why.innerHTML = '<b>Right.</b> ' + l.quiz.why; if (!SML.progress.isDone(l.id)) { SML.progress.set(l.id, true); setMark(true); } }
@@ -664,7 +664,7 @@
     let trk = 'All';
     let searchT = 0;
     const apply = () => { const t = q.value.trim().toLowerCase(); let n = 0;
-      clearTimeout(searchT); if (t.length > 1) searchT = setTimeout(() => SML.track('search', { search_term: t.slice(0, 40), item_category: 'glossary', value: n }), 1200); $$('#gl-list > div', view).forEach((el) => { const show = (!t || el.dataset.s.includes(t)) && (!letter || el.dataset.s[0].toUpperCase() === letter) && (trk === 'All' || el.dataset.t === trk); el.hidden = !show; if (show) n++; }); cnt.textContent = t || letter || trk !== 'All' ? `${n} match${n === 1 ? '' : 'es'}` : `${list.length} terms`; };
+      clearTimeout(searchT); if (t.length > 1) searchT = setTimeout(() => SML.track('search', { search_term: t.slice(0, 40), target_type: 'glossary', count: n }), 1200); $$('#gl-list > div', view).forEach((el) => { const show = (!t || el.dataset.s.includes(t)) && (!letter || el.dataset.s[0].toUpperCase() === letter) && (trk === 'All' || el.dataset.t === trk); el.hidden = !show; if (show) n++; }); cnt.textContent = t || letter || trk !== 'All' ? `${n} match${n === 1 ? '' : 'es'}` : `${list.length} terms`; };
     const gst = ui.wire(view, () => { trk = gst.seg('gl-trk'); apply(); });
     q.addEventListener('input', apply);
     $('#gl-az', view).addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; letter = b.dataset.l; $$('#gl-az button', view).forEach((x) => x.classList.toggle('on', x === b)); apply(); });

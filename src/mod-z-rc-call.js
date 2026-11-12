@@ -1496,7 +1496,7 @@
     function stopSpeech() { if (speech) { speech = null; try { window.speechSynthesis.cancel(); } catch (e) {} } }
 
     /* ---------- transport ---------- */
-    const CT = (ev, p) => SML.track(ev, Object.assign({ item_name: script.file, item_category: 'earnings_call', content_title: script.company + ': ' + script.title, voice: st.mode === 'audio' ? 'natural' : 'device', position_sec: Math.round(st.t || 0), duration_sec: Math.round(script.dur || 0) }, p));
+    const CT = (ev, p) => SML.track(ev, Object.assign({ target: script.file, target_type: 'earnings_call', content_title: script.company + ': ' + script.title, voice: st.mode === 'audio' ? 'natural' : 'device', position_sec: Math.round(st.t || 0), duration_sec: Math.round(script.dur || 0) }, p));
     function play() {
       if (st.cpOpen) return;
       if (st.ended || st.t >= script.dur - 0.1) { st.t = 0; st.ended = false; }
@@ -1600,7 +1600,7 @@
       const o = e.target.closest('button[data-o]'), x2 = e.target.closest('button[data-x]');
       if (o) {
         const j = Number(o.dataset.o); st.answers[k] = j; st.cpDone[k] = true;
-        CT('quiz_answer', { method: 'call_checkpoint', label: q.kind === 'quiz' ? (j === q.ans ? 'correct' : 'wrong') : 'prediction', value: j });
+        CT('quiz_answer', { method: 'call_checkpoint', label: q.kind === 'quiz' ? (j === q.ans ? 'correct' : 'wrong') : 'prediction' });
         cpEl.querySelectorAll('button[data-o]').forEach((b, n) => { b.classList.remove('pick', 'ok', 'bad'); if (q.kind === 'quiz') { if (n === q.ans) b.classList.add('ok'); else if (n === j) b.classList.add('bad'); } else if (n === j) b.classList.add('pick'); });
         const f = cpEl.querySelector('.rcc-cpf'); f.hidden = false;
         f.textContent = q.kind === 'quiz' ? (j === q.ans ? q.ok : q.no) : `Locked in: ${q.opts[j]}. Keep listening; the answer comes after the call.`;

@@ -338,12 +338,12 @@
       const t = e.target.closest('button'); if (!t) return;
       const cat = catalog();
       const DT = (p) => SML.track('audio_download', Object.assign({ method: 'offline_page' }, p));
-      if (t.dataset.offGet) { DT({ label: 'save', item_category: 'lesson', item_name: (cat.flatMap((g) => g.items).find((it) => it.url === t.dataset.offGet) || {}).id, value: 1 }); get([t.dataset.offGet]); }
-      else if (t.dataset.offRm) { DT({ label: 'remove', item_category: 'lesson', item_name: (cat.flatMap((g) => g.items).find((it) => it.url === t.dataset.offRm) || {}).id }); remove([t.dataset.offRm]).then(storage); }
-      else if (t.dataset.offGrp) { const g = cat.find((x) => x.id === t.dataset.offGrp); if (g) { DT({ label: 'save', item_category: 'track', item_name: g.title, value: g.items.length }); get(g.items.map((it) => it.url)); } }
-      else if (t.dataset.offAct === 'all') { const all = cat.flatMap((g) => g.items.map((it) => it.url)); DT({ label: 'save', item_category: 'all', value: all.length }); get(all); }
+      if (t.dataset.offGet) { DT({ label: 'save', target_type: 'lesson', target: (cat.flatMap((g) => g.items).find((it) => it.url === t.dataset.offGet) || {}).id, count: 1 }); get([t.dataset.offGet]); }
+      else if (t.dataset.offRm) { DT({ label: 'remove', target_type: 'lesson', target: (cat.flatMap((g) => g.items).find((it) => it.url === t.dataset.offRm) || {}).id }); remove([t.dataset.offRm]).then(storage); }
+      else if (t.dataset.offGrp) { const g = cat.find((x) => x.id === t.dataset.offGrp); if (g) { DT({ label: 'save', target_type: 'track', target: g.title, count: g.items.length }); get(g.items.map((it) => it.url)); } }
+      else if (t.dataset.offAct === 'all') { const all = cat.flatMap((g) => g.items.map((it) => it.url)); DT({ label: 'save', target_type: 'all', count: all.length }); get(all); }
       else if (t.dataset.offAct === 'cancel') cancel();
-      else if (t.dataset.offAct === 'rmall') { if (t.dataset.sure) { DT({ label: 'remove', item_category: 'all' }); removeAll().then(storage); } else { t.dataset.sure = '1'; t.textContent = 'Tap again to remove all'; setTimeout(() => { if (t.isConnected) { delete t.dataset.sure; t.textContent = 'Remove all downloads'; } }, 4000); } }
+      else if (t.dataset.offAct === 'rmall') { if (t.dataset.sure) { DT({ label: 'remove', target_type: 'all' }); removeAll().then(storage); } else { t.dataset.sure = '1'; t.textContent = 'Tap again to remove all'; setTimeout(() => { if (t.isConnected) { delete t.dataset.sure; t.textContent = 'Remove all downloads'; } }, 4000); } }
       else if (t.dataset.offAct === 'install') install();
     });
     return 'Offline & app';

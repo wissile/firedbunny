@@ -87,11 +87,12 @@ The website works offline and installs as an app (phone home screen, or its own 
 
 ## Analytics
 
-Google Tag Manager `GTM-PJR6KKW9` with Google Analytics 4: every page view and the key interactions (lessons, quiz,
-audio, tools, searches, assessment, downloads, app install). Consent: Europe asks first, everyone can switch it off in
-Settings. Setup, privacy rules and the full event list: `analytics/README.md`. Modules report events with
-`SML.track('event_name', { ... })`; after adding events run `python3 tools/gtm_container.py` to refresh the Tag
-Manager import file `analytics/gtm-firedbunny.json`.
+Google Tag Manager container `GTM-PJR6KKW9`, which carries the Google tag for Google Analytics 4 property
+`G-XVRHV7GTZ9`. The site sends a page view for every page it shows (as paths such as `/l-wheel`) and events for the
+key interactions (lessons, quiz, audio, tools, searches, assessment, downloads, app install) with `gtag('event')`,
+straight to GA4: nothing to set up in Tag Manager. Consent: Europe asks first, everyone can switch it off in Settings.
+Setup in GA4, privacy rules and the full event list: `analytics/README.md`. Modules report events with
+`SML.track('event_name', { ... })`.
 
 ## Where things live
 

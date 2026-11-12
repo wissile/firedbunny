@@ -277,7 +277,7 @@
     // analytics: what started this lesson's audio (a tap, autoplay, a skip from the player, mini player or lock screen)
     const startHow = incoming && incoming.how ? incoming.how : 'button';
     const seen = { start: false, pct: {} };
-    const T = (ev, p) => SML.track(ev, Object.assign({ item_name: lesson.id, item_category: 'lesson', voice: mode === 'audio' ? 'natural' : 'device', speed, position_sec: Math.round(pos()), duration_sec: Math.round(total()) }, p));
+    const T = (ev, p) => SML.track(ev, Object.assign({ target: lesson.id, target_type: 'lesson', voice: mode === 'audio' ? 'natural' : 'device', speed, position_sec: Math.round(pos()), duration_sec: Math.round(total()) }, p));
 
     /* --- engine: recorded audio (the shared element) --- */
     let audio = null; const ac = 'AbortController' in window ? new AbortController() : null;
@@ -356,7 +356,7 @@
     /* move to another lesson; its page starts playing when we were playing (or the lesson just ended with autoplay on) */
     function goTo(l, keepPlaying, how) {
       if (!l) return;
-      if (how !== 'autoplay') T('audio_skip', { method: how || 'button', label: l === nextL ? 'next' : 'previous', item_name: l.id, value: keepPlaying ? 1 : 0 });
+      if (how !== 'autoplay') T('audio_skip', { method: how || 'button', label: l === nextL ? 'next' : 'previous', target: l.id, count: keepPlaying ? 1 : 0 });
       const h = handoff = { play: !!keepPlaying, how: how || 'button' };
       setTimeout(() => { if (handoff === h) { handoff = null; if (shared) shared.pause(); } }, 4000); // the next page never took over
       if (mode === 'tts') { playing = false; window.speechSynthesis.cancel(); clearInterval(ttsTimer); }
@@ -402,7 +402,7 @@
         const s = OFF.status(dlUrl);
         if (s === 'busy') return;
         if (s === 'done') { T('audio_download', { label: 'remove', method: 'player' }); OFF.remove([dlUrl]).then(() => SML.toast('Download removed.')); }
-        else { T('audio_download', { label: 'save', method: 'player', value: 1 }); OFF.get([dlUrl]); }
+        else { T('audio_download', { label: 'save', method: 'player', count: 1 }); OFF.get([dlUrl]); }
       });
       offSub = OFF.on(paintDl); paintDl();
     }
