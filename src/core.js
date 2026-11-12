@@ -169,7 +169,9 @@
 
   /* ---------------- formatting ---------------- */
   const MINUS = '−';
-  const num = (v, d) => Math.abs(v).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+  // one formatter per number of decimals: building a new one on every call was the slowest thing at startup
+  const NF = {};
+  const num = (v, d) => (NF[d] || (NF[d] = new Intl.NumberFormat('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }))).format(Math.abs(v));
   SML.fmt = {
     num: (v, d) => (v < 0 ? MINUS : '') + num(v, d || 0),
     usd: (v, d) => (v < 0 ? MINUS : '') + '$' + num(v, d == null ? 2 : d),

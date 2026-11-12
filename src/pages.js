@@ -697,7 +697,15 @@
       else title = notFound(view);
     } catch (err) { console.error(err); title = notFound(view); }
     SML.mount(view);
-    view.classList.remove('view'); void view.offsetWidth; view.classList.add('view');
+    if (current === null && snapshot) {
+      // taking over from the pre-built home page (tools/prerender.py): same picture, so no entrance animation, and the
+      // ticker carries on from where the snapshot's had scrolled to
+      view.style.animation = 'none';
+      $$('.ticker-track', view).forEach((t) => { t.style.animationDelay = (-performance.now() / 1000).toFixed(2) + 's'; });
+    } else {
+      view.style.animation = '';
+      view.classList.remove('view'); void view.offsetWidth; view.classList.add('view');
+    }
     const sec = section(tok);
     $$('.nav-links a, .drawer a.dl, .nav-acct').forEach((a) => { const on = a.dataset.sec === sec; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.title = (title && tok !== 'home' ? title + ' · ' : '') + BRAND;
@@ -725,7 +733,10 @@
       setTimeout(go, 1200);
     } catch (e) { go(); }
   }
+  let snapshot = false;
   function boot() {
+    // the pre-built home page goes in the same task as the live one is drawn, so nothing flashes in between
+    const pre = document.getElementById('pre'); snapshot = !!pre && getComputedStyle(pre).display !== 'none'; if (pre) pre.remove();
     try { buildShell(); window.addEventListener('hashchange', render); render(); } finally { hideLoader(); }
     const live = ['dashboard', 'profile', 'settings', 'results', 'signin'];
     document.addEventListener('sml:account', (e) => { const t = e.detail && e.detail.type; if ((t === 'ready' || t === 'mode') && live.indexOf(current) >= 0) SML.rerender(); });

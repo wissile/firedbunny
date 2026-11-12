@@ -65,8 +65,13 @@ The website works offline and installs as an app (phone home screen, or its own 
   files to save at install (page, script, fonts, icons, manifest). Every visit opens the saved copy at once. A new
   deploy changes `sw.js`, the browser installs it in the background, and the page shows "A new version of FiredBunny
   is ready" with a Reload button.
-- The main fonts are preloaded and the loading screen stays until they are in (at most 1.2 s), so text never
-  repaints in a fallback font.
+- The home page is pre-built into `index.html` at deploy time (`tools/prerender.py`, run by the build when
+  Playwright is installed: `pip install playwright`). It shows on the first paint, like a server-rendered site, and
+  the script takes over in the same frame it draws the live page. Only the styles it uses are inlined. A link to
+  another page (`#lesson-id`) shows the loading screen instead. `python3 tools/build.py --no-prerender` skips it.
+- Fonts are preloaded and use `font-display: block`, so text waits for its font instead of appearing in a fallback
+  font and visibly changing; the loading screen also waits for them (at most 1.2 s).
+- Large images are moved out of the script into `/img/` files by the build.
 - Lesson audio is saved only when the visitor asks: the Download button in each lesson's player, or the
   **Offline & app** page (`#offline`, `src/mod-z-offline.js`) with download all, per track, remove, storage use and
   install steps for Android, iPhone and computers. Saved audio plays offline in the natural voice, with seeking.

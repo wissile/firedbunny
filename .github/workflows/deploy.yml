@@ -49,6 +49,11 @@ jobs:
         with:
           node-version: 22
 
+      # The build pre-builds the home page in a headless browser (tools/prerender.py): Playwright drives the runner's
+      # own Google Chrome. Without it the site still builds and shows the loading screen instead.
+      - name: Install Playwright for the home page snapshot
+        run: python3 -m pip install --user --break-system-packages --quiet playwright==1.56.0 || echo "::warning title=Snapshot::Playwright did not install; the home page will not be pre-built."
+
       # wrangler runs the build in wrangler.jsonc (python3 tools/build.py) and then uploads dist/ and worker/index.js.
       - name: Build and deploy
         id: deploy
@@ -90,6 +95,11 @@ jobs:
           asz=$(curl -s -o /dev/null -H 'Accept-Encoding: br, gzip' -w '%{size_download}' "$URL/$app" || echo 0)
           enc=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' "$URL/$app" | tr -d '\r' | awk -F': ' 'tolower($1)=="content-encoding"{print $2}')
           echo "::notice title=Page size::first visit downloads $(((sz + asz) / 1024)) KB (${enc:-not compressed}): page $((sz / 1024)) KB, $app $((asz / 1024)) KB. Later visits open from the device."
+          if grep -q 'id="pre"' dist/index.html; then
+            echo "::notice title=Home page snapshot::The home page is pre-built into the page, so it shows on the first paint."
+          else
+            echo "::warning title=Home page snapshot::Not pre-built this time (see the build log); the loading screen shows until the script draws the page."
+          fi
           # offline mode: the service worker is live, and audio answers byte ranges (iPhones need them)
           swc=$(curl -s -o sw.js -w '%{http_code}' "$URL/sw.js" || true)
           if [ "$swc" = 200 ] && cmp -s sw.js dist/sw.js; then
