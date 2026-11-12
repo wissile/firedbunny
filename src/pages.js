@@ -715,9 +715,10 @@
     $$('.nav-links a, .drawer a.dl, .nav-acct').forEach((a) => { const on = a.dataset.sec === sec; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.title = (title && tok !== 'home' ? title + ' · ' : '') + BRAND;
     if (current !== null) { window.scrollTo(0, 0); try { view.focus({ preventScroll: true }); } catch (e) {} }
+    const same = current === tok; // drawn again in place (SML.rerender), not a new page
     current = tok;
     updateCta();
-    try { document.dispatchEvent(new CustomEvent('sml:route', { detail: { tok, title: document.title } })); } catch (e) {} // analytics page view
+    try { document.dispatchEvent(new CustomEvent('sml:route', { detail: { tok, title: document.title, same } })); } catch (e) {} // analytics page view
   }
   SML.route = render;
   /* Re-render the current page in place (keeps the scroll position), e.g. after the account finishes loading. */

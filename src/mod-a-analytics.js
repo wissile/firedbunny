@@ -1,8 +1,12 @@
 /* Analytics: the site's Google Tag Manager container (GTM-PJR6KKW9), which carries the Google tag for Google
    Analytics 4 property G-XVRHV7GTZ9, and the events FiredBunny reports through it.
-   - Each page the site shows: gtag('set', {...}) with its path (/l-wheel), title, page type, lesson, course and track,
-     so every event that follows carries them; then a page_view (the Google tag sends the very first one itself when it
-     loads). Events: gtag('event', name, params), straight to GA4; nothing to configure in Tag Manager.
+   - Each page the site shows: gtag('set', {...}) with its path (/l-wheel), title and referrer, which GA4 applies to
+     every event that follows, its own automatic ones included; then a page_view. Events: gtag('event', name, params),
+     straight to GA4; nothing to configure in Tag Manager. Every event the site sends also carries the page details
+     (page type, lesson, course, track...) in its own parameters, because GA4 ignores custom keys given to 'set'.
+   - The first page of a visit: the container's Google tag sends a page view as it loads, under the browser's address
+     with the #part dropped (so a visit that starts on #l-wheel is counted as "/"). If the container is set not to
+     (send_page_view = false in the Google tag), the site sends that first page view itself, with the real path.
    - Website only. Off in the claude.ai copy, on localhost and in automated browsers (the build's home-page snapshot).
    - Consent: visitors whose time zone is in Europe are asked first (nothing loads until they allow it); everyone else
      has it on by default and can switch it off in Settings > Privacy. A visitor's profile, goals, money figures and
@@ -17,7 +21,7 @@
   const local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   const robot = navigator.webdriver === true;
   let debug = false; try { debug = /[?&]fbdebug\b/.test(location.search) || localStorage.getItem('fb_analytics_debug') === '1'; } catch (e) {}
-  const canSend = web && !local && !robot; // a real visitor on the website
+  const canSend = web && !local && !robot && !debug; // a real visitor on the website (debug mode never sends)
 
   /* ---------------- consent ---------------- */
   const tz = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { return ''; } })();
@@ -36,10 +40,27 @@
   }
   function loadScript() { // after the first page has drawn, so it never slows the start
     if (!started || scriptIn) return; scriptIn = true;
-    // Tag Manager's start comes after the first page's details, so the page view the Google tag sends on load uses them
+    const first = ctx.page_location ? pageView() : null; // the page showing as the container starts
+    const stop = watchPageView();
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    s.onload = () => setTimeout(() => { const seen = stop(); if (!seen && first && SML.trackOn) send('page_view', first); }, 2000);
+    s.onerror = () => stop();
     document.head.appendChild(s);
+  }
+  /* Did the container's Google tag send its own page view as it loaded? Watches outgoing GA4 requests for a couple of
+     seconds (pass-through; nothing is changed), then steps aside. */
+  function watchPageView() {
+    let seen = false;
+    const check = (u, body) => { try {
+      const url = String((u && u.url) || u || ''); if (url.indexOf('/g/collect') < 0) return;
+      if (/[?&]en=page_view(&|$)/.test(url) || (typeof body === 'string' && /(^|[&\n])en=page_view(&|\r|$)/.test(body))) seen = true;
+    } catch (e) {} };
+    const f = window.fetch, b = navigator.sendBeacon;
+    const wf = f && function (u, o) { check(u, o && o.body); return f.apply(this, arguments); };
+    const wb = b && function (u, d) { check(u, d); return b.apply(navigator, arguments); };
+    try { if (wf) window.fetch = wf; if (wb) navigator.sendBeacon = wb; } catch (e) {}
+    return () => { try { if (wf && window.fetch === wf) window.fetch = f; if (wb && navigator.sendBeacon === wb) navigator.sendBeacon = b; } catch (e) {} return seen; };
   }
   function refresh() { SML.trackOn = (canSend && allowed()) || (web && debug); }
   function setChoice(granted) {
@@ -50,8 +71,8 @@
       if (started) {
         gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
         if (ctx.page_location) setPage();
-        if (wasIn && ctx.page_location) gtag('event', 'page_view'); // the container is already running: count this page now
-        loadScript(); // otherwise the Google tag counts it as it loads
+        if (wasIn && ctx.page_location) send('page_view', pageView()); // the container is already running: count this page now
+        loadScript(); // otherwise the Google tag counts it as it loads (or the site does, see loadScript)
       }
     }
     else {
@@ -67,15 +88,20 @@
       domains.forEach((d) => { document.cookie = `${n}=; Max-Age=0; path=/${d ? '; domain=' + d : ''}`; });
     });
   }
+  let ctx = {}; // the page showing now (describe below)
+  function send(name, params) { // every event carries the page details in its own parameters; empty values are left out
+    const o = Object.assign(details(), params);
+    Object.keys(o).forEach((k) => { if (o[k] === undefined || o[k] === null || o[k] === '') delete o[k]; });
+    gtag('event', name, o);
+  }
   SML.analytics = { allowed, set: setChoice, choice, askFirst, available: canSend, debug: () => debug };
-  SML.trackSend = (name, params) => gtag('event', name, params);
+  SML.trackSend = send;
   start(); refresh();
 
   /* ---------------- page details, attached to every event ---------------- */
   const lessonById = (id) => (SML.lessons || []).find((l) => l.id === id);
   const courseById = (id) => (SML.courses || []).find((c) => c.id === id);
   const trackTitle = (id) => { const t = (SML.tracks || []).find((x) => x.id === id); return t ? t.title : undefined; };
-  let ctx = {};
   function describe(tok) {
     const o = { page_location: location.origin + '/' + (tok === 'home' ? '' : tok), page_title: document.title, page_type: 'page', content_id: tok };
     if (tok === 'home') o.page_type = 'home';
@@ -88,19 +114,24 @@
   }
   const displayMode = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true ? 'app' : 'browser'; } catch (e) { return 'browser'; } };
 
-  /* ---------------- page views (the site changes pages without reloading) ---------------- */
-  let lastLoc = document.referrer || '', scrolled = {}, firstRoute = true, referrer = '';
-  // every key is set on every page (empty when it does not apply), so a value never carries over to the next page
-  function setPage() {
-    gtag('set', { page_location: ctx.page_location, page_title: ctx.page_title, page_referrer: referrer, page_type: ctx.page_type, content_id: ctx.content_id,
-      content_title: ctx.content_title || '', course_name: ctx.course_name || '', track_name: ctx.track_name || '',
-      connection: navigator.onLine === false ? 'offline' : 'online', display_mode: displayMode(), lessons_done: SML.progress ? SML.progress.count() : 0 });
+  function details() {
+    return { page_type: ctx.page_type, content_id: ctx.content_id, content_title: ctx.content_title, course_name: ctx.course_name, track_name: ctx.track_name,
+      connection: navigator.onLine === false ? 'offline' : 'online', display_mode: displayMode(), lessons_done: SML.progress ? SML.progress.count() : 0 };
   }
+
+  /* ---------------- page views (the site changes pages without reloading) ---------------- */
+  let lastLoc = document.referrer || '', scrolled = {}, firstRoute = true, referrer = '', settling = 0;
+  // GA4 honours these three standard fields from 'set', for every event that follows (its automatic ones too)
+  function setPage() { gtag('set', { page_location: ctx.page_location, page_title: ctx.page_title, page_referrer: referrer }); }
+  const pageView = () => Object.assign(details(), { page_location: ctx.page_location, page_title: ctx.page_title, page_referrer: referrer });
   document.addEventListener('sml:route', (e) => {
     const tok = (e.detail && e.detail.tok) || 'home';
+    if (e.detail && e.detail.same && !firstRoute) { ctx = describe(tok); return; } // the same page drawn again (account loaded, a setting changed): not a new page view
     ctx = describe(tok); referrer = lastLoc;
-    if (SML.trackOn) { setPage(); if (!firstRoute || !canSend) gtag('event', 'page_view'); } // first page: the Google tag counts it as it loads
+    if (SML.trackOn) { setPage(); if (!firstRoute || !canSend) send('page_view', pageView()); } // first page: counted as the container loads (see loadScript)
     lastLoc = ctx.page_location; scrolled = {};
+    // a page change scrolls back to the top, smoothly: that scroll is not reading, so it is ignored until it gets there
+    settling = !firstRoute && window.scrollY > 4 ? performance.now() : 0;
     if (firstRoute) {
       firstRoute = false;
       const later = window.requestIdleCallback ? (fn) => requestIdleCallback(fn, { timeout: 3000 }) : (fn) => setTimeout(fn, 1500);
@@ -137,6 +168,7 @@
     if (ticking) return; ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
+      if (settling) { if (window.scrollY > 4 && performance.now() - settling < 2000) return; settling = 0; }
       const h = document.documentElement.scrollHeight, v = window.innerHeight;
       if (h < v * 1.3) return;
       const p = ((window.scrollY + v) / h) * 100;

@@ -4,10 +4,15 @@ The website loads the Google Tag Manager container **`GTM-PJR6KKW9`**, which car
 Analytics 4 property **`G-XVRHV7GTZ9`** (with GA4's own automatic page views, scrolls, outbound clicks, downloads and
 form events). On top of that the site reports what visitors do on its own pages:
 
-- For every page it shows, `gtag('set', …)` gives GA4 the page's path (`/l-wheel` instead of `/#l-wheel`), title,
-  page type, lesson, course and track, so **every event carries them**, including GA4's automatic ones; then a
-  `page_view` (the Google tag sends the very first one itself as it loads).
-- Events go out as `gtag('event', name, params)`, straight to GA4. **Nothing needs setting up in Tag Manager.**
+- For every page it shows, `gtag('set', …)` gives GA4 the page's path (`/l-wheel` instead of `/#l-wheel`), title and
+  referrer, which GA4 applies to every event that follows, its automatic ones included; then a `page_view`.
+- Events go out as `gtag('event', name, params)`, straight to GA4. Each one the site sends also carries the page
+  details (page type, lesson, course, track...) in its own parameters: GA4 ignores custom keys given to `set`.
+- The first page of a visit: the container's Google tag sends a page view as it loads, under the browser's own
+  address with the `#` part dropped, so a visit that starts on a lesson link counts that first page as `/` (with the
+  right title). Setting the Google tag's `send_page_view` to `false` in Tag Manager (step 2 below) fixes that: the site
+  then sends the first page view itself, with the real path and details. The site checks which way the container is
+  set, so there is never a double count either way.
 
 Code: `src/mod-a-analytics.js` (consent, loading, page views, automatic events) and `SML.track(...)` calls in the
 modules (audio player, call player, quiz, searches, downloads...).
@@ -24,24 +29,27 @@ modules (audio player, call player, quiz, searches, downloads...).
   browser console) without loading the container or sending anything. In GA4, **Admin > DebugView** shows live events
   from your own browser when the GA Debugger extension is on.
 
-## One-time setup in Google Analytics
+## One-time setup
 
 1. **Admin > Data streams > your web stream > Enhanced measurement > gear icon > Page views > Show advanced settings:**
    turn **off** "Page changes based on browser history events". The site sends its own page view for each page with
-   the right path; with this on, every page change is also counted a second time, under the wrong address.
-2. **Admin > Custom definitions > Create custom dimensions** (scope *Event*), one per parameter you want in reports:
+   the right path; with this on, a page change can also be counted a second time, under the wrong address.
+2. **In Tag Manager (recommended):** tagmanager.google.com > container GTM-PJR6KKW9 > Tags > the Google tag
+   (G-XVRHV7GTZ9) > Configuration settings > Add parameter: `send_page_view`, value `false` > Save, then Submit >
+   Publish. The first page of each visit is then recorded with its real address and the page details.
+3. **Admin > Custom definitions > Create custom dimensions** (scope *Event*), one per parameter you want in reports:
    `page_type`, `content_id`, `content_title`, `course_name`, `track_name`, `target`, `target_type`, `label`, `method`,
    `voice`, `speed`, `connection`, `display_mode`. And **custom metrics**: `count`, `score`, `percent`,
    `position_sec`, `duration_sec`, `lessons_done`. (GA4 only shows custom parameters in reports once they are
    registered, from then on.)
-3. **Admin > Events:** mark as key events the ones that matter for marketing, for example `lesson_complete`,
+4. **Admin > Events:** mark as key events the ones that matter for marketing, for example `lesson_complete`,
    `assessment_complete`, `audio_complete`, `app_installed`. They can then be imported into Google Ads.
-4. Optional: **Admin > Data settings > Data collection:** turn on Google signals for demographics and cross-device
+5. Optional: **Admin > Data settings > Data collection:** turn on Google signals for demographics and cross-device
    reports (mention it in your privacy wording if you do).
 
 ## Parameters
 
-Set once per page and carried by every event:
+Carried by every event the site sends (the first three also by GA4's automatic events):
 
 | Parameter | Meaning |
 |---|---|
