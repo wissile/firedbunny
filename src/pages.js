@@ -19,6 +19,8 @@
   const curTrack = () => { const t = SML.store.get('track', 'trading'); return TRACKS().some((x) => x.id === t) ? t : TRACKS()[0].id; };
   const setTrack = (t) => SML.store.set('track', t);
   SML.trackOfLesson = trackOfLesson;
+  /* previous and next lesson in curriculum order (the lesson page's own links, and the audio player's skip buttons) */
+  SML.lessonSeq = (l) => { const all = allLessons(trackOfLesson(l)); const i = all.indexOf(l); return { prev: i > 0 ? all[i - 1] : null, next: i >= 0 && i < all.length - 1 ? all[i + 1] : null }; };
   const lessonById = (id) => SML.lessons.find((l) => l.id === id);
   const minsOf = (cid) => lessonsOf(cid).reduce((s, l) => s + (l.mins || 0), 0);
   const doneIn = (cid) => lessonsOf(cid).filter((l) => SML.progress.isDone(l.id)).length;

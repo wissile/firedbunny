@@ -136,42 +136,86 @@
 
   /* ---------------- the player ---------------- */
   SML.css(`
-    .nar{display:flex;flex-direction:column;gap:10px;max-width:640px}
-    .nar-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .nar{display:flex;flex-direction:column;gap:12px;max-width:640px}
+    .nar-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .nar-main{gap:8px}
     .nar-play{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px 0 6px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 55%,var(--line));background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--ink);font:600 14px var(--sans);cursor:pointer}
     .nar-play:hover{border-color:var(--accent)}
     .nar-play .nar-ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#0b0f19;flex:0 0 auto}
-    .nar-play small{font:500 12px var(--mono);color:var(--muted);letter-spacing:.04em}
-    .nar-speed{min-height:36px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 12px var(--mono)}
+    .nar-play small{font:500 12px var(--mono);color:var(--muted);letter-spacing:.04em;margin-left:auto}
+    .nar-skip{width:40px;height:40px;flex:0 0 40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+    .nar-skip:hover:not(:disabled){border-color:var(--input)}
+    .nar-skip:disabled{opacity:.35;cursor:default}
+    .nar-speed{min-height:40px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 12px var(--mono)}
+    .nar-sub{gap:8px 12px}
     .nar-src{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .nar-auto{display:inline-flex;align-items:center;gap:8px;min-height:36px;font:500 12.5px var(--sans);color:var(--text);cursor:pointer;user-select:none}
+    .nar-auto input{appearance:none;-webkit-appearance:none;width:32px;height:18px;border-radius:999px;background:var(--line);position:relative;margin:0;cursor:pointer;transition:background .15s;flex:0 0 32px}
+    .nar-auto input::after{content:"";position:absolute;left:2px;top:2px;width:14px;height:14px;border-radius:50%;background:var(--muted);transition:transform .15s,background .15s}
+    .nar-auto input:checked{background:color-mix(in srgb,var(--accent) 45%,var(--line))}
+    .nar-auto input:checked::after{transform:translateX(14px);background:var(--accent)}
+    .nar-auto input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     .nar-dl{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 12px var(--sans);cursor:pointer}
     .nar-dl:hover{border-color:var(--input)}
     .nar-dl small{font:500 11px var(--mono);color:var(--muted)}
     .nar-dl svg{width:14px;height:14px;flex:0 0 14px}
     .nar-dl[data-s="done"]{color:var(--up);border-color:color-mix(in srgb,var(--up) 45%,var(--line))}
     .nar-dl[data-s="busy"]{color:var(--accent);cursor:default}
+    .nar-more{display:flex;flex-direction:column;gap:16px;padding-top:4px}
+    .nar-more[hidden]{display:none}
     .nar-bar{position:relative;height:6px;border-radius:3px;background:var(--line);cursor:pointer;touch-action:none}
+    .nar-bar::before{content:"";position:absolute;left:0;right:0;top:-12px;bottom:-12px}
     .nar-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--accent)}
+    .nar-bar i::after{content:"";position:absolute;right:-6px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
     .nar-bar b{position:absolute;top:-3px;width:2px;height:12px;background:var(--muted);opacity:.6}
+    .nar-foot{justify-content:space-between;align-items:center;gap:10px 16px}
     .nar-chaps{display:flex;flex-wrap:wrap;gap:6px}
-    .nar-chaps button{min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:500 12px var(--sans);cursor:pointer}
+    .nar-chaps button{min-height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:500 12.5px var(--sans);cursor:pointer;white-space:nowrap;flex:0 0 auto}
     .nar-chaps button.on{color:var(--ink);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
-    .nar-time{font:500 12px var(--mono);color:var(--muted)}
-    .nar-cap{font-size:14px;line-height:1.5;color:var(--muted);min-height:1.5em}
-    .nar-mini{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(140%);z-index:60;display:flex;align-items:center;gap:10px;width:min(560px,calc(100vw - 24px));padding:8px 12px 8px 8px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--surface) 92%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 10px 40px -10px rgba(0,0,0,.6);transition:transform .25s ease}
+    .nar-time{font:500 12px var(--mono);color:var(--muted);white-space:nowrap}
+    .nar-cap{font-size:14px;line-height:1.5;color:var(--muted);min-height:1.5em;margin:0}
+    .nar-mini{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(140%);z-index:60;display:flex;align-items:center;gap:8px;width:min(560px,calc(100vw - 24px));padding:8px 10px 8px 8px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--surface) 92%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 10px 40px -10px rgba(0,0,0,.6);transition:transform .25s ease}
     .nar-mini.show{transform:translateX(-50%) translateY(0)}
     .nar-mini .nar-ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#0b0f19;border:0;cursor:pointer;flex:0 0 auto}
-    .nar-mini .nar-mt{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+    .nar-mini .nar-mt{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;padding:0 4px}
     .nar-mini .nar-mt span{font:600 12.5px var(--sans);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .nar-mini .nar-x{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:4px 6px}
+    .nar-mini .nar-bar i::after{display:none}
+    .nar-mini .nar-mskip{width:34px;height:34px;flex:0 0 34px;border-radius:50%;border:0;background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+    .nar-mini .nar-mskip:disabled{opacity:.35;cursor:default}
+    .nar-mini .nar-x{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:4px 6px;min-width:34px;min-height:34px}
+    @media (max-width:560px){
+      .nar-main{flex-wrap:nowrap}
+      .nar-main .nar-play{flex:1 1 auto;min-width:0;padding-right:16px}
+      .nar-main .nar-play > span:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .nar-sub{justify-content:space-between;gap:8px}
+      .nar-sub .nar-src,.nar-auto .nar-long{display:none}
+      .nar-foot{flex-direction:column;align-items:stretch;gap:10px}
+      .nar-foot .nar-time{order:-1;align-self:flex-end;margin-top:-6px}
+      .nar-chaps{flex-wrap:nowrap;overflow-x:auto;width:0;min-width:100%;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+      .nar-chaps::-webkit-scrollbar{display:none}
+    }
+    @media (max-width:400px){.nar-sub .nar-dl small{display:none}}
+    @media (max-width:380px){.nar-main .nar-play small{display:none}}
     @media (prefers-reduced-motion:reduce){.nar-mini{transition:none}}
   `);
   const IC = {
     play: '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>',
     pause: '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z" fill="currentColor"/></svg>',
+    prev: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2.5h2v11H3zM13.5 2.6v10.8L6 8z" fill="currentColor"/></svg>',
+    next: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M11 2.5h2v11h-2zM2.5 2.6v10.8L10 8z" fill="currentColor"/></svg>',
   };
   const fmtT = (s) => { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
   const store = { get: (k, d) => { try { return SML.store.get(k, d); } catch (e) { return d; } }, set: (k, v) => { try { SML.store.set(k, v); } catch (e) {} } };
+  const autoNext = () => store.get('narAuto', true) !== false;
+
+  /* One audio element for every lesson. Phones (iPhone above all) only let a page play sound that the listener started
+     with a tap, but an element started that way may go on playing. So moving to the next lesson, by autoplay, the
+     Next button or the lock-screen controls, swaps this element's source instead of making a new one. */
+  let shared = null;
+  const getAudio = () => { if (!shared) { shared = new Audio(); shared.preload = 'metadata'; } return shared; };
+  let handoff = null; // { play } while the player moves to another lesson; the next lesson page picks it up
+  let mp4 = null;
+  const canMp4 = () => { if (mp4 === null) { try { mp4 = !!getAudio().canPlayType('audio/mp4; codecs="mp4a.40.2"'); } catch (e) { mp4 = false; } } return mp4; };
 
   function bestVoice() {
     if (!('speechSynthesis' in window)) return null;
@@ -182,13 +226,18 @@
   }
 
   function mount(el, lesson) {
-    if (!el || !lesson) return;
-    const sc = script(lesson); if (!sc.chapters.length) return;
+    const incoming = handoff; handoff = null;
+    if (!el || !lesson) { if (incoming && shared) shared.pause(); return; }
+    const sc = script(lesson); if (!sc.chapters.length) { if (incoming && shared) shared.pause(); return; }
     let rec = SML.host !== 'claude' && SML.narration ? SML.narration[lesson.id] : null; // the claude.ai preview has no audio files
-    try { if (rec && !new Audio().canPlayType('audio/mp4; codecs="mp4a.40.2"')) rec = null; } catch (e) { rec = null; }
+    if (rec && !canMp4()) rec = null;
     const hasTTS = 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance === 'function';
     let mode = rec ? 'audio' : (hasTTS ? 'tts' : null);
-    if (!mode) return;
+    if (!mode) { if (shared) shared.pause(); return; }
+    // previous and next lesson in the same order as the lesson page's own links
+    const seq = SML.lessonSeq ? SML.lessonSeq(lesson) : {};
+    const prevL = seq.prev || null, nextL = seq.next || null;
+    const esc = SML.esc || ((t) => t);
     // device-voice timing is estimated at ~153 words a minute
     let flat = [], estDur = 0, chapStarts = [];
     function ttsPlan() { let t = 0; flat = []; chapStarts = []; sc.chapters.forEach((c, ci) => { chapStarts.push(t); c.paras.forEach((p) => { const d = p.split(/\s+/).length / 2.55; flat.push({ ci, p, t, d }); t += d; }); }); estDur = t; }
@@ -197,40 +246,48 @@
     let speed = +store.get('narSpeed', 1) || 1;
     // the recording's address carries a version (?v=) on the website; offline downloads are keyed by it
     const src = rec ? (SML.assetURL ? SML.assetURL(rec.file) : rec.file) : '';
+    const srcAbs = src ? new URL(src, location.origin + '/').href : '';
     const OFF = rec && SML.offline && SML.offline.enabled ? SML.offline : null;
-    const dlUrl = OFF ? new URL(src, location.origin + '/').href : '';
+    const dlUrl = OFF ? srcAbs : '';
+    const skipBtn = (dir, l) => `<button type="button" class="nar-skip" data-n="${dir}"${l ? ` aria-label="${dir === 'prev' ? 'Previous' : 'Next'} lesson: ${esc(l.title)}" title="${dir === 'prev' ? 'Previous' : 'Next'}: ${esc(l.title)}"` : ` disabled aria-label="No ${dir === 'prev' ? 'previous' : 'next'} lesson"`}>${IC[dir]}</button>`;
     el.innerHTML = `<div class="nar" role="region" aria-label="Listen to this lesson">
-      <div class="nar-row">
+      <div class="nar-row nar-main">
+        ${skipBtn('prev', prevL)}
         <button type="button" class="nar-play" data-n="toggle"><span class="nar-ic">${IC.play}</span><span>Listen to this lesson</span><small>${fmtT(estDur)}</small></button>
+        ${skipBtn('next', nextL)}
+      </div>
+      <div class="nar-row nar-sub">
         <select class="nar-speed" data-n="speed" aria-label="Playback speed">${[0.8, 0.9, 1, 1.15, 1.25, 1.5].map((v) => `<option value="${v}"${v === speed ? ' selected' : ''}>${v}×</option>`).join('')}</select>
         <span class="nar-src">${mode === 'audio' ? 'Natural voice' : 'Your device’s voice'}</span>
+        <label class="nar-auto" title="When a lesson ends, the next one starts on its own until you pause"><input type="checkbox" data-n="auto"${autoNext() ? ' checked' : ''}${nextL ? '' : ' disabled'}><span>Autoplay<span class="nar-long"> next lesson</span></span></label>
         ${OFF ? '<button type="button" class="nar-dl" data-n="dl"></button>' : ''}
       </div>
       <div class="nar-more" hidden>
         <div class="nar-bar" data-n="bar" role="slider" aria-label="Position" tabindex="0" aria-valuemin="0" aria-valuemax="${Math.round(estDur)}" aria-valuenow="0"><i style="width:0"></i>${ticks()}</div>
-        <div class="nar-row" style="justify-content:space-between"><div class="nar-chaps">${sc.chapters.map((c, i) => `<button type="button" data-chap="${i}">${c.name}</button>`).join('')}</div><span class="nar-time" data-n="time">0:00 / ${fmtT(estDur)}</span></div>
+        <div class="nar-row nar-foot"><div class="nar-chaps">${sc.chapters.map((c, i) => `<button type="button" data-chap="${i}">${c.name}</button>`).join('')}</div><span class="nar-time" data-n="time">0:00 / ${fmtT(estDur)}</span></div>
         <p class="nar-cap" data-n="cap" aria-live="off"${mode === 'tts' ? '' : ' hidden'}></p>
       </div>
     </div>`;
     const $ = (s) => el.querySelector(s);
     const btn = $('[data-n="toggle"]'), bar = $('[data-n="bar"]'), more = $('.nar-more'), timeEl = $('[data-n="time"]'), cap = $('[data-n="cap"]');
     const mini = document.createElement('div'); mini.className = 'nar-mini'; mini.setAttribute('role', 'region'); mini.setAttribute('aria-label', 'Lesson audio');
-    mini.innerHTML = `<button type="button" class="nar-ic" data-n="mtoggle" aria-label="Play or pause">${IC.pause}</button><div class="nar-mt"><span>${SML.esc ? SML.esc(lesson.title) : lesson.title}</span><div class="nar-bar" data-n="mbar"><i style="width:0"></i></div></div><button type="button" class="nar-x" data-n="mclose" aria-label="Stop">×</button>`;
+    mini.innerHTML = `<button type="button" class="nar-ic" data-n="mtoggle" aria-label="Play or pause">${IC.pause}</button><div class="nar-mt"><span>${esc(lesson.title)}</span><div class="nar-bar" data-n="mbar"><i style="width:0"></i></div></div><button type="button" class="nar-mskip" data-n="mnext"${nextL ? ` aria-label="Next lesson: ${esc(nextL.title)}"` : ' disabled aria-label="No next lesson"'}>${IC.next}</button><button type="button" class="nar-x" data-n="mclose" aria-label="Stop">×</button>`;
     document.body.appendChild(mini);
     let playing = false, started = false, visible = true;
 
-    /* --- engine: recorded audio --- */
-    let audio = null;
+    /* --- engine: recorded audio (the shared element) --- */
+    let audio = null; const ac = 'AbortController' in window ? new AbortController() : null;
     /* --- engine: device voice --- */
     let idx = 0, ttsT = 0, ttsTimer = 0, utt = null;
     function toTTS(at) { // recorded file failed to load: carry on with the device voice from about the same place
-      audio = null; mode = 'tts'; const frac = at / (estDur || 1); ttsPlan();
+      if (audio) { audio.pause(); audio = null; } mode = 'tts'; const frac = at / (estDur || 1); ttsPlan();
       el.querySelector('.nar-src').textContent = 'Your device’s voice'; cap.hidden = false;
       bar.innerHTML = '<i style="width:0"></i>' + ticks(); bar.setAttribute('aria-valuemax', String(Math.round(estDur)));
       seekTTS(frac * estDur); if (started) playTTS();
     }
     const total = () => (mode === 'audio' ? (audio && isFinite(audio.duration) ? audio.duration : estDur) : estDur);
     const pos = () => (mode === 'audio' ? (audio ? audio.currentTime : 0) : ttsT);
+    let lastPos = 0;
     function paint() {
       const p = Math.min(1, pos() / (total() || 1));
       bar.firstElementChild.style.width = (p * 100) + '%'; mini.querySelector('[data-n="mbar"] i').style.width = (p * 100) + '%';
@@ -241,20 +298,30 @@
       const ic = playing ? IC.pause : IC.play; btn.querySelector('.nar-ic').innerHTML = ic; mini.querySelector('[data-n="mtoggle"]').innerHTML = ic;
       btn.querySelector('span:nth-child(2)').textContent = playing ? 'Pause' : (started ? 'Resume' : 'Listen to this lesson');
       mini.classList.toggle('show', started && !visible);
+      // lock screen and notification: progress bar
+      const now = Date.now();
+      if ('mediaSession' in navigator && started && (now - lastPos > 900 || !playing)) {
+        lastPos = now;
+        try { navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'; const d = total(); if (d > 0 && isFinite(d)) navigator.mediaSession.setPositionState({ duration: d, playbackRate: mode === 'audio' ? speed : 1, position: Math.min(pos(), d) }); } catch (e) {}
+      }
     }
+    function ended() { playing = false; paint(); if (autoNext() && nextL) goTo(nextL, true); }
     function ensureAudio() {
       if (audio) return audio;
-      audio = new Audio(); audio.preload = 'metadata'; audio.src = src; audio.playbackRate = speed;
-      audio.addEventListener('timeupdate', paint); audio.addEventListener('loadedmetadata', paint);
-      audio.addEventListener('ended', () => { playing = false; paint(); });
-      audio.addEventListener('pause', () => { playing = false; paint(); });
-      audio.addEventListener('play', () => { playing = true; paint(); });
-      audio.addEventListener('error', () => { const at = audio.currentTime || 0; if (hasTTS) toTTS(at); else { playing = false; paint(); } });
+      audio = getAudio();
+      if (audio.src !== srcAbs) { audio.src = src; }
+      audio.playbackRate = speed;
+      const on = (ev, fn) => audio.addEventListener(ev, fn, ac ? { signal: ac.signal } : undefined);
+      on('timeupdate', paint); on('loadedmetadata', paint);
+      on('ended', ended);
+      on('pause', () => { playing = false; paint(); });
+      on('play', () => { playing = true; paint(); });
+      on('error', () => { if (!audio || audio.src !== srcAbs) return; const at = audio.currentTime || 0; if (hasTTS) toTTS(at); else { playing = false; paint(); } });
       return audio;
     }
     function speakFrom(i) {
       window.speechSynthesis.cancel(); clearInterval(ttsTimer);
-      if (i >= flat.length) { playing = false; idx = flat.length; ttsT = estDur; paint(); return; }
+      if (i >= flat.length) { idx = flat.length; ttsT = estDur; ended(); return; }
       idx = i; const item = flat[i]; ttsT = item.t;
       utt = new SpeechSynthesisUtterance(item.p); const v = bestVoice(); if (v) { utt.voice = v; utt.lang = v.lang; } else utt.lang = 'en-US';
       utt.rate = speed; const t0 = Date.now();
@@ -269,24 +336,38 @@
     function play() {
       started = true; more.hidden = false;
       if (mode === 'audio') { const a = ensureAudio(); const p = a.play(); if (p && p.catch) p.catch(() => { playing = false; paint(); }); }
-      else playTTS();
+      else { if (shared) shared.pause(); playTTS(); }
       media(); paint();
     }
     function pause() { if (mode === 'audio') { if (audio) audio.pause(); } else { playing = false; utt = null; window.speechSynthesis.cancel(); clearInterval(ttsTimer); } paint(); }
     function seek(t) { t = Math.max(0, Math.min(total() - 0.2, t)); if (mode === 'audio') { const a = ensureAudio(); a.currentTime = t; paint(); } else { const was = playing; utt = null; window.speechSynthesis.cancel(); seekTTS(t); if (was) speakFrom(idx); } }
     function stop() { pause(); if (mode === 'audio' && audio) { audio.currentTime = 0; } else { idx = 0; ttsT = 0; } started = false; more.hidden = true; paint(); }
+    /* move to another lesson; its page starts playing when we were playing (or the lesson just ended with autoplay on) */
+    function goTo(l, keepPlaying) {
+      if (!l) return;
+      const h = handoff = { play: !!keepPlaying };
+      setTimeout(() => { if (handoff === h) { handoff = null; if (shared) shared.pause(); } }, 4000); // the next page never took over
+      if (mode === 'tts') { playing = false; window.speechSynthesis.cancel(); clearInterval(ttsTimer); }
+      SML.go(l.id);
+    }
     function media() {
       if (!('mediaSession' in navigator)) return;
-      try {
-        navigator.mediaSession.metadata = new window.MediaMetadata({ title: lesson.title, artist: 'FiredBunny', album: (SML.courses.find((c) => c.id === lesson.course) || {}).title || 'Lessons' });
-        navigator.mediaSession.setActionHandler('play', play); navigator.mediaSession.setActionHandler('pause', pause);
-        navigator.mediaSession.setActionHandler('seekbackward', () => seek(pos() - 15)); navigator.mediaSession.setActionHandler('seekforward', () => seek(pos() + 15));
-      } catch (e) {}
+      const ms = navigator.mediaSession; const set = (a, fn) => { try { ms.setActionHandler(a, fn); } catch (e) { /* not supported here */ } };
+      try { ms.metadata = new window.MediaMetadata({ title: lesson.title, artist: 'FiredBunny', album: (SML.courses.find((c) => c.id === lesson.course) || {}).title || 'Lessons', artwork: [{ src: '/icon-512.png', sizes: '512x512', type: 'image/png' }, { src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] }); } catch (e) {}
+      set('play', play); set('pause', pause);
+      set('seekbackward', (d) => seek(pos() - ((d && d.seekOffset) || 15))); set('seekforward', (d) => seek(pos() + ((d && d.seekOffset) || 15)));
+      set('seekto', (d) => { if (d && typeof d.seekTime === 'number') seek(d.seekTime); });
+      set('previoustrack', prevL ? () => goTo(prevL, true) : null);
+      set('nexttrack', nextL ? () => goTo(nextL, true) : null);
+      set('stop', stop);
     }
     btn.addEventListener('click', () => (playing ? pause() : play()));
+    el.querySelectorAll('[data-n="prev"],[data-n="next"]').forEach((b) => b.addEventListener('click', () => goTo(b.dataset.n === 'prev' ? prevL : nextL, playing)));
     mini.querySelector('[data-n="mtoggle"]').addEventListener('click', () => (playing ? pause() : play()));
+    mini.querySelector('[data-n="mnext"]').addEventListener('click', () => goTo(nextL, playing));
     mini.querySelector('[data-n="mclose"]').addEventListener('click', stop);
     $('[data-n="speed"]').addEventListener('change', (e) => { speed = +e.target.value || 1; store.set('narSpeed', speed); if (audio) audio.playbackRate = speed; if (mode === 'tts' && playing) speakFrom(idx); });
+    $('[data-n="auto"]').addEventListener('change', (e) => { store.set('narAuto', !!e.target.checked); SML.toast(e.target.checked ? 'The next lesson will play on its own.' : 'Autoplay is off.'); });
     el.querySelectorAll('[data-chap]').forEach((b) => b.addEventListener('click', () => { seek(chapStarts[+b.dataset.chap] || 0); if (!playing) play(); }));
     const barSeek = (target, ev) => { const r = target.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width; seek(x * total()); };
     bar.addEventListener('pointerdown', (ev) => barSeek(bar, ev));
@@ -316,8 +397,20 @@
     let io = null;
     if ('IntersectionObserver' in window) { io = new IntersectionObserver((es) => { visible = es[0].isIntersecting; paint(); }); io.observe(el); }
     if (mode === 'tts' && window.speechSynthesis.onvoiceschanged === null) window.speechSynthesis.onvoiceschanged = () => {};
-    SML.onCleanup(() => { try { if (audio) { audio.pause(); audio.src = ''; } if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch (e) {} clearInterval(ttsTimer); if (io) io.disconnect(); if (offSub) offSub(); mini.remove(); playing = false; });
+    SML.onCleanup(() => {
+      try {
+        if (ac) ac.abort();
+        // leaving for another lesson by autoplay or Next: the shared element carries on there; otherwise stop it
+        if (audio && !handoff) { audio.pause(); audio.removeAttribute('src'); try { audio.load(); } catch (e) {} }
+        if (!handoff && started && 'mediaSession' in navigator) { const ms = navigator.mediaSession; ms.metadata = null; ['play', 'pause', 'seekbackward', 'seekforward', 'seekto', 'previoustrack', 'nexttrack', 'stop'].forEach((a) => { try { ms.setActionHandler(a, null); } catch (e) {} }); }
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      } catch (e) {}
+      clearInterval(ttsTimer); if (io) io.disconnect(); if (offSub) offSub(); mini.remove(); playing = false;
+    });
     paint();
+    // arrived here by autoplay, Next or Previous while playing: keep going
+    if (incoming && incoming.play) play();
+    else if (incoming) { if (shared && shared.src !== srcAbs) shared.pause(); media(); }
   }
 
   SML.narrate = { norm, script, words, hash, mount };
