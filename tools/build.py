@@ -91,7 +91,10 @@ def _extract(m):
 app_js = re.sub(r'data:(image/(?:webp|jpeg|png));base64,([A-Za-z0-9+/=]{4000,})', _extract, app_js)
 app_name = 'app.' + hashlib.sha1(app_js.encode('utf-8')).hexdigest()[:10] + '.js'
 # fonts the first screen uses: fetched straight away so text never repaints in a fallback font
-# (the home page uses all ten latin faces; the latin-ext and greek files load only when a page needs them)
+# (the home page uses all ten latin faces; the latin-ext and greek files load only when a page needs them). Measured in
+# Nov 2026: preloading only the seven faces visible above the fold made start-up longer (fonts arriving during the first
+# render cost a second layout: +~300 ms blocking at 4x CPU), and a low-priority script preload changed nothing, so both
+# stay as they are.
 PRELOAD_FONTS = sorted(os.path.basename(f)[:-6] for f in glob.glob(os.path.join(pub, 'fonts', '*-latin-[0-9]*.woff2')))
 preloads = ''.join(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>\n' for f in PRELOAD_FONTS
                    if os.path.exists(os.path.join(pub, 'fonts', f + '.woff2')))
@@ -158,8 +161,8 @@ for name, data in images.items():
     os.makedirs(os.path.join(dist, 'img'), exist_ok=True)
     open(os.path.join(dist, name.lstrip('/')), 'wb').write(data)
 # the service worker: saves the page, fonts, icons and manifest at install (audio only when the visitor asks)
-shell = ['/', '/' + app_name, '/site.webmanifest'] + sorted(images) + sorted('/' + os.path.relpath(p, dist).replace(os.sep, '/') for p in
-        glob.glob(os.path.join(dist, 'fonts', '*.woff2')) + glob.glob(os.path.join(dist, '*.png')) + glob.glob(os.path.join(dist, '*.svg')))
+shell = ['/', '/' + app_name, '/site.webmanifest'] + sorted('/' + os.path.relpath(p, dist).replace(os.sep, '/') for p in
+        glob.glob(os.path.join(dist, 'img', '*.*')) + glob.glob(os.path.join(dist, 'fonts', '*.woff2')) + glob.glob(os.path.join(dist, '*.png')) + glob.glob(os.path.join(dist, '*.svg')))
 # pre-build the home page into index.html when a headless browser is available (tools/prerender.py)
 if '--no-prerender' not in sys.argv:
     from prerender import prerender

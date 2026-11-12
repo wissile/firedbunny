@@ -31,6 +31,10 @@
   const lessonNo = (l) => allLessons(trackOfLesson(l)).indexOf(l) + 1;
   const lvl = (level) => `<span class="lvl${level === 'Intermediate' ? ' int' : level === 'Advanced' ? ' adv' : ''}"><i></i>${esc(level || 'Beginner')}</span>`;
   SML.lvlBadge = lvl;
+  // the bunny art at the small sizes the home and lesson pages show it (264 px, 17 KB instead of the 1200 px, 147 KB
+  // original); the claude.ai copy has no files, so it keeps the inline original. Rename the file if the art changes:
+  // /img/ is cached for a year.
+  const artSmall = () => (SML.routes && SML.routes.mode === 'path' ? '/img/brand-art-264.adee10bd.webp' : SML.brandArt);
 
   const I = (w, body, cls) => `<svg class="ico${cls ? ' ' + cls : ''}" width="${w}" height="${w}" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
   const icons = {
@@ -334,7 +338,7 @@
         <div style="display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;margin-top:28px">
           <div class="hero-facts"><span><b>${nL}</b>picture lessons</span><span><b>${nT}</b>tools</span><span><b>${TRACKS().length}</b>tracks</span></div>
         </div>
-        <a class="hero-bun" href="#assessment"><img src="${SML.brandArt}" alt="" width="120" height="80"><span><b>New: what kind of investor are you?</b><small>Slide through the self-assessment and get your investor profile, risk level and a learning path.</small></span>${icons.arrow}</a>
+        <a class="hero-bun" href="#assessment"><img src="${artSmall()}" alt="" width="120" height="80"><span><b>New: what kind of investor are you?</b><small>Slide through the self-assessment and get your investor profile, risk level and a learning path.</small></span>${icons.arrow}</a>
         <p class="disclaimer" style="margin-top:32px"><strong>Read this first:</strong> education only, not financial or tax advice. Most new traders lose money. The <a href="#c-risk" style="color:var(--ink)">Risk &amp; Sizing</a> course is what keeps you in the game.</p>
       </div></section>
 
@@ -431,7 +435,7 @@
     const sum = SML.account ? SML.account.get().assessmentSummary : [];
     const last = sum && sum.length ? sum[sum.length - 1] : null;
     return `<section class="wrap" aria-label="Self-assessment"><a class="assess-ban" href="#${last ? 'results' : 'assessment'}">
-      <img src="${SML.brandArt}" alt="" width="132" height="88">
+      <img src="${artSmall()}" alt="" width="132" height="88">
       <span class="ab-b"><span class="ab-k">Self-assessment</span><b>${last ? `Your investor profile: ${esc(last.name || 'see results')}` : 'What kind of investor are you?'}</b><small>${last ? `Taken ${SML.fmtDate(String(last.date).slice(0, 10))}. Retake it any time and track how you change.` : 'Seven quick sections with sliders: goals, money, time, risk and temperament. Get your profile, best-fit styles, risk level and a learning path.'}</small></span>
       <span class="btn btn-p">${last ? 'See my results' : 'Start'} ${icons.arrow}</span></a></section>`;
   }
