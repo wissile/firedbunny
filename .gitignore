@@ -11,3 +11,6 @@ node_modules/
 .DS_Store
 .wrangler/
 tools/narration/scripts.json
+
+# search audit crawl output (regenerate with docs/search-optimization/tools/crawl_routes.py)
+docs/search-optimization/tools/crawl.json
