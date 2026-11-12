@@ -4,7 +4,7 @@ The website loads the Google Tag Manager container **`GTM-PJR6KKW9`**, which car
 Analytics 4 property **`G-XVRHV7GTZ9`** (with GA4's own automatic page views, scrolls, outbound clicks, downloads and
 form events). On top of that the site reports what visitors do on its own pages:
 
-- For every page it shows, `gtag('set', …)` gives GA4 the page's path (`/l-wheel` instead of `/#l-wheel`), title and
+- For every page it shows, `gtag('set', …)` gives GA4 the page's real path (`/lessons/wheel-strategy/`), title and
   referrer, which GA4 applies to every event that follows, its automatic ones included; then a `page_view`.
 - Events go out as `gtag('event', name, params)`, straight to GA4. Each one the site sends also carries the page
   details (page type, lesson, course, track...) in its own parameters: GA4 ignores custom keys given to `set`.
@@ -32,8 +32,8 @@ modules (audio player, call player, quiz, searches, downloads...).
 ## One-time setup
 
 1. **Admin > Data streams > your web stream > Enhanced measurement > gear icon > Page views > Show advanced settings:**
-   turn **off** "Page changes based on browser history events". The site sends its own page view for each page with
-   the right path; with this on, a page change can also be counted a second time, under the wrong address.
+   turn **off** "Page changes based on browser history events". The site changes pages with the History API and sends
+   its own page view for each one; with this setting on, every page change is counted twice.
 2. **In Tag Manager (recommended):** tagmanager.google.com > container GTM-PJR6KKW9 > Tags > the Google tag
    (G-XVRHV7GTZ9) > Configuration settings > Add parameter: `send_page_view`, value `false` > Save, then Submit >
    Publish. The first page of each visit is then recorded with its real address and the page details.
@@ -53,7 +53,7 @@ Carried by every event the site sends (the first three also by GA4's automatic e
 
 | Parameter | Meaning |
 |---|---|
-| `page_location`, `page_title`, `page_referrer` | The page as a path: `https://firedbunny.com/l-wheel` |
+| `page_location`, `page_title`, `page_referrer` | The page as a path: `https://firedbunny.com/lessons/wheel-strategy/` |
 | `page_type` | `home`, `lesson`, `course`, `tool`, `track`, `post` or `page` |
 | `content_id`, `content_title` | The page's lesson, course or tool id and title |
 | `course_name`, `track_name` | Course and track (Trading, Retirement & Wealth, FIRE) |

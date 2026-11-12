@@ -49,10 +49,11 @@ jobs:
         with:
           node-version: 22
 
-      # The build pre-builds the home page in a headless browser (tools/prerender.py): Playwright drives the runner's
-      # own Google Chrome. Without it the site still builds and shows the loading screen instead.
-      - name: Install Playwright for the home page snapshot
-        run: python3 -m pip install --user --break-system-packages --quiet playwright==1.56.0 || echo "::warning title=Snapshot::Playwright did not install; the home page will not be pre-built."
+      # The build pre-builds every page in a headless browser (tools/prerender.py): Playwright drives the runner's own
+      # Google Chrome. Every address is a pre-built file, so in CI the build fails without it (nothing is deployed).
+      - name: Install Playwright for the pre-built pages
+        run: |
+          python3 -m pip install --user --break-system-packages --quiet playwright==1.56.0 || { echo "::error title=Not deployed::Playwright did not install, so the pages cannot be pre-built."; exit 1; }
 
       # wrangler runs the build in wrangler.jsonc (python3 tools/build.py) and then uploads dist/ and worker/index.js.
       - name: Build and deploy
@@ -95,10 +96,17 @@ jobs:
           asz=$(curl -s -o /dev/null -H 'Accept-Encoding: br, gzip' -w '%{size_download}' "$URL/$app" || echo 0)
           enc=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' "$URL/$app" | tr -d '\r' | awk -F': ' 'tolower($1)=="content-encoding"{print $2}')
           echo "::notice title=Page size::first visit downloads $(((sz + asz) / 1024)) KB (${enc:-not compressed}): page $((sz / 1024)) KB, $app $((asz / 1024)) KB. Later visits open from the device."
-          if grep -q 'id="pre"' dist/index.html; then
-            echo "::notice title=Home page snapshot::The home page is pre-built into the page, so it shows on the first paint."
+          pages=$(grep -c '<loc>' dist/sitemap.xml || echo 0)
+          echo "::notice title=Pre-built pages::$pages indexable pages pre-built and listed in sitemap.xml (tools/prerender.py)."
+          # search: a pre-built lesson at its own address, the sitemap, robots.txt, and a real 404 for unknown addresses
+          lp=$(grep -oE '<loc>https://firedbunny.com/lessons/[^<]+</loc>' dist/sitemap.xml | head -1 | sed -E 's#<loc>https://firedbunny.com##; s#</loc>##')
+          lc=$(curl -s -o lesson.html -w '%{http_code}' "$URL$lp" || true)
+          sc=$(curl -s -o sitemap.xml -w '%{http_code}' "$URL/sitemap.xml" || true)
+          nc=$(curl -s -o /dev/null -w '%{http_code}' "$URL/no-such-page-$short/" || true)
+          if [ "$lc" = 200 ] && grep -q "rel=\"canonical\" href=\"https://firedbunny.com$lp\"" lesson.html && [ "$sc" = 200 ] && cmp -s sitemap.xml dist/sitemap.xml && [ "$nc" = 404 ] && curl -s "$URL/robots.txt" | grep -q '^Sitemap:'; then
+            echo "::notice title=Search::$URL$lp answers with its own page and canonical, sitemap.xml matches this build, robots.txt lists it, and unknown addresses return 404."
           else
-            echo "::warning title=Home page snapshot::Not pre-built this time (see the build log); the loading screen shows until the script draws the page."
+            echo "::warning title=Search::lesson page $lc, sitemap $sc (matches: $(cmp -s sitemap.xml dist/sitemap.xml && echo yes || echo no)), unknown address $nc (expected 200, 200, 404)."
           fi
           # offline mode: the service worker is live, and audio answers byte ranges (iPhones need them)
           swc=$(curl -s -o sw.js -w '%{http_code}' "$URL/sw.js" || true)

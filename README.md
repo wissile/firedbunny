@@ -1,20 +1,38 @@
 # FiredBunny: website source
 
 "The money school they skipped." One static site, no server needed. `tools/build.py` bundles everything in `src/`
-into a single page and copies the static files in `public/` next to it.
+into one script, copies the static files in `public/` next to it, and pre-builds every page as its own HTML file.
 
 ## Build
 
 ```bash
-python3 tools/build.py        # Python 3.8+ standard library only
+python3 tools/build.py        # Python 3.8+; the pre-built pages need Playwright (pip install playwright)
+python3 tools/build.py --no-prerender   # quick build without the pre-built pages (local use only)
 ```
 
 | Output | What it is |
 |---|---|
-| `dist/` | The website: `index.html`, `app.<hash>.js`, `sw.js` and everything from `public/` (audio, fonts, icons, `_headers`, manifest). Deploy this folder. |
+| `dist/` | The website: one pre-built page per address (`index.html`, `lessons/<slug>/index.html`, `tools/<slug>/index.html`...), `404.html`, `sitemap.xml`, `app.<hash>.js`, `sw.js` and everything from `public/` (audio, fonts, icons, `_headers`, robots.txt, manifest). Deploy this folder. |
 | `build/fragment.html` | The same page without the document skeleton, used to publish the claude.ai artifact version. |
 
-Preview locally: `python3 -m http.server 8000 --directory dist` and open http://localhost:8000.
+Preview locally: `python3 -m http.server 8000 --directory dist` and open http://localhost:8000 (or `npx wrangler dev`,
+which also answers like Cloudflare: real 404s, trailing-slash redirects, the `/api` relay).
+
+## Addresses, search and the sitemap
+
+Every page has a permanent address: `/lessons/<slug>/`, `/courses/<slug>/`, `/tools/<slug>/`, `/tracks/<slug>/`,
+`/notes/<slug>/` and named pages such as `/glossary/`. Old `/#token` links still work (the page moves to the real
+address). The claude.ai copy keeps `#token` addresses.
+
+| File | Role |
+|---|---|
+| `src/routes.js` | The frozen address of every page (never change one) and the router helpers |
+| `src/seo.js` | Title, description, canonical, robots, link-preview tags and JSON-LD, generated from the content |
+| `tools/prerender.py` | Pre-builds every page (its content and its own head tags), `404.html` and `sitemap.xml` |
+| `tools/seo-lastmod.json` | The date each page's content last changed (the sitemap's lastmod); commit it after a build |
+| `tools/seo_check.py` | Checks the build (sitemap, canonicals, titles, descriptions, JSON-LD, robots); run by the build |
+
+The search audit, plan and implementation notes are in `docs/search-optimization/`.
 
 ## Deploy on Cloudflare (auto-deploy from GitHub)
 
@@ -65,10 +83,10 @@ The website works offline and installs as an app (phone home screen, or its own 
   files to save at install (page, script, fonts, icons, manifest). Every visit opens the saved copy at once. A new
   deploy changes `sw.js`, the browser installs it in the background, and the page shows "A new version of FiredBunny
   is ready" with a Reload button.
-- The home page is pre-built into `index.html` at deploy time (`tools/prerender.py`, run by the build when
-  Playwright is installed: `pip install playwright`). It shows on the first paint, like a server-rendered site, and
-  the script takes over in the same frame it draws the live page. Only the styles it uses are inlined. A link to
-  another page (`#lesson-id`) shows the loading screen instead. `python3 tools/build.py --no-prerender` skips it.
+- Every page is pre-built at deploy time (`tools/prerender.py`, run by the build; needs Playwright:
+  `pip install playwright`). Each address answers with its own content on the first paint, like a server-rendered
+  site, and the script takes over in the same frame it draws the live page. Only the styles a page uses are inlined.
+  Opening the offline copy at another address shows the loading screen until the script draws that page.
 - Fonts are preloaded and use `font-display: block`, so text waits for its font instead of appearing in a fallback
   font and visibly changing; the loading screen also waits for them (at most 1.2 s).
 - Large images are moved out of the script into `/img/` files by the build.
@@ -88,7 +106,7 @@ The website works offline and installs as an app (phone home screen, or its own 
 ## Analytics
 
 Google Tag Manager container `GTM-PJR6KKW9`, which carries the Google tag for Google Analytics 4 property
-`G-XVRHV7GTZ9`. The site sends a page view for every page it shows (as paths such as `/l-wheel`) and events for the
+`G-XVRHV7GTZ9`. The site sends a page view for every page it shows (its real path, such as `/lessons/wheel-strategy/`) and events for the
 key interactions (lessons, quiz, audio, tools, searches, assessment, downloads, app install) with `gtag('event')`,
 straight to GA4: nothing to set up in Tag Manager. Consent: Europe asks first, everyone can switch it off in Settings.
 Setup in GA4, privacy rules and the full event list: `analytics/README.md`. Modules report events with
