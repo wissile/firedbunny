@@ -1,16 +1,19 @@
 """Build FiredBunny from src/.
 
 Outputs
-  dist/                    the deployable website: a small index.html (styles, loading screen), app.<hash>.js (every
-                           script), sw.js (the service worker that makes it fast and offline) and everything in public/
-                           (audio, fonts, icons, _headers, robots.txt, manifest)
+  dist/                    the deployable website: index.html (styles, loading screen), app.<hash>.js (every script),
+                           sw.js (the service worker that makes it fast and offline), everything in public/ (audio,
+                           fonts, icons, _headers, robots.txt, manifest), and, from tools/prerender.py, one pre-built
+                           page per address (dist/lessons/<slug>/index.html ...), 404.html and sitemap.xml
   build/fragment.html      the same page as a fragment, for publishing as a claude.ai artifact
-Usage: python3 tools/build.py [--no-mods] [--mods mod-a.js,mod-b.js]
-Only the Python standard library is used, so it runs on Cloudflare's build image as is.
-Optional env: SITE_URL (e.g. https://firedbunny.com) for absolute social-preview links; on Cloudflare Pages the
-deployment URL (CF_PAGES_URL) is used when SITE_URL is not set.
+Usage: python3 tools/build.py [--no-mods] [--mods mod-a.js,mod-b.js] [--no-prerender]
+The build itself uses only the Python standard library; the pre-built pages need Playwright (pip install playwright).
+In CI (the CI environment variable is set) a failed prerender fails the build, so a site without its pages is never
+deployed. Search metadata comes from src/seo.js (see tools/seohead.py).
 """
 import os, sys, re, glob, shutil, hashlib, json, base64
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seohead
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src')
@@ -45,12 +48,9 @@ HEAD = f'''<title>FiredBunny</title>
 '''
 # every script of the site, in load order
 SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'account.js',
-           'assets.js', 'routes.js'] + mods + ['hero.js', 'pages.js']
+           'assets.js', 'routes.js'] + mods + ['hero.js', 'seo.js', 'pages.js']
 BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 
-DESC = 'FiredBunny: the money school they skipped. Learn trading, macro, crypto, retirement and FIRE by playing with interactive lessons, tools and a self-assessment.'
-site = (os.environ.get('SITE_URL') or os.environ.get('CF_PAGES_URL') or '').rstrip('/')
-og_img = (site + '/og-image.jpg') if site else '/og-image.jpg'
 
 # 1) claude.ai artifact fragment (the artifact host adds the document skeleton)
 os.makedirs(os.path.join(ROOT, 'build'), exist_ok=True)
@@ -97,6 +97,8 @@ preloads = ''.join(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type=
                    if os.path.exists(os.path.join(pub, 'fonts', f + '.woff2')))
 preloads += f'<link rel="preload" href="/{app_name}" as="script">\n'
 web_head = HEAD.replace('<meta name="claude:viewport-fit-sides" content="cover">\n', '')
+# the title, description and link-preview tags go in the <!--seo--> block (tools/seohead.py), one per page
+web_head = re.sub(r'<title>.*?</title>\n<meta name="description"[^>]*>\n', '', web_head, count=1)
 if fonts_css:
     # 'block' instead of 'swap': text waits for its font (preloaded, then saved on the device) instead of showing in a
     # fallback font first and visibly changing
@@ -134,14 +136,7 @@ page = f"""<!doctype html>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="FiredBunny">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="FiredBunny">
-<meta property="og:title" content="FiredBunny: the money school they skipped">
-<meta property="og:description" content="{DESC}">
-<meta property="og:image" content="{og_img}">
-{'<meta property="og:url" content="' + site + '/">' if site else ''}
-<meta name="twitter:card" content="summary_large_image">
-{asset_js}{web_head}</head>
+{seohead.block({})}{asset_js}{web_head}</head>
 <body>
 {web_body}</body>
 </html>
@@ -155,6 +150,9 @@ else:
     os.makedirs(dist)
 out = os.path.join(dist, 'index.html')
 open(out, 'w', encoding='utf-8').write(page)
+# unknown addresses get this page with a 404 status (wrangler.jsonc not_found_handling); the prerender adds its picture
+open(os.path.join(dist, '404.html'), 'w', encoding='utf-8').write(seohead.replace(page, seohead.block(
+    {'title': 'Page not found · FiredBunny', 'description': 'This page does not exist. Browse the lessons and tools instead.', 'robots': 'noindex, follow', 'canonical': '', 'url': ''})))
 open(os.path.join(dist, app_name), 'w', encoding='utf-8').write(app_js)
 for name, data in images.items():
     os.makedirs(os.path.join(dist, 'img'), exist_ok=True)
@@ -164,9 +162,10 @@ shell = ['/', '/' + app_name, '/site.webmanifest'] + sorted(images) + sorted('/'
         glob.glob(os.path.join(dist, 'fonts', '*.woff2')) + glob.glob(os.path.join(dist, '*.png')) + glob.glob(os.path.join(dist, '*.svg')))
 # pre-build the home page into index.html when a headless browser is available (tools/prerender.py)
 if '--no-prerender' not in sys.argv:
-    sys.path.insert(0, os.path.join(ROOT, 'tools'))
     from prerender import prerender
-    prerender(dist)
+    strict = bool(os.environ.get('CI'))
+    if not prerender(dist, strict=strict) and strict:
+        sys.exit('The pages could not be pre-built, so this build must not be deployed (see the messages above).')
 sw = '/* Generated by tools/build.py from src/sw.js. */\nconst BUILD = ' + json.dumps({'version': version, 'shell': shell}) + ';\n' + read('sw.js')
 open(os.path.join(dist, 'sw.js'), 'w', encoding='utf-8').write(sw)
 print(out, f'{len(page)/1024:.0f} KB + {app_name} {len(app_js)/1024:.0f} KB;', frag_out, f'{len(frag)/1024:.0f} KB;', f'version {version}, {len(shell)} files saved for offline;',

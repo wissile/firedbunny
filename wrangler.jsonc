@@ -9,7 +9,8 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "not_found_handling": "single-page-application",
+    // every page is pre-built (tools/prerender.py), so an unknown address gets dist/404.html with a real 404 status
+    "not_found_handling": "404-page",
     // /audio/* goes through the Worker so recordings answer byte-range requests (needed by iPhone and iPad)
     "run_worker_first": ["/api/*", "/audio/*"]
   },

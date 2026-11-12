@@ -1,2 +1,6 @@
+# FiredBunny: every lesson, course, tool and note is public. Per-visitor pages carry a noindex tag instead of being
+# blocked here, so crawlers can read it.
 User-agent: *
 Allow: /
+
+Sitemap: https://firedbunny.com/sitemap.xml

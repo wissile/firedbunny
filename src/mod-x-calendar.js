@@ -678,7 +678,7 @@ ${CATS.map((c) => `.xc [data-cat="${c.k}"],.xcl [data-cat="${c.k}"]{--cc:${CC[c.
     const statTile = (e, lab) => (e ? `<div><b>${daysTo(e) === 0 ? 'Today' : daysTo(e) + 'd'}</b><span>${lab} · ${shortDate(e.d)}</span></div>` : '');
     view.innerHTML = `
       ${SML.pageHeader('', 'Market &amp; tax calendar', 'Every date that <em>moves</em> your money', `<p>Fed meetings, inflation and jobs reports, PMI, options expiration, market holidays, tax deadlines and open enrollment, from October 2026 through December 2027. Tap any date to see why it matters.</p>
-        <div class="xc-hdr-stats">${statTile(nextFed, 'Next Fed decision')}${statTile(nextCPI, 'Next CPI')}${statTile(nextTax, 'Next tax date')}</div>`)}
+        <div class="xc-hdr-stats" data-volatile>${statTile(nextFed, 'Next Fed decision')}${statTile(nextCPI, 'Next CPI')}${statTile(nextTax, 'Next tax date')}</div>`)}
       <div class="xc"><div class="wrap">
         <div class="xc-tools">
           ${ui.chips('xc-cats', CATS.map((c) => ({ k: c.k, label: c.short, color: CC[c.k], on: prefs.on[c.k] })))}
@@ -689,7 +689,7 @@ ${CATS.map((c) => `.xc [data-cat="${c.k}"],.xcl [data-cat="${c.k}"]{--cc:${CC[c.
           <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">${ui.seg('xc-view', [{ v: 'month', label: 'Month' }, { v: 'agenda', label: 'Agenda' }], st.view, 'View')}
           <button type="button" class="btn btn-p" id="xc-export" style="min-height:38px">Export to calendar (.ics)</button></div>
         </div>
-        <div class="xc-main">
+        <div class="xc-main" data-volatile>
           <div id="xc-body" style="min-width:0"></div>
           <aside class="xc-side">
             <section class="xc-panel" id="xc-detail" aria-live="polite"></section>

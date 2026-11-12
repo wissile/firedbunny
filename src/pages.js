@@ -653,12 +653,15 @@
   /* ---------------- glossary ---------------- */
   SML.pages.glossary = function (view) {
     const list = SML.glossary.slice().sort((a, b) => a.t.localeCompare(b.t));
+    // a stable anchor for each term (/glossary/#vwap), unique even when two terms make the same slug
+    const ids = new Set();
+    const termId = (t) => { const base = 'g-' + (SML.routes ? SML.routes.slugify(t) : String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-')); let id = base; for (let i = 2; ids.has(id); i++) id = base + '-' + i; ids.add(id); return id; };
     view.innerHTML = `
       ${pageHeader('', 'Glossary', 'Every word, in plain <em>English</em>.', `<p>${list.length} terms. Each links to the lesson where you can play with it.</p><label class="fld" for="gl-q"><span>Search terms</span><input id="gl-q" type="search" placeholder="Try “theta” or “wash”" autocomplete="off"></label>`)}
       <section class="wrap" style="padding-block:40px 80px;display:flex;flex-direction:column;gap:20px">
         <div class="gl-az" id="gl-az" role="group" aria-label="Filter by first letter"><button type="button" class="on" data-l="">All</button>${Array.from(new Set(list.map((g) => g.t[0].toUpperCase()))).map((ch) => `<button type="button" data-l="${ch}">${ch}</button>`).join('')}</div>
         <div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between">${ui.seg('gl-trk', ['All'].concat(TRACKS().map((t) => t.title)), 'All', 'Track')}<p class="meta" id="gl-count"></p></div>
-        <dl class="gloss" id="gl-list">${list.map((g) => { const ls = lessonById(g.l); return `<div data-t="${esc(ls ? trackById(trackOfLesson(ls)).title : '')}" data-s="${esc((g.t + ' ' + (g.full || '') + ' ' + g.d).toLowerCase())}"><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${ls ? `<br><a href="#${g.l}">Lesson: ${esc(ls.title)}</a>` : ''}</dd></div>`; }).join('')}</dl>
+        <dl class="gloss" id="gl-list">${list.map((g) => { const ls = lessonById(g.l); const gid = termId(g.t); return `<div id="${gid}" data-t="${esc(ls ? trackById(trackOfLesson(ls)).title : '')}" data-s="${esc((g.t + ' ' + (g.full || '') + ' ' + g.d).toLowerCase())}"><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${ls ? `<br><a href="#${g.l}">Lesson: ${esc(ls.title)}</a>` : ''}</dd></div>`; }).join('')}</dl>
       </section>`;
     const q = $('#gl-q', view), cnt = $('#gl-count', view); let letter = '';
     let trk = 'All';
