@@ -9,7 +9,7 @@
      The Pine Script (version 5). Plain text; shown, copied and downloaded.
      ------------------------------------------------------------------ */
   const PINE = `//@version=5
-// Stock Market Lessons: key levels, VWAP and an EMA ribbon in one indicator.
+// FiredBunny: key levels, VWAP and an EMA ribbon in one indicator.
 // Draws PDH, PDL, PMH, PML, session VWAP, the 13 / 48 / 200 EMAs,
 // marks level breaks on strong volume and offers alerts for each one.
 // Free for education. Not financial advice.
@@ -457,7 +457,7 @@ alertcondition(ta.crossunder(e1, e2), "Fast EMA crossed below medium", "{{ticker
           <details><summary>Which chart timeframe should I use?</summary><p>The levels and VWAP work on any intraday timeframe. The lessons use the 15-minute chart to find levels and the 2-minute chart to time entries. On a daily chart the premarket lines and VWAP have no meaning.</p></details>
           <details><summary>Is it a buy and sell system?</summary><p>No. It draws the map the lessons teach and tells you when price reaches a spot worth watching. Your plan, your confirmation checklist and your stop still decide the trade.</p></details>
         </div>
-        <p class="callout info" style="margin-top:28px">${SML.icons.info}<span>Stock Market Lessons is not affiliated with or endorsed by TradingView. TradingView is a trademark of its owner. The indicator is for education and is not financial advice.</span></p>
+        <p class="callout info" style="margin-top:28px">${SML.icons.info}<span>FiredBunny is not affiliated with or endorsed by TradingView. TradingView is a trademark of its owner. The indicator is for education and is not financial advice.</span></p>
       </div></section>`;
     view.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => SML.copy(PINE, 'Pine Script copied. Paste it into the Pine Editor.')));
     view.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.go); if (el) el.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'start' }); }));

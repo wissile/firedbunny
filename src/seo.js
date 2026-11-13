@@ -76,6 +76,7 @@
     blog: 'Trade notes: trade breakdowns, wheel logs and checklists',
     calendar: 'Market and tax calendar: Fed, inflation, jobs and tax dates',
     assessment: 'Investor self-assessment: what kind of investor are you?',
+    editorial: 'Editorial standards: how FiredBunny lessons are written and checked',
     'not-found': 'Page not found',
   };
 
@@ -107,6 +108,7 @@
     blog: () => 'Trade breakdowns, wheel logs, checklists and routines, each with an interactive chart you can step through.',
     calendar: () => 'Fed meetings, inflation and jobs reports, PMI, options expiration, market holidays, tax deadlines and open enrollment, with why each date matters.',
     about: () => 'FiredBunny is a free, plain-English money school: ten years of money lessons turned into interactive lessons and tools on trading, retirement and FIRE.',
+    editorial: () => 'Who writes FiredBunny (a pen name), how lessons are drafted with AI and checked against primary sources, and how to report an error.',
     assessment: () => 'Seven short parts, about 7 minutes: get your investor type, a risk profile, a starting mix, your FIRE number and a learning path. Answers stay in your browser.',
     results: () => 'Your FiredBunny investor profile from the self-assessment.',
     dashboard: () => 'Your goals, net worth, investor profile and lessons in one place, saved in this browser.',
@@ -133,6 +135,7 @@
     if (tok.indexOf('tool-') === 0) {
       const t = find(SML.tools, tok); if (!t) return '';
       const l = t.lesson && find(SML.lessons, t.lesson);
+      const g = SML.toolGuides && SML.toolGuides[tok]; if (g && g.meta) return fit(g.meta);
       return fit(`${clean(t.blurb)} A free interactive tool${l ? ` from the ${clean(l.title)} lesson` : ''}.`);
     }
     if (tok.indexOf('track-') === 0) {
@@ -174,7 +177,7 @@
     };
   }
 
-  const ORG = { '@type': 'Organization', '@id': ORIGIN + '/#organization', name: BRAND, url: ORIGIN + '/', logo: LOGO, description: ABOUT };
+  const ORG = { '@type': 'Organization', '@id': ORIGIN + '/#organization', name: BRAND, url: ORIGIN + '/', logo: LOGO, description: ABOUT, publishingPrinciples: ORIGIN + '/editorial-standards/' };
   const crumbs = (items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it[0], item: it[1] })) });
   // structured data that matches what the page shows; opts.lastmod is the date its content last changed (YYYY-MM-DD)
   function jsonld(tok, opts) {

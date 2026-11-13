@@ -47,7 +47,7 @@ HEAD = f'''<title>FiredBunny</title>
 </style>
 '''
 # every script of the site, in load order
-SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'account.js',
+SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'account.js',
            'assets.js', 'routes.js'] + mods + ['hero.js', 'seo.js', 'pages.js']
 BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 

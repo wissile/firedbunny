@@ -602,7 +602,7 @@ ${CATS.map((c) => `.xc [data-cat="${c.k}"],.xcl [data-cat="${c.k}"]{--cc:${CC[c.
   function parseTime(t) { const m = /(\d{1,2}):(\d{2})\s*(am|pm)/i.exec(t || ''); if (!m) return null; let h = Number(m[1]) % 12; if (/pm/i.test(m[3])) h += 12; return [h, Number(m[2])]; }
   function toICS(list, name) {
     const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
-    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Stock Market Lessons//Investor Calendar//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'X-WR-CALNAME:' + icsEscape(name || 'Investor calendar'), 'X-WR-TIMEZONE:America/New_York',
+    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FiredBunny//Investor Calendar//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'X-WR-CALNAME:' + icsEscape(name || 'Investor calendar'), 'X-WR-TIMEZONE:America/New_York',
       'BEGIN:VTIMEZONE', 'TZID:America/New_York', 'BEGIN:DAYLIGHT', 'TZOFFSETFROM:-0500', 'TZOFFSETTO:-0400', 'TZNAME:EDT', 'DTSTART:19700308T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU', 'END:DAYLIGHT', 'BEGIN:STANDARD', 'TZOFFSETFROM:-0400', 'TZOFFSETTO:-0500', 'TZNAME:EST', 'DTSTART:19701101T020000', 'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU', 'END:STANDARD', 'END:VTIMEZONE'];
     list.forEach((e) => {
       const k = KINDS[e.kind] || {}; const ymd = e.d.replace(/-/g, ''); const tm = parseTime(e.time);

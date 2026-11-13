@@ -52,6 +52,15 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
   links between pages (not click handlers on divs), so crawlers can follow them.
 - Per-visitor pages (dashboard, profile, settings, sign-in, results, offline) are noindex: add new ones to `PRIVATE`.
 
+## Content accuracy (see docs/search-optimization/CONTENT_CHANGELOG.md)
+
+- Calculator pages show "How this calculator works" from `src/content-toolguide.js`. It describes what each widget's
+  code does: if you change a widget's math or defaults, update its guide (and its worked example) in the same commit.
+- A lesson's `sources` and `checked` (month) are shown, not narrated. Add a source only after opening it and checking
+  the claim it supports; set `checked` only when you actually re-checked the lesson's figures.
+- The editorial standards page (`/editorial-standards/`, in `src/mod-y-about.js`) must stay true: pen name, AI-assisted
+  drafting, no ads or affiliate links, computer voice. Change it in the same commit if any of that changes.
+
 ## Things to keep in mind
 
 - The deploy needs two GitHub repository secrets, `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, which only the

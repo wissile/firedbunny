@@ -17,7 +17,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGIN = 'https://firedbunny.com'
-ROUTE_LINK = re.compile(r'href="#(?:(?:l|c|tool|track|post)-[\w.~-]+|home|learn|tools|glossary|play|wheel|indicator|sheets|apps|blog|calendar|about|assessment|results|dashboard|profile|settings|signin|offline)"')
+ROUTE_LINK = re.compile(r'href="#(?:(?:l|c|tool|track|post)-[\w.~-]+|home|learn|tools|glossary|play|wheel|indicator|sheets|apps|blog|calendar|about|editorial|assessment|results|dashboard|profile|settings|signin|offline)"')
 
 
 def attr(doc, pattern):

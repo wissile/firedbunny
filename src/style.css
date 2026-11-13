@@ -561,3 +561,5 @@ svg .tipbg{fill:var(--surface-2);stroke:var(--input)}
 }
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 @media (max-width:360px){.nav-prog{display:none}.nav .wrap{gap:10px}}
+/* calculator guides (pages.js toolGuide): each formula on its own line */
+.tg-f li code{display:block;padding:8px 12px;line-height:1.55;white-space:normal}

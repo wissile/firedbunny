@@ -1292,6 +1292,8 @@
       terms: ["Option", "Call", "Put", "Strike", "Premium", "Expiration"],
       example: {"title": "Buying a call on DEMO", "steps": ["DEMO trades at $50. You buy one $52 call that expires in 30 days for $1.50, which costs $150.", "Your breakeven at expiration is $52 + $1.50 = $53.50.", "DEMO finishes at $56. The call is worth $56 − $52 = $4.00, or $400 for the contract.", "Profit: $400 − $150 = $250. Had DEMO finished below $52, the call would have expired worthless and you would have lost the $150."], "result": "You risked $150 to make $250 at $56. The stock had to rise 7% just to break even."},
       mistakes: ["Forgetting the ×100. A $1.50 quote costs $150 per contract, not $1.50.", "Buying very cheap, far out-of-the-money options that need a huge move to pay off.", "Holding to the final day hoping for a miracle while the time value melts away."],
+      sources: [{ t: "Investor.gov (SEC): An introduction to options, investor bulletin (updated July 2026)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63" }, { t: "OCC: Characteristics and Risks of Standardized Options (the options disclosure document)", u: "https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document" }],
+      checked: 'November 2026', tools: ['tool-options'],
       glossary: [{"t": "Breakeven", "d": "The stock price at which an option trade neither makes nor loses money at expiration."}],
     },
     {
@@ -1327,6 +1329,8 @@
       terms: ["Premium", "Strike", "Call", "Put", "Assignment"],
       example: {"title": "Selling a put on DEMO", "steps": ["DEMO trades at $50. You sell one $47 put expiring in 30 days for $1.00 and collect $100.", "Best case: DEMO stays above $47 and you keep the whole $100.", "Breakeven: $47 − $1.00 = $46. Below that you start losing money.", "DEMO drops to $42. The put is worth $5.00, so you owe $500 against the $100 you collected: a $400 loss."], "result": "Max profit $100, max loss $4,600 if DEMO went to zero. Sellers win often, so they must size for the bad case."},
       mistakes: ["Selling options because they usually expire worthless, without planning for the big move.", "Selling calls on shares you do not own, which carries unlimited risk.", "Reading the dashed line (value today) as the final result. Only the solid line shows the outcome at expiration."],
+      sources: [{ t: "Options Industry Council: Cash-secured put", u: "https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" }, { t: "Investor.gov (SEC): An introduction to options, investor bulletin (updated July 2026)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63" }, { t: "OCC: Characteristics and Risks of Standardized Options (the options disclosure document)", u: "https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document" }],
+      checked: 'November 2026',
       glossary: [{"t": "Naked call", "d": "Selling a call without owning the shares. The possible loss has no limit."}],
     },
     {
@@ -1399,6 +1403,8 @@
       terms: ["Wheel", "Cash-secured put", "Covered call", "Assignment", "Premium"],
       example: {"title": "One turn of the wheel on DEMO", "steps": ["DEMO is at $40. You hold $3,800 cash and sell one $38 put for $0.90, collecting $90.", "DEMO closes at $36.50 on expiration. You are assigned 100 shares at $38. Your cost basis is $38 − $0.90 = $37.10.", "You sell a $38 covered call for $0.80 and collect $80. Your basis drops to $36.30.", "DEMO rallies to $39 by expiration and your shares are called away at $38.", "You bought and sold at $38, so the profit is the two premiums: $170 on $3,800 over two months."], "result": "About 4.5% in two months. Had DEMO kept falling to $30, you would be down about $630 even after both premiums."},
       mistakes: ["Wheeling a stock you would not want to own just because its premium is high.", "Selling calls below your cost basis and locking in a loss when the shares are called away.", "Putting all your cash into one wheel. One crash can tie up the whole account."],
+      sources: [{ t: "Options Industry Council: Cash-secured put", u: "https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" }, { t: "Options Industry Council: Covered call (buy/write)", u: "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write" }, { t: "Investor.gov (SEC): An introduction to options, investor bulletin (updated July 2026)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63" }, { t: "OCC: Characteristics and Risks of Standardized Options (the options disclosure document)", u: "https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document" }],
+      checked: 'November 2026',
       glossary: [{"t": "Cost basis", "d": "What you effectively paid per share after subtracting the premiums you collected."}],
     }
   );

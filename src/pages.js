@@ -102,7 +102,7 @@
         <div class="fb"><a class="brand" href="#home" aria-label="${BRAND} home">${logo}${wordmark}</a><p class="fb-tag">Ten years of money lessons, shared free. Learn it early, keep your cool, buy back your time.</p><p>Education only. Nothing here is financial, investment or tax advice. Most charts use simulated prices and most examples use made-up numbers; the Read a Real Company course uses real reported figures, checked October 2026. Trading and investing can lose money, including more than you put in with options or margin.</p></div>
         <div><h4>Learn</h4><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
         <div><h4>Practice</h4><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
-        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
+        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a><a href="#editorial">Editorial standards</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
       <div class="foot-base"><span>© 2026 FiredBunny · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
     </div>`;
@@ -494,6 +494,12 @@
   }
 
   /* ---------------- lesson ---------------- */
+  /* calculators that go with a lesson: tools whose lesson it is, plus any listed in l.tools */
+  function calcLinks(l) {
+    const ts = SML.tools.filter((t) => t.lesson === l.id || (l.tools || []).indexOf(t.id) >= 0);
+    if (!ts.length) return '';
+    return `<div class="callout info l-calc">${icons.info}<span>Run your own numbers: ${ts.map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join(', ')}. ${ts.length === 1 ? esc(ts[0].blurb) : ''}</span></div>`;
+  }
   function lessonPage(view, tok) {
     const l = lessonById(tok); if (!l) return notFound(view);
     const c = courseOf(l.course) || { title: '', n: 0, id: '' }; const ls = lessonsOf(l.course);
@@ -536,12 +542,13 @@
           ${(l.body || []).length ? `<section class="l-sec" id="sec-how" aria-labelledby="h-how"><div class="l-sec-h"><p class="part">${part(idx('sec-how'))}</p><h2 id="h-how">How it works</h2></div><div class="prose">${l.body.join('')}</div></section>` : ''}
           ${(l.extra || []).map((w, i) => `<section class="l-sec" id="sec-x${i}" aria-labelledby="h-x${i}"><div class="l-sec-h"><p class="part">${part(idx('sec-x' + i))}</p><h2 id="h-x${i}">Try this too</h2></div><figure class="fig">${w.try ? `<p class="try-p">${w.try}</p>` : ''}${SML.widgetHTML(w.widget, w.opts)}<figcaption>Fig. ${pos}.${i + 2} · ${esc(l.title)}</figcaption></figure></section>`).join('')}
           ${l.example ? `<section class="l-sec ex-sec" id="sec-ex" aria-labelledby="h-ex"><p class="part">Worked example</p><h2 id="h-ex">${esc(l.example.title || 'Worked example')}</h2>${l.example.intro ? `<p class="ex-intro">${l.example.intro}</p>` : ''}<ol class="ex-steps">${(l.example.steps || []).map((st, i) => `<li><span class="n">${i + 1}</span><p>${st}</p></li>`).join('')}</ol>${l.example.result ? `<p class="ex-res">${l.example.result}</p>` : ''}</section>` : ''}
+          ${calcLinks(l)}
           <section class="l-sec" id="sec-rem" aria-labelledby="h-rem">
             <div class="pane2${(l.mistakes && l.mistakes.length) ? ' two' : ''}">${(l.mistakes && l.mistakes.length) ? `<section><h2 class="pane-h dn">Common mistakes</h2><ul class="plain">${l.mistakes.map((m) => `<li>${m}</li>`).join('')}</ul></section>` : ''}<section><h2 class="pane-h" id="h-rem">Key takeaways</h2><ul class="plain">${(l.points || []).map((m) => `<li>${m}</li>`).join('')}</ul></section></div>
           </section>
           ${terms.length ? `<section class="l-sec" id="sec-words" aria-labelledby="h-words"><h2 class="gl-h" id="h-words">Glossary</h2>
             <dl class="gloss">${terms.map((g) => `<div><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${g.l && g.l !== l.id && lessonById(g.l) ? `<br><a href="#${g.l}">Lesson: ${esc(lessonById(g.l).title)}</a>` : ''}</dd></div>`).join('')}</dl></section>` : ''}
-          ${(l.sources || []).length ? `<section class="l-sec" id="sec-src" aria-labelledby="h-src"><h2 class="pane-h" id="h-src">Sources</h2><ul class="src-list">${l.sources.map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener noreferrer">${esc(s.t)}</a></li>`).join('')}</ul><p class="note">Figures checked October 2026. Limits and rates change every year; confirm before you act.</p></section>` : ''}
+          ${(l.sources || []).length ? `<section class="l-sec" id="sec-src" aria-labelledby="h-src"><h2 class="pane-h" id="h-src">Sources</h2><ul class="src-list">${l.sources.map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener noreferrer">${esc(s.t)}</a></li>`).join('')}</ul><p class="note">Figures checked ${esc(l.checked || 'October 2026')}. Limits and rates change every year; confirm before you act. <a href="#editorial">How lessons are checked</a>.</p></section>` : ''}
           ${l.quiz ? `<section class="l-sec" id="sec-quiz" aria-labelledby="h-quiz"><div class="quiz" id="quiz"><h3 id="h-quiz">Quick check</h3><p class="quiz-q">${l.quiz.q}</p><div class="quiz-opts">${l.quiz.options.map((o, i) => `<button type="button" class="qopt" data-i="${i}"><span class="k">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div><p class="quiz-why" id="quiz-why" hidden></p></div></section>` : ''}
           <div class="l-end">
             <button type="button" class="btn ${done ? 'btn-g' : 'btn-up'}" id="mark">${done ? icons.check + ' Completed' : 'Mark as complete'}</button>
@@ -627,6 +634,24 @@
     const st = ui.wire(view, () => { const c = st.seg('tools-cat'); $$('.tools-trk', view).forEach((s) => { s.hidden = c !== 'All' && s.dataset.t !== c; }); });
     return 'Tools';
   };
+  /* "How this calculator works": formula, assumptions, worked example, limits and sources (src/content-toolguide.js) */
+  const srcList = (list) => `<ul class="src-list">${list.map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener noreferrer">${esc(s.t)}</a></li>`).join('')}</ul>`;
+  function toolGuide(t, l) {
+    const g = (SML.toolGuides || {})[t.id]; if (!g) return '';
+    const ul = (a) => `<ul>${a.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+    return `<section class="wrap l-sec tg" aria-labelledby="tg-h" style="padding-bottom:48px">
+        <div class="l-sec-h"><p class="part">Method</p><h2 id="tg-h">How this calculator works</h2></div>
+        <div class="prose">
+          <h3>What it calculates</h3><p>${g.what}</p>
+          <h3>The formula</h3><ul class="tg-f">${g.formula.map((x) => `<li><code>${x}</code></li>`).join('')}</ul>
+          <h3>What it assumes</h3>${ul(g.assume)}
+          <h3>Worked example</h3><ol>${g.example.map((x) => `<li>${x}</li>`).join('')}</ol>
+          <h3>Limits</h3>${ul(g.limits)}
+          ${g.sources.length ? `<h3>Sources</h3>${srcList(g.sources)}` : ''}
+        </div>
+        <p class="note">Formulas checked against the calculator’s code${g.sources.length ? ' and the sources above' : ''} in ${esc(g.checked)}.${l ? ` The lesson <a href="#${l.id}">${esc(l.title)}</a> explains the idea step by step.` : ''} <a href="#editorial">How FiredBunny checks its pages</a>.</p>
+      </section>`;
+  }
   function toolPage(view, tok) {
     const i = SML.tools.findIndex((x) => x.id === tok); const t = SML.tools[i]; if (!t) return notFound(view);
     const l = lessonById(t.lesson);
@@ -637,6 +662,7 @@
         ${SML.widgetHTML(t.widget)}
         <p class="note">For learning only. Results use simple models and your inputs; they are not advice.</p>
       </section>
+      ${toolGuide(t, l)}
       <section class="wrap" style="padding-bottom:80px" aria-labelledby="more-h"><h2 class="wg-title" id="more-h" style="margin-bottom:14px">More tools</h2><ul class="tiles t3">${SML.tools.filter((x) => x.id !== t.id && (x.track || 'trading') === (t.track || 'trading')).slice(0, 6).map(toolTile).join('')}</ul></section>`;
     return t.title;
   }

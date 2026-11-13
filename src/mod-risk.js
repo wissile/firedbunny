@@ -966,6 +966,8 @@
       terms: ['Position size', 'Stop loss', 'Drawdown'],
       example: {"title": "Sizing a $15,000 account", "intro": "An example account with made-up prices.", "steps": ["Your account is $15,000. At 1% risk, the most you plan to lose on one trade is $150.", "You want to buy DEMO at $42.00 with a stop at $40.50, just under support. That is $1.50 of risk per share.", "$150 ÷ $1.50 = 100 shares, a $4,200 position. The position is far bigger than the risk, and that is fine.", "Five trades in a row hit their stops. Each loss is 1% of what is left, so the account ends near $14,265, down about 5%.", "The same five losses at 10% risk per trade would leave about $8,857, down about 41%."], "result": "Same streak, same trades: about 5% lost at 1% risk versus about 41% lost at 10% risk."},
       mistakes: ["Confusing position size with risk. A $4,200 position can risk only $150 when the stop is close.", "Raising risk after a loss to win it back faster. That is how a normal streak turns into a deep hole.", "Trading without a stop, so the real risk on the trade is unknown.", "Betting more on trades that feel like sure things. Every trade gets the same risk because you cannot tell in advance which ones will work."],
+      sources: [{ t: "Investor.gov (SEC): Stop order", u: "https://www.investor.gov/introduction-investing/investing-basics/glossary/stop-order" }, { t: "FINRA: Frequent intraday trading, understanding the basics (June 2026)", u: "https://www.finra.org/investors/insights/frequent-intraday-trading" }],
+      checked: 'November 2026', tools: ['tool-size'],
     },
     {
       id: 'l-position-size', course: 'risk', order: 2, title: 'Position sizing', mins: 5, level: 'Beginner',
@@ -983,6 +985,8 @@
       terms: ['Position size', 'Stop loss', 'R multiple', 'Risk:reward', 'Slippage'],
       example: {"title": "Sizing a retest entry", "intro": "A $25,000 example account risking 1% per trade.", "steps": ["Your risk budget is 1% of $25,000 = $250.", "You plan to buy DEMO at $30.00 on a retest. The stop goes under the level at $28.75, so risk per share is $1.25.", "Shares = $250 ÷ $1.25 = 200 shares. The position is $6,000, or 24% of the account.", "Targets: 1R is $31.25, 2R is $32.50 and 3R is $33.75 (entry plus 1, 2 or 3 times $1.25).", "If the stop is hit you lose 200 × $1.25 = $250, exactly 1%. A fast drop can fill a little lower, so a bit of slippage is normal."], "result": "Risk $250 to make $500 at the 2R target."},
       mistakes: ["Choosing the number of shares first, then placing the stop wherever the loss feels small enough.", "Setting the stop so tight that normal wiggles hit it. A tiny stop also inflates the share count and the position.", "Forgetting that a gap through the stop can lose more than planned. Keep any single position small enough to survive a gap.", "Sizing from last month's balance instead of today's account value after a losing stretch."],
+      sources: [{ t: "Investor.gov (SEC): Stop order", u: "https://www.investor.gov/introduction-investing/investing-basics/glossary/stop-order" }, { t: "FINRA: Frequent intraday trading, understanding the basics (June 2026)", u: "https://www.finra.org/investors/insights/frequent-intraday-trading" }],
+      checked: 'November 2026',
     },
     {
       id: 'l-risk-reward', course: 'risk', order: 3, title: 'Win rate & reward', mins: 6, level: 'Intermediate',

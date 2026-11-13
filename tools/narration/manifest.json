@@ -2842,7 +2842,7 @@
   "voice": "af_heart"
  },
  "l-pdt": {
-  "bytes": 949178,
+  "bytes": 997774,
   "chapters": [
    [
     0.25,
@@ -2853,21 +2853,21 @@
     "how"
    ],
    [
-    67.79,
+    76.97,
     "ex"
    ],
    [
-    145.39,
+    154.58,
     "mis"
    ],
    [
-    166.52,
+    175.71,
     "pts"
    ]
   ],
-  "dur": 184.9,
+  "dur": 194.1,
   "file": "audio/lessons/l-pdt.mp4",
-  "hash": "5g80y9",
+  "hash": "44x7xt",
   "voice": "af_heart"
  },
  "l-pmi": {

@@ -291,7 +291,7 @@
             <div class="ab-quote"><q>Your first paycheck is your <em>first investment decision</em>.</q><p>Not because you need to pick stocks on day one, but because the habits you start then compound, good or bad.</p></div>
             <ul class="ab-facts">
               <li>${SML.flame(14)}<span>Ten years of notes, turned into ${nLessons} lessons across ${nTracks} tracks.</span></li>
-              <li>${SML.flame(14)}<span>Every figure checked against official sources, with the date it was checked.</span></li>
+              <li>${SML.flame(14)}<span>Lessons link the official sources their figures were checked against, with the month they were checked. <a href="#editorial">How pages are written and checked</a>.</span></li>
               <li>${SML.flame(14)}<span>Spot something wrong or out of date? <a href="#ab-feedback" data-jump="ab-feedback">Tell me</a> and I'll fix it.</span></li>
             </ul>
           </aside>
@@ -424,5 +424,51 @@
       }
     }
     return 'About FiredBunny';
+  };
+
+  /* ---------------- editorial standards: who writes the pages, how they are checked, what they are not ----------------
+     Keep every sentence true of the site as it is. If the process changes (a reviewer joins, ads appear, the voice
+     changes), change this page in the same commit. */
+  SML.pages.editorial = function (view) {
+    const sec = (n, h, sub, id, body) => `<section class="chapter" style="padding-top:${n === '01' ? '48px' : '0'}" aria-labelledby="${id}"><div class="wrap">
+        ${SML.chapHead(n, h, sub, '', id)}
+        <div class="prose ed-prose">${body}</div>
+      </div></section>`;
+    view.innerHTML = `
+      <header class="page-hdr"><div class="wrap">
+        ${SML.kicker('', 'Editorial standards')}
+        <h1 class="h-page">How FiredBunny is <em>written and checked</em></h1>
+        <p class="lede" style="margin-top:22px;max-width:60ch">Who writes the lessons and calculators, how their facts and numbers are checked, how to tell a fact from an assumption or an opinion, and what this site is not. Last updated November 2026.</p>
+      </div></header>
+      ${sec('01', 'Who writes FiredBunny', 'A pen name, plainly disclosed.', 'ed-who', `
+        <p><b>FiredBunny is a pen name.</b> It is the name the person who writes and runs this site publishes under. The story behind the site is on the <a href="#about">About page</a>.</p>
+        <p>FiredBunny does not claim professional credentials, and no page claims to have been reviewed by a licensed financial adviser, CPA or attorney.</p>`)}
+      ${sec('02', 'How pages are made', 'AI-assisted drafting, checked against sources.', 'ed-how', `
+        <p>Lessons, examples and calculator guides are <b>drafted with AI tools</b> and <b>checked against the primary sources cited on each page</b>. The numbers in worked examples are recalculated, not copied.</p>
+        <p>Where a calculator has a <b>How this calculator works</b> section, its formulas, assumptions and example were checked against the calculator’s own code, so what the page says is what the tool does.</p>
+        <p>Not every lesson lists its sources yet. Lessons that are pure arithmetic show the formula so you can check it yourself, and sources are being added to the rest.</p>`)}
+      ${sec('03', 'Sources and dates', 'Official and original sources first.', 'ed-src', `
+        <p>When a page states a tax limit, a rule, a rate or a research finding, it links to where that came from, preferring <b>primary sources</b>: the IRS, the Social Security Administration, the SEC and Investor.gov, FINRA, the Options Clearing Corporation and the Options Industry Council, government statistics such as the BLS and the Federal Reserve, and the original research a rule of thumb comes from.</p>
+        <p>When a figure comes from a secondary source, such as a research blog, a news report or a broker review, the source list names it so you can judge it.</p>
+        <p>Each sourced lesson shows the month its figures were last checked. Tax limits, rates and rules change every year, so confirm current figures with the official source before you act.</p>`)}
+      ${sec('04', 'Facts, assumptions and opinions', 'Told apart on every page.', 'ed-fact', `
+        <ul>
+          <li><b>Facts</b>, like a contribution limit, a formula or a rule, come with their source.</li>
+          <li><b>Assumptions</b>, like a 7% return or 3% inflation, are labeled as assumptions, and each calculator lists the ones it uses.</li>
+          <li><b>Rules of thumb and opinions</b>, like risking about 1% per trade or only wheeling stocks you would hold for years, are presented as common practice or FiredBunny’s view, not as facts.</li>
+          <li><b>Examples</b> use made-up tickers such as DEMO and simulated prices, unless the page says it uses real data, as the Read a Real Company course does.</li>
+        </ul>
+        <p>No return is promised anywhere on this site. Simulations and past results do not predict the future.</p>`)}
+      ${sec('05', 'What FiredBunny is not', 'Education, not advice.', 'ed-not', `
+        <ul>
+          <li><b>Not advice.</b> Nothing here is financial, investment, tax or legal advice, and nothing is tailored to your situation. For big decisions, talk to a professional who knows your details.</li>
+          <li><b>US-focused.</b> Tax and retirement rules are US federal rules unless a lesson says otherwise. State rules vary.</li>
+          <li><b>No ads and no affiliate links.</b> Brokers, funds and companies are named to teach, not to sell.</li>
+          <li><b>A computer voice.</b> Lesson audio is read by a computer: recordings made with the open Kokoro-82M text-to-speech model, or your device’s own voice when a recording is not available.</li>
+        </ul>`)}
+      ${sec('06', 'Corrections', 'Spot something wrong? Say so.', 'ed-fix', `
+        <p>If a figure looks wrong or out of date, use the feedback form at the bottom of the <a href="#about">About page</a> and choose <b>Correct an inaccuracy</b>. Confirmed corrections are made on the page itself, and its last-checked date is updated.</p>`)}
+      <div style="height:64px"></div>`;
+    return 'Editorial standards';
   };
 })();

@@ -309,7 +309,7 @@
   }
   function genPine(f) {
     const L = [], strat = f.strat, base = baseOf(f);
-    L.push('//@version=6', '// Built with the Stock Market Lessons Pine builder.', '// A starting point: check every line on a chart before you trust it.');
+    L.push('//@version=6', '// Built with the FiredBunny Pine builder.', '// A starting point: check every line on a chart before you trust it.');
     L.push(strat ? 'strategy("My Strategy", overlay = true, initial_capital = 10000, default_qty_type = strategy.percent_of_equity, default_qty_value = 10, commission_type = strategy.commission.percent, commission_value = 0.05)' : 'indicator("My Indicator", overlay = true)', '');
     if (f.pd) L.push('// Previous day high and low. high[1] with lookahead_on reads the finished day, so it never repaints.', '[pdh, pdl] = request.security(syminfo.tickerid, "D", [high[1], low[1]], lookahead = barmerge.lookahead_on)', 'plot(pdh, "PDH", color = color.orange, style = plot.style_linebr)', 'plot(pdl, "PDL", color = color.orange, style = plot.style_linebr)', '');
     if (f.vwap) L.push('// Session VWAP', 'vwapLine = ta.vwap(hlc3)', 'plot(vwapLine, "VWAP", color = color.blue, linewidth = 2)', '');

@@ -1344,7 +1344,7 @@
       widget: 'accountRules', opts: {},
       try: 'Switch account types, set a balance, and place day trades through the week.',
       body: [
-        "<p>Until 2026, FINRA's pattern day trader rule required $25,000 in a margin account to make more than three day trades in five business days. In 2026 the SEC approved FINRA's change that removed it, and brokers switched over around June.</p>",
+        "<p>Until 2026, FINRA's pattern day trader rule required $25,000 in a margin account to make more than three day trades in five business days. In April 2026 the SEC approved FINRA's change that replaces it. The new rule took effect on June 4, 2026, and brokers have until October 2027 to finish switching over, so yours may still be moving.</p>",
         '<p>In a <b>margin account</b> you now need at least $2,000 in equity, and your buying power is checked in real time during the day. Go over it and you get a margin call that you must cover.</p>',
         "<p>In a <b>cash account</b> you can day trade without margin, but only with settled cash. Stock trades settle one business day later (T+1), so money from today's sale is ready to use again tomorrow.</p>",
         "<p>Brokers can still set stricter rules of their own, so read your broker's policy before you start.</p>",
@@ -1366,6 +1366,8 @@
         'Treating margin buying power as your own money. Borrowed size makes every loss bigger.',
         "Not reading your broker's rules. Some brokers keep stricter day trading limits than the FINRA minimum.",
       ],
+      sources: [{ t: "FINRA Regulatory Notice 26-10: intraday margin standards replace the day trading rules (April 2026)", u: "https://www.finra.org/rules-guidance/notices/26-10" }, { t: "FINRA: Frequent intraday trading, understanding the basics (June 2026)", u: "https://www.finra.org/investors/insights/frequent-intraday-trading" }],
+      checked: 'November 2026',
       points: ['The $25,000 PDT rule was removed in 2026.', 'Margin accounts need at least $2,000 in equity.', 'Cash accounts trade with settled cash; sales settle T+1.', 'Your broker may still have its own limits.'],
       quiz: { q: 'In a cash account you buy and sell $3,000 of stock on Monday. When is that $3,000 settled again?', options: ['Immediately', 'Tuesday, one business day later', 'After 30 days'], answer: 1, why: 'Stock trades settle T+1, one business day after the trade.' },
       terms: ['PDT rule', 'Margin account', 'Cash account', 'Settlement', 'Day trading'],

@@ -1237,5 +1237,7 @@
     terms: ["Volatility", "ATR", "IV", "Expected move", "Position size"],
     example: {"title": "Sizing a stop with ATR and IV", "steps": ["DEMO trades at $80. Its 14-day ATR is $2.40, so a normal day covers about $2.40 from high to low.", "A stop $0.50 away would sit inside normal noise, so you place it 1 ATR away, at $77.60.", "With a $20,000 account and 1% risk ($200), you can buy $200 ÷ $2.40 = 83 shares.", "Options price DEMO at 30% IV. Over 30 days the expected move is $80 × 0.30 × √(30 ÷ 365) ≈ $6.88.", "So the market expects DEMO to end the month between about $73 and $87, roughly two times out of three."], "result": "ATR set the stop and the size. IV told you how big a month could be."},
     mistakes: ["Using the same dollar stop on a calm stock and a wild one.", "Treating the expected move as a promise. Price ends outside it about one time in three.", "Forgetting that IV usually jumps before earnings and drops right after."],
+    sources: [{ t: "CME Group: Discover options volatility (annualized volatility and the square root of time)", u: "https://www.cmegroup.com/education/courses/introduction-to-options/discover-options-volatility" }, { t: "Options Industry Council: Understanding the “rule of 16” in plain terms (July 2025)", u: "https://www.optionseducation.org/news/understanding-the-rule-of-16-in-plain-terms" }],
+    checked: 'November 2026',
   });
 })();

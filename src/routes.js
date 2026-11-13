@@ -28,6 +28,7 @@
     "glossary": "/glossary/",
     "calendar": "/calendar/",
     "about": "/about/",
+    "editorial": "/editorial-standards/",
     "assessment": "/investor-assessment/",
     "results": "/results/",
     "dashboard": "/dashboard/",
