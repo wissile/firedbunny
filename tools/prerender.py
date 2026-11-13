@@ -72,7 +72,11 @@ GO_JS = r"""async (tok) => {
 
 
 def _git_date(path):
+    """The last commit date of a file, or today when it has uncommitted changes (a page being added right now)."""
     try:
+        dirty = subprocess.run(['git', 'status', '--porcelain', '--', path], cwd=ROOT, capture_output=True, text=True, timeout=20).stdout.strip()
+        if dirty:
+            return datetime.date.today().isoformat()
         out = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', path], cwd=ROOT, capture_output=True, text=True, timeout=20).stdout.strip()
         return out or None
     except Exception:
