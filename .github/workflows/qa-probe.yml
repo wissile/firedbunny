@@ -1,0 +1,53 @@
+name: QA probe (temporary, audit only)
+# Runs only on the qa-probe branch. Reads the live site; deploys nothing.
+on:
+  push:
+    branches: [qa-probe]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Live crawl, redirects, crawlers, external links, DNS
+        run: python3 .github/probe/qa.py
+      - name: Lighthouse (lab, simulated mobile and desktop)
+        run: |
+          mkdir -p lh
+          run() { npx -y lighthouse@12 "$1" --quiet --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,accessibility,best-practices,seo --output=json --output-path="lh/$2.json" $3 || echo "lighthouse failed for $1"; }
+          run https://firedbunny.com/ home-m
+          run https://firedbunny.com/ home-m2
+          run https://firedbunny.com/lessons/wheel-strategy/ lesson-m
+          run https://firedbunny.com/lessons/wheel-strategy/ lesson-m2
+          run https://firedbunny.com/tools/position-size/ tool-m
+          run https://firedbunny.com/glossary/ glossary-m
+          run https://firedbunny.com/editorial-standards/ editorial-m
+          run https://firedbunny.com/ home-d "--preset=desktop"
+          run https://firedbunny.com/lessons/wheel-strategy/ lesson-d "--preset=desktop"
+          python3 - <<'PY'
+          import json, glob, os
+          for f in sorted(glob.glob('lh/*.json')):
+              try: r = json.load(open(f))
+              except Exception as e: print(f, 'unreadable', e); continue
+              a = r['audits']; c = r['categories']
+              g = lambda k: a.get(k, {}).get('displayValue')
+              print(os.path.basename(f), {k: round((v.get('score') or 0) * 100) for k, v in c.items()},
+                    'FCP', g('first-contentful-paint'), 'LCP', g('largest-contentful-paint'), 'TBT', g('total-blocking-time'), 'CLS', g('cumulative-layout-shift'), 'SI', g('speed-index'),
+                    'LCP element', (a.get('largest-contentful-paint-element', {}).get('details', {}).get('items') or [{}])[0].get('items', [{}])[0].get('node', {}).get('snippet', '')[:120] if a.get('largest-contentful-paint-element') else '',
+                    'chrome', r.get('environment', {}).get('hostUserAgent', '')[-40:])
+              fails = [k for k, v in a.items() if v.get('score') is not None and v.get('score') < 0.9 and v.get('scoreDisplayMode') in ('binary', 'numeric') and k in ('document-title','meta-description','link-text','crawlable-anchors','is-crawlable','robots-txt','hreflang','canonical','image-alt','color-contrast','tap-targets','heading-order','label','button-name','link-name','aria-allowed-attr','list','listitem','font-size','viewport','errors-in-console','total-blocking-time','largest-contentful-paint','cumulative-layout-shift','render-blocking-resources','unused-javascript','bootup-time','mainthread-work-breakdown','dom-size')]
+              print('   below 0.9:', fails)
+          PY
+      - name: PageSpeed Insights (field data, if Chrome UX Report has any)
+        run: |
+          for u in https://firedbunny.com/ https://firedbunny.com/lessons/wheel-strategy/; do
+            curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=$u&strategy=mobile&category=performance" -o psi.json
+            python3 -c "import json;r=json.load(open('psi.json'));e=r.get('error');le=r.get('loadingExperience',{});ole=r.get('originLoadingExperience',{});print('$u', 'error' if e else '', (e or {}).get('message','')[:150], 'field:', le.get('overall_category'), {k:v.get('category') for k,v in le.get('metrics',{}).items()}, 'origin:', ole.get('overall_category'), 'lab LCP', r.get('lighthouseResult',{}).get('audits',{}).get('largest-contentful-paint',{}).get('displayValue'))" || true
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-results
+          path: |
+            qa.json
+            lh/*.json
