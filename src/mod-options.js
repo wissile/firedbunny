@@ -916,7 +916,7 @@
       <div class="wg-fig"></div>
       <div class="wg-read mo-r4">${ui.stat('Premium', id + '-pt', 'hl')}${ui.stat('Breakeven', id + '-be')}${ui.stat('Max profit', id + '-mp')}${ui.stat('Max loss', id + '-ml')}${ui.stat('Chance ITM (model)', id + '-pi')}${ui.stat('Delta, share equivalent', id + '-de')}${ui.stat('Theta / day', id + '-th')}${ui.stat('Vega / 1% IV', id + '-ve')}</div>
       <div class="wg-msg" id="${id}-msg"></div>
-      <div class="mo-table scroll" id="${id}-tb"></div>
+      <div class="mo-table scroll" id="${id}-tb" tabindex="0" role="region" aria-label="Profit and loss at different stock prices"></div>
       <div class="wg-note">Premium defaults to the Black-Scholes model price (4% interest rate). Type your broker's quote to override it. Greeks are for the whole position. Hover or tap the chart to read any price.</div>`;
     const fig = root.querySelector('.wg-fig');
     const st = ui.wire(root, (e) => { if (e && e.target && e.target.id === id + '-pr') override = true; draw(); });

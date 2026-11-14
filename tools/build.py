@@ -98,7 +98,8 @@ app_name = 'app.' + hashlib.sha1(app_js.encode('utf-8')).hexdigest()[:10] + '.js
 PRELOAD_FONTS = sorted(os.path.basename(f)[:-6] for f in glob.glob(os.path.join(pub, 'fonts', '*-latin-[0-9]*.woff2')))
 preloads = ''.join(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>\n' for f in PRELOAD_FONTS
                    if os.path.exists(os.path.join(pub, 'fonts', f + '.woff2')))
-preloads += f'<link rel="preload" href="/{app_name}" as="script">\n'
+# No preload for the script (see the starter below): Lighthouse and PageSpeed Insights treat any request that starts
+# before the first paint as something the paint waited for. The pre-built page is complete and its links work without it.
 web_head = HEAD.replace('<meta name="claude:viewport-fit-sides" content="cover">\n', '')
 # the title, description and link-preview tags go in the <!--seo--> block (tools/seohead.py), one per page
 web_head = re.sub(r'<title>.*?</title>\n<meta name="description"[^>]*>\n', '', web_head, count=1)
@@ -116,9 +117,15 @@ starter = f"""<script>(function () {{
     s.onerror = function () {{ var m = document.querySelector('#boot .boot-msg'); if (m) m.innerHTML = '<span class="boot-err">FiredBunny could not load. Check your connection, then reload.</span>'; }};
     document.body.appendChild(s);
   }}
-  // two frames: the loading screen paints and its animation starts, so it keeps running while the script works
-  requestAnimationFrame(function () {{ requestAnimationFrame(function () {{ setTimeout(start, 0); }}); }});
-  setTimeout(start, 150); // a tab opened in the background gets no frames
+  // The large script is requested only after the pre-built page has painted with its fonts. Lighthouse and PageSpeed
+  // Insights simulate a slow phone from a fast load and count every request that starts before the first paint as
+  // something it waited for: with the script fetched early they reported 10-25 s first paint and LCP, although real
+  // browsers paint the pre-built page first either way (measured Nov 2026, docs/search-optimization/FINAL_AUDIT.md E).
+  // Cost: the live page takes over about 0.1-0.5 s later. So: lay the page out (which requests its fonts), wait for
+  // them, then two frames, then load the script.
+  function afterPaint() {{ requestAnimationFrame(function () {{ requestAnimationFrame(function () {{ setTimeout(start, 0); }}); }}); }}
+  try {{ void document.body.offsetHeight; document.fonts.ready.then(afterPaint, afterPaint); }} catch (e) {{ afterPaint(); }}
+  setTimeout(start, 3000); // a tab opened in the background gets no frames; slow fonts never hold the site back for long
 }})();</script>
 """
 web_body = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + starter

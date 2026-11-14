@@ -510,7 +510,7 @@ dl.gloss dd a{display:inline-block;margin-top:4px;font-size:13px;color:var(--ink
 .foot-grid{display:grid;gap:40px;padding-bottom:48px;grid-template-columns:1fr}
 @media (min-width:768px){.foot-grid{grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:32px}}
 .foot-grid .fb p{margin-top:20px;max-width:46ch;font-size:13.5px;line-height:1.65;color:var(--muted)}
-.foot h4{font:600 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.22em;color:var(--accent);margin-bottom:16px}
+.foot h4,.foot .foot-h{font:600 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.22em;color:var(--accent);margin-bottom:16px}
 .foot nav{display:flex;flex-direction:column;gap:9px}
 .foot nav a{display:flex;gap:12px;color:color-mix(in srgb,var(--ink) 75%,transparent);text-decoration:none;font-size:14px;transition:color .15s}
 .foot nav a i{font:500 12px var(--mono);font-style:normal;color:var(--muted)}
@@ -563,3 +563,4 @@ svg .tipbg{fill:var(--surface-2);stroke:var(--input)}
 @media (max-width:360px){.nav-prog{display:none}.nav .wrap{gap:10px}}
 /* calculator guides (pages.js toolGuide): each formula on its own line */
 .tg-f li code{display:block;padding:8px 12px;line-height:1.55;white-space:normal}
+.ex-hypo{margin-top:10px;font:500 12px/1.5 var(--mono);letter-spacing:.04em;color:var(--muted)}

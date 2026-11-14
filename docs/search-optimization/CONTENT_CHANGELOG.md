@@ -7,6 +7,30 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 13 November 2026 (later): QA audit fixes, on branch `qa-final-audit`, not deployed
+
+Details and evidence: [FINAL_AUDIT.md](FINAL_AUDIT.md).
+
+- **Hypothetical-example note:** every worked example now carries "Hypothetical example for illustration, not a
+  forecast or a recommendation", except in the Read a Real Company course, which uses real reported figures. The note
+  is template text, not narrated.
+- **Tool page H1s:** these no longer start with a screen-reader-only "Chapter NN:", so crawlers read "Position size",
+  not "Chapter 01: Position size".
+- **Accessibility:**
+  - footer headings are now `h2`, so heading levels no longer jump;
+  - the option-profit table's scroll area can be reached by keyboard;
+  - the assessment Back button has a name;
+  - the calendar has a valid role and readable contrast;
+  - Escape closes the phone menu;
+  - the skip link targets the content.
+- **Performance:** the site script loads only after the pre-built page has painted with its fonts.
+- **Analytics:** campaign tags such as `utm_source=chatgpt.com` are kept on the landing page view.
+- **IndexNow:** a key file and a post-deploy submission step.
+
+No formulas or narrated text changed.
+
+---
+
 ## 13 November 2026: calculator method sections, lesson sources, editorial standards
 
 ### Rules followed

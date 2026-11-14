@@ -51,6 +51,11 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - Templates still write `href="#token"`; on the website the router turns those into real paths. Use real `<a href>`
   links between pages (not click handlers on divs), so crawlers can follow them.
 - Per-visitor pages (dashboard, profile, settings, sign-in, results, offline) are noindex: add new ones to `PRIVATE`.
+- After each deploy the workflow sends pages whose sitemap lastmod is from the last day to IndexNow (Bing and others); the
+  key file is `public/d3c82bf17a1f276a356f6570fc665f22.txt`. Keep it, or the submissions are refused.
+- The site script is requested only after the pre-built page has painted with its fonts, and is not preloaded
+  (`tools/build.py` starter). Keep it that way: Lighthouse and PageSpeed Insights count any request started before the
+  first paint as blocking it, and reported 10-25 s LCP when the script was fetched early (FINAL_AUDIT.md, section E).
 
 ## Content accuracy (see docs/search-optimization/CONTENT_CHANGELOG.md)
 

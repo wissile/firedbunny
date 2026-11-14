@@ -102,10 +102,16 @@
   const lessonById = (id) => (SML.lessons || []).find((l) => l.id === id);
   const courseById = (id) => (SML.courses || []).find((c) => c.id === id);
   const trackTitle = (id) => { const t = (SML.tracks || []).find((x) => x.id === id); return t ? t.title : undefined; };
+  // campaign tags on the address a visitor arrives at (utm_source=chatgpt.com from ChatGPT, gclid from an ad...) stay on
+  // page_location so GA4 can credit the visit to its source; nothing else from the query string is ever sent
+  const CAMPAIGN = /^(utm_(source|medium|campaign|term|content|id)|gclid|gbraid|wbraid|dclid|msclkid)$/;
+  function campaign() {
+    try { const out = new URLSearchParams(); new URLSearchParams(location.search).forEach((v, k) => { if (CAMPAIGN.test(k)) out.append(k, v); }); const q = out.toString(); return q ? '?' + q : ''; } catch (e) { return ''; }
+  }
   function describe(tok) {
     // the page's real address (routes.js), also in the claude.ai copy, so reports group pages the same way
     const p = SML.routes && SML.routes.path(tok);
-    const o = { page_location: location.origin + (p || location.pathname), page_title: document.title, page_type: 'page', content_id: tok };
+    const o = { page_location: location.origin + (p || location.pathname) + (!p || p === location.pathname ? campaign() : ''), page_title: document.title, page_type: 'page', content_id: tok };
     if (tok === 'home') o.page_type = 'home';
     else if (tok === 'not-found') o.page_type = 'not_found'; // a broken link: page_location shows which address
     else if (tok.indexOf('l-') === 0) { const l = lessonById(tok); o.page_type = 'lesson'; if (l) { const c = courseById(l.course); o.content_title = l.title; o.course_name = c && c.title; o.track_name = trackTitle(c && c.track || 'trading'); } }

@@ -118,4 +118,5 @@ Add prompts when a new page ships, and keep old ones so the history stays compar
 
 | Date | Run | Result |
 |---|---|---|
-| Not run yet | Baseline | No observations recorded. |
+| 2026-11-13 | First observations: the session's web search tool only (result lists, not AI answers). 12 queries covering P01, P02, P06, P07, P11, P12, P17, P19, P21 and `site:` | No firedbunny.com result in any of them (see the log). The site had real addresses for less than a week. |
+| Not run yet | Baseline in the six AI engines above | No observations recorded. |

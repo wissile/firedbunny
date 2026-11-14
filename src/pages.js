@@ -87,22 +87,23 @@
         ${[['home', 'Home']].concat(NAV, [['dashboard', 'My dashboard'], ['assessment', 'Self-assessment'], ['indicator', 'TradingView indicator'], ['sheets', 'Spreadsheets'], ['glossary', 'Glossary'], ['offline', 'Offline &amp; app']]).map(([t, l]) => `<li><a class="dl" href="#${t}" data-sec="${t}"><span>${l}</span></a></li>`).join('')}
         <li class="dcta"><a id="drawer-cta" href="#learn"></a></li></ul></nav>`;
     document.body.insertBefore(header, document.body.firstChild);
-    const skip = document.createElement('a'); skip.className = 'skip-link'; skip.href = '#home'; skip.textContent = 'Skip to content';
+    const skip = document.createElement('a'); skip.className = 'skip-link'; skip.href = '#view'; skip.textContent = 'Skip to content';
     skip.addEventListener('click', (e) => { e.preventDefault(); $('#view').focus(); });
     document.body.insertBefore(skip, header);
     const menu = $('#nav-menu'), drawer = $('#drawer');
     const setOpen = (open) => { drawer.hidden = !open; menu.setAttribute('aria-expanded', open); menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); menu.innerHTML = open ? icons.close : icons.menu; };
     menu.addEventListener('click', () => setOpen(drawer.hidden));
     drawer.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) { setOpen(false); menu.focus(); } });
 
     const foot = document.createElement('footer');
     foot.className = 'foot';
     foot.innerHTML = `<div class="wrap">
       <div class="foot-grid">
         <div class="fb"><a class="brand" href="#home" aria-label="${BRAND} home">${logo}${wordmark}</a><p class="fb-tag">Ten years of money lessons, shared free. Learn it early, keep your cool, buy back your time.</p><p>Education only. Nothing here is financial, investment or tax advice. Most charts use simulated prices and most examples use made-up numbers; the Read a Real Company course uses real reported figures, checked October 2026. Trading and investing can lose money, including more than you put in with options or margin.</p></div>
-        <div><h4>Learn</h4><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
-        <div><h4>Practice</h4><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
-        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a><a href="#editorial">Editorial standards</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
+        <div><h2 class="foot-h">Learn</h2><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
+        <div><h2 class="foot-h">Practice</h2><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
+        <div><h2 class="foot-h">FiredBunny</h2><nav aria-label="Resources"><a href="#about">About &amp; feedback</a><a href="#editorial">Editorial standards</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
       <div class="foot-base"><span>© 2026 FiredBunny · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
     </div>`;
@@ -121,7 +122,7 @@
   }
   function updateCta() {
     const [tok, label] = ctaText();
-    const d = $('#drawer-cta'); if (d) { d.href = '#' + tok; d.textContent = label; }
+    const d = $('#drawer-cta'); if (d) { d.setAttribute('href', '#' + tok); d.textContent = label; if (SML.linkify) SML.linkify(d); }
     const el = $('#nav-prog'); if (!el) return;
     const total = allLessons().length, done = SML.progress.count();
     const r = 6.5, c = 2 * Math.PI * r, f = total ? done / total : 0;
@@ -541,7 +542,7 @@
           </section>
           ${(l.body || []).length ? `<section class="l-sec" id="sec-how" aria-labelledby="h-how"><div class="l-sec-h"><p class="part">${part(idx('sec-how'))}</p><h2 id="h-how">How it works</h2></div><div class="prose">${l.body.join('')}</div></section>` : ''}
           ${(l.extra || []).map((w, i) => `<section class="l-sec" id="sec-x${i}" aria-labelledby="h-x${i}"><div class="l-sec-h"><p class="part">${part(idx('sec-x' + i))}</p><h2 id="h-x${i}">Try this too</h2></div><figure class="fig">${w.try ? `<p class="try-p">${w.try}</p>` : ''}${SML.widgetHTML(w.widget, w.opts)}<figcaption>Fig. ${pos}.${i + 2} · ${esc(l.title)}</figcaption></figure></section>`).join('')}
-          ${l.example ? `<section class="l-sec ex-sec" id="sec-ex" aria-labelledby="h-ex"><p class="part">Worked example</p><h2 id="h-ex">${esc(l.example.title || 'Worked example')}</h2>${l.example.intro ? `<p class="ex-intro">${l.example.intro}</p>` : ''}<ol class="ex-steps">${(l.example.steps || []).map((st, i) => `<li><span class="n">${i + 1}</span><p>${st}</p></li>`).join('')}</ol>${l.example.result ? `<p class="ex-res">${l.example.result}</p>` : ''}</section>` : ''}
+          ${l.example ? `<section class="l-sec ex-sec" id="sec-ex" aria-labelledby="h-ex"><p class="part">Worked example</p><h2 id="h-ex">${esc(l.example.title || 'Worked example')}</h2>${l.course === 'realco' || l.example.real ? '' : `<p class="ex-hypo">${l.example.note ? esc(l.example.note) : 'Hypothetical example for illustration, not a forecast or a recommendation.'}</p>`}${l.example.intro ? `<p class="ex-intro">${l.example.intro}</p>` : ''}<ol class="ex-steps">${(l.example.steps || []).map((st, i) => `<li><span class="n">${i + 1}</span><p>${st}</p></li>`).join('')}</ol>${l.example.result ? `<p class="ex-res">${l.example.result}</p>` : ''}</section>` : ''}
           ${calcLinks(l)}
           <section class="l-sec" id="sec-rem" aria-labelledby="h-rem">
             <div class="pane2${(l.mistakes && l.mistakes.length) ? ' two' : ''}">${(l.mistakes && l.mistakes.length) ? `<section><h2 class="pane-h dn">Common mistakes</h2><ul class="plain">${l.mistakes.map((m) => `<li>${m}</li>`).join('')}</ul></section>` : ''}<section><h2 class="pane-h" id="h-rem">Key takeaways</h2><ul class="plain">${(l.points || []).map((m) => `<li>${m}</li>`).join('')}</ul></section></div>
@@ -658,7 +659,7 @@
     view.innerHTML = `
       <div class="wrap"><nav class="l-crumbbar crumbs" aria-label="Breadcrumb"><span style="display:flex;flex-wrap:wrap;gap:8px"><a href="#tools">Tools</a><span aria-hidden="true">/</span><span>${esc(trackById(t.track || 'trading').title)}</span><span aria-hidden="true">/</span><span>${esc(t.cat)}</span></span><span>${nn(i + 1)} / ${nn(SML.tools.length)}</span></nav></div>
       <section class="wrap tool-sec" aria-labelledby="tool-h">
-        ${chapHead(nn(i + 1), esc(t.title), esc(t.blurb), l ? `<a class="more" href="#${l.id}">Lesson: ${esc(l.title)} ${icons.arrow}</a>` : '', 'tool-h').replace('<h2', '<h1').replace('</h2>', '</h1>')}
+        ${chapHead(nn(i + 1), esc(t.title), esc(t.blurb), l ? `<a class="more" href="#${l.id}">Lesson: ${esc(l.title)} ${icons.arrow}</a>` : '', 'tool-h').replace('<h2', '<h1').replace('</h2>', '</h1>').replace(/<span class="sr">Chapter \d+: <\/span>/, '')}
         ${SML.widgetHTML(t.widget)}
         <p class="note">For learning only. Results use simple models and your inputs; they are not advice.</p>
       </section>

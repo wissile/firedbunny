@@ -38,7 +38,7 @@ ${CATS.map((c) => `.xc [data-cat="${c.k}"],.xcl [data-cat="${c.k}"]{--cc:${CC[c.
 .xc-wd{background:var(--surface);padding:8px 8px;font:600 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .xc-cell{background:var(--bg);min-height:118px;padding:6px 6px 8px;display:flex;flex-direction:column;gap:4px;cursor:pointer;text-align:left;border:0;color:inherit;font:inherit;min-width:0;position:relative}
 .xc-cell:hover{background:var(--surface)}
-.xc-cell.out{background:color-mix(in srgb,var(--bg) 60%,var(--surface));opacity:.55}
+.xc-cell.out{background:color-mix(in srgb,var(--bg) 60%,var(--surface));opacity:.85}
 .xc-cell.sel{box-shadow:inset 0 0 0 2px var(--accent);background:var(--surface)}
 .xc-cell .dn{font:600 12px var(--mono);color:var(--muted);display:flex;align-items:center;gap:6px}
 .xc-cell.today .dn b{background:var(--accent);color:var(--on-acc);border-radius:999px;padding:2px 7px}
@@ -764,7 +764,7 @@ ${CATS.map((c) => `.xc [data-cat="${c.k}"],.xcl [data-cat="${c.k}"]{--cc:${CC[c.
           <span class="xc-dots">${evs.slice(0, 6).map((e) => `<i class="xc-dot" data-cat="${e.cat}"></i>`).join('')}</span>
         </button>`);
       }
-      return `<div class="xc-grid" role="grid" aria-label="${MON[st.m]} ${st.y}">${WD.map((w) => `<span class="xc-wd">${w}</span>`).join('')}${cells.join('')}</div>`;
+      return `<div class="xc-grid" role="group" aria-label="${MON[st.m]} ${st.y}">${WD.map((w) => `<span class="xc-wd">${w}</span>`).join('')}${cells.join('')}</div>`;
     }
     function agendaHTML() {
       const mStart = `${st.y}-${pad(st.m + 1)}-01`;

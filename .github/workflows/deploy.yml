@@ -134,3 +134,37 @@ jobs:
           level = 'notice' if h.get('ok') else 'warning'
           print(f"::{level} title=Live data::{h.get('verdict', '')} ({h.get('secUserAgent', '')})")
           PY
+
+      # IndexNow (Bing, Yandex, Seznam, Naver; Bing also feeds ChatGPT search and Copilot): tell them which pages changed
+      # in the last day, from the sitemap's lastmod dates. The key file public/<KEY>.txt proves the site owns the key.
+      # Never fails the deploy.
+      - name: Tell IndexNow about changed pages
+        if: success()
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import datetime, json, re, urllib.error, urllib.request
+          KEY = 'd3c82bf17a1f276a356f6570fc665f22'
+          KEY_URL = 'https://firedbunny.com/' + KEY + '.txt'
+          sm = open('dist/sitemap.xml', encoding='utf-8').read()
+          since = (datetime.datetime.now(datetime.timezone.utc).date() - datetime.timedelta(days=1)).isoformat()
+          urls = [u for u, d in re.findall(r'<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>', sm) if d >= since]
+          if not urls:
+              print('::notice title=IndexNow::No pages changed since ' + since + ', nothing to send.'); raise SystemExit
+          try:
+              ok = urllib.request.urlopen(KEY_URL, timeout=20).read().decode().strip() == KEY
+          except Exception:
+              ok = False
+          if not ok:
+              print('::warning title=IndexNow::' + KEY_URL + ' does not answer with the key yet, so nothing was sent.'); raise SystemExit
+          body = json.dumps({'host': 'firedbunny.com', 'key': KEY, 'keyLocation': KEY_URL, 'urlList': urls[:10000]}).encode()
+          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+          try:
+              code = urllib.request.urlopen(req, timeout=30).status
+          except urllib.error.HTTPError as e:
+              code = e.code
+          except Exception as e:
+              code = str(e)[:80]
+          level = 'notice' if code in (200, 202) else 'warning'
+          print(f'::{level} title=IndexNow::Sent {len(urls)} changed page(s) (lastmod since {since}); IndexNow answered {code}.')
+          PY
