@@ -561,14 +561,18 @@
         </article>
         <aside class="l-aside"><div>
           <p class="ah">On this page</p>
-          <ul class="otp">${secs.map((s) => `<li><button type="button" data-sec="${s.id}">${s.h}</button></li>`).join('')}</ul>
+          <ul class="otp"><li><button type="button" class="otp-top" data-sec="l-top">${esc(l.title)}</button><ul class="otp-sub">${secs.map((s) => `<li><button type="button" data-sec="${s.id}">${s.h}</button></li>`).join('')}</ul></li></ul>
           <p class="ah" style="margin-top:28px">${esc(c.title)}</p>
           ${tl()}
         </div></aside>
       </div>`;
     navBar(pct(pos, all.length));
     if (SML.narrate) { try { SML.narrate.mount($('#l-listen', view), l); } catch (e) { console.error(e); } }
-    $$('.otp button', view).forEach((b) => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.sec); if (el) el.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'start' }); }));
+    $$('.otp button', view).forEach((b) => b.addEventListener('click', () => {
+      const behavior = SML.reduced() ? 'auto' : 'smooth';
+      if (b.dataset.sec === 'l-top') { window.scrollTo({ top: 0, behavior }); return; } // the lesson title, at the top of the page
+      const el = document.getElementById(b.dataset.sec); if (el) el.scrollIntoView({ behavior, block: 'start' });
+    }));
     const qz = $('#quiz', view);
     if (qz) qz.addEventListener('click', (e) => {
       const b = e.target.closest('.qopt'); if (!b || qz.dataset.done) return;

@@ -50,9 +50,9 @@ SNAPSHOT_JS = r"""() => {
   view.querySelectorAll('[data-mounted]').forEach((w) => w.removeAttribute('data-mounted'));
   view.querySelectorAll('canvas').forEach((x) => x.remove());
   // the page's text for lastmod: interactive widgets, charts and live parts (data-volatile: countdowns, the month on
-  // show) left out, so only real edits change it
+  // show) left out, so only real edits change it; .otp-top is the lesson title repeated in "On this page"
   const t = document.getElementById('view').cloneNode(true);
-  t.querySelectorAll('[data-widget], [data-volatile], svg, canvas, script, style, [aria-live], .ticker, .ticker-track, .nar').forEach((x) => x.remove());
+  t.querySelectorAll('[data-widget], [data-volatile], svg, canvas, script, style, [aria-live], .ticker, .ticker-track, .nar, .otp-top').forEach((x) => x.remove());
   const text = (t.textContent || '').replace(/\s+/g, ' ').trim();
   const words = text ? text.split(' ').length : 0;
   return { css, all, text, words, title: document.title, html: keep(document.querySelector('body > header.nav')) + view.outerHTML + keep(document.querySelector('body > footer.foot')) };
