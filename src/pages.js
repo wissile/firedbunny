@@ -524,15 +524,15 @@
       <header class="l-hdr">
         <div class="wrap">
           <nav class="l-crumbbar crumbs" aria-label="Breadcrumb"><span style="display:flex;flex-wrap:wrap;gap:8px"><a href="#track-${tid}">${esc(T.title)}</a><span aria-hidden="true">/</span><a href="#c-${l.course}">${esc(c.title)}</a></span><span>${nn(pos)} / ${all.length}</span></nav>
-          <div class="l-hero">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">${lvl(l.level)}<span class="meta">${l.mins || 4} min read</span><span class="meta up" id="l-done"${done ? '' : ' hidden'}>Completed</span></div>
-            <h1 class="l-title">${esc(l.title)}</h1>
-            <p class="l-sum">${l.idea || l.summary || ''}</p>
-            <div class="l-listen" id="l-listen"></div>
-          </div>
         </div>
       </header>
       <div class="wrap lesson">
+        <div class="l-hero">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">${lvl(l.level)}<span class="meta">${l.mins || 4} min read</span><span class="meta up" id="l-done"${done ? '' : ' hidden'}>Completed</span></div>
+          <h1 class="l-title">${esc(l.title)}</h1>
+          <p class="l-sum">${l.idea || l.summary || ''}</p>
+          <div class="l-listen" id="l-listen"></div>
+        </div>
         <article class="l-main">
           <div class="l-mobnav"><details><summary><span>${esc(c.title)}</span><span>${doneIn(l.course)}/${ls.length} done</span></summary>${tl()}</details></div>
           <section class="l-sec" id="sec-try" aria-labelledby="h-try">

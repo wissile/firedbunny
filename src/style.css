@@ -359,6 +359,11 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 .lesson{display:grid;gap:48px;grid-template-columns:minmax(0,1fr);padding-block:56px 80px}
 @media (min-width:768px){.lesson{padding-block:80px 96px}}
 @media (min-width:1100px){.lesson{grid-template-columns:minmax(0,8fr) minmax(0,3fr);gap:64px}}
+/* the lesson's title block sits in the left column, so "On this page" starts beside the title; bottom padding keeps the
+   space before "Try it" as it was when the title block was in the full-width header */
+.lesson > .l-hero{padding-block:0 64px}
+@media (min-width:768px){.lesson > .l-hero{padding-bottom:112px}}
+@media (min-width:1100px){.lesson > .l-hero{grid-column:1;grid-row:1;padding-bottom:96px}.lesson > .l-main{grid-column:1;grid-row:2}.lesson > .l-aside{grid-column:2;grid-row:1 / span 2}}
 .l-main{min-width:0;display:flex;flex-direction:column;gap:56px}
 .l-sec{display:flex;flex-direction:column;gap:22px;scroll-margin-top:90px}
 .l-sec-h{padding-top:24px;display:flex;flex-direction:column;gap:12px}
