@@ -84,16 +84,29 @@
       </div>
       <div class="nav-bar" id="nav-bar" role="progressbar" aria-label="Position in the curriculum" aria-valuemin="0" aria-valuemax="100" hidden><i></i></div>
       <nav class="drawer" id="drawer" aria-label="Mobile" hidden><ul>
-        ${[['home', 'Home']].concat(NAV, [['dashboard', 'My dashboard'], ['assessment', 'Self-assessment'], ['indicator', 'TradingView indicator'], ['sheets', 'Spreadsheets'], ['glossary', 'Glossary'], ['offline', 'Offline &amp; app']]).map(([t, l]) => `<li><a class="dl" href="#${t}" data-sec="${t}"><span>${l}</span></a></li>`).join('')}
-        <li class="dcta"><a id="drawer-cta" href="#learn"></a></li></ul></nav>`;
+        ${NAV.map(([t, l]) => `<li><a class="dl" href="#${t}" data-sec="${t}"><span>${l}</span></a></li>`).join('')}</ul></nav>`;
     document.body.insertBefore(header, document.body.firstChild);
     const skip = document.createElement('a'); skip.className = 'skip-link'; skip.href = '#home'; skip.textContent = 'Skip to content';
     skip.addEventListener('click', (e) => { e.preventDefault(); $('#view').focus(); });
     document.body.insertBefore(skip, header);
+    // The phone menu holds the same pages as the desktop bar. Open, it fills the screen under the header and scrolls on
+    // its own while the page behind it stays put (html.nav-open). Any header link (logo, lessons count, account bunny, a
+    // menu item), Escape, a page change or a wide screen closes it.
     const menu = $('#nav-menu'), drawer = $('#drawer');
-    const setOpen = (open) => { drawer.hidden = !open; menu.setAttribute('aria-expanded', open); menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); menu.innerHTML = open ? icons.close : icons.menu; };
+    const fit = () => { if (!drawer.hidden) header.style.setProperty('--nav-bottom', Math.max(0, Math.round(header.getBoundingClientRect().bottom)) + 'px'); };
+    const setOpen = (open, focusBack) => {
+      drawer.hidden = !open; document.documentElement.classList.toggle('nav-open', open);
+      menu.setAttribute('aria-expanded', open); menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); menu.innerHTML = open ? icons.close : icons.menu;
+      if (open) { fit(); drawer.scrollTop = 0; } else if (focusBack) menu.focus();
+    };
+    SML.closeMenu = () => { if (!drawer.hidden) setOpen(false); };
     menu.addEventListener('click', () => setOpen(drawer.hidden));
-    drawer.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    header.addEventListener('click', (e) => { if (!drawer.hidden && e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) setOpen(false, true); });
+    window.addEventListener('resize', fit);
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+    const wide = window.matchMedia('(min-width:1181px)'), onWide = (m) => { if (m.matches) SML.closeMenu(); };
+    if (wide.addEventListener) wide.addEventListener('change', onWide); else if (wide.addListener) wide.addListener(onWide);
 
     const foot = document.createElement('footer');
     foot.className = 'foot';
@@ -121,7 +134,6 @@
   }
   function updateCta() {
     const [tok, label] = ctaText();
-    const d = $('#drawer-cta'); if (d) { d.href = '#' + tok; d.textContent = label; }
     const el = $('#nav-prog'); if (!el) return;
     const total = allLessons().length, done = SML.progress.count();
     const r = 6.5, c = 2 * Math.PI * r, f = total ? done / total : 0;
@@ -780,6 +792,7 @@
       view.style.animation = '';
       view.classList.remove('view'); void view.offsetWidth; view.classList.add('view');
     }
+    if (current !== tok && SML.closeMenu) SML.closeMenu(); // a new page (including Back) closes the phone menu
     const sec = section(tok);
     $$('.nav-links a, .drawer a.dl, .nav-acct').forEach((a) => { const on = a.dataset.sec === sec; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.title = SML.seo ? SML.seo.title(tok, title) : (title && tok !== 'home' ? title + ' · ' : '') + BRAND;
