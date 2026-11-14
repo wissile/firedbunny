@@ -587,7 +587,7 @@
         <ul class="yr-where"><li><span>${w.icon}</span><span><b>${esc(w.title)}</b>${w.text}</span></li>
           <li><span>${ico('phone')}</span><span><b>Mobile apps</b>In development. They will use the same profile, so your history comes with you.</span></li></ul>
         <button type="button" class="btn yr-go" data-act="save">${ico('check')}Save to my profile</button>
-        ${w.local && SML.host !== 'web' ? `<p class="note yr-note"><a href="#signin">Sign in</a> to keep it in your private profile instead.</p>` : ''}
+        ${w.local && SML.accountsOn ? `<p class="note yr-note"><a href="#signin">Sign in</a> to keep it in your ${SML.host === 'web' ? 'account, on every device' : 'private profile'} instead.</p>` : ''}
         ${opts.picker}</section>`;
     }
     if (justSaved === r.id) {

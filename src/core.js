@@ -342,9 +342,17 @@
     const fallback = () => { const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.left = '-9999px'; document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta); SML.toast(ok ? okMsg || 'Copied' : 'Copy blocked here. Select the table and press Ctrl+C.'); };
     try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => SML.toast(okMsg || 'Copied'), fallback); else fallback(); } catch (e) { fallback(); }
   };
+  // Saved items. In this browser by default; when someone is signed in on the website, src/cloud.js sets `backend` and
+  // their items follow the account instead. `local` always means this browser (guest data, device settings).
   SML.store = {
-    get(k, d) { try { const v = localStorage.getItem('sml:' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
-    set(k, v) { try { localStorage.setItem('sml:' + k, JSON.stringify(v)); } catch (e) {} },
+    backend: null,
+    local: {
+      get(k, d) { try { const v = localStorage.getItem('sml:' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+      set(k, v) { try { localStorage.setItem('sml:' + k, JSON.stringify(v)); } catch (e) {} },
+      remove(k) { try { localStorage.removeItem('sml:' + k); } catch (e) {} },
+    },
+    get(k, d) { const b = SML.store.backend; return b && b.has(k) ? b.get(k, d) : SML.store.local.get(k, d); },
+    set(k, v) { const b = SML.store.backend; if (b && b.has(k)) b.set(k, v); else SML.store.local.set(k, v); },
   };
   let cleanups = [];
   SML.onCleanup = (fn) => cleanups.push(fn);

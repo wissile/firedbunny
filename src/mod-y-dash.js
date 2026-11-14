@@ -454,9 +454,9 @@
     function statusLine() {
       const s = acc.status;
       if (!s.ready) return `<p class="dsh-st"><span class="dsh-chip"><i class="dsh-dot"></i>Checking your account</span><span>One moment.</span></p>`;
-      if (s.mode === 'cloud') return `<p class="dsh-st"><span class="dsh-chip up"><i class="dsh-dot"></i>Saved to your account</span><span>Your private FiredBunny profile. Other visitors and the site owner can't read it.</span></p>`;
+      if (s.mode === 'cloud') return `<p class="dsh-st"><span class="dsh-chip up"><i class="dsh-dot"></i>Saved to your account</span><span>${s.provider === 'supabase' ? 'Your FiredBunny account, on every device where you sign in. Other visitors can’t see it.' : 'Your private FiredBunny profile. Other visitors and the site owner can\'t read it.'}</span></p>`;
       const why = s.signedIn && s.cloudError ? ' Your account can only view this page, so changes stay here.' : '';
-      return `<p class="dsh-st"><span class="dsh-chip acc"><i class="dsh-dot"></i>Saved in this browser only</span><span>Anyone using this browser can see it, so on a shared computer delete it from <a href="#settings">Settings</a> when you're done. Export a file to move it.${why}${s.signedIn || SML.host === 'web' ? '' : ' <a href="#signin">Sign in</a> to keep it in your account.'}</span></p>`;
+      return `<p class="dsh-st"><span class="dsh-chip acc"><i class="dsh-dot"></i>Saved in this browser only</span><span>Anyone using this browser can see it, so on a shared computer delete it from <a href="#settings">Settings</a> when you're done. Export a file to move it.${why}${s.signedIn || !SML.accountsOn ? '' : SML.host === 'web' ? ' <a href="#signin">Create a free account</a> to keep it on all your devices.' : ' <a href="#signin">Sign in</a> to keep it in your account.'}</span></p>`;
     }
     const owner = !!(acc.status.isOwner && SML.widgets && SML.widgets.feedbackInbox);
     view.innerHTML = hdr(`<p>Goals, net worth, household, investor profile and lessons in one place. Numbers change when you change them, never on their own.</p>${statusLine()}`) +

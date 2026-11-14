@@ -1,8 +1,10 @@
 /* Account layer: who is signed in, where their data lives, and one API every page uses.
  *
- * Sign-in is the viewer's Claude account (the `user` capability). When the page can write the viewer's private
- * `db` subtree (data/users/<id>/...), the profile is saved there and follows them across devices. Otherwise
- * everything is kept in this browser (localStorage) and can be exported/imported as a file.
+ * Sign-in: inside claude.ai it is the viewer's Claude account (the `user` capability); when the page can write the
+ * viewer's private `db` subtree (data/users/<id>/...), the profile is saved there and follows them across devices. On
+ * the website it is a FiredBunny account (Supabase, src/cloud.js) when cloud-config.js switches accounts on. Either way
+ * the mode is 'cloud' (status.provider says which). Otherwise everything is kept in this browser (localStorage) and can
+ * be exported/imported as a file.
  *
  * Privacy on shared browsers: in cloud mode nothing of the signed-in person's profile, assessments or lesson progress
  * is written to this browser's storage. The browser keys (sml:profile, sml:assessments, sml:done) only ever hold
@@ -59,7 +61,8 @@
   // host: 'claude' when the page runs inside claude.ai (accounts available), 'web' on a normal website (browser storage only)
   const host = (window.claude && typeof window.claude.use === 'function') ? 'claude' : 'web';
   SML.host = host;
-  const status = { ready: false, host, mode: 'local', signedIn: false, uid: null, name: '', avatar: '', color: '', isOwner: false, cloudError: null, localPending: false };
+  const status = { ready: false, host, mode: 'local', provider: null, signedIn: false, uid: null, email: '', name: '', avatar: '', color: '', isOwner: false, cloudError: null, localPending: false };
+  const SB = (host === 'web' && SML.cloud && SML.cloud.user) ? SML.cloud : null; // signed in to a FiredBunny account on the website
   let db = null, userNs = null, pRef = null;
   let writeChain = Promise.resolve(), saveTimer = null, dirty = false;
   const listeners = new Set();
@@ -112,16 +115,43 @@
     const ld = localDone(); const all = Array.from(new Set(ld.concat(profile.progress.done || [])));
     profile.progress.done = all; if (all.length !== ld.length) SML.store.set('done', all);
   }
+  if (SB) { // website account: use this device's copy of it from the first paint (connect() refreshes it)
+    status.provider = 'supabase'; status.signedIn = true; status.uid = SB.user.id; status.email = SB.user.email;
+    pRef = SB.doc('profile');
+    if (SB.hasCopy()) { profile = normalize(SB.get('profile', null)); status.mode = 'cloud'; }
+  }
 
   /* ---------------- cloud connect ---------------- */
+  function guestHad() { return hasData(local.load()) || localDone().length > 0 || local.assessments().length > 0 || !!(SB && SB.guestHasData()); }
+  async function connectSupabase() {
+    try {
+      const fresh = !SB.hasCopy();
+      await SB.ready(8000); // the first copy from the server, when this device has none yet
+      const had = SB.get('profile', null);
+      if (had) profile = normalize(had); else { profile = normalize(null); profile.createdAt = new Date().toISOString(); }
+      if (fresh || !status.localPending) status.localPending = guestHad() && !hasData(profile) && !(profile.progress.done || []).length;
+      status.mode = 'cloud';
+      if (!SB.hasCopy()) status.cloudError = 'offline'; // signed in, but the account could not be reached yet: saves wait on this device
+      SB.onChange((keys) => {
+        if (keys[0] === '*' || keys.indexOf('profile') >= 0) { const p = SB.get('profile', null); if (p) profile = normalize(p); }
+        status.cloudError = null; progressEvent(); emit('change');
+        // saved from another device: redraw the page, unless the visitor is typing into it
+        const a = document.activeElement;
+        if (SML.rerender && !(a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.closest('#view'))) { try { SML.rerender(); } catch (e) {} }
+      });
+      progressEvent();
+    } catch (e) { status.cloudError = (e && e.code) || 'error'; }
+    finally { status.ready = true; emit('ready'); }
+  }
   async function connect() {
+    if (SB) return connectSupabase();
     try {
       if (!window.claude || typeof window.claude.use !== 'function') return;
       userNs = await window.claude.use('user');
       if (userNs) {
         const me = await userNs.me();
         status.uid = me.id || null; status.name = me.name || ''; status.avatar = me.avatarUrl || ''; status.color = me.color || ''; status.isOwner = !!me.isOwner;
-        status.signedIn = !!me.id;
+        status.signedIn = !!me.id; status.provider = 'claude';
       }
       if (!status.uid) return;
       db = await window.claude.use('db');
@@ -144,7 +174,7 @@
   let readyResolve; const readyP = new Promise((r) => { readyResolve = r; });
   listeners.add((d) => { if (d.type === 'ready') readyResolve(Object.assign({}, status)); });
   // Without a viewer runtime (opened as a plain file, or no Claude shell) we are local right away.
-  setTimeout(() => { if (!status.ready && (!window.claude || typeof window.claude.use !== 'function')) { status.ready = true; emit('ready'); } }, 0);
+  setTimeout(() => { if (!status.ready && !SB && (!window.claude || typeof window.claude.use !== 'function')) { status.ready = true; emit('ready'); } }, 0);
   connect();
   // claude.use resolves null after ~10 s when no viewer answers; make sure 'ready' always fires.
   setTimeout(() => { if (!status.ready) { status.ready = true; emit('ready'); } }, 12000);
@@ -214,6 +244,7 @@
       await api.save({}); await flush();
       if (status.mode === 'cloud' && aCol()) { for (const r of la) { try { await aCol().doc(r.id).set(r); } catch (e) { cloudFail(e); break; } } }
       if (status.mode === 'cloud') { SML.store.set(LKEY, null); SML.store.set(AKEY, []); SML.store.set('done', []); } // moved, not copied
+      if (SB && status.mode === 'cloud') SB.moveGuestStore(); // and everything else this browser kept (journal, plans, preferences)
       progressEvent(); emit('change');
     },
     dismissMigration() { status.localPending = false; emit('change'); },
@@ -233,6 +264,7 @@
       const ids = (await api.assessments.list()).map((a) => a.id);
       SML.store.set(LKEY, null); SML.store.set(AKEY, []);
       if (status.mode === 'cloud' && pRef) { try { for (const id of ids) await aCol().doc(id).delete(); await pRef.delete(); } catch (e) { cloudFail(e); } }
+      if (SB && status.mode === 'cloud') SB.clearStore();
       profile = normalize(null);
       SML.store.set('done', []); SML.store.set('assessDraft', null); SML.store.set('assessProgress', null); SML.assessDraft = null;
       progressEvent();

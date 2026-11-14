@@ -75,7 +75,8 @@ async function asset(req) {
   const hit = await cache.match(req, { ignoreSearch: true });
   if (hit) return hit;
   const res = await fetch(req);
-  if (res.ok && new URL(req.url).pathname.startsWith('/fonts/')) cache.put(req, res.clone()).catch(() => {});
+  // fonts, and the versioned sign-in library (/vendor/, fetched only by signed-in visitors), are kept for offline use
+  if (res.ok && /^\/(fonts|vendor)\//.test(new URL(req.url).pathname)) cache.put(req, res.clone()).catch(() => {});
   return res;
 }
 

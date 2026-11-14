@@ -627,7 +627,7 @@
   SML.pages.tools = function (view) {
     const trk = TRACKS().filter((t) => SML.tools.some((x) => (x.track || 'trading') === t.id));
     view.innerHTML = `
-      ${pageHeader('', 'Interactive tools', 'Run the <em>numbers</em>', `<p>${SML.tools.length} tools. Every one draws a picture of its answer, so you learn while you calculate. No sign-up, nothing stored.</p>${ui.seg('tools-cat', ['All'].concat(trk.map((t) => t.title)), 'All', 'Track')}`)}
+      ${pageHeader('', 'Interactive tools', 'Run the <em>numbers</em>', `<p>${SML.tools.length} tools. Every one draws a picture of its answer, so you learn while you calculate. No sign-up needed.</p>${ui.seg('tools-cat', ['All'].concat(trk.map((t) => t.title)), 'All', 'Track')}`)}
       <section class="chapter" style="padding-bottom:24px" aria-labelledby="tt-more"><div class="wrap">
         ${chapHead('', 'Pages that work like tools', 'Bring the lessons onto your own charts, sheets and calendar.', '', 'tt-more')}
         <div class="g3">

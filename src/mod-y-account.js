@@ -138,6 +138,17 @@
     .acx-err{color:var(--down);font-size:13.5px}
     .acx-ok{color:var(--up);font-size:13.5px}
     .acx-note{font-size:13.5px;color:var(--muted);line-height:1.55}
+    .acx-auth{display:flex;flex-direction:column;gap:16px}
+    .acx-auth .fld input{font-family:var(--sans);font-size:16px;padding:11px 12px}
+    .acx-tabs{display:flex;gap:6px;padding:4px;border:1px solid var(--line);border-radius:999px;align-self:flex-start}
+    .acx-tabs button{border:0;background:none;color:var(--muted);font:600 14px var(--sans);padding:8px 16px;border-radius:999px;cursor:pointer;min-height:40px}
+    .acx-tabs button[aria-pressed="true"]{background:var(--accent);color:var(--on-acc)}
+    .acx-err{color:var(--down);font-size:14px;line-height:1.5}
+    .acx-okmsg{color:var(--up);font-size:14px;line-height:1.5}
+    .acx-pw{position:relative}
+    .acx-pw button{position:absolute;right:6px;bottom:6px;border:0;background:none;color:var(--muted);font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;cursor:pointer;min-height:32px}
+    .acx-linkbtn{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;align-self:flex-start;min-height:32px}
+    .acx-sync{font-size:13.5px;color:var(--muted)}
     .acx-phone{display:flex;gap:16px;align-items:center}
     .acx-phone svg.dev{flex:0 0 auto}
     .acx-hide{display:none!important}
@@ -236,8 +247,146 @@
     return 'Sign in';
   };
 
-  /* On a normal website (no claude.ai host) there are no accounts yet: explain browser storage and export. */
+  /* On the website: real accounts when Supabase is switched on (signinAccount); otherwise explain browser storage. */
+  /* ---------------- website accounts (Supabase, src/cloud.js) ---------------- */
+  const syncLine = (s) => {
+    if (s.offline) return `Offline. ${s.pending ? s.pending + ' change' + (s.pending === 1 ? '' : 's') + ' will upload' : 'Changes upload'} when you’re back online.`;
+    if (s.error) return esc(s.error);
+    if (s.pending) return 'Saving to your account…';
+    if (!s.lastSync) return 'Connecting to your account…';
+    const mins = Math.round((Date.now() - new Date(s.lastSync).getTime()) / 60000);
+    return 'Up to date with your account' + (mins < 1 ? ' · just now' : mins < 60 ? ` · ${mins} min ago` : '') + '.';
+  };
+  function liveSync(view) {
+    const CL = SML.cloud; if (!CL || !CL.user) return;
+    const draw = (s) => $$('[data-auth="sync"]', view).forEach((el) => { el.textContent = syncLine(s || CL.status); });
+    draw(); const off = CL.onStatus(draw); const t = setInterval(() => draw(), 30000);
+    SML.onCleanup(() => { off(); clearInterval(t); });
+  }
+  const signinPath = () => (SML.routes && SML.routes.mode === 'path' && SML.routes.path) ? SML.routes.path('signin') : location.pathname;
+  async function signOutFlow(btn, msgEl, force) {
+    btn.disabled = true; msgEl.hidden = true;
+    const r = await SML.cloud.signOut(force);
+    if (r.ok) { location.replace(signinPath()); return; }
+    btn.disabled = false;
+    msgEl.hidden = false; msgEl.className = 'acx-err';
+    msgEl.innerHTML = `${r.pending} change${r.pending === 1 ? ' hasn’t' : 's haven’t'} reached your account yet, because this device is offline. Signing out now deletes ${r.pending === 1 ? 'it' : 'them'} from this device. <button type="button" class="acx-linkbtn" data-auth-act="signout-force">Sign out anyway</button>`;
+    const f = $('[data-auth-act="signout-force"]', msgEl); if (f) f.addEventListener('click', () => signOutFlow(btn, msgEl, true));
+  }
+  function signinAccount(view) {
+    const st = A().status, CL = SML.cloud;
+    const signedIn = st.provider === 'supabase';
+    const right = `<div class="acx-col">
+        <div class="acx-card"><img class="fb-art" src="${SML.brandArt}" alt="FiredBunny, a relaxed bunny in orange sunglasses next to rising candles" width="600" height="400">
+          <p class="acx-big">Learn early. <em>Stay chill.</em></p>
+          <p class="acx-sub">Sign in on your phone, laptop or tablet and pick up where you left off.</p></div>
+        <div class="acx-card"><div class="acx-h"><h2>${ico.check}What your account keeps</h2></div>
+          <ul class="acx-list">
+            <li>${ico.check}<span>Lesson progress, quiz results and your self-assessment history</span></li>
+            <li>${ico.check}<span>Goals, net worth, household and your investor profile</span></li>
+            <li>${ico.check}<span>Your trade journal, FIRE plan, spreadsheets and preferences</span></li>
+            <li>${ico.check}<span>The same data on every device where you sign in, and offline</span></li>
+          </ul></div>
+        <div class="acx-card"><div class="acx-h"><h2>${ico.lock}Privacy</h2></div>
+          <p class="acx-note">Your account stores your email address and what you save on FiredBunny, in FiredBunny’s database (hosted by Supabase). Other visitors can’t see it. Your password is handled by the sign-in service and is never stored in readable form. You can export everything or delete your account from <a class="ulink" href="#settings">Settings</a> at any time. Never enter passwords, account numbers or your Social Security number into your profile; FiredBunny never needs them.</p></div>
+      </div>`;
+    const shell = (left, heading, lede) => {
+      view.innerHTML = `
+        ${SML.pageHeader('', signedIn ? 'Your account' : 'Sign in', heading, `<p>${lede}</p>`)}
+        <div class="wrap acx"><div class="acx-grid"><div class="acx-col">${left}</div>${right}</div></div>`;
+    };
+    if (signedIn) {
+      const nm = A().displayName();
+      shell(`
+        <div class="acx-card hot"><div class="acx-id">${SML.bunnyMark(64)}<div><b>${esc(nm || 'Signed in')}</b><small>${esc(st.email || '')}</small></div></div>
+          <div class="acx-row">${modePill(st)}</div>
+          <p class="acx-sync" data-auth="sync" aria-live="polite"></p>
+          <p class="acx-sub">Your profile, goals, net worth, lesson progress, assessments, trade journal, plans and preferences are saved to your FiredBunny account and follow you to every device where you sign in. This device keeps a copy so pages open fast and work offline; signing out removes it.</p>
+          <div class="acx-row"><a class="btn btn-p" href="#dashboard">Go to my dashboard ${ic('arrow')}</a><button type="button" class="btn btn-g" data-auth-act="signout">Sign out</button></div>
+          <p class="acx-err" data-auth="out-msg" role="alert" hidden></p></div>
+        ${migrationCard()}`, `Welcome <em>back</em>.`, 'You’re signed in. Everything you save follows you to every device.');
+      wireMigration(view); liveSync(view);
+      const b = $('[data-auth-act="signout"]', view); b.addEventListener('click', () => signOutFlow(b, $('[data-auth="out-msg"]', view), false));
+      return 'Your account';
+    }
+    // not signed in: forms, and whatever an emailed link brought back
+    let screen = 'signup', email = '', note = null; // note: {kind:'err'|'ok', text}
+    const pwField = (id, label, auto) => `<label class="fld acx-pw" for="${id}"><span>${label}</span><input id="${id}" name="password" type="password" autocomplete="${auto}" minlength="8" required><button type="button" data-auth-act="show" aria-controls="${id}" aria-label="Show password">Show</button></label>`;
+    const emailField = (id) => `<label class="fld" for="${id}"><span>Email</span><input id="${id}" name="email" type="email" autocomplete="email" inputmode="email" required value="${esc(email)}"></label>`;
+    const noteHTML = () => (note ? `<p class="${note.kind === 'ok' ? 'acx-okmsg' : 'acx-err'}" role="${note.kind === 'ok' ? 'status' : 'alert'}">${note.text}</p>` : '');
+    const tabs = () => `<div class="acx-tabs" role="group" aria-label="Create an account or sign in"><button type="button" data-auth-go="signup" aria-pressed="${screen === 'signup'}">Create account</button><button type="button" data-auth-go="signin" aria-pressed="${screen === 'signin'}">Sign in</button></div>`;
+    function draw() {
+      let card = '';
+      if (screen === 'signup') card = `<form class="acx-card acx-auth" data-auth="signup" novalidate>${tabs()}
+          <p class="acx-sub">Free. Keeps your progress, plans and profile on every device.</p>
+          ${emailField('au-email')}${pwField('au-pw', 'Password', 'new-password')}
+          <p class="acx-note">At least 8 characters. A few random words make a strong one.</p>
+          ${noteHTML()}<button type="submit" class="btn btn-p">Create my account</button>
+          <p class="acx-note">We’ll email you a link to confirm your address.</p></form>`;
+      else if (screen === 'signin') card = `<form class="acx-card acx-auth" data-auth="signin" novalidate>${tabs()}
+          ${emailField('au-email')}${pwField('au-pw', 'Password', 'current-password')}
+          ${noteHTML()}<button type="submit" class="btn btn-p">Sign in</button>
+          <button type="button" class="acx-linkbtn" data-auth-go="forgot">Forgot your password?</button></form>`;
+      else if (screen === 'forgot') card = `<form class="acx-card acx-auth" data-auth="forgot" novalidate><div class="acx-h"><h2>${ico.key}Reset your password</h2></div>
+          <p class="acx-sub">Enter your account’s email and we’ll send you a link to choose a new password. Open it in this browser.</p>
+          ${emailField('au-email')}${noteHTML()}<button type="submit" class="btn btn-p">Email me a reset link</button>
+          <button type="button" class="acx-linkbtn" data-auth-go="signin">Back to sign in</button></form>`;
+      else if (screen === 'sent-confirm') card = `<div class="acx-card acx-auth hot"><div class="acx-h"><h2>${ico.check}Check your email</h2></div>
+          <p class="acx-sub">We sent a confirmation link to <b>${esc(email)}</b>. Open it to finish creating your account; you’ll come back here signed in. It can take a minute, so check spam too.</p>
+          ${noteHTML()}<div class="acx-row"><button type="button" class="btn btn-g" data-auth-act="resend">Send the link again</button><button type="button" class="acx-linkbtn" data-auth-go="signin">I’ve confirmed: sign in</button></div></div>`;
+      else if (screen === 'sent-reset') card = `<div class="acx-card acx-auth hot"><div class="acx-h"><h2>${ico.check}Check your email</h2></div>
+          <p class="acx-sub">If <b>${esc(email)}</b> has an account, a reset link is on its way. Open it in this browser to choose a new password.</p>
+          <button type="button" class="acx-linkbtn" data-auth-go="signin">Back to sign in</button></div>`;
+      else if (screen === 'recovery') card = `<form class="acx-card acx-auth" data-auth="recovery" novalidate><div class="acx-h"><h2>${ico.key}Choose a new password</h2></div>
+          <p class="acx-sub">For ${esc(email || 'your account')}.</p>
+          ${pwField('au-pw', 'New password', 'new-password')}<p class="acx-note">At least 8 characters.</p>
+          ${noteHTML()}<button type="submit" class="btn btn-p">Save my new password</button></form>`;
+      else if (screen === 'working') card = `<div class="acx-card"><div class="acx-id">${SML.bunnyMark(64)}<div><b>One moment…</b><small>Finishing sign-in.</small></div></div></div>`;
+      shell(card, screen === 'signup' ? `Your progress, <em>everywhere</em>.` : `Welcome <em>back</em>.`, 'Create a free FiredBunny account to keep your lessons, plans and profile on every device. Or keep going as a guest: everything still saves in this browser.');
+      wire();
+    }
+    const val = (n) => { const el = $(`[name="${n}"]`, view); return el ? el.value.trim() : ''; };
+    const go = (sc, n) => { screen = sc; note = n || null; draw(); const f = $('input', view); if (f && sc !== 'working') f.focus(); };
+    async function run(btn, fn) {
+      const label = btn.textContent; btn.disabled = true; btn.textContent = 'One moment…';
+      try { await fn(); } catch (e) { note = { kind: 'err', text: esc(e.message || 'Something went wrong. Please try again.') }; draw(); return; }
+      if (btn.isConnected) { btn.disabled = false; btn.textContent = label; }
+    }
+    function wire() {
+      $$('[data-auth-go]', view).forEach((b) => b.addEventListener('click', () => { email = val('email') || email; go(b.dataset.authGo); }));
+      $$('[data-auth-act="show"]', view).forEach((b) => b.addEventListener('click', () => { const i = document.getElementById(b.getAttribute('aria-controls')); const show = i.type === 'password'; i.type = show ? 'text' : 'password'; b.textContent = show ? 'Hide' : 'Show'; b.setAttribute('aria-label', show ? 'Hide password' : 'Show password'); }));
+      const f = $('form[data-auth]', view);
+      if (f) f.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = $('button[type="submit"]', f); email = val('email') || email; const pw = val('password');
+        const bad = (t) => { note = { kind: 'err', text: t }; draw(); };
+        if (f.dataset.auth !== 'recovery' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad('Enter your email address.');
+        if ((f.dataset.auth === 'signup' || f.dataset.auth === 'recovery') && pw.length < 8) return bad('Use at least 8 characters for your password.');
+        if (f.dataset.auth === 'signin' && !pw) return bad('Enter your password.');
+        if (f.dataset.auth === 'signup') run(btn, async () => { const r = await CL.signUp(email, pw); if (r.confirm) go('sent-confirm'); else location.reload(); });
+        else if (f.dataset.auth === 'signin') run(btn, async () => { await CL.signIn(email, pw); location.reload(); });
+        else if (f.dataset.auth === 'forgot') run(btn, async () => { await CL.sendReset(email); go('sent-reset'); });
+        else if (f.dataset.auth === 'recovery') run(btn, async () => { await CL.newPassword(pw); location.reload(); });
+      });
+      const rs = $('[data-auth-act="resend"]', view);
+      if (rs) rs.addEventListener('click', () => run(rs, async () => { await CL.resend(email); note = { kind: 'ok', text: 'Sent again. Give it a minute.' }; draw(); }));
+    }
+    const q = new URLSearchParams(location.search);
+    if (q.get('code') || q.get('token_hash') || q.get('error') || q.get('error_description') || /error_description=/.test(location.hash)) {
+      screen = 'working'; draw();
+      CL.handleLink().then((r) => {
+        if (!r) return go('signin');
+        if (r.kind === 'confirmed') { location.reload(); return; } // signed in: the page comes back as your account
+        if (r.kind === 'recovery') { email = r.email || ''; return go('recovery'); }
+        if (r.kind === 'confirmed-elsewhere') return go('signin', { kind: 'ok', text: 'Your email is confirmed. Sign in with your password.' });
+        return go(r.reset ? 'forgot' : 'signin', { kind: 'err', text: esc(r.message || 'That link didn’t work. Please try again.') });
+      });
+    } else draw();
+    return 'Sign in';
+  }
+
   function signinWeb(view) {
+    if (SML.cloud && SML.cloud.enabled) return signinAccount(view);
     view.innerHTML = `
       ${SML.pageHeader('', 'Your space', `No account. <em>No</em> password.`, `<p>FiredBunny keeps your progress, profile, goals and assessments right here in your browser. Nothing to sign up for.</p>`)}
       <div class="wrap acx">
@@ -312,7 +461,7 @@
                 <div class="acx-stat"><span>Household</span><b data-acx="hh">${d.household.length}</b></div>
                 <div class="acx-stat"><span>Net worth</span><b class="${nw.net >= 0 ? 'up' : ''}">${p.assets.length || p.debts.length ? money(nw.net) : '—'}</b></div>
               </div>
-              ${st.mode !== 'cloud' && st.ready ? `<p class="acx-note">${SML.host === 'web' ? '' : st.signedIn ? 'Saving to your account isn’t allowed on this page. ' : 'You’re not signed in. '}Saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it from <a class="ulink" href="#settings">Settings</a> when you’re done. Export a file to move it. <a class="ulink" href="#signin">${SML.host === 'web' ? 'How saving works' : 'How sign-in works'}</a></p>` : ''}
+              ${st.mode !== 'cloud' && st.ready ? `<p class="acx-note">${SML.host === 'web' ? (SML.accountsOn ? '<a class="ulink" href="#signin">Sign in</a> to keep it on all your devices. ' : '') : st.signedIn ? 'Saving to your account isn’t allowed on this page. ' : 'You’re not signed in. '}Saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it from <a class="ulink" href="#settings">Settings</a> when you’re done. Export a file to move it. <a class="ulink" href="#signin">${SML.host === 'web' ? 'How saving works' : 'How sign-in works'}</a></p>` : ''}
             </div>
 
             <form class="acx-card" data-acx="form" novalidate>
@@ -459,6 +608,9 @@
       guest: 'You’re not signed in, so your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Clearing browser data loses it: export a file to keep a copy or move it.',
     }[kind];
     const syncWeb = 'FiredBunny saves your profile, goals, net worth, assessments and lesson progress in this browser only. None of it is sent to a server, and there is no account to create. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Clearing browser data loses it: export a file to keep a copy or move it to another device.';
+    const sb = st.provider === 'supabase', webGuestAcc = SML.host === 'web' && !sb && SML.accountsOn;
+    const syncSB = 'You’re signed in to your FiredBunny account. Your profile, goals, net worth, assessments, lesson progress, trade journal, plans and preferences are saved to your account and follow you to every device where you sign in. Other visitors can’t see it. This device keeps a copy so pages open fast and work offline; signing out removes it.';
+    const syncGuestAcc = 'You’re not signed in, so your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it below when you’re done. Create a free account to keep it on all your devices, or export a file to keep a copy.';
     view.innerHTML = `
       ${SML.pageHeader('', 'Settings', `Your data, <em>your</em> rules.`, `<p>Sync, preferences, lesson progress, and full control over your data: export it, import it or delete it.</p>`)}
       <div class="wrap acx">
@@ -466,10 +618,11 @@
         <div class="acx-grid">
           <div class="acx-col">
             <section class="acx-card" aria-labelledby="acx-s1"><div class="acx-h"><h2 id="acx-s1">${ico.sync}Storage &amp; sync</h2>${modePill(st)}</div>
-              <div class="acx-id">${avatarHTML(st, 48)}<div><span class="acx-dname">${esc(A().displayName() || (st.signedIn ? 'Signed in' : 'Guest'))}</span><small>${SML.host === 'web' ? 'This browser · no account needed' : kind === 'cloud' ? 'Claude account · private FiredBunny profile' : kind === 'readonly' ? 'Claude account · saving here not allowed' : kind === 'guest' ? 'Not signed in · this browser' : 'Checking…'}</small></div></div>
-              <p class="acx-sub">${SML.host === 'web' ? syncWeb : syncText}</p>
-              ${st.cloudError && st.signedIn ? `<p class="acx-note">Saving to your account stopped (${esc(String(st.cloudError))}). Nothing is lost: changes are saved in this browser for now, where anyone using it can see them. Reload the page to try again.</p>` : ''}
-              <div class="acx-row"><a class="btn btn-g sm" href="#signin">${SML.host === 'web' ? 'How saving works' : 'How sign-in works'}</a>${kind !== 'cloud' && SML.host !== 'web' ? '<button type="button" class="btn btn-g sm" data-acx-act="reload">Reload and retry</button>' : ''}</div>
+              <div class="acx-id">${avatarHTML(st, 48)}<div><span class="acx-dname">${esc(A().displayName() || (st.signedIn ? 'Signed in' : 'Guest'))}</span><small>${SML.host === 'web' ? (sb ? esc(st.email || '') + ' · FiredBunny account' : webGuestAcc ? 'Guest · saved in this browser' : 'This browser · no account needed') : kind === 'cloud' ? 'Claude account · private FiredBunny profile' : kind === 'readonly' ? 'Claude account · saving here not allowed' : kind === 'guest' ? 'Not signed in · this browser' : 'Checking…'}</small></div></div>
+              <p class="acx-sub">${SML.host === 'web' ? (sb ? syncSB : webGuestAcc ? syncGuestAcc : syncWeb) : syncText}</p>
+              ${sb ? '<p class="acx-sync" data-auth="sync" aria-live="polite"></p>' : ''}
+              ${st.cloudError && st.signedIn && !sb ? `<p class="acx-note">Saving to your account stopped (${esc(String(st.cloudError))}). Nothing is lost: changes are saved in this browser for now, where anyone using it can see them. Reload the page to try again.</p>` : ''}
+              <div class="acx-row">${sb ? '<a class="btn btn-g sm" href="#signin">Your account</a><button type="button" class="btn btn-g sm" data-auth-act="signout">Sign out</button>' : webGuestAcc ? '<a class="btn btn-p sm" href="#signin">Sign in or create an account</a>' : `<a class="btn btn-g sm" href="#signin">${SML.host === 'web' ? 'How saving works' : 'How sign-in works'}</a>`}${kind !== 'cloud' && SML.host !== 'web' ? '<button type="button" class="btn btn-g sm" data-acx-act="reload">Reload and retry</button>' : ''}</div>
             </section>
 
             <section class="acx-card" aria-labelledby="acx-s2"><div class="acx-h"><h2 id="acx-s2">${ico.gear}Preferences</h2><span class="acx-ok" data-acx="pref-ok" aria-live="polite"></span></div>
@@ -497,7 +650,8 @@
             <section class="acx-card acx-danger" aria-labelledby="acx-s5"><div class="acx-h"><h2 id="acx-s5">${ico.trash}Delete my data</h2></div>
               <p class="acx-sub">Permanently removes your profile, household, assets, debts, goals, net worth history, assessments and lesson progress${kind === 'cloud' ? ' from your account' : ' from this browser'}. Export first if you might want it back.</p>
               <label class="fld" for="acx-del"><span>Type DELETE to confirm</span><input id="acx-del" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="DELETE"></label>
-              <div class="acx-row"><button type="button" class="btn btn-dn" data-acx-act="delete" disabled>Delete everything</button><span class="acx-note" data-acx="del-msg" aria-live="polite"></span></div>
+              <div class="acx-row"><button type="button" class="btn btn-dn" data-acx-act="delete" disabled>Delete everything</button>${sb ? '<button type="button" class="btn btn-g" data-acx-act="delete-account" disabled>Delete my account too</button>' : ''}<span class="acx-note" data-acx="del-msg" aria-live="polite"></span></div>
+              ${sb ? '<p class="acx-note">“Delete my account too” also removes your login and email address. You can create a new account later, but nothing comes back.</p><p class="acx-err" data-auth="out-msg" role="alert" hidden></p>' : ''}
             </section>
           </div>
 
@@ -505,7 +659,7 @@
             <section class="acx-card" aria-labelledby="acx-s6"><div class="acx-h"><h2 id="acx-s6">${ico.phone}Connected apps</h2><span class="acx-pill local">Coming soon</span></div>
               <div class="acx-phone">
                 <svg class="dev" width="64" height="96" viewBox="0 0 64 96" aria-hidden="true"><rect x="4" y="2" width="56" height="92" rx="10" style="fill:var(--bg);stroke:var(--line)" stroke-width="2"/><rect x="10" y="12" width="44" height="66" rx="3" style="fill:var(--surface)"/><path d="M16 64l8-10 7 5 9-14 8 6" fill="none" style="stroke:var(--up)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="86" r="3" style="fill:var(--line)"/><text x="32" y="28" text-anchor="middle" style="fill:var(--gold);font:700 9px var(--sans)">$1.2M</text></svg>
-                <p class="acx-note">The FiredBunny mobile apps (wheel tracker, retirement runway and trader toolkit) are in development. ${SML.host === 'web' ? 'They will bring your goals, net worth and progress to your phone.' : 'They will sign in with the same Claude account and read this same profile, so your goals, net worth and progress show up on your phone.'} Until then, <b>Export</b> gives you everything in one file.</p>
+                <p class="acx-note">The FiredBunny mobile apps (wheel tracker, retirement runway and trader toolkit) are in development. ${SML.host === 'web' ? (SML.accountsOn ? 'They will sign in with your FiredBunny account, so your goals, net worth and progress show up on your phone.' : 'They will bring your goals, net worth and progress to your phone.') : 'They will sign in with the same Claude account and read this same profile, so your goals, net worth and progress show up on your phone.'} Until then, <b>Export</b> gives you everything in one file.</p>
               </div>
               <a class="acx-link" href="#apps">${ico.phone}<span><b>See the apps</b><small>What’s coming, and what each one does.</small></span></a>
             </section>
@@ -522,8 +676,9 @@
 
             <section class="acx-card" aria-labelledby="acx-s8"><div class="acx-h"><h2 id="acx-s8">${ico.shield}Privacy</h2></div>
               <ul class="acx-list">
-                ${SML.host === 'web' ? `<li>${ico.check}<span>Your data is saved in this browser only. FiredBunny has no server copy of it. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>
-                <li>${ico.check}<span>No accounts and no passwords to leak.</span></li>
+                ${SML.host === 'web' ? `${SML.accountsOn ? `<li>${ico.check}<span>Signed in, your data is saved to your FiredBunny account, in FiredBunny’s database (hosted by Supabase), together with your email address. Other visitors can’t see it. Export it or delete your account here at any time.</span></li>
+                <li>${ico.check}<span>As a guest, your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>` : `<li>${ico.check}<span>Your data is saved in this browser only. FiredBunny has no server copy of it. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>
+                <li>${ico.check}<span>No accounts and no passwords to leak.</span></li>`}
                 <li>${ico.check}<span>Usage stats: FiredBunny uses Google Analytics (through Google Tag Manager) to count visits and see which pages, lessons, tools and audio people use, so it can make better ones. It never sends your profile, goals, money figures or anything you type into the tools.</span></li>` : `<li>${ico.check}<span>Signed in, your data is saved to your private FiredBunny profile. Other visitors and the site owner can’t read it.</span></li>
                 <li>${ico.check}<span>As a guest, your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>
                 <li>${ico.check}<span>No passwords: FiredBunny uses your Claude account, so there is no FiredBunny password to leak.</span></li>`}
@@ -624,7 +779,17 @@
 
     /* delete */
     const delIn = $('#acx-del', view), delBtn = $('[data-acx-act="delete"]', view), delMsg = $('[data-acx="del-msg"]', view);
-    delIn.addEventListener('input', () => { delBtn.disabled = delIn.value.trim().toUpperCase() !== 'DELETE'; });
+    const delAcc = $('[data-acx-act="delete-account"]', view);
+    delIn.addEventListener('input', () => { delBtn.disabled = delIn.value.trim().toUpperCase() !== 'DELETE'; if (delAcc) delAcc.disabled = delBtn.disabled; });
+    if (delAcc) delAcc.addEventListener('click', async () => {
+      if (delIn.value.trim().toUpperCase() !== 'DELETE') return;
+      delAcc.disabled = true; delBtn.disabled = true; delMsg.textContent = 'Deleting your account…';
+      try { await SML.cloud.deleteAccount(); SML.toast('Your FiredBunny account is deleted.'); setTimeout(() => location.replace((SML.routes && SML.routes.mode === 'path') ? SML.routes.path('home') : location.pathname), 600); }
+      catch (err) { delMsg.textContent = (err && err.message) || 'Could not delete your account right now. Try again.'; delAcc.disabled = false; delBtn.disabled = false; }
+    });
+    const so = $('[data-auth-act="signout"]', view), soMsg = $('[data-auth="out-msg"]', view);
+    if (so && soMsg) so.addEventListener('click', () => signOutFlow(so, soMsg, false));
+    liveSync(view);
     delBtn.addEventListener('click', async () => {
       if (delIn.value.trim().toUpperCase() !== 'DELETE') return;
       delBtn.disabled = true; delMsg.textContent = 'Deleting…';
