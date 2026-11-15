@@ -4,11 +4,19 @@ Implements the subset of GoTrue (auth) and PostgREST (rest) that supabase-js use
 links (PKCE), sign in with password, refresh, get/update user, logout, password recovery, resend, and the user_data table
 with row-level security (a request only sees and writes rows whose user_id is the token's sub), the 300-row and 512 KB
 limits, and rpc/delete_my_account. Emails go to an outbox readable at GET /__outbox?email=.
+
+public.feedback is insert-only, as in supabase/schema.sql: anyone may add a note (only the visitor columns; the server
+fills id, created_at, status and user_id from the token), nobody may read, change or delete, the length checks apply,
+and the 121st note within ten minutes is refused. STATE['feedback_mode'] = 'missing' answers as Supabase does before
+the table exists (the owner has not run the new schema yet). Each insert's Prefer header is kept in STATE['feedback_prefer'].
 """
-import base64, hashlib, http.server, json, secrets, threading, time, urllib.parse, uuid
+import base64, hashlib, http.server, json, re, secrets, threading, time, urllib.parse, uuid
 from datetime import datetime, timezone
 
-STATE = {'users': {}, 'rows': {}, 'codes': {}, 'refresh': {}, 'outbox': [], 'confirm': True, 'calls': []}
+STATE = {'users': {}, 'rows': {}, 'codes': {}, 'refresh': {}, 'outbox': [], 'confirm': True, 'calls': [],
+         'feedback': [], 'feedback_mode': 'ok', 'feedback_prefer': []}
+FEEDBACK_COLS = {'kind', 'message', 'email', 'page', 'source', 'user_agent'}
+EMAIL_SHAPE = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
 LOCK = threading.Lock()
 
 
@@ -173,11 +181,16 @@ class H(http.server.BaseHTTPRequestHandler):
             return self.reply(200, {})
         # ---------------- rest ----------------
         sub = sub_of(self.headers)
+        if path == '/rest/v1/feedback':
+            return self.feedback_insert(sub, b)
         if path == '/rest/v1/rpc/delete_my_account':
             if not sub:
                 return self.reply(401, {'code': '42501', 'message': 'permission denied for function delete_my_account'})
             STATE['rows'] = {k: v for k, v in STATE['rows'].items() if k[0] != sub}
             STATE['users'].pop(sub, None)
+            for f in STATE['feedback']:  # references auth.users on delete set null
+                if f['user_id'] == sub:
+                    f['user_id'] = None
             return self.reply(204)
         if path == '/rest/v1/user_data':
             if not sub:
@@ -199,13 +212,51 @@ class H(http.server.BaseHTTPRequestHandler):
             return self.reply(201, out)
         return self.err(404, 'not_found', 'not found ' + path)
 
+    # ---------------- feedback (insert only) ----------------
+    def feedback_missing(self):
+        return self.reply(404, {'code': 'PGRST205', 'details': None, 'hint': None, 'message': "Could not find the table 'public.feedback' in the schema cache"})
+
+    def feedback_denied(self, sub):  # no select, update or delete for anyone (401 for anon, 403 signed in, like PostgREST)
+        if STATE['feedback_mode'] == 'missing':
+            return self.feedback_missing()
+        return self.reply(403 if sub else 401, {'code': '42501', 'details': None, 'hint': None, 'message': 'permission denied for table feedback'})
+
+    def feedback_insert(self, sub, b):
+        if STATE['feedback_mode'] == 'missing':
+            return self.feedback_missing()
+        prefer = self.headers.get('Prefer') or ''
+        STATE['feedback_prefer'].append(prefer)
+        if 'return=representation' in prefer:  # reading the row back needs select, which nobody has
+            return self.feedback_denied(sub)
+        rows = b if isinstance(b, list) else [b]
+        check = lambda name: self.reply(400, {'code': '23514', 'details': None, 'hint': None, 'message': f'new row for relation "feedback" violates check constraint "feedback_{name}"'})
+        for r in rows:
+            if not isinstance(r, dict) or set(r) - FEEDBACK_COLS:  # column privileges: only the visitor columns
+                return self.feedback_denied(sub)
+            if r.get('message') is None or r.get('kind') is None:
+                return self.reply(400, {'code': '23502', 'details': None, 'hint': None, 'message': 'null value in column violates not-null constraint'})
+            if not (1 <= len(r['kind']) <= 40): return check('kind_length')
+            if len(r['message']) > 4000 or not r['message'].strip(): return check('message_length')
+            if r.get('email') is not None and (len(r['email']) > 254 or not EMAIL_SHAPE.match(r['email'])): return check('email_shape')
+            if r.get('page') is not None and len(r['page']) > 300: return check('page_length')
+            if r.get('source') is not None and len(r['source']) > 20: return check('source_length')
+            if r.get('user_agent') is not None and len(r['user_agent']) > 300: return check('ua_length')
+        for r in rows:
+            if sum(1 for f in STATE['feedback'] if f['t'] > time.time() - 600) >= 120:
+                return self.reply(400, {'code': 'P0001', 'details': None, 'hint': None, 'message': 'FiredBunny: too much feedback right now, try again in a few minutes'})
+            STATE['feedback'].append(dict({c: r.get(c) for c in FEEDBACK_COLS}, id=str(uuid.uuid4()), created_at=now_iso(), status='new', user_id=sub, t=time.time()))
+        return self.reply(201)
+
     def h_get(self, path, q):
+        if path == '/rest/v1/feedback':
+            return self.feedback_denied(sub_of(self.headers))
         if path == '/__outbox':
             mails = [m for m in STATE['outbox'] if m['to'] == (q.get('email') or '').lower()]
             return self.reply(200, mails[-1] if mails else None)
         if path == '/__state':
             return self.reply(200, {'users': [{'id': u['id'], 'email': u['email'], 'confirmed': bool(u.get('confirmed'))} for u in STATE['users'].values()],
-                                    'rows': [{'user_id': k[0], 'key': k[1], 'value': v['value'], 'updated_at': v['updated_at']} for k, v in STATE['rows'].items()]})
+                                    'rows': [{'user_id': k[0], 'key': k[1], 'value': v['value'], 'updated_at': v['updated_at']} for k, v in STATE['rows'].items()],
+                                    'feedback': [{k: v for k, v in f.items() if k != 't'} for f in STATE['feedback']]})
         if path == '/auth/v1/verify':  # the emailed link: confirm, then back to the site with a one-time code
             c = STATE['codes'].pop(q.get('token') or '', None)
             if not c:
@@ -233,6 +284,8 @@ class H(http.server.BaseHTTPRequestHandler):
         return self.err(404, 'not_found', 'not found ' + path)
 
     def h_put(self, path, q):
+        if path == '/rest/v1/feedback':
+            return self.feedback_denied(sub_of(self.headers))
         if path == '/auth/v1/user':
             sub = sub_of(self.headers)
             if not sub:
@@ -247,6 +300,8 @@ class H(http.server.BaseHTTPRequestHandler):
         return self.err(404, 'not_found', 'not found ' + path)
 
     def h_delete(self, path, q):
+        if path == '/rest/v1/feedback':
+            return self.feedback_denied(sub_of(self.headers))
         if path == '/rest/v1/user_data':
             sub = sub_of(self.headers)
             if not sub:

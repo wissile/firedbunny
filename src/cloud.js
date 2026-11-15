@@ -111,6 +111,19 @@
     }
     return clientP;
   }
+  // Feedback (src/feedback.js) can come from anyone on the website, signed in or not, even while accounts are only in
+  // preview: with accounts on, the usual client (a signed-in person's notes carry their account); otherwise one that
+  // keeps no session at all.
+  let plainP = null;
+  function feedbackClient() {
+    if (enabled) return client();
+    if (!configured) return Promise.reject(new Error('Sending is not set up here.'));
+    if (!plainP) {
+      plainP = loadLib().then(() => window.supabase.createClient(C.url, C.key, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } }));
+      plainP.catch(() => { plainP = null; });
+    }
+    return plainP;
+  }
 
   /* ---------------- sync ---------------- */
   let pushTimer = null, pushing = null, backoff = 2000;
@@ -314,7 +327,7 @@
   }
 
   SML.cloud = {
-    enabled, user, status,
+    enabled, configured, user, status, feedbackClient,
     hasCopy: () => !!cache.pulledAt,
     ready, sync, push, get, has, keys, set, doc,
     onStatus(fn) { statusListeners.add(fn); return () => statusListeners.delete(fn); },
