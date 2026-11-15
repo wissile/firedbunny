@@ -12,13 +12,15 @@ once it also says `live: true`. Before that they appear only in a browser that o
 
 | Piece | What it does |
 |---|---|
-| `supabase/schema.sql` | The database side: table `user_data` (one row per saved item per person), row-level security (each person reads and writes only their own rows), limits (300 items, 512 KB each), and `delete_my_account()`. |
+| `supabase/schema.sql` | The database side: table `user_data` (one row per saved item per person), row-level security (each person reads and writes only their own rows), limits (300 items, 512 KB each), `delete_my_account()`, and the insert-only `feedback` table for notes from the About page and the help chat. |
+| `src/feedback.js` | Sends feedback from the About page form and the help chat (`src/chat.js`) into `feedback`, for anyone, signed in or not. Loads the Supabase library only when a note is sent. |
 | `src/cloud-config.js` | The project URL and publishable key. Both are public by design. **Never put the secret / `service_role` key here.** |
 | `src/cloud.js` | Sign-in (email + password, confirmation and reset links), syncing, the offline copy, and merging lesson progress across devices. Loads the Supabase library (`public/vendor/supabase-js-2.119.0.js`) only for signed-in visitors and on the sign-in page. |
 | `src/account.js` | When someone is signed in on the website, the profile and assessments go to the account (provider `supabase`), using the same code paths as the claude.ai copy. |
 | `src/core.js` `SML.store` | Every other saved item follows the account while signed in, except analytics consent, which stays with the device. |
 | `src/mod-y-account.js` | The sign-in page (create account, sign in, forgot password, new password), the signed-in view, and Settings (sign out, delete account). |
 | `tools/accounts/e2e.py` | End-to-end test against a stand-in Supabase. Run it with `python3 tools/build.py --no-prerender && python3 tools/accounts/e2e.py`. |
+| `tools/chattest.py` | The help chat and feedback, against the same stand-in (its `feedback` table is insert-only and has a "table missing" mode). |
 
 **Sync rule.** The newest change to an item wins. A change made on this device that hasn't uploaded yet is never
 overwritten by an older server copy. Lesson progress is combined from every device, so a lesson finished anywhere
@@ -66,11 +68,37 @@ owner and accounts switched on for everyone (`live: true`) on Nov 15 2026. Check
 key: email sign-up on, confirm email on, anonymous sign-ins off; `user_data` and `delete_my_account()` exist and refuse
 visitors who are not signed in.
 
+## Feedback notes (table `feedback`)
+
+Notes people send from the About page form or the help chat ("Ask Bunny") land in `public.feedback`.
+
+**One-time step for the owner:** the table exists only after you run the updated schema. Go to SQL Editor → New query,
+paste all of `supabase/schema.sql`, and click Run (running it again is safe: it keeps `user_data` and every saved row).
+Until then the site says sending is not working right now and keeps the visitor's note, with Try again and Copy.
+
+**Reading them:** Table Editor → `feedback`, sorted by `created_at` (newest first).
+
+| Column | What it holds |
+|---|---|
+| `kind` | Idea, Something to improve, Correct an inaccuracy, Question or Other |
+| `message` | What they wrote (up to 4,000 characters) |
+| `email` | Only if they chose to give one for a reply. Use it only to answer that note |
+| `page` | The page they were on (chat), or the page they picked on the About form |
+| `source` | `chat` or `about` |
+| `user_agent` | Their browser, to help reproduce a problem |
+| `user_id` | Their account, if they were signed in (filled by the database). Becomes empty if they delete their account |
+| `status` | `new` when it arrives; set it to `done` (or anything up to 20 characters) as you work through them |
+
+**What visitors can do:** add a note, nothing else. Nobody can read, change or delete notes through the website, not
+even the person who sent one; the database fills in the time, the status and the account. To blunt spam it turns notes
+away once 120 have arrived in ten minutes from everyone together (the site also allows a tab 5 notes in ten minutes).
+If someone asks for a note to be removed, delete its row in the Table Editor.
+
 ## Things to know
 
 - **The owner can see account data.** In the Table Editor you can see `user_data`: people's profiles, goals and money
-  figures. The site says "other visitors can't see it", and never that the owner can't. If you add anyone to the
-  Supabase project, they can see it too.
+  figures, and `feedback`, with any email address someone gave for a reply. The site says "other visitors can't see
+  it", and never that the owner can't. If you add anyone to the Supabase project, they can see it too.
 - **Deleting an account** (Settings → type DELETE → "Delete my account too") removes the login, the email address and
   every saved row. "Delete everything" alone empties the account but keeps the login.
 - **Changing the database:** edit `supabase/schema.sql`, run it in the SQL Editor, and commit it in the same change.

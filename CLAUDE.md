@@ -72,6 +72,24 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - Wording must stay true: account data is private from other visitors, not from the site owner (who runs the database).
 - Test account changes with `python3 tools/build.py --no-prerender && python3 tools/accounts/e2e.py` (stand-in Supabase).
 
+## Help chat (Ask Bunny) and feedback
+
+- The floating chat in the bottom-right corner is `src/chat.js` (engine and panel) and `src/chat-data.js` (what it
+  understands and says: intents with patterns, synonyms and abbreviations, key pages, tool groups, calendar words,
+  prompts). Extend the data file, not the engine. No AI: answers come from the site's own content (glossary, lessons,
+  tools, courses, notes, calendar) or the fixed replies in `chat-data.js`, which restate the About, Editorial standards
+  and Settings pages. If one of those pages changes, change the matching reply in the same commit.
+- Only the launcher is made at start; the panel, its styles and the search index are built on first open. It is added
+  at runtime with `style[data-fb]`, so the pre-built pages and `tools/seo-lastmod.json` never change because of it.
+- The conversation lives in the tab's sessionStorage (`fb-chat`) only. Analytics get coarse events (`help_chat_open`,
+  `help_chat_reply`, `feedback_send`), never what was typed.
+- Feedback from the chat and the About page form goes through `src/feedback.js`: on the website a row in
+  `public.feedback` (insert-only, see supabase/README.md), on claude.ai the page's storage (`feedback/<user id>`, shown
+  in the owner's inbox on the About page) or its comment box, elsewhere a copy. A failed send keeps the note.
+- Test with `python3 tools/build.py --no-prerender && python3 tools/chattest.py` (stand-in Supabase, including the
+  "table missing" case). To see why a question matched what it did, run `SML.chat.match('covered call')` or
+  `SML.chat.reply('what is vwap')` in the browser console.
+
 ## Things to keep in mind
 
 - The deploy needs two GitHub repository secrets, `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, which only the
