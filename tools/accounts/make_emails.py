@@ -2,7 +2,7 @@
 """Write the Supabase email templates (supabase/email/*.html) in FiredBunny's look.
 
 One layout, two emails: "Confirm signup" and "Reset password". Paste each file into Supabase → Authentication →
-Email → Templates (the subject line is printed at the top of each file). Edit the wording here, run
+Email → Templates (the subject line is noted in each file's <head>). Edit the wording here, run
 `python3 tools/accounts/make_emails.py`, and commit the regenerated files.
 
 Email clients are not browsers: layout is tables with inline styles, colours are repeated as bgcolor attributes for
@@ -71,11 +71,11 @@ def page(e):
     link_text = html.escape(e['link'], quote=False)
     paras = ''.join(
         f'<p style="margin:0 0 16px;font:400 16px/1.65 {SANS};color:{TEXT}">{p}</p>' for p in e['body'])
-    return f'''<!-- Subject: {e['subject']} -->
-<!DOCTYPE html>
+    return f'''<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
+<!-- Supabase subject line: {e['subject']} -->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="x-apple-disable-message-reformatting">
 <meta name="color-scheme" content="dark light">
