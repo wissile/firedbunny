@@ -103,6 +103,10 @@ def fill_form(pg, email=None, extras=(), note=None):
 def submit(pg):
     pg.evaluate("() => { const s = document.querySelector('.pl-box .pl-status'); if (s) s.hidden = true; }")  # so a stale message never counts
     pg.click('#pl-form [type=submit]')
+def box_shot(pg, name):  # the waitlist box, from a full-page capture taken at the top (so the sticky header never covers it)
+    pg.evaluate('window.scrollTo(0, 0)'); pg.wait_for_timeout(80)
+    r = pg.evaluate("() => { const b = document.querySelector('.pl-box').getBoundingClientRect(); return { x: b.left - 8, y: b.top + window.scrollY - 8, width: b.width + 16, height: b.height + 16 }; }")
+    pg.screenshot(path=os.path.join(SHOTS, name), full_page=True, clip=r)
 def reply(pg, q):
     return pg.evaluate('(q) => { SML.chat.reset(); return SML.chat.reply(q); }', q)
 def top(pg, q):
@@ -170,7 +174,7 @@ with sync_playwright() as p:
     check(len(r) == 1 and r[0]['email'] == 'reader@example.com' and r[0]['extras'] == ['report', 'review'] and r[0]['note'] == 'A printable report, please.' and r[0]['user_id'] is None and r[0]['id'], f'stored: email (trimmed), the ticked extras, the note, no account ({r})')
     check(all('return=representation' not in pr for pr in MS['waitlist_prefer']) and calls('get /rest/v1/waitlist') == n_get, 'nothing is read back: the insert asks for nothing and a guest never reads the table')
     check(pg.evaluate("location.search") == '', 'the address bar carries nothing from the form')
-    pg.locator('.pl-box').screenshot(path=os.path.join(SHOTS, 'waitlist-guest-joined-desktop.png'))
+    box_shot(pg, 'waitlist-guest-joined-desktop.png')
     pg.click('[data-pl="again"]')
     check(pg.evaluate("document.activeElement.id") == 'pl-email' and pg.input_value('#pl-email') == '', '“Add another email” brings back an empty form')
     fill_form(pg, email='Reader@Example.COM', extras=('coach',)); submit(pg)
@@ -193,7 +197,7 @@ with sync_playwright() as p:
     s = wait_status(pg, 'err')
     kept = pg.evaluate("() => [document.getElementById('pl-email').value, document.getElementById('pl-note').value, [...document.querySelectorAll('[data-pl-extra]:checked')].map((c) => c.value)]")
     check('isn’t open yet' in s['text'] and 'nothing was saved' in s['text'] and kept == ['new@example.com', 'Longer history, yes.', ['history']], f'table missing: it says so gracefully and keeps the form and the answers ({s["text"][:60]}, {kept})')
-    pg.locator('.pl-box').screenshot(path=os.path.join(SHOTS, 'waitlist-table-missing-desktop.png'))
+    box_shot(pg, 'waitlist-table-missing-desktop.png')
     MS['waitlist_mode'] = 'ok'
     submit(pg); s = wait_status(pg, 'ok')
     check(len(rows()) == 2 and rows()[-1]['email'] == 'new@example.com' and rows()[-1]['extras'] == ['history'], 'once the table exists, pressing the button again joins')
@@ -257,7 +261,7 @@ with sync_playwright() as p:
     mine = [w for w in rows() if w['user_id'] == uid]
     check('You’re on the list' in t and 'Deeper portfolio history' in t and 'Portfolio review in plain words' in t, f'one click: “You’re on the list”, with the extras ticked ({t[:100]!r})')
     check(len(rows()) == n_rows + 1 and len(mine) == 1 and mine[0]['email'] is None and mine[0]['extras'] == ['history', 'review'] and mine[0]['note'] == 'Would use the review.', f'stored with the account id and no email ({mine})')
-    ps.locator('.pl-box').screenshot(path=os.path.join(SHOTS, 'waitlist-signed-in-on-desktop.png'))
+    box_shot(ps, 'waitlist-signed-in-on-desktop.png')
     go(ps, '/plans/'); plans_ready(ps)
     t = ps.inner_text('.pl-done') if ps.locator('.pl-done').count() else ''
     check('You’re on the waitlist' in t and 'Joined ' in t and ps.locator('[data-pl="leave"]').count() == 1, f'after a reload the status shows: on the waitlist, since when, with a Leave button ({t[:80]!r})')
@@ -330,7 +334,7 @@ with sync_playwright() as p:
     pp.screenshot(path=os.path.join(SHOTS, 'plans-phone-first-screen.png'))
     pp.locator('#pl-join').scroll_into_view_if_needed(); pp.wait_for_timeout(100)
     fill_form(pp, email='phone@example.com', extras=('report',)); submit(pp); wait_status(pp, 'ok')
-    pp.locator('.pl-box').screenshot(path=os.path.join(SHOTS, 'waitlist-guest-joined-phone.png'))
+    box_shot(pp, 'waitlist-guest-joined-phone.png')
     go(pp, '/'); open_chat(pp); chat_ask(pp, 'Is there a paid plan?'); pp.evaluate("document.activeElement.blur()")
     pp.screenshot(path=os.path.join(SHOTS, 'chat-plans-phone.png'))
     P.close()
@@ -339,7 +343,7 @@ with sync_playwright() as p:
     pp.locator('#pl-join').scroll_into_view_if_needed(); fill_form(pp, extras=('coach', 'report')); submit(pp)
     pp.wait_for_selector('.pl-done .pl-status.ok', timeout=10000); pp.wait_for_timeout(100)
     check(pp.evaluate('document.documentElement.scrollWidth') <= 390, 'phone, signed in: no sideways scrolling after joining')
-    pp.locator('.pl-box').screenshot(path=os.path.join(SHOTS, 'waitlist-signed-in-on-phone.png'))
+    box_shot(pp, 'waitlist-signed-in-on-phone.png')
     P2.close()
 
     # ---------- the claude.ai copy and a copy opened from disk: nothing collected ----------
@@ -361,6 +365,7 @@ with sync_playwright() as p:
         r = reply(pc, 'is there a paid plan')
         check(r['intent'] == 'plans' and 'firedbunny.com/plans' in r['text'], f'{label} copy: the chat says the waitlist is on the website')
         if init:
+            pc.locator('#pl-join').scroll_into_view_if_needed(); pc.wait_for_timeout(100)
             pc.screenshot(path=os.path.join(SHOTS, 'claude-copy-plans.png'))
             pc.evaluate("location.hash = 'settings'"); pc.wait_for_timeout(500)
             check('waitlist' not in pc.inner_text('#view').lower(), 'claude.ai copy: Settings says nothing about a waitlist it does not have')

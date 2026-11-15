@@ -273,7 +273,7 @@
         <fieldset class="pl-ex"><legend>Which extras would you use? (optional)</legend>
           ${EXTRAS.map((x) => `<label class="pl-chk"><input type="checkbox" value="${x.id}" data-pl-extra><span><b>${esc(x.t)}</b><small>${esc(x.d)}</small></span></label>`).join('')}
         </fieldset>
-        <label class="fld" for="pl-note"><span>Anything else? (optional) <span class="pl-cnt">0 / ${MAX.note}</span></span><textarea id="pl-note" maxlength="${MAX.note}" rows="3" placeholder="An extra you would want, or one you would not"></textarea></label>
+        <label class="fld" for="pl-note"><span>Anything else? (optional) <span class="pl-cnt" aria-hidden="true">0 / ${MAX.note}</span></span><textarea id="pl-note" maxlength="${MAX.note}" rows="3" placeholder="An extra you would want, or one you would not"></textarea></label>
         ${acct ? '' : `<label class="fld" for="pl-email"><span>Your email</span><input id="pl-email" type="email" maxlength="${MAX.email}" placeholder="you@example.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="pl-stored"></label>`}
         <div class="pl-send"><button type="submit" class="btn btn-p">${acct ? 'Join with one click' : 'Join the waitlist'}</button><span class="note">${acct ? 'You’re signed in, so there’s nothing to type.' : 'No account needed.'}${signLink}</span></div>
         <div class="pl-status" role="status" tabindex="-1" hidden></div>
