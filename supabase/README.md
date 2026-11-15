@@ -45,8 +45,8 @@ offline. Signing out deletes that copy.
    Their links use `token_hash` (`{{ .SiteURL }}/signin/?token_hash={{ .TokenHash }}&type=email` or `&type=recovery`).
    The default links only work in the browser where the person signed up or asked for the reset; these work anywhere,
    for example when someone signs up on a laptop and opens the email on their phone. The site handles both kinds.
-   The templates show the logo from `https://firedbunny.com/email/fb-mark-144.png` and load the site's fonts where the
-   email app allows it (`/fonts/*` is served with `Access-Control-Allow-Origin: *` for that). To change the wording,
+   The templates show the logo from `https://firedbunny.com/email/fb-mark-144.png` and load the site's fonts from
+   `/email/fonts/` where the email app allows it (`/email/*` is served with `Access-Control-Allow-Origin: *`). To change the wording,
    edit `tools/accounts/make_emails.py`, run it, commit the regenerated files, and paste them into Supabase again.
 6. **Email sending (before launch).** Supabase's built-in email is for testing only: it sends just a few emails an hour.
    - Sign up with an email provider (Resend, Postmark or Amazon SES, for example).

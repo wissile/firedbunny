@@ -6,7 +6,8 @@ Email → Templates (the subject line is printed at the top of each file). Edit 
 `python3 tools/accounts/make_emails.py`, and commit the regenerated files.
 
 Email clients are not browsers: layout is tables with inline styles, colours are repeated as bgcolor attributes for
-Outlook, the logo is a PNG (public/email/fb-mark-144.png, served from firedbunny.com), and the site's fonts load only
+Outlook, the logo is a PNG (public/email/fb-mark-144.png, served from firedbunny.com), and the site's fonts (copies in
+public/email/fonts/, served with Access-Control-Allow-Origin) load only
 where the client allows web fonts (Apple Mail, iOS); elsewhere the fallbacks are Arial Narrow / Arial. The heading
 asks for weight 700 so the fallback is bold; Bebas Neue's single weight covers 100-900, so it is never fake-bolded.
 """
@@ -22,7 +23,7 @@ ACCENT, ON_ACC, FLAME, GOLD = '#e8ad4f', '#1a1206', '#ff6224', '#ffb52e'
 SANS = "'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
 MONO = "'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace"
 DISPLAY = "'Bebas Neue','Arial Narrow','Roboto Condensed',Arial,sans-serif"
-FONTS = 'https://firedbunny.com/fonts/'
+FONTS = 'https://firedbunny.com/email/fonts/'  # copies of the site's fonts, served with CORS (public/_headers)
 LOGO = 'https://firedbunny.com/email/fb-mark-144.png'
 
 EMAILS = [

@@ -18,9 +18,12 @@
 /img/*
   Cache-Control: public, max-age=31536000, immutable
 
-# fonts: the account emails (supabase/email/) also load them from here, in email apps that allow web fonts
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+# logo and fonts for the account emails (supabase/email/); email apps that allow web fonts load them cross-origin
+/email/*
+  Cache-Control: public, max-age=604800
   Access-Control-Allow-Origin: *
 
 # third-party libraries, versioned in the file name (src/cloud.js loads /vendor/supabase-js-<version>.js)
