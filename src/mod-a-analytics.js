@@ -150,6 +150,7 @@
     if (el.closest('header.nav')) return 'nav';
     if (el.closest('footer.foot')) return 'footer';
     if (el.closest('.nar, .nar-mini')) return 'audio_player';
+    if (el.closest('.fbc')) return 'help_chat';
     const s = el.closest('section[id], section[aria-labelledby], .page-hdr, .hero, nav[aria-label]');
     if (!s) return 'page';
     return s.id || s.getAttribute('aria-labelledby') || s.getAttribute('aria-label') || s.className.split(' ')[0];
@@ -163,8 +164,9 @@
     if (s) SML.track('settings_action', { label: s.dataset.acxAct });
     const m = e.target.closest('#nav-menu'); if (m) SML.track('menu_toggle', { label: m.getAttribute('aria-expanded') === 'true' ? 'close' : 'open' });
   }, true);
-  // any form sent (feedback on the About page, imports...): which form, never what was typed
-  document.addEventListener('submit', (e) => { const f = e.target; SML.track('form_submit', { target: f.id || f.getAttribute('aria-label') || f.className.split(' ')[0] || 'form' }); }, true);
+  // any form sent (feedback on the About page, imports...): which form, never what was typed. Messages typed into the
+  // help chat are not forms in this sense; the chat reports its own coarse events (help_chat_*, feedback_send).
+  document.addEventListener('submit', (e) => { const f = e.target; if (f.closest && f.closest('.fbc')) return; SML.track('form_submit', { target: f.id || f.getAttribute('aria-label') || f.className.split(' ')[0] || 'form' }); }, true);
 
   /* ---------------- how far down each page people read ---------------- */
   let ticking = false;

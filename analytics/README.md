@@ -68,7 +68,7 @@ value), `method` (how: button, autoplay, lock screen...), numbers `count`, `scor
 | Event | When | Parameters |
 |---|---|---|
 | `page_view` | Every page shown | the page details above |
-| `select_content` | A click on a link inside the site | target (page it opens), label (link text), target_type (where: nav, menu, footer, a section) |
+| `select_content` | A click on a link inside the site | target (page it opens), label (link text), target_type (where: nav, menu, footer, help_chat, a section) |
 | `page_scroll` | Reading depth on each page | percent: 25, 50, 75, 90 |
 | `widget_interact` | First use of each interactive picture, tool or simulator on a page | target (widget), method |
 | `quiz_answer` | A lesson quiz or an earnings-call question answered | target, label: correct, wrong or prediction |
@@ -89,6 +89,9 @@ value), `method` (how: button, autoplay, lock screen...), numbers `count`, `scor
 | `copy_content` | Something copied (Pine Script, tables) | label, count (characters) |
 | `settings_action` | Settings and dashboard buttons (export, import, delete, reset, save...) | label |
 | `form_submit` | A form sent (feedback, imports) | target (which form) |
+| `help_chat_open` | The help chat (Ask Bunny) opened | method (launcher or api), count (messages already in this tab's conversation) |
+| `help_chat_reply` | The help chat answered a message or a tapped suggestion | target_type (what it understood: define, navigate, tool, start, feedback, search, chip_lesson...), count (pages it found). Never what was typed |
+| `feedback_send` | A feedback note sent from the About page or the help chat | label (kind), method (supabase, db, comments, copy), target_type (about or chat), target (sent, or why not: offline, missing, busy, invalid, error) |
 | `menu_toggle` | Phone menu opened or closed | label |
 | `app_install_prompt` | Browser offers install; the visitor's answer | label (available, accepted, dismissed), method |
 | `app_installed` | Installed as an app | label |
