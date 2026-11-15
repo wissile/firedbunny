@@ -9,12 +9,22 @@ public.feedback is insert-only, as in supabase/schema.sql: anyone may add a note
 fills id, created_at, status and user_id from the token), nobody may read, change or delete, the length checks apply,
 and the 121st note within ten minutes is refused. STATE['feedback_mode'] = 'missing' answers as Supabase does before
 the table exists (the owner has not run the new schema yet). Each insert's Prefer header is kept in STATE['feedback_prefer'].
+
+public.brokerage_links (the portfolio's encrypted SnapTrade secret, one row per person) follows supabase/schema.sql: a
+request sees, adds, changes and deletes only the row whose user_id is the token's sub; snaptrade_user_id must be
+'fb-<user_id>' (optionally with a suffix) and secret_box 20 to 1000 characters; delete_my_account removes it.
+STATE['links_mode'] = 'missing' answers as Supabase does before the table exists.
+
+enable_es256(iss) switches tokens to ES256 with a locally generated P-256 key (like the real project's signing keys),
+served at /auth/v1/.well-known/jwks.json, and makes the REST side verify signatures. sign_es256() mints any token
+(tests use it to forge bad ones). Without it, tokens stay unsigned HS256 look-alikes as before.
 """
 import base64, hashlib, http.server, json, re, secrets, threading, time, urllib.parse, uuid
 from datetime import datetime, timezone
 
 STATE = {'users': {}, 'rows': {}, 'codes': {}, 'refresh': {}, 'outbox': [], 'confirm': True, 'calls': [],
-         'feedback': [], 'feedback_mode': 'ok', 'feedback_prefer': []}
+         'feedback': [], 'feedback_mode': 'ok', 'feedback_prefer': [], 'links': {}, 'links_mode': 'ok',
+         'es256': None, 'kid': 'fbtest-kid-1', 'iss': None, 'jwks_hits': 0, 'user_hits': 0}
 FEEDBACK_COLS = {'kind', 'message', 'email', 'page', 'source', 'user_agent'}
 EMAIL_SHAPE = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
 LOCK = threading.Lock()
@@ -24,12 +34,63 @@ def b64u(b):
     return base64.urlsafe_b64encode(b).rstrip(b'=').decode()
 
 
-def jwt(user):
+def enable_es256(iss):
+    """Sign tokens with ES256 under a fresh P-256 key, like a Supabase project with the newer signing keys."""
+    from cryptography.hazmat.primitives.asymmetric import ec
+    STATE['es256'] = ec.generate_private_key(ec.SECP256R1())
+    STATE['iss'] = iss
+
+
+def jwk_of(key, kid):
+    n = key.public_key().public_numbers()
+    return {'kty': 'EC', 'crv': 'P-256', 'alg': 'ES256', 'use': 'sig', 'kid': kid, 'key_ops': ['verify'], 'ext': True,
+            'x': b64u(n.x.to_bytes(32, 'big')), 'y': b64u(n.y.to_bytes(32, 'big'))}
+
+
+def sign_es256(payload, key=None, kid=None, header=None):
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.asymmetric import ec
+    from cryptography.hazmat.primitives.asymmetric.utils import decode_dss_signature
+    head = b64u(json.dumps(dict({'alg': 'ES256', 'typ': 'JWT', 'kid': kid or STATE['kid']}, **(header or {}))).encode())
+    body = b64u(json.dumps(payload).encode())
+    r, s_ = decode_dss_signature((key or STATE['es256']).sign(f'{head}.{body}'.encode(), ec.ECDSA(hashes.SHA256())))
+    return f'{head}.{body}.{b64u(r.to_bytes(32, "big") + s_.to_bytes(32, "big"))}'
+
+
+def claims_of(user, **over):
     now = int(time.time())
+    c = {'sub': user['id'], 'email': user['email'], 'role': 'authenticated', 'aud': 'authenticated', 'iat': now, 'exp': now + 3600,
+         'session_id': secrets.token_hex(8), 'aal': 'aal1', 'amr': [{'method': 'password', 'timestamp': now}], 'is_anonymous': False}
+    if STATE['iss']:
+        c['iss'] = STATE['iss']
+    c.update(over)
+    return c
+
+
+def jwt(user):
+    if STATE['es256']:
+        return sign_es256(claims_of(user))
     head = b64u(json.dumps({'alg': 'HS256', 'typ': 'JWT'}).encode())
-    body = b64u(json.dumps({'sub': user['id'], 'email': user['email'], 'role': 'authenticated', 'aud': 'authenticated', 'iat': now, 'exp': now + 3600,
-                            'session_id': secrets.token_hex(8), 'aal': 'aal1', 'amr': [{'method': 'password', 'timestamp': now}]}).encode())
+    body = b64u(json.dumps(claims_of(user)).encode())
     return f'{head}.{body}.{b64u(b"sig")}'
+
+
+def es256_ok(token):
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.asymmetric import ec
+    from cryptography.hazmat.primitives.asymmetric.utils import encode_dss_signature
+    h, b, sig = token.split('.')
+    head = json.loads(base64.urlsafe_b64decode(h + '=' * (-len(h) % 4)))
+    if head.get('alg') != 'ES256' or head.get('kid') != STATE['kid']:
+        return False
+    raw = base64.urlsafe_b64decode(sig + '=' * (-len(sig) % 4))
+    if len(raw) != 64:
+        return False
+    try:
+        STATE['es256'].public_key().verify(encode_dss_signature(int.from_bytes(raw[:32], 'big'), int.from_bytes(raw[32:], 'big')), f'{h}.{b}'.encode(), ec.ECDSA(hashes.SHA256()))
+        return True
+    except Exception:
+        return False
 
 
 def sub_of(headers):
@@ -37,6 +98,8 @@ def sub_of(headers):
     if not a.startswith('Bearer '):
         return None
     try:
+        if STATE['es256'] and not es256_ok(a[7:]):  # PostgREST and GoTrue verify the signature
+            return None
         p = a[7:].split('.')[1]
         d = json.loads(base64.urlsafe_b64decode(p + '=' * (-len(p) % 4)))
         return d.get('sub') if d.get('role') == 'authenticated' and d.get('exp', 0) > time.time() and d.get('sub') in STATE['users'] else None
@@ -187,11 +250,14 @@ class H(http.server.BaseHTTPRequestHandler):
             if not sub:
                 return self.reply(401, {'code': '42501', 'message': 'permission denied for function delete_my_account'})
             STATE['rows'] = {k: v for k, v in STATE['rows'].items() if k[0] != sub}
+            STATE['links'].pop(sub, None)  # references auth.users on delete cascade
             STATE['users'].pop(sub, None)
             for f in STATE['feedback']:  # references auth.users on delete set null
                 if f['user_id'] == sub:
                     f['user_id'] = None
             return self.reply(204)
+        if path == '/rest/v1/brokerage_links':
+            return self.links_upsert(sub, b, q)
         if path == '/rest/v1/user_data':
             if not sub:
                 return self.reply(401, {'code': '42501', 'message': 'permission denied for table user_data'})
@@ -211,6 +277,39 @@ class H(http.server.BaseHTTPRequestHandler):
                 out.append({'key': r['key'], 'updated_at': t})
             return self.reply(201, out)
         return self.err(404, 'not_found', 'not found ' + path)
+
+    # ---------------- brokerage_links (own row only) ----------------
+    def links_missing(self):
+        return self.reply(404, {'code': 'PGRST205', 'details': None, 'hint': None, 'message': "Could not find the table 'public.brokerage_links' in the schema cache"})
+
+    def links_filter(self, q):
+        f = q.get('user_id', '')
+        return f[3:] if f.startswith('eq.') else None
+
+    def links_upsert(self, sub, b, q):
+        if STATE['links_mode'] == 'missing':
+            return self.links_missing()
+        if not sub:
+            return self.reply(401, {'code': '42501', 'message': 'permission denied for table brokerage_links'})
+        rows = b if isinstance(b, list) else [b]
+        prefer = self.headers.get('Prefer') or ''
+        for r in rows:
+            if not isinstance(r, dict) or set(r) - {'user_id', 'snaptrade_user_id', 'secret_box'}:
+                return self.reply(403, {'code': '42501', 'message': 'permission denied for table brokerage_links'})
+            if (r.get('user_id') or sub) != sub:
+                return self.reply(403, {'code': '42501', 'message': 'new row violates row-level security policy for table "brokerage_links"'})
+            uid = r.get('snaptrade_user_id') or ''
+            if not (uid == 'fb-' + sub or (uid.startswith('fb-' + sub + '-') and len(uid) <= len(sub) + 20)):
+                return self.reply(400, {'code': '23514', 'message': 'new row for relation "brokerage_links" violates check constraint "brokerage_links_user_id_shape"'})
+            if not (20 <= len(r.get('secret_box') or '') <= 1000):
+                return self.reply(400, {'code': '23514', 'message': 'new row for relation "brokerage_links" violates check constraint "brokerage_links_box_length"'})
+            if sub in STATE['links'] and 'merge-duplicates' not in prefer:
+                return self.reply(409, {'code': '23505', 'message': 'duplicate key value violates unique constraint "brokerage_links_pkey"'})
+        for r in rows:
+            old = STATE['links'].get(sub)
+            STATE['links'][sub] = {'user_id': sub, 'snaptrade_user_id': r['snaptrade_user_id'], 'secret_box': r['secret_box'],
+                                   'created_at': old['created_at'] if old else now_iso(), 'updated_at': now_iso()}
+        return self.reply(201)
 
     # ---------------- feedback (insert only) ----------------
     def feedback_missing(self):
@@ -250,13 +349,27 @@ class H(http.server.BaseHTTPRequestHandler):
     def h_get(self, path, q):
         if path == '/rest/v1/feedback':
             return self.feedback_denied(sub_of(self.headers))
+        if path == '/auth/v1/.well-known/jwks.json':
+            STATE['jwks_hits'] += 1
+            return self.reply(200, {'keys': [jwk_of(STATE['es256'], STATE['kid'])] if STATE['es256'] else []})
+        if path == '/rest/v1/brokerage_links':
+            if STATE['links_mode'] == 'missing':
+                return self.links_missing()
+            sub = sub_of(self.headers)
+            if not sub:
+                return self.reply(401, {'code': '42501', 'message': 'permission denied for table brokerage_links'})
+            want = self.links_filter(q)
+            cols = [c for c in (q.get('select') or '*').split(',')]
+            rows = [r for u, r in STATE['links'].items() if u == sub and (want is None or u == want)]
+            return self.reply(200, [{k: v for k, v in r.items() if cols == ['*'] or k in cols} for r in rows])
         if path == '/__outbox':
             mails = [m for m in STATE['outbox'] if m['to'] == (q.get('email') or '').lower()]
             return self.reply(200, mails[-1] if mails else None)
         if path == '/__state':
             return self.reply(200, {'users': [{'id': u['id'], 'email': u['email'], 'confirmed': bool(u.get('confirmed'))} for u in STATE['users'].values()],
                                     'rows': [{'user_id': k[0], 'key': k[1], 'value': v['value'], 'updated_at': v['updated_at']} for k, v in STATE['rows'].items()],
-                                    'feedback': [{k: v for k, v in f.items() if k != 't'} for f in STATE['feedback']]})
+                                    'feedback': [{k: v for k, v in f.items() if k != 't'} for f in STATE['feedback']],
+                                    'links': list(STATE['links'].values())})
         if path == '/auth/v1/verify':  # the emailed link: confirm, then back to the site with a one-time code
             c = STATE['codes'].pop(q.get('token') or '', None)
             if not c:
@@ -272,6 +385,7 @@ class H(http.server.BaseHTTPRequestHandler):
             self.send_response(303); self.cors(); self.send_header('Location', loc); self.send_header('Content-Length', '0'); self.end_headers()
             return
         if path == '/auth/v1/user':
+            STATE['user_hits'] += 1
             sub = sub_of(self.headers)
             if not sub:
                 return self.err(401, 'bad_jwt', 'invalid JWT')
@@ -302,6 +416,16 @@ class H(http.server.BaseHTTPRequestHandler):
     def h_delete(self, path, q):
         if path == '/rest/v1/feedback':
             return self.feedback_denied(sub_of(self.headers))
+        if path == '/rest/v1/brokerage_links':
+            if STATE['links_mode'] == 'missing':
+                return self.links_missing()
+            sub = sub_of(self.headers)
+            if not sub:
+                return self.reply(401, {'code': '42501', 'message': 'permission denied for table brokerage_links'})
+            want = self.links_filter(q)
+            if sub in STATE['links'] and (want is None or want == sub):  # other people's rows are invisible, so untouched
+                del STATE['links'][sub]
+            return self.reply(204)
         if path == '/rest/v1/user_data':
             sub = sub_of(self.headers)
             if not sub:

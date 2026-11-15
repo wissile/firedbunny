@@ -14,6 +14,8 @@
 --   feedback             notes visitors send from the About page and the help chat (src/feedback.js). Anyone can send
 --                        one, signed in or not; nobody can read them through the website. Read them in the Table
 --                        Editor (table feedback), newest first.
+--   brokerage_links      one row per person who connected a brokerage on the Portfolio page: their SnapTrade user id
+--                        and SnapTrade secret, encrypted by the site's Worker. No holdings or transactions are stored.
 --
 -- The website talks to this with the project's publishable (anon) key, which is public by design. These rules are
 -- what keep each person's data private, so do not turn row-level security off.
@@ -86,6 +88,9 @@ begin
     raise exception 'FiredBunny: not signed in' using errcode = 'insufficient_privilege';
   end if;
   delete from public.user_data where user_id = me;
+  if to_regclass('public.brokerage_links') is not null then
+    execute 'delete from public.brokerage_links where user_id = $1' using me;
+  end if;
   delete from auth.users where id = me;
 end;
 $$;
@@ -164,3 +169,69 @@ drop trigger if exists feedback_before_insert on public.feedback;
 create trigger feedback_before_insert
   before insert on public.feedback
   for each row execute function public.feedback_before_insert();
+
+-- ---------------------------------------------------------------------------------------------------------------------
+-- Brokerage links: the Portfolio page's read-only connection through SnapTrade (worker/brokerage.js,
+-- src/mod-y-portfolio.js, docs/portfolio/README.md).
+--
+-- One row per person who connected a brokerage. Holdings, balances and transactions are never stored here: the Worker
+-- fetches them from SnapTrade when the person opens the Portfolio page, and only their own device keeps a copy.
+--   snaptrade_user_id  the person's user id at SnapTrade: 'fb-' followed by their account id (plus a short suffix if
+--                      SnapTrade had to give them a new one)
+--   secret_box         their SnapTrade user secret, encrypted by the Worker (AES-256-GCM, with a key only the Worker
+--                      holds and bound to this snaptrade_user_id). Useless without that key, and opens for no one else.
+-- The Worker reads and writes the row with the person's own sign-in token, so the rules below bind it as well: each
+-- person sees, adds, changes and deletes only their own row; visitors who are not signed in cannot touch the table.
+-- Deleting the account deletes the row (and Settings asks the Worker to delete the SnapTrade user first).
+create table if not exists public.brokerage_links (
+  user_id           uuid        primary key default auth.uid() references auth.users (id) on delete cascade,
+  snaptrade_user_id text        not null,
+  secret_box        text        not null,
+  created_at        timestamptz not null default now(),
+  updated_at        timestamptz not null default now(),
+  constraint brokerage_links_user_id_shape check (
+    snaptrade_user_id = 'fb-' || user_id::text
+    or (snaptrade_user_id like ('fb-' || user_id::text || '-%') and char_length(snaptrade_user_id) <= 56)),
+  constraint brokerage_links_box_length check (char_length(secret_box) between 20 and 1000)
+);
+
+comment on table public.brokerage_links is 'FiredBunny: each person''s SnapTrade user id and encrypted SnapTrade secret for the Portfolio page. No holdings are stored (see supabase/schema.sql in the site repo).';
+
+alter table public.brokerage_links enable row level security;
+
+revoke all on table public.brokerage_links from anon, authenticated;
+grant select on table public.brokerage_links to authenticated;
+-- (update includes user_id because an upsert sets every column it sends; the policy keeps it the person's own)
+grant insert (user_id, snaptrade_user_id, secret_box), update (user_id, snaptrade_user_id, secret_box), delete on table public.brokerage_links to authenticated;
+
+drop policy if exists "brokerage_links: read own"   on public.brokerage_links;
+drop policy if exists "brokerage_links: add own"    on public.brokerage_links;
+drop policy if exists "brokerage_links: change own" on public.brokerage_links;
+drop policy if exists "brokerage_links: delete own" on public.brokerage_links;
+
+create policy "brokerage_links: read own" on public.brokerage_links
+  for select to authenticated using ((select auth.uid()) = user_id);
+create policy "brokerage_links: add own" on public.brokerage_links
+  for insert to authenticated with check ((select auth.uid()) = user_id);
+create policy "brokerage_links: change own" on public.brokerage_links
+  for update to authenticated using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
+create policy "brokerage_links: delete own" on public.brokerage_links
+  for delete to authenticated using ((select auth.uid()) = user_id);
+
+-- The server's clock keeps the dates.
+create or replace function public.brokerage_links_before_write()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+begin
+  if tg_op = 'INSERT' then new.created_at := now(); else new.created_at := old.created_at; end if;
+  new.updated_at := now();
+  return new;
+end;
+$$;
+
+drop trigger if exists brokerage_links_before_write on public.brokerage_links;
+create trigger brokerage_links_before_write
+  before insert or update on public.brokerage_links
+  for each row execute function public.brokerage_links_before_write();

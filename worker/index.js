@@ -13,7 +13,12 @@
 
    SEC asks automated tools to identify themselves with a contact email in the User-Agent and turns other requests
    away (403). Set the SEC_UA variable to "FiredBunny <contact email>" in Cloudflare (Worker > Settings > Variables
-   and Secrets). /api/health says whether it is set, never what it is. */
+   and Secrets). /api/health says whether it is set, never what it is.
+
+   POST /api/brokerage/...          the read-only portfolio (SnapTrade) for signed-in visitors: see worker/brokerage.js.
+                                   Needs the secrets SNAPTRADE_CLIENT_ID, SNAPTRADE_CONSUMER_KEY and BROKERAGE_KEY;
+                                   /api/health says whether each is set, never what it is. */
+import { brokerage, brokerageHealth, config as brokerageConfig } from './brokerage.js';
 
 const DEFAULT_UA = 'FiredBunny earnings lookup https://github.com/wissile/firedbunny';
 const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
@@ -26,6 +31,8 @@ const timeout = (ms) => (typeof AbortSignal !== 'undefined' && AbortSignal.timeo
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    // the portfolio relay answers with its own short error codes and never passes an exception's message on
+    if (url.pathname === '/api/brokerage' || url.pathname.startsWith('/api/brokerage/')) return brokerage(request, env, url);
     if (url.pathname === '/api' || url.pathname.startsWith('/api/')) {
       try { return await api(url, request, env, ctx); }
       catch (e) { return json({ error: 'server_error', message: 'Something went wrong in the data relay. Try again in a moment.', detail: String((e && e.message) || e).slice(0, 200) }, 502); }
@@ -193,12 +200,15 @@ async function health(env, ua) {
       return { name, ok: n >= 20, points: n, last: n ? out.points[n - 1] : null, ms: Date.now() - t0, note: tried.map((x) => [x.status, x.error, x.sample].filter(Boolean).join(' ')).join('; ') };
     } catch (e) { return { name, ok: false, ms: Date.now() - t0, note: String((e && e.name) || e) }; }
   };
-  const [tickers, facts, subs, yh, st] = await Promise.all([
+  const bk = brokerageConfig(env);
+  const [tickers, facts, subs, yh, st, snap] = await Promise.all([
     probe('SEC ticker list', 'https://www.sec.gov/files/company_tickers.json', secHeaders(ua)),
     probe('SEC company facts (Apple)', 'https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json', secHeaders(ua)),
     probe('SEC filing index (Apple)', 'https://data.sec.gov/submissions/CIK0000320193.json', secHeaders(ua)),
     pricePr('Prices: Yahoo Finance (AAPL)', (t) => yahoo('AAPL', t, '1mo')),
     pricePr('Prices: Stooq (AAPL)', (t) => stooq('AAPL', t, 0.1)),
+    // SnapTrade's public status endpoint (no keys sent), only once the brokerage secrets are set
+    bk.ready ? probe('SnapTrade API status', bk.api + '/', { Accept: 'application/json' }) : Promise.resolve(null),
   ]);
   const sec = [tickers, facts, subs];
   const secOk = sec.every((c) => c.ok), priceOk = yh.ok || st.ok;
@@ -209,7 +219,8 @@ async function health(env, ua) {
   return json({
     ok: secOk, verdict, time: new Date().toISOString(),
     secUserAgent: env && env.SEC_UA ? 'SEC_UA is set' : 'SEC_UA is not set (using a default without a contact email)',
-    checks: [tickers, facts, subs, yh, st],
+    brokerage: brokerageHealth(env),
+    checks: [tickers, facts, subs, yh, st].concat(snap ? [snap] : []),
   }, secOk ? 200 : 503);
 }
 
