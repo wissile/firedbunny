@@ -688,7 +688,7 @@
       const card = hiDebt.length ? (lessonById('l-card-debt') ? 'l-card-debt' : null) : null;
       return `<section class="dsh-card" aria-labelledby="dsh-nw-h">
         <div class="dsh-h"><div><p class="dsh-k">Net worth</p><h2 id="dsh-nw-h">What you own minus what you owe</h2><p class="dsh-sub">Edit an asset or debt and today's point on the chart updates. Record a day any time to mark it.</p></div>
-          ${has ? `<div class="dsh-acts"><button type="button" class="btn btn-g sm" data-act="record">${I(ICON.cam, 15)}Record today</button></div>` : ''}</div>
+          <div class="dsh-acts">${has ? `<button type="button" class="btn btn-g sm" data-act="record">${I(ICON.cam, 15)}Record today</button>` : ''}${SML.host === 'web' && SML.pages.portfolio ? `<a class="btn btn-g sm" href="#portfolio">${SML.portfolio && SML.portfolio.enabled() ? 'Your brokerage: Portfolio' : 'Portfolio (sample)'}</a>` : ''}</div></div>
         ${has ? `<div class="dsh-nw"><div style="min-width:0">
             <div class="dsh-big"><div><span class="v${nw.net < 0 ? ' neg' : ''}">${nw.net < 0 ? MINUS : ''}${usd(Math.abs(nw.net))}</span></div><div><span class="s">Assets <b>${usd(nw.assets)}</b></span><span class="s">Debts <b>${usd(nw.debts)}</b></span></div></div>
             ${ins.length ? `<div class="dsh-ins">${ins.join('')}</div>` : ''}

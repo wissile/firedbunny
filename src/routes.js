@@ -36,6 +36,7 @@
     "settings": "/settings/",
     "signin": "/signin/",
     "offline": "/offline/",
+    "portfolio": "/portfolio/",
     "c-basics": "/courses/market-basics/",
     "c-charts": "/courses/reading-charts/",
     "c-indicators": "/courses/indicators/",
@@ -282,7 +283,7 @@
     "post-tax-loss-checklist": "/notes/tax-loss-checklist/",
     "post-premarket-routine": "/notes/premarket-routine/"
   };
-  const PRIVATE = ["results", "dashboard", "profile", "settings", "signin", "offline"];
+  const PRIVATE = ["results", "dashboard", "profile", "settings", "signin", "offline", "portfolio"];
   // pages whose content is the same as another page's: they point search engines at that one (rel=canonical)
   const CANONICAL_OF = { learn: 'track-trading' };
   const PREFIX = [['l-', '/lessons/'], ['c-', '/courses/'], ['tool-', '/tools/'], ['track-', '/tracks/'], ['post-', '/notes/']];

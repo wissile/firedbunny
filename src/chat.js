@@ -518,7 +518,8 @@
     'ask-owner'(q) { return startFeedback('Question', q); },
     delete() {
       const signed = !!(SML.cloud && SML.cloud.user), cloud = SML.account && SML.account.status && SML.account.status.mode === 'cloud';
-      const h = P(`Go to <b>Settings</b>, find <b>Delete my data</b>, type DELETE and press <b>Delete everything</b>. That removes your profile, goals, net worth history, assessments and lesson progress ${cloud ? 'from your account' : 'from this browser'}.${signed ? ' <b>Delete my account too</b> also removes your login and email address.' : ''} Export a copy first if you might want it back.`) + `<p class="fbc-note">Feedback notes you’ve sent are kept separately by the person who runs FiredBunny. To have one removed, send a note asking for it.</p>` + actsHTML([link('settings', 'Open Settings', true)]);
+      const dn = D().notes && D().notes.delete ? D().notes.delete() : '';
+      const h = P(`Go to <b>Settings</b>, find <b>Delete my data</b>, type DELETE and press <b>Delete everything</b>. That removes your profile, goals, net worth history, assessments and lesson progress ${cloud ? 'from your account' : 'from this browser'}.${signed ? ' <b>Delete my account too</b> also removes your login and email address.' : ''} Export a copy first if you might want it back.`) + (dn ? P(esc(dn)) : '') + `<p class="fbc-note">Feedback notes you’ve sent are kept separately by the person who runs FiredBunny. To have one removed, send a note asking for it.</p>` + actsHTML([link('settings', 'Open Settings', true)]);
       st.last = { type: 'page', tok: 'settings', title: 'Settings' };
       return { h, chips: [{ l: 'Send a note', a: 'feedback' }, { l: 'Something else', a: 'menu', q: 1 }] };
     },
@@ -545,6 +546,7 @@
       let h;
       if (SML.host === 'claude') h = P('Signed in, your data is saved to your private FiredBunny profile; other visitors and the site owner can’t read it. As a guest, it stays in this browser. Feedback you send is the only thing the owner reads.');
       else h = P(`Your progress and plans are saved in this browser${SML.accountsOn ? ', or in your FiredBunny account if you sign in, where other visitors can’t see them' : ''}. FiredBunny uses Google Analytics to count visits and see which pages, lessons and tools people use. It never sends your profile, goals, money figures or anything you type into the tools, and you can switch it off in Settings.`);
+      const pn = D().notes && D().notes.privacy ? D().notes.privacy() : ''; if (pn) h += P(esc(pn));
       h += P('This chat keeps the conversation in this tab only. Nothing you type here is sent anywhere unless you choose to send it as a note.');
       st.last = { type: 'page', tok: 'settings', title: 'Settings' };
       return { h: h + actsHTML([link('settings', 'Privacy & settings', true)]), chips: C('after') };
@@ -775,7 +777,7 @@
       else if (it.do === 'when') out = H.when(t, a);
       else if (it.do === 'feedback') out = H.feedback(null, t);
       else if (it.do && H[it.do]) out = H[it.do](t, a);
-      else if (it.say) { out = { h: P(esc(it.say)) + actsHTML((it.links || []).map((tok, i) => link(tok, titleOf(tok), i === 0))), chips: typeof it.chips === 'string' ? C(it.chips) : (it.chips || C('after')) }; if (it.links && it.links[0]) st.last = { type: 'page', tok: it.links[0], title: titleOf(it.links[0]) }; }
+      else if (it.say) { out = { h: P(esc(typeof it.say === 'function' ? it.say() : it.say)) + actsHTML((it.links || []).map((tok, i) => link(tok, titleOf(tok), i === 0))), chips: typeof it.chips === 'string' ? C(it.chips) : (it.chips || C('after')) }; if (it.links && it.links[0]) st.last = { type: 'page', tok: it.links[0], title: titleOf(it.links[0]) }; }
       if (out) return Object.assign(out, { intent: it.id });
     }
     const out = lookup(t, a, 'search');

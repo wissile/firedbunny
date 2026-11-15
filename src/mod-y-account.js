@@ -651,7 +651,7 @@
               <p class="acx-sub">Permanently removes your profile, household, assets, debts, goals, net worth history, assessments and lesson progress${kind === 'cloud' ? ' from your account' : ' from this browser'}. Export first if you might want it back.</p>
               <label class="fld" for="acx-del"><span>Type DELETE to confirm</span><input id="acx-del" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="DELETE"></label>
               <div class="acx-row"><button type="button" class="btn btn-dn" data-acx-act="delete" disabled>Delete everything</button>${sb ? '<button type="button" class="btn btn-g" data-acx-act="delete-account" disabled>Delete my account too</button>' : ''}<span class="acx-note" data-acx="del-msg" aria-live="polite"></span></div>
-              ${sb ? '<p class="acx-note">“Delete my account too” also removes your login and email address. You can create a new account later, but nothing comes back.</p><p class="acx-err" data-auth="out-msg" role="alert" hidden></p>' : ''}
+              ${sb ? `<p class="acx-note">“Delete my account too” also removes your login and email address${SML.portfolio && SML.portfolio.enabled() ? ', and any brokerage you connected on the Portfolio page (removed at SnapTrade first)' : ''}. You can create a new account later, but nothing comes back.${SML.portfolio && SML.portfolio.enabled() ? ' “Delete everything” leaves a connected brokerage alone: disconnect it on the <a class="ulink" href="#portfolio">Portfolio</a> page.' : ''}</p><p class="acx-err" data-auth="out-msg" role="alert" hidden></p>` : ''}
             </section>
           </div>
 
@@ -662,6 +662,11 @@
                 <p class="acx-note">The FiredBunny mobile apps (wheel tracker, retirement runway and trader toolkit) are in development. ${SML.host === 'web' ? (SML.accountsOn ? 'They will sign in with your FiredBunny account, so your goals, net worth and progress show up on your phone.' : 'They will bring your goals, net worth and progress to your phone.') : 'They will sign in with the same Claude account and read this same profile, so your goals, net worth and progress show up on your phone.'} Until then, <b>Export</b> gives you everything in one file.</p>
               </div>
               <a class="acx-link" href="#apps">${ico.phone}<span><b>See the apps</b><small>What’s coming, and what each one does.</small></span></a>
+            </section>
+
+            <section class="acx-card" aria-labelledby="acx-s10"><div class="acx-h"><h2 id="acx-s10">${ico.shield}Portfolio</h2></div>
+              <p class="acx-sub">${SML.portfolio && SML.portfolio.enabled() ? 'Connect a brokerage read-only through SnapTrade and see your accounts explained, or disconnect it.' : 'See a sample portfolio explained: allocation, concentration, taxes, options and income.'}</p>
+              <a class="acx-link" href="#portfolio">${ico.shield}<span><b>Portfolio</b><small>${SML.portfolio && SML.portfolio.enabled() ? 'Read-only. FiredBunny can’t place trades.' : 'Made-up sample data.'}</small></span></a>
             </section>
 
             ${SML.host === 'web' ? `<section class="acx-card" aria-labelledby="acx-s9"><div class="acx-h"><h2 id="acx-s9">${ico.down}Offline &amp; app</h2></div>
@@ -683,6 +688,7 @@
                 <li>${ico.check}<span>As a guest, your data is saved in this browser only. Anyone using this browser can see it, so on a shared computer delete it here when you’re done.</span></li>
                 <li>${ico.check}<span>No passwords: FiredBunny uses your Claude account, so there is no FiredBunny password to leak.</span></li>`}
                 <li>${ico.check}<span>Never enter account numbers, logins or your Social Security number. FiredBunny only needs rough amounts.</span></li>
+                ${SML.host === 'web' && SML.portfolio && SML.portfolio.enabled() ? `<li>${ico.check}<span>If you connect a brokerage on the Portfolio page, SnapTrade links it read-only. FiredBunny’s server fetches your balances, positions and transactions when you open that page and passes them to your browser, which keeps a copy on this device only (deleted when you sign out); they are not saved to your account. Your account stores only an encrypted key for SnapTrade. Disconnect there any time; deleting your account removes it too.</span></li>` : ''}
                 ${SML.host === 'web' ? (SML.cloud && SML.cloud.configured ? `<li>${ico.check}<span>Feedback you send from the About page or the help chat goes to FiredBunny’s database (hosted by Supabase) for the person who runs the site to read: your message, its kind, the page, the time and your browser type, plus your email only if you give one, and your account id if you’re signed in. The help chat keeps its conversation in this tab only.</span></li>` : '') : `<li>${ico.check}<span>Feedback you send from the About page or the help chat is the only thing the owner reads.</span></li>`}
                 <li>${ico.check}<span>Delete everything any time with the button on this page.</span></li>
               </ul>
@@ -784,8 +790,15 @@
     if (delAcc) delAcc.addEventListener('click', async () => {
       if (delIn.value.trim().toUpperCase() !== 'DELETE') return;
       delAcc.disabled = true; delBtn.disabled = true; delMsg.textContent = 'Deleting your account…';
-      try { await SML.cloud.deleteAccount(); SML.toast('Your FiredBunny account is deleted.'); setTimeout(() => location.replace((SML.routes && SML.routes.mode === 'path') ? SML.routes.path('home') : location.pathname), 600); }
-      catch (err) { delMsg.textContent = (err && err.message) || 'Could not delete your account right now. Try again.'; delAcc.disabled = false; delBtn.disabled = false; }
+      const home = () => location.replace((SML.routes && SML.routes.mode === 'path') ? SML.routes.path('home') : location.pathname);
+      // a connected brokerage goes first (the server needs this sign-in to remove it at SnapTrade); if SnapTrade can't
+      // be reached, the account is still deleted and the page says what to do
+      const bk = SML.portfolio ? await SML.portfolio.forget() : { ok: true };
+      try { await SML.cloud.deleteAccount(); }
+      catch (err) { delMsg.textContent = (err && err.message) || 'Could not delete your account right now. Try again.'; delAcc.disabled = false; delBtn.disabled = false; return; }
+      if (bk.ok) { SML.toast('Your FiredBunny account is deleted.'); setTimeout(home, 600); return; }
+      delMsg.innerHTML = '<b>Your FiredBunny account is deleted.</b> SnapTrade, the brokerage-connection service, could not be reached, so if you had connected a brokerage, its read-only access may still be listed there. You can remove it in your brokerage’s own settings, in its list of connected apps or third-party access. <button type="button" class="btn btn-g sm" data-acx-act="home">OK</button>';
+      const ok = $('[data-acx-act="home"]', delMsg); if (ok) { ok.addEventListener('click', home); ok.focus(); }
     });
     const so = $('[data-auth-act="signout"]', view), soMsg = $('[data-auth="out-msg"]', view);
     if (so && soMsg) so.addEventListener('click', () => signOutFlow(so, soMsg, false));

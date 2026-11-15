@@ -48,7 +48,7 @@ HEAD = f'''<title>FiredBunny</title>
 '''
 # every script of the site, in load order. The help chat comes last: it needs the router and every page to exist, and
 # its launcher is added after the first page has drawn (its panel and search index wait for the first open).
-SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'cloud-config.js', 'cloud.js', 'account.js',
+SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'cloud-config.js', 'brokerage-config.js', 'cloud.js', 'account.js',
            'feedback.js', 'assets.js', 'routes.js'] + mods + ['hero.js', 'seo.js', 'pages.js', 'chat-data.js', 'chat.js']
 BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 

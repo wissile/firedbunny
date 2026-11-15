@@ -65,7 +65,7 @@
   SML.navIndex = (tok) => { const i = NAV.findIndex((n) => n[0] === tok); return i >= 0 ? nn(i + 1) : tok === 'glossary' ? '07' : ''; };
   function section(tok) {
     if (tok === 'learn' || /^[lc]-/.test(tok) || /^track-/.test(tok) || tok === 'assessment' || tok === 'results') return 'learn';
-    if (tok === 'dashboard' || tok === 'profile' || tok === 'settings' || tok === 'signin') return 'account';
+    if (tok === 'dashboard' || tok === 'profile' || tok === 'settings' || tok === 'signin' || tok === 'portfolio') return 'account';
     if (tok === 'play' || tok === 'wheel') return 'play';
     if (tok === 'tools' || /^tool-/.test(tok) || tok === 'indicator' || tok === 'sheets') return 'tools';
     if (tok === 'blog' || /^post-/.test(tok)) return 'blog';
@@ -869,7 +869,7 @@
       } else window.addEventListener('hashchange', render);
       render();
     } finally { hideLoader(); }
-    const live = ['dashboard', 'profile', 'settings', 'results', 'signin'];
+    const live = ['dashboard', 'profile', 'settings', 'results', 'signin', 'portfolio'];
     document.addEventListener('sml:account', (e) => { const t = e.detail && e.detail.type; if ((t === 'ready' || t === 'mode') && live.indexOf(current) >= 0) SML.rerender(); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();

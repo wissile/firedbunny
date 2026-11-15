@@ -83,6 +83,7 @@
       { tok: 'assessment', title: 'Investor self-assessment', keys: 'self assessment assessment investor type profile risk tolerance personality quiz test', say: 'Seven short parts, about 7 minutes: your investor type, a risk profile, a starting mix, your FIRE number and a learning path.' },
       { tok: 'results', title: 'Your assessment results', keys: 'results my profile investor profile assessment results', say: 'Your investor profile from the self-assessment, once you have taken it.' },
       { tok: 'calendar', title: 'Market & tax calendar', keys: 'calendar dates schedule fed meetings cpi jobs report tax deadlines holidays earnings season options expiration', say: 'Fed meetings, inflation and jobs reports, options expiration, market holidays, tax deadlines and open enrollment, with why each date matters.' },
+      { tok: 'portfolio', title: 'Portfolio', keys: 'portfolio brokerage connect brokerage snaptrade my holdings my brokerage account read only', say: 'Your brokerage accounts, connected read-only through SnapTrade, explained: allocation, concentration, gains and losses by tax term, open options and income. Without a connection it shows a made-up sample portfolio.' },
       { tok: 'offline', title: 'Offline & app', keys: 'offline install app home screen download audio save audio pwa', say: 'Use FiredBunny without a connection: save lesson audio for offline listening and install the site as an app.' },
       { tok: 'apps', title: 'Apps', keys: 'apps mobile app iphone android ios app store play store', say: 'Three FiredBunny mobile apps (wheel tracker, retirement runway and trader toolkit) are in development, with previews you can try.' },
       { tok: 'settings', title: 'Privacy & settings', keys: 'settings privacy preferences export import delete data backup analytics cookies', say: 'Preferences, lesson progress and your data: export it, import it or delete it.' },
@@ -97,6 +98,13 @@
       { tok: 'blog', title: 'Trade notes', keys: 'notes blog posts articles breakdowns checklists routines', say: 'Trade breakdowns, wheel logs, checklists and routines, each with a chart you can step through.' },
       { tok: 'home', title: 'Home page', keys: 'home homepage front page main page start page', say: 'The front page: tracks, tools and a few lessons in miniature.' },
     ],
+
+    /* Extra lines the privacy and delete answers (src/chat.js) add when they apply: they restate the Portfolio page and
+       Settings. Change them with those pages. */
+    notes: {
+      privacy: () => (SML.portfolio && SML.portfolio.enabled() ? 'If you connect a brokerage on the Portfolio page, SnapTrade links it read-only. Your balances, positions and transactions are fetched when you open that page and kept on this device only, not in your account; your account holds just an encrypted key for SnapTrade. Disconnect there any time.' : ''),
+      delete: () => (SML.portfolio && SML.portfolio.enabled() && SML.cloud && SML.cloud.user ? 'A connected brokerage stays connected after Delete everything: press Disconnect on the Portfolio page. Delete my account too removes it as well.' : ''),
+    },
 
     /* Words that say what kind of page someone wants. They are not used as search words themselves. */
     typeWords: {
@@ -199,6 +207,14 @@
         say: 'FiredBunny is a pen name: the name the person who writes and runs this site publishes under. They spent about ten years learning about money the slow way, and turned those notes into free lessons and tools. Lessons are drafted with AI tools and checked against the primary sources cited on each page.', links: ['about', 'editorial'], chips: [{ l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Send feedback', a: 'feedback' }, { l: 'Something else', a: 'menu' }] },
       { id: 'written', patterns: [/\b(written|made|created|generated|drafted) (by|with) (ai|chatgpt|a robot|a computer|claude)\b/, /\b(ai generated|ai written)\b/, /\b(are|is) (the )?(lessons|numbers|figures|facts|this site|the site|it|content) (accurate|reliable|checked|correct|true|up to date|current|trustworthy)\b/, /\bwhere (do|does) (you|the lessons|firedbunny) get\b/, /\b(your )?sources\b/],
         say: 'Lessons, examples and calculator guides are drafted with AI tools and checked against the primary sources cited on each page (the IRS, the SEC, the Federal Reserve and others), and the numbers in worked examples are recalculated, not copied. Each sourced lesson shows the month its figures were last checked. Rules change every year, so confirm current figures with the official source before you act.', links: ['editorial'], chips: [{ l: 'Report an inaccuracy', a: 'feedback', v: 'Correct an inaccuracy' }, { l: 'Something else', a: 'menu' }] },
+      // connecting a brokerage (the Portfolio page); before 'delete' so "disconnect my brokerage" lands here
+      { id: 'portfolio', patterns: [
+        /\b(connect|link|linking|hook up|import|sync|add)\b.*\b(brokerage|broker|robinhood|schwab|fidelity|vanguard|webull|etrade|e trade|holdings|positions|portfolio|investment accounts?)\b/,
+        /\b(brokerage|broker|robinhood|portfolio|holdings)\b.*\b(connect|connection|connected|link|linked|import|disconnect|unlink|revoke)\b/,
+        /\b(disconnect|unlink|revoke)\b.*\b(brokerage|broker|robinhood|portfolio|snaptrade|account)\b/,
+        /\b(see|view|show|check|track|analy[sz]e|review)\b.*\bmy (portfolio|holdings|positions|brokerage)\b/, /\bsnaptrade\b/, /^(my )?portfolio( page| dashboard| tracker)?$/],
+        say: () => 'The Portfolio page ' + (SML.portfolio && SML.portfolio.enabled() ? 'lets you connect a brokerage read-only through SnapTrade (Robinhood, or any brokerage SnapTrade supports)' : 'will let you connect a brokerage read-only through SnapTrade; for now it shows a made-up sample portfolio') + ' and explains your accounts: allocation, concentration, gains and losses by tax term, open options and income, each with its lesson. FiredBunny can’t place trades. Your holdings are fetched only when you open the page and kept on your device, not in your account, and Disconnect removes the access at SnapTrade.',
+        links: ['portfolio', 'settings'], chips: 'after' },
       // accounts and data
       { id: 'delete', patterns: [/\b(delete|erase|remove|wipe|clear|reset|destroy)\b.*\b(data|account|progress|everything|info|information|history|profile|details)\b/, /\bforget (me|my data)\b/, /\bclose my account\b/, /\bdelete my\b/], do: 'delete' },
       { id: 'signin', patterns: [/\b(sign|log) ?(in|on|up|into)\b/, /\b(create|make|open|register|need|get) (an |my |a free |a )?account\b/, /\b(forgot|reset|change|lost) (my )?password\b/, /\bpassword\b/, /^(login|account|my account)$/], do: 'signin' },

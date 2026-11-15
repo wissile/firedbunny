@@ -116,6 +116,7 @@
     settings: () => 'Sync, preferences, lesson progress and your data: export, import or delete it.',
     signin: () => 'How FiredBunny saves your progress in your browser, with no account or password.',
     offline: () => 'Use FiredBunny without a connection: save lesson audio for offline listening and install the site as an app.',
+    portfolio: () => 'Your brokerage accounts, connected read-only, seen the way the lessons teach: allocation, concentration, taxes, options and income.',
     'not-found': () => 'This page does not exist. Browse the lessons and tools instead.',
   };
 

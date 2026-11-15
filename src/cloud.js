@@ -43,7 +43,7 @@
     const p = q.get('preview');
     if (p === 'off') ls.del(PV);
     else if (p === 'accounts' || (/^\/signin\/?$/.test(location.pathname) && (q.get('token_hash') || q.get('code')))) ls.set(PV, '1');
-    if (p) {
+    if (p === 'accounts') { // other previews (?preview=brokerage, ?preview=off) are read by their own pages too
       q.delete('preview');
       try { history.replaceState(history.state, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); } catch (e) {}
     }
@@ -68,6 +68,8 @@
   }
   loadCache();
   const saveCache = () => { if (CKEY && !ls.set(CKEY, JSON.stringify(cache))) console.warn('[FiredBunny] could not keep the offline copy of your account'); };
+  // other copies this device keeps for the signed-in person (the Portfolio page's holdings) go when they sign out
+  const dropDeviceCopies = () => { if (user) ls.del('fb-portfolio:' + user.id); };
   const status = { enabled, signedIn: !!user, email: user ? user.email : '', lastSync: cache.pulledAt, error: null, pending: Object.keys(cache.pending).length, offline: navigator.onLine === false };
   const statusListeners = new Set(), changeListeners = new Set();
   const emitStatus = () => { status.pending = Object.keys(cache.pending).length; statusListeners.forEach((fn) => { try { fn(Object.assign({}, status)); } catch (e) {} }); };
@@ -103,7 +105,7 @@
         const c = window.supabase.createClient(C.url, C.key, { auth: { flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
         c.auth.onAuthStateChange((event) => {
           // the session ended without us asking (password changed elsewhere, account deleted, refresh refused)
-          if (event === 'SIGNED_OUT' && user && !leaving) { if (!Object.keys(cache.pending).length && CKEY) ls.del(CKEY); location.reload(); }
+          if (event === 'SIGNED_OUT' && user && !leaving) { if (!Object.keys(cache.pending).length && CKEY) ls.del(CKEY); dropDeviceCopies(); location.reload(); }
         });
         return c;
       });
@@ -228,7 +230,7 @@
     window.addEventListener('offline', () => { status.offline = true; emitStatus(); });
     // another tab of this browser signed out, or changed the shared copy
     window.addEventListener('storage', (e) => {
-      if (e.key === SKEY && !e.newValue) location.reload();
+      if (e.key === SKEY && !e.newValue) { dropDeviceCopies(); location.reload(); }
       else if (e.key === CKEY && e.newValue) { loadCache(); emitStatus(); emitChange(['*']); }
     });
     setTimeout(() => { if (cache.pulledAt) sync(true); }, 50); // refresh a copy we already had; ready() fetches the first one
@@ -296,7 +298,7 @@
     if (n && !force) return { ok: false, pending: n };
     leaving = true;
     try { const c = await client(); await c.auth.signOut({ scope: 'local' }); } catch (e) {}
-    ls.del(SKEY); if (CKEY) ls.del(CKEY);
+    ls.del(SKEY); if (CKEY) ls.del(CKEY); dropDeviceCopies();
     return { ok: true };
   }
   async function deleteAccount() {
@@ -305,7 +307,7 @@
     if (error) fail(error);
     leaving = true;
     try { await c.auth.signOut({ scope: 'local' }); } catch (e) {}
-    ls.del(SKEY); if (CKEY) ls.del(CKEY);
+    ls.del(SKEY); if (CKEY) ls.del(CKEY); dropDeviceCopies();
   }
   /** On the sign-in page: finish what an emailed link started (confirm the email, or reset the password). */
   async function handleLink() {
