@@ -15,6 +15,15 @@ request sees, adds, changes and deletes only the row whose user_id is the token'
 'fb-<user_id>' (optionally with a suffix) and secret_box 20 to 1000 characters; delete_my_account removes it.
 STATE['links_mode'] = 'missing' answers as Supabase does before the table exists.
 
+public.waitlist (the Plans page) follows supabase/schema.sql: anyone may add a row with only the visitor columns (email,
+extras, note); the server fills user_id from the token and drops the email for a signed-in person, trims the email and
+note, drops empty extras, refuses the 121st sign-up within ten minutes (checked first), then quietly skips a second
+sign-up for the same email (any capitals) or account (201, nothing stored, like the trigger returning NULL), then applies
+the checks (exactly one of email or account, email shape, extras from the fixed list, note up to 280). A signed-in
+request may read its own rows (not the email column) and delete them with a filter; nobody may change rows.
+STATE['waitlist_mode'] = 'missing' answers as before the table exists; each insert's Prefer header is kept in
+STATE['waitlist_prefer'].
+
 enable_es256(iss) switches tokens to ES256 with a locally generated P-256 key (like the real project's signing keys),
 served at /auth/v1/.well-known/jwks.json, and makes the REST side verify signatures. sign_es256() mints any token
 (tests use it to forge bad ones). Without it, tokens stay unsigned HS256 look-alikes as before.
@@ -24,9 +33,13 @@ from datetime import datetime, timezone
 
 STATE = {'users': {}, 'rows': {}, 'codes': {}, 'refresh': {}, 'outbox': [], 'confirm': True, 'calls': [],
          'feedback': [], 'feedback_mode': 'ok', 'feedback_prefer': [], 'links': {}, 'links_mode': 'ok',
+         'waitlist': [], 'waitlist_mode': 'ok', 'waitlist_prefer': [],
          'es256': None, 'kid': 'fbtest-kid-1', 'iss': None, 'jwks_hits': 0, 'user_hits': 0}
 FEEDBACK_COLS = {'kind', 'message', 'email', 'page', 'source', 'user_agent'}
 EMAIL_SHAPE = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
+WAITLIST_COLS = {'email', 'extras', 'note'}
+WAITLIST_READABLE = {'id', 'created_at', 'user_id', 'extras', 'note'}
+WAITLIST_EXTRAS = {'review', 'coach', 'report', 'history'}
 LOCK = threading.Lock()
 
 
@@ -246,11 +259,14 @@ class H(http.server.BaseHTTPRequestHandler):
         sub = sub_of(self.headers)
         if path == '/rest/v1/feedback':
             return self.feedback_insert(sub, b)
+        if path == '/rest/v1/waitlist':
+            return self.waitlist_insert(sub, b)
         if path == '/rest/v1/rpc/delete_my_account':
             if not sub:
                 return self.reply(401, {'code': '42501', 'message': 'permission denied for function delete_my_account'})
             STATE['rows'] = {k: v for k, v in STATE['rows'].items() if k[0] != sub}
             STATE['links'].pop(sub, None)  # references auth.users on delete cascade
+            STATE['waitlist'] = [w for w in STATE['waitlist'] if w['user_id'] != sub]  # delete_my_account and the cascade
             STATE['users'].pop(sub, None)
             for f in STATE['feedback']:  # references auth.users on delete set null
                 if f['user_id'] == sub:
@@ -346,9 +362,68 @@ class H(http.server.BaseHTTPRequestHandler):
             STATE['feedback'].append(dict({c: r.get(c) for c in FEEDBACK_COLS}, id=str(uuid.uuid4()), created_at=now_iso(), status='new', user_id=sub, t=time.time()))
         return self.reply(201)
 
+    # ---------------- waitlist (join; own rows readable and removable when signed in) ----------------
+    def waitlist_missing(self):
+        return self.reply(404, {'code': 'PGRST205', 'details': None, 'hint': None, 'message': "Could not find the table 'public.waitlist' in the schema cache"})
+
+    def waitlist_denied(self, sub):
+        return self.reply(403 if sub else 401, {'code': '42501', 'details': None, 'hint': None, 'message': 'permission denied for table waitlist'})
+
+    def waitlist_insert(self, sub, b):
+        if STATE['waitlist_mode'] == 'missing':
+            return self.waitlist_missing()
+        prefer = self.headers.get('Prefer') or ''
+        STATE['waitlist_prefer'].append(prefer)
+        if 'return=representation' in prefer:  # reading the row back would need the email column, which nobody can read
+            return self.waitlist_denied(sub)
+        rows = b if isinstance(b, list) else [b]
+        check = lambda name: self.reply(400, {'code': '23514', 'details': None, 'hint': None, 'message': f'new row for relation "waitlist" violates check constraint "waitlist_{name}"'})
+        if any(not isinstance(r, dict) or set(r) - WAITLIST_COLS for r in rows):  # column privileges
+            return self.waitlist_denied(sub)
+        for r in rows:
+            # the trigger: server-side fields and tidying, the flood guard, then the quiet duplicate skip
+            raw, ex, nt = r.get('email'), r.get('extras'), r.get('note')
+            email = None if sub else ((raw.strip() or None) if isinstance(raw, str) else raw)
+            extras = sorted(set(x for x in ex if x is not None)) if isinstance(ex, list) and all(isinstance(x, (str, type(None))) for x in ex) else ([] if ex is None else [ex])
+            note = (nt.strip() or None) if isinstance(nt, str) else nt
+            if sum(1 for w in STATE['waitlist'] if w['t'] > time.time() - 600) >= 120:
+                return self.reply(400, {'code': 'P0001', 'details': None, 'hint': None, 'message': 'FiredBunny: too many waitlist sign-ups right now, try again in a few minutes'})
+            if any((sub and w['user_id'] == sub) or (email and isinstance(email, str) and (w['email'] or '').lower() == email.lower()) for w in STATE['waitlist']):
+                continue
+            # the table's checks
+            if (email is None) == (sub is None): return check('who')
+            if email is not None and (not isinstance(email, str) or len(email) > 254 or not EMAIL_SHAPE.match(email)): return check('email_shape')
+            if not isinstance(extras, list) or any(x not in WAITLIST_EXTRAS for x in extras): return check('extras_known')
+            if note is not None and (not isinstance(note, str) or len(note) > 280): return check('note_length')
+            STATE['waitlist'].append({'id': str(uuid.uuid4()), 'created_at': now_iso(), 'email': email, 'user_id': sub, 'extras': extras, 'note': note, 't': time.time()})
+        return self.reply(201)
+
+    def waitlist_select(self, sub, q):
+        if STATE['waitlist_mode'] == 'missing':
+            return self.waitlist_missing()
+        if not sub:
+            return self.waitlist_denied(sub)
+        cols = [c.strip() for c in (q.get('select') or '*').split(',')]
+        if cols == ['*'] or set(cols) - WAITLIST_READABLE:  # column privileges: no email for anyone
+            return self.waitlist_denied(sub)
+        return self.reply(200, [{c: w[c] for c in cols} for w in STATE['waitlist'] if w['user_id'] == sub])
+
+    def waitlist_delete(self, sub, q):
+        if STATE['waitlist_mode'] == 'missing':
+            return self.waitlist_missing()
+        if not sub:
+            return self.waitlist_denied(sub)
+        f = q.get('user_id', '')
+        if not f.startswith('eq.'):
+            return self.reply(400, {'code': '21000', 'details': None, 'hint': None, 'message': 'DELETE requires a WHERE clause'})
+        STATE['waitlist'] = [w for w in STATE['waitlist'] if not (w['user_id'] == sub and w['user_id'] == f[3:])]  # only one's own rows are visible
+        return self.reply(204)
+
     def h_get(self, path, q):
         if path == '/rest/v1/feedback':
             return self.feedback_denied(sub_of(self.headers))
+        if path == '/rest/v1/waitlist':
+            return self.waitlist_select(sub_of(self.headers), q)
         if path == '/auth/v1/.well-known/jwks.json':
             STATE['jwks_hits'] += 1
             return self.reply(200, {'keys': [jwk_of(STATE['es256'], STATE['kid'])] if STATE['es256'] else []})
@@ -369,7 +444,8 @@ class H(http.server.BaseHTTPRequestHandler):
             return self.reply(200, {'users': [{'id': u['id'], 'email': u['email'], 'confirmed': bool(u.get('confirmed'))} for u in STATE['users'].values()],
                                     'rows': [{'user_id': k[0], 'key': k[1], 'value': v['value'], 'updated_at': v['updated_at']} for k, v in STATE['rows'].items()],
                                     'feedback': [{k: v for k, v in f.items() if k != 't'} for f in STATE['feedback']],
-                                    'links': list(STATE['links'].values())})
+                                    'links': list(STATE['links'].values()),
+                                    'waitlist': [{k: v for k, v in w.items() if k != 't'} for w in STATE['waitlist']]})
         if path == '/auth/v1/verify':  # the emailed link: confirm, then back to the site with a one-time code
             c = STATE['codes'].pop(q.get('token') or '', None)
             if not c:
@@ -400,6 +476,8 @@ class H(http.server.BaseHTTPRequestHandler):
     def h_put(self, path, q):
         if path == '/rest/v1/feedback':
             return self.feedback_denied(sub_of(self.headers))
+        if path == '/rest/v1/waitlist':  # nobody may change a sign-up
+            return self.waitlist_missing() if STATE['waitlist_mode'] == 'missing' else self.waitlist_denied(sub_of(self.headers))
         if path == '/auth/v1/user':
             sub = sub_of(self.headers)
             if not sub:
@@ -416,6 +494,8 @@ class H(http.server.BaseHTTPRequestHandler):
     def h_delete(self, path, q):
         if path == '/rest/v1/feedback':
             return self.feedback_denied(sub_of(self.headers))
+        if path == '/rest/v1/waitlist':
+            return self.waitlist_delete(sub_of(self.headers), q)
         if path == '/rest/v1/brokerage_links':
             if STATE['links_mode'] == 'missing':
                 return self.links_missing()

@@ -16,6 +16,9 @@
 --                        Editor (table feedback), newest first.
 --   brokerage_links      one row per person who connected a brokerage on the Portfolio page: their SnapTrade user id
 --                        and SnapTrade secret, encrypted by the site's Worker. No holdings or transactions are stored.
+--   waitlist             people who want to hear when the optional paid plan on the Plans page opens (src/mod-y-plans.js):
+--                        an account id or an email, the extras they ticked, an optional short note. Anyone can join;
+--                        only a signed-in person can see and remove their own sign-up. Read it in the Table Editor.
 --
 -- The website talks to this with the project's publishable (anon) key, which is public by design. These rules are
 -- what keep each person's data private, so do not turn row-level security off.
@@ -90,6 +93,9 @@ begin
   delete from public.user_data where user_id = me;
   if to_regclass('public.brokerage_links') is not null then
     execute 'delete from public.brokerage_links where user_id = $1' using me;
+  end if;
+  if to_regclass('public.waitlist') is not null then
+    execute 'delete from public.waitlist where user_id = $1' using me;
   end if;
   delete from auth.users where id = me;
 end;
@@ -235,3 +241,92 @@ drop trigger if exists brokerage_links_before_write on public.brokerage_links;
 create trigger brokerage_links_before_write
   before insert or update on public.brokerage_links
   for each row execute function public.brokerage_links_before_write();
+
+-- ---------------------------------------------------------------------------------------------------------------------
+-- Waitlist: people who would like to hear when the optional paid plan on the Plans page opens (src/mod-y-plans.js).
+--
+-- Anyone can join. Nobody can read the list through the website, except that a signed-in person can see and remove
+-- their own sign-up (Plans page → Leave the waitlist); visitors who were not signed in ask by sending a note. The owner
+-- reads the list in Table Editor → waitlist (supabase/README.md has the export query for when the plan opens).
+--   email       only for people who were not signed in; used only to say when the plan opens
+--   user_id     the account, for people who were signed in (filled by the database, never by the browser). Their
+--               email address stays in their account and is not copied here. Deleting the account deletes the row.
+--   extras      the extras they said they would use, from a fixed list: review, coach, report, history (or none)
+--   note        an optional short note, up to 280 characters
+-- One sign-up per email address and per account. Joining again quietly changes nothing and looks exactly like joining
+-- the first time, so the website never reveals whether an address is already on the list.
+create table if not exists public.waitlist (
+  id         uuid        primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  email      text,
+  user_id    uuid        default auth.uid() references auth.users (id) on delete cascade,
+  extras     text[]      not null default '{}',
+  note       text,
+  constraint waitlist_who          check (num_nonnulls(email, user_id) = 1),
+  constraint waitlist_email_shape  check (email is null or (char_length(email) <= 254 and email ~ '^[^@[:space:]]+@[^@[:space:]]+\.[^@[:space:]]+$')),
+  constraint waitlist_extras_known check (extras <@ array['review', 'coach', 'report', 'history']::text[]),
+  constraint waitlist_note_length  check (note is null or char_length(note) <= 280)
+);
+
+comment on table public.waitlist is 'FiredBunny: the Plans page waitlist. Visitors can only add a row; signed-in people can see and delete their own (see supabase/schema.sql in the site repo).';
+
+create unique index if not exists waitlist_one_per_email   on public.waitlist (lower(email)) where email is not null;
+create unique index if not exists waitlist_one_per_account on public.waitlist (user_id) where user_id is not null;
+create index if not exists waitlist_created_at on public.waitlist (created_at desc);
+
+alter table public.waitlist enable row level security;
+
+-- Join (only the columns a visitor writes); a signed-in person may also read and delete their own row. No changes.
+-- The email column is never readable through the website.
+revoke all on table public.waitlist from anon, authenticated;
+grant insert (email, extras, note) on table public.waitlist to anon, authenticated;
+grant select (id, created_at, user_id, extras, note), delete on table public.waitlist to authenticated;
+
+drop policy if exists "waitlist: anyone can join" on public.waitlist;
+drop policy if exists "waitlist: see own"         on public.waitlist;
+drop policy if exists "waitlist: leave own"       on public.waitlist;
+
+create policy "waitlist: anyone can join" on public.waitlist
+  for insert to anon, authenticated with check (user_id is null or user_id = (select auth.uid()));
+create policy "waitlist: see own" on public.waitlist
+  for select to authenticated using (user_id = (select auth.uid()));
+create policy "waitlist: leave own" on public.waitlist
+  for delete to authenticated using (user_id = (select auth.uid()));
+
+-- The database fills in the time and the account (whatever the browser sends), keeps no email for a signed-in person,
+-- tidies the extras and the note, turns sign-ups away once 120 have arrived in ten minutes from everyone together, and
+-- quietly skips a second sign-up for the same email or account (no error, so nothing is revealed). The flood check comes
+-- first, so during a flood a known and an unknown address get the same answer. Runs with the owner's rights so it may
+-- look at the list, which visitors cannot see.
+create or replace function public.waitlist_before_insert()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  new.created_at := now();
+  new.user_id := auth.uid();
+  if new.user_id is not null then
+    new.email := null;
+  else
+    new.email := nullif(btrim(new.email), '');
+  end if;
+  new.extras := coalesce((select array_agg(distinct x order by x) from unnest(new.extras) as x where x is not null), '{}');
+  new.note := nullif(btrim(new.note), '');
+  if (select count(*) from public.waitlist where created_at > now() - interval '10 minutes') >= 120 then
+    raise exception 'FiredBunny: too many waitlist sign-ups right now, try again in a few minutes' using errcode = 'P0001';
+  end if;
+  if exists (select 1 from public.waitlist w
+             where (new.user_id is not null and w.user_id = new.user_id)
+                or (new.email is not null and lower(w.email) = lower(new.email))) then
+    return null;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists waitlist_before_insert on public.waitlist;
+create trigger waitlist_before_insert
+  before insert on public.waitlist
+  for each row execute function public.waitlist_before_insert();
