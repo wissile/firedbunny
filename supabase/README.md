@@ -22,6 +22,7 @@ once it also says `live: true`. Before that they appear only in a browser that o
 | `tools/accounts/e2e.py` | End-to-end test against a stand-in Supabase. Run it with `python3 tools/build.py --no-prerender && python3 tools/accounts/e2e.py`. |
 | `tools/chattest.py` | The help chat and feedback, against the same stand-in (its `feedback` table is insert-only and has a "table missing" mode). |
 | `brokerage_links` (in `supabase/schema.sql`) | The Portfolio page's SnapTrade link: one row per connected person, written by the site's Worker with the person's own sign-in (see below and `docs/portfolio/README.md`). |
+| `waitlist` (in `supabase/schema.sql`) | Sign-ups from the Plans page (`src/mod-y-plans.js`) for the optional paid plan being considered (see below). `tools/planstest.py` tests it against the stand-in. |
 
 **Sync rule.** The newest change to an item wins. A change made on this device that hasn't uploaded yet is never
 overwritten by an older server copy. Lesson progress is combined from every device, so a lesson finished anywhere
@@ -117,14 +118,63 @@ SnapTrade user first.
 **One-time step:** run the updated `supabase/schema.sql` in the SQL Editor (safe to run again). Until then the
 Portfolio page says brokerage connections are not set up in the database.
 
+## Plans waitlist (table `waitlist`)
+
+People who would like to hear if the optional paid plan on the Plans page (`/plans/`) opens. Signed-in people join
+with one click (their account id is stored, not their email); guests give an email. Both may tick the extras they
+would use and add a short note.
+
+**One-time step for the owner:** run the updated `supabase/schema.sql` in the SQL Editor (safe to run again). Until
+then the Plans page says the waitlist isn't open yet and keeps what the visitor typed.
+
+**Reading it:** Table Editor → `waitlist`, sorted by `created_at` (newest first).
+
+| Column | What it holds |
+|---|---|
+| `email` | Only for guests. Use it only to say whether the plan opens: the page promises no newsletter, no marketing, never sold or shared |
+| `user_id` | The account, for people who were signed in (their email stays in the account; see the export below) |
+| `extras` | What they said they would use: `review` (portfolio review in plain words), `coach` (questions about your numbers), `report` (printable self-assessment report), `history` (deeper portfolio history). Empty if they ticked nothing |
+| `note` | Their optional note, up to 280 characters |
+| `created_at` | When they joined (set by the database) |
+
+**Which extras people want** (SQL Editor):
+
+```sql
+select x as extra, count(*) from public.waitlist, unnest(extras) as x group by x order by 2 desc;
+select count(*) as sign_ups, count(user_id) as with_account, count(email) as with_email from public.waitlist;
+```
+
+**Exporting the addresses when the plan opens** (one per person, accounts and guests together; if someone joined both
+ways it appears once). Run it in the SQL Editor and download the result as CSV:
+
+```sql
+select distinct lower(coalesce(w.email, u.email)) as email
+from public.waitlist w left join auth.users u on u.id = w.user_id
+where coalesce(w.email, u.email) is not null;
+```
+
+Send one plain email saying the plan is open, from your own address or your email provider, and then stop: the
+page promised nothing more. Delete the export file afterwards.
+
+**Removing someone:** a signed-in person can press Leave the waitlist on the Plans page, and deleting their account
+removes their row too. A guest asks by sending a note; find their row in the Table Editor (filter `email`) and delete
+it, or run `delete from public.waitlist where lower(email) = lower('their@address');`.
+
+**What visitors can do:** join, nothing else. Nobody can read the list through the website; a signed-in person can see
+and delete only their own row (and never an email column). The database fills in the time and the account, keeps one
+sign-up per email address and per account (a second one is skipped quietly, so the page never shows whether an
+address is already on the list), checks the email's shape, the extras and the note's length, and turns sign-ups away
+once 120 have arrived in ten minutes from everyone together (the page also allows a tab 5 in ten minutes).
+
 ## Things to know
 
 - **The owner can see account data.** In the Table Editor you can see `user_data`: people's profiles, goals and money
   figures, and `feedback`, with any email address someone gave for a reply. `brokerage_links` shows who connected a
   brokerage, but its secret is encrypted and no holdings are stored. The site says "other visitors can't see
-  it", and never that the owner can't. If you add anyone to the Supabase project, they can see it too.
-- **Deleting an account** (Settings → type DELETE → "Delete my account too") removes the login, the email address and
-  every saved row, after asking the Worker to delete the person's SnapTrade user (if SnapTrade can't be reached, the
+  it", and never that the owner can't. `waitlist` shows guests' email addresses and who joined with an account.
+  If you add anyone to the Supabase project, they can see it too.
+- **Deleting an account** (Settings → type DELETE → "Delete my account too") removes the login, the email address,
+  every saved row and their waitlist sign-up, after asking the Worker to delete the person's SnapTrade user (if SnapTrade can't be reached, the
   account is still deleted and the page says so). "Delete everything" alone empties the account but keeps the login.
 - **Changing the database:** edit `supabase/schema.sql`, run it in the SQL Editor, and commit it in the same change.
 - **A new saved item** (a new `SML.store` key in some page) syncs automatically. Add it to `DEVICE` in `src/cloud.js`

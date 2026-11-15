@@ -127,6 +127,27 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - Test with `python3 tools/build.py --no-prerender && python3 tools/supporttest.py` (test link injected in flight,
   stand-in Stripe page, no network).
 
+## Plans and waitlist (see supabase/README.md)
+
+- `/plans/` (`src/mod-y-plans.js`, indexable, linked from the footer) says everything on FiredBunny today is free and
+  stays free, and that an optional paid plan for a few extras that cost money per person to run ("FiredBunny Plus", a
+  working name) is only being considered. No prices and no dates on the site. Extras are framed as education that
+  explains a person's own numbers with the lessons: never what to buy or sell, no managing money, no promised returns.
+  Charging for anything portfolio-specific needs the owner's securities lawyer first; don't build it without that.
+- The waitlist is `public.waitlist` (`supabase/schema.sql`): signed in, one click stores the account id (no email);
+  guests give an email, used only to say if the plan opens. Both may tick extras from a fixed list (`EXTRAS` in the
+  module and the `waitlist_extras_known` check: change both together) and add a 280-character note. Visitors can't read
+  the list; joining twice looks the same as joining once; a signed-in person sees and leaves their own sign-up there;
+  `delete_my_account()` removes it; guests leave by sending a note. The claude.ai copy collects nothing and points to
+  firedbunny.com/plans.
+- Keep the Plans page, the Support page ("chipping in unlocks nothing", never a way into the plan), the chat's `plans`,
+  `waitlist-leave`, `free` and `support` replies (`src/chat-data.js`), the Settings privacy line and the About and
+  Editorial standards pages saying the same thing; change them in one commit. "Premium" in the chat counts only next
+  to plan words, so options, insurance and tax questions about premiums still reach their lessons.
+- Analytics: `waitlist_join` (the ticked extras' ids and `account` or `email`), never the email or the note.
+- Test with `python3 tools/build.py --no-prerender && python3 tools/planstest.py` (stand-in Supabase, including
+  "table missing").
+
 ## Things to keep in mind
 
 - The deploy needs two GitHub repository secrets, `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, which only the
