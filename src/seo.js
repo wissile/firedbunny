@@ -78,6 +78,7 @@
     assessment: 'Investor self-assessment: what kind of investor are you?',
     editorial: 'Editorial standards: how FiredBunny lessons are written and checked',
     support: 'Support FiredBunny: how the free site is paid for',
+    plans: 'Plans: free for everyone, and a waitlist for optional extras',
     'not-found': 'Page not found',
   };
 
@@ -120,6 +121,7 @@
     portfolio: () => 'Your brokerage accounts, connected read-only, seen the way the lessons teach: allocation, concentration, taxes, options and income.',
     support: () => 'FiredBunny is free, with no ads or affiliate links. What running it costs, where optional reader support goes, and why it is not tax-deductible.',
     'support-thanks': () => 'A thank-you from FiredBunny.',
+    plans: () => 'Every lesson, tool and simulator on FiredBunny is free and stays free. An optional paid plan for extras that cost money per person to run is being considered.',
     'not-found': () => 'This page does not exist. Browse the lessons and tools instead.',
   };
 

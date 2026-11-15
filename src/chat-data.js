@@ -1,7 +1,7 @@
 /* Help chat ("Ask Bunny"): what it understands and what it says. The engine is src/chat.js; this file is data, so it
  * can be extended without touching the matching code. No AI: every answer comes from the site's own content (lessons,
  * glossary, tools, courses, notes) or from the fixed replies below, which restate the About, Editorial standards,
- * Settings and Support pages. If one of those pages changes, change the matching reply here in the same commit.
+ * Settings, Support and Plans pages. If one of those pages changes, change the matching reply here in the same commit.
  *
  * How a message is read (details in src/chat.js):
  *   1. It is normalised: lower case, accents and punctuation removed, "401(k)" -> "401k", "P/E" -> "pe", "4%" ->
@@ -91,6 +91,7 @@
       { tok: 'profile', title: 'Your profile', keys: 'profile my details birth year age income', say: 'The basics FiredBunny uses to tailor your dashboard, goals and assessment.' },
       { tok: 'about', title: 'About FiredBunny', keys: 'about story who why owner creator', say: 'Why FiredBunny exists, what it believes, and the feedback form.' },
       { tok: 'support', title: 'Support FiredBunny', keys: 'chip in tip jar funding', say: 'Why FiredBunny is free, what running it costs, and how optional support works: it unlocks nothing and is not tax-deductible.' },
+      { tok: 'plans', title: 'Plans', keys: 'plans pricing waitlist paid plan', say: 'Everything on FiredBunny stays free. An optional paid plan for a few extras that cost money per person to run is being considered, with a waitlist.' },
       { tok: 'editorial', title: 'Editorial standards', keys: 'editorial standards sources fact check accuracy corrections how lessons are written', say: 'Who writes FiredBunny, how lessons are checked against sources, and how to report an error.' },
       { tok: 'sheets', title: 'Spreadsheets', keys: 'spreadsheets spreadsheet templates google sheets excel trade journal wheel tracker watchlist', say: 'Trade journal, wheel tracker, retirement planner and watchlist templates you can copy into Google Sheets or Excel.' },
       { tok: 'indicator', title: 'TradingView indicator', keys: 'tradingview indicator pine script chart levels alerts', say: 'A free Pine Script indicator that draws PDH, PDL, PMH, PML, VWAP and the 13/48/200 EMA ribbon, with alerts.' },
@@ -103,8 +104,15 @@
     /* Extra lines the privacy and delete answers (src/chat.js) add when they apply: they restate the Portfolio page and
        Settings. Change them with those pages. */
     notes: {
-      privacy: () => (SML.portfolio && SML.portfolio.enabled() ? 'If you connect a brokerage on the Portfolio page, SnapTrade links it read-only. Your balances, positions and transactions are fetched when you open that page and kept on this device only, not in your account; your account holds just an encrypted key for SnapTrade. Disconnect there any time.' : ''),
-      delete: () => (SML.portfolio && SML.portfolio.enabled() && SML.cloud && SML.cloud.user ? 'A connected brokerage stays connected after Delete everything: press Disconnect on the Portfolio page. Delete my account too removes it as well.' : ''),
+      privacy: () => [
+        SML.portfolio && SML.portfolio.enabled() ? 'If you connect a brokerage on the Portfolio page, SnapTrade links it read-only. Your balances, positions and transactions are fetched when you open that page and kept on this device only, not in your account; your account holds just an encrypted key for SnapTrade. Disconnect there any time.' : '',
+        // the Plans waitlist (src/mod-y-plans.js), on the website only
+        SML.plans && SML.plans.where() === 'supabase' ? 'If you join the waitlist on the Plans page, FiredBunny’s database keeps the extras you tick, any note and the time, with your account id if you’re signed in or the email you give if you’re not, used only to tell you if the plan opens.' : '',
+      ].filter(Boolean).join(' '),
+      delete: () => [
+        SML.portfolio && SML.portfolio.enabled() && SML.cloud && SML.cloud.user ? 'A connected brokerage stays connected after Delete everything: press Disconnect on the Portfolio page. Delete my account too removes it as well.' : '',
+        SML.plans && SML.plans.signedIn() ? 'If you joined the Plans waitlist, leave it on the Plans page; Delete my account too removes it as well.' : '',
+      ].filter(Boolean).join(' '),
     },
 
     /* Words that say what kind of page someone wants. They are not used as search words themselves. */
@@ -216,13 +224,30 @@
         say: () => {
           const S = SML.support, on = !!(S && S.live()), elsewhere = !!(S && !on && S.configured());
           const tail = ' It isn’t tax-deductible: FiredBunny is not a charity. Pointing out a mistake or a missing topic helps just as much.';
-          if (on) return 'Thank you for asking. Everything on FiredBunny stays free and paying unlocks nothing. If you’d like to chip in toward hosting, data and the time it takes, the Support page has the options, and you pay on Stripe’s own page.' + tail;
-          if (elsewhere) return 'Thank you for asking. Everything on FiredBunny stays free and paying unlocks nothing. Support is handled on the FiredBunny website, at firedbunny.com/support; this copy doesn’t take payments.' + tail;
+          if (on) return 'Thank you for asking. Everything on FiredBunny stays free, and a tip unlocks nothing. If you’d like to chip in toward hosting, data and the time it takes, the Support page has the options, and you pay on Stripe’s own page.' + tail;
+          if (elsewhere) return 'Thank you for asking. Everything on FiredBunny stays free, and a tip unlocks nothing. Support is handled on the FiredBunny website, at firedbunny.com/support; this copy doesn’t take payments.' + tail;
           return 'Thank you for asking. FiredBunny is free, and there’s no way to chip in yet: the person who runs it pays for it. The best help right now is a note: tell me what’s wrong, out of date or missing. The Support page explains what running the site costs.';
         },
-        links: ['support'], chips: [{ l: 'Send feedback', a: 'feedback' }, { l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Something else', a: 'menu', q: 1 }] },
-      { id: 'free', patterns: [/\b(is|are) (it|this|the site|the website|firedbunny|everything|the lessons|the tools|the courses|this site|the app) (really |actually |totally |completely )?free\b/, /\b(does|do) (it|this|firedbunny|the lessons|the tools) cost\b/, /\bhow much (does|is|do) (it|this|firedbunny|the lessons|the courses|the tools)\b/, /\b(subscription|premium|paywall|upsell|pro version|paid version|free trial)\b/, /^(free|is it free|cost|price|pricing|how much)$/],
-        say: () => 'Yes. Every lesson, tool and simulator is free: no paywall, no course upsell, no “premium” tier for the important parts, and no ads or affiliate links.' + (SML.support && SML.support.live() ? ' If you want to, you can chip in on the Support page, but it’s optional and unlocks nothing.' : ''), links: ['about', 'editorial'], chips: 'after' },
+        links: ['support'], chips: [{ l: 'Send feedback', a: 'feedback' }, { l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Is there a paid plan?', a: 'ask', v: 'is there a paid plan' }, { l: 'Something else', a: 'menu', q: 1 }] },
+      // leaving the Plans waitlist: signed in, on the Plans page; joined with an email, by sending a note
+      { id: 'waitlist-leave', patterns: [/\b(leave|quit|remove|delete|unsubscribe|get off|take me off|cancel)\b.*\b(waitlist|wait list|waiting list)\b/, /\b(waitlist|wait list|waiting list)\b.*\b(leave|quit|remove|delete|unsubscribe|cancel)\b/],
+        say: () => (SML.plans && SML.plans.signedIn() ? 'You can leave it yourself: open the Plans page and press Leave the waitlist, and your sign-up is deleted. Deleting your account removes it too. If you also joined with an email before signing in, send a note with that address to have it deleted.'
+          : 'If you joined with your email, send a note with that address asking to be taken off, and the sign-up will be deleted. If you joined while signed in, sign in and press Leave the waitlist on the Plans page.'),
+        links: ['plans'], chips: [{ l: 'Send a note', a: 'feedback', v: 'Other' }, { l: 'Something else', a: 'menu', q: 1 }] },
+      // a paid plan, pricing, the waitlist (the Plans page, src/mod-y-plans.js). "Premium" counts only next to plan words,
+      // so "option premium", "sell premium", "insurance premium" and "premium tax credit" still reach their lessons
+      { id: 'plans', patterns: [
+        /\b(paid|pro|plus|premium) (plan|plans|tier|tiers|version|versions|membership|memberships|account|accounts|subscription|subscriptions|features?|content|access|edition)\b/,
+        /\b(firedbunny|fired bunny) (plus|pro|premium)\b/, /\b(waitlist|wait list|waiting list)\b/,
+        /^(plans|pricing|prices|plans and pricing|pricing plans?|price plans?|subscription|subscriptions|subscribe|membership|memberships)$/,
+        /\b(your|firedbunny|fired bunny|the site|this site|the website|site) (pricing|prices|plans|subscription|subscriptions|membership)\b/,
+        /\b(is there|do you have|do you offer|do you sell|can i buy|can i get|how much is|how much does|sign up for|join) (a |an |the |any )?(subscription|membership|waitlist)\b/, /^is there (a |any )?(premium|paid|pro)$/,
+        /\bupgrade (my |to |to a |to the )?(account|plan|plus|pro|premium|firedbunny|membership)\b/,
+        /\bwill (it|this|firedbunny|the site|the website|everything|the lessons|the tools) (always |still |stay |remain |keep being )+(be )?free\b/, /\bwill (you|firedbunny|it|the site) (ever |start to |start )?charg(e|ing)\b/, /\b(start|starting|going to|plan to|planning to) charg(e|ing)\b/],
+        say: () => 'Everything on FiredBunny is free today and stays free: every lesson, quiz, tool and simulator. An optional paid plan is being considered for a few new extras that cost money each time one person uses them, like an AI review that explains your own portfolio numbers with the lessons (never what to buy or sell) or a printable self-assessment report. Nothing is decided: no price, no date. ' + (SML.plans && SML.plans.where() !== 'supabase' ? 'If you’d use it, the Plans page explains, and the waitlist is on the FiredBunny website, at firedbunny.com/plans.' : 'If you’d use it, join the waitlist on the Plans page and tick the extras you want.'),
+        links: ['plans'], chips: [{ l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Something else', a: 'menu', q: 1 }] },
+      { id: 'free', patterns: [/\b(is|are) (it|this|the site|the website|firedbunny|everything|the lessons|the tools|the courses|this site|the app) (really |actually |totally |completely )?free\b/, /\b(does|do) (it|this|firedbunny|the lessons|the tools) cost\b/, /\bhow much (does|is|do) (it|this|firedbunny|the lessons|the courses|the tools)\b/, /\b(paywall|upsell|free trial)\b/, /\b(do|will) i (have|need) to pay\b/, /^(free|is it free|cost|price|how much)$/],
+        say: () => 'Yes. Every lesson, tool and simulator is free: no paywall, no course upsell, no “premium” tier for the important parts, and no ads or affiliate links.' + (SML.support && SML.support.live() ? ' If you want to, you can chip in on the Support page, but it’s optional and unlocks nothing.' : '') + ' A paid plan for a few extras that cost money per person to run is only being considered; the Plans page explains.', links: ['about', 'plans', 'editorial'], chips: 'after' },
       { id: 'who', patterns: [/\bwho (made|makes|built|runs|owns|wrote|writes|created|is behind|are you guys)\b/, /\bwho is (firedbunny|the bunny|behind)\b/, /\bwhat is firedbunny\b/, /\b(about|tell me about) (this site|the site|firedbunny|you guys)\b/, /\bwhy (does this site exist|did you make this|firedbunny)\b/],
         say: 'FiredBunny is a pen name: the name the person who writes and runs this site publishes under. They spent about ten years learning about money the slow way, and turned those notes into free lessons and tools. Lessons are drafted with AI tools and checked against the primary sources cited on each page.', links: ['about', 'editorial'], chips: [{ l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Send feedback', a: 'feedback' }, { l: 'Something else', a: 'menu' }] },
       { id: 'written', patterns: [/\b(written|made|created|generated|drafted) (by|with) (ai|chatgpt|a robot|a computer|claude)\b/, /\b(ai generated|ai written)\b/, /\b(are|is) (the )?(lessons|numbers|figures|facts|this site|the site|it|content) (accurate|reliable|checked|correct|true|up to date|current|trustworthy)\b/, /\bwhere (do|does) (you|the lessons|firedbunny) get\b/, /\b(your )?sources\b/],

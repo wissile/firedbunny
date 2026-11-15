@@ -69,7 +69,7 @@
     .sp-btns .btn{white-space:normal;text-align:center}
     .page-hdr .ph-side p.sp-fine,.sp-fine{font-size:14px;line-height:1.6;color:var(--muted);text-wrap:pretty}
     .sp-fine b,.sp-soon b{color:var(--ink);font-weight:600}
-    .sp-cta a:not(.btn),.sp-faq a,.sp-thx a:not(.btn){color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+    .sp-cta a:not(.btn),.sp-faq a,.sp-thx a:not(.btn),.sp-list a:not(.ulink){color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
     .sp-soon{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:color-mix(in srgb,var(--surface) 88%,transparent)}
     .page-hdr .ph-side .sp-soon p{font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--ink) 82%,transparent)}
     .sp-list{list-style:none;display:flex;flex-direction:column;gap:14px;max-width:70ch}
@@ -106,7 +106,7 @@
     const what = links.once && links.monthly ? 'Once, you choose the amount; monthly is a set amount Stripe shows before you pay.' : links.once ? 'You choose the amount.' : 'Stripe shows the monthly amount before you pay.';
     return `<div class="sp-cta" data-volatile>
         <div class="sp-btns">${btns}</div>
-        <p class="sp-fine">${what} You pay on Stripe’s secure checkout page, so FiredBunny never sees your card. <b>Not tax-deductible:</b> FiredBunny is not a charity. Paying unlocks nothing.</p>
+        <p class="sp-fine">${what} You pay on Stripe’s secure checkout page, so FiredBunny never sees your card. <b>Not tax-deductible:</b> FiredBunny is not a charity. Chipping in unlocks nothing.</p>
         ${links.monthly ? `<p class="sp-fine">Chipping in monthly? <a href="${esc(links.manage)}" target="_blank" rel="noopener">Cancel or change it</a> any time on Stripe.</p>` : ''}
       </div>`;
   }
@@ -124,10 +124,10 @@
       ${SML.pageHeader('', 'Support FiredBunny', 'Free to use. <em>Not free to make.</em>', `<p>Every lesson, tool and simulator here is free, and it stays free. Building and running FiredBunny still costs time and money. Chipping in is optional and unlocks nothing, and if you never do, that’s completely fine: use all of it anyway.</p>${cta()}`).replace('class="page-hdr"', 'class="page-hdr sp-hdr"')}
 
       <section class="chapter" aria-labelledby="sp-free"><div class="wrap">
-        ${SML.chapHead('01', 'What stays free', 'Everything. Paying unlocks nothing.', '', 'sp-free')}
+        ${SML.chapHead('01', 'What stays free', 'Everything. Chipping in unlocks nothing.', '', 'sp-free')}
         <ul class="sp-list">
-          <li>${SML.flame(14)}<span><b>Every lesson, quiz, tool and simulator</b>, the glossary, the calendar and your dashboard. There is no paywall, no premium tier, no members-only lesson and no early access.</span></li>
-          <li>${SML.flame(14)}<span><b>Chipping in changes nothing you see.</b> No badge, no extra features, no special treatment. It’s a tip for lessons and tools you’ve already used.</span></li>
+          <li>${SML.flame(14)}<span><b>Every lesson, quiz, tool and simulator</b>, the glossary, the calendar and your dashboard. There is no paywall, no members-only lesson and no early access, and none of it will move into a paid plan.</span></li>
+          <li>${SML.flame(14)}<span><b>Chipping in changes nothing you see.</b> No badge, no extra features, no special treatment. It’s a tip for lessons and tools you’ve already used, not a way into the optional <a href="#plans">paid plan being considered</a> for a few new extras.</span></li>
           <li>${SML.flame(14)}<span><b>No ads and no affiliate links.</b> Brokers, funds and companies are named to teach, not to sell. <a class="ulink" href="#editorial">Editorial standards</a></span></li>
           <li>${SML.flame(14)}<span><b>No pop-ups and no reminders.</b> Nothing interrupts a lesson or a tool to ask you for money.</span></li>
         </ul>

@@ -113,9 +113,9 @@
     }
     return clientP;
   }
-  // Feedback (src/feedback.js) can come from anyone on the website, signed in or not, even while accounts are only in
-  // preview: with accounts on, the usual client (a signed-in person's notes carry their account); otherwise one that
-  // keeps no session at all.
+  // Feedback (src/feedback.js) and waitlist sign-ups (src/mod-y-plans.js) can come from anyone on the website, signed in
+  // or not, even while accounts are only in preview: with accounts on, the usual client (a signed-in person's rows carry
+  // their account); otherwise one that keeps no session at all.
   let plainP = null;
   function feedbackClient() {
     if (enabled) return client();

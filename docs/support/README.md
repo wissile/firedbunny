@@ -90,8 +90,9 @@ Stripe's "customers choose" pricing cannot repeat, so a monthly link has a fixed
 - The words "donate", "donation", "charity", "nonprofit" or "tax-deductible" anywhere (Stripe page, product name,
   receipts). FiredBunny is not a registered charity: gifts to it are not deductible, and describing it as a charity
   would mislead people. "Support", "chip in" and "tip" are accurate.
-- Rewards for paying (badges, extra lessons, early access): the page promises that paying unlocks nothing, and it
-  keeps these tips for content people have already used.
+- Rewards for paying (badges, extra lessons, early access): the page promises that chipping in unlocks nothing, and it
+  keeps these tips for content people have already used. A tip is also never a way into the optional paid plan that
+  the Plans page (`/plans/`) says is being considered, and never a place on its waitlist.
 - Pop-ups, countdowns, "X people chipped in" counts, or support buttons inside lessons and tools.
 - Stripe's embeddable Buy Button: it needs Stripe.js, which this setup avoids on purpose. A plain link does the same.
 - A custom payment domain (`pay.firedbunny.com`): the site accepts only Stripe's own `buy.stripe.com`. Changing that is

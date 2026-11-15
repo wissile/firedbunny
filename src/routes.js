@@ -39,6 +39,7 @@
     "portfolio": "/portfolio/",
     "support": "/support/",
     "support-thanks": "/support/thanks/",
+    "plans": "/plans/",
     "c-basics": "/courses/market-basics/",
     "c-charts": "/courses/reading-charts/",
     "c-indicators": "/courses/indicators/",
