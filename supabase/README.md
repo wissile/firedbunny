@@ -25,8 +25,9 @@ offline. Signing out deletes that copy.
 
 ## One-time setup in the Supabase dashboard
 
-1. **Create the project.** Name it `firedbunny`, choose Central EU (Frankfurt), and keep the database password in your
-   password manager.
+1. **Create the project.** Name it `firedbunny`, region Americas (the owner and most readers are in the US), leave
+   GitHub empty, keep **Enable Data API** on and **Automatically expose new tables** off (the schema grants access
+   itself), and keep the database password in your password manager.
 2. **Run the schema.** Go to SQL Editor → New query, paste all of `supabase/schema.sql`, and click Run. Running it again
    later is safe.
 3. **URL configuration.** Go to Authentication → URL Configuration.
