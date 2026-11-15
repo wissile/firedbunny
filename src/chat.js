@@ -551,7 +551,7 @@
     },
     offline() {
       const h = SML.host === 'claude' ? P('Offline mode, saving audio and installing FiredBunny as an app work on the FiredBunny website, not in this preview. Separate mobile apps are in development.')
-        : P('Once you’ve visited, FiredBunny opens without a connection, lessons and tools included. On the Offline &amp; app page you can save lesson audio for offline listening and install the site as an app. Separate mobile apps are in development.');
+        : P('Once you’ve visited, FiredBunny opens without a connection, lessons and calculators included. On the Offline &amp; app page you can save lesson audio for offline listening and install the site as an app. Separate mobile apps are in development.');
       st.last = { type: 'page', tok: 'offline', title: 'Offline & app' };
       return { h: h + actsHTML([link('offline', 'Offline & app', true), link('apps', 'The apps')]), chips: C('after') };
     },
