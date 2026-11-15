@@ -21,6 +21,7 @@ once it also says `live: true`. Before that they appear only in a browser that o
 | `src/mod-y-account.js` | The sign-in page (create account, sign in, forgot password, new password), the signed-in view, and Settings (sign out, delete account). |
 | `tools/accounts/e2e.py` | End-to-end test against a stand-in Supabase. Run it with `python3 tools/build.py --no-prerender && python3 tools/accounts/e2e.py`. |
 | `tools/chattest.py` | The help chat and feedback, against the same stand-in (its `feedback` table is insert-only and has a "table missing" mode). |
+| `brokerage_links` (in `supabase/schema.sql`) | The Portfolio page's SnapTrade link: one row per connected person, written by the site's Worker with the person's own sign-in (see below and `docs/portfolio/README.md`). |
 
 **Sync rule.** The newest change to an item wins. A change made on this device that hasn't uploaded yet is never
 overwritten by an older server copy. Lesson progress is combined from every device, so a lesson finished anywhere
@@ -94,13 +95,37 @@ even the person who sent one; the database fills in the time, the status and the
 away once 120 have arrived in ten minutes from everyone together (the site also allows a tab 5 notes in ten minutes).
 If someone asks for a note to be removed, delete its row in the Table Editor.
 
+## Brokerage links (table `brokerage_links`)
+
+Signed-in people can connect a brokerage, read-only, on the Portfolio page (`/portfolio/`, `docs/portfolio/README.md`).
+The table holds one row per connected person and **no holdings, balances or transactions** (those are fetched live and
+kept only on the person's device).
+
+| Column | What it holds |
+|---|---|
+| `user_id` | The person's account |
+| `snaptrade_user_id` | Their user id at SnapTrade: `fb-` followed by their account id (plus a short suffix if SnapTrade had to give them a new one) |
+| `secret_box` | Their SnapTrade user secret, encrypted by the Worker with a key only the Worker has (`BROKERAGE_KEY`). Unreadable here |
+| `created_at`, `updated_at` | Set by the database |
+
+**Who can do what:** each person reads, adds, changes and deletes only their own row; visitors who are not signed in
+cannot touch the table. The Worker uses the person's own sign-in token, so the same rules bind it: it holds no
+Supabase secret key. A row's `snaptrade_user_id` must start with `fb-` and that row's own account id. Deleting the
+account deletes the row (`delete_my_account()` and the foreign key both do); Settings asks the Worker to delete the
+SnapTrade user first.
+
+**One-time step:** run the updated `supabase/schema.sql` in the SQL Editor (safe to run again). Until then the
+Portfolio page says brokerage connections are not set up in the database.
+
 ## Things to know
 
 - **The owner can see account data.** In the Table Editor you can see `user_data`: people's profiles, goals and money
-  figures, and `feedback`, with any email address someone gave for a reply. The site says "other visitors can't see
+  figures, and `feedback`, with any email address someone gave for a reply. `brokerage_links` shows who connected a
+  brokerage, but its secret is encrypted and no holdings are stored. The site says "other visitors can't see
   it", and never that the owner can't. If you add anyone to the Supabase project, they can see it too.
 - **Deleting an account** (Settings → type DELETE → "Delete my account too") removes the login, the email address and
-  every saved row. "Delete everything" alone empties the account but keeps the login.
+  every saved row, after asking the Worker to delete the person's SnapTrade user (if SnapTrade can't be reached, the
+  account is still deleted and the page says so). "Delete everything" alone empties the account but keeps the login.
 - **Changing the database:** edit `supabase/schema.sql`, run it in the SQL Editor, and commit it in the same change.
 - **A new saved item** (a new `SML.store` key in some page) syncs automatically. Add it to `DEVICE` in `src/cloud.js`
   only if it should stay with one browser.

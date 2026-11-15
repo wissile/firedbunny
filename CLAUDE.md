@@ -90,6 +90,25 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
   "table missing" case). To see why a question matched what it did, run `SML.chat.match('covered call')` or
   `SML.chat.reply('what is vwap')` in the browser console.
 
+## Portfolio (SnapTrade, see docs/portfolio/README.md)
+
+- `/portfolio/` (`src/mod-y-portfolio.js`, private) shows a signed-in visitor's brokerage accounts, connected read-only
+  through SnapTrade; everyone else, and the claude.ai copy, sees a labelled sample portfolio. The Connect button shows
+  only with `SML.BROKERAGE.live` (`src/brokerage-config.js`) or in a browser that opened `/portfolio/?preview=brokerage`:
+  every connected user costs money on SnapTrade's paid plan, so the owner switches it on.
+- The server side is `worker/brokerage.js` (POST `/api/brokerage/status|connect|portfolio|disconnect|forget`). It
+  verifies the person's Supabase token itself (ES256, JWKS) and uses their own token for `public.brokerage_links`
+  (row-level security), so there is no Supabase secret anywhere. It needs the Worker secrets `SNAPTRADE_CLIENT_ID`,
+  `SNAPTRADE_CONSUMER_KEY` and `BROKERAGE_KEY`, set by the owner in Cloudflare; never put them in the repo, a request
+  or a message. `/api/health` says whether they are set, never what they are.
+- Keep it read-only (`connectionType: "read"`, no trading endpoints) and pull-based (analysis only on that page, when it
+  is opened; no emails or alerts), as SnapTrade's compliance policy requires. Holdings stay on the device
+  (`fb-portfolio:<user id>`, removed on sign-out), never in Supabase. Observations link to a lesson and never say buy or
+  sell. If the page's data handling changes, update the Settings privacy item and the help chat's `notes` in
+  `src/chat-data.js` in the same commit.
+- Test with `python3 tools/build.py --no-prerender && python3 tools/portfoliotest.py --wrangler <path>` (stand-in
+  SnapTrade and Supabase, `wrangler dev` on port 8790).
+
 ## Things to keep in mind
 
 - The deploy needs two GitHub repository secrets, `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, which only the
