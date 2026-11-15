@@ -38,17 +38,16 @@ offline. Signing out deletes that copy.
 4. **Email sign-in.** Go to Authentication → Sign In / Providers → Email.
    - Keep **Email** enabled and **Confirm email** on.
    - Set the minimum password length to **8**.
-5. **Links that work on any device (recommended).** Go to Authentication → Emails → Templates. In **Confirm signup**,
-   replace the link with:
-   ```
-   <a href="{{ .SiteURL }}/signin/?token_hash={{ .TokenHash }}&type=email">Confirm your email</a>
-   ```
-   In **Reset password**, replace it with:
-   ```
-   <a href="{{ .SiteURL }}/signin/?token_hash={{ .TokenHash }}&type=recovery">Choose a new password</a>
-   ```
-   The default links only work in the browser where the person signed up or asked for the reset. These work anywhere,
+5. **Email templates (FiredBunny look, links that work on any device).** Go to Authentication → Email → Templates.
+   - **Confirm signup:** subject `Confirm your FiredBunny account`; body: all of `supabase/email/confirm-signup.html`.
+   - **Reset password:** subject `Reset your FiredBunny password`; body: all of `supabase/email/reset-password.html`.
+
+   Their links use `token_hash` (`{{ .SiteURL }}/signin/?token_hash={{ .TokenHash }}&type=email` or `&type=recovery`).
+   The default links only work in the browser where the person signed up or asked for the reset; these work anywhere,
    for example when someone signs up on a laptop and opens the email on their phone. The site handles both kinds.
+   The templates show the logo from `https://firedbunny.com/email/fb-mark-144.png` and load the site's fonts where the
+   email app allows it (`/fonts/*` is served with `Access-Control-Allow-Origin: *` for that). To change the wording,
+   edit `tools/accounts/make_emails.py`, run it, commit the regenerated files, and paste them into Supabase again.
 6. **Email sending (before launch).** Supabase's built-in email is for testing only: it sends just a few emails an hour.
    - Sign up with an email provider (Resend, Postmark or Amazon SES, for example).
    - Enter its SMTP details under Authentication → Emails → SMTP Settings.
