@@ -451,7 +451,7 @@
   /* ---------------- styles ---------------- */
   SML.css(`
     .pf{padding-block:4px 80px;display:flex;flex-direction:column;gap:22px}
-    p.pf-ro,.ph-side p.pf-ro{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:7px 12px;border-radius:99px;border:1px solid color-mix(in srgb,var(--up) 40%,var(--line));background:color-mix(in srgb,var(--up) 8%,transparent);font:600 12.5px/1.35 var(--sans);color:var(--ink)}
+    p.pf-ro,.page-hdr .ph-side p.pf-ro{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:7px 12px;border-radius:99px;border:1px solid color-mix(in srgb,var(--up) 40%,var(--line));background:color-mix(in srgb,var(--up) 8%,transparent);font:600 12.5px/1.35 var(--sans);color:var(--ink)}
     p.pf-ro .pf-i{color:var(--up)}
     .pf-i{flex:0 0 auto;vertical-align:-3px}
     .pf-state{display:flex;flex-direction:column;gap:14px}
@@ -870,7 +870,10 @@
     if (!signedIn()) return { ok: true };
     dropCopy();
     try { const r = await call('forget', {}, 20000); return { ok: true, snaptrade: r.snaptrade || (r.configured === false ? 'not_configured' : 'none') }; }
-    catch (e) { return { ok: false, unreachable: true, code: e.code }; }
+    catch (e) {
+      if (e.status === 405 || e.status === 501) return { ok: true, snaptrade: 'no_relay' }; // a host without the Worker (a plain file server)
+      return { ok: false, unreachable: true, code: e.code }; // SnapTrade down, or the server could not be reached: the page says so
+    }
   }
 
   SML.portfolio = { analyze, demo, insights, enabled, forget, dropCopy: () => { ls.keys().forEach((k) => { if (k.indexOf(CK) === 0) ls.del(k); }); }, _quotes: quotes, _state: M };

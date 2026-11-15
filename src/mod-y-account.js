@@ -797,7 +797,7 @@
       try { await SML.cloud.deleteAccount(); }
       catch (err) { delMsg.textContent = (err && err.message) || 'Could not delete your account right now. Try again.'; delAcc.disabled = false; delBtn.disabled = false; return; }
       if (bk.ok) { SML.toast('Your FiredBunny account is deleted.'); setTimeout(home, 600); return; }
-      delMsg.innerHTML = '<b>Your FiredBunny account is deleted.</b> SnapTrade, the brokerage-connection service, could not be reached, so if you had connected a brokerage, its read-only access may still be listed there. You can remove it in your brokerage’s own settings, in its list of connected apps or third-party access. <button type="button" class="btn btn-g sm" data-acx-act="home">OK</button>';
+      delMsg.innerHTML = '<b>Your FiredBunny account is deleted.</b> Your connected brokerage could not be removed at SnapTrade, the brokerage-connection service, because it could not be reached, so its read-only access may still be listed there. You can remove it in your brokerage’s own settings, in its list of connected apps or third-party access. <button type="button" class="btn btn-g sm" data-acx-act="home">OK</button>';
       const ok = $('[data-acx-act="home"]', delMsg); if (ok) { ok.addEventListener('click', home); ok.focus(); }
     });
     const so = $('[data-auth-act="signout"]', view), soMsg = $('[data-auth="out-msg"]', view);

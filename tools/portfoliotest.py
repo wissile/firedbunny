@@ -204,7 +204,7 @@ code, j, h = api('disconnect', {'connectionId': connA}, token=tB)
 check(code == 200 and j.get('removed') == 'none' and mt()['users'].get('fb-' + A['id'], {}).get('connections'), 'B trying to disconnect A’s connection removes nothing')
 api('connect', {}, token=tB)
 code, j, h = api('disconnect', {'connectionId': connA}, token=tB)
-check(code == 404 and j.get('error') == 'not_found' and mt()['users'].get('fb-' + A['id'], {}).get('connections'), 'once B has a SnapTrade user, A’s connection id is still “not one of yours” (404)')
+check(code == 404 and j.get('error') == 'unknown_connection' and mt()['users'].get('fb-' + A['id'], {}).get('connections'), 'once B has a SnapTrade user, A’s connection id is still “not one of yours” (404)')
 # B plants A's sealed secret in B's own row: it opens for nobody but A's user id
 req = urllib.request.Request(SB_LOCAL + '/rest/v1/brokerage_links?on_conflict=user_id', method='POST', headers={'Authorization': 'Bearer ' + tB, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates'},
                              data=json.dumps({'user_id': Bu['id'], 'snaptrade_user_id': 'fb-' + Bu['id'], 'secret_box': MS.STATE['links'][A['id']]['secret_box']}).encode())
@@ -261,6 +261,9 @@ mt_mode('ok')
 check(code == 502 and j.get('error') == 'snaptrade_unreachable' and E['id'] in MS.STATE['links'], 'forget with SnapTrade down: 502, and the row is kept so a retry knows what to delete')
 code, j, h = api('forget', {}, token=tE)
 check(code == 200 and 'fb-' + E['id'] in mt()['deleted'] and E['id'] not in MS.STATE['links'], 'the retry deletes it')
+H = user('8'); tH = MS.jwt(H); mt_mode('down')
+code, j, h = api('forget', {}, token=tH); mt_mode('ok')
+check(code == 200 and j.get('snaptrade') == 'unchecked', 'forget with SnapTrade down for someone who never connected: no alarm (nothing on record)')
 # health: says set / not set, never the values
 code, j, h = api(None, path='/api/health', method='GET')
 bk = (j or {}).get('brokerage') or {}
@@ -321,6 +324,13 @@ def via_portal(pg, sel):  # click, go through the (stand-in) Connection Portal, 
     with pg.expect_navigation(url=re.compile(r'/portfolio/\?connect=done'), timeout=30000):
         pg.click(sel)
     pg.wait_for_function(READY, timeout=30000); settle(pg, 40000)
+def both(pg, name):  # the state as it is on a desktop, then on a 390x844 phone screen (no sideways scrolling)
+    w, h = pg.viewport_size['width'], pg.viewport_size['height']
+    pg.evaluate('window.scrollTo(0, 0)'); shot(pg, name + '-desktop', full=False)
+    pg.set_viewport_size({'width': 390, 'height': 844}); pg.wait_for_timeout(400); pg.evaluate('window.scrollTo(0, 0)')
+    wide = nowide(pg); shot(pg, name + '-phone', full=False)
+    pg.set_viewport_size({'width': w, 'height': h}); pg.wait_for_timeout(300)
+    check(wide, f'{name}: fits a 390px phone screen')
 def copy_key(pg): return pg.evaluate("Object.keys(localStorage).filter((k) => k.indexOf('fb-portfolio:') === 0)")
 
 with sync_playwright() as p:
@@ -344,12 +354,12 @@ with sync_playwright() as p:
     uidU = signup(pg, 'pat@example.com')
     go(pg, '/portfolio/')
     check('almost ready' in top(pg) and not pg.query_selector('[data-pf="connect"]') and 'Sample data' in main(pg), 'signed in before launch (live: false): “coming soon”, no Connect button, the sample')
-    shot(pg, 'portfolio-coming-soon-desktop')
+    both(pg, 'portfolio-coming-soon')
     go(pg, '/portfolio/?preview=brokerage'); settle(pg)
     check(pg.evaluate("location.search") == '' and pg.evaluate("localStorage.getItem('fb-brokerage-preview')") == '1', '?preview=brokerage opts this browser in and is taken out of the address')
     check('Connect your brokerage, read-only' in top(pg) and pg.is_visible('[data-pf="connect"][data-broker="ROBINHOOD"]') and 'SnapTrade privacy policy' in top(pg), 'not connected: what connecting means (read-only, SnapTrade, where data goes, disconnect) and Connect')
     check(pg.get_attribute('#pf-top a[href*="privacy-policy"]', 'href') == 'https://snaptrade.com/privacy-policy' and pg.get_attribute('#pf-top a[href*="security"]', 'href') == 'https://snaptrade.com/security', 'links to SnapTrade’s privacy and security pages')
-    shot(pg, 'portfolio-not-connected-desktop')
+    shot(pg, 'portfolio-not-connected-desktop'); both(pg, 'portfolio-not-connected-top')
     via_portal(pg, '[data-pf="connect"][data-broker="ROBINHOOD"]')
     check(mt()['logins'][-1].get('connectionType') == 'read' and mt()['logins'][-1].get('broker') == 'ROBINHOOD', 'Connect Robinhood: SnapTrade portal requested read-only for Robinhood')
     check('Connected.' in top(pg) and 'Robinhood' in top(pg) and 'read-only' in top(pg) and 'Robinhood Individual' in main(pg) and 'Sample data' not in main(pg), 'back from the portal: connected banner, Robinhood read-only, the live accounts')
@@ -376,32 +386,34 @@ with sync_playwright() as p:
     via_portal(pg, '[data-pf="connect-more"]')
     PORTAL['abandon'] = False
     check('You closed the connection window' in top(pg) and 'Robinhood Individual' in main(pg), 'an abandoned portal says nothing was connected, and the data stays')
+    both(pg, 'portfolio-portal-abandoned')
     start_worker(True)  # a fresh Worker instance: its in-memory rate limits start again
     # SnapTrade down: the device copy, with its time
     mt_mode('down'); pg.click('[data-pf="refresh"]'); settle(pg)
     t = top(pg)
     check('SnapTrade (the connection service) is not answering' in t and 'Showing the copy saved on this device' in t and 'Robinhood Individual' in main(pg), 'SnapTrade down: says so and shows the device copy with its time')
-    shot(pg, 'portfolio-error-snaptrade-down-desktop', full=False)
+    both(pg, 'portfolio-error-snaptrade-down')
     mt_mode('ratelimit'); pg.click('[data-pf="refresh"]'); settle(pg)
     check('SnapTrade asked us to slow down' in top(pg), 'SnapTrade rate limiting is explained')
+    both(pg, 'portfolio-error-snaptrade-rate-limited')
     mt_mode('ok')
     connU = mt()['users']['fb-' + uidU]['connections'][0]['id']
     urllib.request.urlopen(urllib.request.Request(f'http://127.0.0.1:{ST_PORT}/__disable?id={connU}&on=1', method='POST'))
     pg.click('[data-pf="refresh"]'); settle(pg)
     check('Robinhood needs you to sign in again' in top(pg) and pg.is_visible('[data-pf="reconnect"]'), 'a broken connection: “needs you to sign in again” with Reconnect')
-    shot(pg, 'portfolio-reauth-desktop', full=False)
+    both(pg, 'portfolio-reauth')
     pg.click('[data-pf="refresh"]'); settle(pg)  # the 4th refresh in two minutes is still allowed
     pg.click('[data-pf="refresh"]'); settle(pg)
     code_rl = top(pg)
     check('refreshed a lot' in code_rl and 'Robinhood Individual' in main(pg), 'our own rate limit: explained, data kept')
-    shot(pg, 'portfolio-rate-limited-desktop', full=False)
+    both(pg, 'portfolio-rate-limited')
     start_worker(True)
     via_portal(pg, '[data-pf="reconnect"]')
     check(mt()['logins'][-1].get('reconnect') == connU and 'needs you to sign in again' not in top(pg), 'Reconnect sends the connection id to the portal and the warning goes away')
     # offline
     X.set_offline(True); pg.click('[data-pf="refresh"]'); settle(pg)
     check('You’re offline' in top(pg) and 'Showing the copy saved on this device' in top(pg) and 'Robinhood Individual' in main(pg), 'offline: the last device copy with its time')
-    shot(pg, 'portfolio-offline-phone-size', full=False)
+    both(pg, 'portfolio-offline')
     X.set_offline(False); pg.wait_for_timeout(1500); settle(pg)
     check('offline' not in top(pg).lower(), 'back online: refreshed by itself')
     # help chat and Settings while previewing
@@ -428,7 +440,7 @@ with sync_playwright() as p:
     check(pg.is_visible('.pf-confirm') and 'removed at SnapTrade' in txt(pg, '.pf-confirm'), 'Disconnect asks first and says what it does')
     pg.click('[data-pf="disconnect-yes"]'); settle(pg, 40000)
     check('Disconnected.' in top(pg) and 'Connect your brokerage, read-only' in top(pg) and 'fb-' + uidU not in mt()['users'] and uidU not in MS.STATE['links'] and not copy_key(pg), 'Disconnect: removed at SnapTrade, row and device copy gone, back to Connect')
-    shot(pg, 'portfolio-disconnected-desktop', full=False)
+    both(pg, 'portfolio-disconnected')
     # sign out removes the device copy
     start_worker(True)
     via_portal(pg, '[data-pf="connect"][data-broker="ROBINHOOD"]')
@@ -449,9 +461,11 @@ with sync_playwright() as p:
         if down:
             pg.wait_for_selector('[data-acx-act="home"]', timeout=20000)
             msg = txt(pg, '[data-acx="del-msg"]')
-            check(uid not in MS.STATE['users'] and 'Your FiredBunny account is deleted' in msg and 'could not be reached' in msg and 'connected apps' in msg, 'SnapTrade down: the account is still deleted, and the page says the connection may remain and how to remove it')
+            check(uid not in MS.STATE['users'] and 'Your FiredBunny account is deleted' in msg and 'could not be removed at SnapTrade' in msg and 'connected apps' in msg, 'SnapTrade down: the account is still deleted, and the page says the connection may remain and how to remove it')
             check('fb-' + uid in mt()['users'], '(that SnapTrade user stays behind, as the message says)')
-            shot(pg, 'settings-delete-snaptrade-down-desktop', full=False)
+            pg.evaluate("document.querySelector('[data-acx=\"del-msg\"]').scrollIntoView({ block: 'center' })"); shot(pg, 'settings-delete-snaptrade-down-desktop', full=False)
+            pg.set_viewport_size({'width': 390, 'height': 844}); pg.wait_for_timeout(300); pg.evaluate("document.querySelector('[data-acx=\"del-msg\"]').scrollIntoView({ block: 'center' })"); shot(pg, 'settings-delete-snaptrade-down-phone', full=False)
+            check(nowide(pg), 'settings, SnapTrade down message: fits a 390px phone screen')
             mt_mode('ok')
         else:
             pg.wait_for_function("location.pathname === '/'", timeout=20000)
@@ -497,7 +511,7 @@ with sync_playwright() as p:
     calls = []; pg.on('request', lambda r: calls.append(r.url) if '/api/brokerage' in r.url else None)
     pg.goto('file://' + prev + '#portfolio'); pg.wait_for_function("() => window.SML && SML.portfolio && SML.host === 'claude' && !document.getElementById('boot') && document.querySelector('#pf-main .dsh-kpis')", timeout=30000); pg.wait_for_timeout(300)
     check('This copy always shows made-up sample data' in top(pg) and 'Sample data' in main(pg) and not calls and not pg.query_selector('[data-pf="connect"]'), 'claude.ai copy (hash addresses): always the sample, no Connect, no server calls')
-    shot(pg, 'portfolio-claude-copy-desktop', full=False)
+    both(pg, 'portfolio-claude-copy')
     done(X)
     br.close()
 

@@ -161,7 +161,7 @@ const jwks = { url: '', at: 0, keys: new Map(), lastForced: 0 };
 async function loadJwks(c, force) {
   const url = c.sb + '/auth/v1/.well-known/jwks.json';
   const now = Date.now();
-  if (!force && jwks.url === url && now - jwks.at < 10 * 60 * 1000 && jwks.keys.size) return;
+  if (!force && jwks.url === url && now - jwks.at < (jwks.keys.size ? 10 * 60 * 1000 : 60 * 1000)) return; // an empty set is kept a minute
   if (force && jwks.url === url && now - jwks.lastForced < 30 * 1000) return; // an unknown kid refetches at most every 30 s
   if (force) jwks.lastForced = now;
   let r;
@@ -491,7 +491,7 @@ export async function brokerage(request, env, url) {
       const list = await st(c, 'GET', '/authorizations', { user });
       if (list.status !== 200) stFail(list, 'connections');
       const conns = Array.isArray(list.data) ? list.data : [];
-      if (!conns.some((x) => x && x.id === id)) fail(404, 'not_found', 'That connection is not one of yours.');
+      if (!conns.some((x) => x && x.id === id)) fail(404, 'unknown_connection', 'That connection is not one of yours.');
       if (conns.length === 1) {
         const r = await deleteStUser(c, user.userId);
         if (r === 'unreachable') fail(502, 'snaptrade_unreachable', 'SnapTrade did not answer, so nothing was removed. Try again in a few minutes.');
@@ -510,8 +510,11 @@ export async function brokerage(request, env, url) {
       const results = [];
       for (const id of ids) results.push(await deleteStUser(c, id).catch(() => 'unreachable'));
       // SnapTrade down: keep the row, so a second try still knows which SnapTrade user to delete (deleting the account
-      // removes the row anyway)
-      if (results.indexOf('unreachable') >= 0) fail(502, 'snaptrade_unreachable', 'SnapTrade did not answer, so your brokerage connection could not be removed there.');
+      // removes the row anyway). Without a row there is no record of a connection, so the person is not alarmed.
+      if (results.indexOf('unreachable') >= 0) {
+        if (!row) return reply({ ok: true, snaptrade: 'unchecked' }, 200, o.origin);
+        fail(502, 'snaptrade_unreachable', 'SnapTrade did not answer, so your brokerage connection could not be removed there.');
+      }
       if (row) await dropLink(c, token, sub).catch(() => {});
       return reply({ ok: true, snaptrade: results.indexOf('deleted') >= 0 ? 'deleted' : 'none' }, 200, o.origin);
     }
