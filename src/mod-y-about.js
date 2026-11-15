@@ -1,5 +1,7 @@
 /* About FiredBunny: story, first-paycheck visual, beliefs, live counts, how to use the site, feedback form.
- * Also the owner-only `feedbackInbox` widget. Prefix: .ab- */
+ * Also the owner-only `feedbackInbox` widget (claude.ai). The form sends with SML.feedback (src/feedback.js), the same
+ * sender the help chat uses: Supabase on the website, the page's storage or comments on claude.ai, else a copy.
+ * Prefix: .ab- */
 (function () {
   'use strict';
   const SML = window.SML, S = SML.svg, ui = SML.ui, F = SML.fmt, esc = SML.esc;
@@ -185,14 +187,14 @@
       if (!alive) return;
       const f = st.seg(id + '-f') || 'new';
       const all = entries(); const list = all.filter((e) => f === 'all' || (f === 'done' ? e.status === 'done' : e.status !== 'done'));
-      if (!all.length) { body.innerHTML = `<p class="ab-empty">No feedback yet. When readers send ideas or corrections from the About page, they show up here, newest first.</p>`; return; }
+      if (!all.length) { body.innerHTML = `<p class="ab-empty">No feedback yet. When readers send ideas or corrections from the About page or the help chat, they show up here, newest first.</p>`; return; }
       if (!list.length) { body.innerHTML = `<p class="ab-empty">Nothing in this view. ${f === 'new' ? 'You are all caught up.' : ''}</p>`; return; }
       body.innerHTML = `<ul class="ab-ilist">${list.map((e) => `<li class="${e.status === 'done' ? 'done' : ''}" data-doc="${esc(e._doc)}" data-eid="${esc(e.id || '')}">
-        <div class="ab-imeta"><span class="pill ${e.kind === 'Correct an inaccuracy' ? 'dn' : e.kind === 'Idea' ? 'up' : e.kind === 'Something to improve' ? 'acc' : 'info'}"></span><span class="ab-iwhere"></span><span>${esc(fmtTime(e.at))}</span></div>
+        <div class="ab-imeta"><span class="pill ${e.kind === 'Correct an inaccuracy' ? 'dn' : e.kind === 'Idea' ? 'up' : e.kind === 'Something to improve' ? 'acc' : 'info'}"></span><span class="ab-iwhere"></span><span>${esc(fmtTime(e.at))}</span>${e.source === 'chat' ? '<span>help chat</span>' : ''}<span class="ab-imail"></span></div>
         <p class="ab-imsg"></p>
         <div class="ab-iact"><button type="button" class="btn btn-g" data-act="toggle">${e.status === 'done' ? 'Reopen' : 'Mark done'}</button></div></li>`).join('')}</ul>`;
       // user-written text goes in with textContent
-      $$('.ab-ilist li', body).forEach((li, i) => { const e = list[i]; li.querySelector('.pill').textContent = e.kind || 'Feedback'; li.querySelector('.ab-iwhere').textContent = [e.where, e.page].filter(Boolean).join(' · ') || 'General'; li.querySelector('.ab-imsg').textContent = e.message || ''; });
+      $$('.ab-ilist li', body).forEach((li, i) => { const e = list[i]; li.querySelector('.pill').textContent = e.kind || 'Feedback'; li.querySelector('.ab-iwhere').textContent = [e.where, e.page].filter(Boolean).join(' · ') || 'General'; li.querySelector('.ab-imsg').textContent = e.message || ''; li.querySelector('.ab-imail').textContent = e.email ? 'Reply to ' + e.email : ''; });
     }
     body.addEventListener('click', async (ev) => {
       const b = ev.target.closest('[data-act="toggle"]'); if (!b || !db) return;
@@ -221,8 +223,8 @@
   };
   function fmtTime(iso) { try { const d = new Date(iso); return d.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); } catch (e) { return String(iso || ''); } }
 
-  /* ---------------- feedback sending ---------------- */
-  const KINDS = ['Idea', 'Something to improve', 'Correct an inaccuracy', 'Other'];
+  /* ---------------- feedback form ---------------- */
+  const KINDS = () => (SML.feedback ? SML.feedback.KINDS : ['Idea', 'Something to improve', 'Correct an inaccuracy', 'Question', 'Other']);
   const PAGES = [['', 'General'], ['home', 'Home'], ['learn', 'Lessons'], ['assessment', 'Self-assessment'], ['dashboard', 'Dashboard'], ['tools', 'Tools'], ['calendar', 'Calendar'], ['play', 'Playground'], ['indicator', 'TradingView indicator'], ['sheets', 'Spreadsheets'], ['blog', 'Trade notes'], ['apps', 'Apps'], ['glossary', 'Glossary']];
   function whereOptions() {
     let h = `<optgroup label="Pages">${PAGES.map(([v, l]) => `<option value="${esc(v ? '#' + v : '')}">${esc(l)}</option>`).join('')}</optgroup>`;
@@ -234,23 +236,10 @@
     });
     return h;
   }
-  /* What this view can do: 'db' (private to the owner), 'comments' (shell composer), or 'copy'. */
-  let routeCache = null;
-  function detectRoute() {
-    if (routeCache) return routeCache;
-    routeCache = (async () => {
-      if (!hasRuntime()) return { kind: 'copy' };
-      const [user, db, comments] = await Promise.all([use('user'), use('db'), use('comments')]);
-      let uidv = null, canWrite = null;
-      if (user) { try { uidv = await user.id(); canWrite = await user.can('data.write'); } catch (e) {} }
-      if (db && uidv && canWrite !== false) return { kind: 'db', db, uid: uidv, comments };
-      if (comments) return { kind: 'comments', comments };
-      return { kind: 'copy' };
-    })();
-    return routeCache;
-  }
 
   SML.pages.about = function (view) {
+    const routeGuess = SML.feedback ? SML.feedback.guess() : 'copy';
+    const sendWords = SML.feedback ? SML.feedback.says(routeGuess) : { button: 'Copy my message', where: '' };
     const nTracks = (SML.tracks || []).length, nCourses = SML.courses.length, nLessons = SML.lessons.length, nTools = SML.tools.length, nGloss = SML.glossary.length, nDates = (SML.calendarEvents || []).length;
     const trackLessons = (tid) => SML.courses.filter((c) => (c.track || 'trading') === tid).reduce((s, c) => s + SML.lessons.filter((l) => l.course === c.id).length, 0);
     const beliefs = [
@@ -335,15 +324,16 @@
             ${SML.bunnyTip('Point me to the exact lesson or page and, for corrections, the source you saw. It makes fixes much faster.', 'Bunny tip')}
           </div>
           <form class="ab-form" novalidate>
-            <div class="fld"><span>What kind of feedback?</span><div class="ab-kind" role="group" aria-label="Kind of feedback">${KINDS.map((k, i) => `<button type="button" data-k="${esc(k)}" class="${i === 0 ? 'on' : ''}" aria-pressed="${i === 0}"><i></i>${esc(k)}</button>`).join('')}</div></div>
+            <div class="fld"><span>What kind of feedback?</span><div class="ab-kind" role="group" aria-label="Kind of feedback">${KINDS().map((k, i) => `<button type="button" data-k="${esc(k)}" class="${i === 0 ? 'on' : ''}" aria-pressed="${i === 0}"><i></i>${esc(k)}</button>`).join('')}</div></div>
             <div class="ab-row2">
               <label class="fld"><span>Where (optional)</span><select name="where">${whereOptions()}</select></label>
               <label class="fld"><span>Or paste a link (optional)</span><input name="link" type="text" maxlength="300" placeholder="e.g. a lesson link or a source" autocomplete="off"></label>
             </div>
-            <label class="fld"><span>Your message <span class="ab-cnt" aria-live="polite">0 / 2,000</span></span><textarea name="message" maxlength="2000" placeholder="What should change, and why? For corrections, what did you expect to see?"></textarea></label>
-            <div class="ab-send"><button type="submit" class="btn btn-p">Send feedback ${arrow}</button><span class="note ab-route">Checking how this page can send…</span></div>
+            <label class="fld"><span>Your message <span class="ab-cnt" aria-live="polite">0 / 4,000</span></span><textarea name="message" maxlength="4000" placeholder="What should change, and why? For corrections, what did you expect to see?"></textarea></label>
+            <label class="fld"><span>Email for a reply (optional)</span><input name="email" type="email" maxlength="254" placeholder="you@example.com" autocomplete="email" inputmode="email"></label>
+            <div class="ab-send"><button type="submit" class="btn btn-p"><span class="ab-btxt">${esc(sendWords.button === 'Send' ? 'Send feedback' : sendWords.button)}</span> ${arrow}</button><span class="note ab-route">${esc(sendWords.where)}</span></div>
             <div class="ab-status" role="status" hidden></div>
-            <p class="ab-privacy">What is stored when you send: your message, the kind and page you picked, the time, and an opaque account id that keeps each person's notes together (it is not your name or email). Only you and the site owner can read it.</p>
+            <p class="ab-privacy">${esc(SML.feedback ? SML.feedback.privacy(routeGuess, { email: 'maybe' }) : '')}</p>
           </form>
         </div>
       </div></section>
@@ -357,23 +347,23 @@
 
     const form = $('.ab-form', view), msg = form.querySelector('textarea'), cnt = form.querySelector('.ab-cnt');
     const status = form.querySelector('.ab-status'), routeEl = form.querySelector('.ab-route'), sendBtn = form.querySelector('[type="submit"]');
-    let kind = KINDS[0];
+    let kind = KINDS()[0];
     form.querySelector('.ab-kind').addEventListener('click', (e) => {
       const b = e.target.closest('button'); if (!b) return; kind = b.dataset.k;
       $$('.ab-kind button', form).forEach((x) => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); });
       msg.placeholder = kind === 'Correct an inaccuracy' ? 'What looks wrong, what should it say, and where did you see the right figure?' : kind === 'Idea' ? 'What would you like to see on FiredBunny?' : 'What should change, and why?';
     });
-    const updCnt = () => { const n = msg.value.length; cnt.textContent = n.toLocaleString('en-US') + ' / 2,000'; cnt.classList.toggle('warn', n > 1900); };
+    const updCnt = () => { const n = msg.value.length; cnt.textContent = n.toLocaleString('en-US') + ' / 4,000'; cnt.classList.toggle('warn', n > 3800); };
     msg.addEventListener('input', updCnt);
     const showStatus = (cls, html) => { status.hidden = false; status.className = 'ab-status ' + cls; status.innerHTML = SML.bunnyMark(26) + `<div>${html}</div>`; };
 
     let alive = true; SML.onCleanup(() => { alive = false; });
-    detectRoute().then((r) => {
-      if (!alive) return;
-      routeEl.textContent = r.kind === 'db' ? 'Goes privately to FiredBunny.' : r.kind === 'comments' ? 'Opens the comment box on this page, where you post it.' : 'Sending is not available in this view; the button copies your message.';
-      const priv = form.querySelector('.ab-privacy');
-      if (r.kind === 'comments') priv.textContent = 'Your message is copied, then you post it as a comment on this page. Comments show your name and are visible to people who can see this page\'s comments.';
-      if (r.kind === 'copy') { sendBtn.firstChild.textContent = 'Copy my message '; priv.textContent = 'Nothing is stored from this view. Your message is only copied to your clipboard, so you can paste it wherever you like.'; }
+    // the words above are a first guess; claude.ai needs a moment to say whether this viewer can save or only comment
+    if (SML.feedback) SML.feedback.route().then((r) => {
+      if (!alive || r.kind === routeGuess) return;
+      const w = SML.feedback.says(r.kind);
+      routeEl.textContent = w.where; form.querySelector('.ab-btxt').textContent = w.button === 'Send' ? 'Send feedback' : w.button;
+      form.querySelector('.ab-privacy').textContent = SML.feedback.privacy(r.kind, { email: 'maybe' });
     });
     (async () => { const user = await use('user'); const own = user ? await user.isOwner() : false; if (alive && own) { const sec = $('#ab-inbox-sec', view); if (sec) sec.hidden = false; } })();
 
@@ -381,48 +371,38 @@
       e.preventDefault();
       const text = msg.value.trim();
       if (text.length < 5) { showStatus('err', '<b>Add a few words first.</b> Tell me what you noticed or what you would like to see.'); msg.focus(); return; }
+      const mailEl = form.querySelector('[name="email"]'), email = mailEl.value.trim();
+      if (email && !(SML.feedback && SML.feedback.emailOk(email))) { showStatus('err', '<b>Check the email address.</b> It is optional, so you can also leave it empty.'); mailEl.focus(); return; }
       const sel = form.querySelector('select');
       const where = sel.value ? sel.options[sel.selectedIndex].text : 'General';
+      const tok = sel.value ? sel.value.slice(1) : '';
+      const at = tok && SML.routes && SML.routes.mode === 'path' && SML.routes.path(tok) ? SML.routes.path(tok) : sel.value;
       const link = form.querySelector('[name="link"]').value.trim().slice(0, 300);
-      const entry = { id: SML.account ? SML.account.newId('f') : 'f-' + Date.now().toString(36), at: new Date().toISOString(), kind, where: (sel.value ? sel.value + ' ' : '') + where, message: text.slice(0, 2000), page: link, status: 'new' };
-      const plain = `[${kind}] ${where}${link ? ' · ' + link : ''}\n\n${text}`;
+      const entry = { kind, message: text, email, page: [at || 'General', link].filter(Boolean).join(' · ').slice(0, 300), where: (sel.value ? sel.value + ' ' : '') + where, source: 'about' };
+      if (!SML.feedback) { SML.copy(text, 'Message copied'); showStatus('info', '<b>Copied, so nothing is lost.</b> Sending is not available in this view.'); return; }
+      const plain = SML.feedback.plain(entry);
       sendBtn.disabled = true;
       try {
-        const r = await detectRoute();
-        if (r.kind === 'db') {
-          try {
-            const ref = r.db.doc('feedback/' + r.uid);
-            const snap = await ref.get();
-            const prev = snap.exists && Array.isArray((snap.data() || {}).entries) ? JSON.parse(JSON.stringify(snap.data().entries)) : [];
-            prev.push(entry);
-            await ref.set({ entries: prev.slice(-50), updatedAt: entry.at });
-            msg.value = ''; updCnt();
-            showStatus('ok', `<b>Hop hop. Sent.</b> Thank you. It went straight to FiredBunny${kind === 'Correct an inaccuracy' ? ', and corrections get looked at first' : ''}.`);
-            return;
-          } catch (err) {
-            if (!r.comments) throw err;
-            routeCache = Promise.resolve({ kind: 'comments', comments: r.comments });
-            return openComments(r.comments, plain);
-          }
+        const res = await SML.feedback.send(entry);
+        if (!alive) return;
+        if (res.ok) {
+          msg.value = ''; mailEl.value = ''; updCnt();
+          showStatus('ok', `<b>Hop hop. Sent.</b> Thank you. It went straight to FiredBunny${kind === 'Correct an inaccuracy' ? ', and corrections get looked at first' : ''}.`);
+        } else if (res.via === 'comments') {
+          SML.copy(plain, 'Message copied');
+          const opened = await SML.feedback.openComments(res.comments, form);
+          showStatus('info', opened ? '<b>The comment box is open.</b> Your message is copied: paste it there and post. Comments are visible to people who can see this page\'s comments.'
+            : '<b>Your message is copied.</b> Click the page once, then press Send again to open the comment box, or add a comment from the page\'s comment menu.');
+        } else if (res.via === 'copy') {
+          SML.copy(plain, 'Message copied');
+          showStatus('info', '<b>Copied, so nothing is lost.</b> Sending from this page is not available in this view. Paste your message wherever you share feedback with FiredBunny.');
+        } else {
+          SML.copy(plain, 'Message copied');
+          const why = res.reason === 'offline' ? 'You seem to be offline.' : res.reason === 'busy' ? 'A lot of notes are arriving right now; give it a few minutes.' : res.reason === 'invalid' ? 'Something in it could not be accepted; check the email address.' : 'Sending is not working right now.';
+          showStatus('err', `<b>That did not go through.</b> ${why} Your message is still in the box and copied too, so nothing is lost. Try again in a moment.`);
         }
-        if (r.kind === 'comments') return openComments(r.comments, plain);
-        SML.copy(plain, 'Message copied');
-        showStatus('info', '<b>Copied, so nothing is lost.</b> Sending from this page is not available in this view. Paste your message wherever you share feedback with FiredBunny.');
-      } catch (err) {
-        SML.copy(plain, 'Message copied');
-        showStatus('err', '<b>That did not go through.</b> Your message is copied so you do not lose it. Try again in a moment.');
       } finally { sendBtn.disabled = false; }
     });
-    async function openComments(comments, plain) {
-      SML.copy(plain, 'Message copied');
-      try {
-        const res = await comments.openComposer({ element: form });
-        if (res && res.opened) showStatus('info', '<b>The comment box is open.</b> Your message is copied: paste it there and post. Comments are visible to people who can see this page\'s comments.');
-        else showStatus('info', '<b>Your message is copied.</b> Click the page once, then press Send again to open the comment box, or add a comment from the page\'s comment menu.');
-      } catch (err) {
-        showStatus('info', '<b>Copied, so nothing is lost.</b> Sending from this page is not available in this view.');
-      }
-    }
     return 'About FiredBunny';
   };
 
