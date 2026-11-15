@@ -20,7 +20,7 @@
   const web = !(window.claude && typeof window.claude.use === 'function');
   let ref = '';
   try { ref = C.url ? new URL(C.url).hostname.split('.')[0] : ''; } catch (e) { ref = ''; }
-  const enabled = !!(web && C.url && C.key && ref && /^https:\/\//.test(C.url));
+  const configured = !!(web && C.url && C.key && ref && /^https:\/\//.test(C.url));
   const LIB = '/vendor/supabase-js-2.119.0.js';
   const SKEY = 'sb-' + ref + '-auth-token'; // where supabase-js keeps the session (its default storage key)
   const DEVICE = new Set(['analytics']); // SML.store keys that stay with this browser
@@ -32,6 +32,24 @@
     set(k, v) { try { localStorage.setItem(k, v); return true; } catch (e) { return false; } },
     del(k) { try { localStorage.removeItem(k); } catch (e) {} },
   };
+
+  // Before launch (cloud-config.js without live: true) accounts appear only in a browser that opted in by opening
+  // /signin/?preview=accounts (?preview=off ends it), so the owner can try them on the real site first. A browser that
+  // opens an emailed sign-in link, or already has a session, counts as opted in. Everyone else sees no change.
+  const PV = 'fb-accounts-preview';
+  function previewing() {
+    if (!configured || C.live) return false;
+    let q; try { q = new URLSearchParams(location.search); } catch (e) { return false; }
+    const p = q.get('preview');
+    if (p === 'off') ls.del(PV);
+    else if (p === 'accounts' || (/^\/signin\/?$/.test(location.pathname) && (q.get('token_hash') || q.get('code')))) ls.set(PV, '1');
+    if (p) {
+      q.delete('preview');
+      try { history.replaceState(history.state, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); } catch (e) {}
+    }
+    return ls.get(PV) === '1' || !!ls.get(SKEY);
+  }
+  const enabled = configured && (C.live === true || previewing());
 
   function readUser() {
     if (!enabled) return null;

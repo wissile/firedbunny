@@ -64,7 +64,8 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 ## Accounts (Supabase, see supabase/README.md)
 
 - Accounts are on only when `src/cloud-config.js` has the project URL and publishable key. Both are public; never put
-  the secret / service_role key or the database password in the repo.
+  the secret / service_role key or the database password in the repo. With `live: false` only browsers that opened
+  `/signin/?preview=accounts` (or an emailed link) see accounts; set `live: true` only after custom SMTP is set up.
 - Signed in on the website, the profile and assessments (`src/account.js`) and every `SML.store` item (`src/cloud.js`)
   live in `public.user_data`. Analytics consent stays per device (`DEVICE` in `src/cloud.js`). Guests are unchanged.
 - Database changes: edit `supabase/schema.sql`, have the owner run it in the SQL Editor, and commit it in the same change.

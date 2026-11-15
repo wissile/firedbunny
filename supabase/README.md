@@ -4,7 +4,9 @@ People can create a free FiredBunny account on the website. Everything they save
 they sign in: profile, goals, net worth, household, lesson progress, assessments, trade journal, FIRE plan,
 spreadsheet rows and preferences. Guests keep working exactly as before, with everything saved in their browser.
 
-Accounts are off until `src/cloud-config.js` has the project's URL and publishable key.
+Accounts are off until `src/cloud-config.js` has the project's URL and publishable key, and shown to every visitor only
+once it also says `live: true`. Before that they appear only in a browser that opened
+`https://firedbunny.com/signin/?preview=accounts` (or an emailed sign-in link); `?preview=off` ends the preview.
 
 ## How it fits together
 
@@ -53,10 +55,16 @@ offline. Signing out deletes that copy.
    - Set the sender to something like `FiredBunny <hello@firedbunny.com>`.
    - Your domain will need the SPF/DKIM DNS records the provider gives you, which you add in Cloudflare DNS.
 7. **The keys for the website.** Go to Project Settings → API Keys. Put the **Project URL** and the **publishable key**
-   (`sb_publishable_...`, or "anon public" on older projects) into `src/cloud-config.js`. Then build, test and deploy
-   as usual.
-8. **Before real users arrive,** switch to the **Pro** plan for daily backups and to stop the project pausing after a
+   (`sb_publishable_...`, or "anon public" on older projects) into `src/cloud-config.js`, leaving `live: false`. Then
+   build, test and deploy as usual, and try it at `/signin/?preview=accounts`.
+8. **Going live:** once custom SMTP works (step 6; the built-in email only reaches the project's own team members), set
+   `live: true` in `src/cloud-config.js`, build, test and deploy.
+9. **Before real users arrive,** switch to the **Pro** plan for daily backups and to stop the project pausing after a
    week of inactivity.
+
+Connected project (November 2026): `cwvgvzsrmcvpiqsbelyb`, region Americas. Checked from a browser with the publishable
+key: email sign-up on, confirm email on, anonymous sign-ins off; `user_data` and `delete_my_account()` exist and refuse
+visitors who are not signed in.
 
 ## Things to know
 

@@ -5,6 +5,7 @@ Two browser contexts are two devices. The app script gets a test project's confi
 empty), and requests to https://fbtest.supabase.co go to the stand-in. Covers sign-up with email confirmation, sign-in,
 moving guest data into the account, syncing between devices, offline changes, merging lesson progress, sign-out,
 password reset, another person's data staying private, account deletion, and the phone layout. Needs Playwright."""
+import re
 import os, sys, tempfile, threading, http.server, json, urllib.request, time
 HERE = os.path.dirname(os.path.abspath(__file__)); SP = tempfile.gettempdir()
 sys.path.insert(0, HERE)
@@ -30,14 +31,17 @@ def rows(email=EMAIL):
     return {r['key']: r['value'] for r in st['rows'] if u and r['user_id'] == u['id']}
 
 NET = {}
-def device(b):
+CFG = re.compile(r"window\.SML\.SUPABASE = \{[^}]*\};")
+def inject(body, live=True, key='sb_publishable_test'):  # point the app at the stand-in project
+    assert len(CFG.findall(body)) == 1, 'cloud-config line not found in the app script'
+    return CFG.sub(lambda m: f"window.SML.SUPABASE = {{ url: '{SB}', key: '{key}', live: {'true' if live else 'false'} }};", body)
+
+def device(b, live=True):
     ctx = b.new_context(viewport={'width': 1280, 'height': 900}, service_workers='block')
     net = {'down': False}; NET[id(ctx)] = net
     def app(route):
         r = route.fetch(); body = r.text()
-        assert "window.SML.SUPABASE = { url: '', key: '' };" in body
-        body = body.replace("window.SML.SUPABASE = { url: '', key: '' };", f"window.SML.SUPABASE = {{ url: '{SB}', key: 'sb_publishable_test' }};")
-        route.fulfill(response=r, body=body)
+        route.fulfill(response=r, body=inject(body, live))
     ctx.route('**/app.*.js', app)
     def sb(route):
         if net['down']: return route.abort('internetdisconnected')
@@ -174,8 +178,21 @@ with sync_playwright() as p:
     check(not any(u['email'] == EMAIL for u in mstate()['users']) and not rows(), 'deleting the account removes the login and every saved row')
     check(pb.evaluate("Object.keys(localStorage).filter(k => k.startsWith('fb-cloud:') || k.startsWith('sb-')).length") == 0, 'and nothing of it is left in that browser')
 
+    # ---------- before launch (live: false): accounts only in a browser that opted in ----------
+    G, pg_, eg = device(b, live=False)
+    go(pg_, '/signin/')
+    check(pg_.evaluate("SML.cloud.enabled === false && SML.accountsOn === false && !document.querySelector('form[data-auth]')"), 'before launch, a visitor sees no accounts')
+    check(not any('supabase-js' in s for s in pg_.evaluate("[...document.scripts].map(s => s.src)")), 'and the Supabase library is not loaded')
+    go(pg_, '/signin/?preview=accounts')
+    check(pg_.evaluate("SML.cloud.enabled === true && !!document.querySelector('form[data-auth]') && location.search === ''"), '/signin/?preview=accounts shows the sign-in form and tidies the address')
+    go(pg_, '/settings/')
+    check(pg_.evaluate("SML.cloud.enabled === true"), 'the preview stays on in that browser')
+    go(pg_, '/signin/?preview=off')
+    check(pg_.evaluate("SML.cloud.enabled === false"), '?preview=off ends it')
+    G.close()
+
     # ---------- phone width ----------
-    P = b.new_context(viewport={'width': 390, 'height': 844}, service_workers='block'); P.route('**/app.*.js', lambda route: route.fulfill(response=route.fetch(), body=route.fetch().text().replace("window.SML.SUPABASE = { url: '', key: '' };", f"window.SML.SUPABASE = {{ url: '{SB}', key: 'k' }};")))
+    P = b.new_context(viewport={'width': 390, 'height': 844}, service_workers='block'); P.route('**/app.*.js', lambda route: route.fulfill(response=route.fetch(), body=inject(route.fetch().text(), key='k')))
     pp = P.new_page(); go(pp, '/signin/')
     check(pp.evaluate("document.documentElement.scrollWidth") <= 390, 'sign-in page fits a phone screen')
     pp.screenshot(path=f'{SP}/acct-phone.png', full_page=False)
