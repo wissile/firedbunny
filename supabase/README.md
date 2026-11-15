@@ -61,7 +61,8 @@ offline. Signing out deletes that copy.
 9. **Before real users arrive,** switch to the **Pro** plan for daily backups and to stop the project pausing after a
    week of inactivity.
 
-Connected project (November 2026): `cwvgvzsrmcvpiqsbelyb`, region Americas. Checked from a browser with the publishable
+Connected project (November 2026): `cwvgvzsrmcvpiqsbelyb`, region Americas. Custom SMTP through Resend set up by the
+owner and accounts switched on for everyone (`live: true`) on Nov 15 2026. Checked from a browser with the publishable
 key: email sign-up on, confirm email on, anonymous sign-ins off; `user_data` and `delete_my_account()` exist and refuse
 visitors who are not signed in.
 

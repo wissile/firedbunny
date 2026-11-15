@@ -11,4 +11,4 @@
  *       Switch it on only once custom email sending (SMTP) is set up in Supabase: its built-in email reaches only the
  *       project's own team.
  */
-window.SML.SUPABASE = { url: 'https://cwvgvzsrmcvpiqsbelyb.supabase.co', key: 'sb_publishable_6jcvTuP-ezIzUr7-ds-ySA_SM8kAiJu', live: false };
+window.SML.SUPABASE = { url: 'https://cwvgvzsrmcvpiqsbelyb.supabase.co', key: 'sb_publishable_6jcvTuP-ezIzUr7-ds-ySA_SM8kAiJu', live: true };
