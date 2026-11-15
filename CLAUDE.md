@@ -77,8 +77,8 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - The floating chat in the bottom-right corner is `src/chat.js` (engine and panel) and `src/chat-data.js` (what it
   understands and says: intents with patterns, synonyms and abbreviations, key pages, tool groups, calendar words,
   prompts). Extend the data file, not the engine. No AI: answers come from the site's own content (glossary, lessons,
-  tools, courses, notes, calendar) or the fixed replies in `chat-data.js`, which restate the About, Editorial standards
-  and Settings pages. If one of those pages changes, change the matching reply in the same commit.
+  tools, courses, notes, calendar) or the fixed replies in `chat-data.js`, which restate the About, Editorial standards,
+  Settings and Support pages. If one of those pages changes, change the matching reply in the same commit.
 - Only the launcher is made at start; the panel, its styles and the search index are built on first open. It is added
   at runtime with `style[data-fb]`, so the pre-built pages and `tools/seo-lastmod.json` never change because of it.
 - The conversation lives in the tab's sessionStorage (`fb-chat`) only. Analytics get coarse events (`help_chat_open`,
@@ -108,6 +108,24 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
   `src/chat-data.js` in the same commit.
 - Test with `python3 tools/build.py --no-prerender && python3 tools/portfoliotest.py --wrangler <path>` (stand-in
   SnapTrade and Supabase, `wrangler dev` on port 8790).
+
+## Support link (Stripe, see docs/support/README.md)
+
+- `/support/` (`src/mod-y-support.js`) says the site is free, what it costs to run, and that chipping in is optional,
+  unlocks nothing and is not tax-deductible. Its buttons open the owner's Stripe Payment Links from
+  `src/support-config.js` (public links only: never a Stripe key, Stripe.js, server code or webhooks). Links are checked
+  in the browser (https; `buy.stripe.com` for payments, `billing.stripe.com` for the customer portal) and anything else
+  is ignored with a console warning. Never commit a test-mode or made-up link as the live config.
+- While no payment link is set, the footer link, the About line and the buttons stay hidden; `/support/` still
+  explains. Support shows only there, in the footer, in one About line and in the chat when asked: never in lessons,
+  tools or the Portfolio page, and never as a pop-up. Words: "support", "chip in", "tip", never "donate" or "donation"
+  (FiredBunny is not a charity). In the claude.ai copy the page points to the website instead.
+- Link-dependent parts carry `data-volatile` and the footer is not in the lastmod hash, so setting a link changes no
+  lastmod. If what the page promises changes, change the chat's `support` and `free` replies (`src/chat-data.js`) and
+  the Editorial standards in the same commit. `/support/thanks/` (private) is the after-payment redirect: it says
+  thank you and claims nothing.
+- Test with `python3 tools/build.py --no-prerender && python3 tools/supporttest.py` (test link injected in flight,
+  stand-in Stripe page, no network).
 
 ## Things to keep in mind
 

@@ -97,6 +97,7 @@ value), `method` (how: button, autoplay, lock screen...), numbers `count`, `scor
 | `app_installed` | Installed as an app | label |
 | `app_update` | "New version" bar: Reload or Later | label |
 | `analytics_opt_out` | Usage stats switched off (the last event from that browser) | label |
+| `support_click` | A click on a Support FiredBunny link (only shown once a Stripe Payment Link is set, see docs/support/README.md) | target (`once` or `monthly`: a button that opens Stripe; `page`: a link to /support/), target_type (where: footer, about, chat, support, or the page). Never an amount or anything personal |
 | `js_error` | A script error (up to 10 per visit) | label (message), target (file:line) |
 
 ## Questions the data answers
