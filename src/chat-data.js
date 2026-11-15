@@ -20,6 +20,10 @@
 (function () {
   'use strict';
   const SML = window.SML;
+  // The plans intent's loose patterns ("premium plan", "upgrade my account") skip messages that are about someone else's
+  // plans or accounts: insurance, brokers, banks, retirement accounts. Those go to the lessons instead.
+  const ELSEWHERE = '^(?!.*\\b(insurance|insurer|health|medicare|medicaid|aca|marketplace|obamacare|dental|vision|life|broker|brokers|brokerage|margin|options level|vanguard|fidelity|schwab|robinhood|webull|etrade|e trade|ibkr|interactive brokers|tastytrade|tradingview|bank|banks|card|ira|roth|401k|403b|457b|hsa|fsa|annuity|employer|company)\\b)';
+  const plansRe = (src) => new RegExp(ELSEWHERE + '.*' + src);
 
   SML.chatData = {
     name: 'Bunny',
@@ -237,16 +241,21 @@
       // a paid plan, pricing, the waitlist (the Plans page, src/mod-y-plans.js). "Premium" counts only next to plan words,
       // so "option premium", "sell premium", "insurance premium" and "premium tax credit" still reach their lessons
       { id: 'plans', patterns: [
-        /\b(paid|pro|plus|premium) (plan|plans|tier|tiers|version|versions|membership|memberships|account|accounts|subscription|subscriptions|features?|content|access|edition)\b/,
+        plansRe('\\b(paid|pro|plus|premium) (plan|plans|tier|tiers|version|versions|membership|memberships|account|accounts|subscription|subscriptions|features?|content|access|edition)\\b'),
         /\b(firedbunny|fired bunny) (plus|pro|premium)\b/, /\b(waitlist|wait list|waiting list)\b/,
         /^(plans|pricing|prices|plans and pricing|pricing plans?|price plans?|subscription|subscriptions|subscribe|membership|memberships)$/,
         /\b(your|firedbunny|fired bunny|the site|this site|the website|site) (pricing|prices|plans|subscription|subscriptions|membership)\b/,
         /\b(is there|do you have|do you offer|do you sell|can i buy|can i get|how much is|how much does|sign up for|join) (a |an |the |any )?(subscription|membership|waitlist)\b/, /^is there (a |any )?(premium|paid|pro)$/,
-        /\bupgrade (my |to |to a |to the )?(account|plan|plus|pro|premium|firedbunny|membership)\b/,
-        /\bwill (it|this|firedbunny|the site|the website|everything|the lessons|the tools) (always |still |stay |remain |keep being )+(be )?free\b/, /\bwill (you|firedbunny|it|the site) (ever |start to |start )?charg(e|ing)\b/, /\b(start|starting|going to|plan to|planning to) charg(e|ing)\b/],
+        plansRe('\\bupgrade (my |to |to a |to the )?(account|plan|plus|pro|premium|firedbunny|membership)\\b'),
+        /\bwill (it|this|firedbunny|the site|the website|everything|the lessons|the tools) (always |still |stay |remain |keep being )+(be )?free\b/,
+        // charging: only when the question is about FiredBunny ("will you start charging"), not a broker or a bank
+        /\bwill (you|firedbunny|fired bunny|the site|the website|this site) (ever |start to |start |begin to )?charg(e|ing)\b/,
+        /\b(are you|is firedbunny|is fired bunny|is the site|is this site|is the website|will you|do you|you) (ever )?(start|starting|going to|plan to|planning to|planning on) charg(e|ing)\b/],
         say: () => 'Everything on FiredBunny is free today and stays free: every lesson, quiz, tool and simulator. An optional paid plan is being considered for a few new extras that cost money each time one person uses them, like an AI review that explains your own portfolio numbers with the lessons (never what to buy or sell) or a printable self-assessment report. Nothing is decided: no price, no date. ' + (SML.plans && SML.plans.where() !== 'supabase' ? 'If you’d use it, the Plans page explains, and the waitlist is on the FiredBunny website, at firedbunny.com/plans.' : 'If you’d use it, join the waitlist on the Plans page and tick the extras you want.'),
         links: ['plans'], chips: [{ l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Something else', a: 'menu', q: 1 }] },
-      { id: 'free', patterns: [/\b(is|are) (it|this|the site|the website|firedbunny|everything|the lessons|the tools|the courses|this site|the app) (really |actually |totally |completely )?free\b/, /\b(does|do) (it|this|firedbunny|the lessons|the tools) cost\b/, /\bhow much (does|is|do) (it|this|firedbunny|the lessons|the courses|the tools)\b/, /\b(paywall|upsell|free trial)\b/, /\b(do|will) i (have|need) to pay\b/, /^(free|is it free|cost|price|how much)$/],
+      { id: 'free', patterns: [/\b(is|are) (it|this|the site|the website|firedbunny|everything|the lessons|the tools|the courses|this site|the app) (really |actually |totally |completely )?free\b/, /\b(does|do) (it|this|firedbunny|the lessons|the tools) cost\b/, /\bhow much (does|is|do) (it|this|firedbunny|the lessons|the courses|the tools)\b/, /\b(paywall|upsell|free trial)\b/,
+        // "do I have to pay?" about the site, not "do I have to pay taxes on dividends"
+        /\b(do|will) i (have|need) to pay( (for|to use) (it|this|firedbunny|the site|the website|the lessons|the tools|the courses|anything))?$/, /^(free|is it free|cost|price|how much)$/],
         say: () => 'Yes. Every lesson, tool and simulator is free: no paywall, no course upsell, no “premium” tier for the important parts, and no ads or affiliate links.' + (SML.support && SML.support.live() ? ' If you want to, you can chip in on the Support page, but it’s optional and unlocks nothing.' : '') + ' A paid plan for a few extras that cost money per person to run is only being considered; the Plans page explains.', links: ['about', 'plans', 'editorial'], chips: 'after' },
       { id: 'who', patterns: [/\bwho (made|makes|built|runs|owns|wrote|writes|created|is behind|are you guys)\b/, /\bwho is (firedbunny|the bunny|behind)\b/, /\bwhat is firedbunny\b/, /\b(about|tell me about) (this site|the site|firedbunny|you guys)\b/, /\bwhy (does this site exist|did you make this|firedbunny)\b/],
         say: 'FiredBunny is a pen name: the name the person who writes and runs this site publishes under. They spent about ten years learning about money the slow way, and turned those notes into free lessons and tools. Lessons are drafted with AI tools and checked against the primary sources cited on each page.', links: ['about', 'editorial'], chips: [{ l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Send feedback', a: 'feedback' }, { l: 'Something else', a: 'menu' }] },

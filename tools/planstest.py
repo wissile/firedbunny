@@ -216,11 +216,18 @@ with sync_playwright() as p:
         check(r['intent'] == 'waitlist-leave' and 'send a note' in r['text'], f'chat: “{q}” → how to leave (guests: send a note) ({r["intent"]})')
     r = reply(pg, 'is it free')
     check(r['intent'] == 'free' and 'no paywall' in r['text'] and 'no “premium” tier for the important parts' in r['text'] and 'only being considered' in r['text'], 'chat: the free reply stays true and mentions the plan being considered')
+    for q in ['do i have to pay', 'do i have to pay for the lessons', 'will i need to pay to use it']:
+        r = reply(pg, q)
+        check(r['intent'] == 'free', f'chat: “{q}” → free ({r["intent"]})')
     r = reply(pg, 'how can i support you')
     check(r['intent'] == 'support' and 'chip in' in r['text'], 'chat: the support reply is unchanged in substance')
     for q, tok in [('what is option premium', 'l-contracts'), ('sell premium', 'l-contracts'), ('collect premium', 'l-contracts'), ('what is a premium in options', 'l-contracts'), ('premium decay', 'l-theta'),
                    ('insurance premium', None), ('health insurance premiums', None), ('premium tax credit', 'l-aca'), ('how much premium should i collect', None), ('premium', 'l-contracts'),
-                   ('option pricing', None), ('cancel subscriptions', None), ('plan for retirement', None), ('fire plan', None), ('premium income from covered calls', 'l-wheel')]:
+                   ('option pricing', None), ('cancel subscriptions', None), ('plan for retirement', None), ('fire plan', None), ('premium income from covered calls', 'l-wheel'),
+                   # money questions about taxes, brokers and insurance are not about FiredBunny's price
+                   ('do i have to pay taxes on dividends', None), ('do i need to pay tax on my roth withdrawal', None), ('will i have to pay capital gains', None),
+                   ('is my broker going to charge me for options', None), ('will they start charging commissions', None), ('is robinhood going to charge a fee', None),
+                   ('premium plan health insurance', None), ('pro account margin', None), ('upgrade my account to margin', None), ('vanguard premium account', None)]:
         r = reply(pg, q)
         good = r['intent'] not in ('plans', 'free', 'support', 'waitlist-leave') and (tok is None or top(pg, q) == tok)
         check(good, f'chat: “{q}” still reaches its lesson ({r["intent"]}, {top(pg, q)})')

@@ -23,7 +23,7 @@
   /* ---------------- the extras being considered (ids are stored; keep them in step with supabase/schema.sql) ---------------- */
   const EXTRAS = [
     { id: 'review', t: 'Portfolio review in plain words', d: 'An AI-written explanation of your own portfolio: allocation, concentration, costs and taxes, each tied to the lesson behind it.' },
-    { id: 'coach', t: 'Questions about your numbers', d: 'Ask about your own figures and get answers that point to the lessons and tools, like a study partner who knows your situation.' },
+    { id: 'coach', t: 'Questions about your numbers', d: 'Ask what your own figures mean and get explanations that point to the lessons and tools, never a recommendation.' },
     { id: 'report', t: 'Printable self-assessment report', d: 'Your self-assessment results as a PDF to print or keep: your investor profile, risk picture and learning path.' },
     { id: 'history', t: 'Deeper portfolio history', d: 'How a connected portfolio’s allocation, income and gains changed over months and years, not just today.' },
   ];
