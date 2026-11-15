@@ -56,7 +56,7 @@
    *  Joining again resolves ok as well: the database keeps the first sign-up and says nothing. */
   async function join(o) {
     o = o || {};
-    const extras = (Array.isArray(o.extras) ? o.extras : []).filter((x, i, a) => IDS.indexOf(x) >= 0 && a.indexOf(x) === i);
+    const extras = IDS.filter((id) => Array.isArray(o.extras) && o.extras.indexOf(id) >= 0); // known ids only, in the page's order
     const note = String(o.note || '').trim().slice(0, MAX.note);
     const acct = signedIn();
     const email = acct ? '' : String(o.email || '').trim();
@@ -156,6 +156,7 @@
     .pl-form textarea{font:400 15.5px/1.6 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--input);border-radius:var(--r);padding:11px 12px;width:100%;min-height:84px;resize:vertical;min-width:0}
     .pl-form textarea:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(232,173,79,.2)}
     .pl-form textarea::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
+    .pl-form input[type=email]{min-height:44px}
     .pl-form input[aria-invalid="true"]{border-color:var(--down)}
     .pl-cnt{font:500 11px var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:none}
     .pl-send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
