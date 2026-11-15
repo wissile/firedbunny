@@ -282,6 +282,7 @@
               <li>${SML.flame(14)}<span>Ten years of notes, turned into ${nLessons} lessons across ${nTracks} tracks.</span></li>
               <li>${SML.flame(14)}<span>Lessons link the official sources their figures were checked against, with the month they were checked. <a href="#editorial">How pages are written and checked</a>.</span></li>
               <li>${SML.flame(14)}<span>Spot something wrong or out of date? <a href="#ab-feedback" data-jump="ab-feedback">Tell me</a> and I'll fix it.</span></li>
+              ${SML.support && SML.support.live() ? `<li data-volatile>${SML.flame(14)}<span>Everything here stays free. If FiredBunny has helped you, you can <a href="#support" data-support-place="about">chip in toward hosting and data</a>. It’s optional and unlocks nothing.</span></li>` : ''}
             </ul>
           </aside>
         </div>
@@ -443,7 +444,7 @@
         <ul>
           <li><b>Not advice.</b> Nothing here is financial, investment, tax or legal advice, and nothing is tailored to your situation. For big decisions, talk to a professional who knows your details.</li>
           <li><b>US-focused.</b> Tax and retirement rules are US federal rules unless a lesson says otherwise. State rules vary.</li>
-          <li><b>No ads and no affiliate links.</b> Brokers, funds and companies are named to teach, not to sell.</li>
+          <li><b>No ads and no affiliate links.</b> Brokers, funds and companies are named to teach, not to sell. <a href="#support">How FiredBunny is paid for</a>.</li>
           <li><b>A computer voice.</b> Lesson audio is read by a computer: recordings made with the open Kokoro-82M text-to-speech model, or your device’s own voice when a recording is not available.</li>
         </ul>`)}
       ${sec('06', 'Corrections', 'Spot something wrong? Say so.', 'ed-fix', `

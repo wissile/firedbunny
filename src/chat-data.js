@@ -1,7 +1,7 @@
 /* Help chat ("Ask Bunny"): what it understands and what it says. The engine is src/chat.js; this file is data, so it
  * can be extended without touching the matching code. No AI: every answer comes from the site's own content (lessons,
- * glossary, tools, courses, notes) or from the fixed replies below, which restate the About, Editorial standards and
- * Settings pages. If one of those pages changes, change the matching reply here in the same commit.
+ * glossary, tools, courses, notes) or from the fixed replies below, which restate the About, Editorial standards,
+ * Settings and Support pages. If one of those pages changes, change the matching reply here in the same commit.
  *
  * How a message is read (details in src/chat.js):
  *   1. It is normalised: lower case, accents and punctuation removed, "401(k)" -> "401k", "P/E" -> "pe", "4%" ->
@@ -90,6 +90,7 @@
       { tok: 'signin', title: 'Sign in', keys: 'sign in signin login log in account create account sign up register password', say: 'Sign in, or see how saving your progress works.' },
       { tok: 'profile', title: 'Your profile', keys: 'profile my details birth year age income', say: 'The basics FiredBunny uses to tailor your dashboard, goals and assessment.' },
       { tok: 'about', title: 'About FiredBunny', keys: 'about story who why owner creator', say: 'Why FiredBunny exists, what it believes, and the feedback form.' },
+      { tok: 'support', title: 'Support FiredBunny', keys: 'chip in tip jar funding', say: 'Why FiredBunny is free, what running it costs, and how optional support works: it unlocks nothing and is not tax-deductible.' },
       { tok: 'editorial', title: 'Editorial standards', keys: 'editorial standards sources fact check accuracy corrections how lessons are written', say: 'Who writes FiredBunny, how lessons are checked against sources, and how to report an error.' },
       { tok: 'sheets', title: 'Spreadsheets', keys: 'spreadsheets spreadsheet templates google sheets excel trade journal wheel tracker watchlist', say: 'Trade journal, wheel tracker, retirement planner and watchlist templates you can copy into Google Sheets or Excel.' },
       { tok: 'indicator', title: 'TradingView indicator', keys: 'tradingview indicator pine script chart levels alerts', say: 'A free Pine Script indicator that draws PDH, PDL, PMH, PML, VWAP and the 13/48/200 EMA ribbon, with alerts.' },
@@ -201,8 +202,27 @@
         say: 'I can’t look up live prices or today’s market; I only know what’s on FiredBunny’s pages. For a company’s latest results in plain words, try the Earnings lookup.', links: ['tool-earnings', 'calendar'], chips: 'after' },
       { id: 'advice', patterns: [/\b(financial|investment|investing|tax|legal) advi[cs]e\b/, /\bis (this|it|that) advice\b/, /\bshould i (buy|sell|short|get|invest in|put my money in(to)?) (this |that |the |a |an |some |more |any )?(stock|stocks|share|shares|crypto|bitcoin|btc|eth|ethereum|coin|coins|etf|etfs|fund|funds|option|options|call|calls|put|puts|tesla|apple|nvidia|amazon|google|meta|microsoft|spy|qqq|voo|vti|gold|silver)\b/, /\bshould i (buy|sell) (it |them )?(now|today|tomorrow)\b/, /\b(what|which) (stock|stocks|crypto|coin|etf|fund|shares) should i\b/, /\b(recommend|tip|hot tip|pick) (me )?(a |some |any )?(stock|stocks|coin|crypto|trade|etf)\b/, /\bwill (the market|stocks|it|bitcoin|tesla|apple|nvidia)\b.*\b(go up|go down|crash|rise|fall|moon)\b/, /\b(price target|guaranteed returns?|get rich|make me rich)\b/],
         say: 'No, FiredBunny is education only. Nothing here is financial, investment, tax or legal advice, and nothing is tailored to your situation, so I can’t tell you what to buy or sell, or where prices are going. For big decisions, talk to a professional who knows your details. What I can show you is how people think it through.', links: ['l-stock-picking', 'l-value', 'assessment', 'editorial'], chips: 'after' },
+      // chipping in (the Support page, src/mod-y-support.js): only phrasings aimed at the site, so "support and resistance",
+      // "contribute to a Roth" or "donate appreciated stock" still reach their lessons
+      { id: 'support', patterns: [
+        /\b(donate|donating|donation|donations|tip|tips|chip in|contribute|give money|send money|pay)\s+(to\s+)?(you|firedbunny|fired bunny|the site|this site|the website|this website|the bunny|the project|this project|the creator|the author|the owner)\b/,
+        /\b(donate|donating|donation|donations|tip jar|chip in|chipping in|tipping)$/,
+        /\b(support|fund|sponsor|back)\s+(you|firedbunny|fired bunny|the site|this site|the website|this website|the bunny|your work|the project|this project|the creator|the author)\b/,
+        /\bhow (can|could|do|would|might) i (help|support|give back)( you| out| firedbunny| the site| this site)?$/, /\bways? to (help|support)( you| firedbunny| the site| this site)?$/,
+        /\b(buy|get) (you|the bunny|firedbunny) a (coffee|carrot|beer|drink)\b/, /\b(patreon|kofi|ko fi|buy me a coffee|buymeacoffee|github sponsors)\b/,
+        /\bhow (is|are) (firedbunny|this site|the site|this website|the website|it|this|you) (funded|paid for|financed)\b/, /\bhow (is|are) (firedbunny|this site|the site|this website|the website|it|this) free\b/,
+        /\bhow (does|do) (firedbunny|this site|the site|this website|the website) (make money|pay for itself|stay free|afford it|earn money|pay the bills)\b/,
+        /^how do you (make money|pay for (it|this|the site|hosting)|keep (it|this|the site) free|afford (it|this))$/, /\bwho pays for (it|this|the site|this site|firedbunny|the hosting|hosting|the servers)\b/],
+        say: () => {
+          const S = SML.support, on = !!(S && S.live()), elsewhere = !!(S && !on && S.configured());
+          const tail = ' It isn’t tax-deductible: FiredBunny is not a charity. Pointing out a mistake or a missing topic helps just as much.';
+          if (on) return 'Thank you for asking. Everything on FiredBunny stays free and paying unlocks nothing. If you’d like to chip in toward hosting, data and the time it takes, the Support page has the options, and you pay on Stripe’s own page.' + tail;
+          if (elsewhere) return 'Thank you for asking. Everything on FiredBunny stays free and paying unlocks nothing. Support is handled on the FiredBunny website, at firedbunny.com/support; this copy doesn’t take payments.' + tail;
+          return 'Thank you for asking. FiredBunny is free, and there’s no way to chip in yet: the person who runs it pays for it. The best help right now is a note: tell me what’s wrong, out of date or missing. The Support page explains what running the site costs.';
+        },
+        links: ['support'], chips: [{ l: 'Send feedback', a: 'feedback' }, { l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Something else', a: 'menu', q: 1 }] },
       { id: 'free', patterns: [/\b(is|are) (it|this|the site|the website|firedbunny|everything|the lessons|the tools|the courses|this site|the app) (really |actually |totally |completely )?free\b/, /\b(does|do) (it|this|firedbunny|the lessons|the tools) cost\b/, /\bhow much (does|is|do) (it|this|firedbunny|the lessons|the courses|the tools)\b/, /\b(subscription|premium|paywall|upsell|pro version|paid version|free trial)\b/, /^(free|is it free|cost|price|pricing|how much)$/],
-        say: 'Yes. Every lesson, tool and simulator is free: no paywall, no course upsell, no “premium” tier for the important parts, and no ads or affiliate links.', links: ['about', 'editorial'], chips: 'after' },
+        say: () => 'Yes. Every lesson, tool and simulator is free: no paywall, no course upsell, no “premium” tier for the important parts, and no ads or affiliate links.' + (SML.support && SML.support.live() ? ' If you want to, you can chip in on the Support page, but it’s optional and unlocks nothing.' : ''), links: ['about', 'editorial'], chips: 'after' },
       { id: 'who', patterns: [/\bwho (made|makes|built|runs|owns|wrote|writes|created|is behind|are you guys)\b/, /\bwho is (firedbunny|the bunny|behind)\b/, /\bwhat is firedbunny\b/, /\b(about|tell me about) (this site|the site|firedbunny|you guys)\b/, /\bwhy (does this site exist|did you make this|firedbunny)\b/],
         say: 'FiredBunny is a pen name: the name the person who writes and runs this site publishes under. They spent about ten years learning about money the slow way, and turned those notes into free lessons and tools. Lessons are drafted with AI tools and checked against the primary sources cited on each page.', links: ['about', 'editorial'], chips: [{ l: 'Is it free?', a: 'ask', v: 'is it free' }, { l: 'Send feedback', a: 'feedback' }, { l: 'Something else', a: 'menu' }] },
       { id: 'written', patterns: [/\b(written|made|created|generated|drafted) (by|with) (ai|chatgpt|a robot|a computer|claude)\b/, /\b(ai generated|ai written)\b/, /\b(are|is) (the )?(lessons|numbers|figures|facts|this site|the site|it|content) (accurate|reliable|checked|correct|true|up to date|current|trustworthy)\b/, /\bwhere (do|does) (you|the lessons|firedbunny) get\b/, /\b(your )?sources\b/],

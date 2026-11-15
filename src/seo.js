@@ -77,6 +77,7 @@
     calendar: 'Market and tax calendar: Fed, inflation, jobs and tax dates',
     assessment: 'Investor self-assessment: what kind of investor are you?',
     editorial: 'Editorial standards: how FiredBunny lessons are written and checked',
+    support: 'Support FiredBunny: how the free site is paid for',
     'not-found': 'Page not found',
   };
 
@@ -117,6 +118,8 @@
     signin: () => 'How FiredBunny saves your progress in your browser, with no account or password.',
     offline: () => 'Use FiredBunny without a connection: save lesson audio for offline listening and install the site as an app.',
     portfolio: () => 'Your brokerage accounts, connected read-only, seen the way the lessons teach: allocation, concentration, taxes, options and income.',
+    support: () => 'FiredBunny is free, with no ads or affiliate links. What running it costs, where optional reader support goes, and why it is not tax-deductible.',
+    'support-thanks': () => 'A thank-you from FiredBunny.',
     'not-found': () => 'This page does not exist. Browse the lessons and tools instead.',
   };
 
