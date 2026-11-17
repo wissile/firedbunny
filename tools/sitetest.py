@@ -34,7 +34,7 @@ with sync_playwright() as p:
         pg.on('console', lambda m: errs.append('console: ' + m.text) if m.type == 'error' and 'ERR_TUNNEL' not in m.text and 'fonts.g' not in m.text else None)
         pg.goto('file://' + prev)
         pg.wait_for_timeout(500)
-        routes = only or pg.evaluate("""() => { const S = window.SML; const r = ['home','learn','track-trading','track-wealth','track-fire','tools','indicator','play','wheel','blog','sheets','apps','glossary','calendar','about','support','support-thanks','plans','assessment','results','dashboard','profile','settings','signin'];
+        routes = only or pg.evaluate("""() => { const S = window.SML; const r = ['home','learn','lessons','courses','tracks','track-trading','track-wealth','track-fire','tools','indicator','play','wheel','blog','sheets','apps','glossary','calendar','about','support','support-thanks','plans','assessment','results','dashboard','profile','settings','signin'];
           S.courses.forEach(c => r.push('c-' + c.id)); S.courses.forEach(c => S.lessons.filter(l => l.course === c.id).sort((a,b)=>a.order-b.order).forEach(l => r.push(l.id)));
           S.tools.forEach(t => r.push(t.id)); S.posts.forEach(p => r.push(p.id)); return r; }""")
         for tok in routes:

@@ -45,6 +45,15 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
   freeze it in the same change.
 - Titles, descriptions, canonicals and JSON-LD come from `src/seo.js` (from the content data). Keep `TITLES` entries
   plain descriptions of the page, never keyword lists. Structured data only for what the page visibly shows.
+  A lesson, tool or note with a short curriculum-style title gets a `TITLES` entry saying what the page covers; the
+  help chat's search reads those titles too, so run `tools/chattest.py` after changing them. A calculator's visible
+  heading is the plain name from its `TITLES` entry (`SML.seo.heading`: the part before the colon), and section numbers
+  ("01") are decoration, never part of a heading's text. No Course markup: Google limits it to courses with instructors
+  and a roster of students.
+- `/lessons/` lists every lesson and `/courses/` every course (`/tracks/` is the same page and names `/courses/` as
+  its main copy). A new lesson or course shows up there on its own.
+- `tools/seo-lastmod.json` also keeps `p`, the day a page first shipped (lessons: `datePublished`). It is set once,
+  the first time the build sees a page; never edit it by hand.
 - **Build before committing content changes**: the build updates `tools/seo-lastmod.json` (the sitemap's lastmod per
   page); commit it with the change. Live, date-driven parts of a page get `data-volatile` so they do not count as edits.
 - The build runs `tools/seo_check.py`; in CI an error stops the deploy. Fix what it reports.

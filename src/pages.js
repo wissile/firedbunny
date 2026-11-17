@@ -64,7 +64,7 @@
   const NAV = [['learn', 'Lessons'], ['play', 'Playground'], ['tools', 'Tools'], ['calendar', 'Calendar'], ['blog', 'Trade notes'], ['apps', 'Apps'], ['about', 'About']];
   SML.navIndex = (tok) => { const i = NAV.findIndex((n) => n[0] === tok); return i >= 0 ? nn(i + 1) : tok === 'glossary' ? '07' : ''; };
   function section(tok) {
-    if (tok === 'learn' || /^[lc]-/.test(tok) || /^track-/.test(tok) || tok === 'assessment' || tok === 'results') return 'learn';
+    if (tok === 'learn' || tok === 'lessons' || tok === 'courses' || tok === 'tracks' || /^[lc]-/.test(tok) || /^track-/.test(tok) || tok === 'assessment' || tok === 'results') return 'learn';
     if (tok === 'dashboard' || tok === 'profile' || tok === 'settings' || tok === 'signin' || tok === 'portfolio') return 'account';
     if (tok === 'play' || tok === 'wheel') return 'play';
     if (tok === 'tools' || /^tool-/.test(tok) || tok === 'indicator' || tok === 'sheets') return 'tools';
@@ -113,7 +113,7 @@
     foot.innerHTML = `<div class="wrap">
       <div class="foot-grid">
         <div class="fb"><a class="brand" href="#home" aria-label="${BRAND} home">${logo}${wordmark}</a><p class="fb-tag">Ten years of money lessons, shared free. Learn it early, keep your cool, buy back your time.</p><p>Education only. Nothing here is financial, investment or tax advice. Most charts use simulated prices and most examples use made-up numbers; the Read a Real Company course uses real reported figures, checked October 2026. Trading and investing can lose money, including more than you put in with options or margin.</p></div>
-        <div><h4>Learn</h4><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
+        <div><h4>Learn</h4><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#lessons">All lessons</a><a href="#courses">All courses</a><a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
         <div><h4>Practice</h4><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
         <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a>${SML.support ? SML.support.footerLink() : ''}<a href="#plans">Plans</a><a href="#editorial">Editorial standards</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
@@ -150,8 +150,9 @@
   /* PageHeader: idx, kicker, title html, side html (description + extras) */
   const pageHeader = (idx, kick, title, side) => `<header class="page-hdr"><div class="wrap">${kicker(idx, kick)}<div class="ph-row"><h1 class="h-page">${title}</h1>${side ? `<div class="ph-side">${side}</div>` : ''}</div></div></header>`;
   SML.pageHeader = pageHeader;
-  /* ChapterHeading */
-  const chapHead = (n, title, sub, action, id) => `<div class="chap-head"><div class="ch-l">${n ? `<span class="ch-n" aria-hidden="true">${n}</span>` : ''}<div class="ch-t"><h2${id ? ` id="${id}"` : ''}>${n ? `<span class="sr">Chapter ${n}: </span>` : ''}${title}</h2>${sub ? `<p>${sub}</p>` : ''}</div></div>${action || ''}</div>`;
+  /* ChapterHeading. The big number is decoration: the heading's own text is just the title, so search engines and
+     screen readers read "Position size calculator", not "Chapter 01: Position size". */
+  const chapHead = (n, title, sub, action, id) => `<div class="chap-head"><div class="ch-l">${n ? `<span class="ch-n" aria-hidden="true">${n}</span>` : ''}<div class="ch-t"><h2${id ? ` id="${id}"` : ''}>${title}</h2>${sub ? `<p>${sub}</p>` : ''}</div></div>${action || ''}</div>`;
   SML.chapHead = chapHead;
   const more = (href, text) => `<a class="more" href="${href}">${text}${icons.arrow}</a>`;
   SML.more = more;
@@ -489,6 +490,36 @@
   SML.pages.learn = (view) => learnPage(view, curTrack());
   TRACKS().forEach((t) => { SML.pages['track-' + t.id] = (view) => learnPage(view, t.id); });
 
+  /* ---------------- hubs: every lesson (/lessons/) and every course (/courses/, /tracks/) on one page ---------------- */
+  const hubJump = (label) => `<nav class="trackbar" aria-label="${label}"><div class="wrap"><ul class="scroll">${TRACKS().map((t) => `<li><button type="button" data-go="hub-${t.id}"><i>${nn(t.n)}</i>${esc(t.title)}</button></li>`).join('')}</ul></div></nav>`;
+  const wireJump = (view) => $$('.trackbar button', view).forEach((b) => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.go); if (el) el.scrollIntoView({ behavior: SML.reduced() ? 'auto' : 'smooth', block: 'start' }); }));
+  SML.pages.lessons = function (view) {
+    const n = allLessons().length;
+    view.innerHTML = `
+      ${pageHeader('', 'All lessons', `All lessons. <em>${n}</em> in one list.`, `<p>All ${n} FiredBunny lessons in one list, grouped by track and course. Each lesson is one idea you can play with, then a quick check.</p><p><a class="ulink" href="#courses">Browse by course</a> · <a class="ulink" href="#glossary">Glossary of ${SML.glossary.length} terms</a></p>`)}
+      ${hubJump('Tracks')}
+      ${TRACKS().map((t) => `<section class="wrap hub-trk" id="hub-${t.id}" aria-labelledby="hub-h-${t.id}">
+        ${chapHead(nn(t.n), `${esc(t.title)} track`, `${esc(t.blurb)} ${coursesOf(t.id).length} courses, ${allLessons(t.id).length} lessons.`, more('#track-' + t.id, 'Open the track'), 'hub-h-' + t.id)}
+        ${coursesOf(t.id).map((c) => trackSection(c, 'h3')).join('')}
+      </section>`).join('')}`;
+    wireJump(view);
+    return 'All lessons';
+  };
+  SML.pages.courses = function (view) {
+    const n = SML.courses.length;
+    view.innerHTML = `
+      ${pageHeader('', 'All courses', `All courses. <em>${n}</em> in ${word(TRACKS().length).toLowerCase()} tracks.`, `<p>Every FiredBunny course, grouped by track. Open a course to see its lessons, level and reading time, or see <a class="ulink" href="#lessons">all ${allLessons().length} lessons in one list</a>.</p>`)}
+      ${hubJump('Tracks')}
+      ${TRACKS().map((t) => `<section class="chapter hub-crs" id="hub-${t.id}" aria-labelledby="hub-h-${t.id}"><div class="wrap">
+        ${chapHead(nn(t.n), `${esc(t.title)} track`, esc(t.blurb), more('#track-' + t.id, `All ${allLessons(t.id).length} lessons`), 'hub-h-' + t.id)}
+        <ul class="tiles t3">${coursesOf(t.id).map(courseTile).join('')}</ul>
+      </div></section>`).join('')}`;
+    wireJump(view);
+    return 'All courses';
+  };
+  SML.pages.tracks = SML.pages.courses; // same page; /tracks/ names /courses/ as its main copy (routes.js CANONICAL_OF)
+  SML.css('.hub-trk{padding-block:56px 8px}.hub-trk .chap-head{margin-bottom:8px}.hub-crs+.hub-crs{padding-top:0}');
+
   /* ---------------- course ---------------- */
   function coursePage(view, tok) {
     const c = courseOf(tok.slice(2)); if (!c) return notFound(view);
@@ -543,6 +574,7 @@
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">${lvl(l.level)}<span class="meta">${l.mins || 4} min read</span><span class="meta up" id="l-done"${done ? '' : ' hidden'}>Completed</span></div>
           <h1 class="l-title">${esc(l.title)}</h1>
           <p class="l-sum">${l.idea || l.summary || ''}</p>
+          <p class="l-by">By <a href="#about">FiredBunny</a>${(l.sources || []).length ? ` · Figures checked ${esc(l.checked || 'October 2026')}` : ''} · <a href="#editorial">How lessons are checked</a></p>
           <div class="l-listen" id="l-listen"></div>
         </div>
         <article class="l-main">
@@ -674,7 +706,7 @@
     view.innerHTML = `
       <div class="wrap"><nav class="l-crumbbar crumbs" aria-label="Breadcrumb"><span style="display:flex;flex-wrap:wrap;gap:8px"><a href="#tools">Tools</a><span aria-hidden="true">/</span><span>${esc(trackById(t.track || 'trading').title)}</span><span aria-hidden="true">/</span><span>${esc(t.cat)}</span></span><span>${nn(i + 1)} / ${nn(SML.tools.length)}</span></nav></div>
       <section class="wrap tool-sec" aria-labelledby="tool-h">
-        ${chapHead(nn(i + 1), esc(t.title), esc(t.blurb), l ? `<a class="more" href="#${l.id}">Lesson: ${esc(l.title)} ${icons.arrow}</a>` : '', 'tool-h').replace('<h2', '<h1').replace('</h2>', '</h1>')}
+        ${chapHead(nn(i + 1), esc(SML.seo ? SML.seo.heading(t.id) : t.title), esc(t.blurb), l ? `<a class="more" href="#${l.id}">Lesson: ${esc(l.title)} ${icons.arrow}</a>` : '', 'tool-h').replace('<h2', '<h1').replace('</h2>', '</h1>')}
         ${SML.widgetHTML(t.widget)}
         <p class="note">For learning only. Results use simple models and your inputs; they are not advice.</p>
       </section>
@@ -698,16 +730,17 @@
 
   /* ---------------- glossary ---------------- */
   SML.pages.glossary = function (view) {
-    const list = SML.glossary.slice().sort((a, b) => a.t.localeCompare(b.t));
-    // a stable anchor for each term (/glossary/#vwap), unique even when two terms make the same slug
-    const ids = new Set();
-    const termId = (t) => { const base = 'g-' + (SML.routes ? SML.routes.slugify(t) : String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-')); let id = base; for (let i = 2; ids.has(id); i++) id = base + '-' + i; ids.add(id); return id; };
+    // terms in A to Z order, each with a stable anchor (/glossary/#g-vwap); SML.seo.glossaryTerms() makes both, so the
+    // page and its structured data always name the same anchors
+    const terms = SML.seo.glossaryTerms();
+    const list = terms.map((x) => x.g); const idOf = new Map(terms.map((x) => [x.g, x.id]));
+    const termId = (t, g) => idOf.get(g);
     view.innerHTML = `
       ${pageHeader('', 'Glossary', 'Every word, in plain <em>English</em>.', `<p>${list.length} terms. Each links to the lesson where you can play with it.</p><label class="fld" for="gl-q"><span>Search terms</span><input id="gl-q" type="search" placeholder="Try “theta” or “wash”" autocomplete="off"></label>`)}
       <section class="wrap" style="padding-block:40px 80px;display:flex;flex-direction:column;gap:20px">
         <div class="gl-az" id="gl-az" role="group" aria-label="Filter by first letter"><button type="button" class="on" data-l="">All</button>${Array.from(new Set(list.map((g) => g.t[0].toUpperCase()))).map((ch) => `<button type="button" data-l="${ch}">${ch}</button>`).join('')}</div>
         <div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between">${ui.seg('gl-trk', ['All'].concat(TRACKS().map((t) => t.title)), 'All', 'Track')}<p class="meta" id="gl-count"></p></div>
-        <dl class="gloss" id="gl-list">${list.map((g) => { const ls = lessonById(g.l); const gid = termId(g.t); return `<div id="${gid}" data-t="${esc(ls ? trackById(trackOfLesson(ls)).title : '')}" data-s="${esc((g.t + ' ' + (g.full || '') + ' ' + g.d).toLowerCase())}"><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${ls ? `<br><a href="#${g.l}">Lesson: ${esc(ls.title)}</a>` : ''}</dd></div>`; }).join('')}</dl>
+        <dl class="gloss" id="gl-list">${list.map((g) => { const ls = lessonById(g.l); const gid = termId(g.t, g); return `<div id="${gid}" data-t="${esc(ls ? trackById(trackOfLesson(ls)).title : '')}" data-s="${esc((g.t + ' ' + (g.full || '') + ' ' + g.d).toLowerCase())}"><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${ls ? `<br><a href="#${g.l}">Lesson: ${esc(ls.title)}</a>` : ''}</dd></div>`; }).join('')}</dl>
       </section>`;
     const q = $('#gl-q', view), cnt = $('#gl-count', view); let letter = '';
     let trk = 'All';
