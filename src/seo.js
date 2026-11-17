@@ -5,12 +5,15 @@
    - tools/prerender.py writes this into each page's pre-built HTML (what crawlers read), from SML.seo.meta() and
      SML.seo.jsonld(); on the website the router calls SML.seo.apply() after drawing a page so the live document says
      the same thing.
-   - Titles are the page's own title. TITLES below gives a few terse lesson and tool titles a plain description of what
-     the page does; keep them accurate and short, never a list of keywords.
+   - Titles are the page's own title. TITLES below gives lesson and tool pages whose own title is a short curriculum
+     name a plain description of what the page covers, in the words people search with; keep them accurate and short,
+     never a list of keywords. A calculator's visible heading is the plain name from its TITLES entry (heading()).
    - Structured data only describes what the page visibly shows: Organization and WebSite on the home page,
      BreadcrumbList where the page shows breadcrumbs, Article for lessons and trade notes (author and publisher:
-     FiredBunny, the organization; dates only when they are real). No Course markup (Google limits it to courses with
-     instructors and a roster of students), no FAQ (retired), no app ratings (there are no real reviews to mark up).
+     FiredBunny, the organization; dates only when they are real: a lesson's published date is the day it first
+     shipped, from the repository history), WebApplication for calculators (free, no ratings: there are no real reviews
+     to mark up), DefinedTermSet for the glossary. No Course markup (Google limits it to courses with instructors and a
+     roster of students), no FAQ (retired).
    Markup helps search engines understand a page; it never guarantees a rich result or a citation. */
 (function () {
   'use strict';
@@ -42,6 +45,94 @@
     'l-psychology': 'Trading psychology: fear, greed and broken rules',
     'l-mortgage': 'Mortgage basics: payments, amortization, PMI and refinancing',
     'l-wheel-tax': 'How the wheel strategy is taxed',
+    // lessons whose own title is a curriculum name: the title tag says what the page covers (the page keeps its heading)
+    'l-stocks': 'What is a stock? Shares, prices and ownership explained',
+    'l-bonds': 'Bonds and interest rates: why bond prices fall when rates rise',
+    'l-etfs': 'Index funds and ETFs: own hundreds of companies in one fund',
+    'l-risk-ladder': 'The investment risk ladder: more reward, bigger and faster losses',
+    'l-broker': 'How to choose a broker: fees, order fills and what you can trade',
+    'l-options-101': 'Calls and puts explained: how option buyers make and lose money',
+    'l-theta': 'Theta explained: how time decay drains an option’s value',
+    'l-wheel': 'The wheel strategy: sell puts, take shares, sell covered calls',
+    'l-timeframes': '2-minute vs 15-minute charts: direction on one, timing on the other',
+    'l-levels': 'PDH, PDL, PMH and PML: the four key day-trading levels',
+    'l-moving-averages': 'SMA vs EMA: how the two moving averages differ',
+    'l-ema-stack': 'The 13, 48 and 200 EMA: how to read the EMA stack',
+    'l-volatility': 'Volatility and expected move: the range options price in',
+    'l-one-percent': 'The 1% rule: how much to risk on each trade',
+    'l-risk-reward': 'Win rate and risk-reward: how to profit while losing more often',
+    'l-drawdowns': 'Drawdown recovery: why losses need bigger gains to break even',
+    'l-stock-picking': 'Which stocks to trade: liquidity, a catalyst and low costs',
+    'l-styles': 'Day trading, swing trading, the wheel and value investing compared',
+    'l-game-plan': 'A day-trading game plan: prepare before the market opens',
+    'l-statements': 'The three financial statements: income, balance sheet, cash flow',
+    'l-ratios': 'Five numbers to check before you buy a stock',
+    'l-cap-gains': 'Short-term vs long-term capital gains tax',
+    'l-wash-sale': 'The wash sale rule: the 30-day rule for claiming a loss',
+    'l-pdt': 'Day trading rules in 2026: after the $25,000 PDT rule',
+    'l-emotions': 'Fear, greed and tilt: how emotions swing a trading day',
+    'l-journal': 'Trading journal: log every trade in R multiples',
+    'l-ai-setups': 'Trading setups worth automating: turn rules into numbers',
+    'l-backtest': 'Backtesting a strategy: what a backtest can and can’t prove',
+    'l-ai-news': 'Use AI to read financial news, filings and data',
+    'l-ai-basics': 'What AI can and can’t do for traders',
+    'l-ai-research': 'AI as a research assistant: how to write a strong prompt',
+    'l-ai-mistakes': 'AI trading mistakes to avoid: trusting it too much',
+    'l-ai-security': 'AI trading safety: API keys, privacy and the rules',
+    'l-ai-journal': 'AI as a trading coach: find the leaks in your journal',
+    'l-key-dates': 'The investor’s calendar: market-moving dates through the year',
+    'l-crypto-drivers': 'What moves crypto prices: money flows, leverage and mood',
+    'l-crypto-trading': 'How to trade crypto: leverage, position size and liquidation',
+    'l-crypto-risks': 'Crypto risks, scams and taxes',
+    'l-inflation': 'Inflation explained: CPI, PCE and PPI',
+    'l-pmi': 'PMI, GDP and retail sales: reading the economy’s health',
+    'l-macro-intro': 'How the economy moves stocks: profits and interest rates',
+    'l-dollar': 'The US dollar and global money: what a strong dollar does',
+    'l-data-day': 'Trading data-release days: CPI, jobs and the priced-in move',
+    'l-gold-silver': 'Gold and silver: what moves precious metal prices',
+    'l-copper': 'Copper and industrial metals: a read on the economy',
+    'l-wheel-ira': 'Running the wheel strategy in an IRA or Roth IRA',
+    'l-mega-backdoor': 'The mega backdoor Roth: after-tax 401(k) money into a Roth',
+    'l-hsa': 'The HSA triple tax break: how a health savings account works',
+    'l-trad-vs-roth': 'Traditional vs Roth 401(k) and IRA: pay tax now or later?',
+    'l-credit-score': 'How credit scores work: the five habits that set your score',
+    'l-balance-transfer': '0% APR balance transfers: the fee, the deadline and the math',
+    'l-espp': 'ESPP explained: the 15% discount and when to sell',
+    'l-stock-options': 'Employee stock options: ISOs vs NSOs and when to exercise',
+    'l-rent-vs-buy': 'Rent vs buy: how to compare the real costs',
+    'l-home-taxes': 'Your home and taxes: the $250,000 exclusion and deductions',
+    'l-house-invest': 'Is a house an investment? Leverage, costs and returns',
+    'l-allocation': 'Asset allocation by age: stocks, bonds and cash',
+    'l-budget': 'How to build a monthly budget around your savings rate',
+    'l-track-spending': 'How to track your spending with a short weekly check',
+    'l-latte': 'Small daily spending, big numbers: the cost over decades',
+    'l-net-worth': 'Net worth: what you own minus what you owe',
+    'l-insurance': 'Insurance you actually need: protect against the big disasters',
+    'l-scams': 'Scams that target savers: the warning signs to spot',
+    'l-airbnb': 'Airbnb income: gross bookings vs real profit',
+    'l-smart-leverage': 'Using leverage wisely: cheap, fixed debt that can’t be called',
+    'l-retire-age': 'When to retire: 55, 62, 67 or 70 compared',
+    'l-retire-countdown': 'The last ten years before retirement: a countdown plan',
+    'l-medicare-rmd': 'Medicare, RMDs and IRMAA: how income drives costs after 65',
+    'l-retire-income': 'Retirement income: turn savings into a monthly paycheck',
+    'l-tax-brackets': 'How tax brackets work: marginal vs effective rate',
+    'l-us-tax-abroad': 'US taxes when you live abroad: exclusions and credits',
+    'l-aca': 'Health insurance before 65: ACA subsidies and your income',
+    'l-health-bridge': 'Health coverage until Medicare: pricing the years before 65',
+    'l-fire-intro': 'What is FIRE? Financial independence, retire early explained',
+    'l-avg-spending': 'Find your real yearly spending for a FIRE plan',
+    'l-fire-number': 'Your FIRE number: how much you need to retire early',
+    'l-savings-rate': 'Savings rate: the lever that sets your years to retirement',
+    'l-coast-fire': 'Coast FIRE and Barista FIRE explained',
+    'l-fire-planner': 'A full FIRE plan: saving, spending and accounts, year by year',
+    'l-fire-whatif': 'Stress-test your FIRE plan: what if things go wrong?',
+    'l-swr': 'The 4% rule and its limits for early retirees',
+    'l-sequence': 'Sequence of returns risk: why the order of returns matters',
+    'l-zero-bracket': 'The 0% capital gains bracket: gain harvesting and Roth conversions',
+    'l-early-access': 'Access retirement money before 59½: Roth conversions and 72(t)',
+    'l-van-life': 'Van, RV or trailer living: the real costs against a house',
+    'l-travel-budget': 'Budgeting for long-term travel: slow travel costs less',
+    'l-visas': 'Retirement visas: how early retirees can live abroad',
     'tool-size': 'Position size calculator',
     'tool-options': 'Option profit calculator: breakeven and Greeks',
     'tool-wheel': 'Wheel income calculator: premium return and annualized yield',
@@ -65,7 +156,37 @@
     'tool-swr': 'Safe withdrawal rate calculator',
     'tool-dataday': 'Data-day move: the market move priced in for CPI and jobs days',
     'tool-earnings': 'Earnings lookup: any US stock’s results in plain words',
+    'tool-risk': 'Win rate and R simulator: test your edge over hundreds of trades',
+    'tool-style': 'Which trading style fits you? Five questions',
+    'tool-habits': 'Daily habit cost calculator: yearly cost and invested value',
+    'tool-cash': 'Where to park cash: savings, money market or T-bills after tax',
+    'tool-payoff': 'Debt payoff calculator: avalanche vs snowball',
+    'tool-transfer': 'Balance transfer calculator: fee, promo period and payment',
+    'tool-car': 'Car loan vs cash calculator',
+    'tool-fx': 'Foreign transaction fee calculator: card and ATM costs abroad',
+    'tool-limits': '401(k) contribution limit calculator: deferral, match, after-tax',
+    'tool-rsu': 'RSU tax calculator: the gap withholding leaves at vest',
+    'tool-backdoor': 'Backdoor Roth pro-rata calculator: how much is taxable',
+    'tool-rentbuy': 'Rent vs buy calculator: net worth year by year',
+    'tool-airbnb': 'Airbnb profit calculator: from gross bookings to what you keep',
+    'tool-years': 'Savings rate calculator: years to financial independence',
+    'tool-cities': 'Cost of living by place: monthly budgets for cities and countries',
+    'tool-firetax': 'FIRE withdrawal tax calculator: federal tax on what you take out',
+    'tool-ladder': 'Early access planner: Roth ladder, 72(t) and the Rule of 55',
+    'tool-aca': 'Health subsidy cliff calculator: marketplace and Medicaid lines',
+    'tool-france': 'France and US tax estimate for a US citizen in France',
+    'tool-fireplan': 'Full FIRE plan calculator: every account, year by year',
+    'tool-rates': 'Interest rates and stock values: fair value and bond price',
+    'tool-inflation': 'Inflation calculator: what it does to cash, bonds and stocks',
+    'tool-metals': 'Gold, silver and copper: the gold-silver ratio and price drivers',
+    'tool-liq': 'Crypto liquidation price calculator: leverage and a safer size',
+    'tool-call': 'Earnings call player: Apple and SpaceX calls in plain words',
+    'tool-statements': 'Real statement explorer: Apple and SpaceX financials, line by line',
+    'tool-earnings-price': 'How earnings set a stock price: EPS, growth and the P/E multiple',
     home: 'FiredBunny: learn trading, investing, retirement and FIRE by playing',
+    lessons: 'All FiredBunny lessons: trading, retirement and FIRE',
+    courses: 'All FiredBunny courses, by track',
+    tracks: 'All FiredBunny courses, by track',
     tools: 'Free financial calculators and trading tools',
     glossary: 'Trading and personal finance glossary',
     play: 'Trade replay: practise day trading with fake money',
@@ -122,6 +243,8 @@
     support: () => 'FiredBunny is free, with no ads or affiliate links. What running it costs, where optional reader support goes, and why it is not tax-deductible.',
     'support-thanks': () => 'A thank-you from FiredBunny.',
     plans: () => 'Every lesson, tool and simulator on FiredBunny is free and stays free. An optional paid plan for extras that cost money per person to run is being considered.',
+    lessons: () => `All ${count().L} FiredBunny lessons in one list, grouped by track and course: trading, options, retirement, taxes and FIRE. Each has something to play with and a quick quiz.`,
+    courses: () => `All ${(SML.courses || []).length} FiredBunny courses in ${(SML.tracks || []).length} tracks: trading, retirement and wealth, and FIRE. Open a course to see its lessons, level and reading time.`,
     'not-found': () => 'This page does not exist. Browse the lessons and tools instead.',
   };
 
@@ -151,6 +274,7 @@
     }
     if (tok.indexOf('post-') === 0) { const p = find(SML.posts, tok); return p ? fit(p.excerpt) : ''; }
     if (tok === 'learn') return describe('track-trading');
+    if (tok === 'tracks') return describe('courses');
     return PAGES[tok] ? fit(PAGES[tok]()) : fit(ABOUT);
   }
 
@@ -159,6 +283,26 @@
     const r = tok.indexOf('c-') === 0 ? find(SML.courses, tok.slice(2)) : tok.indexOf('track-') === 0 ? find(SML.tracks, tok.slice(6)) : find(SML.lessons, tok) || find(SML.tools, tok) || find(SML.posts, tok);
     if (r) return tok.indexOf('track-') === 0 ? r.title + ' lessons' : r.title;
     return '';
+  }
+  // The visible main heading of a calculator or tool page: the plain name from its title tag ("Position size
+  // calculator", the part before any colon), so the heading says what the page is. Tiles and links keep the short name.
+  function heading(tok) {
+    const own = ownTitle(tok), t = TITLES[tok];
+    if (!t || tok.indexOf('tool-') !== 0) return own;
+    const i = t.indexOf(':');
+    if (i > 0) return t.slice(0, i);
+    return t.length <= 40 ? t : own;
+  }
+  // Glossary terms in A to Z order, each with its stable anchor on the glossary page (/glossary/#g-vwap), unique even
+  // when two terms make the same slug. The page and its structured data both use this list.
+  function glossaryTerms() {
+    const ids = new Set();
+    return (SML.glossary || []).slice().sort((a, b) => a.t.localeCompare(b.t)).map((g) => {
+      const base = 'g-' + (R() ? R().slugify(g.t) : String(g.t).toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+      let id = base; for (let i = 2; ids.has(id); i++) id = base + '-' + i;
+      ids.add(id);
+      return { g, id };
+    });
   }
   // the document <title>: the page's descriptive title, then the brand
   function title(tok, pageTitle) {
@@ -185,7 +329,8 @@
 
   const ORG = { '@type': 'Organization', '@id': ORIGIN + '/#organization', name: BRAND, url: ORIGIN + '/', logo: LOGO, description: ABOUT, publishingPrinciples: ORIGIN + '/editorial-standards/' };
   const crumbs = (items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it[0], item: it[1] })) });
-  // structured data that matches what the page shows; opts.lastmod is the date its content last changed (YYYY-MM-DD)
+  // structured data that matches what the page shows; opts.lastmod is the date its content last changed and
+  // opts.published the date the page first shipped (both YYYY-MM-DD, kept by the build in tools/seo-lastmod.json)
   function jsonld(tok, opts) {
     opts = opts || {};
     const m = meta(tok);
@@ -206,6 +351,7 @@
       if (c && tr) out.push(crumbs([[tr.title, url('track-' + tr.id)], [c.title, url('c-' + c.id)], [l.title, m.url]]));
       const extra = { learningResourceType: 'Lesson', educationalLevel: l.level || 'Beginner', teaches: clean(l.idea) };
       if (l.mins) extra.timeRequired = 'PT' + l.mins + 'M';
+      if (opts.published && (!opts.lastmod || opts.published <= opts.lastmod)) extra.datePublished = opts.published;
       if (opts.lastmod) extra.dateModified = opts.lastmod;
       out.push(article(l.title, extra));
       return out;
@@ -215,8 +361,20 @@
       return c && tr ? [crumbs([[tr.title, url('track-' + tr.id)], [c.title, m.url]])] : [];
     }
     if (tok.indexOf('tool-') === 0) {
-      const t = find(SML.tools, tok);
-      return t ? [crumbs([['Tools', url('tools')], [t.title, m.url]])] : [];
+      const t = find(SML.tools, tok); if (!t) return [];
+      // a free web calculator; no rating or review is marked up because there are none
+      return [crumbs([['Tools', url('tools')], [heading(tok), m.url]]), {
+        '@context': 'https://schema.org', '@type': 'WebApplication', name: heading(tok), description: m.description, url: m.url,
+        applicationCategory: 'FinanceApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: 'en-US',
+        isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, publisher: { '@id': ORIGIN + '/#organization', '@type': 'Organization', name: BRAND, url: ORIGIN + '/' },
+      }];
+    }
+    if (tok === 'glossary') {
+      const set = m.url + '#terms';
+      return [{
+        '@context': 'https://schema.org', '@type': 'DefinedTermSet', '@id': set, name: 'FiredBunny glossary', description: m.description, url: m.url, inLanguage: 'en-US',
+        hasDefinedTerm: glossaryTerms().map((x) => { const o = { '@type': 'DefinedTerm', name: x.g.t, description: clean(x.g.d), url: m.url + '#' + x.id }; if (x.g.full) o.alternateName = x.g.full; return o; }),
+      }];
     }
     if (tok.indexOf('post-') === 0) {
       const p = find(SML.posts, tok); if (!p) return [];
@@ -254,5 +412,5 @@
     document.querySelectorAll('script[type="application/ld+json"][data-fb-tok]').forEach((s) => { if (s.getAttribute('data-fb-tok') !== tok) s.remove(); });
   }
 
-  SML.seo = { ORIGIN, ABOUT, TITLES, title, meta, describe, jsonld, apply };
+  SML.seo = { ORIGIN, ABOUT, TITLES, title, heading, glossaryTerms, meta, describe, jsonld, apply };
 })();

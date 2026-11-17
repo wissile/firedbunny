@@ -15,6 +15,9 @@
   const FROZEN = {
     "home": "/",
     "learn": "/learn/",
+    "lessons": "/lessons/",
+    "courses": "/courses/",
+    "tracks": "/tracks/",
     "track-trading": "/tracks/trading/",
     "track-wealth": "/tracks/retirement-wealth/",
     "track-fire": "/tracks/fire/",
@@ -288,7 +291,7 @@
   };
   const PRIVATE = ["results", "dashboard", "profile", "settings", "signin", "offline", "portfolio", "support-thanks"];
   // pages whose content is the same as another page's: they point search engines at that one (rel=canonical)
-  const CANONICAL_OF = { learn: 'track-trading' };
+  const CANONICAL_OF = { learn: 'track-trading', tracks: 'courses' };
   const PREFIX = [['l-', '/lessons/'], ['c-', '/courses/'], ['tool-', '/tools/'], ['track-', '/tracks/'], ['post-', '/notes/']];
   const HELPERS = ['post']; // SML.pages entries that draw a family of pages (post-*), not a page of their own
 

@@ -14,7 +14,8 @@ Playwright's own Chromium), then visits every page through the router (SML.route
   - dist/404.html: the Not found page, served with a 404 status for unknown addresses;
   - dist/sitemap.xml: every indexable page with the date its content last changed.
 
-lastmod: the date of a page's last content change is kept in tools/seo-lastmod.json as {path: {h: hash, d: date}}. The
+lastmod: the date of a page's last content change is kept in tools/seo-lastmod.json as {path: {h: hash, d: date, p:
+first-shipped date}}. 'p' is set once (lessons: the day they first entered the repository) and feeds datePublished. The
 hash covers the page's text (interactive widgets left out). When it changes, the date becomes today; a page seen for
 the first time takes the last git commit date of the file that defines it. Build before committing a content change
 (CLAUDE.md) so the updated file goes in with it.
@@ -202,9 +203,10 @@ def prerender(dist, strict=False):
                 book = json.load(open(LASTMOD_FILE, encoding='utf-8'))
             except Exception:
                 book = {}
+            fresh = not book  # no record yet: seed dates from git; otherwise a page not in the record is new today
             today = datetime.date.today().isoformat()
             seeds = None
-            changed, lastmod = [], {}
+            changed, lastmod, published = [], {}, {}
             for r in routes:
                 if r['private'] or not metas[r['tok']]['indexable']:
                     continue
@@ -215,13 +217,17 @@ def prerender(dist, strict=False):
                 elif old:
                     d = today; changed.append(r['path'])
                 else:
-                    if seeds is None:
+                    if fresh and seeds is None:
                         seeds = _seed_dates(routes)
-                    d = seeds.get(r['tok']) or today
+                    d = (seeds.get(r['tok']) or today) if fresh else today
                 book[r['path']] = {'h': h, 'd': d}
+                # 'p': the day the page first shipped. Kept once set; a page seen for the first time gets today.
+                p = old.get('p') if old else today
+                if p:
+                    book[r['path']]['p'] = p; published[r['tok']] = p
                 lastmod[r['tok']] = d
-            lds = page.evaluate('(lm) => Object.fromEntries(Object.keys(lm).map((t) => [t, SML.seo.jsonld(t, { lastmod: lm[t] })]))',
-                                {r['tok']: lastmod.get(r['tok']) for r in routes if not r['private']})
+            lds = page.evaluate('(a) => Object.fromEntries(Object.keys(a.lm).map((t) => [t, SML.seo.jsonld(t, { lastmod: a.lm[t], published: a.pub[t] })]))',
+                                {'lm': {r['tok']: lastmod.get(r['tok']) for r in routes if not r['private']}, 'pub': published})
             browser.close()
     except Exception as e:
         say('failed:', str(e).splitlines()[0][:300])

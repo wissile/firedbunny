@@ -354,6 +354,8 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 @media (min-width:768px){.l-hero{padding-block:80px}}
 .l-title{font-size:clamp(56px,8vw,96px)}
 .l-sum{font-size:20px;line-height:1.6;color:var(--muted);max-width:44ch;text-wrap:pretty}
+.l-by{font:500 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:-8px}
+.l-by a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
 .l-listen{margin-top:22px}.l-listen:empty{display:none}
 .l-bar{height:2px;background:var(--line)}
 .l-bar i{display:block;height:100%;background:var(--accent)}
