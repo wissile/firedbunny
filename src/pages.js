@@ -557,6 +557,10 @@
     (l.extra || []).forEach((w, i) => secs.push({ id: 'sec-x' + i, h: 'Try this too' }));
     if (l.example) secs.push({ id: 'sec-ex', h: 'Worked example' });
     secs.push({ id: 'sec-rem', h: (l.mistakes && l.mistakes.length) ? 'Mistakes and takeaways' : 'Key takeaways' });
+    // going deeper: extra sections and common questions, written for readers who arrive from a search and want the
+    // whole answer. Shown, not narrated, so adding them never means re-recording a lesson.
+    (l.deep || []).forEach((d, i) => secs.push({ id: 'sec-d' + i, h: d.short || d.h }));
+    if ((l.faq || []).length) secs.push({ id: 'sec-faq', h: 'Common questions' });
     if (terms.length) secs.push({ id: 'sec-words', h: 'Glossary' });
     if ((l.sources || []).length) secs.push({ id: 'sec-src', h: 'Sources' });
     if (l.quiz) secs.push({ id: 'sec-quiz', h: 'Quick check' });
@@ -574,6 +578,7 @@
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">${lvl(l.level)}<span class="meta">${l.mins || 4} min read</span><span class="meta up" id="l-done"${done ? '' : ' hidden'}>Completed</span></div>
           <h1 class="l-title">${esc(l.title)}</h1>
           <p class="l-sum">${l.idea || l.summary || ''}</p>
+          ${l.brief ? `<p class="l-brief">${l.brief}</p>` : ''}
           <p class="l-by">By <a href="#about">FiredBunny</a>${(l.sources || []).length ? ` · Figures checked ${esc(l.checked || 'October 2026')}` : ''} · <a href="#editorial">How lessons are checked</a></p>
           <div class="l-listen" id="l-listen"></div>
         </div>
@@ -590,6 +595,8 @@
           <section class="l-sec" id="sec-rem" aria-labelledby="h-rem">
             <div class="pane2${(l.mistakes && l.mistakes.length) ? ' two' : ''}">${(l.mistakes && l.mistakes.length) ? `<section><h2 class="pane-h dn">Common mistakes</h2><ul class="plain">${l.mistakes.map((m) => `<li>${m}</li>`).join('')}</ul></section>` : ''}<section><h2 class="pane-h" id="h-rem">Key takeaways</h2><ul class="plain">${(l.points || []).map((m) => `<li>${m}</li>`).join('')}</ul></section></div>
           </section>
+          ${(l.deep || []).map((d, i) => `<section class="l-sec" id="sec-d${i}" aria-labelledby="h-d${i}"><div class="l-sec-h"><p class="part">Going deeper</p><h2 id="h-d${i}">${d.h}</h2></div><div class="prose l-more">${d.html}</div></section>`).join('')}
+          ${(l.faq || []).length ? `<section class="l-sec" id="sec-faq" aria-labelledby="h-faq"><div class="l-sec-h"><p class="part">Questions people ask</p><h2 id="h-faq">Common questions</h2></div><div class="prose l-more l-faq">${l.faq.map((f) => `<h3>${f.q}</h3><p>${f.a}</p>`).join('')}</div></section>` : ''}
           ${terms.length ? `<section class="l-sec" id="sec-words" aria-labelledby="h-words"><h2 class="gl-h" id="h-words">Glossary</h2>
             <dl class="gloss">${terms.map((g) => `<div><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${g.l && g.l !== l.id && lessonById(g.l) ? `<br><a href="#${g.l}">Lesson: ${esc(lessonById(g.l).title)}</a>` : ''}</dd></div>`).join('')}</dl></section>` : ''}
           ${(l.sources || []).length ? `<section class="l-sec" id="sec-src" aria-labelledby="h-src"><h2 class="pane-h" id="h-src">Sources</h2><ul class="src-list">${l.sources.map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener noreferrer">${esc(s.t)}</a></li>`).join('')}</ul><p class="note">Figures checked ${esc(l.checked || 'October 2026')}. Limits and rates change every year; confirm before you act. <a href="#editorial">How lessons are checked</a>.</p></section>` : ''}

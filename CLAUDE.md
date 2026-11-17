@@ -67,6 +67,10 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
   code does: if you change a widget's math or defaults, update its guide (and its worked example) in the same commit.
 - A lesson's `sources` and `checked` (month) are shown, not narrated. Add a source only after opening it and checking
   the claim it supports; set `checked` only when you actually re-checked the lesson's figures.
+- A lesson can go deeper without new audio: `brief` (a short answer under the summary), `deep` (sections after the
+  takeaways, `{ h, short, html }`) and `faq` (`{ q, a }`, shown as "Common questions", plain text, no FAQ markup) are
+  shown but not narrated. Facts in them need opened sources like the rest of the lesson; rules of thumb are labelled
+  as rules of thumb. The wheel strategy lesson is the model.
 - The editorial standards page (`/editorial-standards/`, in `src/mod-y-about.js`) must stay true: pen name, AI-assisted
   drafting, no ads or affiliate links, computer voice. Change it in the same commit if any of that changes.
 

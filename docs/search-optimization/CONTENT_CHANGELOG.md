@@ -7,6 +7,54 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 17 November 2026: search titles, hub pages and a deeper wheel lesson
+
+Follows the site audit of 17 November 2026 (measured on commit 6aba670).
+
+### What changed
+
+- **Titles.** 87 lessons and 27 tools whose own title is a short curriculum name got a `TITLES` entry in
+  `src/seo.js` that says what the page covers, written from the lesson's own one-line idea. Lesson headings,
+  addresses and narrated text did not change. One title was reworded after the help chat's test showed it pulled
+  "Roth IRA vs 401k" to the wrong lesson.
+- **Calculator headings** are now the plain name ("Position size calculator"); the hidden "Chapter NN:" prefix is
+  gone from every heading on the site.
+- **Byline** under each lesson title: "By FiredBunny", the month its figures were checked (lessons with sources
+  only) and a link to the editorial standards. It restates what the page already says at the bottom.
+- **Hub pages** `/lessons/` and `/courses/` (`/tracks/` is the same page as `/courses/`).
+- **Structured data:** `datePublished` on lessons (24 October 2026 for all 159: the day they first entered the
+  repository), `WebApplication` on calculators (no ratings), `DefinedTermSet` on the glossary. Course markup was
+  considered and left out: Google's course-list guideline requires courses "led by one or more instructors with a
+  roster of students" (read 17 November 2026).
+- **The wheel strategy lesson** grew from about 340 to about 1,500 words of explanation, using three new lesson
+  fields that are shown but not narrated: `brief` (a short answer under the summary), `deep` (sections after the
+  takeaways: strike and expiration, assignment, rolling, choosing stocks, returns) and `faq` ("Common questions",
+  six questions with short answers, as visible text with no FAQ markup). Reading time 6 to 11 minutes.
+
+### Rules followed
+
+- Narrated fields (idea, body, example, mistakes, points) were not touched, so no audio was re-recorded.
+- Every source added to the wheel lesson was opened on 17 November 2026 and supports a statement on the page:
+  Options Industry Council (Delta: "Some traders view Delta as a percentage probability an option will wind up
+  in-the-money at expiration"; cash-secured put: "primarily a stock acquisition strategy for a price-sensitive
+  investor"), Schwab (assignment at any time, more likely in the money with little time value; rolling adds costs),
+  Fidelity (a covered call is likely exercised the day before the ex-dividend date when the dividend exceeds the
+  remaining time value, and the seller gives up shares and dividend), Cboe (PutWrite index 1986 to 2018: +1,835%,
+  volatility 9.95% against 14.93% for the S&P 500).
+- Rules of thumb are labelled as such on the page ("common practice, not a rule", "FiredBunny's rules of thumb, not
+  facts"), as the editorial standards require.
+- The earlier "no FAQ blocks" rule changed on purpose: questions with short answers are what searchers and answer
+  engines look for. They are ordinary visible text; FAQ markup is still not used (Google retired the rich result).
+
+### Needs human review
+
+- "About 9.5% a year" for the PutWrite index is arithmetic on Cboe's 1,835% over 32.5 years, not a figure Cboe's
+  page states.
+- "Many wheel traders sell options about a month from expiration" is stated as common practice, without a source.
+- The one-line tax and IRA answers restate the site's own wheel tax and wheel-in-an-IRA lessons.
+
+---
+
 ## 13 November 2026: calculator method sections, lesson sources, editorial standards
 
 ### Rules followed

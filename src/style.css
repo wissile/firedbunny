@@ -354,7 +354,11 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 @media (min-width:768px){.l-hero{padding-block:80px}}
 .l-title{font-size:clamp(56px,8vw,96px)}
 .l-sum{font-size:20px;line-height:1.6;color:var(--muted);max-width:44ch;text-wrap:pretty}
+.l-brief{font-size:17px;line-height:1.7;color:color-mix(in srgb,var(--ink) 85%,transparent);max-width:62ch;text-wrap:pretty;margin-top:-8px}
 .l-by{font:500 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:-8px}
+.l-brief+.l-by{margin-top:0}
+.prose.l-faq h3{font-family:var(--sans);font-weight:600;text-transform:none;font-size:19px;line-height:1.35;letter-spacing:0;margin-top:10px;max-width:68ch}
+.l-main .prose .tbl{max-width:720px}.l-main .prose .tbl th[scope],.l-main .prose .tbl tbody th{font-weight:600;color:var(--ink)}
 .l-by a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
 .l-listen{margin-top:22px}.l-listen:empty{display:none}
 .l-bar{height:2px;background:var(--line)}
@@ -384,7 +388,7 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 .prose p code,.prose li code{overflow-wrap:anywhere}
 @media (max-width:600px){.prose pre{white-space:pre-wrap;overflow-wrap:anywhere}}
 .prose .callout{max-width:68ch}
-.l-main .prose > p:first-child::first-letter{font-family:var(--display);float:left;font-size:76px;line-height:.8;margin:6px 12px 0 0;color:var(--accent)}
+.l-main .prose:not(.l-more) > p:first-child::first-letter{font-family:var(--display);float:left;font-size:76px;line-height:.8;margin:6px 12px 0 0;color:var(--accent)}
 .try{display:flex;flex-direction:column;gap:12px}
 .try-h{display:flex;align-items:center;gap:10px;font:500 11px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.18em;color:var(--accent)}
 .try-p{font-size:15px;color:var(--muted);max-width:70ch}
