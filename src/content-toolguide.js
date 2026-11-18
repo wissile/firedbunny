@@ -32,10 +32,202 @@
     infl: { t: 'IRS: Tax inflation adjustments for tax year 2026 (IR-2025-103)', u: 'https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill' },
     rp: { t: 'IRS Rev. Proc. 2025-32: 2026 brackets, standard deductions and other inflation adjustments', u: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     wf: { t: 'IRS: Working Families Tax Cuts for individuals (including the senior deduction)', u: 'https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers' },
+    fdic: { t: "FDIC: Understanding deposit insurance", u: "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance" },
+    vgusgo: { t: "Vanguard: 2025 income from US government obligations, by fund (PDF)", u: "https://investor.vanguard.com/content/dam/retail/us/en/pdfs/taxes/usgo-012026.pdf" },
+    tsy: { t: "US Treasury: Daily Treasury par yield curve rates, October 2026", u: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202610" },
+    hysa: { t: "Bankrate: Best high-yield savings accounts (rates as of October 21, 2026)", u: "https://www.bankrate.com/banking/savings/best-high-yield-interests-savings-accounts/" },
+    autoRate: { t: "Experian: Average car loan interest rates by credit score (Q2 2026)", u: "https://www.experian.com/blogs/ask-experian/average-car-loan-interest-rates-by-credit-score/" },
+    irsCar: { t: "IRS: Deduction for car loan interest (One Big Beautiful Bill Act)", u: "https://www.irs.gov/newsroom/one-big-beautiful-bill-act-tax-deductions-for-working-americans-and-seniors" },
+    nwFtf: { t: "NerdWallet: best no-foreign-transaction-fee cards (Oct 2026)", u: "https://www.nerdwallet.com/best/credit-cards/no-foreign-transaction-fee" },
   };
   const C = 'November 2026';
 
   SML.toolGuides = {
+    'tool-value': {
+      meta: "Margin of safety calculator: a rough value from EPS × a fair P/E, how far the price is below it, and the price to buy below for the cushion you want.",
+      what: "A rough estimate of what a share is worth, how far today’s price is below (or above) that estimate, and the highest price that still gives you the safety cushion you chose.",
+      formula: [
+        "Estimated value = earnings per share (EPS) × the P/E you think is fair",
+        "Margin of safety = (value − price) ÷ value",
+        "Buy below = value × (1 − the cushion you want)",
+      ],
+      assume: [
+        "EPS is a year of normal earnings, not a one-off good or bad year.",
+        "The fair P/E is your judgment; 15 is a long-run average for the US market, and fair values differ by industry.",
+        "The chart is an illustration: value grows about 6% a year and the price swings around it.",
+      ],
+      example: [
+        "Default inputs: EPS $4.00, a fair P/E of 15, a price of $42, a 30% cushion.",
+        "Value: $4.00 × 15 = $60.",
+        "Margin of safety: ($60 − $42) ÷ $60 = 30%.",
+        "Buy below: $60 × 0.70 = $42, so today’s price is right at the edge of the buy zone.",
+      ],
+      limits: [
+        "EPS × P/E is a first estimate; a discounted cash flow or a comparison with peers is more careful.",
+        "A low price can be a value trap if earnings are about to fall. Check the <a href=\"#tool-ratios\">five-number check</a> too.",
+      ],
+      sources: [],
+      checked: C,
+    },
+    'tool-ratios': {
+      meta: "Stock ratio checker: P/E, sales growth, profit margin, debt to equity and free cash flow yield, each rated healthy, watch or weak, with three sample companies.",
+      what: "Five quick numbers about a company, each marked healthy, watch or weak against a simple rule of thumb, plus its earnings yield.",
+      formula: [
+        "P/E = share price ÷ yearly earnings per share (not shown when earnings are negative)",
+        "Earnings yield = EPS ÷ price (the P/E turned upside down)",
+        "Free cash flow (FCF) yield = yearly free cash flow per share ÷ price",
+        "Ratings: P/E up to 20 healthy, over 40 weak; sales growth 10% or more healthy, below 0 weak; profit margin 15% or more healthy, below 5% weak; debt/equity up to 1× healthy, over 2× weak; FCF yield 4% or more healthy, below 0 weak",
+      ],
+      assume: [
+        "The thresholds are general rules of thumb, not industry-specific.",
+        "The three sample companies are made up.",
+      ],
+      example: [
+        "Default inputs, the “Steady” sample: price $60, EPS $3.50, sales growth 8%, margin 18%, debt/equity 0.6×, FCF $3.20 a share.",
+        "P/E: $60 ÷ $3.50 = 17.1 (healthy). Earnings yield: 5.8%.",
+        "FCF yield: $3.20 ÷ $60 = 5.3% (healthy).",
+        "Margin and debt are healthy; 8% growth is “watch”. Result: 4 of 5 healthy.",
+      ],
+      limits: [
+        "Banks, utilities and young growth companies are judged on different numbers.",
+        "Compare with the company’s own history and its peers before deciding. The <a href=\"#l-ratios\">ratios lesson</a> explains each one.",
+      ],
+      sources: [],
+      checked: C,
+    },
+    'tool-cash': {
+      meta: "Emergency fund calculator: how big your cushion should be and where it earns the most after federal and state tax: savings, money market funds or T-bills.",
+      what: "How big your emergency fund should be, and which of five places to keep it pays the most after your federal and state income tax.",
+      formula: [
+        "Emergency fund = must-pay bills a month × months of cushion",
+        "After-tax yield = rate × (1 − federal rate − state rate × the share of income that is state-taxable)",
+        "State-taxable share: bank and high-yield savings 100%; Treasury bills 0%; VUSXX 0%; VMFXX about 33% (67% of its 2025 income came from US government debt)",
+        "Interest a year = fund × after-tax yield",
+      ],
+      assume: [
+        "Rates are October 2026 defaults and change often; edit them.",
+        "Situations set suggested months: 3 for two steady incomes, 6 for one income, 9 if self-employed, 12 near retirement.",
+        "California, New York and Connecticut exempt fund income only when the fund holds at least 50% in US government debt.",
+      ],
+      example: [
+        "Default inputs: $4,000 of bills, 6 months, a 22% federal bracket and 5% state tax.",
+        "Fund: $4,000 × 6 = $24,000.",
+        "3-month T-bills: 4.26% × (1 − 0.22) = 3.32% after tax, or about $797 a year.",
+        "High-yield savings: 4.2% × (1 − 0.22 − 0.05) = 3.07%, or $736. Average savings at 0.64% keeps about $112, so the T-bills earn $685 more.",
+      ],
+      limits: [
+        "Bank deposits are FDIC-insured up to the limits; money market funds are not, though government funds are very low risk.",
+        "Selling T-bills before they mature can mean a small gain or loss.",
+      ],
+      sources: [SRC.fdic, SRC.vgusgo, SRC.tsy, SRC.hysa],
+      checked: C,
+    },
+    'tool-budget': {
+      meta: "Monthly budget calculator: split take-home pay into needs, wants and saving (50/30/20 or your own), and see how your savings rate sets years to independence.",
+      what: "How your take-home pay splits into needs, wants and saving, your savings rate, and roughly how many years of saving at that rate it takes to reach financial independence.",
+      formula: [
+        "Needs = pay × needs %; saving = pay × saving %; wants = whatever is left",
+        "Savings rate = saving ÷ take-home pay",
+        "Years to independence = ln(1 + 25 × 0.05 × (1 − s) ÷ s) ÷ ln(1.05), where s is the savings rate",
+      ],
+      assume: [
+        "You start from zero savings.",
+        "Savings earn 5% a year after inflation.",
+        "You can live on 4% of your savings a year, so you need 25 times your yearly spending, and you spend what you don’t save.",
+      ],
+      example: [
+        "Default inputs, the “Couple” preset: $9,000 a month, 50% needs, 20% saving.",
+        "Needs $4,500, saving $1,800, wants $2,700.",
+        "At a 20% savings rate: ln(1 + 25 × 0.05 × 4) ÷ ln(1.05) = ln 6 ÷ ln 1.05 ≈ 37 years.",
+        "At 25% it would be about 32 years.",
+      ],
+      limits: [
+        "Real returns vary; the years are a guide, not a forecast.",
+        "Social Security, pensions and windfalls are not included. The <a href=\"#tool-years\">years to freedom</a> tool goes further.",
+      ],
+      sources: [],
+      checked: C,
+    },
+    'tool-habits': {
+      meta: "Habit cost calculator: what lattes, takeout, delivery and subscriptions cost a year, and what that money could grow to if invested for 10, 20 or 30 years.",
+      what: "What small regular spending adds up to a day and a year, and what the same money could grow to if you invested it each month instead. A second view compares café coffee, pods and a home espresso machine.",
+      formula: [
+        "Yearly cost = price × times a week × 52 (or a monthly total × 12)",
+        "Invested value = monthly amount × ((1 + r ÷ 12)<sup>months</sup> − 1) ÷ (r ÷ 12), with r the yearly return",
+        "Coffee: machine payback in months = machine cost ÷ ((café price − home price) × coffees a day × 365 ÷ 12)",
+      ],
+      assume: [
+        "A 7% yearly return, compounded monthly, before taxes and inflation.",
+        "Example prices; edit them to match yours.",
+        "The coffee view ignores repairs and electricity and assumes you already own a pod machine.",
+      ],
+      example: [
+        "Default inputs: a $6.25 latte 5 times a week, a $15 lunch 3 times a week and $55 a month of subscriptions.",
+        "Lattes $1,625 + lunches $2,340 + subscriptions $660 = $4,625 a year, or $12.67 a day.",
+        "Invested monthly at 7%: about $67,000 after 10 years and $470,000 after 30.",
+        "Over 30 years you would spend $138,750 on them.",
+      ],
+      limits: [
+        "Stock returns are not steady; 7% is a long-run average with big swings.",
+        "The point is to choose, not to cut everything: keep what you value most.",
+      ],
+      sources: [],
+      checked: C,
+    },
+    'tool-car': {
+      meta: "Car cash or loan calculator: monthly payment, total interest and what your cash would earn after tax instead, to see whether to pay cash or finance a car.",
+      what: "Whether paying cash or taking a car loan leaves you with more money at the end of the loan, after tax on what your cash would have earned.",
+      formula: [
+        "Loan payment = amount × i ÷ (1 − (1 + i)<sup>−n</sup>), with i = APR ÷ 12 and n months",
+        "After-tax yield = yield × (1 − federal rate − state rate × the state-taxable share)",
+        "Pay cash: each month you invest the payment you would have made",
+        "Take the loan: your cash stays invested and grows at the after-tax yield",
+        "The winner is whichever pile is bigger at the end",
+      ],
+      assume: [
+        "Both paths spend the same each month; interest compounds monthly.",
+        "State tax applies to the third of VMFXX’s income that is not from US government debt.",
+        "The car loan interest deduction (2025 to 2028, up to $10,000 a year for qualifying new cars assembled in the US, with income limits) counts federal tax only when switched on.",
+      ],
+      example: [
+        "Default inputs: $35,000, 6.35% for 60 months, cash in a money market fund at 3.83%, 22% federal and 5% state tax.",
+        "Loan payment $682 a month; total interest $5,942.",
+        "Cash earns 3.83% × (1 − 0.237) = 2.92% after tax: $5,502 over the 5 years if left invested.",
+        "Paying cash and investing the $682 a month ends $3,526 ahead. The loan would win only if your cash earned more than about 8.3% before tax.",
+      ],
+      limits: [
+        "Never empty your emergency fund for a car.",
+        "Dealer rebates that require financing, or that are lost with 0% offers, are not included.",
+      ],
+      sources: [SRC.autoRate, SRC.irsCar, SRC.vgusgo],
+      checked: C,
+    },
+    'tool-fx': {
+      meta: "Foreign transaction fee calculator: what card fees, paying in dollars abroad and ATM fees cost on a trip, and how much a no-fee setup saves.",
+      what: "What a trip abroad costs in card foreign fees, paying in dollars instead of the local currency, and ATM fees, and how much a better setup would keep in your pocket.",
+      formula: [
+        "Card foreign fee = card spending × the card’s fee %",
+        "Paying in dollars = card spending × the share paid in dollars × the markup",
+        "ATM fees = withdrawals × (your bank’s fee + the ATM owner’s fee) + cash × your bank’s foreign fee %",
+        "Smart setup = a 0% card, always paying in local currency, at most 3 withdrawals, and a debit card with no bank ATM or foreign fee (ATM owners may still charge)",
+      ],
+      assume: [
+        "Fees are charged on the amount in dollars; exchange-rate spreads beyond the markup are not counted.",
+        "Trip presets set spending, cash and withdrawals.",
+      ],
+      example: [
+        "Default inputs, two weeks: $3,500 on a card with a 3% fee, 30% paid in dollars at a 5% markup, $800 from 6 ATM withdrawals at $5 + $4 each, and a 3% foreign fee on cash.",
+        "Card fee $105 + paying in dollars $52.50 + bank ATM fees $30 + owner fees $24 + foreign fee on cash $24 = $236.",
+        "That is 5.5% of the $4,300 trip.",
+        "The smart setup pays only 3 owner fees, $12, keeping $224.",
+      ],
+      limits: [
+        "Some banks refund ATM owner fees, which takes the smart setup to $0.",
+        "Card terms change; check the fee in your card’s terms.",
+      ],
+      sources: [SRC.nwFtf],
+      checked: C,
+    },
     'tool-mortgage': {
       meta: "Mortgage calculator: monthly payment, total interest, PMI, points and extra payments, plus 15 vs 30 years and refinance break-even. Free, with charts.",
       what: "Your monthly principal and interest, the full payment with property tax, insurance and PMI, the total interest over the loan, and how extra payments, points, a 15-year term or a refinance change it.",
