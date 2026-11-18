@@ -355,6 +355,10 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 .l-title{font-size:clamp(56px,8vw,96px)}
 .l-sum{font-size:20px;line-height:1.6;color:var(--muted);max-width:44ch;text-wrap:pretty}
 .l-brief{font-size:17px;line-height:1.7;color:color-mix(in srgb,var(--ink) 85%,transparent);max-width:62ch;text-wrap:pretty;margin-top:-8px}
+.l-rel{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.l-rel a{display:block;height:100%;padding:16px 18px;border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;background:color-mix(in srgb,var(--ink) 3%,transparent)}
+.l-rel a:hover,.l-rel a:focus-visible{border-color:var(--accent)}
+.l-rel strong{display:block;font-size:16px;line-height:1.35;margin-bottom:6px}.l-rel span{display:block;font-size:14px;line-height:1.5;color:var(--muted)}
 .l-by{font:500 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:-8px}
 .l-brief+.l-by{margin-top:0}
 .prose.l-faq h3{font-family:var(--sans);font-weight:600;text-transform:none;font-size:19px;line-height:1.35;letter-spacing:0;margin-top:10px;max-width:68ch}

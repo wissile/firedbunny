@@ -342,13 +342,14 @@
     const posts = SML.posts.slice().sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
     const kit = [['#dashboard', icons.gauge, 'Your dashboard', 'Goals, net worth, household income, lesson progress and your investor profile over time.'], ['#calendar', icons.cal, 'Market & tax calendar', 'Fed meetings, CPI, jobs, PMI, options expiry, tax deadlines and open enrollment, with export.'], ['#indicator', icons.candle, 'TradingView indicator', 'Draw the key levels, VWAP and EMA ribbon on your own charts, with alerts.'], ['#sheets', icons.sheet, 'Spreadsheets', 'Trade journal, wheel tracker, retirement planner and watchlist.'], ['#apps', icons.phone, 'Mobile apps', 'Wheel tracker, retirement runway and trader toolkit, in development.'], ['#glossary', icons.book, 'Glossary', `${SML.glossary.length} terms in plain English, each linked to its lesson.`]];
     view.innerHTML = `
-      <div class="ticker" aria-label="Terms you will learn"><div class="ticker-track">${tkHTML}${tkHTML.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ')}</div></div>
+      <div class="ticker" aria-label="Terms you will learn" data-nosnippet><div class="ticker-track">${tkHTML}${tkHTML.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ')}</div></div>
       <section class="hero" aria-labelledby="hero-title"><div class="wrap">
         <p class="eyebrow">${SML.flame(13)} FiredBunny · the money school they skipped</p>
         <h1 class="h-hero" id="hero-title" style="margin-top:14px">Learn the market by <em>playing</em> with it.</h1>
         <p class="lede">Every idea is a picture you can touch. Drag a candle, step through a breakout, run a thousand trades in a second. Then plan your retirement, or your early exit, with the same hands-on tools. Ten years of lessons, shared free by a bunny who learned most of it the hard way.</p>
         <ul class="navchips" aria-label="Tracks">${TRACKS().map((t) => `<li><a class="navchip" href="#track-${t.id}"><i>${nn(t.n)}</i>${esc(t.title)}<span class="nc-m">${allLessons(t.id).length} lessons</span></a></li>`).join('')}</ul>
         <div style="display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;margin-top:28px">
+          <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-a" href="#${allLessons('trading')[0].id}">Start the first lesson ${icons.arrow}</a><a class="btn btn-g" href="#lessons">See all ${nL} lessons</a></div>
           <div class="hero-facts"><span><b>${nL}</b>picture lessons</span><span><b>${nT}</b>tools</span><span><b>${TRACKS().length}</b>tracks</span></div>
         </div>
         <a class="hero-bun" href="#assessment"><img src="${artSmall()}" alt="" width="120" height="80"><span><b>New: what kind of investor are you?</b><small>Slide through the self-assessment and get your investor profile, risk level and a learning path.</small></span>${icons.arrow}</a>
@@ -356,12 +357,12 @@
       </div></section>
 
       <section class="chapter" aria-labelledby="ch-play"><div class="wrap">
-        ${chapHead('01', 'Play with an idea', 'Four lessons in miniature. Pick one and start touching things.', more('#learn', 'All lessons'), 'ch-play')}
+        ${chapHead('01', 'Try four lessons in miniature', 'Pick one and start touching things.', more('#lessons', 'All lessons'), 'ch-play')}
         ${tabGroup(tabs)}
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-how"><div class="wrap">
-        ${chapHead('02', 'Learn it. Play it. Track it.', 'Three steps, the same for every topic.', '', 'ch-how')}
+        ${chapHead('02', 'How every lesson works: learn it, play it, track it', 'Three steps, the same for every topic.', '', 'ch-how')}
         <div class="g3">
           ${plate('Learn with pictures', illo('learn'), 'Each lesson is a single idea, a drawing you can play with, and a two-minute quiz.', '#learn')}
           ${plate('Practise with fake money', illo('play'), 'Replay a trading day bar by bar or run the wheel strategy month by month. Mistakes are free here.', '#play')}
@@ -370,22 +371,22 @@
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-courses"><div class="wrap">
-        ${chapHead('03', `${word(TRACKS().length)} tracks, one school`, `${SML.courses.length} courses and ${nL} lessons. Trade the market, build wealth for retirement, or plan your early exit.`, more('#learn', 'Browse all lessons'), 'ch-courses')}
+        ${chapHead('03', `${word(TRACKS().length)} tracks: ${TRACKS().map((t) => esc(t.title)).join(', ').replace(/, ([^,]*)$/, ' and $1')}`, `${SML.courses.length} courses and ${nL} lessons. Trade the market, build wealth for retirement, or plan your early exit.`, more('#learn', 'Browse all lessons'), 'ch-courses')}
         <div class="trk3">${TRACKS().map(trackCard).join('')}</div>
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-plan"><div class="wrap">
-        ${chapHead('04', 'Play with your future', 'Four money questions everyone asks, answered with numbers you can drag.', more('#track-wealth', 'Retirement & Wealth track'), 'ch-plan')}
+        ${chapHead('04', 'Retirement and money calculators', 'Four money questions everyone asks, answered with numbers you can drag.', more('#track-wealth', 'Retirement & Wealth track'), 'ch-plan')}
         ${tabGroup(plan)}
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-tools"><div class="wrap">
-        ${chapHead('05', 'Tools that show their work', 'Every result comes with a picture of why.', more('#tools', 'All tools'), 'ch-tools')}
+        ${chapHead('05', 'Free financial calculators that show their work', 'Every result comes with a picture of why.', more('#tools', 'All tools'), 'ch-tools')}
         <ul class="tiles t4">${pickTools(['tool-size', 'tool-options', 'tool-wheel', 'tool-match', 'tool-rentbuy', 'tool-fire', 'tool-cities']).map(toolTile).join('')}<li><a class="tile primary" href="#tools"><span class="tile-big">${nT} tools</span><span>See them all ${icons.arrow}</span></a></li></ul>
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-ai"><div class="wrap">
-        ${chapHead('06', 'Trade smarter with AI', 'Research, automation, backtesting and indicators, with the guardrails that keep you safe.', more('#c-ai', 'The AI course'), 'ch-ai')}
+        ${chapHead('06', 'Trading with AI, safely', 'Research, automation, backtesting and indicators, with the guardrails that keep you safe.', more('#c-ai', 'The AI course'), 'ch-ai')}
         <div class="g4">
           ${plate('Automate with an AI agent', aiIllo('agent'), 'Connect Claude to Robinhood’s official MCP server step by step, with a budget account and approvals on.', '#l-ai-automate')}
           ${plate('Backtest before you trust', aiIllo('bt'), 'Test rules on years of data and see how overfitting fools you out of sample.', '#l-backtest')}
@@ -395,12 +396,12 @@
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-style"><div class="wrap">
-        ${chapHead('07', 'Find your style', 'Day trader, swing trader or investor? Most people end up with a blend.', more('#l-blend', 'How blending works'), 'ch-style')}
+        ${chapHead('07', 'Day trading, swing trading or investing? Find your style', 'Day trader, swing trader or investor? Most people end up with a blend.', more('#l-blend', 'How blending works'), 'ch-style')}
         <div class="split2"><div class="side"><p>Answer five quick questions and get a suggested mix of styles, with the lessons to start with. Want the full picture? The self-assessment looks at your goals, money, time and temperament, and gives you a profile you can track over the years.</p><a class="btn btn-p" href="#assessment" style="align-self:flex-start">Take the self-assessment ${icons.arrow}</a>${more('#l-styles', 'Compare the styles')}</div>${SML.widgetHTML('styleQuiz')}</div>
       </div></section>
 
       <section class="chapter" style="padding-top:0" aria-labelledby="ch-keep"><div class="wrap">
-        ${chapHead('08', 'Keep going', 'Practise, track and read real-style breakdowns.', '', 'ch-keep')}
+        ${chapHead('08', 'Keep going: practice, track and read trade notes', 'Practise, track and read real-style breakdowns.', '', 'ch-keep')}
         <div class="keep">
           <ul class="tiles">${kit.map(([h, ic, t, d]) => `<li><a class="tile" href="${h}"><span class="tile-ic">${ic}</span><span class="tile-t">${t}</span><span class="tile-p">${d}</span></a></li>`).join('')}</ul>
           <div class="notes"><h3><span>Latest trade notes</span>${more('#blog', 'All')}</h3>
@@ -543,6 +544,30 @@
     if (!ts.length) return '';
     return `<div class="callout info l-calc">${icons.info}<span>Run your own numbers: ${ts.map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join(', ')}. ${ts.length === 1 ? esc(ts[0].blurb) : ''}</span></div>`;
   }
+  /* related lessons: up to four lessons that share glossary terms, links or a calculator with this one (the lesson's
+     own previous and next lessons are already linked below it). Computed once, the same on every load. */
+  let relMap = null;
+  function relatedOf(l, skip) {
+    if (!relMap) {
+      relMap = new Map();
+      const txt = (x) => [].concat(x.body || [], x.example ? JSON.stringify(x.example) : [], (x.deep || []).map((d) => d.html), (x.faq || []).map((f) => f.a), x.idea || '').join(' ');
+      SML.lessons.forEach((x) => {
+        const words = new Set([].concat(x.terms || [], (x.glossary || []).map((g) => g && g.t)).filter(Boolean).map((t) => String(t).toLowerCase()));
+        const links = new Set((txt(x).match(/#l-[a-z0-9-]+/g) || []).map((h) => h.slice(1)));
+        const tools = new Set(SML.tools.filter((t) => t.lesson === x.id || (x.tools || []).indexOf(t.id) >= 0).map((t) => t.id));
+        relMap.set(x.id, { words, links, tools });
+      });
+    }
+    const me = relMap.get(l.id), order = SML.lessons.map((x) => x.id);
+    return SML.lessons.filter((x) => x !== l && skip.indexOf(x) < 0).map((x) => {
+      const o = relMap.get(x.id); let sc = 0;
+      if (me.links.has(x.id)) sc += 3; if (o.links.has(l.id)) sc += 3;
+      o.words.forEach((w) => { if (me.words.has(w)) sc += 2; });
+      o.tools.forEach((t) => { if (me.tools.has(t)) sc += 2; });
+      if (sc && x.course === l.course) sc += 1;
+      return { x, sc };
+    }).filter((r) => r.sc >= 2).sort((a, b) => b.sc - a.sc || order.indexOf(a.x.id) - order.indexOf(b.x.id)).slice(0, 4).map((r) => r.x);
+  }
   function lessonPage(view, tok) {
     const l = lessonById(tok); if (!l) return notFound(view);
     const c = courseOf(l.course) || { title: '', n: 0, id: '' }; const ls = lessonsOf(l.course);
@@ -564,6 +589,8 @@
     if (terms.length) secs.push({ id: 'sec-words', h: 'Glossary' });
     if ((l.sources || []).length) secs.push({ id: 'sec-src', h: 'Sources' });
     if (l.quiz) secs.push({ id: 'sec-quiz', h: 'Quick check' });
+    const rel = relatedOf(l, [prev, next]);
+    if (rel.length) secs.push({ id: 'sec-rel', h: 'Related lessons' });
     const part = (i) => `Part ${nn(i + 1)}`;
     const idx = (id) => secs.findIndex((s) => s.id === id);
     const tl = (cls) => `<ol class="tl${cls ? ' ' + cls : ''}">${ls.map((x, i) => { const dn = SML.progress.isDone(x.id); return `<li><a href="#${x.id}" class="${x === l ? 'on' : ''}${dn ? ' dn' : ''}"${x === l ? ' aria-current="page"' : ''}><i>${dn ? '✓' : nn(i + 1)}</i><span>${esc(x.title)}</span></a></li>`; }).join('')}</ol>`;
@@ -601,6 +628,7 @@
             <dl class="gloss">${terms.map((g) => `<div><dt>${esc(g.t)}${g.full ? `<small>${esc(g.full)}</small>` : ''}</dt><dd>${esc(g.d)}${g.l && g.l !== l.id && lessonById(g.l) ? `<br><a href="#${g.l}">Lesson: ${esc(lessonById(g.l).title)}</a>` : ''}</dd></div>`).join('')}</dl></section>` : ''}
           ${(l.sources || []).length ? `<section class="l-sec" id="sec-src" aria-labelledby="h-src"><h2 class="pane-h" id="h-src">Sources</h2><ul class="src-list">${l.sources.map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener noreferrer">${esc(s.t)}</a></li>`).join('')}</ul><p class="note">Figures checked ${esc(l.checked || 'October 2026')}. Limits and rates change every year; confirm before you act. <a href="#editorial">How lessons are checked</a>.</p></section>` : ''}
           ${l.quiz ? `<section class="l-sec" id="sec-quiz" aria-labelledby="h-quiz"><div class="quiz" id="quiz"><h3 id="h-quiz">Quick check</h3><p class="quiz-q">${l.quiz.q}</p><div class="quiz-opts">${l.quiz.options.map((o, i) => `<button type="button" class="qopt" data-i="${i}"><span class="k">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div><p class="quiz-why" id="quiz-why" hidden></p></div></section>` : ''}
+          ${rel.length ? `<section class="l-sec" id="sec-rel" aria-labelledby="h-rel"><h2 class="pane-h" id="h-rel">Related lessons</h2><ul class="l-rel">${rel.map((x) => `<li><a href="#${x.id}"><strong>${esc(x.title)}</strong><span>${esc(String(x.idea || x.summary || '').replace(/<[^>]+>/g, ''))}</span></a></li>`).join('')}</ul></section>` : ''}
           <div class="l-end">
             <button type="button" class="btn ${done ? 'btn-g' : 'btn-up'}" id="mark">${done ? icons.check + ' Completed' : 'Mark as complete'}</button>
             <span class="meta" id="l-count">${doneHere()} of ${all.length} ${esc(T.title)} lessons done</span>

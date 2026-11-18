@@ -495,6 +495,7 @@
     id: 'l-tax-brackets', course: 'wtax', order: 1, title: 'How tax brackets really work', mins: 7, level: 'Beginner',
     summary: 'Marginal vs effective rate, the 2026 brackets and why a raise never lowers your pay.',
     idea: 'Income is taxed in slices. Each slice pays only its own rate, so your overall rate sits far below your top bracket.',
+    deep: [{ h: "2027 tax brackets and standard deduction", short: "2027 brackets", html: "<p>The IRS published the 2027 brackets on November 5, 2026, for income earned in 2027 (filed in 2028). The way brackets work does not change: each rate applies only to the dollars inside its band.</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Rate</th><th scope=\"col\">Single: taxable income over</th><th scope=\"col\">Married filing jointly: over</th></tr></thead><tbody><tr><th scope=\"row\">10%</th><td>$0</td><td>$0</td></tr><tr><th scope=\"row\">12%</th><td>$12,800</td><td>$25,600</td></tr><tr><th scope=\"row\">22%</th><td>$52,025</td><td>$104,050</td></tr><tr><th scope=\"row\">24%</th><td>$109,125</td><td>$218,250</td></tr><tr><th scope=\"row\">32%</th><td>$208,325</td><td>$416,650</td></tr><tr><th scope=\"row\">35%</th><td>$264,550</td><td>$529,100</td></tr><tr><th scope=\"row\">37%</th><td>$661,375</td><td>$793,650</td></tr></tbody></table></div><p>The 2027 standard deduction is $16,600 for single filers, $33,200 for married couples filing jointly and $24,925 for heads of household.</p>" }],
     widget: 'bracketViz',
     try: 'Pick an example household or drag your income. Watch the slices fill, then add pre-tax savings and see which dollars they pull out.',
     body: [
@@ -534,7 +535,7 @@
     terms: ['Tax bracket', 'Marginal tax rate', 'Effective tax rate', 'Taxable income', 'Standard deduction', 'AGI'],
     glossary: [{ t: 'Payroll tax', full: 'FICA', d: 'Social Security (6.2%) and Medicare (1.45%) withheld from wages, separate from income tax.' }, { t: 'Phase-out', d: 'An income range over which a deduction or credit shrinks, so extra income there costs more than your bracket.' }],
     quiz: { q: 'A single filer has $60,000 of taxable income in 2026. Which dollars are taxed at 22%?', options: ['All $60,000', 'Only the $9,600 above $50,400', 'None, because the effective rate is lower'], answer: 1, why: 'Only income above the $50,400 line falls into the 22% bracket; the dollars below pay 10% and 12%.' },
-    sources: [SRC.infl, SRC.rp, SRC.wf],
+    sources: [SRC.infl, SRC.rp, SRC.wf, { t: 'IRS IR-2026-133: tax inflation adjustments for tax year 2027 (Nov. 5, 2026)', u: 'https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts' }],
   });
 
   SML.lessons.push({

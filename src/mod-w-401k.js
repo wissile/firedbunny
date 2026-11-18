@@ -590,6 +590,7 @@
     id: 'l-401k-limits', course: 'benefits', order: 2, title: 'Max your 401(k): the limits most people miss', mins: 7, level: 'Intermediate',
     summary: 'Three 401(k) limits, and why your employer’s money sits on top of yours.',
     idea: 'There is a limit on what you put in and a much bigger limit on what goes in from every source.',
+    deep: [{ h: "2027 limits: what changes next year", short: "2027 limits", html: "<p>The IRS published the 2027 limits on November 12, 2026. The lesson above uses 2026 figures; here is what changes.</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Limit</th><th scope=\"col\">2026</th><th scope=\"col\">2027</th></tr></thead><tbody><tr><th scope=\"row\">Your own contributions (401(k), 403(b), most 457 plans, TSP)</th><td>$24,500</td><td>$25,500</td></tr><tr><th scope=\"row\">Catch-up from age 50</th><td>$8,000</td><td>$8,500</td></tr><tr><th scope=\"row\">Catch-up at ages 60 to 63</th><td>$11,250</td><td>$11,750</td></tr><tr><th scope=\"row\">IRA (separate from the 401(k))</th><td>$7,500</td><td>$7,500</td></tr></tbody></table></div><p>The IRS announcement does not state the 2027 total limit for all contributions (employer money included), so use the 2026 figure of $72,000 in the calculator until the IRS notice is checked.</p>" }],
     widget: 'limitStack',
     try: 'Set your age, salary and employer contribution. Then switch the after-tax option off and watch the empty room appear.',
     body: [
@@ -625,7 +626,7 @@
       'After-tax contributions can fill the leftover room if your plan allows them.',
     ],
     terms: ['Elective deferral', 'Annual additions limit', 'Catch-up contribution', 'Employer match', 'After-tax contribution'],
-    sources: [SRC.n2567, SRC.irs401k, SRC.rothcu],
+    sources: [SRC.n2567, SRC.irs401k, SRC.rothcu, { t: 'IRS IR-2026-136: 401(k) limit increases to $25,500 for 2027, IRA limit remains $7,500 (Nov. 12, 2026)', u: 'https://www.irs.gov/node/167581' }],
     quiz: { q: 'You are 40, defer $24,500 and your employer adds $10,000. How much more could go in for 2026 if your plan allows after-tax contributions?', options: ['$0, you are maxed out', '$37,500', '$47,500'], answer: 1, why: '$72,000 − $24,500 − $10,000 = $37,500 of room left under the annual additions limit.' },
   });
 

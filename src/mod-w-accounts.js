@@ -442,6 +442,7 @@
     id: 'l-ira', course: 'accounts', order: 2, title: 'When to open an IRA, and in what order to save', mins: 9, level: 'Beginner',
     summary: 'Who can open an IRA, the 2026 limits and deadlines, and the order to fill your accounts.',
     idea: 'Open an IRA as soon as you have earned income. Fill accounts in order: cushion, match, debt, emergency fund, HSA and IRA, then the rest.',
+    deep: [{ h: "2027 IRA limits and income ranges", short: "2027 figures", html: "<p>The IRS published the 2027 figures on November 12, 2026. The contribution limit stays the same; the income ranges move up.</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Figure</th><th scope=\"col\">2026</th><th scope=\"col\">2027</th></tr></thead><tbody><tr><th scope=\"row\">IRA contribution limit</th><td>$7,500</td><td>$7,500</td></tr><tr><th scope=\"row\">Catch-up from age 50</th><td>$1,100</td><td>$1,100</td></tr><tr><th scope=\"row\">Roth IRA phase-out, single</th><td>$153,000 to $168,000</td><td>$158,000 to $173,000</td></tr><tr><th scope=\"row\">Roth IRA phase-out, married filing jointly</th><td>$242,000 to $252,000</td><td>$250,000 to $260,000</td></tr><tr><th scope=\"row\">Traditional IRA deduction phase-out, single, covered by a workplace plan</th><td>$81,000 to $91,000</td><td>$83,000 to $93,000</td></tr><tr><th scope=\"row\">Same, married filing jointly, the contributing spouse covered</th><td>$129,000 to $149,000</td><td>$133,000 to $153,000</td></tr></tbody></table></div>" }],
     widget: 'savingsOrder',
     try: 'Enter your income and monthly savings, pick your match, and watch the money pour into each account in order.',
     body: [
@@ -483,6 +484,7 @@
       { t: 'IRS Notice 2025-67: 2026 limits, Roth IRA phase-outs and Saver\'s Credit', u: 'https://www.irs.gov/pub/irs-drop/n-25-67.pdf' },
       { t: 'IRS Rev. Proc. 2025-19: 2026 HSA limits', u: 'https://www.irs.gov/pub/irs-drop/rp-25-19.pdf' },
       { t: 'IRS Publication 590-A: Contributions to IRAs', u: 'https://www.irs.gov/publications/p590a' },
+      { t: 'IRS IR-2026-136: 401(k) limit increases to $25,500 for 2027, IRA limit remains $7,500 (Nov. 12, 2026)', u: 'https://www.irs.gov/node/167581' }
     ],
   });
 

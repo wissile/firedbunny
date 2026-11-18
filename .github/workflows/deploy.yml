@@ -56,6 +56,19 @@ jobs:
           python3 -m pip install --user --break-system-packages --quiet playwright==1.56.0 || { echo "::error title=Not deployed::Playwright did not install, so the pages cannot be pre-built."; exit 1; }
 
       # wrangler runs the build in wrangler.jsonc (python3 tools/build.py) and then uploads dist/ and worker/index.js.
+      # IndexNow (Bing, Yandex, Seznam, Naver): remember the live sitemap before deploying, so the step after the live
+      # check can announce only the pages that are new or changed. The key is public by design: it is the file
+      # public/<key>.txt, which proves the site is ours.
+      - name: Remember the live sitemap for IndexNow
+        env:
+          URL: ${{ vars.SITE_URL }}
+        run: |
+          [ -n "$URL" ] || exit 0
+          curl -s -o old-sitemap.xml "${URL%/}/sitemap.xml" || true
+          key=$(cd public && ls | grep -E '^[0-9a-f]{32}\.txt$' | head -1 | sed 's/\.txt$//')
+          code=$(curl -s -o /dev/null -w '%{http_code}' "${URL%/}/$key.txt" || true)
+          echo "$code" > old-key-status.txt
+
       - name: Build and deploy
         id: deploy
         run: |
@@ -133,4 +146,39 @@ jobs:
               sys.exit(0)
           level = 'notice' if h.get('ok') else 'warning'
           print(f"::{level} title=Live data::{h.get('verdict', '')} ({h.get('secUserAgent', '')})")
+          PY
+
+      # Announce new and changed pages to IndexNow, which Bing (and through it Copilot) uses. Compares this build's
+      # sitemap with the one that was live before the deploy; the first time the key file goes live, every page is sent.
+      - name: Announce changed pages (IndexNow)
+        env:
+          URL: ${{ vars.SITE_URL }}
+        run: |
+          [ -n "$URL" ] || { echo "::notice title=IndexNow::Skipped: SITE_URL is not set."; exit 0; }
+          python3 - "${URL%/}" <<'PY'
+          import json, os, re, sys, urllib.request
+          url = sys.argv[1]; host = re.sub(r'^https?://', '', url)
+          keys = [f[:-4] for f in os.listdir('public') if re.fullmatch(r'[0-9a-f]{32}\.txt', f)]
+          if not keys:
+              print('::notice title=IndexNow::Skipped: no key file in public/.'); sys.exit(0)
+          key = keys[0]
+          def read(p):
+              try: return dict(re.findall(r'<loc>(.*?)</loc>\s*<lastmod>(.*?)</lastmod>', open(p, encoding='utf-8').read()))
+              except Exception: return {}
+          new, old = read('dist/sitemap.xml'), read('old-sitemap.xml')
+          first = open('old-key-status.txt').read().strip() != '200' if os.path.exists('old-key-status.txt') else True
+          urls = sorted(new) if (first or not old) else sorted(u for u, d in new.items() if old.get(u) != d)
+          urls = [u for u in urls if u.startswith(url + '/')][:10000]
+          if not urls:
+              print('::notice title=IndexNow::No new or changed pages to announce.'); sys.exit(0)
+          body = json.dumps({'host': host, 'key': key, 'keyLocation': f'{url}/{key}.txt', 'urlList': urls}).encode()
+          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+          try:
+              code = urllib.request.urlopen(req, timeout=30).status
+          except urllib.error.HTTPError as e:
+              code = e.code
+          except Exception as e:
+              print(f'::warning title=IndexNow::Could not reach api.indexnow.org ({e}).'); sys.exit(0)
+          level = 'notice' if code in (200, 202) else 'warning'
+          print(f"::{level} title=IndexNow::Sent {len(urls)} {'pages (first run: all)' if first else 'new or changed pages'}; IndexNow answered {code}.")
           PY

@@ -52,6 +52,12 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
   and a roster of students.
 - `/lessons/` lists every lesson and `/courses/` every course (`/tracks/` is the same page and names `/courses/` as
   its main copy). A new lesson or course shows up there on its own.
+- Every indexable page has its own preview image at `/og/<its address>.jpg`, drawn by the build from
+  `SML.seo.card()` (the template is `CARD_HTML` in `tools/prerender.py`); the search check fails if one is missing.
+  Lessons show up to four "Related lessons" (shared glossary terms, links and calculators; `relatedOf` in
+  `src/pages.js`).
+- After each deploy the workflow announces new and changed pages to IndexNow (Bing). The key is the public file
+  `public/<32 hex>.txt`; it is not a secret. Don't rename or delete it.
 - `tools/seo-lastmod.json` also keeps `p`, the day a page first shipped (lessons: `datePublished`). It is set once,
   the first time the build sees a page; never edit it by hand.
 - **Build before committing content changes**: the build updates `tools/seo-lastmod.json` (the sitemap's lastmod per

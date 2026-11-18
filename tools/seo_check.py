@@ -79,6 +79,9 @@ def check(dist):
             if desc in seen_desc: err(f'{path}: same description as {seen_desc[desc]}')
             seen_desc[desc] = path
             if not 50 <= len(desc) <= 170: warn(f'{path}: description length {len(desc)}')
+        img = attr(doc, r'<meta property="og:image" content="([^"]*)"') or ''
+        if img.startswith(ORIGIN + '/og/') and not os.path.exists(os.path.join(dist, img[len(ORIGIN) + 1:])):
+            err(f'{path}: preview image {img} was not drawn')
         pre = doc[doc.find('<div id="pre">'):doc.find('<div id="boot"')] if '<div id="pre">' in doc else ''
         if not pre:
             err(f'{path}: no pre-built snapshot')

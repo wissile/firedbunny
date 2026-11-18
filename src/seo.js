@@ -92,8 +92,10 @@
     'l-gold-silver': 'Gold and silver: what moves precious metal prices',
     'l-copper': 'Copper and industrial metals: a read on the economy',
     'l-wheel-ira': 'Running the wheel strategy in an IRA or Roth IRA',
+    'l-401k-limits': '401(k) limits for 2026 and 2027: deferral, catch-up and total cap',
+    'l-ira': 'IRA limits for 2026 and 2027, and the order to save in',
     'l-mega-backdoor': 'The mega backdoor Roth: after-tax 401(k) money into a Roth',
-    'l-hsa': 'The HSA triple tax break: how a health savings account works',
+    'l-hsa': 'HSA limits for 2026 and 2027, and the triple tax break',
     'l-trad-vs-roth': 'Traditional vs Roth 401(k) and IRA: pay tax now or later?',
     'l-credit-score': 'How credit scores work: the five habits that set your score',
     'l-balance-transfer': '0% APR balance transfers: the fee, the deadline and the math',
@@ -115,7 +117,7 @@
     'l-retire-countdown': 'The last ten years before retirement: a countdown plan',
     'l-medicare-rmd': 'Medicare, RMDs and IRMAA: how income drives costs after 65',
     'l-retire-income': 'Retirement income: turn savings into a monthly paycheck',
-    'l-tax-brackets': 'How tax brackets work: marginal vs effective rate',
+    'l-tax-brackets': '2026 and 2027 tax brackets: how marginal rates really work',
     'l-us-tax-abroad': 'US taxes when you live abroad: exclusions and credits',
     'l-aca': 'Health insurance before 65: ACA subsidies and your income',
     'l-health-bridge': 'Health coverage until Medicare: pricing the years before 65',
@@ -313,8 +315,31 @@
   const isNoindex = (tok) => tok === 'not-found' || (R() && R().isPrivate(tok));
   const isArticle = (tok) => tok.indexOf('l-') === 0 || tok.indexOf('post-') === 0;
 
+  // Each indexable page has its own preview image, drawn by the build (tools/prerender.py) from card() at
+  // /og/<its address>.jpg (for /lessons/wheel-strategy/: /og/lessons/wheel-strategy.jpg). The home page and per-visitor
+  // pages keep the site image.
+  function imageOf(tok) {
+    if (tok === 'home' || isNoindex(tok) || !R() || R().canonicalOf(tok) !== tok) return IMAGE;
+    return ORIGIN + '/og' + R().path(tok).replace(/\/$/, '') + '.jpg';
+  }
+  // what the preview image says: a small label, the page's name and one line about it
+  function card(tok) {
+    const strip = (x) => clean(String(x || '').replace(/<[^>]+>/g, ''));
+    const tr = (id) => find(SML.tracks, id), co = (id) => find(SML.courses, id);
+    if (tok.indexOf('l-') === 0) {
+      const l = find(SML.lessons, tok); const c = l && co(l.course);
+      return { kind: 'Lesson' + (c ? ' · ' + c.title : ''), title: l ? l.title : ownTitle(tok), sub: strip(l && (l.idea || l.summary)) };
+    }
+    if (tok.indexOf('tool-') === 0) { const t = find(SML.tools, tok); return { kind: 'Free calculator', title: heading(tok), sub: strip(t && t.blurb) }; }
+    if (tok.indexOf('c-') === 0) { const c = co(tok.slice(2)); return { kind: 'Course' + (c && tr(c.track || 'trading') ? ' · ' + tr(c.track || 'trading').title + ' track' : ''), title: c ? c.title : ownTitle(tok), sub: strip(c && c.blurb) }; }
+    if (tok.indexOf('track-') === 0) { const t = tr(tok.slice(6)); return { kind: 'Track', title: t ? t.title + ' track' : ownTitle(tok), sub: strip(t && t.blurb) }; }
+    if (tok.indexOf('post-') === 0) { const p = find(SML.posts, tok); return { kind: 'Trade note', title: p ? p.title : ownTitle(tok), sub: strip(p && p.excerpt) }; }
+    const t = TITLES[tok] || ownTitle(tok) || BRAND; const i = t.indexOf(':');
+    return { kind: 'FiredBunny', title: i > 0 ? t.slice(0, i) : t, sub: i > 0 ? t.slice(i + 1).trim() : describe(tok) };
+  }
   function meta(tok, pageTitle) {
     const canonTok = R() ? R().canonicalOf(tok) : tok;
+    const img = imageOf(tok);
     return {
       title: title(tok, pageTitle),
       description: describe(tok),
@@ -323,7 +348,7 @@
       robots: isNoindex(tok) ? 'noindex, follow' : 'index, follow, max-image-preview:large',
       indexable: !isNoindex(tok) && canonTok === tok,
       type: isArticle(tok) ? 'article' : 'website',
-      image: IMAGE, imageWidth: 1200, imageHeight: 630, imageAlt: 'FiredBunny: learn the market by playing with it',
+      image: img, imageWidth: 1200, imageHeight: 630, imageAlt: img === IMAGE ? 'FiredBunny: learn the market by playing with it' : clean(card(tok).title) + ' · FiredBunny',
     };
   }
 
@@ -341,7 +366,7 @@
     ];
     const article = (headline, extra) => Object.assign({
       '@context': 'https://schema.org', '@type': 'Article', headline: fit(headline, 110), description: m.description, url: m.url, mainEntityOfPage: m.url,
-      image: [IMAGE], inLanguage: 'en-US', isAccessibleForFree: true,
+      image: [m.image], inLanguage: 'en-US', isAccessibleForFree: true,
       author: { '@type': 'Organization', name: BRAND, url: ORIGIN + '/' }, publisher: ORG,
     }, extra);
     if (tok.indexOf('l-') === 0) {
@@ -412,5 +437,5 @@
     document.querySelectorAll('script[type="application/ld+json"][data-fb-tok]').forEach((s) => { if (s.getAttribute('data-fb-tok') !== tok) s.remove(); });
   }
 
-  SML.seo = { ORIGIN, ABOUT, TITLES, title, heading, glossaryTerms, meta, describe, jsonld, apply };
+  SML.seo = { ORIGIN, ABOUT, TITLES, title, heading, glossaryTerms, card, imageOf, meta, describe, jsonld, apply };
 })();

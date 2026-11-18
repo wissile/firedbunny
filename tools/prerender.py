@@ -145,6 +145,48 @@ def _with_snapshot(page_html, snap, head_js):
     return page_html.replace('<div id="boot"', '<div id="pre">' + snap['html'] + '</div>\n<div id="boot"', 1)
 
 
+# The preview image of each indexable page (SML.seo.card / imageOf in src/seo.js): 1200 x 630, the site's colours and
+# fonts, drawn once per build. Same fonts and browser give the same bytes, so Cloudflare re-uploads only changed ones.
+CARD_HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Bebas Neue';src:url(/fonts/bebas-neue-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Plex';font-weight:400;src:url(/fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Mono';font-weight:600;src:url(/fonts/ibm-plex-mono-latin-600-normal.woff2) format('woff2')}
+*{box-sizing:border-box;margin:0}html,body{width:1200px;height:630px;overflow:hidden}
+body{background:#0b0f19;color:#e8edf5;font-family:'Plex',sans-serif;position:relative}
+body:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#1a2335 1px,transparent 1px),linear-gradient(90deg,#1a2335 1px,transparent 1px);background-size:60px 60px;opacity:.55}
+body:after{content:"";position:absolute;right:-180px;top:-200px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(255,98,36,.28),rgba(255,98,36,0) 68%)}
+.c{position:absolute;inset:64px 72px;display:flex;flex-direction:column;z-index:1}
+.brand{display:flex;align-items:center;gap:14px;font:600 26px/1 'Mono',monospace;letter-spacing:.02em}
+.brand img{width:52px;height:52px}.brand b{color:#ffb547}
+.kind{margin-top:56px;font:600 22px/1.2 'Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#ffb547;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+h1{margin-top:16px;font:400 112px/0.92 'Bebas Neue',sans-serif;text-transform:uppercase;letter-spacing:.005em;max-width:1000px}
+p{margin-top:22px;font-size:30px;line-height:1.35;color:#c4cad5;max-width:980px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.foot{margin-top:auto;display:flex;justify-content:space-between;font:600 20px/1 'Mono',monospace;color:#8b95a8;letter-spacing:.06em}
+.foot i{font-style:normal;color:#e8edf5}
+</style></head><body><div class="c"><div class="brand"><img src="/favicon.svg" alt=""><span>Fired<b>Bunny</b></span></div>
+<div class="kind" id="k"></div><h1 id="t"></h1><p id="s"></p><div class="foot"><span><i>firedbunny.com</i></span><span>Free lessons and tools</span></div></div></body></html>"""
+FILL_JS = """(c) => { const t = document.getElementById('t'); document.getElementById('k').textContent = c.kind;
+  t.textContent = c.title; document.getElementById('s').textContent = c.sub || '';
+  for (let fs = 112; fs >= 64; fs -= 4) { t.style.fontSize = fs + 'px'; if (t.scrollHeight <= fs * 0.92 * 2 + 6 && t.scrollWidth <= 1000) break; }
+  return document.fonts.ready.then(() => true); }"""
+
+
+def draw_cards(ctx, url, dist, items):
+    """Screenshot one card per page. items: [(image url under ORIGIN/og/, {kind, title, sub})]; returns the count."""
+    pg = ctx.new_page()
+    pg.set_viewport_size({'width': 1200, 'height': 630})
+    pg.route(url + '__card__.html', lambda r: r.fulfill(status=200, content_type='text/html', body=CARD_HTML))
+    pg.goto(url + '__card__.html')
+    pg.wait_for_function("document.fonts.status === 'loaded'")
+    for img, card in items:
+        out = os.path.join(dist, img.split(ORIGIN + '/', 1)[1])
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        pg.evaluate(FILL_JS, card)
+        pg.screenshot(path=out, type='jpeg', quality=82)
+    pg.close()
+    return len(items)
+
+
 def _out_path(dist, path):
     return os.path.join(dist, 'index.html') if path == '/' else os.path.join(dist, path.strip('/'), 'index.html')
 
@@ -228,6 +270,9 @@ def prerender(dist, strict=False):
                 lastmod[r['tok']] = d
             lds = page.evaluate('(a) => Object.fromEntries(Object.keys(a.lm).map((t) => [t, SML.seo.jsonld(t, { lastmod: a.lm[t], published: a.pub[t] })]))',
                                 {'lm': {r['tok']: lastmod.get(r['tok']) for r in routes if not r['private']}, 'pub': published})
+            # preview images for the pages that have their own (see draw_cards)
+            card_items = page.evaluate("(toks) => toks.map((t) => [SML.seo.imageOf(t), SML.seo.card(t)]).filter((x) => x[0].indexOf('/og/') > 0)", list(lastmod))
+            cards = draw_cards(ctx, url, dist, card_items)
             browser.close()
     except Exception as e:
         say('failed:', str(e).splitlines()[0][:300])
@@ -270,5 +315,5 @@ def prerender(dist, strict=False):
         say('could not update', LASTMOD_FILE, e)
     if changed:
         say(f'{len(changed)} page(s) changed content (lastmod {today}); commit tools/seo-lastmod.json with the change:', ', '.join(changed[:8]) + (' ...' if len(changed) > 8 else ''))
-    say(f"{len(routes)} pages written ({total // 1024} KB of HTML), {len(items)} in sitemap.xml, 404.html")
+    say(f"{len(routes)} pages written ({total // 1024} KB of HTML), {len(items)} in sitemap.xml, {cards} preview images, 404.html")
     return True
