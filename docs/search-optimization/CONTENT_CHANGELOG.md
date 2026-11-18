@@ -7,6 +7,22 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 18 November 2026 (later): calculator guides, four options lessons and embeddable calculators
+
+- **"How this calculator works"** now covers 46 of 55 tools (from 10). Each guide was written from the widget's own
+  code, and its worked example was read from the live widget with its default inputs and recalculated by hand. The 9
+  without a guide are explorers rather than calculators (the style quiz, cost of living by place, France and US tax,
+  metals, the earnings call player, the statement explorer, earnings and the price, the earnings lookup).
+- **New lessons and calculators** in Options & the Wheel: covered calls, cash-secured puts, rolling options, and
+  assignment and early exercise, each with its own calculator (covered call, cash-secured put, option roll, early
+  assignment risk) and narration. Sources opened on 18 November 2026: Options Industry Council (covered call,
+  cash-secured put), Schwab (managing cash-secured puts; risks of assignment), Fidelity (dividends and assignment
+  risk), E*TRADE (automatic exercise at $0.01 in the money), the OCC options disclosure document. Model figures
+  (premiums, chances of assignment) come from the calculators' Black-Scholes helper and are labelled estimates.
+- **Embeds:** every calculator page offers an iframe snippet (`/tools/<name>/?embed`): the calculator alone, a link
+  back, no analytics, noindex, and framing allowed only for that address (worker/index.js).
+- **Rules of thumb** in the rolling lesson ("when rolling makes sense") are labelled as such.
+
 ## 18 November 2026: 19 deeper lessons, course guides, privacy, terms and contact
 
 - **Deeper lessons** (`brief`, `deep`, `faq`; not narrated): the six thin Options & the Wheel lessons (calls and puts,

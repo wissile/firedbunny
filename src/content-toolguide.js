@@ -80,10 +80,127 @@
     orats: { t: "ORATS: bank earnings and CPI straddles (July 2026)", u: "https://orats.com/blog/bank-earnings-cpi-straddles" },
     cme: { t: "CME Group: cryptocurrency futures FAQ", u: "https://www.cmegroup.com/articles/faqs/frequently-asked-questions-cryptocurrency-futures.html" },
     kraken: { t: "Kraken fee schedule", u: "https://www.kraken.com/features/fee-schedule" },
+    oicCc: { t: "Options Industry Council: Covered call (buy/write)", u: "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write" },
+    oicCsp: { t: "Options Industry Council: Cash-secured put", u: "https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" },
+    schwabCsp: { t: "Schwab: Managing cash-secured equity puts (May 2025)", u: "https://www.schwab.com/learn/story/managing-cash-secured-equity-puts" },
+    schwabAsg: { t: "Schwab: The risks of options assignment (October 2025)", u: "https://www.schwab.com/learn/story/risks-options-assignment" },
+    fidDiv: { t: "Fidelity: How dividends can increase options assignment risk (October 2026)", u: "https://fidelity.com/learning-center/investment-products/options/dividends-options-assignment-risk" },
+    etrade: { t: "E*TRADE: Options expiration process and risks (automatic exercise)", u: "https://us.etrade.com/l/h/options/expiration-process-risk" },
   };
   const C = 'November 2026';
 
   SML.toolGuides = {
+    'tool-covered-call': {
+      meta: "Covered call calculator: premium, return if unchanged or called away, annualized return, breakeven and the estimated chance your shares are called.",
+      what: "What a covered call pays now, your return if the stock stays put or is called away, your breakeven, and an estimate of the chance the shares are called away at expiration.",
+      formula: [
+        "Premium collected = premium × 100 × contracts",
+        "Return if unchanged = premium ÷ stock price now",
+        "Return if called away = (strike − stock price now + premium) ÷ stock price now; annualized × 365 ÷ days",
+        "Profit at expiration = (the lower of the stock price and the strike − your cost + premium) × shares",
+        "Breakeven = your cost − premium",
+        "Chance of being called = the model probability the stock ends above the strike (Black-Scholes N(d2), 4% interest, your volatility)",
+      ],
+      assume: [
+        "Returns are measured on what the shares are worth now; dollar profit from your cost.",
+        "No dividends, commissions or taxes; the chance is a model estimate, not a forecast.",
+      ],
+      example: [
+        "Default inputs: DEMO at $50, bought at $50, a $52.50 call for $0.80, 30 days, 30% volatility.",
+        "Premium $80; return if unchanged $0.80 ÷ $50 = 1.6%.",
+        "If called away: ($52.50 − $50 + $0.80) ÷ $50 = 6.6%, about 80% annualized, which assumes it repeats every month.",
+        "Breakeven $49.20; estimated chance of being called about 28%.",
+      ],
+      limits: [
+        "Early assignment before an ex-dividend date is not modelled; see the <a href=\"#tool-assignment\">early assignment checker</a>.",
+        "Real option prices include a bid-ask spread.",
+      ],
+      sources: [SRC.oicCc],
+      checked: C,
+    },
+    'tool-csp': {
+      meta: "Cash-secured put calculator: cash to set aside, return on that cash, annualized return, the price you pay if assigned and the chance of assignment.",
+      what: "How much cash a cash-secured put needs, what the premium earns on it, the real price you pay if you are assigned, and an estimate of how likely assignment is.",
+      formula: [
+        "Cash to set aside = strike × 100 × contracts",
+        "Return on the cash = premium ÷ strike; annualized × 365 ÷ days",
+        "Price you pay if assigned = breakeven = strike − premium",
+        "Profit at expiration = (premium − the amount the stock ends below the strike) × shares",
+        "Interest on the waiting cash = cash × your rate × days ÷ 365 (mentioned, not added to the return)",
+        "Chance of assignment = the model probability the stock ends below the strike (Black-Scholes N(−d2))",
+      ],
+      assume: [
+        "Annualizing assumes the same trade repeats all year without assignment.",
+        "No commissions or taxes; the chance is a model estimate.",
+      ],
+      example: [
+        "Default inputs: DEMO at $60, a $57.50 put for $0.95, 30 days, 4% on cash, 30% volatility.",
+        "Cash to set aside: $5,750; premium $95.",
+        "Return on the cash: $0.95 ÷ $57.50 = 1.65%, about 20% annualized; the cash could earn about $19 of interest meanwhile.",
+        "If assigned you pay $56.55 a share, 5.75% below today; estimated chance of assignment about 31%.",
+      ],
+      limits: [
+        "Early assignment and earnings gaps are not modelled.",
+        "Your broker may restrict where the set-aside cash can sit.",
+      ],
+      sources: [SRC.oicCsp, SRC.schwabCsp],
+      checked: C,
+    },
+    'tool-roll': {
+      meta: "Option roll calculator: net credit or debit, total premium kept, the new breakeven, extra days bought and the loss if you simply close instead.",
+      what: "What rolling a short put or covered call to a later expiration does: whether it brings in money or costs money, the premium you have kept across both trades, your new breakeven and how much time it buys.",
+      formula: [
+        "Net credit (or debit) = new premium − cost to buy back the old option",
+        "Total premium kept = first premium − buy-back cost + new premium",
+        "Put: new breakeven = new strike − total premium kept",
+        "Covered call: sale price if called = new strike + total premium kept; cost after premiums = your cost − total premium",
+        "Credit per extra day, yearly = net credit ÷ capital × 365 ÷ extra days (capital = new strike × 100 for puts, stock price × 100 for calls)",
+        "Loss if you just close = first premium − buy-back cost",
+      ],
+      assume: [
+        "One contract; spreads and fees on both legs are not included.",
+        "The chart shows profit at the new expiration after the roll, against the old position held to its expiration.",
+      ],
+      example: [
+        "Default inputs: a $57.50 put sold for $0.95; DEMO now $54 with 7 days left; buy back $3.60; roll to a $57.50 put 42 days out for $4.55.",
+        "Net credit: $4.55 − $3.60 = $0.95, or $95, for 35 more days (about 17% a year on $5,750).",
+        "Total premium kept: $0.95 − $3.60 + $4.55 = $1.90; new breakeven $55.60.",
+        "Closing instead would lose $265.",
+      ],
+      limits: [
+        "Rolling does not change the stock’s risk; judge the new option on its own merits.",
+        "Tax treatment of each leg is in the <a href=\"#l-wheel-tax\">wheel tax lesson</a>.",
+      ],
+      sources: [SRC.schwabCsp],
+      checked: C,
+    },
+    'tool-assignment': {
+      meta: "Early assignment risk checker for short calls and puts: how far in the money, time value left, the dividend test and what assignment would mean.",
+      what: "A rule-of-thumb rating of how likely a short call or put is to be assigned early, from how far it is in the money, how much time value is left and, for calls, whether a dividend bigger than that time value comes before expiry.",
+      formula: [
+        "In the money by = stock − strike (calls) or strike − stock (puts)",
+        "Time value = option price − the amount in the money",
+        "High (calls): in the money, ex-dividend date before expiry and dividend > time value",
+        "Elevated: in the money with under $0.10 of time value, or expiry within a day",
+        "Possible: in the money with more time value left; Low: out of the money (Watch if within 1% of the strike in the last 2 days)",
+      ],
+      assume: [
+        "A rule of thumb based on how owners usually act, not a prediction; any short US stock option can be assigned any trading day.",
+        "At expiration, options $0.01 or more in the money are exercised automatically unless the owner says otherwise.",
+      ],
+      example: [
+        "Default inputs: a short $30 call, stock $31, call price $1.05, 10 days left, a $0.50 dividend going ex in 3 days.",
+        "In the money by $1.00, so time value is $0.05.",
+        "The $0.50 dividend is bigger than the $0.05 of time value and comes first: risk High.",
+        "If assigned you sell 100 shares at $30, $3,000, and miss the $50 dividend.",
+      ],
+      limits: [
+        "Interest rates, hard-to-borrow stocks and special dividends can change owners’ choices.",
+        "Only buying the option back removes the risk.",
+      ],
+      sources: [SRC.fidDiv, SRC.schwabAsg, SRC.etrade],
+      checked: C,
+    },
     'tool-firetax': {
       meta: "Tax on retirement withdrawals calculator: how much of a FIRE withdrawal counts as income, the federal tax, the 0% gains band and the most you can take tax-free.",
       what: "How much federal tax you pay on a year’s withdrawal in early retirement, how much of the withdrawal counts as income at all, and the largest withdrawal that still owes no federal income tax.",

@@ -38,9 +38,21 @@ export default {
       catch (e) { return json({ error: 'server_error', message: 'Something went wrong in the data relay. Try again in a moment.', detail: String((e && e.message) || e).slice(0, 200) }, 502); }
     }
     if (url.pathname.startsWith('/audio/') && (request.method === 'GET' || request.method === 'HEAD')) return audio(request, env);
+    if (url.pathname.startsWith('/tools/') && /(^|&)embed(=|&|$)/.test(url.search.slice(1))) return embed(request, env);
     return env.ASSETS.fetch(request);
   },
 };
+
+/* A calculator page opened as /tools/<name>/?embed may be framed by any site (public/_headers sets SAMEORIGIN for
+   everything else) and stays out of search results; the page itself draws only the calculator (src/pages.js). */
+async function embed(request, env) {
+  const res = await env.ASSETS.fetch(request);
+  const h = new Headers(res.headers);
+  h.delete('X-Frame-Options');
+  h.set('Content-Security-Policy', 'frame-ancestors *');
+  h.set('X-Robots-Tag', 'noindex');
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+}
 
 /* Audio with byte ranges. Files are a few MB, so reading one whole and slicing it is cheap. */
 async function audio(request, env) {

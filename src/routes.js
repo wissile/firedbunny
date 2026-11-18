@@ -100,6 +100,10 @@
     "l-theta": "/lessons/theta-time-decay/",
     "l-iv-crush": "/lessons/iv-and-earnings/",
     "l-wheel": "/lessons/wheel-strategy/",
+    "l-covered-call": "/lessons/covered-calls/",
+    "l-cash-secured-put": "/lessons/cash-secured-puts/",
+    "l-rolling": "/lessons/rolling-options/",
+    "l-assignment": "/lessons/option-assignment/",
     "l-one-percent": "/lessons/1-percent-rule/",
     "l-position-size": "/lessons/position-sizing/",
     "l-risk-reward": "/lessons/win-rate-and-reward/",
@@ -239,6 +243,10 @@
     "tool-size": "/tools/position-size/",
     "tool-options": "/tools/option-profit/",
     "tool-wheel": "/tools/wheel-income/",
+    "tool-covered-call": "/tools/covered-call-calculator/",
+    "tool-csp": "/tools/cash-secured-put-calculator/",
+    "tool-roll": "/tools/option-roll-calculator/",
+    "tool-assignment": "/tools/early-assignment-risk/",
     "tool-risk": "/tools/win-rate-and-r-simulator/",
     "tool-compound": "/tools/compound-interest/",
     "tool-expected": "/tools/expected-move/",
@@ -362,6 +370,10 @@
     return t && exists(t) ? t : null;
   }
   const mode = SML.host === 'web' && /^https?:$/.test(location.protocol) ? 'path' : 'hash';
+  // embed mode: a calculator page opened as /tools/<name>/?embed inside another site's iframe (worker/index.js lets it be
+  // framed and marks it noindex); pages.js then draws only the calculator and a link back
+  SML.embed = mode === 'path' && /^\/tools\/[a-z0-9-]+\/?$/.test(location.pathname) && /(^|&)embed(=|&|$)/.test(location.search.slice(1));
+  if (SML.embed) document.documentElement.classList.add('embed');
   function href(tok) { return mode === 'path' && path(tok) ? path(tok) : '#' + tok; }
   // the page a link points at ('#l-wheel', '/lessons/wheel-strategy/', a full URL on this site), or null
   function fromHref(h) {

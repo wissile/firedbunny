@@ -49,6 +49,8 @@ self.addEventListener('fetch', (event) => {
   if (p === '/sw.js') return;
   if (p.startsWith('/api/')) { if (req.mode !== 'navigate') event.respondWith(api(req)); return; }
   if (p.startsWith('/audio/')) { event.respondWith(audio(req, url)); return; }
+  // an embedded calculator (/tools/<name>/?embed) always comes from the network: the worker sets its framing headers
+  if (req.mode === 'navigate' && /(^|&)embed(=|&|$)/.test(new URL(req.url).search.slice(1))) return;
   if (req.mode === 'navigate' && !/\.[a-z0-9]{2,5}$/i.test(p)) { event.respondWith(page(event)); return; }
   event.respondWith(asset(req));
 });

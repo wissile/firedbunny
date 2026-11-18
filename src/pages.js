@@ -176,6 +176,16 @@
       ${d ? `<div class="trk-done">${progBar(d, ls.length)}<span class="meta up">${d} of ${ls.length} done</span></div>` : ''}
       <span class="more trk-go">${d ? 'Continue' : 'Start'} the track ${icons.arrow}</span></div></a>`;
   }
+  SML.css(`html.embed header.nav,html.embed footer.foot,html.embed .fbc-launch,html.embed .fbc,html.embed .skip-link,html.embed #fb-consent{display:none!important}
+    html.embed body{padding:0;background:var(--bg)}
+    .embed-wrap{padding:12px 12px 8px;max-width:820px;margin:0 auto}
+    .embed-h{font:600 18px/1.25 var(--sans);margin:4px 4px 12px;text-transform:none;letter-spacing:0}
+    .embed-foot{font-size:12.5px;color:var(--muted);margin:10px 4px 0}
+    details.emb{border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+    details.emb summary{cursor:pointer;list-style:revert}
+    details.emb summary h2{display:inline;margin:0}
+    details.emb textarea{width:100%;font:12.5px/1.4 var(--mono);resize:vertical}
+    details.emb .btn{margin-top:10px}`);
   SML.css(`.trk3{display:grid;gap:20px;grid-template-columns:1fr}@media(min-width:1024px){.trk3{grid-template-columns:repeat(3,minmax(0,1fr))}}
     .trk-t{font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,44px);line-height:.95;text-transform:uppercase;color:var(--ink)}
     .trk-full{font:500 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
@@ -756,9 +766,33 @@
         <p class="note">Formulas checked against the calculator’s code${g.sources.length ? ' and the sources above' : ''} in ${esc(g.checked)}.${l ? ` The lesson <a href="#${l.id}">${esc(l.title)}</a> explains the idea step by step.` : ''} <a href="#editorial">How FiredBunny checks its pages</a>.</p>
       </section>`;
   }
+  /* the calculator alone, for another site's iframe (/tools/<name>/?embed): no menu, footer, chat or analytics */
+  function embedTool(view, t) {
+    const full = R.path(t.id);
+    view.innerHTML = `<section class="embed-wrap" aria-labelledby="tool-h"><h1 class="embed-h" id="tool-h">${esc(SML.seo ? SML.seo.heading(t.id) : t.title)}</h1>
+        ${SML.widgetHTML(t.widget)}
+        <p class="embed-foot">Calculator by <a href="${esc(full)}" target="_blank" rel="noopener">FiredBunny</a>: how it works, the formulas and the lesson. For learning only, not advice.</p></section>`;
+    let m = document.querySelector('meta[name="robots"]'); if (!m) { m = document.createElement('meta'); m.name = 'robots'; document.head.appendChild(m); } m.content = 'noindex';
+    // tell the page around the iframe how tall the calculator is, so it can size the frame
+    if (window.parent !== window && window.ResizeObserver) {
+      const post = () => { try { window.parent.postMessage({ type: 'firedbunny-embed', tool: t.id, height: Math.ceil(document.documentElement.scrollHeight) }, '*'); } catch (e) {} };
+      const ro = new ResizeObserver(post); ro.observe(view); SML.onCleanup && SML.onCleanup(() => ro.disconnect()); post();
+    }
+    return t.title;
+  }
+  function embedCode(t) {
+    if (!PATHS || !SML.seo) return '';
+    const src = SML.seo.ORIGIN + R.path(t.id) + '?embed';
+    const code = `<iframe src="${src}" title="${(SML.seo.heading(t.id) || t.title).replace(/"/g, '&quot;')} (FiredBunny)" width="100%" height="760" style="border:0;max-width:760px" loading="lazy"></iframe>`;
+    return `<section class="wrap" aria-labelledby="emb-h" style="padding-bottom:40px"><details class="emb"><summary><h2 class="wg-title" id="emb-h">Embed this calculator</h2></summary>
+        <p class="meta">Free to put on your own site or blog. It shows the calculator only, with a link back here.</p>
+        <label class="fld" for="emb-code"><span>Copy this code</span><textarea id="emb-code" rows="3" readonly spellcheck="false">${esc(code)}</textarea></label>
+        <button type="button" class="btn btn-g sm" id="emb-copy">Copy code</button></details></section>`;
+  }
   function toolPage(view, tok) {
     const i = SML.tools.findIndex((x) => x.id === tok); const t = SML.tools[i]; if (!t) return notFound(view);
     const l = lessonById(t.lesson);
+    if (SML.embed) return embedTool(view, t);
     view.innerHTML = `
       <div class="wrap"><nav class="l-crumbbar crumbs" aria-label="Breadcrumb"><span style="display:flex;flex-wrap:wrap;gap:8px"><a href="#tools">Tools</a><span aria-hidden="true">/</span><span>${esc(trackById(t.track || 'trading').title)}</span><span aria-hidden="true">/</span><span>${esc(t.cat)}</span></span><span>${nn(i + 1)} / ${nn(SML.tools.length)}</span></nav></div>
       <section class="wrap tool-sec" aria-labelledby="tool-h">
@@ -767,7 +801,15 @@
         <p class="note">For learning only. Results use simple models and your inputs; they are not advice.</p>
       </section>
       ${toolGuide(t, l)}
+      ${embedCode(t)}
       <section class="wrap" style="padding-bottom:80px" aria-labelledby="more-h"><h2 class="wg-title" id="more-h" style="margin-bottom:14px">More tools</h2><ul class="tiles t3">${SML.tools.filter((x) => x.id !== t.id && (x.track || 'trading') === (t.track || 'trading')).slice(0, 6).map(toolTile).join('')}</ul></section>`;
+    const cp = view.querySelector('#emb-copy');
+    if (cp) cp.addEventListener('click', () => {
+      const ta = view.querySelector('#emb-code'); ta.select();
+      const done = () => { cp.textContent = 'Copied'; setTimeout(() => { cp.textContent = 'Copy code'; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(done, () => { try { document.execCommand('copy'); done(); } catch (e) {} });
+      else { try { document.execCommand('copy'); done(); } catch (e) {} }
+    });
     return t.title;
   }
 

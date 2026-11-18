@@ -80,6 +80,18 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - The editorial standards page (`/editorial-standards/`, in `src/mod-y-about.js`) must stay true: pen name, AI-assisted
   drafting, no ads or affiliate links, computer voice. Change it in the same commit if any of that changes.
 
+## Embeddable calculators
+
+- Any calculator page opened as `/tools/<name>/?embed` draws only the calculator, its title and a link back
+  (`embedTool` in `src/pages.js`; `SML.embed` is set in `src/routes.js`). It loads no analytics, no chat and no consent
+  banner, and posts its height to the parent page (`{type: 'firedbunny-embed', height}`).
+- The worker (`worker/index.js`, `/tools/*` runs it first) removes `X-Frame-Options` and adds
+  `Content-Security-Policy: frame-ancestors *` and `X-Robots-Tag: noindex` only for those embed addresses; every other
+  page stays SAMEORIGIN. The service worker never answers an embed address from its cache. The deploy checks the
+  headers on `/tools/mortgage/?embed`.
+- Tool pages show the iframe snippet under "Embed this calculator". If the privacy page's analytics wording changes,
+  keep the sentence that embeds load no analytics true.
+
 ## Privacy, terms and contact
 
 - `/privacy/`, `/terms/` and `/contact/` are `src/mod-y-legal.js`, plain-language pages written without a lawyer (the

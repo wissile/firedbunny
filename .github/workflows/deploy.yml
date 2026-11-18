@@ -136,6 +136,14 @@ jobs:
           else
             echo "::warning title=Audio ranges::$URL/$f answered $rc to a byte-range request, not 206."
           fi
+          # embeddable calculators: /tools/<name>/?embed may be framed by other sites and is noindex; the plain page is not
+          eh=$(curl -s -D - -o /dev/null "$URL/tools/mortgage/?embed" | tr -d '\r' | tr 'A-Z' 'a-z' || true)
+          ph=$(curl -s -D - -o /dev/null "$URL/tools/mortgage/" | tr -d '\r' | tr 'A-Z' 'a-z' || true)
+          if ! echo "$eh" | grep -q '^x-frame-options' && echo "$eh" | grep -q '^x-robots-tag: noindex' && echo "$ph" | grep -q '^x-frame-options: sameorigin'; then
+            echo "::notice title=Embeds::$URL/tools/mortgage/?embed can be framed and is noindex; the normal page stays SAMEORIGIN."
+          else
+            echo "::warning title=Embeds::framing headers for /tools/mortgage/?embed are not as expected."
+          fi
           curl -s -o health.json "$URL/api/health" || true
           python3 - "$URL" <<'PY'
           import json, sys

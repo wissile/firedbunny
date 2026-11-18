@@ -130,6 +130,7 @@
   function setPage() { gtag('set', { page_location: ctx.page_location, page_title: ctx.page_title, page_referrer: referrer }); }
   const pageView = () => Object.assign(details(), { page_location: ctx.page_location, page_title: ctx.page_title, page_referrer: referrer });
   document.addEventListener('sml:route', (e) => {
+    if (SML.embed) return; // a calculator inside another site's iframe: no analytics, no consent banner
     const tok = (e.detail && e.detail.tok) || 'home';
     if (e.detail && e.detail.same && !firstRoute) { ctx = describe(tok); return; } // the same page drawn again (account loaded, a setting changed): not a new page view
     ctx = describe(tok); referrer = lastLoc;
