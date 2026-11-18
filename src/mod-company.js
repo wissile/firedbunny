@@ -1101,6 +1101,8 @@
       summary: 'Income, balance sheet and cash flow: what each report tells you.',
       idea: 'Three reports answer three questions: did it make money, what does it own and owe, and where did the cash go?',
       widget: 'statementsLab', opts: {},
+      sources: [{ t: "SEC: Beginners’ guide to financial statements", u: "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements" }],
+      checked: 'November 2026',
       try: 'Switch between the three statements and move the sliders. Watch profit flow from one report into the others.',
       body: [
         '<p>Every public company publishes three financial statements each quarter. The <b>income statement</b> shows sales (revenue) minus costs. What is left is profit, also called net income or earnings.</p>',
@@ -1137,6 +1139,8 @@
       summary: 'Why stocks jump or drop when a company reports its results.',
       idea: 'A stock reacts to the surprise versus expectations and to the forecast, more than to the raw numbers.',
       widget: 'earningsLab', opts: {},
+      sources: [{ t: "SEC: Beginners’ guide to financial statements", u: "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements" }],
+      checked: 'November 2026',
       try: 'Set the expected and reported EPS, then flip guidance between raised, in line and cut.',
       body: [
         '<p>Four times a year a company reports its results, usually before the market opens or after it closes. The headline number is <b>EPS</b>, earnings per share: profit divided by the number of shares.</p>',
@@ -1208,6 +1212,8 @@
       summary: 'Why holding a winner more than a year can cut your tax bill.',
       idea: 'Hold a winner more than one year and the US taxes the gain at a lower long-term rate.',
       widget: 'capGainsCalc', opts: {},
+      sources: [{ t: "IRS Topic 409: Capital gains and losses (reviewed Nov. 9, 2026)", u: "https://www.irs.gov/taxtopics/tc409" }],
+      checked: 'November 2026',
       try: 'Drag the marker along the timeline and compare the tax if you sell now with the tax after one year.',
       body: [
         '<p>A <b>capital gain</b> is the profit from selling something for more than you paid. You owe tax only when you sell. That is called realizing the gain.</p>',
@@ -1242,6 +1248,8 @@
       summary: 'Use positions that are down to cut the tax on your winners.',
       idea: 'Selling losers cancels out gains, and up to $3,000 of extra loss can reduce your regular income each year.',
       widget: 'tlhCalc', opts: {},
+      sources: [{ t: "IRS Topic 409: Capital gains and losses (reviewed Nov. 9, 2026)", u: "https://www.irs.gov/taxtopics/tc409" }],
+      checked: 'November 2026',
       try: 'Set your gains and harvested losses, then switch between short and long-term gains to compare the tax saved.',
       body: [
         '<p><b>Tax-loss harvesting</b> means selling positions that are down to realize the loss. Realized losses first cancel realized gains, so less of your profit is taxed.</p>',
@@ -1275,6 +1283,8 @@
       summary: 'The 61-day window that can postpone your tax loss.',
       idea: "Buy the same stock within 30 days before or after selling it at a loss, and you can't claim that loss yet.",
       widget: 'washSale', opts: {},
+      sources: [{ t: "IRS Publication 550 (2025): Investment income and expenses (wash sales)", u: "https://www.irs.gov/publications/p550" }, { t: "Kitces: Rev. Rul. 2008-5, a loss washed by an IRA purchase is lost for good", u: "https://www.kitces.com/blog/irs-shuts-down-wash-sale-evasion-technique/" }],
+      checked: 'November 2026',
       try: 'Drag the rebuy marker along the calendar and change what you buy back.',
       body: [
         '<p>The <b>wash sale</b> rule stops people from selling just to book a tax loss and then buying right back. The window runs from 30 days before the sale to 30 days after it, 61 days in total.</p>',
@@ -1310,6 +1320,8 @@
       summary: 'Market, limit and stop orders, and when each one fills.',
       idea: 'A market order buys speed, a limit order controls price, and a stop order gets you out when price turns against you.',
       widget: 'orderLadder', opts: {},
+      sources: [{ t: "SEC Investor.gov: Types of orders", u: "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders" }],
+      checked: 'November 2026',
       try: 'Pick an order type, set a price, place the order and watch when it fills.',
       body: [
         '<p>Every stock has two prices at once. The <b>bid</b> is the highest price buyers offer; the <b>ask</b> is the lowest price sellers accept. The gap between them is the <b>spread</b>, a small cost you pay on every trade.</p>',

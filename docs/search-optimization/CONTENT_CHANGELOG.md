@@ -21,6 +21,11 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
   (premiums, chances of assignment) come from the calculators' Black-Scholes helper and are labelled estimates.
 - **Embeds:** every calculator page offers an iframe snippet (`/tools/<name>/?embed`): the calculator alone, a link
   back, no analytics, noindex, and framing allowed only for that address (worker/index.js).
+- **Sources added to 10 lessons** (opened 18 November 2026): IRS Topic 409 (capital gains, tax-loss harvesting),
+  IRS Publication 550 and Kitces on Rev. Rul. 2008-5 (wash sales, including IRA purchases), SEC Investor.gov (stocks,
+  bonds, mutual funds and ETFs, types of orders), FINRA (ETFs), SIPC (what it protects), the SEC's guide to financial
+  statements (statements, earnings). Investor.gov's bond page does not say longer bonds swing more; that sentence
+  stands on the bond math in the lesson. 27 lessons still have no sources (habits, AI, budgeting, styles, risk).
 - **Rules of thumb** in the rolling lesson ("when rolling makes sense") are labelled as such.
 
 ## 18 November 2026: 19 deeper lessons, course guides, privacy, terms and contact
