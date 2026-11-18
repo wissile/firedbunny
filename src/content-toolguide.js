@@ -63,10 +63,71 @@
     p523: { t: "IRS Publication 523: Selling Your Home", u: "https://www.irs.gov/publications/p523" },
     p936: { t: "IRS Publication 936: Home Mortgage Interest Deduction", u: "https://www.irs.gov/publications/p936" },
     pmms: { t: "Freddie Mac: Primary Mortgage Market Survey (30-year 7.40%, 15-year 6.71% on Oct 15, 2026)", u: "https://www.freddiemac.com/pmms" },
+    p527: { t: "IRS Publication 527: Residential Rental Property", u: "https://www.irs.gov/publications/p527" },
+    p925: { t: "IRS Publication 925: Passive Activity and At-Risk Rules", u: "https://www.irs.gov/publications/p925" },
+    i8824: { t: "IRS Instructions for Form 8824: Like-kind exchanges", u: "https://www.irs.gov/pub/irs-pdf/i8824.pdf" },
+    abnbFee: { t: "Airbnb Help: Airbnb service fees", u: "https://www.airbnb.com/help/article/1857" },
+    tc415: { t: "IRS Topic 415: Renting residential and vacation property", u: "https://www.irs.gov/taxtopics/tc415" },
   };
   const C = 'November 2026';
 
   SML.toolGuides = {
+    'tool-rental': {
+      meta: "Rental property calculator: monthly cash flow, cap rate, cash-on-cash return, depreciation and passive losses, and the tax when you sell.",
+      what: "Whether a long-term rental pays you each month after every cost and the mortgage, its cap rate and cash-on-cash return, how depreciation turns it into a paper loss for taxes, and what you keep when you sell.",
+      formula: [
+        "Net operating income (NOI) = rent − vacancy − manager (% of rent collected) − repairs reserve − property tax − insurance − HOA",
+        "Cash flow = NOI − mortgage payment (30 years)",
+        "Cap rate = yearly NOI ÷ price; cash-on-cash = yearly cash flow ÷ (down payment + 3% closing costs)",
+        "Depreciation = (price × (1 − land share)) ÷ 27.5 a year",
+        "Taxable result = NOI − first-year mortgage interest − depreciation; a loss offsets other income up to $25,000, reduced by half of income (MAGI) above $100,000",
+        "At sale: depreciation taken is taxed at up to 25% (recapture), the rest of the gain at the long-term rate; a 1031 exchange defers both",
+      ],
+      assume: [
+        "Closing costs 3% of the price; selling costs 6%.",
+        "Rent, costs and the loan are first-year figures; the sale view grows the price at your chosen rate.",
+      ],
+      example: [
+        "Default inputs, the duplex: $260,000, $2,600 rent, 25% down at 7.75%, 6% vacancy, 10% manager, 10% repairs, 1.1% property tax, $1,600 insurance.",
+        "NOI: $2,600 − $156 − $244 − $260 − $238 − $133 = $1,568 a month; the mortgage is $1,397.",
+        "Cash flow: about +$171 a month ($2,051 a year).",
+        "Cap rate 7.2%; cash-on-cash $2,051 ÷ $72,800 = 2.8%. Rent is 1% of the price.",
+      ],
+      limits: [
+        "Real repairs come in lumps; a reserve smooths them on paper only.",
+        "Real estate professional status, cost segregation and state taxes are not included.",
+      ],
+      sources: [SRC.p527, SRC.p925, SRC.tc409, SRC.i8824],
+      checked: C,
+    },
+    'tool-airbnb': {
+      meta: "Airbnb profit calculator: what a short-term rental really keeps after platform fees, cleaning, a co-host, fixed costs, the mortgage and tax, month by month.",
+      what: "What a short-term rental keeps from each $100 guests pay, after the platform fee, cleaning, a manager, supplies, fixed costs, the mortgage and tax, and which months lose money in a seasonal market.",
+      formula: [
+        "Nights booked = occupancy spread across the months by a seasonal pattern (at most 98% in any month)",
+        "Stays = nights ÷ average stay; guests pay nights × nightly rate + stays × cleaning fee, plus occupancy tax (passed on to the city)",
+        "Costs: platform fee (15.5% host-only or 3% split), cleaning and supplies per stay, manager % of nightly revenue, utilities, insurance, property tax, maintenance, furnishing ÷ 7 years",
+        "Cash before tax = income after those costs − mortgage payment",
+        "Taxable result = income after costs − first-year interest − depreciation (80% of the price ÷ 27.5, or faster with cost segregation)",
+        "Tax: a profit is taxed at your bracket (plus self-employment tax with hotel-like services). A loss with an average stay of 7 nights or less offsets your pay only if you materially participate; longer stays use the $25,000 rental allowance",
+      ],
+      assume: [
+        "Defaults: $300 a night, 62% occupancy, 3-night stays, 20% co-host, $125 cleaning fee and $110 cost, a $350,000 home with 25% down at 7.4%, a beach-town season.",
+        "Renting your own home 14 nights or fewer a year is tax-free (and deducts nothing).",
+      ],
+      example: [
+        "Default inputs:",
+        "About 224 nights booked; guests pay about $85,847 including occupancy tax.",
+        "After every cost and the mortgage, about $1,827 is left: roughly $2 of every $100 booked.",
+        "On paper it is a $5,887 loss, but with 3-night stays and no material participation the loss is passive, so it saves no tax this year.",
+      ],
+      limits: [
+        "Local rules, permits and occupancy taxes vary widely; check your city.",
+        "The tax rules for short-term rentals are complex; this is a simplified sketch, not tax advice.",
+      ],
+      sources: [SRC.abnbFee, SRC.tc415, SRC.p925],
+      checked: C,
+    },
     'tool-ss': {
       meta: "Social Security claiming age calculator: your monthly check at 62 to 70, the break-even age, lifetime totals and the earnings test if you still work.",
       what: "Your monthly Social Security check at each claiming age from 62 to 70, the age at which waiting catches up, the total you collect by the age you choose, and how much the earnings test holds back if you work before 67.",
@@ -140,7 +201,7 @@
         "DEMO is a made-up stock; prices and dates are illustrations.",
       ],
       example: [
-        "Default path, “Across New Year”, at a 24% bracket:",
+        "Default path, “Called away within a year”, at a 24% bracket:",
         "2026: a $50 put expires, a $150 short-term gain. A $48 put sold for $120 in December is assigned in January 2027, so the shares’ basis is $4,800 − $120 = $4,680.",
         "2027: a covered call bought back for a $70 gain, then the shares are called away at $50 with another $90 of premium: $5,000 + $90 − $4,680 = $410.",
         "All $630 is short-term, about $151 of federal tax.",
