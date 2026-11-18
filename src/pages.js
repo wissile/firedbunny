@@ -783,10 +783,10 @@
   function embedCode(t) {
     if (!PATHS || !SML.seo) return '';
     const src = SML.seo.ORIGIN + R.path(t.id) + '?embed';
-    const code = `<iframe src="${src}" title="${(SML.seo.heading(t.id) || t.title).replace(/"/g, '&quot;')} (FiredBunny)" width="100%" height="760" style="border:0;max-width:760px" loading="lazy"></iframe>`;
+    const code = `<iframe src="${src}" title="${(SML.seo.heading(t.id) || t.title).replace(/"/g, '&quot;')} (FiredBunny)" width="100%" height="900" style="border:0;max-width:760px" loading="lazy"></iframe>\n<script>addEventListener('message',function(e){if(e.origin==='${SML.seo.ORIGIN}'&&e.data&&e.data.type==='firedbunny-embed'){document.querySelectorAll('iframe').forEach(function(f){if(f.contentWindow===e.source)f.style.height=e.data.height+'px';});}});</script>`;
     return `<section class="wrap" aria-labelledby="emb-h" style="padding-bottom:40px"><details class="emb"><summary><h2 class="wg-title" id="emb-h">Embed this calculator</h2></summary>
-        <p class="meta">Free to put on your own site or blog. It shows the calculator only, with a link back here.</p>
-        <label class="fld" for="emb-code"><span>Copy this code</span><textarea id="emb-code" rows="3" readonly spellcheck="false">${esc(code)}</textarea></label>
+        <p class="meta">Free to put on your own site or blog. It shows the calculator only, with a link back here. The short script lets the frame grow to fit; leave it out if your site does not allow scripts.</p>
+        <label class="fld" for="emb-code"><span>Copy this code</span><textarea id="emb-code" rows="5" readonly spellcheck="false">${esc(code)}</textarea></label>
         <button type="button" class="btn btn-g sm" id="emb-copy">Copy code</button></details></section>`;
   }
   function toolPage(view, tok) {
