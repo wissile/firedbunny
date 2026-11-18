@@ -15,134 +15,139 @@
 "d": "2026-11-11",
 "h": "6f9c76bc10b407b4"
 },
+"/contact/": {
+"d": "2026-11-17",
+"h": "3ef22d13843bf15e",
+"p": "2026-11-17"
+},
 "/courses/": {
 "d": "2026-11-17",
 "h": "0041ed2db1d6c26f",
 "p": "2026-11-17"
 },
 "/courses/banking-and-cards/": {
-"d": "2026-10-24",
-"h": "90597328b8c31746"
+"d": "2026-11-17",
+"h": "a885a8bec6409782"
 },
 "/courses/company-benefits/": {
-"d": "2026-10-24",
-"h": "31790609b45f9b5f"
+"d": "2026-11-17",
+"h": "c06482f2e8790e6d"
 },
 "/courses/company-fundamentals/": {
-"d": "2026-10-24",
-"h": "59f1067af85bc712"
+"d": "2026-11-17",
+"h": "e10456cdcf6dcbaf"
 },
 "/courses/crypto-and-blockchain/": {
-"d": "2026-10-24",
-"h": "86ab46fa8a039d24"
+"d": "2026-11-17",
+"h": "fa46797e39943480"
 },
 "/courses/debt-and-credit/": {
-"d": "2026-10-24",
-"h": "52394948042f588c"
+"d": "2026-11-17",
+"h": "69a4eb96b62a7d09"
 },
 "/courses/early-or-late-retirement/": {
-"d": "2026-10-24",
-"h": "1a48f11b1f176824"
+"d": "2026-11-17",
+"h": "db94a7c439a6493e"
 },
 "/courses/economic-data-and-the-calendar/": {
-"d": "2026-10-24",
-"h": "55ad427485d29818"
+"d": "2026-11-17",
+"h": "b228a3eb842ba277"
 },
 "/courses/execution-and-habits/": {
-"d": "2026-10-24",
-"h": "c34ee67763effa26"
+"d": "2026-11-17",
+"h": "aa5a96a4851af1ff"
 },
 "/courses/fed-and-interest-rates/": {
-"d": "2026-10-24",
-"h": "9ea31c37b6e680df"
+"d": "2026-11-17",
+"h": "4ef73251331ac81e"
 },
 "/courses/health-care-and-social-security/": {
-"d": "2026-10-24",
-"h": "4870ba8ce7934824"
+"d": "2026-11-17",
+"h": "5af895d2116ac971"
 },
 "/courses/home-and-real-estate/": {
-"d": "2026-10-24",
-"h": "563f0ccbe8df5b14"
+"d": "2026-11-17",
+"h": "f5ad9c699440933e"
 },
 "/courses/indicators/": {
-"d": "2026-10-24",
-"h": "28eca7e936b4a841"
+"d": "2026-11-17",
+"h": "4f36e50170abba8c"
 },
 "/courses/investing-for-decades/": {
-"d": "2026-10-24",
-"h": "b554e6cb15298099"
+"d": "2026-11-17",
+"h": "395db73d9f6a526d"
 },
 "/courses/market-basics/": {
-"d": "2026-10-24",
-"h": "6e959c6be7a5b07e"
+"d": "2026-11-17",
+"h": "f494dfaf184ae5b9"
 },
 "/courses/money-foundations/": {
-"d": "2026-10-24",
-"h": "5913502d0bd78b3b"
+"d": "2026-11-17",
+"h": "83e07e142bbacc9f"
 },
 "/courses/oil-metals-and-geopolitics/": {
-"d": "2026-10-24",
-"h": "2a58d7d51487a9e3"
+"d": "2026-11-17",
+"h": "65e2d316ee37b2b1"
 },
 "/courses/options-and-the-wheel/": {
 "d": "2026-11-17",
-"h": "fe913e1f5782743c"
+"h": "ffe278d93b8eb081"
 },
 "/courses/protect-what-you-build/": {
-"d": "2026-10-24",
-"h": "a2f34bd46cc29c97"
+"d": "2026-11-17",
+"h": "14a3aec7a9b090b0"
 },
 "/courses/read-a-real-company/": {
-"d": "2026-11-03",
-"h": "8333d483cae6e901"
+"d": "2026-11-17",
+"h": "2831df6624b3f48a"
 },
 "/courses/reading-charts/": {
-"d": "2026-10-24",
-"h": "bb4cb1807e8921f2"
+"d": "2026-11-17",
+"h": "af136f6dcd8a6901"
 },
 "/courses/retirement-accounts/": {
-"d": "2026-10-24",
-"h": "d3cfb914c58296bf"
+"d": "2026-11-17",
+"h": "3b7e474483a21db0"
 },
 "/courses/retiring-abroad/": {
-"d": "2026-10-24",
-"h": "9f6bc1083f93386b"
+"d": "2026-11-17",
+"h": "adf1f70581fd22cd"
 },
 "/courses/risk-and-sizing/": {
-"d": "2026-10-24",
-"h": "273b03c88db555e6"
+"d": "2026-11-17",
+"h": "e8574b66c7d6182f"
 },
 "/courses/smart-taxes/": {
-"d": "2026-10-24",
-"h": "5823a8f9712d9853"
+"d": "2026-11-17",
+"h": "015bf04ac2689e65"
 },
 "/courses/stress-test-your-plan/": {
-"d": "2026-10-24",
-"h": "7e271d113033e06b"
+"d": "2026-11-17",
+"h": "0f987416a6c3b8ef"
 },
 "/courses/taxes-for-traders/": {
-"d": "2026-10-24",
-"h": "b338f103fbb854b2"
+"d": "2026-11-17",
+"h": "3ba69d27ddbfa1be"
 },
 "/courses/taxes-in-early-retirement/": {
-"d": "2026-10-24",
-"h": "06ea0c421176eff0"
+"d": "2026-11-17",
+"h": "3b469bded056566e"
 },
 "/courses/trading-styles/": {
-"d": "2026-10-24",
-"h": "f49beddc1dda2a8c"
+"d": "2026-11-17",
+"h": "bc62e6f392e9360b"
 },
 "/courses/trading-with-ai/": {
-"d": "2026-10-24",
-"h": "ddf4bf7d561dab4d"
+"d": "2026-11-17",
+"h": "7d90fcbd9f267514"
 },
 "/courses/where-will-you-live/": {
-"d": "2026-10-24",
-"h": "a50914e76ff0d79a"
+"d": "2026-11-17",
+"h": "638ec729ba639d23"
 },
 "/courses/your-fire-number/": {
-"d": "2026-10-24",
-"h": "af43c49b58b14ed8"
+"d": "2026-11-17",
+"h": "b5932cafbc404efe"
 },
 "/editorial-standards/": {
 "d": "2026-11-17",
@@ -158,7 +163,7 @@
 },
 "/lessons/": {
 "d": "2026-11-17",
-"h": "f4ae5b860d8cc956",
+"h": "40d527f45687faf1",
 "p": "2026-11-17"
 },
 "/lessons/0-percent-apr-and-balance-transfers/": {
@@ -173,12 +178,12 @@
 },
 "/lessons/1-percent-rule/": {
 "d": "2026-11-17",
-"h": "63ccf487bd6c29c8",
+"h": "cd5ff5b5007d3678",
 "p": "2026-10-24"
 },
 "/lessons/13-48-and-200-ema/": {
 "d": "2026-11-17",
-"h": "ba6d6d9087878b77",
+"h": "25f30a38051028b3",
 "p": "2026-10-24"
 },
 "/lessons/2-min-vs-15-min/": {
@@ -278,7 +283,7 @@
 },
 "/lessons/breakouts-and-fakeouts/": {
 "d": "2026-11-17",
-"h": "7281891d92772509",
+"h": "e062395a391a7a51",
 "p": "2026-10-24"
 },
 "/lessons/bridging-the-gap-to-medicare/": {
@@ -308,12 +313,12 @@
 },
 "/lessons/calls-and-puts/": {
 "d": "2026-11-17",
-"h": "e30f591c2b9e041a",
+"h": "e81c467b8d884983",
 "p": "2026-10-24"
 },
 "/lessons/candlesticks/": {
 "d": "2026-11-17",
-"h": "a5a5770a2902a458",
+"h": "1dfd984e4c509fa7",
 "p": "2026-10-24"
 },
 "/lessons/car-pay-cash-or-take-the-loan/": {
@@ -333,7 +338,7 @@
 },
 "/lessons/contracts-and-moneyness/": {
 "d": "2026-11-17",
-"h": "9e8781eef218709b",
+"h": "2a3f816f73cc0b40",
 "p": "2026-10-24"
 },
 "/lessons/copper-and-industrial-metals/": {
@@ -368,7 +373,7 @@
 },
 "/lessons/delta-and-gamma/": {
 "d": "2026-11-17",
-"h": "c2f2019875c736da",
+"h": "538bc5cf27c4c48d",
 "p": "2026-10-24"
 },
 "/lessons/dollar-and-global-money/": {
@@ -518,7 +523,7 @@
 },
 "/lessons/iv-and-earnings/": {
 "d": "2026-11-17",
-"h": "b0d33b585ba1f0d0",
+"h": "c446c2b17786fc38",
 "p": "2026-10-24"
 },
 "/lessons/jobs-report-and-jobless-claims/": {
@@ -563,7 +568,7 @@
 },
 "/lessons/losses-are-lopsided/": {
 "d": "2026-11-17",
-"h": "13d002a33c648612",
+"h": "8fbfd5a92d83ebca",
 "p": "2026-10-24"
 },
 "/lessons/max-your-401k-the-limits-most-people-miss/": {
@@ -613,12 +618,12 @@
 },
 "/lessons/payoff-diagrams/": {
 "d": "2026-11-17",
-"h": "a0bfbb04c183c584",
+"h": "18941e8d7b489884",
 "p": "2026-10-24"
 },
 "/lessons/pdh-pdl-pmh-pml/": {
 "d": "2026-11-17",
-"h": "118f21274708569f",
+"h": "c9fab765b96b1842",
 "p": "2026-10-24"
 },
 "/lessons/pmi-gdp-and-retail-sales/": {
@@ -628,7 +633,7 @@
 },
 "/lessons/position-sizing/": {
 "d": "2026-11-17",
-"h": "a0422f98cc3e8981",
+"h": "755e51bc63430100",
 "p": "2026-10-24"
 },
 "/lessons/power-of-compound-interest/": {
@@ -678,7 +683,7 @@
 },
 "/lessons/rsi/": {
 "d": "2026-11-17",
-"h": "d00149013d5b4878",
+"h": "d3246b1507cd3825",
 "p": "2026-10-24"
 },
 "/lessons/rsus-taxes-at-vest-and-when-to-sell/": {
@@ -703,7 +708,7 @@
 },
 "/lessons/sequence-of-returns-risk/": {
 "d": "2026-11-17",
-"h": "9e5e57db68a0f97a",
+"h": "5036bb7a0d903d4b",
 "p": "2026-10-24"
 },
 "/lessons/setups-worth-automating/": {
@@ -718,7 +723,7 @@
 },
 "/lessons/sma-vs-ema/": {
 "d": "2026-11-17",
-"h": "1a40affbc9a3d898",
+"h": "777ccfaf5f310801",
 "p": "2026-10-24"
 },
 "/lessons/small-habits-big-numbers/": {
@@ -753,7 +758,7 @@
 },
 "/lessons/support-and-resistance/": {
 "d": "2026-11-17",
-"h": "f2642c3dbc739d6e",
+"h": "67763e201a017fc6",
 "p": "2026-10-24"
 },
 "/lessons/tax-loss-harvesting-with-fund-pairs/": {
@@ -783,7 +788,7 @@
 },
 "/lessons/theta-time-decay/": {
 "d": "2026-11-17",
-"h": "8879b80e44041fec",
+"h": "475946d1c041ba5f",
 "p": "2026-10-24"
 },
 "/lessons/three-statements/": {
@@ -853,12 +858,12 @@
 },
 "/lessons/volume/": {
 "d": "2026-11-17",
-"h": "edfc425e70cd2d09",
+"h": "1bcc143223542999",
 "p": "2026-10-24"
 },
 "/lessons/vwap/": {
 "d": "2026-11-17",
-"h": "6313a3e97d045f82",
+"h": "7558bf58d2259ca3",
 "p": "2026-10-24"
 },
 "/lessons/wallets-keys-exchanges-and-etfs/": {
@@ -898,7 +903,7 @@
 },
 "/lessons/wheel-strategy/": {
 "d": "2026-11-17",
-"h": "540e7fb052ca7034",
+"h": "479609741bb9f0f5",
 "p": "2026-10-24"
 },
 "/lessons/when-to-open-an-ira-and-in-what-order-to-save/": {
@@ -933,7 +938,7 @@
 },
 "/lessons/win-rate-and-reward/": {
 "d": "2026-11-17",
-"h": "9cd5c21669092b8e",
+"h": "ee0dd0a4bcff824b",
 "p": "2026-10-24"
 },
 "/lessons/your-fire-number/": {
@@ -988,6 +993,11 @@
 "d": "2026-10-24",
 "h": "47c57cfc0f96578a"
 },
+"/privacy/": {
+"d": "2026-11-17",
+"h": "637498886f794a24",
+"p": "2026-11-17"
+},
 "/spreadsheets/": {
 "d": "2026-10-24",
 "h": "998e741e5bc5fcdd"
@@ -995,6 +1005,11 @@
 "/support/": {
 "d": "2026-11-17",
 "h": "d44e4fb1e814dc21"
+},
+"/terms/": {
+"d": "2026-11-17",
+"h": "b624e1ee4430d0dd",
+"p": "2026-11-17"
 },
 "/tools/": {
 "d": "2026-11-17",
@@ -1214,7 +1229,7 @@
 },
 "/tracks/trading/": {
 "d": "2026-11-17",
-"h": "51faefde4ebc4f65"
+"h": "867cf3df65c71a6f"
 },
 "/tradingview-indicator/": {
 "d": "2026-11-17",

@@ -549,7 +549,7 @@
       const pn = D().notes && D().notes.privacy ? D().notes.privacy() : ''; if (pn) h += P(esc(pn));
       h += P('This chat keeps the conversation in this tab only. Nothing you type here is sent anywhere unless you choose to send it as a note.');
       st.last = { type: 'page', tok: 'settings', title: 'Settings' };
-      return { h: h + actsHTML([link('settings', 'Privacy & settings', true)]), chips: C('after') };
+      return { h: h + actsHTML([link('settings', 'Privacy & settings', true), SML.host !== 'claude' ? link('privacy', 'Privacy policy') : null].filter(Boolean)), chips: C('after') };
     },
     offline() {
       const h = SML.host === 'claude' ? P('Offline mode, saving audio and installing FiredBunny as an app work on the FiredBunny website, not in this preview. Separate mobile apps are in development.')

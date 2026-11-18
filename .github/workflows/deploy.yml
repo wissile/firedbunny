@@ -66,7 +66,8 @@ jobs:
           [ -n "$URL" ] || exit 0
           curl -s -o old-sitemap.xml "${URL%/}/sitemap.xml" || true
           key=$(cd public && ls | grep -E '^[0-9a-f]{32}\.txt$' | head -1 | sed 's/\.txt$//')
-          code=$(curl -s -o /dev/null -w '%{http_code}' "${URL%/}/$key.txt" || true)
+          # a query string keeps this check from leaving a cached 404 at the key's own address
+          code=$(curl -s -o /dev/null -w '%{http_code}' "${URL%/}/$key.txt?pre=${GITHUB_SHA::7}" || true)
           echo "$code" > old-key-status.txt
 
       - name: Build and deploy
@@ -153,6 +154,7 @@ jobs:
       - name: Announce changed pages (IndexNow)
         env:
           URL: ${{ vars.SITE_URL }}
+          MSG: ${{ github.event.head_commit.message }}
         run: |
           [ -n "$URL" ] || { echo "::notice title=IndexNow::Skipped: SITE_URL is not set."; exit 0; }
           python3 - "${URL%/}" <<'PY'
@@ -167,18 +169,32 @@ jobs:
               except Exception: return {}
           new, old = read('dist/sitemap.xml'), read('old-sitemap.xml')
           first = open('old-key-status.txt').read().strip() != '200' if os.path.exists('old-key-status.txt') else True
+          first = first or 'indexnow-all' in os.environ.get('MSG', '')  # a commit can ask for every page to be sent again
           urls = sorted(new) if (first or not old) else sorted(u for u, d in new.items() if old.get(u) != d)
           urls = [u for u in urls if u.startswith(url + '/')][:10000]
           if not urls:
               print('::notice title=IndexNow::No new or changed pages to announce.'); sys.exit(0)
-          body = json.dumps({'host': host, 'key': key, 'keyLocation': f'{url}/{key}.txt', 'urlList': urls}).encode()
-          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+          import time
+          # the key file must answer with exactly the key, or IndexNow refuses (403)
           try:
-              code = urllib.request.urlopen(req, timeout=30).status
-          except urllib.error.HTTPError as e:
-              code = e.code
+              live_key = urllib.request.urlopen(f'{url}/{key}.txt?check={os.environ.get("GITHUB_SHA", "")[:7]}', timeout=20).read().decode().strip()
           except Exception as e:
-              print(f'::warning title=IndexNow::Could not reach api.indexnow.org ({e}).'); sys.exit(0)
+              live_key = f'error: {e}'
+          if live_key != key:
+              print(f'::warning title=IndexNow::Skipped: {url}/{key}.txt does not answer with the key ({live_key[:60]!r}).'); sys.exit(0)
+          body = json.dumps({'host': host, 'key': key, 'keyLocation': f'{url}/{key}.txt', 'urlList': urls}).encode()
+          code, why = 0, ''
+          for attempt in range(3):  # a key file that went live seconds ago may not be visible to IndexNow yet
+              req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+              try:
+                  code = urllib.request.urlopen(req, timeout=30).status; why = ''
+              except urllib.error.HTTPError as e:
+                  code = e.code; why = e.read().decode(errors='replace')[:200]
+              except Exception as e:
+                  print(f'::warning title=IndexNow::Could not reach api.indexnow.org ({e}).'); sys.exit(0)
+              if code in (200, 202) or code not in (403, 429, 500, 502, 503):
+                  break
+              time.sleep(30)
           level = 'notice' if code in (200, 202) else 'warning'
-          print(f"::{level} title=IndexNow::Sent {len(urls)} {'pages (first run: all)' if first else 'new or changed pages'}; IndexNow answered {code}.")
+          print(f"::{level} title=IndexNow::Sent {len(urls)} {'pages (all)' if first else 'new or changed pages'}; IndexNow answered {code}{(': ' + why) if why else ''}.")
           PY

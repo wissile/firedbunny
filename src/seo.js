@@ -202,6 +202,9 @@
     editorial: 'Editorial standards: how FiredBunny lessons are written and checked',
     support: 'Support FiredBunny: how the free site is paid for',
     plans: 'Plans: free for everyone, and a waitlist for optional extras',
+    privacy: 'Privacy policy: what FiredBunny stores and how to remove it',
+    terms: 'Terms of use: education, not advice',
+    contact: 'Contact FiredBunny: corrections, ideas and privacy requests',
     'not-found': 'Page not found',
   };
 
@@ -245,6 +248,9 @@
     support: () => 'FiredBunny is free, with no ads or affiliate links. What running it costs, where optional reader support goes, and why it is not tax-deductible.',
     'support-thanks': () => 'A thank-you from FiredBunny.',
     plans: () => 'Every lesson, tool and simulator on FiredBunny is free and stays free. An optional paid plan for extras that cost money per person to run is being considered.',
+    privacy: () => 'What FiredBunny stores about you as a guest, with an account, in feedback and in usage statistics, who handles it, how long it is kept and how to delete it.',
+    terms: () => 'The terms for using FiredBunny: everything is general education, not investment, tax or legal advice; figures are checked but not guaranteed; the site is free.',
+    contact: () => 'How to reach FiredBunny: report a mistake, suggest a topic, or make a privacy request through the feedback form. No personal financial advice.',
     lessons: () => `All ${count().L} FiredBunny lessons in one list, grouped by track and course: trading, options, retirement, taxes and FIRE. Each has something to play with and a quick quiz.`,
     courses: () => `All ${(SML.courses || []).length} FiredBunny courses in ${(SML.tracks || []).length} tracks: trading, retirement and wealth, and FIRE. Open a course to see its lessons, level and reading time.`,
     'not-found': () => 'This page does not exist. Browse the lessons and tools instead.',

@@ -359,6 +359,13 @@ a:hover > .circ.done{transform:none;background:var(--up)}
 .l-rel a{display:block;height:100%;padding:16px 18px;border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;background:color-mix(in srgb,var(--ink) 3%,transparent)}
 .l-rel a:hover,.l-rel a:focus-visible{border-color:var(--accent)}
 .l-rel strong{display:block;font-size:16px;line-height:1.35;margin-bottom:6px}.l-rel span{display:block;font-size:14px;line-height:1.5;color:var(--muted)}
+.c-guide{margin-top:48px;max-width:860px}.c-who,.c-tools{font-size:16px;line-height:1.7;color:var(--text);margin-top:14px;max-width:72ch}
+.c-learn{list-style:none;padding:0;margin:20px 0 0;counter-reset:cl}.c-learn>li{counter-increment:cl;padding:18px 0;border-top:1px solid var(--line)}
+.c-learn h3{font-family:var(--sans);font-weight:600;text-transform:none;letter-spacing:0;font-size:18px;line-height:1.35}
+.c-learn h3:before{content:counter(cl,decimal-leading-zero) "  ";font:500 13px var(--mono);color:var(--accent)}
+.c-learn h3 a{color:var(--ink);text-decoration:none}.c-learn h3 a:hover{text-decoration:underline}
+.c-learn p{margin-top:6px;color:var(--text);line-height:1.6;max-width:72ch}.c-learn ul{margin:8px 0 0;padding-left:1.2em;color:var(--muted);font-size:14.5px;line-height:1.6}
+.c-tools a,.c-who a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
 .l-by{font:500 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:-8px}
 .l-brief+.l-by{margin-top:0}
 .prose.l-faq h3{font-family:var(--sans);font-weight:600;text-transform:none;font-size:19px;line-height:1.35;letter-spacing:0;margin-top:10px;max-width:68ch}

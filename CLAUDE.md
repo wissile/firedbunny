@@ -80,6 +80,16 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - The editorial standards page (`/editorial-standards/`, in `src/mod-y-about.js`) must stay true: pen name, AI-assisted
   drafting, no ads or affiliate links, computer voice. Change it in the same commit if any of that changes.
 
+## Privacy, terms and contact
+
+- `/privacy/`, `/terms/` and `/contact/` are `src/mod-y-legal.js`, plain-language pages written without a lawyer (the
+  owner should have them reviewed). The privacy page must stay true: if data handling changes (a new service, table
+  or analytics setting, the Portfolio page or tips going live), change it, the Settings privacy list
+  (`src/mod-y-account.js`) and the help chat's privacy notes (`src/chat-data.js`) in the same commit, and move its
+  `UPDATED` date. Contact goes through the About page's feedback form; never put an email address on the site.
+- Analytics never sets the advertising consent signals (`ad_storage`, `ad_user_data`, `ad_personalization` are always
+  `denied`): FiredBunny shows no ads.
+
 ## Accounts (Supabase, see supabase/README.md)
 
 - Accounts are on only when `src/cloud-config.js` has the project URL and publishable key. Both are public; never put

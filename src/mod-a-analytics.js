@@ -8,6 +8,8 @@
      with the #part dropped (so a visit that starts on #l-wheel is counted as "/"). If the container is set not to
      (send_page_view = false in the Google tag), the site sends that first page view itself, with the real path.
    - Website only. Off in the claude.ai copy, on localhost and in automated browsers (the build's home-page snapshot).
+   - Ads: FiredBunny shows none, so the advertising signals (ad_storage, ad_user_data, ad_personalization) are always
+     'denied'; only analytics_storage follows the visitor's choice.
    - Consent: visitors whose time zone is in Europe are asked first (nothing loads until they allow it); everyone else
      has it on by default and can switch it off in Settings > Privacy. A visitor's profile, goals, money figures and
      anything typed into the tools are never sent.
@@ -35,7 +37,7 @@
   function start() { // consent goes first in the queue, before anything else
     if (started || !canSend || !allowed()) return;
     started = true;
-    gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+    gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
     gtag('js', new Date());
   }
   function loadScript() { // after the first page has drawn, so it never slows the start
@@ -69,7 +71,7 @@
       const wasIn = scriptIn;
       start(); refresh();
       if (started) {
-        gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+        gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
         if (ctx.page_location) setPage();
         if (wasIn && ctx.page_location) send('page_view', pageView()); // the container is already running: count this page now
         loadScript(); // otherwise the Google tag counts it as it loads (or the site does, see loadScript)

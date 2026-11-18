@@ -951,9 +951,20 @@
      ===================================================================== */
   SML.lessons.push(
     {
-      id: 'l-one-percent', course: 'risk', order: 1, title: 'The 1% rule', mins: 4, level: 'Beginner',
+      id: 'l-one-percent', course: 'risk', order: 1, title: 'The 1% rule', mins: 8, level: 'Beginner',
       summary: 'Why small bets keep you in the game through losing streaks.',
       idea: 'Risk about 1% of your account per trade, so a losing streak hurts but never knocks you out.',
+      brief: "The 1% rule means planning to lose no more than 1% of your account on any one trade if the stop is hit. It limits the risk, not the position size: with $10,000, a trade can be a $4,000 position as long as the stop caps the loss at $100.",
+      deep: [
+        { h: "What a losing streak costs at each risk level", short: "Streaks by risk", html: "<p>Every strategy has losing streaks. Here is what ten losses in a row do to an account at different risk levels, with each loss taken from what is left:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Risk per trade</th><th scope=\"col\">Account after 10 straight losses</th><th scope=\"col\">Drawdown</th></tr></thead><tbody><tr><th scope=\"row\">1%</th><td>90.4% of the start</td><td>9.6%</td></tr><tr><th scope=\"row\">2%</th><td>81.7%</td><td>18.3%</td></tr><tr><th scope=\"row\">5%</th><td>59.9%</td><td>40.1%</td></tr><tr><th scope=\"row\">10%</th><td>34.9%</td><td>65.1%</td></tr></tbody></table></div><p>A 10% drawdown is a bad month. A 65% drawdown needs a gain of almost 190% to recover (see <a href=\"#l-drawdowns\">Losses are lopsided</a>).</p>" },
+        { h: "1% of what?", short: "1% of what", html: "<p>Use the account’s current value, not its starting value, and recalculate as it changes. After a losing run your 1% gets smaller, which slows the losses; after a winning run it grows. Some traders use 0.5% while learning or after a drawdown, and few experienced traders go above 2%.</p>" },
+        { h: "Why the stop isn’t a guarantee", short: "Stops can slip", html: "<p>A stop order becomes a market order when its price is reached, and the SEC notes the fill can differ from the stop price, especially in a fast-moving market. Overnight gaps can skip past a stop entirely. So a planned 1% loss can sometimes be 1.5% or more. Avoid holding through earnings with a size you couldn’t afford to see gap.</p>" },
+      ],
+      faq: [
+        { q: "Is 1% too small to make money?", a: "It feels small, but at 1% risk a trade that makes 3R adds 3% to the account. The limit is on losses, not on gains." },
+        { q: "Does the 1% rule apply to long-term investing?", a: "Not in the same way. It is built for trades with a defined stop. Long-term investors manage risk with diversification and position limits instead." },
+        { q: "What if the right stop is far away?", a: "Then you buy fewer shares, so the dollar risk stays at 1%. If that makes the position too small to bother with, skip the trade." },
+      ],
       widget: 'onePct', opts: {},
       try: 'Push the risk per trade up to 10% and see what ten losses in a row do to the account.',
       body: [
@@ -970,9 +981,20 @@
       checked: 'November 2026', tools: ['tool-size'],
     },
     {
-      id: 'l-position-size', course: 'risk', order: 2, title: 'Position sizing', mins: 5, level: 'Beginner',
+      id: 'l-position-size', course: 'risk', order: 2, title: 'Position sizing', mins: 8, level: 'Beginner',
       summary: 'Turn your stop and your risk budget into an exact share count.',
       idea: 'Pick the stop first, then buy only as many shares as your risk budget allows.',
+      brief: "Position size is the number of shares that makes a stopped-out trade lose exactly what you planned to risk. Shares = dollars at risk ÷ (entry price − stop price). A tight stop gives more shares and a wide stop fewer, but the planned dollar loss stays the same.",
+      deep: [
+        { h: "The formula, step by step", short: "The formula", html: "<ol><li><b>Risk budget</b>: account × risk percentage. $25,000 × 1% = $250.</li><li><b>Risk per share</b>: entry − stop. $30.00 − $28.75 = $1.25.</li><li><b>Shares</b>: $250 ÷ $1.25 = 200. Round down, never up.</li><li><b>Check the position</b>: 200 × $30 = $6,000. Make sure it fits your buying power and any limit you set on a single position.</li></ol><p>For a short trade, risk per share is the stop minus the entry. The <a href=\"#tool-size\">position size calculator</a> does the arithmetic.</p>" },
+        { h: "Where the stop goes decides everything", short: "Placing the stop", html: "<p>Put the stop where the trade idea is clearly wrong, such as just past the support level you bought at, not at a round number or a fixed percentage. Then let the size follow from it. Moving the stop to fit a size you want is the most common way a planned small loss becomes a large one.</p>" },
+        { h: "Costs and slippage", short: "Costs", html: "<p>Spreads, commissions and slippage add to the real loss. A stop order turns into a market order when hit and may fill at a worse price in a fast market. Some traders add a few cents to the risk per share to allow for this, which slightly reduces the share count.</p>" },
+      ],
+      faq: [
+        { q: "Why does a tight stop let me buy more shares?", a: "Because each share risks less. The total planned loss, shares × risk per share, stays the same." },
+        { q: "What about options?", a: "The same idea applies: size by what you can lose. For a bought option the most you can lose is the premium, so the number of contracts × premium × 100 should fit your risk budget." },
+        { q: "Should every trade be the same size?", a: "Every trade should risk the same amount. Position sizes will differ because stops differ." },
+      ],
       widget: 'sizeCalc', opts: {},
       try: 'Drag the red stop line closer to the entry and watch the share count grow while the max loss stays put.',
       body: [
@@ -989,9 +1011,20 @@
       checked: 'November 2026',
     },
     {
-      id: 'l-risk-reward', course: 'risk', order: 3, title: 'Win rate & reward', mins: 6, level: 'Intermediate',
+      id: 'l-risk-reward', course: 'risk', order: 3, title: 'Win rate & reward', mins: 8, level: 'Intermediate',
       summary: 'How win rate and reward-to-risk combine into an edge.',
       idea: 'You can lose more often than you win and still grow, if your wins are bigger than your losses.',
+      brief: "Whether a strategy makes money depends on its win rate and the size of its wins compared with its losses, together. Expectancy = win rate × average win − loss rate × average loss, in R. A strategy that wins 40% of the time can be profitable if its winners are much bigger than its losers.",
+      deep: [
+        { h: "The breakeven win rate for each reward-to-risk ratio", short: "Breakeven win rate", html: "<p>If every win is R times the size of every loss, you break even (before costs) at a win rate of 1 ÷ (1 + R):</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Average win vs average loss</th><th scope=\"col\">Breakeven win rate</th></tr></thead><tbody><tr><th scope=\"row\">1 : 1</th><td>50%</td></tr><tr><th scope=\"row\">1.5 : 1</th><td>40%</td></tr><tr><th scope=\"row\">2 : 1</th><td>33.3%</td></tr><tr><th scope=\"row\">3 : 1</th><td>25%</td></tr></tbody></table></div><p>Above the breakeven line the strategy has a positive expectancy; below it, it loses money however good it feels.</p>" },
+        { h: "Why a high win rate can still lose", short: "High win rates", html: "<p>A strategy that wins 80% of the time but loses five times as much on its losers as it makes on its winners has an expectancy of 0.8 × 1 − 0.2 × 5 = −0.2R per trade. Selling options and taking quick small profits often looks like this: many small wins and a rare large loss. Measure both numbers, not just the win rate.</p>" },
+        { h: "How to measure your own", short: "Measuring it", html: "<p>Record every trade in R in a <a href=\"#l-journal\">trading journal</a>: the result divided by what you planned to risk. After 30 to 50 trades of the same setup, work out the win rate, the average win and the average loss. Costs and slippage come off the expectancy, so include them.</p>" },
+      ],
+      faq: [
+        { q: "What is a good expectancy?", a: "Any positive number after costs, measured over enough trades. +0.2R per trade on 100 trades a year at 1% risk is roughly +20%, before compounding and taxes." },
+        { q: "Should I always aim for 3 : 1 trades?", a: "Bigger targets are hit less often. The right target is the next real level, and the ratio follows from it." },
+        { q: "How many trades do I need to trust the numbers?", a: "More is better. A few dozen gives a rough idea; results from 10 trades are mostly luck." },
+      ],
       widget: 'riskSim', opts: {},
       try: 'Set the win rate to 40% and reward to 2 : 1, then press Run again a few times.',
       body: [
@@ -1006,9 +1039,20 @@
       mistakes: ["Judging a strategy by its win rate alone. A 70% win rate loses money if the losers are much bigger than the winners.", "Taking profits early out of fear, so the average win shrinks below what the math needs.", "Trusting expectancy from 10 trades. You need dozens of trades before the numbers mean much.", "Raising risk because the expectancy is positive. A real edge still has long losing streaks."],
     },
     {
-      id: 'l-drawdowns', course: 'risk', order: 4, title: 'Losses are lopsided', mins: 3, level: 'Beginner',
+      id: 'l-drawdowns', course: 'risk', order: 4, title: 'Losses are lopsided', mins: 7, level: 'Beginner',
       summary: 'Why a 50% loss needs a 100% gain to get back to even.',
       idea: 'Every loss needs a bigger gain to recover, and the gap grows fast as losses get deeper.',
+      brief: "Losses and gains are lopsided: after a loss you need a bigger percentage gain to get back to even. A 20% loss needs a 25% gain, and a 50% loss needs 100%. That is why limiting drawdowns matters more than chasing big returns.",
+      deep: [
+        { h: "The recovery table", short: "Recovery table", html: "<p>The gain needed to recover a loss L is L ÷ (1 − L):</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Loss</th><th scope=\"col\">Gain needed to get back to even</th></tr></thead><tbody><tr><th scope=\"row\">10%</th><td>11.1%</td></tr><tr><th scope=\"row\">20%</th><td>25%</td></tr><tr><th scope=\"row\">30%</th><td>42.9%</td></tr><tr><th scope=\"row\">50%</th><td>100%</td></tr><tr><th scope=\"row\">75%</th><td>300%</td></tr></tbody></table></div><p>The deeper the hole, the faster the climb gets steep. A trader at −50% has to double the account just to start again.</p>" },
+        { h: "Set a drawdown limit before you need it", short: "Drawdown limits", html: "<p>Many traders set rules in advance: stop for the day after a fixed loss, cut risk in half after a 10% drawdown, and pause to review after 15% or 20%. Rules decided in a calm moment are easier to follow than decisions made while losing.</p>" },
+        { h: "The same math in investing", short: "In investing", html: "<p>The same arithmetic explains why a portfolio that falls less in a crash can end ahead of one that rises more in good years, and why retirees worry about losses early in retirement (see <a href=\"#l-sequence\">sequence of returns risk</a>).</p>" },
+      ],
+      faq: [
+        { q: "Why does a 50% loss need a 100% gain?", a: "Because the gain is measured on the smaller amount that is left. $10,000 falls to $5,000; getting back needs another $5,000, which is 100% of $5,000." },
+        { q: "How do I avoid large drawdowns?", a: "Small, fixed risk per trade, a daily loss limit and stepping back after a losing run." },
+        { q: "Does this apply to index funds?", a: "The arithmetic does. Long-term investors recover through time and new savings rather than through bigger bets." },
+      ],
       widget: 'drawdownCalc', opts: {},
       try: 'Slide the loss from 10% to 50%, then press Replay to watch the drop and the climb back.',
       body: [

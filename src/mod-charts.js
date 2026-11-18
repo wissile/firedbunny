@@ -1037,9 +1037,20 @@
 
   /* ---------------- Reading Charts ---------------- */
   L({
-    id: 'l-candles', course: 'charts', order: 1, title: 'Candlesticks', mins: 4, level: 'Beginner',
+    id: 'l-candles', course: 'charts', order: 1, title: 'Candlesticks', mins: 8, level: 'Beginner',
     summary: 'What one candle tells you about buyers and sellers.',
     idea: 'Each candle shows one slice of time: where price opened, where it closed, and how far it travelled in between.',
+    brief: "A candlestick shows four prices for one period: the open, high, low and close. The body runs from the open to the close; the thin wicks reach the high and the low. Green means it closed higher than it opened, red lower. A single candle is a hint; it means most at a level you already marked.",
+    deep: [
+      { h: "Four candle shapes worth knowing", short: "Common shapes", html: "<div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Shape</th><th scope=\"col\">What it looks like</th><th scope=\"col\">What it suggests</th></tr></thead><tbody><tr><th scope=\"row\">Hammer</th><td>Small body near the top, long lower wick</td><td>Sellers pushed price down and buyers pushed it back; a possible floor, if it forms at support</td></tr><tr><th scope=\"row\">Shooting star</th><td>Small body near the bottom, long upper wick</td><td>Buyers were rejected; a possible ceiling, if it forms at resistance</td></tr><tr><th scope=\"row\">Engulfing</th><td>A body that covers the whole body before it, in the other colour</td><td>A sharp change in control from one side to the other</td></tr><tr><th scope=\"row\">Doji</th><td>Open and close almost equal, wicks either side</td><td>Indecision; nobody won the period</td></tr></tbody></table></div><p>None of these is a signal on its own. A hammer in the middle of nowhere means little; a hammer on a level that held twice before is worth watching.</p>" },
+      { h: "Reading wicks: where the fight happened", short: "Reading wicks", html: "<p>The wicks show prices that were reached and rejected. A long lower wick means price went there and buyers refused it. A long upper wick means sellers refused higher prices. Several long wicks into the same price, close together, mark a level more clearly than any single candle.</p>" },
+      { h: "One candle, many timeframes", short: "Timeframes", html: "<p>The same trading can look very different by timeframe. A 15-minute hammer can be made of seven 2-minute candles that show a clear flush and recovery. Many day traders read direction on a slower chart and time entries on a faster one; the <a href=\"#l-timeframes\">2-minute vs 15-minute</a> lesson shows how.</p>" },
+    ],
+    faq: [
+      { q: "Do candlestick patterns predict price?", a: "Not reliably on their own. They describe who won a period. Their value comes from where they form: at support, resistance or VWAP." },
+      { q: "What does a red candle with a long lower wick mean?", a: "Sellers won the period overall, but buyers pushed price well off its low. At support, that can be the first sign of buyers stepping in." },
+      { q: "Which timeframe should I use?", a: "One that fits how long you plan to hold. Day traders often watch 2- and 15-minute candles; swing traders use daily candles." },
+    ],
     widget: 'candleBuilder', opts: {},
     try: 'Pick a preset or drag the sliders. Watch the candle change shape and name.',
     body: [
@@ -1053,6 +1064,8 @@
     terms: ["Candlestick", "Wick", "Doji", "Hammer", "Support"],
     example: {"title": "Hammer at support", "intro": "You marked $50 as support because price bounced there twice last week.", "steps": ["Price pulls back to $50 on the 15-minute chart.", "A candle opens at $50.20, drops to $49.40 and closes at $50.30. The lower wick is $0.80 long and the body only $0.10.", "That shape is a hammer: sellers pushed price down and buyers pushed it all the way back.", "The next candle trades above the hammer’s high of $50.45. That is your confirmation.", "You buy at $50.50 with a stop at $49.30, just under the wick, and a target at the next resistance, $52."], "result": "You risk $1.20 per share to make $1.50, a 1.25R trade."},
     mistakes: ["Trading every hammer or doji you see. Without a level behind it, one candle is mostly noise.", "Acting before the candle closes. A hammer can turn into a big red candle in its last minute.", "Reading color only. A green candle with a long upper wick still shows sellers pushing back.", "Ignoring the timeframe. A hammer on a 1-minute chart means far less than one on a 15-minute chart."],
+    sources: [{ t: "Schwab: How to read stock charts and trading patterns (May 2025)", u: "https://www.schwab.com/learn/story/how-to-read-stock-charts-and-trading-patterns" }],
+    checked: 'November 2026',
   });
 
   L({
@@ -1074,9 +1087,20 @@
   });
 
   L({
-    id: 'l-levels', course: 'charts', order: 3, title: 'PDH, PDL, PMH, PML', mins: 5, level: 'Beginner',
+    id: 'l-levels', course: 'charts', order: 3, title: 'PDH, PDL, PMH, PML', mins: 9, level: 'Beginner',
     summary: 'Four prices to mark before the opening bell.',
     idea: 'Yesterday’s high and low and this morning’s premarket high and low are where price most often reacts.',
+    brief: "PDH and PDL are the previous day’s high and low; PMH and PML are the high and low of the premarket session before the 9:30 a.m. ET open. Many traders watch the same four prices, so orders cluster there and price often stalls, bounces or speeds up when it reaches one.",
+    deep: [
+      { h: "How to mark the four levels each morning", short: "Marking them", html: "<ol><li><b>PDH and PDL</b>: the highest and lowest prices of yesterday’s regular session (9:30 a.m. to 4 p.m. ET).</li><li><b>PMH and PML</b>: the highest and lowest prices traded this morning before 9:30 a.m. ET. Mark them just before the open, once the premarket range is set.</li><li>Draw each as a zone a few cents wide, not one exact penny.</li><li>Write a plan for each: what you will do if price breaks it, and what you will do if it fails.</li></ol>" },
+      { h: "Why premarket levels need care", short: "Premarket risks", html: "<p>The premarket is thinner than the regular session. The SEC warns that extended-hours trading generally has less trading interest, wider gaps between the bid and ask, larger price swings and prices that may not match the regular session; FINRA notes that the 4 p.m. close stays the official price. A PMH set by a few thin trades is weaker than one tested by heavy volume. Many brokers accept only limit orders before the open.</p>" },
+      { h: "Gap days: when price opens beyond a level", short: "Gap days", html: "<p>If the stock opens above PDH, yesterday’s high becomes the first support to watch, and the premarket high becomes the level to break. If it opens below PDL, the roles reverse. The bigger the gap, the more likely the first minutes are wild; many traders wait for the first 5 or 15 minutes to set a range before acting.</p><p class=\"note\">These are FiredBunny’s rules of thumb for day trading, not facts. Test them in the trade replay before using real money.</p>" },
+    ],
+    faq: [
+      { q: "What are the premarket hours?", a: "FINRA describes premarket trading as typically 7 to 9:30 a.m. ET, though some brokers open earlier. Regular trading runs 9:30 a.m. to 4 p.m. ET." },
+      { q: "Do these levels work for swing trading?", a: "Swing traders use the same idea on longer timeframes: last week’s high and low, or major prior highs, instead of yesterday’s." },
+      { q: "What if price chops around a level?", a: "Treat repeated crossing as a sign the level isn’t working today. Step aside rather than taking each cross." },
+    ],
     widget: 'levelsMap', opts: {},
     try: 'Press Play the day or drag the time slider. Toggle each level and follow the numbered reactions.',
     body: [
@@ -1089,12 +1113,25 @@
     terms: ["PDH", "PDL", "PMH", "PML", "Premarket", "Retest"],
     example: {"title": "Planning the morning with four levels", "intro": "It is 9:15 a.m. ET and you are marking DEMO before the open.", "steps": ["Yesterday’s high was $26.40 (PDH) and yesterday’s low was $24.90 (PDL).", "Premarket traded between $25.40 (PML) and $25.95 (PMH). Price is now $25.80.", "Plan A: if price closes above $25.95 and a retest holds, buy with a stop at $25.75 and a target at $26.40.", "Plan B: if price loses $25.40, stand aside or look for a short toward $24.90.", "At 9:48 a candle closes at $26.02, the retest dips to $25.96 and holds, and you buy at $26.00."], "result": "You risk $0.25 to make $0.40, a 1.6R trade framed entirely by levels you marked before the bell."},
     mistakes: ["Marking levels after the open, when price is already moving and you are reacting instead of planning.", "Treating a level as one exact penny. Price often overshoots by a few cents before it reacts.", "Buying the first touch of a level from below instead of waiting for a close above it and a retest.", "Forgetting that PMH and PML only show when extended-hours data is turned on in your charting app."],
+    sources: [{ t: "SEC Investor.gov: Extended-hours trading, investor bulletin (June 2022)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-42" }, { t: "FINRA: Extended-hours trading, know the risks", u: "https://www.finra.org/investors/insights/extended-hours-trading" }],
+    checked: 'November 2026',
   });
 
   L({
-    id: 'l-support', course: 'charts', order: 4, title: 'Support & resistance', mins: 4, level: 'Beginner',
+    id: 'l-support', course: 'charts', order: 4, title: 'Support & resistance', mins: 9, level: 'Beginner',
     summary: 'Floors, ceilings, and why they swap roles.',
     idea: 'Support is a price where buyers keep showing up. Resistance is where sellers do. Once broken, they often switch jobs.',
+    brief: "Support is a price where buying has been strong enough to stop a fall; resistance is a price where selling has stopped a rise. Draw them where price turned more than once, treat them as zones, and watch for an old ceiling to act as a new floor after a break.",
+    deep: [
+      { h: "Why levels form", short: "Why they form", html: "<p>Levels come from supply and demand. Prior turning points are the usual places: StockCharts notes that support often forms at previous reaction lows and resistance at previous reaction highs. Traders who bought at a level and watched it fail often sell when price comes back to their entry to get out even, which is one reason a broken floor turns into a ceiling.</p>" },
+      { h: "How to draw a level well", short: "Drawing levels", html: "<ul><li>Use prices where the market turned at least twice, ideally with a clear reaction each time.</li><li>Draw a zone across the wicks and closes, not a single line; brief pokes past a level are common.</li><li>Prefer recent levels and those visible on a higher timeframe.</li><li>Keep only the nearest level above and below price; a chart full of lines hides the ones that matter.</li></ul>" },
+      { h: "Role reversal and the retest", short: "Role reversal", html: "<p>Once resistance breaks and holds, it can serve as support, and a broken support can become resistance. Traders who missed a breakout often buy the first pullback to the old ceiling; if that retest holds, it confirms the break. If price falls back through, the breakout has failed (see <a href=\"#l-breakouts\">Breakouts &amp; fakeouts</a>).</p>" },
+    ],
+    faq: [
+      { q: "How many touches make a level strong?", a: "Two or three clear reactions make a level worth watching. Each test also uses up orders waiting there, so a level hit many times can eventually break." },
+      { q: "Should my stop go exactly at support?", a: "Just beyond the zone, where the idea is clearly wrong, not on the line where many other stops sit." },
+      { q: "Are round numbers support and resistance?", a: "Often, because many orders sit at prices like $50 or $100. Treat them like any other level and look for reactions." },
+    ],
     widget: 'srDrag', opts: {},
     try: 'Drag the amber line onto a price where the chart keeps turning. The counters show touches and bounces.',
     body: [
@@ -1107,12 +1144,25 @@
     terms: ["Support", "Resistance", "Breakout", "Retest", "Stop loss"],
     example: {"title": "Old ceiling, new floor", "steps": ["DEMO turns down at $18.00 three times in two weeks. That is resistance.", "On Tuesday it closes at $18.35 on strong volume and breaks through.", "On Wednesday it pulls back to $18.05 and a 15-minute candle closes at $18.20. The old ceiling holds as a floor.", "You buy at $18.20 with a stop at $17.85, just under the zone.", "Your target is the next swing high at $19.10."], "result": "You risk $0.35 to make $0.90, about 2.6R."},
     mistakes: ["Drawing a level through every wiggle. A useful level has at least two clear turns.", "Placing the stop exactly on the level, where normal noise will hit it.", "Assuming a level holds forever. Every extra test uses up the buyers or sellers defending it."],
+    sources: [{ t: "StockCharts ChartSchool: Support and resistance", u: "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/support-and-resistance" }, { t: "Schwab: How to read stock charts and trading patterns (May 2025)", u: "https://www.schwab.com/learn/story/how-to-read-stock-charts-and-trading-patterns" }],
+    checked: 'November 2026',
   });
 
   L({
-    id: 'l-breakouts', course: 'charts', order: 5, title: 'Breakouts & fakeouts', mins: 6, level: 'Intermediate',
+    id: 'l-breakouts', course: 'charts', order: 5, title: 'Breakouts & fakeouts', mins: 10, level: 'Intermediate',
     summary: 'Wait for confirmation before you trust a break.',
     idea: 'A real breakout closes past the level on strong volume and holds the retest. A fakeout only pokes through.',
+    brief: "A breakout is price moving through a level that held before; a fakeout is a break that quickly fails and traps buyers. Waiting for confirmation, a close beyond the level on strong volume and a retest that holds, filters out many fakeouts at the cost of sometimes missing a move.",
+    deep: [
+      { h: "A confirmation checklist", short: "Checklist", html: "<ol><li><b>A close beyond the level</b>, not just a wick.</li><li><b>Volume well above normal</b> on the breakout candle, ideally 1.5 times the recent average or more.</li><li><b>A retest that holds</b>: price comes back to the old level and bounces.</li><li><b>The right side of VWAP</b>: above it for a long trade, below it for a short.</li></ol><p class=\"note\">These are FiredBunny’s rules of thumb for day trading, not facts. Test them in the trade replay before using real money.</p>" },
+      { h: "What a fakeout looks like", short: "Fakeouts", html: "<p>A typical fakeout pokes above resistance, often on thin volume, draws in buyers who fear missing out, then falls back below the level within a few candles. The trapped buyers’ stops then push price lower. StockCharts notes that brief moves past a level are common, which is why many traders treat levels as zones and wait for a close.</p>" },
+      { h: "Where the stop and target go", short: "Stops and targets", html: "<p>Put the stop just on the other side of the level: if price returns there, the breakout has failed. Put the first target at the next level, such as the next swing high or yesterday’s high. Measure the trade in R: if the stop is $0.20 away and the target $0.80, the trade risks 1R to make 4R, and the <a href=\"#l-risk-reward\">win rate and R</a> lesson shows why that ratio matters.</p>" },
+    ],
+    faq: [
+      { q: "What percentage of breakouts fail?", a: "There is no reliable universal figure; it depends on the stock, the market and the timeframe. Track your own breakouts in a journal to learn yours." },
+      { q: "Isn’t waiting for a retest too slow?", a: "Sometimes you miss the move, which costs nothing. Chasing a fakeout costs a full loss." },
+      { q: "Can I short a failed breakout?", a: "Some traders do: a fakeout that falls back below the level is a setup in its own right, with the stop above the failed high." },
+    ],
     widget: 'breakoutSim', opts: {},
     try: 'Pick a chart, press Next candle, and make the call when the game asks: Enter or Wait?',
     body: [
@@ -1125,12 +1175,25 @@
     terms: ['Breakout', 'False breakout', 'Retest', 'Confirmation', 'Volume', 'R multiple'],
     example: {"title": "Waiting for the retest", "steps": ["DEMO stalls at $30.00 three times this morning. Average 2-minute volume is 40,000 shares.", "At 10:06 a candle closes at $30.18 on 92,000 shares, 2.3 times average: a close above the level on strong volume.", "You do not chase. Two candles later price dips to $30.03 and closes at $30.12. The retest holds and price is above VWAP.", "You buy at $30.12 with a stop at $29.92, just under the level.", "Your target is $30.72, the next level above."], "result": "You risk $0.20 to make $0.60, a 3R trade. If the retest had failed, you would have skipped it and lost nothing."},
     mistakes: ["Buying the first wick above the level before the candle closes.", "Ignoring volume. A break on below-average volume fails far more often.", "Placing the stop far below the level, which turns a small loss into a big one.", "Chasing a breakout that is already several ATRs past the level."],
+    sources: [{ t: "StockCharts ChartSchool: Support and resistance", u: "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/support-and-resistance" }],
+    checked: 'November 2026',
   });
 
   L({
-    id: 'l-volume', course: 'charts', order: 6, title: 'Volume', mins: 4, level: 'Beginner',
+    id: 'l-volume', course: 'charts', order: 6, title: 'Volume', mins: 8, level: 'Beginner',
     summary: 'Volume is the fuel behind every move.',
     idea: 'Volume counts how many shares traded. Big moves on big volume tend to last; moves on thin volume tend to fade.',
+    brief: "Volume is how many shares trade in each candle; it shows how many people took part in a move. Relative volume compares it with what is normal for that time of day: 2× means twice the usual activity. Moves on rising volume are more trustworthy than moves on fading volume.",
+    deep: [
+      { h: "How to work out relative volume", short: "Relative volume", html: "<p>Divide the current volume by the average volume for the same time of day over recent sessions. If DEMO usually trades 50,000 shares in the 10:00 2-minute candle and today trades 140,000, relative volume is 140,000 ÷ 50,000 = 2.8×. Comparing by time of day matters because the open and close are always busier than midday.</p>" },
+      { h: "Volume at levels", short: "Volume at levels", html: "<p>Volume is most useful where something should happen. Heavy volume on a break of resistance shows real demand; Schwab notes that breaking support takes heavy selling volume. A break on light volume, by contrast, is easier to reverse. Quiet, low-volume pullbacks inside a trend are normal and often healthy.</p>" },
+      { h: "Thin stocks and the spread", short: "Thin stocks", html: "<p>Stocks that trade little have wider gaps between the bid and ask, and a single large order can move them. That makes entries and stops less reliable. Many day traders set a minimum average daily volume before they will trade a stock at all.</p><p class=\"note\">These are FiredBunny’s rules of thumb for day trading, not facts. Test them in the trade replay before using real money.</p>" },
+    ],
+    faq: [
+      { q: "What counts as high volume?", a: "High relative to the stock’s own normal. Two to three times usual volume for the time of day is a common sign that a stock is in play." },
+      { q: "Does high volume mean price will rise?", a: "No. It means many people are trading. Heavy volume on a down move shows strong selling." },
+      { q: "Why is volume highest at the open and close?", a: "News from overnight is traded at the open, and many funds place orders near the close, which sets the day’s official price." },
+    ],
     widget: 'volumeLab', opts: {},
     try: 'Slide the breakout volume and watch the follow-through change. Then compare a healthy and a weak trend.',
     body: [
@@ -1143,13 +1206,26 @@
     terms: ['Volume', 'Relative volume', 'Breakout', 'Confirmation'],
     example: {"title": "Reading relative volume", "steps": ["DEMO usually trades about 50,000 shares per 2-minute bar around 10:00.", "It breaks above $12.40 on a bar of 140,000 shares. Relative volume is 140,000 ÷ 50,000 = 2.8×.", "The next three bars push higher on 90,000, 80,000 and 75,000 shares, all above average.", "A pullback comes on only 30,000 shares, well below average. Sellers are not stepping in.", "You add to the trade on the quiet pullback and keep your stop under $12.40."], "result": "Heavy volume on the push and light volume on the pullback is what a healthy move looks like."},
     mistakes: ["Comparing volume to the whole day instead of the same time of day. The open is always busy.", "Treating any big volume bar as bullish. Heavy volume on a red candle at resistance is selling.", "Ignoring a breakout that happens on fading volume."],
+    sources: [{ t: "Schwab: How to read stock charts and trading patterns (May 2025)", u: "https://www.schwab.com/learn/story/how-to-read-stock-charts-and-trading-patterns" }],
+    checked: 'November 2026',
   });
 
   /* ---------------- Indicators ---------------- */
   L({
-    id: 'l-moving-averages', course: 'indicators', order: 1, title: 'SMA vs EMA', mins: 4, level: 'Beginner',
+    id: 'l-moving-averages', course: 'indicators', order: 1, title: 'SMA vs EMA', mins: 8, level: 'Beginner',
     summary: 'Two ways to smooth price, and why the EMA reacts faster.',
     idea: 'A moving average smooths price into one line. The EMA weights recent prices more, so it turns sooner than the SMA.',
+    brief: "A simple moving average (SMA) is the plain average of the last N closes; an exponential moving average (EMA) gives the newest closes more weight, so it turns sooner. Both lag price: they show the trend after it has started, not before.",
+    deep: [
+      { h: "The two formulas", short: "Formulas", html: "<p><b>SMA</b>: add the last N closes and divide by N. Every close counts the same.</p><p><b>EMA</b>: start from the previous EMA and move it part of the way toward the new close. The weight is 2 ÷ (N + 1), so a 10-period EMA moves about 18% of the gap each period (StockCharts). Older prices never drop out completely; they just matter less and less.</p>" },
+      { h: "Lag and length", short: "Lag", html: "<p>StockCharts calls moving averages trend-following, or lagging, indicators that are always a step behind. Shorter averages lag less but whip back and forth in choppy markets; longer ones are smoother but slower. The EMA lags less than an SMA of the same length.</p>" },
+      { h: "The averages everyone watches", short: "Popular lengths", html: "<p>The 200-day average is the most widely watched long-term trend line and the 50-day the usual medium-term one. When a shorter average crosses above a longer one, it is called a golden cross; below, a death cross. Because so many traders watch them, these averages can act as support in an uptrend and resistance in a downtrend, as zones rather than exact prices.</p>" },
+    ],
+    faq: [
+      { q: "SMA or EMA: which is better?", a: "Neither in general. The EMA reacts faster; the SMA is steadier. Pick one and use it consistently." },
+      { q: "Do moving average crossovers work?", a: "They confirm trends late and give false signals in sideways markets. They are better as a trend filter than as an entry signal." },
+      { q: "Which length should I use?", a: "One that fits your timeframe. Day traders use short averages on intraday charts; investors watch the 50- and 200-day." },
+    ],
     widget: 'maLab', opts: {},
     try: 'Change the period and toggle each average. The markers show how many bars each one lagged the bottom.',
     body: [
@@ -1163,12 +1239,25 @@
     glossary: [{"t": "Period", "d": "How many bars an indicator looks back over. A 20-period average uses the last 20 closes."}, {"t": "Lag", "d": "How far an indicator trails price. Longer periods lag more."}],
     example: {"title": "Same data, two averages", "intro": "DEMO closes at $10, $10, $10 and $10, then jumps to $12.", "steps": ["A 5-period SMA adds the last five closes and divides by five: (10 + 10 + 10 + 10 + 12) ÷ 5 = $10.40.", "A 5-period EMA gives the newest close a weight of 2 ÷ (5 + 1) = 0.33. It moves from $10 to 10 + 0.33 × (12 - 10) = $10.67.", "The EMA reacted $0.27 more to the new price, so it turns sooner.", "If DEMO keeps closing at $12, the SMA reaches $12 after five bars. The EMA gets close faster but never quite touches it."], "result": "Use the EMA when you want speed and the SMA when you want fewer false turns."},
     mistakes: ["Expecting a moving average to predict a turn. It can only confirm one after it starts.", "Using a very short period and trading every cross, which gives many false signals in choppy markets.", "Mixing SMA and EMA without checking which one your chart is showing."],
+    sources: [{ t: "StockCharts ChartSchool: Moving averages, simple and exponential", u: "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential" }],
+    checked: 'November 2026',
   });
 
   L({
-    id: 'l-ema-stack', course: 'indicators', order: 2, title: '13, 48 & 200 EMA', mins: 5, level: 'Beginner',
+    id: 'l-ema-stack', course: 'indicators', order: 2, title: '13, 48 & 200 EMA', mins: 8, level: 'Beginner',
     summary: 'Three averages for the fast, medium and big trend.',
     idea: 'When the 13 EMA is above the 48 and the 48 is above the 200, all three trends agree on up.',
+    brief: "The 13, 48 and 200 EMA read short, medium and long trend on one chart. When they are stacked in order, 13 above 48 above 200, the uptrend is clean; stacked the other way, the downtrend is. Mixed means the trend is changing or choppy.",
+    deep: [
+      { h: "Why these three numbers", short: "Why 13, 48, 200", html: "<p>There is nothing magic about them. The 200 is used because so many traders watch it (StockCharts calls the 200-day the most widely followed long-term average). The 48 behaves almost exactly like the popular 50. The 13 is short enough to hug momentum. What matters is using the same three every day, so the chart looks familiar and your rules stay the same.</p>" },
+      { h: "Reading the stack", short: "Reading it", html: "<div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Order</th><th scope=\"col\">What it means</th><th scope=\"col\">A common plan</th></tr></thead><tbody><tr><th scope=\"row\">13 > 48 > 200</th><td>Clean uptrend</td><td>Look for longs on pullbacks to the 13 or 48</td></tr><tr><th scope=\"row\">13 < 48 < 200</th><td>Clean downtrend</td><td>Look for shorts on rallies to the 13 or 48</td></tr><tr><th scope=\"row\">Mixed</th><td>Trend changing or choppy</td><td>Wait, or trade smaller</td></tr></tbody></table></div><p>The space between the lines matters too. Lines fanning apart show a strengthening trend; lines squeezing together show it losing steam.</p><p class=\"note\">These are FiredBunny’s rules of thumb for day trading, not facts. Test them in the trade replay before using real money.</p>" },
+      { h: "Using the stack on more than one timeframe", short: "Timeframes", html: "<p>A stack on the daily chart shows the big picture; the same stack on a 15-minute chart shows today’s trend. Trades taken in the direction of both are easier than trades against the bigger one.</p>" },
+    ],
+    faq: [
+      { q: "Why not the 9 and 21 EMA?", a: "Those work the same way. The point is a short, a medium and a long average used consistently, not the exact numbers." },
+      { q: "Is price above the 200 EMA a buy signal?", a: "No. It says the long-term trend is up. Many traders use it as a filter: only longs above it, only shorts below it." },
+      { q: "What is a trailing stop with the 13 EMA?", a: "Moving your stop up under the 13 EMA as the trend continues, and exiting when a candle closes below it." },
+    ],
     widget: 'emaStack', opts: {},
     try: 'Drag the scrubber or press Play. The ribbon under the chart shows when the averages were stacked.',
     body: [
@@ -1182,12 +1271,25 @@
     glossary: [{"t": "Crossover", "d": "When a faster average crosses above or below a slower one."}, {"t": "EMA stack", "d": "Averages lined up in order, 13 above 48 above 200 or the reverse, showing a clean trend."}],
     example: {"title": "Trading with the stack", "steps": ["On the 15-minute chart DEMO trades at $64. The 13 EMA is $63.50, the 48 EMA $62.80 and the 200 EMA $60.10: stacked up.", "Price pulls back to $63.45, touching the 13 EMA, while the 48 and 200 keep rising.", "A candle closes back at $63.70. You buy with a stop at $62.70, just under the 48 EMA.", "As the trend continues you trail your stop under the 13 EMA.", "Two days later the 13 crosses below the 48. The stack is broken, so you exit at $66.10."], "result": "You risk $1.00 to make $2.40, a 2.4R trade that followed the trend instead of predicting it."},
     mistakes: ["Buying pullbacks while the 13, 48 and 200 are tangled. Mixed averages mean chop.", "Shorting just because price is far above the 200 EMA. Stretched is not the same as finished.", "Changing the periods every week to fit the latest chart."],
+    sources: [{ t: "StockCharts ChartSchool: Moving averages, simple and exponential", u: "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential" }],
+    checked: 'November 2026',
   });
 
   L({
-    id: 'l-vwap', course: 'indicators', order: 3, title: 'VWAP', mins: 5, level: 'Beginner',
+    id: 'l-vwap', course: 'indicators', order: 3, title: 'VWAP', mins: 9, level: 'Beginner',
     summary: 'Today’s average price, weighted by volume.',
     idea: 'VWAP is the average price everyone paid today, weighted by volume. Above it, buyers are in control. Below it, sellers are.',
+    brief: "VWAP, the volume-weighted average price, is the average price paid so far today with busy candles counting more than quiet ones. It starts fresh at each open. Price above VWAP suggests buyers are in control; below it, sellers.",
+    deep: [
+      { h: "How VWAP is calculated", short: "The calculation", html: "<p>For each candle, take its typical price, the average of the high, low and close, and multiply it by the candle’s volume. Keep running totals: VWAP is the sum of (typical price × volume) divided by the sum of volume since the open.</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Candle</th><th scope=\"col\">Typical price</th><th scope=\"col\">Volume</th><th scope=\"col\">Price × volume</th><th scope=\"col\">VWAP so far</th></tr></thead><tbody><tr><th scope=\"row\">1</th><td>$40.00</td><td>100,000</td><td>$4,000,000</td><td>$40.00</td></tr><tr><th scope=\"row\">2</th><td>$40.60</td><td>50,000</td><td>$2,030,000</td><td>$40.20</td></tr><tr><th scope=\"row\">3</th><td>$40.30</td><td>150,000</td><td>$6,045,000</td><td>$40.25</td></tr></tbody></table></div><p>Candle 2 was higher but quiet, so it pulled VWAP up only a little. Candle 3 was busy, so it weighs more.</p>" },
+      { h: "Why funds and day traders both watch it", short: "Who uses it", html: "<p>StockCharts notes that VWAP was developed for institutions placing large orders: a buy filled below VWAP, or a sell filled above it, counts as a good fill. Day traders read it as the day’s fair price: intraday prices tend to fall when below VWAP and rise when above it. A pullback to VWAP that holds is a common long setup; losing VWAP after a run is a warning.</p><p class=\"note\">These are FiredBunny’s rules of thumb for day trading, not facts. Test them in the trade replay before using real money.</p>" },
+      { h: "Its limits", short: "Limits", html: "<p>VWAP is an intraday tool and lags more as the day goes on, because each new candle is a smaller share of the total. Early in the session it rests on few candles and can jump. It also says nothing about the long-term trend, so pair it with the <a href=\"#l-ema-stack\">EMA stack</a>.</p>" },
+    ],
+    faq: [
+      { q: "Does VWAP work on daily charts?", a: "Standard VWAP resets every session, so it is meant for intraday charts. Anchored VWAP, started from a chosen date, is a separate tool for longer views." },
+      { q: "Is buying above VWAP always right?", a: "No. It tilts the odds toward longs in a trending day but whips back and forth on choppy days." },
+      { q: "Why does my VWAP differ from someone else’s?", a: "Different start times (premarket included or not) and different data feeds change the running totals." },
+    ],
     widget: 'vwapLab', opts: {},
     try: 'Drag the time slider or press Play. Watch the running math build the VWAP line candle by candle.',
     body: [
@@ -1200,12 +1302,25 @@
     terms: ["VWAP", "Volume", "Support", "Resistance"],
     example: {"title": "Buying the VWAP pullback", "steps": ["DEMO opens at $40 and climbs to $41.20 by 10:30, staying above VWAP the whole time.", "VWAP is now $40.60. Price pulls back to $40.65 on light volume.", "A 2-minute candle wicks to $40.58 and closes at $40.80, back above VWAP.", "You buy at $40.80 with a stop at $40.45, below VWAP and the wick.", "Your first target is the morning high at $41.20."], "result": "You risk $0.35 to make $0.40 to the high, a bit over 1R, with room for more if the trend holds."},
     mistakes: ["Using a VWAP carried over from yesterday. VWAP resets at every open.", "Buying every touch of VWAP on a choppy day when price keeps crossing back and forth.", "Giving late-day VWAP crosses too much weight. By the afternoon VWAP barely moves."],
+    sources: [{ t: "StockCharts ChartSchool: Volume-weighted average price (VWAP)", u: "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap" }],
+    checked: 'November 2026',
   });
 
   L({
-    id: 'l-rsi', course: 'indicators', order: 4, title: 'RSI', mins: 4, level: 'Beginner',
+    id: 'l-rsi', course: 'indicators', order: 4, title: 'RSI', mins: 8, level: 'Beginner',
     summary: 'A 0 to 100 gauge of how stretched a move is.',
     idea: 'RSI compares recent gains with recent losses on a 0 to 100 scale. High means stretched up; low means stretched down.',
+    brief: "RSI, the relative strength index, compares recent up moves with recent down moves on a scale from 0 to 100, over 14 periods by default. Above 70 is called overbought and below 30 oversold, but in a strong trend RSI can stay there for a long time; use it to avoid chasing, not to call tops.",
+    deep: [
+      { h: "Where RSI comes from", short: "Origin", html: "<p>J. Welles Wilder introduced RSI in his 1978 book <i>New Concepts in Technical Trading Systems</i>, with 14 periods as the default and 70 and 30 as overbought and oversold. It is calculated from the average gain and average loss over those periods, so it rises when up moves dominate and falls when down moves do.</p>" },
+      { h: "RSI in trends", short: "RSI in trends", html: "<p>StockCharts notes that momentum oscillators can become overbought and stay so in a strong uptrend. Some analysts read the range instead of the extremes: Constance Brown observed that in bull markets RSI tends to swing between about 40 and 90, with 40 to 50 acting as support, and in bear markets between about 10 and 60, with 50 to 60 as resistance.</p>" },
+      { h: "Divergence", short: "Divergence", html: "<p>A bearish divergence is price making a higher high while RSI makes a lower high; a bullish divergence is the reverse. Divergences hint that momentum is fading, but in strong trends they can appear well before any turn, or not lead to one at all. Treat them as a reason to tighten a stop, not to bet against the trend.</p>" },
+    ],
+    faq: [
+      { q: "Should I sell when RSI is above 70?", a: "Not on that alone. In a strong trend RSI can stay above 70 while price keeps rising. Check the trend first." },
+      { q: "What RSI setting should I use?", a: "14 is the standard. Shorter settings make RSI jumpier and more often extreme; longer ones smooth it." },
+      { q: "Is RSI the same as relative strength against the market?", a: "No. RSI measures a stock against its own recent moves. Comparing a stock with an index is a different idea, also called relative strength." },
+    ],
     widget: 'rsiLab', opts: {},
     try: 'Change the period and the two lines. Hover the chart to read RSI at any bar.',
     body: [
@@ -1219,6 +1334,8 @@
     glossary: [{"t": "Divergence", "d": "When price makes a new high or low but the indicator does not, a sign the move is losing strength."}],
     example: {"title": "Overbought is not a sell signal", "steps": ["DEMO rallies from $20 to $24 in eight days and RSI(14) reads 78.", "You feel like shorting because RSI is above 70. First you check the trend: higher highs, and price above the 48 EMA.", "RSI stays between 70 and 82 for six more days while price climbs to $26.", "Then price makes a new high at $26.40 but RSI only reaches 66, lower than before. That divergence is a warning.", "You tighten the stop on your long to $25.60 instead of shorting."], "result": "RSI helped you manage the trade. Shorting at 78 would have cost $2 a share."},
     mistakes: ["Shorting the moment RSI crosses 70 in a strong uptrend.", "Buying every reading under 30 in a stock that keeps falling.", "Shortening the period to get more signals, which mostly adds noise."],
+    sources: [{ t: "StockCharts ChartSchool: Relative Strength Index (RSI)", u: "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi" }],
+    checked: 'November 2026',
   });
 
   L({

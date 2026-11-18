@@ -115,7 +115,7 @@
         <div class="fb"><a class="brand" href="#home" aria-label="${BRAND} home">${logo}${wordmark}</a><p class="fb-tag">Ten years of money lessons, shared free. Learn it early, keep your cool, buy back your time.</p><p>Education only. Nothing here is financial, investment or tax advice. Most charts use simulated prices and most examples use made-up numbers; the Read a Real Company course uses real reported figures, checked October 2026. Trading and investing can lose money, including more than you put in with options or margin.</p></div>
         <div><h4>Learn</h4><nav aria-label="Tracks">${TRACKS().map((t) => `<a href="#track-${t.id}">${esc(t.title)} track</a>`).join('')}<a href="#lessons">All lessons</a><a href="#courses">All courses</a><a href="#c-basics">Market Basics</a><a href="#c-options">Options &amp; the Wheel</a><a href="#c-benefits">Company Benefits</a><a href="#c-home">Home &amp; Real Estate</a><a href="#c-fi-basics">Your FIRE Number</a><a href="#c-fi-abroad">Retiring Abroad</a></nav></div>
         <div><h4>Practice</h4><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
-        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a>${SML.support ? SML.support.footerLink() : ''}<a href="#plans">Plans</a><a href="#editorial">Editorial standards</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
+        <div><h4>FiredBunny</h4><nav aria-label="Resources"><a href="#about">About &amp; feedback</a>${SML.support ? SML.support.footerLink() : ''}<a href="#plans">Plans</a><a href="#editorial">Editorial standards</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#contact">Contact</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
       <div class="foot-base"><span>© 2026 FiredBunny · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
     </div>`;
@@ -522,6 +522,26 @@
   SML.css('.hub-trk{padding-block:56px 8px}.hub-trk .chap-head{margin-bottom:8px}.hub-crs+.hub-crs{padding-top:0}');
 
   /* ---------------- course ---------------- */
+  /* the course page's guide: who it is for, what each lesson teaches (its one-line idea and first two takeaways, taken
+     from the lessons themselves, so nothing new is claimed here) and the calculators the course uses */
+  const WHO = {
+    'Start here': 'No experience needed. This is where the track begins.',
+    Beginner: 'No experience needed. Each lesson explains its terms, and the glossary at the end of every lesson covers the rest.',
+    Essential: 'For everyone on this track. These are the habits and rules the later courses build on.',
+    Intermediate: 'For readers who know the basics of this track. If a word is new, each lesson’s glossary explains it.',
+    Advanced: 'For readers comfortable with the earlier courses in this track.',
+  };
+  function courseGuide(c, ls, T) {
+    if (!ls.length) return '';
+    const strip = (x) => String(x || '').replace(/<[^>]+>/g, '');
+    const tools = []; ls.forEach((l) => SML.tools.forEach((t) => { if ((t.lesson === l.id || (l.tools || []).indexOf(t.id) >= 0) && tools.indexOf(t) < 0) tools.push(t); }));
+    return `<section class="c-guide" aria-labelledby="cg-h">
+      <h2 class="pane-h" id="cg-h">What you’ll learn</h2>
+      <p class="c-who"><b>Who it’s for:</b> ${esc(WHO[c.level] || WHO.Beginner)} ${ls.length} lessons, about ${minsOf(c.id)} minutes in all, part of the ${esc(T.title)} track.</p>
+      <ol class="c-learn">${ls.map((l) => `<li><h3><a href="#${l.id}">${esc(l.title)}</a></h3><p>${esc(strip(l.idea || l.summary))}</p>${(l.points || []).length ? `<ul>${l.points.slice(0, 2).map((pt) => `<li>${esc(strip(pt))}</li>`).join('')}</ul>` : ''}</li>`).join('')}</ol>
+      ${tools.length ? `<p class="c-tools"><b>Calculators in this course:</b> ${tools.map((t) => `<a href="#${t.id}">${esc(SML.seo ? SML.seo.heading(t.id) : t.title)}</a>`).join(', ')}.</p>` : ''}
+    </section>`;
+  }
   function coursePage(view, tok) {
     const c = courseOf(tok.slice(2)); if (!c) return notFound(view);
     const tid = trackOfCourse(c), T = trackById(tid), tcs = coursesOf(tid); setTrack(tid);
@@ -531,6 +551,7 @@
       <div class="wrap"><nav class="l-crumbbar crumbs" aria-label="Breadcrumb"><span style="display:flex;flex-wrap:wrap;gap:8px"><a href="#track-${tid}">${esc(T.title)}</a><span aria-hidden="true">/</span><span>${esc(c.title)}</span></span><span>Course ${nn(c.n)} / ${nn(tcs.length)}</span></nav></div>
       <div class="wrap">${trackSection(c, 'h1')}
         <div style="display:flex;flex-wrap:wrap;gap:10px;padding-block:32px 8px">${next ? `<a class="btn btn-p" href="#${next.id}">${d ? 'Continue the course' : 'Start the course'} ${icons.arrow}</a>` : ''}<a class="btn btn-g" href="#track-${tid}">All ${esc(T.title)} courses</a></div>
+        ${courseGuide(c, ls, T)}
         <nav class="l-nav" aria-label="Courses" style="margin-block:40px 80px">${pc ? `<a href="#c-${pc.id}"><span>${icons.back} Previous course</span><strong>${esc(pc.title)}</strong></a>` : '<span></span>'}${nc ? `<a class="next" href="#c-${nc.id}"><span>Next course ${icons.arrow}</span><strong>${esc(nc.title)}</strong></a>` : ''}</nav>
       </div>`;
     const h = $('#t-' + c.id, view); if (h) { h.style.fontSize = 'clamp(48px,6vw,72px)'; }

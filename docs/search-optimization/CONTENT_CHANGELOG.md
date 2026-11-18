@@ -7,6 +7,28 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 18 November 2026: 19 deeper lessons, course guides, privacy, terms and contact
+
+- **Deeper lessons** (`brief`, `deep`, `faq`; not narrated): the six thin Options & the Wheel lessons (calls and puts,
+  contracts, payoff diagrams, delta and gamma, theta, IV and earnings), nine chart and indicator lessons (candlesticks,
+  the four day-trading levels, support and resistance, breakouts, volume, SMA vs EMA, the 13/48/200 EMA, VWAP, RSI)
+  and four risk lessons (the 1% rule, position sizing, win rate and R, drawdowns).
+- **Sources added**, each opened on 17 or 18 November 2026 and supporting a statement on the page: Options Industry
+  Council (what is an option, delta, gamma, theta, vega), SEC Investor.gov (introduction to options; extended-hours
+  trading; stop orders), FINRA (extended-hours trading), E*TRADE (expiration and automatic exercise), Cboe (expected
+  move from the straddle), StockCharts ChartSchool (VWAP, RSI, moving averages, support and resistance), Schwab (reading
+  charts). StockCharts' RSI page contained text addressed to AI tools; it was ignored and only its content was used.
+- **Rules of thumb** (breakout checklist, volume thresholds, the EMA stack, premarket plans) are labelled on the page
+  as FiredBunny's rules, not facts.
+- **Arithmetic** in the new tables was recalculated: losing streaks at 1/2/5/10% risk (9.6/18.3/40.1/65.1%), recovery
+  gains (11.1/25/42.9/100/300%), breakeven win rates (50/40/33.3/25%), the VWAP table and relative volume.
+- **Course pages** show "What you'll learn": who the course is for (from its level) and each lesson's one-line idea and
+  first two takeaways, taken from the lessons themselves.
+- **Needs human review:** "Many day traders set a minimum average daily volume", "few experienced traders go above 2%",
+  and the typical decay table for theta are general practice without a single source.
+
+---
+
 ## 17 November 2026: search titles, hub pages and a deeper wheel lesson
 
 Follows the site audit of 17 November 2026 (measured on commit 6aba670).
