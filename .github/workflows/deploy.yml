@@ -175,9 +175,10 @@ jobs:
           if not urls:
               print('::notice title=IndexNow::No new or changed pages to announce.'); sys.exit(0)
           import time
-          # the key file must answer with exactly the key, or IndexNow refuses (403)
+          # the key file must answer with exactly the key, or IndexNow refuses (403). Cloudflare answers 403 to Python's
+          # default User-Agent, so the check sends its own.
           try:
-              live_key = urllib.request.urlopen(f'{url}/{key}.txt?check={os.environ.get("GITHUB_SHA", "")[:7]}', timeout=20).read().decode().strip()
+              live_key = urllib.request.urlopen(urllib.request.Request(f'{url}/{key}.txt?check={os.environ.get("GITHUB_SHA", "")[:7]}', headers={'User-Agent': 'Mozilla/5.0 (compatible; FiredBunnyDeploy/1.0; +https://firedbunny.com)'}), timeout=20).read().decode().strip()
           except Exception as e:
               live_key = f'error: {e}'
           if live_key != key:
