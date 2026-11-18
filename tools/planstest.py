@@ -223,7 +223,7 @@ with sync_playwright() as p:
     check(r['intent'] == 'support' and 'chip in' in r['text'], 'chat: the support reply is unchanged in substance')
     for q, tok in [('what is option premium', 'l-contracts'), ('sell premium', 'l-contracts'), ('collect premium', 'l-contracts'), ('what is a premium in options', 'l-contracts'), ('premium decay', 'l-theta'),
                    ('insurance premium', None), ('health insurance premiums', None), ('premium tax credit', 'l-aca'), ('how much premium should i collect', None), ('premium', 'l-contracts'),
-                   ('option pricing', None), ('cancel subscriptions', None), ('plan for retirement', None), ('fire plan', None), ('premium income from covered calls', 'l-wheel'),
+                   ('option pricing', None), ('cancel subscriptions', None), ('plan for retirement', None), ('fire plan', None), ('premium income from covered calls', 'l-covered-call'),
                    # money questions about taxes, brokers and insurance are not about FiredBunny's price
                    ('do i have to pay taxes on dividends', None), ('do i need to pay tax on my roth withdrawal', None), ('will i have to pay capital gains', None),
                    ('is my broker going to charge me for options', None), ('will they start charging commissions', None), ('is robinhood going to charge a fee', None),

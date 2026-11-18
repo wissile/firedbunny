@@ -33,7 +33,9 @@ The owner wants every change committed to GitHub and deployed to Cloudflare, wit
 Unfinished work goes on a branch, because only `main` deploys. Merge it into `main` when it is ready.
 
 If lesson text changes, re-record its narration (`node tools/narration/make-scripts.js`, then
-`tools/narration/render.py`, see README) and commit the new audio with the change.
+`tools/narration/render.py`, see README) and commit the new audio with the change. Run `make-scripts.js` without `--ids`: with
+`--ids` it writes only those lessons to `scripts.json`, and `render.py` then drops every other lesson from the manifest
+and from `src/mod-z-narration-data.js` (limit the recording with `render.py --ids` instead).
 
 ## Search: addresses, metadata and pre-built pages
 

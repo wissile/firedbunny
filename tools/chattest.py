@@ -94,13 +94,13 @@ def open_chat(pg):
 
 # realistic questions: (message, page token the answer's main button must open, or a check on the reply)
 QUESTIONS = [
-    ('what is a covered call', 'l-wheel', 'Covered call'),
+    ('what is a covered call', 'l-covered-call', 'Covered call'),
     ('explain vwap', 'l-vwap', 'VWAP'),
     ('rsi oversold', 'l-rsi', None),
     ('roth ira vs 401k', ('l-trad-vs-roth', 'l-ira'), 'Roth IRA'),
     ('tlh', 'l-tax-loss', 'Tax-loss harvesting'),
     ('calculator for compound interest', 'tool-compound', 'Compound interest'),
-    ('covred call', 'l-wheel', 'I read that as'),
+    ('covred call', 'l-covered-call', 'I read that as'),
     ('whats theta', 'l-theta', None),
     ('vwpa', 'l-vwap', 'I read that as'),
     ('what is the 4% rule', 'l-swr', None),
@@ -109,7 +109,7 @@ QUESTIONS = [
     ('pdh', 'l-levels', 'Previous day high'),
     ('explain the wash sale rule', 'l-wash-sale', None),
     ('hsa', 'l-hsa', None),
-    ('cash secured put', 'l-wheel', 'Cash-secured put'),
+    ('cash secured put', 'l-cash-secured-put', 'Cash-secured put'),
     ('13 48 200 ema', 'l-ema-stack', None),
     ('day trading vs swing trading', 'l-styles', 'Swing trading'),
     ('what does dte mean', 'l-contracts', 'Expiration'),
@@ -176,7 +176,7 @@ with sync_playwright() as p:
     r = ask(pd, 'xqzv blorpt flimflam')
     check(r and 'couldn’t find' in r['text'] and 'Send this as a question' in r['chips'] and any(c.startswith('Search all lessons') for c in r['chips']), 'gibberish gets a graceful fallback (search all lessons, or send as a question)')
     r = ask(pd, 'what is a covered call'); r2 = tap_chip(pd, 'Tell me more')
-    check(r2 and 'Key takeaways' in r2['text'] and r2['pri'] == path(pd, 'l-wheel'), 'follow-up “Tell me more” gives the lesson’s takeaways')
+    check(r2 and 'Key takeaways' in r2['text'] and r2['pri'] == path(pd, 'l-covered-call'), 'follow-up “Tell me more” gives the lesson’s takeaways')
     r = tap_chip(pd, 'Explain a term')
     check(r and 'glossary has' in r['text'], 'chip “Explain a term” asks which word')
     r = ask(pd, 'theta')
