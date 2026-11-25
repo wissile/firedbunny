@@ -422,7 +422,7 @@
         <p class="lede" style="margin-top:22px;max-width:60ch">Who writes the lessons and calculators, how their facts and numbers are checked, how to tell a fact from an assumption or an opinion, and what this site is not. Last updated November 2026.</p>
       </div></header>
       ${sec('01', 'Who writes FiredBunny', 'A pen name, plainly disclosed.', 'ed-who', `
-        <p><b>FiredBunny is a pen name.</b> It is the name the person who writes and runs this site publishes under. The story behind the site is on the <a href="#about">About page</a>.</p>
+        <p><b>FiredBunny is a pen name.</b> It is the name the person who writes and runs this site publishes under. The site is published by <b>FluidWeb LLC</b>, the company responsible for it (see the <a href="#terms">terms</a> and the <a href="#privacy">privacy policy</a>). The story behind the site is on the <a href="#about">About page</a>.</p>
         <p>FiredBunny does not claim professional credentials, and no page claims to have been reviewed by a licensed financial adviser, CPA or attorney.</p>`)}
       ${sec('02', 'How pages are made', 'AI-assisted drafting, checked against sources.', 'ed-how', `
         <p>Lessons, examples and calculator guides are <b>drafted with AI tools</b> and <b>checked against the primary sources cited on each page</b>. The numbers in worked examples are recalculated, not copied.</p>

@@ -96,8 +96,11 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 
 ## Privacy, terms and contact
 
-- `/privacy/`, `/terms/` and `/contact/` are `src/mod-y-legal.js`, plain-language pages written without a lawyer (the
-  owner should have them reviewed). The privacy page must stay true: if data handling changes (a new service, table
+- `/privacy/`, `/terms/` and `/contact/` are `src/mod-y-legal.js`, plain-language pages written without a lawyer. Since
+  Nov 25 2026 the site is operated by **FluidWeb LLC** (named in the terms, privacy policy, contact page, editorial
+  standards, footer and Organization `legalName`); keep the company name consistent everywhere. The pages promise
+  answers to privacy requests within 30 days, feedback kept no longer than two years, and a notice on the site before
+  significant changes: don't add promises the owner can't keep. The privacy page must stay true: if data handling changes (a new service, table
   or analytics setting, the Portfolio page or tips going live), change it, the Settings privacy list
   (`src/mod-y-account.js`) and the help chat's privacy notes (`src/chat-data.js`) in the same commit, and move its
   `UPDATED` date. Contact goes through the About page's feedback form; never put an email address on the site.

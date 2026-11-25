@@ -142,7 +142,7 @@
         ${SML.chapHead('03', 'Before you chip in', 'Plain answers.', '', 'sp-ask')}
         <dl class="sp-faq">
           <div><dt>Is it tax-deductible?</dt><dd>No. FiredBunny is not a charity or a nonprofit, so what you give is not a charitable donation and can’t be deducted from your taxes.</dd></div>
-          <div><dt>Who handles the payment?</dt><dd>Stripe. You pay on Stripe’s own checkout page and FiredBunny never sees or stores your card details. Like any seller using Stripe, the person who runs FiredBunny sees the amount and the name and email you enter there.</dd></div>
+          <div><dt>Who handles the payment?</dt><dd>Stripe. You pay on Stripe’s own checkout page and FiredBunny never sees or stores your card details. Like any seller using Stripe, FluidWeb LLC, which runs FiredBunny, sees the amount and the name and email you enter there.</dd></div>
           <div><dt>Does it change what the lessons say?</dt><dd>No. Support doesn’t buy a say in what any page says, and nobody gets a mention or a lesson in return. The <a href="#editorial">editorial standards</a> apply the same way.</dd></div>
           <div><dt>Is there another way to help?</dt><dd>Yes, and it’s worth as much: point out a mistake, suggest a topic, or share a lesson with someone who needs it. Notes go through the <a href="#about">About page</a> or the help chat.</dd></div>
         </dl>

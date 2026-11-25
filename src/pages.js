@@ -117,7 +117,7 @@
         <div><h2 class="foot-h">Practice</h2><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
         <div><h2 class="foot-h">FiredBunny</h2><nav aria-label="Resources"><a href="#about">About &amp; feedback</a>${SML.support ? SML.support.footerLink() : ''}<a href="#plans">Plans</a><a href="#editorial">Editorial standards</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#contact">Contact</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
-      <div class="foot-base"><span>© 2026 FiredBunny · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
+      <div class="foot-base"><span>© 2026 FluidWeb LLC · FiredBunny is a FluidWeb LLC site · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
     </div>`;
     document.body.appendChild(foot);
     updateCta();

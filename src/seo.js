@@ -366,7 +366,7 @@
     };
   }
 
-  const ORG = { '@type': 'Organization', '@id': ORIGIN + '/#organization', name: BRAND, url: ORIGIN + '/', logo: LOGO, description: ABOUT, publishingPrinciples: ORIGIN + '/editorial-standards/' };
+  const ORG = { '@type': 'Organization', '@id': ORIGIN + '/#organization', name: BRAND, legalName: 'FluidWeb LLC', url: ORIGIN + '/', logo: LOGO, description: ABOUT, publishingPrinciples: ORIGIN + '/editorial-standards/' };
   const crumbs = (items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it[0], item: it[1] })) });
   // structured data that matches what the page shows; opts.lastmod is the date its content last changed and
   // opts.published the date the page first shipped (both YYYY-MM-DD, kept by the build in tools/seo-lastmod.json)

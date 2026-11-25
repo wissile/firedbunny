@@ -7,6 +7,22 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 25 November 2026 (evening): FiredBunny is operated by FluidWeb LLC; terms and privacy rewritten
+
+- The owner put the site under **FluidWeb LLC**. The terms, privacy policy, contact page, editorial standards, the
+  Support page's Stripe answer, the help chat's "who runs this" reply, the footer and the Organization structured data
+  (`legalName`) now name it. The pen name stays.
+- **Terms of use** rewritten (still plain words): who the agreement is with; age (13+, a parent's permission for an
+  account under 18); education for everyone alike, no adviser or fiduciary relationship, may own securities mentioned
+  but never writes to promote them; risk; third-party data; tips buy nothing and are non-refundable; other services'
+  terms; embed, quote and feedback rules; no warranty; liability limited to the greater of US$50 or what was paid in
+  12 months; indemnity for misuse; disputes (talk first for 60 days, Utah law, Salt Lake County courts, small claims,
+  individual claims only, one-year limit, EU and UK consumer rights kept); ending; general terms.
+- **Privacy policy**: adds who is responsible (FluidWeb LLC), the reason and legal basis for each use, storage in the
+  United States, security, retention (feedback at most two years), rights with a 30-day answer and the right to
+  complain to an EU or UK authority, and the business-transfer case. What is collected is unchanged.
+- Written from public guidance without a lawyer; the owner's notes (LLC checklist, open risks) are in a private doc.
+
 ## 25 November 2026 (later): worked examples say they are made up, accessibility fixes
 
 Ported from the 13 November QA branch (`qa-final-audit`), which is now retired; its IndexNow key and step were not
