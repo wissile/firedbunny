@@ -200,6 +200,7 @@ Every page has a permanent address (`/lessons/wheel-strategy/`) and a pre-built 
 - Use only one deploy route: this workflow. If Cloudflare's own Git integration (Workers Builds) is also connected,
   every push deploys twice.
 - `public/audio/lessons/` holds about 280 MB of narration; Cloudflare uploads only files that changed.
+- Full local check before merging: `bash tools/regress.sh` (quick build, every feature test, then the full build).
 - "Listen offline" (`SML.offlineBar` in `src/mod-z-offline.js`) saves every lesson's recording in one tap, or deletes
   every download (red; greyed out when nothing is saved; tap twice to confirm). It is on `/lessons/`, every lesson
   page (compact, under the player), the profile page (guests too) and, as "Delete all downloads", the Offline page.
