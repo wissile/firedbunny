@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Run after: python3 tools/build.py --no-prerender
-"""Download-all / delete bar: lessons list, lesson page, profile, offline page. Audio is stubbed (tiny bodies)."""
+"""Download-all / delete bar: lessons list, lesson page, profile, offline page. Uses the real audio files in dist, with no service worker."""
 import http.server, threading, functools, sys, re
 from playwright.sync_api import sync_playwright
 DIST = __import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..', 'dist')

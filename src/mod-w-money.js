@@ -598,6 +598,8 @@
     summary: 'Split your pay into needs, wants and saving, and see why saving sets your timeline.',
     idea: 'Early retirement starts with a monthly budget. The share of your pay you save decides how many years you have to work.',
     widget: 'budgetBuilder',
+    sources: [{ t: "Kiplinger: The 50/30/20 budget rule (updated July 2026)", u: "https://www.kiplinger.com/personal-finance/how-to-save-money/50-30-20-budget-rule-save-money" }],
+    checked: "November 2026",
     try: 'Pick a household or drag the two handles, and watch the years to financial independence change.',
     body: [
       '<h3>Start from take-home pay</h3><p>Budget from the money that actually lands in your checking account, after taxes, health insurance and any 401(k) deduction. If part of your paycheck already goes into a 401(k), add it back to both your pay and your saving so your savings rate is honest.</p>',
@@ -642,6 +644,8 @@
     summary: 'Bank categories, an app or a spreadsheet, plus a weekly 10-minute review.',
     idea: 'Tracking is not about guilt. A short weekly look catches overspending while there is still time to fix the month.',
     widget: 'spendTracker',
+    sources: [{ t: "CFPB: Track your spending with this easy tool", u: "https://www.consumerfinance.gov/about-us/blog/track-your-spending-with-this-easy-tool/" }],
+    checked: "November 2026",
     try: 'Play the month without the review, then turn on the weekly review and play it again.',
     body: [
       '<h3>Three ways to track</h3><ul><li><b>Your bank and card categories.</b> Free and automatic. Fix the ones that are wrong: a big-box store can be groceries one week and a TV the next.</li><li><b>A budgeting app</b> that links all your accounts. Many charge a yearly fee; check what they do with your data before you connect anything.</li><li><b>A spreadsheet.</b> The most control and the most typing. Our <a href="#sheets">spreadsheet templates</a> are a starting point.</li></ul><p>Using one or two cards for everyday spending makes tracking much easier, as long as you pay them in full every month (see <a href="#l-card-debt">Credit card debt</a>).</p>',
@@ -684,6 +688,8 @@
     summary: 'Daily coffee, pods and takeout: the yearly cost, and what it could grow into.',
     idea: 'Small daily spending is easy to ignore. Priced by the year and invested for decades, it gets surprisingly big.',
     widget: 'habitCost',
+    sources: [{ t: "SEC Investor.gov: Compound interest calculator", u: "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" }],
+    checked: "November 2026",
     try: 'Count your habits and set your own prices, then switch to the coffee view to compare café, pods and an espresso machine.',
     body: [
       '<h3>Price it by the year</h3><p>A $6.25 latte five workdays a week is $6.25 × 5 × 52 = <b>$1,625 a year</b>. Two coffee pods a day at $1.10 each is about $800 a year. A $15 takeout lunch three times a week is $2,340. None of these feels big on the day you buy it.</p>',

@@ -600,6 +600,8 @@ Rules: buy when the 13 EMA crosses above the 48 EMA, sell when it crosses back b
     summary: 'Test rules on past data, and the traps that make results look too good.',
     idea: 'A backtest can show a strategy does not work. It can never prove one does, so test honestly and keep some data aside.',
     widget: 'backtester',
+    sources: [{ t: "Backtesting.py documentation", u: "https://kernc.github.io/backtesting.py/" }, { t: "TradingView: Pine Script v6 documentation", u: "https://www.tradingview.com/pine-script-docs/welcome/" }],
+    checked: "November 2026",
     try: 'Pick a strategy and move its settings. Then press Optimize on in-sample and compare the winner before and after the split line.',
     body: [
       '<p>A <b>backtest</b> runs your exact rules over past prices and records every trade they would have made. It answers one question fast: would these rules have made money after costs? AI is very good at writing backtest code. It is just as good at writing one that quietly cheats, so you need to know what to check.</p>',
@@ -679,6 +681,8 @@ if longSignal and strategy.position_size == 0
     summary: 'Use AI to write, fix and verify a TradingView indicator in Pine Script.',
     idea: 'AI writes the first draft of your indicator in minutes. Exact rules, pasted errors and a careful visual check make it trustworthy.',
     widget: 'pineBuilder',
+    sources: [{ t: "TradingView: Pine Script v6 documentation", u: "https://www.tradingview.com/pine-script-docs/welcome/" }, { t: "TradingView: Pine Script first steps (Pine Editor, Add to chart)", u: "https://www.tradingview.com/pine-script-docs/primer/first-steps/" }],
+    checked: "November 2026",
     try: 'Switch features on and off and watch the preview change. Then copy the AI prompt or the Pine v6 skeleton.',
     body: [
       '<p>TradingView indicators and strategies are written in <b>Pine Script</b>. You do not need to learn the language to build your own. An AI assistant can write most of it, as long as you give it exact rules and check what comes back.</p>',
@@ -756,6 +760,8 @@ for item in new_filings():
     summary: 'Turn filings and headlines into structured alerts, safely and legally.',
     idea: 'Let AI read filings and headlines for context. It will never beat trading firms to the news, so do not race them.',
     widget: 'newsPipeline',
+    sources: [{ t: "SEC: Accessing EDGAR data (10 requests a second, declare a User-Agent)", u: "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data" }],
+    checked: "November 2026",
     try: 'Press Run the pipeline, then click any item to see its JSON and how fast the price moved. Try switching the injection guard off.',
     body: [
       '<p>News moves prices. A <b>large language model</b> can read more filings, releases and headlines than you ever could, sum each one up in a sentence and tag what matters to your watchlist. What it cannot do is read them faster than trading firms whose systems react in milliseconds.</p>',

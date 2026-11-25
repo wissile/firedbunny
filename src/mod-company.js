@@ -1175,6 +1175,8 @@
       summary: 'P/E, growth, margins, debt and free cash flow in plain words.',
       idea: 'Five quick numbers show whether a company is growing, profitable, not drowning in debt, and fairly priced.',
       widget: 'ratioCalc', opts: {},
+      sources: [{ t: "Fidelity: The P/E ratio, how it is calculated and its limits", u: "https://www.fidelity.com/learning-center/trading-investing/pe-ratio" }, { t: "SEC: Beginners’ guide to financial statements", u: "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements" }],
+      checked: "November 2026",
       try: 'Pick a sample company, then move the sliders and watch each gauge and verdict change.',
       body: [
         "<p><b>P/E</b> is the share price divided by yearly earnings per share. It tells you how many years of today's profit you pay for: a P/E of 20 means $20 for each $1 of yearly profit.</p>",

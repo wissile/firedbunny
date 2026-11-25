@@ -1249,6 +1249,8 @@
       summary: 'Cash, bonds, funds, stocks and options ranked from calm to wild.',
       idea: 'Each step up the ladder offers more possible reward and asks you to accept bigger, faster losses.',
       widget: 'riskLadder', opts: {},
+      sources: [{ t: "NYU Stern (Damodaran): S&P 500 returns by year, 1928-2025 (2008: −36.6%; 1931: −43.8%)", u: "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html" }],
+      checked: "November 2026",
       try: 'Pick an investment, switch between a good and a bad year, and see what your money could become.',
       body: [
         '<p>Cash in a savings account barely moves. Bonds move a little. A broad index fund can fall by a third in a bad year. A single company can go to zero, and an option can lose everything in days.</p>',

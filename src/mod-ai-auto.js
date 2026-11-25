@@ -609,6 +609,8 @@ once a year:
     summary: 'Connect an AI agent to Robinhood through MCP, with a small account, rules and a review step.',
     idea: 'Give an AI agent a small separate account, exact written rules and a review step before it ever trades real money.',
     widget: 'agentFlow', opts: {},
+    sources: [{ t: "Model Context Protocol: What is MCP?", u: "https://modelcontextprotocol.io/docs/getting-started/intro" }, { t: "Robinhood newsroom: Robinhood is now open to agents (May 27, 2026)", u: "https://robinhood.com/us/en/newsroom/robinhood-is-now-open-to-agents/" }, { t: "Robinhood Support: Agentic Trading overview", u: "https://robinhood.com/us/en/support/articles/agentic-trading-overview/" }, { t: "Genfinity: Robinhood extends Agentic Trading to crypto (July 20, 2026)", u: "https://genfinity.io/2026/07/21/robinhood-agentic-trading-crypto-ai-agents/" }, { t: "Finder: Robinhood agentic accounts guide (updated Oct. 27, 2026)", u: "https://www.finder.com/stock-trading/robinhood-agentic-accounts" }, { t: "Alpaca: official MCP server (paper trading by default)", u: "https://github.com/alpacahq/alpaca-mcp-server" }],
+    checked: "November 2026",
     try: 'Pick a request, switch the guardrails on and off, then step through what happens to the order.',
     body: [
       '<h3>What MCP is</h3>',
@@ -668,6 +670,8 @@ once a year:
     summary: 'What automation does well, how it breaks, and the guardrails that keep a bug small.',
     idea: 'A bot follows its rules perfectly, including broken ones, so guardrails matter more than the strategy.',
     widget: 'botRiskSim', opts: {},
+    sources: [{ t: "IRS Publication 550: Investment income and expenses (wash sales)", u: "https://www.irs.gov/publications/p550" }, { t: "SEC Investor.gov: Types of orders", u: "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders" }, { t: "SEC, NASAA and FINRA: Artificial intelligence and investment fraud (investor alert, Jan. 2024)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/artificial-intelligence-fraud" }],
+    checked: "November 2026",
     try: 'Switch failures on, then add guardrails one at a time and compare your bot with the ideal one.',
     body: [
       '<h3>What bots do well</h3>',
@@ -711,6 +715,8 @@ once a year:
     summary: 'Six rule-based setups from the course, written exactly enough for a bot to follow.',
     idea: 'A bot can only follow rules a computer can check, so “looks strong” has to become a number.',
     widget: 'setupRules', opts: {},
+    sources: [{ t: "TradingView: About webhooks", u: "https://www.tradingview.com/support/solutions/43000529348-about-webhooks/" }],
+    checked: "November 2026",
     try: 'Pick a setup to see its exact rules, pseudo-code and how well it suits automation.',
     body: [
       '<h3>Why rules must be exact</h3>',

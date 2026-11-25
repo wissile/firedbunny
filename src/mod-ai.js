@@ -513,6 +513,8 @@
     summary: 'Where AI helps a trader, where it fails, and what agents and MCP add.',
     idea: 'AI is a fast, tireless assistant for reading, writing and coding. It cannot see the future, and it can be confidently wrong.',
     widget: 'aiTaskSorter', try: 'Sort each task into a bucket. You get the reason after every pick.',
+    sources: [{ t: "Model Context Protocol: What is MCP?", u: "https://modelcontextprotocol.io/docs/getting-started/intro" }, { t: "Robinhood newsroom: Robinhood is now open to agents (May 27, 2026)", u: "https://robinhood.com/us/en/newsroom/robinhood-is-now-open-to-agents/" }, { t: "SEC, NASAA and FINRA: Artificial intelligence and investment fraud (investor alert, Jan. 2024)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/artificial-intelligence-fraud" }],
+    checked: "November 2026",
     body: [
       '<p>Most of the AI traders use today is a <b>large language model</b>, or LLM, such as Claude or ChatGPT. It learned from huge amounts of text, so it is very good at reading, summarizing, explaining and writing, including code. It is not a crystal ball. It has never seen tomorrow’s prices, and nothing in its training gives it an edge over the market.</p>',
       '<h3>Two different things called AI</h3><p>Funds have used <b>quantitative models</b> for decades: statistical and machine-learning systems trained on price data, run by teams with clean data, fast execution and strict testing. A chat assistant is a different tool. Ask it “will this stock go up?” and you get a guess written in the voice of an analyst.</p>',
@@ -549,6 +551,8 @@
     summary: 'Plan, summarize filings, compare companies and build checklists with prompts you can copy.',
     idea: 'A strong prompt gives AI a role, your data, one clear task, a format and honesty rules. Vague prompts get vague answers.',
     widget: 'promptBuilder', try: 'Pick a task, type a ticker and your rules, then switch the good habits on and off. Watch the prompt and its score change.',
+    sources: [{ t: "SEC, NASAA and FINRA: Artificial intelligence and investment fraud (investor alert, Jan. 2024)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/artificial-intelligence-fraud" }],
+    checked: "November 2026",
     body: [
       '<p>Think of AI as a junior analyst who reads very fast and never gets tired, but knows nothing about your day until you tell it. What you get back depends almost entirely on what you put in.</p>',
       '<h3>The six parts of a strong prompt</h3><ul><li><b>Role:</b> who it should act as, such as “a careful analyst writing for a beginner”.</li><li><b>Context:</b> how you trade, such as “2-minute chart, 1% risk per trade”.</li><li><b>Data:</b> the levels, filing text or headlines you paste in. This matters most.</li><li><b>Task:</b> one clear job.</li><li><b>Format:</b> a table, five bullets or JSON.</li><li><b>Rules:</b> “if a number is not in the text, write not stated”, “quote the sentence you used”, “do not predict prices”.</li></ul>',
@@ -585,6 +589,8 @@
     summary: 'Hallucinations, stale data, predictions, overfitting, unlimited agents, leaked keys and poisoned text.',
     idea: 'Most AI trading losses come from trusting it too much: believing its numbers, letting it act without limits, or feeding it text written to fool it.',
     widget: 'hallucinationSpotter', try: 'Read the AI summary, flag every claim you would check, then compare it with the source.',
+    sources: [{ t: "FINRA Regulatory Notice 26-10: intraday margin standards replace the pattern day trader rule (effective June 4, 2026)", u: "https://www.finra.org/rules-guidance/notices/26-10" }, { t: "SEC, NASAA and FINRA: Artificial intelligence and investment fraud (investor alert, Jan. 2024)", u: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/artificial-intelligence-fraud" }],
+    checked: "November 2026",
     body: [
       '<p>AI makes careful traders faster. It also makes careless traders faster. These are the mistakes that cost people money, roughly in order of how often they happen.</p>',
       '<h3>1. Believing invented numbers</h3><p>A model can produce an EPS figure, a dividend or a guidance range that appears nowhere in the source, and it does not know it is wrong. Ask for a quote for every number and check the ones you will act on.</p>',
@@ -622,6 +628,8 @@
     summary: 'Protect keys and accounts, limit what agents can touch, and stay on the right side of the law.',
     idea: 'Treat every AI connection like lending someone your car: the fewest permissions, the smallest budget and a way to take the keys back.',
     widget: 'securityChecklist', try: 'Tick what your setup already does. Watch the risk gauge and your list of fixes.',
+    sources: [{ t: "Robinhood Support: Agentic Trading overview", u: "https://robinhood.com/us/en/support/articles/agentic-trading-overview/" }, { t: "SEC: Accessing EDGAR data (10 requests a second, declare a User-Agent)", u: "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data" }],
+    checked: "November 2026",
     body: [
       '<p>Once AI tools can read your accounts or place orders, security becomes part of risk management. A leaked key or an over-powered agent can lose money faster than a bad trade.</p>',
       '<h3>API keys</h3><ul><li>Store keys in a password manager, an environment variable or the tool’s secret settings. Never paste them into a chat, a screenshot or code you share.</li><li>Use the least power that works: read-only keys for research tools, trading keys only where needed.</li><li>Rotate keys every few months, and at once if one may have leaked.</li><li>Prefer official sign-in flows, like Robinhood’s MCP login, over community tools that ask for your username and password.</li></ul>',

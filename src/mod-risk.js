@@ -1087,6 +1087,8 @@
       summary: 'Four ways to use the market, from minutes to years.',
       idea: 'Each style trades a different amount of your time for a different kind of return.',
       widget: 'styleCompare', opts: {},
+      sources: [{ t: "IRS Topic 409: Capital gains and losses", u: "https://www.irs.gov/taxtopics/tc409" }],
+      checked: "November 2026",
       try: 'Switch between the four styles and compare holding time, screen time and taxes.',
       body: [
         '<p><b>Day trading</b> opens and closes trades the same day. <b>Swing trading</b> holds for days to weeks to catch a bigger move. <b>The wheel</b> sells options on stocks you would happily own to collect income. <b>Value investing</b> buys good businesses below what they are worth and holds for years.</p>',
@@ -1104,6 +1106,8 @@
       summary: 'A step-by-step routine from premarket prep to the closing journal.',
       idea: 'Good day trades are planned before the open. The session is for following the plan.',
       widget: 'gamePlan', opts: {},
+      sources: [{ t: "Nasdaq: system hours (pre-market from 4:00 a.m. ET)", u: "https://nasdaqtrader.com/content/TechnicalSupport/nasdaq_sys_hours.pdf" }, { t: "FINRA: Extended-hours trading (less liquid, often more volatile)", u: "https://www.finra.org/investors/insights/extended-hours-trading" }],
+      checked: "November 2026",
       try: 'Tap each step to see when it happens, and tick it off as you get ready.',
       body: [
         "<p>The <b>premarket</b> runs from 4:00 to 9:30 AM Eastern. Use it to find what is moving and why, and to mark the key levels: yesterday's high and low (PDH, PDL) and the premarket high and low (PMH, PML).</p>",
@@ -1121,6 +1125,8 @@
       summary: 'Estimate what a business is worth and buy it for less.',
       idea: 'Price is what you pay and value is what the business is worth. Buy with a cushion between them.',
       widget: 'marginSafety', opts: {},
+      sources: [{ t: "Fidelity: The P/E ratio, how it is calculated and its limits", u: "https://www.fidelity.com/learning-center/trading-investing/pe-ratio" }, { t: "SEC: Beginners’ guide to financial statements", u: "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements" }],
+      checked: "November 2026",
       try: 'Change the earnings, the fair P/E and the price to move in and out of the buy zone.',
       body: [
         '<p>A simple first estimate of value is <b>earnings per share × a fair P/E</b>. A company earning $4 a share at a fair multiple of 15 is worth about $60 a share.</p>',
