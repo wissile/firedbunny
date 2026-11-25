@@ -94,12 +94,13 @@ app_name = 'app.' + hashlib.sha1(app_js.encode('utf-8')).hexdigest()[:10] + '.js
 # fonts the first screen uses: fetched straight away so text never repaints in a fallback font
 # (the home page uses all ten latin faces; the latin-ext and greek files load only when a page needs them). Measured in
 # Nov 2026: preloading only the seven faces visible above the fold made start-up longer (fonts arriving during the first
-# render cost a second layout: +~300 ms blocking at 4x CPU), and a low-priority script preload changed nothing, so both
-# stay as they are.
+# render cost a second layout: +~300 ms blocking at 4x CPU). The app script is not preloaded and starts once the fonts
+# are in (see the starter below): measured 25 Nov 2026 (4x CPU, 1.6 Mbps, 150 ms, the live 1.6 MB brotli script),
+# first and largest paint came 70-150 ms sooner on the home, a lesson and a calculator page, with 40-230 ms less
+# blocking, and the app was ready at most ~350 ms later out of ~10 s.
 PRELOAD_FONTS = sorted(os.path.basename(f)[:-6] for f in glob.glob(os.path.join(pub, 'fonts', '*-latin-[0-9]*.woff2')))
 preloads = ''.join(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>\n' for f in PRELOAD_FONTS
                    if os.path.exists(os.path.join(pub, 'fonts', f + '.woff2')))
-preloads += f'<link rel="preload" href="/{app_name}" as="script">\n'
 web_head = HEAD.replace('<meta name="claude:viewport-fit-sides" content="cover">\n', '')
 # the title, description and link-preview tags go in the <!--seo--> block (tools/seohead.py), one per page
 web_head = re.sub(r'<title>.*?</title>\n<meta name="description"[^>]*>\n', '', web_head, count=1)
@@ -117,9 +118,11 @@ starter = f"""<script>(function () {{
     s.onerror = function () {{ var m = document.querySelector('#boot .boot-msg'); if (m) m.innerHTML = '<span class="boot-err">FiredBunny could not load. Check your connection, then reload.</span>'; }};
     document.body.appendChild(s);
   }}
-  // two frames: the loading screen paints and its animation starts, so it keeps running while the script works
-  requestAnimationFrame(function () {{ requestAnimationFrame(function () {{ setTimeout(start, 0); }}); }});
-  setTimeout(start, 150); // a tab opened in the background gets no frames
+  // once the fonts are in (the page paints in its own fonts without competing with the script's download), then two
+  // frames: the loading screen paints and its animation starts, so it keeps running while the script works
+  var go = function () {{ requestAnimationFrame(function () {{ requestAnimationFrame(function () {{ setTimeout(start, 0); }}); }}); }};
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(go, go); else go();
+  setTimeout(start, 3000); // a tab opened in the background gets no frames
 }})();</script>
 """
 web_body = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + starter

@@ -21,6 +21,8 @@ taken (the live key and the deploy's IndexNow step stay as they are).
   buttons (not an ARIA grid) and days outside the month are easier to read; "Skip to content" points at the content;
   footer headings are `h2` so headings stay in order.
 - The deploy's sitemap check skips the edge cache (it compared against a cached copy after the 25 November release).
+- Start-up: the app script is no longer preloaded and starts once the fonts are in. Measured on a slow phone profile:
+  the pre-built page paints 70-150 ms sooner with less blocking; the app is ready at most ~350 ms later (of ~10 s).
 
 ## 25 November 2026: download every lesson, 18 more sourced lessons, 9 deeper FIRE and tax lessons
 
