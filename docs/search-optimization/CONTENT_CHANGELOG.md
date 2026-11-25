@@ -7,6 +7,26 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 25 November 2026: download every lesson, 18 more sourced lessons, 9 deeper FIRE and tax lessons
+
+- **Listen offline** (`SML.offlineBar`): one button saves every lesson's recording (163, about 299 MB) and a red
+  "Delete downloads" button, greyed out when nothing is saved, clears them. On `/lessons/`, every lesson page, the
+  profile page (guests too) and the Offline page. Download progress totals on the Offline page now show the real size
+  (the size lookup did not understand full addresses, so totals read "0.0 MB").
+- **Sources added to 18 lessons** (opened 25 November 2026): Robinhood's agentic trading announcement and support page,
+  Genfinity and Finder on crypto support, the MCP introduction, Alpaca's MCP server, the SEC on EDGAR access, TradingView
+  (webhooks, Pine Script v6), backtesting.py, FINRA Regulatory Notice 26-10 (the $25,000 pattern day trader minimum is
+  gone, effective June 4, 2026), the SEC/NASAA/FINRA AI investor alert, Nasdaq system hours and FINRA on extended hours,
+  Fidelity on P/E, the SEC guide to financial statements, NYU Stern S&P 500 returns, IRS Topic 409 and Publication 550,
+  Investor.gov's types of orders and compound interest calculator, Kiplinger (50/30/20), the CFPB spending tracker.
+- **Still without sources (9):** 2-min vs 15-min, win rate and reward, losses are lopsided, which stocks to trade,
+  blending styles, trading psychology, fear and greed, keep a journal, AI as your trading coach. They are arithmetic or
+  labelled rules of thumb; no outside page was found that supports their specific claims better than the math does.
+- **Deeper lessons (brief, deep, FAQ; not narrated):** short vs long-term gains (2026 and 2027 rate bands from Kiplinger,
+  the 3.8% tax from the IRS), tax-loss harvesting, the wash sale rule (Investor.gov, Kiplinger: spouse and IRA purchases,
+  crypto not covered for now), what FIRE means, savings rate, Coast FIRE, sequence risk (Kitces: the red zone and the bond
+  tent), real spending (BLS 2025: $81,905), the 4% rule (the 1998 Trinity study in the AAII Journal).
+
 ## 18 November 2026 (later): calculator guides, four options lessons and embeddable calculators
 
 - **"How this calculator works"** now covers 46 of 55 tools (from 10). Each guide was written from the widget's own

@@ -484,6 +484,16 @@ svg .fsw-grab{cursor:grab}
     summary: 'Where the 4% rule comes from, and why early retirees often use less.',
     idea: 'Spending 4% in year one, raised with inflation, survived 30 years in US history. Longer retirements need a little less.',
     widget: 'swrSim',
+    brief: "The 4% rule says you can withdraw 4% of your savings in the first year of retirement, then the same amount plus inflation every year, and historically have money left after 30 years. It came from Bill Bengen’s 1994 study and the 1998 Trinity study. Longer retirements and higher costs call for a lower start.",
+    deep: [
+      { h: "What the Trinity study tested", short: "Trinity study", html: "<p>In February 1998, Carl Hubbard and two Trinity University colleagues published their tests in the AAII Journal. They tried withdrawal rates from 3% to 12% over 15, 20, 25 and 30 years, for portfolios from 100% stocks to 100% bonds, using returns from 1926 to 1995. They found that 3% and 4% were extremely unlikely to exhaust a stock-heavy portfolio over those periods, while inflation-adjusted withdrawals above 7% did poorly. The tests ignored taxes and fees.</p>" },
+      { h: "Starting rates by retirement length", short: "By length", html: "<p>These are the ranges this lesson’s sources point to. Treat them as starting points, not promises:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Retirement length</th><th scope=\"col\">Common starting rate</th><th scope=\"col\">Multiple of spending</th></tr></thead><tbody><tr><th scope=\"row\">30 years</th><td>3.9% to 4.7%</td><td>21 to 26×</td></tr><tr><th scope=\"row\">40 years</th><td>about 3.5%</td><td>about 29×</td></tr><tr><th scope=\"row\">50 to 60 years</th><td>3.25% to 3.5%</td><td>about 29 to 31×</td></tr></tbody></table></div><p>The 30-year range runs from Morningstar’s 2026 estimate (3.9%, 90% success) to Bengen’s 2025 figure for a more diversified portfolio (4.7%).</p>" },
+    ],
+    faq: [
+      { q: "Do I withdraw 4% every year?", a: "No. You withdraw 4% of the starting balance in year one, then raise that dollar amount with inflation, whatever the market does." },
+      { q: "Are taxes and fees included?", a: "No. They come out of the same withdrawal, so count them in your spending." },
+      { q: "Can I start higher?", a: "If you can cut spending after bad years, flexible methods such as guardrails can support higher starting rates." },
+    ],
     try: 'Pick how many years your money must last, then drag the dot on the lower chart and watch the success rate change.',
     body: [
       '<h3>Where 4% comes from</h3><p>In 1994 a financial planner named Bill Bengen tested every 30-year retirement in US history since 1926. He asked: what is the most you could withdraw in year one, then raise with inflation every year, without running out? For a mix of 60% US stocks and 40% Treasury bonds, the worst period still allowed about <b>4.15%</b>. That got rounded to the <b>4% rule</b>. In 1998 three professors at Trinity University ran a similar test (the <b>Trinity study</b>) and found 3% to 4% held up well for stock-heavy portfolios.</p>',
@@ -529,7 +539,7 @@ svg .fsw-grab{cursor:grab}
       answer: 1,
       why: 'The rule sets a dollar amount in year one and raises it with inflation each year, whatever the market does.',
     },
-    sources: [SRC.bengen, SRC.ern1, SRC.ern60, SRC.mstar],
+    sources: [SRC.bengen, SRC.ern1, SRC.ern60, SRC.mstar, { t: "AAII Journal: Retirement savings, choosing a withdrawal rate that is sustainable (Feb. 1998)", u: "https://www.aaii.com/journal/article/retirement-savings-choosing-a-withdrawal-rate-that-is-sustainable" }],
   });
 
   SML.lessons.push({
@@ -537,6 +547,17 @@ svg .fsw-grab{cursor:grab}
     summary: 'Why bad years at the start of retirement hurt far more than the same years later.',
     idea: 'Once you are withdrawing, the same returns in a different order can mean money for life or running out.',
     widget: 'sequenceDemo',
+    brief: "Sequence of returns risk is the danger of bad returns early in retirement, while you are withdrawing. Selling shares at low prices to pay the bills leaves fewer shares to recover, so the same average return can end very differently. The decade around your retirement date matters most.",
+    deep: [
+      { h: "The retirement red zone", short: "The red zone", html: "<p>Kitces calls the final decade before retirement and the first half of retirement the “retirement red zone”. The reason is the <b>portfolio size effect</b>: your portfolio is at its largest then, so a bear market costs the most dollars exactly when you start depending on it.</p>" },
+      { h: "The bond tent", short: "Bond tent", html: "<p>One defense is a <b>bond tent</b>: build up extra bonds in the last years before retirement, spend them first in the early years, and let the stock share rise again afterwards. On a chart the bond share looks like an upside-down V. The bonds pay the bills through a crash, so you are not forced to sell stocks at the bottom.</p>" },
+      { h: "Watch your current withdrawal rate", short: "Watch the rate", html: "<p>Each year, divide this year’s withdrawal by the portfolio’s value. If it climbs well above where you started, that is the signal to trim spending, as <a href=\"#l-guardrails\">guardrails</a> do.</p>" },
+    ],
+    faq: [
+      { q: "Does the order of returns matter while I am still saving?", a: "Much less. With no withdrawals the order does not change the end result; adding money during a crash even helps." },
+      { q: "How big should a cash and bond buffer be?", a: "Schwab suggests about a year of spending in cash plus two to four years in short-term high-quality bonds. Treat it as a starting point, not a rule." },
+      { q: "Is sequence risk worse for early retirees?", a: "Yes, because the money has to last longer and there is no paycheck to refill it after an early crash." },
+    ],
     try: 'Press Flip the order, or drag a red bar to a later year, and watch two retirements with the same average return split apart.',
     body: [
       '<h3>Order only matters when money moves</h3><p>Without withdrawals, the order of returns does not matter: a 20% loss then a 25% gain ends in the same place as the gain then the loss. Switch the widget to <i>No withdrawals</i> and both lines finish together.</p><p>Withdrawals change that. When you sell shares to pay for groceries during a crash, you sell more shares at low prices. Those shares are not there when the market recovers. A temporary drop becomes a permanent hole. That is <b>sequence of returns risk</b>.</p>',
@@ -577,7 +598,7 @@ svg .fsw-grab{cursor:grab}
       answer: 1,
       why: 'The averages are identical. Withdrawing during early losses sells shares cheaply, so less money is left to benefit from the recovery.',
     },
-    sources: [SRC.schwab, SRC.ern1],
+    sources: [SRC.schwab, SRC.ern1, { t: "Kitces: Managing the portfolio size effect with a bond tent in the retirement red zone", u: "https://www.kitces.com/blog/managing-portfolio-size-effect-with-bond-tent-in-retirement-red-zone/" }],
   });
 
   SML.lessons.push({

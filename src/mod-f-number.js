@@ -747,6 +747,16 @@
     summary: 'Financial independence, retire early: the idea, the flavors and the math behind them.',
     idea: 'Save and invest enough that your investments pay your bills, so work becomes a choice instead of a need.',
     widget: 'fireFlavors',
+    brief: "FIRE means financial independence, retire early: having investments that can pay your spending for life, so work becomes optional. The usual target is about 25 times yearly spending, from the 4% rule; early retirers often plan on 3.25% to 3.5% instead, or about 29 to 31 times.",
+    deep: [
+      { h: "FIRE numbers at a glance", short: "FIRE numbers", html: "<p>The target scales with spending, and with how cautious your withdrawal rate is:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Yearly spending</th><th scope=\"col\">At 4% (25×)</th><th scope=\"col\">At 3.5% (about 28.6×)</th><th scope=\"col\">At 3.25% (about 30.8×)</th></tr></thead><tbody><tr><th scope=\"row\">$36,000</th><td>$900,000</td><td>$1.03M</td><td>$1.11M</td></tr><tr><th scope=\"row\">$50,000</th><td>$1.25M</td><td>$1.43M</td><td>$1.54M</td></tr><tr><th scope=\"row\">$70,000</th><td>$1.75M</td><td>$2.0M</td><td>$2.15M</td></tr><tr><th scope=\"row\">$100,000</th><td>$2.5M</td><td>$2.86M</td><td>$3.08M</td></tr></tbody></table></div><p>Why the lower rates: the 4% rule was built on 30-year retirements. Someone stopping at 40 may need 50 years or more. See <a href=\"#l-swr\">the 4% rule and its limits</a>.</p>" },
+      { h: "What the number leaves out", short: "What it leaves out", html: "<p>The multiple covers spending. A real plan also needs:</p><ul><li><b>Health insurance before 65</b>, often the largest new cost (<a href=\"#l-aca\">health insurance before 65</a>).</li><li><b>Taxes on withdrawals</b>, often low but rarely zero (<a href=\"#l-fire-tax\">how withdrawals are taxed</a>).</li><li><b>Access before 59½</b> to money in retirement accounts (<a href=\"#l-early-access\">money out before 59½</a>).</li><li><b>A bad first decade</b> of returns (<a href=\"#l-sequence\">sequence of returns risk</a>).</li></ul>" },
+    ],
+    faq: [
+      { q: "Do I have to stop working?", a: "No. Many people use financial independence to work less, change careers or take breaks. The “retire early” part is optional." },
+      { q: "Does Social Security count?", a: "It can lower the number you need later, but early retirees usually plan to live on savings until they claim. Fewer working years can also lower the benefit." },
+      { q: "Is 25 times enough?", a: "For a 30-year retirement it has held up historically. For longer ones, or if you cannot cut spending in bad years, many plan on 28 to 31 times." },
+    ],
     try: 'Drag your yearly spending along the scale, then pick a flavor to see how the targets change.',
     body: [
       '<h3>The idea in one line</h3><p><b>FIRE</b> stands for financial independence, retire early. You are financially independent when your investments can pay your yearly spending for the rest of your life. The "retire early" part is optional: many people keep working, just on their own terms.</p>',
@@ -789,6 +799,16 @@
     summary: 'Average a full year, including the costs that only show up now and then.',
     idea: 'Your FIRE number is built on spending, so use a full year of real numbers, including bills that come once a year or once a decade.',
     widget: 'spendAverager',
+    brief: "Your FIRE number starts from your real yearly spending, including the costs that come once a year or once a decade. A year of bank and card statements is the most honest way to find it; a typical month usually misses 10% to 25%.",
+    deep: [
+      { h: "What the average US household spends", short: "National averages", html: "<p>The government’s Consumer Expenditure Survey for 2025 (released October 2026) found average spending of <b>$81,905</b> per household, up 4.3% from 2024, on average pre-tax income of $110,847:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Category</th><th scope=\"col\">2025 average</th><th scope=\"col\">Share of spending</th></tr></thead><tbody><tr><th scope=\"row\">Housing</th><td>$27,790</td><td>33.9%</td></tr><tr><th scope=\"row\">Transportation</th><td>$13,492</td><td>16.5%</td></tr><tr><th scope=\"row\">Food</th><td>$10,633</td><td>13.0%</td></tr><tr><th scope=\"row\">Personal insurance and pensions</th><td>$10,175</td><td>12.4%</td></tr><tr><th scope=\"row\">Healthcare</th><td>$6,470</td><td>7.9%</td></tr></tbody></table></div><p>Housing, transport and food are about 63% of the total, which is why changes there move a budget more than small cuts elsewhere.</p>" },
+      { h: "Lumpy costs, annualized", short: "Lumpy costs", html: "<p>Divide each irregular cost by how many years it lasts and save that every month:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Cost</th><th scope=\"col\">How often</th><th scope=\"col\">Per year</th><th scope=\"col\">Per month</th></tr></thead><tbody><tr><th scope=\"row\">Car, $28,000</th><td>every 10 years</td><td>$2,800</td><td>$233</td></tr><tr><th scope=\"row\">Roof, $15,000</th><td>every 25 years</td><td>$600</td><td>$50</td></tr><tr><th scope=\"row\">Appliances and electronics, $5,000</th><td>every 5 years</td><td>$1,000</td><td>$83</td></tr><tr><th scope=\"row\">Gifts and holidays, $1,200</th><td>every year</td><td>$1,200</td><td>$100</td></tr></tbody></table></div>" },
+    ],
+    faq: [
+      { q: "Should I use the national average?", a: "Only for a sense of scale. Your own statements are what matter." },
+      { q: "How much cushion should I add?", a: "Many planners add about 10% for costs nobody can list in advance. That is a rule of thumb." },
+      { q: "What changes when I retire?", a: "Work costs and retirement saving go away; health insurance before 65, travel and taxes on withdrawals often go up." },
+    ],
     try: 'Pick a household, adjust the monthly costs, then switch irregular costs on and off and watch the true average move.',
     body: [
       '<h3>Why a typical month lies</h3><p>Most months look calm. Then the car needs tires, the insurance renews, December arrives and the water heater dies. A budget built from a typical month can easily miss 10% to 25% of what you really spend. For a sense of scale, the average US household spent $78,535 in 2024, according to the government\'s Consumer Expenditure Surveys.</p>',
@@ -821,7 +841,7 @@
       'Every $1,000 a year of spending adds about $25,000 to your FIRE number.',
     ],
     terms: ['Budget', 'Sinking fund', 'Lifestyle creep', 'FIRE number', 'Emergency fund'],
-    sources: [{ t: 'US Bureau of Labor Statistics: Consumer Expenditure Surveys', u: 'https://www.bls.gov/cex/' }],
+    sources: [{ t: 'US Bureau of Labor Statistics: Consumer Expenditure Surveys', u: 'https://www.bls.gov/cex/' }, { t: "BLS: Consumer expenditures in 2025 (released Oct. 29, 2026)", u: "https://www.bls.gov/news.release/archives/cesan_10292026.htm" }],
     quiz: { q: 'You replace a $30,000 car every 10 years. How much should your yearly spending include for it?', options: ['Nothing, it is not a monthly bill', '$3,000', '$30,000, but only in the year you buy'], answer: 1, why: '$30,000 ÷ 10 years = $3,000 a year, set aside monthly in a sinking fund.' },
     
   });
@@ -875,6 +895,17 @@
     summary: 'Why the share of income you save decides how many years you work.',
     idea: 'A higher savings rate works twice: more money invested each year, and a smaller target because you live on less.',
     widget: 'savingsRate',
+    brief: "Your savings rate is the share of take-home pay you save. Starting from zero, it decides most of how long it takes to reach financial independence: about 37 years at 20%, 17 at 50% and 7 at 75%, with a 5% return after inflation and a 4% withdrawal rate.",
+    deep: [
+      { h: "The full table", short: "Full table", html: "<p>Years to financial independence from zero, with a 5% return after inflation and spending what you do not save:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Savings rate</th><th scope=\"col\">Years of work</th></tr></thead><tbody><tr><th scope=\"row\">10%</th><td>about 51</td></tr><tr><th scope=\"row\">20%</th><td>about 37</td></tr><tr><th scope=\"row\">30%</th><td>about 28</td></tr><tr><th scope=\"row\">40%</th><td>about 22</td></tr><tr><th scope=\"row\">50%</th><td>about 17</td></tr><tr><th scope=\"row\">60%</th><td>about 12</td></tr><tr><th scope=\"row\">70%</th><td>about 9</td></tr><tr><th scope=\"row\">75%</th><td>about 7</td></tr></tbody></table></div><p>The formula: years = ln(1 + 25 × 0.05 × (1 − s) ÷ s) ÷ ln(1.05), where s is the savings rate. The <a href=\"#tool-budget\">budget calculator</a> uses the same math.</p>" },
+      { h: "Why the first few points matter most", short: "The first points", html: "<p>Going from 10% to 20% cuts about 14 years. Going from 60% to 70% cuts about 4. Each extra point of savings both adds money and lowers the spending you have to replace, so the gains are biggest when you start low.</p>" },
+      { h: "Gross or take-home?", short: "Gross or take-home", html: "<p>Pick one method and keep it. The simple one is money saved ÷ take-home pay. The fuller one adds pre-tax 401(k) contributions and the employer match to both the saving and the pay. The fuller method gives a higher, more honest number if most of your saving happens before your paycheck.</p>" },
+    ],
+    faq: [
+      { q: "Does income matter at all?", a: "Only through what you can save and spend. Two people saving 30% reach independence in about the same time, whatever they earn." },
+      { q: "What if I already have savings?", a: "You start ahead of the table. The planner and the FIRE number calculator take your current savings into account." },
+      { q: "Is a 50% savings rate realistic?", a: "For many households it is not. Moving from 10% to 20% still saves about 14 years of work." },
+    ],
     try: 'Drag the dot along the curve, or move the sliders, to see how many working years each savings rate costs.',
     body: [
       '<h3>The shockingly simple math</h3><p>In 2012 the blogger Mr. Money Mustache showed that, starting from zero, the years until financial independence depend almost entirely on one number: your <b>savings rate</b>, the share of take-home pay you save. Income barely matters, because a high earner who spends it all is no closer than anyone else.</p>',
@@ -917,6 +948,16 @@
     summary: 'Save hard early, then let compounding finish the job while work only covers today.',
     idea: 'Once your investments can grow into your number on their own, you only need to earn what you spend today.',
     widget: 'coastFire',
+    brief: "Coast FIRE means your current investments will grow into your FIRE number by your chosen retirement age without another dollar saved. After that you only need to earn your current spending. The coast number is your FIRE number divided by (1 + real return) to the power of the years left.",
+    deep: [
+      { h: "Coast numbers by age", short: "By age", html: "<p>For a $1.25 million target ($50,000 a year at 4%) and full retirement at 60:</p><div style=\"overflow-x:auto\"><table class=\"tbl\"><thead><tr><th scope=\"col\">Age today</th><th scope=\"col\">Years to 60</th><th scope=\"col\">Coast number at 5% real</th><th scope=\"col\">At 4% real</th></tr></thead><tbody><tr><th scope=\"row\">30</th><td>30</td><td>$289,000</td><td>$385,000</td></tr><tr><th scope=\"row\">35</th><td>25</td><td>$369,000</td><td>$469,000</td></tr><tr><th scope=\"row\">40</th><td>20</td><td>$471,000</td><td>$570,000</td></tr><tr><th scope=\"row\">45</th><td>15</td><td>$601,000</td><td>$694,000</td></tr><tr><th scope=\"row\">50</th><td>10</td><td>$767,000</td><td>$844,000</td></tr></tbody></table></div><p>One point less return raises the coast number by a quarter or more for a 30-year-old. Plan with a cautious return.</p>" },
+      { h: "Coasting with a margin", short: "A margin", html: "<p>A coast plan rests on years of returns you cannot see yet. Common ways to add safety (rules of thumb): plan at a lower return, keep saving a little, and recheck every year. If a bad decade leaves you behind, you can raise saving again while still working.</p>" },
+    ],
+    faq: [
+      { q: "Is Coast FIRE the same as Barista FIRE?", a: "No. Coast means you stop saving but keep earning your spending. Barista means you leave full-time work and part-time income covers part of your spending while you draw on savings." },
+      { q: "What return should I assume?", a: "Many plans use 4% to 5% after inflation for a stock-heavy portfolio. Lower is safer." },
+      { q: "Does Coast FIRE work if I retire at 50?", a: "Yes, but fewer years of growth mean a bigger coast number, as the table shows." },
+    ],
     try: 'Move your age, balance and savings. Drag the amber target dot to change when you fully retire.',
     body: [
       '<h3>Coast FIRE</h3><p>You reach <b>Coast FIRE</b> when the money you already have will grow into your FIRE number by your chosen retirement age, with no more saving. From then on you only need to earn enough to pay your bills. That can mean a lower-stress job, fewer hours or a career change.</p><p><b>Coast number = FIRE number ÷ (1 + real return)<sup>years to retirement</sup>.</b> At a 5% return after inflation, money roughly doubles every 14 years (the <a href="#l-compound">rule of 72</a>), so time does the heavy lifting.</p>',
