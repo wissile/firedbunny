@@ -115,7 +115,12 @@ jobs:
           # search: a pre-built lesson at its own address, the sitemap, robots.txt, and a real 404 for unknown addresses
           lp=$(grep -oE '<loc>https://firedbunny.com/lessons/[^<]+</loc>' dist/sitemap.xml | head -1 | sed -E 's#<loc>https://firedbunny.com##; s#</loc>##')
           lc=$(curl -s -o lesson.html -w '%{http_code}' "$URL$lp" || true)
-          sc=$(curl -s -o sitemap.xml -w '%{http_code}' "$URL/sitemap.xml" || true)
+          # the query skips any cached copy at the edge; retry while the new version spreads
+          for i in 1 2 3 4 5 6; do
+            sc=$(curl -s -o sitemap.xml -w '%{http_code}' "$URL/sitemap.xml?deploy=$short-$i" || true)
+            [ "$sc" = 200 ] && cmp -s sitemap.xml dist/sitemap.xml && break
+            sleep 5
+          done
           nc=$(curl -s -o /dev/null -w '%{http_code}' "$URL/no-such-page-$short/" || true)
           if [ "$lc" = 200 ] && grep -q "rel=\"canonical\" href=\"https://firedbunny.com$lp\"" lesson.html && [ "$sc" = 200 ] && cmp -s sitemap.xml dist/sitemap.xml && [ "$nc" = 404 ] && curl -s "$URL/robots.txt" | grep -q '^Sitemap:'; then
             echo "::notice title=Search::$URL$lp answers with its own page and canonical, sitemap.xml matches this build, robots.txt lists it, and unknown addresses return 404."

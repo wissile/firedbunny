@@ -7,6 +7,21 @@ What changed in FiredBunny's lessons, calculators and editorial pages for answer
 
 ---
 
+## 25 November 2026 (later): worked examples say they are made up, accessibility fixes
+
+Ported from the 13 November QA branch (`qa-final-audit`), which is now retired; its IndexNow key and step were not
+taken (the live key and the deploy's IndexNow step stay as they are).
+
+- Every worked example outside Read a Real Company now opens with "Hypothetical example for illustration, not a
+  forecast or a recommendation." The two examples that use real past fund returns (world fund through 2022, 60/40 after
+  2022) say "Real past fund returns with a made-up investor. Past returns do not predict future returns."
+- Analytics keep campaign tags (`utm_*`, `gclid` and similar) on `page_location`, so visits from ChatGPT links and
+  search ads are credited to their source; nothing else from the address's query is sent.
+- Accessibility: the options profit-and-loss table can be scrolled with the keyboard; the calendar grid is a group of
+  buttons (not an ARIA grid) and days outside the month are easier to read; "Skip to content" points at the content;
+  footer headings are `h2` so headings stay in order.
+- The deploy's sitemap check skips the edge cache (it compared against a cached copy after the 25 November release).
+
 ## 25 November 2026: download every lesson, 18 more sourced lessons, 9 deeper FIRE and tax lessons
 
 - **Listen offline** (`SML.offlineBar`): one button saves every lesson's recording (163, about 299 MB) and a red

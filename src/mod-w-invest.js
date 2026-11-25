@@ -714,6 +714,7 @@
       '<h3>How to choose</h3><ul><li><b>One fund:</b> a total world fund, or a target-date fund near your retirement year. Simple and complete.</li><li><b>Two or three funds:</b> a total US fund plus a total international fund (and a bond fund if you want one), set in the mix you choose.</li><li>Do not stack overlapping funds. The S&amp;P 500 companies already make up most of a total US fund by value, and a target-date fund already holds both.</li></ul>',
     ],
     example: {
+      note: 'Real past fund returns with a made-up investor. Past returns do not predict future returns.',
       title: '$10,000 in a world fund through 2022',
       intro: 'You invest $10,000 in VTWAX on January 1, 2022. These are the fund’s actual calendar-year returns.',
       steps: [
@@ -759,6 +760,7 @@
       '<h3>The mix you can live with</h3><p>The best allocation is the one you will not abandon in a crash. A 90/10 mix that you sell in a panic does worse than a 60/40 mix you hold. Picture a 30% to 50% drop in your stock money and ask what you would do (see <a href="#l-drawdowns">drawdowns</a>).</p>',
     ],
     example: {
+      note: 'Real past fund returns with a made-up investor. Past returns do not predict future returns.',
       title: 'Rebalancing a 60/40 mix after 2022',
       intro: 'You start 2022 with $100,000: $60,000 in a world stock fund and $40,000 in a total bond fund.',
       steps: [
