@@ -508,12 +508,14 @@
     const n = allLessons().length;
     view.innerHTML = `
       ${pageHeader('', 'All lessons', `All lessons. <em>${n}</em> in one list.`, `<p>All ${n} FiredBunny lessons in one list, grouped by track and course. Each lesson is one idea you can play with, then a quick check.</p><p><a class="ulink" href="#courses">Browse by course</a> · <a class="ulink" href="#glossary">Glossary of ${SML.glossary.length} terms</a></p>`)}
+      <div class="wrap" style="padding-top:8px"><div data-offbar data-volatile></div></div>
       ${hubJump('Tracks')}
       ${TRACKS().map((t) => `<section class="wrap hub-trk" id="hub-${t.id}" aria-labelledby="hub-h-${t.id}">
         ${chapHead(nn(t.n), `${esc(t.title)} track`, `${esc(t.blurb)} ${coursesOf(t.id).length} courses, ${allLessons(t.id).length} lessons.`, more('#track-' + t.id, 'Open the track'), 'hub-h-' + t.id)}
         ${coursesOf(t.id).map((c) => trackSection(c, 'h3')).join('')}
       </section>`).join('')}`;
     wireJump(view);
+    if (SML.offlineBar) SML.offlineBar(view.querySelector('[data-offbar]'), 'lessons');
     return 'All lessons';
   };
   SML.pages.courses = function (view) {
@@ -639,6 +641,7 @@
           ${l.brief ? `<p class="l-brief">${l.brief}</p>` : ''}
           <p class="l-by">By <a href="#about">FiredBunny</a>${(l.sources || []).length ? ` · Figures checked ${esc(l.checked || 'October 2026')}` : ''} · <a href="#editorial">How lessons are checked</a></p>
           <div class="l-listen" id="l-listen"></div>
+          <div class="l-offq" data-offbar data-volatile></div>
         </div>
         <article class="l-main">
           <div class="l-mobnav"><details><summary><span>${esc(c.title)}</span><span>${doneIn(l.course)}/${ls.length} done</span></summary>${tl()}</details></div>
@@ -678,6 +681,7 @@
       </div>`;
     navBar(pct(pos, all.length));
     if (SML.narrate) { try { SML.narrate.mount($('#l-listen', view), l); } catch (e) { console.error(e); } }
+    if (SML.offlineBar) SML.offlineBar(view.querySelector('.l-offq'), 'lesson');
     $$('.otp button', view).forEach((b) => b.addEventListener('click', () => {
       const behavior = SML.reduced() ? 'auto' : 'smooth';
       if (b.dataset.sec === 'l-top') { window.scrollTo({ top: 0, behavior }); return; } // the lesson title, at the top of the page

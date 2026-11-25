@@ -16,7 +16,8 @@
   const SHELL = A ? 'fb-shell-' + A.v : '';
   const PAR = 3; // files downloaded at once
 
-  const rel = (p) => String(p || '').replace(/^\/+/, '').split('?')[0];
+  // file name relative to the site root, from a bare path, a root path or a full address (with or without ?v=)
+  const rel = (p) => String(p || '').replace(/^[a-z]+:\/\/[^/]+/i, '').replace(/^\/+/, '').split('?')[0];
   // root-absolute on the website, so a file resolves the same from /lessons/x/ as from / (versioned when the build knows it)
   SML.assetURL = (p) => { const f = A && A.files[rel(p)]; return isWeb && !/^[a-z]+:/i.test(String(p || '')) ? '/' + rel(p) + (f ? '?v=' + f[1] : '') : p; };
   const sizeOf = (u) => { const f = A && A.files[rel(u)]; return f ? f[0] : 0; };
@@ -244,6 +245,86 @@
     head: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="7" rx="1.5"/><rect x="17" y="14" width="4" height="7" rx="1.5"/></svg>',
   };
   SML.offlineIcons = ICO;
+
+  /* ---------------- "download every lesson" bar ----------------
+     One place to save every lesson's recording for offline listening, or clear them, without opening each lesson.
+     Shown on the lessons list, every lesson page (compact), the profile page and the Offline page; works for guests.
+     It depends on this device, so its host element carries data-volatile (left out of the lastmod hash). */
+  SML.css(`
+    .offq{border:1px solid var(--line);border-radius:calc(var(--r) * 2);background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+    .offq h2,.offq h3{font:600 16px/1.3 var(--sans);color:var(--ink);margin:0;display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0}
+    .offq p{margin:0;font-size:14px;line-height:1.5;color:var(--text)}
+    .offq .off-row{gap:8px 10px}
+    .offq .off-bar{height:6px}
+    .offq a.ulink{font-size:13px}
+    .offq.compact{padding:10px 12px;gap:8px;border-radius:var(--r)}
+    .offq.compact .offq-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+    .offq.compact .offq-h b{font:600 13.5px var(--sans);color:var(--ink)}
+    .offq.compact .offq-h small{font:500 12px var(--mono);color:var(--muted)}
+    .offq.compact .btn{min-height:34px;padding:0 12px;font-size:13px}
+    .btn.off-del{background:var(--down);color:#fff;border-color:var(--down)}
+    .btn.off-del:hover{filter:brightness(1.08)}
+    .btn.off-del:disabled,.btn.off-del[aria-disabled="true"]{background:var(--surface-2);color:var(--muted);border-color:var(--line);cursor:not-allowed;filter:none;opacity:.8}
+    .btn.off-del.sure{box-shadow:0 0 0 3px color-mix(in srgb,var(--down) 35%,transparent)}
+  `);
+  function lessonItems() { return catalog().filter((g) => g.id !== 'calls').flatMap((g) => g.items); }
+  function savedBytes() { let b = 0; have.forEach((v, k) => { b += sizeOf(k.replace(/^\//, '')); }); return b; }
+  function offlineBar(el, where) {
+    if (!el) return;
+    const compact = where === 'lesson';
+    const H = where === 'profile' || where === 'lessons' ? 'h2' : 'h3';
+    if (!enabled) {
+      if (compact) { el.innerHTML = ''; return; }
+      el.innerHTML = `<div class="offq"><${H}>${ICO.head}Listen offline</${H}><p class="off-note">${SML.host === 'claude' ? 'Downloading every lesson for offline listening works on the FiredBunny website (firedbunny.com), not in this preview.' : 'This browser cannot save recordings for offline listening. Lessons still read aloud with your device’s own voice.'}</p></div>`;
+      return;
+    }
+    let sure = 0;
+    function paint() {
+      if (!el.isConnected) return;
+      const all = lessonItems(); const tot = all.reduce((s, it) => s + it.bytes, 0);
+      let n = 0, nb = 0; all.forEach((it) => { if (status(it.url) === 'done') { n++; nb += it.bytes; } });
+      const left = all.length - n, leftB = tot - nb;
+      const anySaved = have.size > 0, sb = savedBytes();
+      const busy = Q.total > 0; const qpct = busy && Q.bytes ? Math.min(100, Math.round((Q.got / Q.bytes) * 100)) : 0;
+      const getBtn = busy ? `<span class="off-note" data-q aria-live="polite">Downloading ${Q.done + Q.active.size} of ${Q.total} · ${MB(Q.got)} of ${MB(Q.bytes)}</span><button type="button" class="btn btn-g sm" data-oq="cancel">Cancel</button>`
+        : left ? `<button type="button" class="btn btn-p${compact ? ' sm' : ''}" data-oq="all">${ICO.down}${n ? `Download the other ${left}` : `Download all ${all.length} lessons`} (${MB(leftB)})</button>`
+        : `<span class="off-ok">${ICO.check}All ${all.length} lessons saved</span>`;
+      const del = `<button type="button" class="btn off-del${compact ? ' sm' : ''}${sure ? ' sure' : ''}" data-oq="del"${anySaved && !busy ? '' : ' disabled'} title="${anySaved ? 'Delete every downloaded recording from this device' : 'Nothing downloaded yet'}">${ICO.x}${sure ? 'Tap again to delete' : `Delete downloads${anySaved ? ` (${MB(sb)})` : ''}`}</button>`;
+      const bar = `<div class="off-bar${busy ? ' busy' : ''}" role="progressbar" aria-label="${busy ? 'Download progress' : 'Lessons saved on this device'}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${busy ? qpct : Math.round((nb / (tot || 1)) * 100)}"><i style="width:${busy ? qpct : (nb / (tot || 1)) * 100}%"></i></div>`;
+      if (compact) {
+        el.innerHTML = `<div class="offq compact" role="group" aria-label="Offline listening"><div class="offq-h"><b>Every lesson offline</b><small>${n} of ${all.length} saved</small></div>${busy || n ? bar : ''}<div class="off-row">${getBtn}${del}</div></div>`;
+      } else {
+        el.innerHTML = `<div class="offq"><${H}>${ICO.head}Listen offline</${H}>
+          <p>Save every lesson’s recording to this device in one go, so lessons play in the natural voice with no connection. No account needed. All ${all.length} take about ${MB(tot)}; use Wi-Fi.</p>
+          <div class="off-row"><b style="color:var(--ink)">${n} of ${all.length} lessons saved</b><span class="off-note">${MB(nb)} of ${MB(tot)}</span></div>
+          ${bar}
+          <div class="off-row">${getBtn}${del}</div>
+          ${Q.error === 'quota' ? '<div class="callout dn"><span>This device ran out of space. Delete some downloads or free up space, then try again.</span></div>' : ''}
+          ${where === 'offline' ? '' : '<p class="off-note">Pick lessons one by one, or save the earnings call recordings, on the <a class="ulink" href="#offline">Offline &amp; app</a> page.</p>'}</div>`;
+      }
+    }
+    function progressOnly() {
+      const i = el.querySelector('.off-bar i'), q = el.querySelector('[data-q]');
+      if (!i || !q) return paint();
+      const qpct = Q.bytes ? Math.min(100, Math.round((Q.got / Q.bytes) * 100)) : 0;
+      i.style.width = qpct + '%'; q.textContent = `Downloading ${Q.done + Q.active.size} of ${Q.total} · ${MB(Q.got)} of ${MB(Q.bytes)}`;
+    }
+    paint();
+    const off = on((kind) => { if (!el.isConnected) { off(); return; } if (kind === 'progress') progressOnly(); else paint(); });
+    if (SML.onCleanup) SML.onCleanup(off);
+    el.addEventListener('click', (e) => {
+      const t = e.target.closest('button[data-oq]'); if (!t || t.disabled) return;
+      const DT = (p) => SML.track('audio_download', Object.assign({ method: 'download_all_' + where }, p));
+      if (t.dataset.oq === 'all') { const urls = lessonItems().map((it) => it.url); DT({ label: 'save', target_type: 'all', count: urls.length }); get(urls); }
+      else if (t.dataset.oq === 'cancel') cancel();
+      else if (t.dataset.oq === 'del') {
+        if (!sure) { sure = setTimeout(() => { sure = 0; paint(); }, 4000); paint(); return; }
+        clearTimeout(sure); sure = 0; DT({ label: 'remove', target_type: 'all' });
+        removeAll().then(() => { SML.toast('Downloads deleted from this device.'); paint(); });
+      }
+    });
+  }
+  SML.offlineBar = offlineBar;
   const fmtMin = (s) => (s ? Math.max(1, Math.round(s / 60)) + ' min' : '');
 
   SML.pages.offline = function (view) {
@@ -316,7 +397,7 @@
         <div class="off-row"><b style="color:var(--ink)">${c.n} of ${all.length} saved</b><span class="off-note">${MB(c.b)} of ${MB(tot)}</span></div>
         <div class="off-bar${busy ? ' busy' : ''}" role="progressbar" aria-label="${busy ? 'Download progress' : 'Recordings saved on this device'}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${busy ? qpct : Math.round((c.b / (tot || 1)) * 100)}"><i style="width:${busy ? qpct : (c.b / (tot || 1)) * 100}%"></i></div>
         <div class="off-row" data-off="qline">${busy ? `<span class="off-note" aria-live="polite">Downloading ${Q.done + Q.active.size} of ${Q.total} · ${MB(Q.got)} of ${MB(Q.bytes)}</span><button type="button" class="btn btn-g sm" data-off-act="cancel">Cancel</button>`
-          : `${c.n < all.length ? `<button type="button" class="btn btn-p" data-off-act="all">${ICO.down}${c.n ? 'Download the rest' : 'Download all'} (${MB(tot - c.b)})</button>` : `<span class="off-ok">${ICO.check}Everything is saved</span>`}${c.n ? '<button type="button" class="btn btn-g sm" data-off-act="rmall">Remove all downloads</button>' : ''}`}</div>
+          : `${c.n < all.length ? `<button type="button" class="btn btn-p" data-off-act="all">${ICO.down}${c.n ? 'Download the rest' : 'Download all'} (${MB(tot - c.b)})</button>` : `<span class="off-ok">${ICO.check}Everything is saved</span>`}<button type="button" class="btn off-del sm" data-off-act="rmall"${have.size ? '' : ' disabled'} title="${have.size ? 'Delete every downloaded recording from this device' : 'Nothing downloaded yet'}">${ICO.x}Delete all downloads${have.size ? ` (${MB(savedBytes())})` : ''}</button>`}</div>
         ${Q.error === 'quota' ? '<div class="callout dn"><span>This device ran out of space for downloads. Remove some, or free up space and try again.</span></div>' : last && last.failed && !busy ? `<p class="off-note">${last.failed} download${last.failed === 1 ? '' : 's'} did not finish${last.error === 'offline' ? ' because the connection dropped' : ''}. Tap Download again to retry.</p>` : ''}
         ${cat.map((g) => { const k = counts(g.items); const gb = g.items.reduce((s, it) => s + it.bytes, 0); const left = g.items.filter((it) => status(it.url) === 'none' || status(it.url) === 'old');
           return `<div class="off-trk"><div class="off-trk-h"><b>${esc(g.title)}</b><small>${g.items.length} recording${g.items.length === 1 ? '' : 's'} · ${MB(gb)} · ${k.n} saved</small>${left.length ? `<button type="button" class="btn btn-g sm" data-off-grp="${g.id}">${ICO.down}Download ${k.n ? 'the rest' : g.id === 'calls' ? 'both' : 'track'}</button>` : k.n ? `<span class="off-ok">${ICO.check}Saved</span>` : ''}</div>
@@ -344,7 +425,7 @@
       else if (t.dataset.offGrp) { const g = cat.find((x) => x.id === t.dataset.offGrp); if (g) { DT({ label: 'save', target_type: 'track', target: g.title, count: g.items.length }); get(g.items.map((it) => it.url)); } }
       else if (t.dataset.offAct === 'all') { const all = cat.flatMap((g) => g.items.map((it) => it.url)); DT({ label: 'save', target_type: 'all', count: all.length }); get(all); }
       else if (t.dataset.offAct === 'cancel') cancel();
-      else if (t.dataset.offAct === 'rmall') { if (t.dataset.sure) { DT({ label: 'remove', target_type: 'all' }); removeAll().then(storage); } else { t.dataset.sure = '1'; t.textContent = 'Tap again to remove all'; setTimeout(() => { if (t.isConnected) { delete t.dataset.sure; t.textContent = 'Remove all downloads'; } }, 4000); } }
+      else if (t.dataset.offAct === 'rmall') { if (t.disabled) return; if (t.dataset.sure) { DT({ label: 'remove', target_type: 'all' }); removeAll().then(() => { storage(); SML.toast('Downloads deleted from this device.'); }); } else { t.dataset.sure = '1'; t.classList.add('sure'); t.textContent = 'Tap again to delete all'; setTimeout(() => { if (t.isConnected) paintAudio(); }, 4000); } }
       else if (t.dataset.offAct === 'install') install();
     });
     return 'Offline & app';

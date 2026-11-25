@@ -496,6 +496,7 @@
             <div class="acx-card"><div class="acx-h"><h2>${ico.book}Learning</h2></div>
               <div class="acx-prog">${tracks.map((x) => `<div class="acx-prow"><b>${esc(x.t.title)}</b><span>${x.done}/${x.total}</span><div class="acx-pb"><i style="width:${x.total ? Math.round((x.done / x.total) * 100) : 0}%"></i></div></div>`).join('')}</div>
             </div>
+            <div data-offbar></div>
             <nav class="acx-links" aria-label="Your pages">
               <a class="acx-link" href="#dashboard">${ico.goal}<span><b>Dashboard</b><small>Goals, net worth and progress over time.</small></span></a>
               <a class="acx-link" href="#results">${ico.chart}<span><b>Assessment results</b><small>Your investor profile and recommendations.</small></span></a>
@@ -571,6 +572,7 @@
         SML.hop('Hop hop. Profile saved.');
       } catch (e) { setDirty(true, 'Could not save right now. Your changes are still here; try again.'); }
     });
+    if (SML.offlineBar) SML.offlineBar(view.querySelector('[data-offbar]'), 'profile');
     return 'Profile';
   };
 
