@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import seohead
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, 'src')
+SRC = os.environ.get('FB_SRC') or os.path.join(ROOT, 'src')  # FB_SRC: a translated copy (tools/i18n)
 read = lambda f: open(os.path.join(SRC, f), encoding='utf-8').read()
 if '--no-mods' in sys.argv:
     mods = []
@@ -48,15 +48,16 @@ HEAD = f'''<title>FiredBunny</title>
 '''
 # every script of the site, in load order. The help chat comes last: it needs the router and every page to exist, and
 # its launcher is added after the first page has drawn (its panel and search index wait for the first open).
-SCRIPTS = ['core.js', 'brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'cloud-config.js', 'brokerage-config.js', 'support-config.js', 'cloud.js', 'account.js',
+SCRIPTS = ['core.js'] + [f for f in ('i18n-data.js', 'i18n.js') if os.path.exists(os.path.join(SRC, f))] + ['brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'cloud-config.js', 'brokerage-config.js', 'support-config.js', 'cloud.js', 'account.js',
            'feedback.js', 'assets.js', 'routes.js'] + mods + ['hero.js', 'seo.js', 'pages.js', 'chat-data.js', 'chat.js']
 BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 
 
 # 1) claude.ai artifact fragment (the artifact host adds the document skeleton)
-os.makedirs(os.path.join(ROOT, 'build'), exist_ok=True)
+BUILD_DIR = os.environ.get('FB_BUILD') or os.path.join(ROOT, 'build')
+os.makedirs(BUILD_DIR, exist_ok=True)
 frag = HEAD + BODY
-frag_out = os.path.join(ROOT, 'build', 'fragment.html')
+frag_out = os.path.join(BUILD_DIR, 'fragment.html')
 open(frag_out, 'w', encoding='utf-8').write(frag)
 
 # 2) the website: a complete HTML document plus public/ assets. It hosts its own fonts (public/fonts, src/fonts.css)
@@ -148,7 +149,7 @@ page = f"""<!doctype html>
 {web_body}</body>
 </html>
 """
-dist = os.path.join(ROOT, 'dist')
+dist = os.environ.get('FB_DIST') or os.path.join(ROOT, 'dist')
 if os.path.isdir(dist):
     shutil.rmtree(dist)
 if os.path.isdir(pub):
