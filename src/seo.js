@@ -275,7 +275,7 @@
     if (tok.indexOf('c-') === 0) {
       const c = find(SML.courses, tok.slice(2)); if (!c) return '';
       const ls = lessonsOf(c.id); const first = ls[0], last = ls[ls.length - 1];
-      return fit(`${clean(c.blurb)} ${ls.length} interactive lesson${ls.length === 1 ? '' : 's'}${ls.length > 1 ? `, from ${clean(first.title)} to ${clean(last.title)}` : ''}.`);
+      return fit(ls.length === 1 ? `${clean(c.blurb)} 1 interactive lesson.` : `${clean(c.blurb)} ${ls.length} interactive lessons, from ${clean(first.title)} to ${clean(last.title)}.`);
     }
     if (tok.indexOf('tool-') === 0) {
       const t = find(SML.tools, tok); if (!t) return '';

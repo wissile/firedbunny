@@ -119,7 +119,7 @@ function htmlSegments(s) {
              the code may also use as values (button options, compared strings, table keys, state defaults). Safe for
              the logic whatever the code does with them; the only cost is a label glued into a longer string stays English.
    false     translated in the code (sentences, HTML, lesson and page text) */
-const CODE_KEYS = /^(robots|canonical|og|twitter|schema|context|@type|id|key|icon|widget|course|track|tool|tools|type|kind|cls|class|className|color|bg|fill|stroke|unit|fmt|format|sym|symbol|ticker|slug|path|href|src|url|u|img|image|svg|audio|voice|lang|locale|token|tok|route|cat|group|tag|tags|level|sort|sel|selector|event|action|mode|style|font|css|ico|emoji|code|ccy|currency|tz|field|prop|attr|el|elId|target|terms|links|related|series|data|seed|var|vars|grid|align|side|pos|dir|shape|layout|variant|status|state|flag|country|region|lessonId|ref|l|w|g)$/;
+const CODE_KEYS = /^(robots|canonical|og|twitter|schema|context|@type|id|key|icon|widget|course|track|tool|tools|type|kind|cls|class|className|color|bg|fill|stroke|unit|fmt|format|sym|symbol|ticker|slug|path|href|src|url|u|img|image|svg|audio|voice|lang|locale|token|tok|route|cat|group|tag|tags|level|sort|sel|selector|event|action|mode|style|font|css|ico|emoji|code|ccy|currency|tz|field|prop|attr|el|elId|target|links|related|series|data|seed|var|vars|grid|align|side|pos|dir|shape|layout|variant|status|state|flag|country|region|lessonId|ref|l|w|g)$/;
 const RUNTIME_KEYS = /^(v|value|k|opt|choice|def|default|name|t|abbr|short|sk|lbl)$/;
 const TEXT_KEYS = /^(title|label|lab|desc|description|summary|idea|body|h|html|q|a|text|note|notes|tip|tips|msg|message|caption|sub|subtitle|lede|kicker|hint|help|why|what|how|example|try|takeaway|takeaways|points|mistakes|d|full|brief|deep|faq|say|reply|answer|intro|outro|blurb|teaser|cta|more|warn|warning|info|empty|placeholder|tooltip|legend|headline|heading|line|lines|steps|step|detail|details|meaning|explain|explanation|story|quote|verdict|read|reads|lesson|after|before|then|ok|bad|good|caveat|source|t2|sentence)$/;
 const CODE_CALLS = /^(querySelector(All)?|getElementById|getElementsByClassName|closest|matches|addEventListener|removeEventListener|dispatchEvent|getItem|setItem|removeItem|getAttribute|setAttribute|removeAttribute|hasAttribute|toggleAttribute|add|remove|toggle|contains|createElement|createElementNS|fetch|import|require|postMessage|track|event|send|use|split|join|replace|replaceAll|startsWith|endsWith|includes|indexOf|lastIndexOf|test|match|matchAll|search|RegExp|padStart|padEnd|toLocaleString|toLocaleDateString|toLocaleTimeString|NumberFormat|DateTimeFormat|Date|key|go|route|path|token|exists|pathOf|tokenOf|assetURL|warn|log|error|info|debug|define|on|off|emit|has|get|set|delete|store|load|save|plays|cssVar|getPropertyValue|setProperty|removeProperty|scrollTo|animate|focus|open|\$|\$\$|seg|on|n|uid|svg|el|attr|css|style|byId|lessonById|toolById|trackById|courseById|now|wire|chips|getContext|matchMedia|createLinearGradient|addColorStop|font|measureText|insertAdjacentHTML)$/;
@@ -153,6 +153,7 @@ function classify(node, ancestors) {
     const name = calleeName(parent.callee) || '';
     const at = parent.arguments.indexOf(child);
     if (OPTION_CALLS.test(name) && (at === 1 || at === 2)) return 'runtime';
+    if (name === 'G' && at === 0) return false; // G(term, full, definition, lesson): glossary term names, translated with terms: [...]
     if (CODE_CALLS.test(name) && at === 0) return 'code';
     if (name === 'setAttribute' && at === 1) {
       const a0 = parent.arguments[0];
@@ -171,6 +172,10 @@ function classify(node, ancestors) {
   }
   if (parent.type === 'Property' && parent.value === child && !parent.computed) {
     const k = String(parent.key.name || parent.key.value || '');
+    // glossary term names are also the keys lessons use to list their terms (terms: ['Stock', ...]): both are translated
+    // in the code, from the same dictionary, so they stay matched
+    if (k === 'terms') return false;
+    if (k === 't') { const obj = ancestors[i - 1]; if (obj && obj.type === 'ObjectExpression' && obj.properties.some((q) => q.key && (q.key.name || q.key.value) === 'd')) return false; }
     if (CODE_KEYS.test(k)) return 'code';
     if (RUNTIME_KEYS.test(k)) return 'runtime';
     if (TEXT_KEYS.test(k)) return false;

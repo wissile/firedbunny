@@ -1,0 +1,1018 @@
+{
+ "0057ff420e14": {
+  "en": "Survive a losing streak",
+  "t": "Sobrevive a una racha perdedora"
+ },
+ "005a0f3e13e6": {
+  "en": "Track {0} · {1}",
+  "t": "Ruta {0} · {1}"
+ },
+ "00d0a9d91501": {
+  "en": "{0}\n          <a class=\"ulink\" href=\"#glossary\" style=\"margin-left:auto\">Glossary of {1} terms</a>",
+  "t": "{0}\n          <a class=\"ulink\" href=\"#glossary\" style=\"margin-left:auto\">Glosario de {1} términos</a>"
+ },
+ "00f9abd7526a": {
+  "en": "How every lesson works: learn it, play it, track it",
+  "t": "Cómo funciona cada lección: apréndela, juega con ella, llévale el control"
+ },
+ "01254ef4ea36": {
+  "en": "What you’ll learn",
+  "t": "Lo que vas a aprender"
+ },
+ "014eb312c387": {
+  "en": "OCT · NOV · DEC",
+  "t": "OCT · NOV · DIC"
+ },
+ "02337733747c": {
+  "en": "What kind of investor are you?",
+  "t": "¿Qué tipo de inversionista eres?"
+ },
+ "04f86509a033": {
+  "en": "{0} of {1} lessons done across all tracks. Next: {2}.",
+  "t": "{0} de {1} lecciones hechas en todas las rutas. Sigue: {2}."
+ },
+ "07fde8186711": {
+  "en": "Day trader, swing trader or investor? Most people end up with a blend.",
+  "t": "¿Day trader, swing trader o inversionista? La mayoría termina con una mezcla."
+ },
+ "0827d895914c": {
+  "en": "For readers comfortable with the earlier courses in this track.",
+  "t": "Para quienes se sienten cómodos con los cursos anteriores de esta ruta."
+ },
+ "08ef6f2b65ef": {
+  "en": "Learn with pictures",
+  "t": "Aprende con imágenes"
+ },
+ "09b43950a01f": {
+  "en": "Practise, track and read real-style breakdowns.",
+  "t": "Practica, lleva el control y lee análisis al estilo real."
+ },
+ "0a4470d64e9d": {
+  "en": "Skip to content",
+  "t": "Saltar al contenido"
+ },
+ "0c9cb99fc1af": {
+  "en": "{0} FiredBunny · the money school they skipped",
+  "t": "{0} FiredBunny · la escuela de dinero que nos saltamos"
+ },
+ "0dd13732777f": {
+  "en": "Copy our journal and wheel tracker into Google Sheets or Excel. Phone apps are on the way.",
+  "t": "Copia nuestro diario y el control de la rueda en Google Sheets o Excel. Las apps para celular vienen en camino."
+ },
+ "0e39157b489e": {
+  "en": "Your dashboard (saved on this device)",
+  "t": "Tu panel (guardado en este dispositivo)"
+ },
+ "1042822a6aa6": {
+  "en": "ACME CEO steps down",
+  "t": "Renuncia el CEO de ACME"
+ },
+ "1112218d28ea": {
+  "en": "Every FiredBunny course, grouped by track. Open a course to see its lessons, level and reading time, or see <a class=\"ulink\" href=\"#lessons\">all {0} lessons in one list</a>.",
+  "t": "Todos los cursos de FiredBunny, agrupados por ruta. Abre un curso para ver sus lecciones, su nivel y su tiempo de lectura, o mira <a class=\"ulink\" href=\"#lessons\">las {0} lecciones en una sola lista</a>."
+ },
+ "129c77434570": {
+  "en": "Three steps, the same for every topic.",
+  "t": "Tres pasos, los mismos para cada tema."
+ },
+ "12eee4aa4dfa": {
+  "en": "Hop hop. Lesson complete.",
+  "t": "Salto a salto. Lección completada."
+ },
+ "1333d7fa56ee": {
+  "en": "<a href=\"#{0}\"><span>{1} Previous</span><strong>{2}</strong></a>",
+  "t": "<a href=\"#{0}\"><span>{1} Anterior</span><strong>{2}</strong></a>"
+ },
+ "13ddf4bec761": {
+  "en": "Your investor profile: {0}",
+  "t": "Tu perfil de inversionista: {0}"
+ },
+ "16e018ece5a1": {
+  "en": "Two",
+  "t": "Dos"
+ },
+ "17951e96dbaf": {
+  "en": "<span><b>New: what kind of investor are you?</b><small>Slide through the self-assessment and get your investor profile, risk level and a learning path.</small></span>{0}</a>",
+  "t": "<span><b>Nuevo: ¿qué tipo de inversionista eres?</b><small>Desliza por la autoevaluación y recibe tu perfil de inversionista, tu nivel de riesgo y una ruta de aprendizaje.</small></span>{0}</a>"
+ },
+ "17ecb3e24fcc": {
+  "en": "Browse lessons",
+  "t": "Ver lecciones"
+ },
+ "197101e9db29": {
+  "en": "Open menu",
+  "t": "Abrir menú"
+ },
+ "19b0bd86fe10": {
+  "en": "Trade journal, wheel tracker, retirement planner and watchlist templates you can copy or download.",
+  "t": "Plantillas de diario de trading, control de la rueda, plan de jubilación y lista de seguimiento que puedes copiar o descargar."
+ },
+ "1b74614b72b7": {
+  "en": "Going deeper",
+  "t": "Para profundizar"
+ },
+ "1bd43d21aca7": {
+  "en": "Headlines flowing into an AI that scores each one",
+  "t": "Titulares que entran a una IA que califica cada uno"
+ },
+ "1c1c8a3ccdb3": {
+  "en": "· {0} done",
+  "t": "· {0} hechas"
+ },
+ "1c3953f34a09": {
+  "en": "<a class=\"btn btn-p\" href=\"#assessment\" style=\"align-self:flex-start\">Take the self-assessment {0}</a>{1}",
+  "t": "<a class=\"btn btn-p\" href=\"#assessment\" style=\"align-self:flex-start\">Haz la autoevaluación {0}</a>{1}"
+ },
+ "1c568a0564b8": {
+  "en": "Compare your total with simply buying and holding.",
+  "t": "Compara tu total con simplemente comprar y mantener."
+ },
+ "1c928346234c": {
+  "en": "<a class=\"btn btn-p\" href=\"#home\">Home</a><a class=\"btn btn-g\" href=\"#learn\">Lessons</a><a class=\"btn btn-g\" href=\"#tools\">Tools</a>",
+  "t": "<a class=\"btn btn-p\" href=\"#home\">Inicio</a><a class=\"btn btn-g\" href=\"#learn\">Lecciones</a><a class=\"btn btn-g\" href=\"#tools\">Herramientas</a>"
+ },
+ "200ac3f5eb44": {
+  "en": "How blending works",
+  "t": "Cómo funciona la mezcla"
+ },
+ "20c26c702a68": {
+  "en": "Eight",
+  "t": "Ocho"
+ },
+ "22478776a9e5": {
+  "en": "Every word, in plain <em>English</em>.",
+  "t": "Cada palabra, en <em>español</em> sencillo."
+ },
+ "236d1f1239d5": {
+  "en": " and $1",
+  "t": " y $1"
+ },
+ "239b70e3dc79": {
+  "en": "DEMO raises guidance",
+  "t": "DEMO sube su guía"
+ },
+ "250d52cd7db8": {
+  "en": "<b>Not quite.</b> Try another answer.",
+  "t": "<b>No del todo.</b> Prueba otra respuesta."
+ },
+ "25141c2ab376": {
+  "en": "A daily coffee or a box of pods, priced per year and invested for decades.",
+  "t": "Un tinto diario o una caja de cápsulas, con su precio por año e invertido durante décadas."
+ },
+ "258db90d37ab": {
+  "en": "Open the track",
+  "t": "Abrir la ruta"
+ },
+ "27753d478957": {
+  "en": "<a href=\"#play\">Trade replay</a><a href=\"#wheel\">Wheel simulator</a><a href=\"#tools\">All tools</a>{0}",
+  "t": "<a href=\"#play\">Repetición de trading</a><a href=\"#wheel\">Simulador de la rueda</a><a href=\"#tools\">Todas las herramientas</a>{0}"
+ },
+ "27d6781692e1": {
+  "en": "Replay a trading day bar by bar. Buy, short, set stops and get a scorecard at the close.",
+  "t": "Repite un día de trading barra por barra. Compra, vende en corto, pon stops y recibe un resumen al cierre."
+ },
+ "28ca90b2ee9b": {
+  "en": "Wheel tracker, retirement runway and trader toolkit, in development.",
+  "t": "Control de la rueda, autonomía para el retiro y herramientas para traders, en desarrollo."
+ },
+ "290bffd87c50": {
+  "en": " · new course",
+  "t": " · curso nuevo"
+ },
+ "29848d0f6c4e": {
+  "en": "Position in the curriculum",
+  "t": "Posición en el plan de estudios"
+ },
+ "2a6d87742950": {
+  "en": "Compare the styles",
+  "t": "Compara los estilos"
+ },
+ "2db3d88b43d4": {
+  "en": "Formulas checked against the calculator’s code{0} in {1}.{2} <a href=\"#editorial\">How FiredBunny checks its pages</a>.",
+  "t": "Fórmulas revisadas contra el código de la calculadora{0} en {1}.{2} <a href=\"#editorial\">Cómo revisa FiredBunny sus páginas</a>."
+ },
+ "2df632303e7f": {
+  "en": "{0}<span>Run your own numbers: {1}. {2}</span>",
+  "t": "{0}<span>Haz tus propias cuentas: {1}. {2}</span>"
+ },
+ "2eb56be3c2d9": {
+  "en": "Sources",
+  "t": "Fuentes"
+ },
+ "2ed3c550f16b": {
+  "en": "By <a href=\"#about\">FiredBunny</a>{0} · <a href=\"#editorial\">How lessons are checked</a>",
+  "t": "Por <a href=\"#about\">FiredBunny</a>{0} · <a href=\"#editorial\">Cómo se revisan las lecciones</a>"
+ },
+ "2f4b788ea7b0": {
+  "en": "Lesson navigation",
+  "t": "Navegación de la lección"
+ },
+ "2ff6c7758717": {
+  "en": "Embed this calculator",
+  "t": "Inserta esta calculadora"
+ },
+ "30dfd7579fb0": {
+  "en": "<span>Latest trade notes</span>{0}",
+  "t": "<span>Últimas notas de trading</span>{0}"
+ },
+ "31170d810ade": {
+  "en": "Every idea is a picture you can touch. Drag a candle, step through a breakout, run a thousand trades in a second. Then plan your retirement, or your early exit, with the same hands-on tools. Ten years of lessons, shared free by a bunny who learned most of it the hard way.",
+  "t": "Cada idea es una imagen que puedes tocar. Arrastra una vela, recorre una ruptura paso a paso, corre mil operaciones en un segundo. Luego planea tu retiro, o tu salida temprana, con las mismas herramientas prácticas. Diez años de lecciones, compartidas gratis por un conejo que aprendió casi todo a las malas."
+ },
+ "325f85751bf2": {
+  "en": "See why pros risk about 1% per trade.",
+  "t": "Mira por qué los profesionales arriesgan cerca del 1 % por operación."
+ },
+ "32afcacd6edb": {
+  "en": "<a class=\"btn btn-a\" href=\"#{0}\">Start the first lesson {1}</a><a class=\"btn btn-g\" href=\"#lessons\">See all {2} lessons</a>",
+  "t": "<a class=\"btn btn-a\" href=\"#{0}\">Empieza la primera lección {1}</a><a class=\"btn btn-g\" href=\"#lessons\">Ver las {2} lecciones</a>"
+ },
+ "3383e183afd2": {
+  "en": "Bring the lessons onto your own charts, sheets and calendar.",
+  "t": "Lleva las lecciones a tus propios gráficos, hojas de cálculo y calendario."
+ },
+ "35a147b7a98c": {
+  "en": "<strong>Read this first:</strong> education only, not financial or tax advice. Most new traders lose money. The <a href=\"#c-risk\" style=\"color:var(--ink)\">Risk &amp; Sizing</a> course is what keeps you in the game.",
+  "t": "<strong>Lee esto primero:</strong> solo educación, no asesoría financiera ni tributaria. La mayoría de los traders nuevos pierden dinero. El curso <a href=\"#c-risk\" style=\"color:var(--ink)\">Riesgo y tamaño de posición</a> es lo que te mantiene en el juego."
+ },
+ "3664267e3ea9": {
+  "en": "All courses",
+  "t": "Todos los cursos"
+ },
+ "3bee3be5c3f2": {
+  "en": "What habits cost",
+  "t": "Lo que cuestan los hábitos"
+ },
+ "3cfd37c5916c": {
+  "en": "Run the <em>numbers</em>",
+  "t": "Haz las <em>cuentas</em>"
+ },
+ "3dd1a4d18fea": {
+  "en": "Tracks",
+  "t": "Rutas"
+ },
+ "3e15ac7882aa": {
+  "en": "Practice",
+  "t": "Práctica"
+ },
+ "3e54e1ad795c": {
+  "en": "Price an option",
+  "t": "Ponle precio a una opción"
+ },
+ "3e5f08d11206": {
+  "en": "How this calculator works",
+  "t": "Cómo funciona esta calculadora"
+ },
+ "3e60430e148e": {
+  "en": "For readers who know the basics of this track. If a word is new, each lesson’s glossary explains it.",
+  "t": "Para quienes ya conocen lo básico de esta ruta. Si una palabra es nueva, el glosario de cada lección la explica."
+ },
+ "4086b0c6ff72": {
+  "en": "<a class=\"next\" href=\"#track-{0}\"><span>End of the track {1}</span><strong>Back to {2}</strong></a>",
+  "t": "<a class=\"next\" href=\"#track-{0}\"><span>Fin de la ruta {1}</span><strong>Volver a {2}</strong></a>"
+ },
+ "41593dd47dad": {
+  "en": "{0} Each lesson is one idea you can play with, then a quick check. About {1} hours in all.",
+  "t": "{0} Cada lección es una idea con la que puedes jugar, y luego una prueba rápida. Unas {1} horas en total."
+ },
+ "41a428ae7765": {
+  "en": "<span>© 2026 FluidWeb LLC · FiredBunny is a FluidWeb LLC site · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span>",
+  "t": "<span>© 2026 FluidWeb LLC · FiredBunny es un sitio de FluidWeb LLC · hecho con paciencia, sin promesas</span><span>Reglas y cifras tributarias revisadas en octubre de 2026 (EE. UU.).</span>"
+ },
+ "47582e29c0ca": {
+  "en": "Connect Claude to Robinhood’s official MCP server step by step, with a budget account and approvals on.",
+  "t": "Conecta Claude al servidor MCP oficial de Robinhood paso a paso, con una cuenta de presupuesto y las aprobaciones activadas."
+ },
+ "47bd1454daaa": {
+  "en": "a href=\"{0}\"",
+  "t": "a href=\"{0}\""
+ },
+ "487cd5973e8f": {
+  "en": "No experience needed. This is where the track begins.",
+  "t": "No necesitas experiencia. Aquí empieza la ruta."
+ },
+ "48abb816c875": {
+  "en": "{0} courses and {1} lessons. Trade the market, build wealth for retirement, or plan your early exit.",
+  "t": "{0} cursos y {1} lecciones. Haz trading, construye patrimonio para el retiro o planea tu salida temprana."
+ },
+ "4a679dbd0199": {
+  "en": "For learning only. Results use simple models and your inputs; they are not advice.",
+  "t": "Solo para aprender. Los resultados usan modelos sencillos y tus datos; no son asesoría."
+ },
+ "4e3992825b85": {
+  "en": "400 16px \"IBM Plex Sans\"",
+  "t": "400 16px \"IBM Plex Sans\""
+ },
+ "4ec00394908f": {
+  "en": "How to play",
+  "t": "Cómo jugar"
+ },
+ "4ee831132128": {
+  "en": "Start the course",
+  "t": "Empezar el curso"
+ },
+ "4f5e94ce28c6": {
+  "en": "Continue ",
+  "t": "Seguir "
+ },
+ "513c1ed1d85e": {
+  "en": "{0} {1} courses, {2} lessons.",
+  "t": "{0} {1} cursos, {2} lecciones."
+ },
+ "535bb8d42929": {
+  "en": "Nine",
+  "t": "Nueve"
+ },
+ "57f5542e0351": {
+  "en": "Lessons completed",
+  "t": "Lecciones completadas"
+ },
+ "588a924bce78": {
+  "en": "Spot a fake breakout",
+  "t": "Detecta una ruptura falsa"
+ },
+ "588daeb438b8": {
+  "en": "Day trading, swing trading or investing? Find your style",
+  "t": "¿Day trading, swing trading o inversión? Encuentra tu estilo"
+ },
+ "5b17bffd59dd": {
+  "en": "Turn filings and headlines into short, structured alerts, and spot prompt injection.",
+  "t": "Convierte reportes y titulares en alertas cortas y ordenadas, y detecta la inyección de instrucciones."
+ },
+ "5c2013afb8a5": {
+  "en": "Turn plain rules into TradingView Pine Script, fix errors and add alerts.",
+  "t": "Convierte reglas sencillas en Pine Script de TradingView, corrige errores y agrega alertas."
+ },
+ "5f10ac758ec1": {
+  "en": "Pick a strike style: safer strikes are further away and pay less.",
+  "t": "Elige un estilo de strike: los strikes más seguros están más lejos y pagan menos."
+ },
+ "60107c7c944a": {
+  "en": "pdh = request...",
+  "t": "pdh = request..."
+ },
+ "60e5a4fdb036": {
+  "en": "Build a candle",
+  "t": "Arma una vela"
+ },
+ "61894b2e244b": {
+  "en": "Retirement & Wealth track",
+  "t": "Ruta Retiro y patrimonio"
+ },
+ "62264fc11aa6": {
+  "en": "Common mistakes",
+  "t": "Errores comunes"
+ },
+ "62bce9422ff2": {
+  "en": "Main",
+  "t": "Principal"
+ },
+ "63abb5650ff5": {
+  "en": "Seven",
+  "t": "Siete"
+ },
+ "641f3921d40c": {
+  "en": "Continue the course",
+  "t": "Seguir el curso"
+ },
+ "644c6394e263": {
+  "en": "Sell puts and covered calls month by month and watch premium, assignment and cost basis add up.",
+  "t": "Vende puts y calls cubiertas mes a mes y mira cómo se suman la prima, la asignación y el costo base."
+ },
+ "649df08a448e": {
+  "en": "English",
+  "t": "English"
+ },
+ "6505f4ee4a02": {
+  "en": "Fed meetings, CPI, jobs, PMI, options expiry, tax deadlines and open enrollment, with export.",
+  "t": "Reuniones de la Fed, IPC, empleo, PMI, vencimiento de opciones y fechas de impuestos, con exportación."
+ },
+ "6603fb41e188": {
+  "en": "The link may be old, or the bunny moved things around. Here are good places to go next.",
+  "t": "Puede que el enlace sea viejo, o que el conejo haya movido las cosas. Estos son buenos lugares para seguir."
+ },
+ "662d6516cd04": {
+  "en": "Calculator by <a href=\"{0}\" target=\"_blank\" rel=\"noopener\">FiredBunny</a>: how it works, the formulas and the lesson. For learning only, not advice.",
+  "t": "Calculadora de <a href=\"{0}\" target=\"_blank\" rel=\"noopener\">FiredBunny</a>: cómo funciona, las fórmulas y la lección. Solo para aprender, no es asesoría."
+ },
+ "66659fea86ef": {
+  "en": "Free financial calculators that show their work",
+  "t": "Calculadoras financieras gratis que muestran su trabajo"
+ },
+ "675871a6cb94": {
+  "en": "Your dashboard (saved to your account)",
+  "t": "Tu panel (guardado en tu cuenta)"
+ },
+ "682ce2ce7cd1": {
+  "en": "An equity curve that rises in-sample and fades out-of-sample",
+  "t": "Una curva de capital que sube en la muestra y se desvanece fuera de ella"
+ },
+ "699d79aaa38a": {
+  "en": "{0}<a href=\"#lessons\">All lessons</a><a href=\"#courses\">All courses</a><a href=\"#c-basics\">Market Basics</a><a href=\"#c-options\">Options &amp; the Wheel</a><a href=\"#c-benefits\">Company Benefits</a><a href=\"#c-home\">Home &amp; Real Estate</a><a href=\"#c-fi-basics\">Your FIRE Number</a><a href=\"#c-fi-abroad\">Retiring Abroad</a>",
+  "t": "{0}<a href=\"#lessons\">Todas las lecciones</a><a href=\"#courses\">Todos los cursos</a><a href=\"#c-basics\">Bases del mercado</a><a href=\"#c-options\">Opciones y la rueda</a><a href=\"#c-benefits\">Beneficios de la empresa</a><a href=\"#c-home\">Vivienda y finca raíz</a><a href=\"#c-fi-basics\">Tu número FIRE</a><a href=\"#c-fi-abroad\">Jubilarte en el exterior</a>"
+ },
+ "6ad34e86193b": {
+  "en": "Test rules on years of data and see how overfitting fools you out of sample.",
+  "t": "Prueba reglas con años de datos y mira cómo el sobreajuste te engaña fuera de la muestra."
+ },
+ "6ae8018f950a": {
+  "en": "Try “theta” or “wash”",
+  "t": "Prueba “theta” o “rueda”"
+ },
+ "6b21fb791ac0": {
+  "en": "About",
+  "t": "Acerca de"
+ },
+ "6b57f754c7f9": {
+  "en": "<a class=\"tile primary\" href=\"#tools\"><span class=\"tile-big\">{0} tools</span><span>See them all {1}</span></a>",
+  "t": "<a class=\"tile primary\" href=\"#tools\"><span class=\"tile-big\">{0} herramientas</span><span>Verlas todas {1}</span></a>"
+ },
+ "6be8fb449999": {
+  "en": "Build an indicator with AI",
+  "t": "Crea un indicador con IA"
+ },
+ "6c9fc9908984": {
+  "en": "Close menu",
+  "t": "Cerrar menú"
+ },
+ "6cfcc1b2624e": {
+  "en": "called away",
+  "t": "vendidas por la call"
+ },
+ "6cffc8849115": {
+  "en": "Step candle by candle and decide: enter or wait?",
+  "t": "Avanza vela por vela y decide: ¿entrar o esperar?"
+ },
+ "6e3fe63b90d4": {
+  "en": "one order, checked by your rules",
+  "t": "una orden, revisada con tus reglas"
+ },
+ "6fb94e2cdb54": {
+  "en": "{0}<span>Run the numbers for a real trade in the <a href=\"#tool-wheel\">wheel income tool</a>.</span>",
+  "t": "{0}<span>Haz las cuentas de una operación real en la <a href=\"#tool-wheel\">herramienta de ingresos de la rueda</a>.</span>"
+ },
+ "70b62f32688b": {
+  "en": "Start with cash, sell a put, maybe get the shares, sell calls, repeat. Each click is one month. Prices are simulated.",
+  "t": "Empieza con efectivo, vende una put, quizá te quedas con las acciones, vende calls, repite. Cada clic es un mes. Los precios son simulados."
+ },
+ "70c79b999b8f": {
+  "en": "A practice trade on the simulator: buy on a retest with a stop under the level",
+  "t": "Una operación de práctica en el simulador: compra en un retesteo con el stop debajo del nivel"
+ },
+ "713201bd5930": {
+  "en": "You, an AI agent, an MCP server and a broker in a row, with an approval step",
+  "t": "Tú, un agente de IA, un servidor MCP y un bróker en fila, con un paso de aprobación"
+ },
+ "72cfe622b651": {
+  "en": "<b>Who it’s for:</b> {0} {1} lessons, about {2} minutes in all, part of the {3} track.",
+  "t": "<b>Para quién es:</b> {0} {1} lecciones, unos {2} minutos en total, parte de la ruta {3}."
+ },
+ "7303923971ac": {
+  "en": "Free to put on your own site or blog. It shows the calculator only, with a link back here. The short script lets the frame grow to fit; leave it out if your site does not allow scripts.",
+  "t": "Gratis para poner en tu propio sitio o blog. Muestra solo la calculadora, con un enlace de vuelta aquí. El script corto deja que el marco crezca para ajustarse; quítalo si tu sitio no permite scripts."
+ },
+ "73b84b0a80c5": {
+  "en": "Read the news with AI",
+  "t": "Lee las noticias con IA"
+ },
+ "74939a06b9ec": {
+  "en": "For everyone on this track. These are the habits and rules the later courses build on.",
+  "t": "Para todos en esta ruta. Son los hábitos y las reglas sobre los que se construyen los cursos siguientes."
+ },
+ "765e8076f5a0": {
+  "en": "Answer five quick questions and get a suggested mix of styles, with the lessons to start with. Want the full picture? The self-assessment looks at your goals, money, time and temperament, and gives you a profile you can track over the years.",
+  "t": "Responde cinco preguntas rápidas y recibe una mezcla de estilos sugerida, con las lecciones para empezar. ¿Quieres el panorama completo? La autoevaluación mira tus metas, tu dinero, tu tiempo y tu temperamento, y te da un perfil que puedes seguir con los años."
+ },
+ "767731020a2f": {
+  "en": "{0}\n      <span class=\"more trk-go\">{1} the track {2}</span>",
+  "t": "{0}\n      <span class=\"more trk-go\">{1} la ruta {2}</span>"
+ },
+ "7858ac3ff633": {
+  "en": "Post",
+  "t": "Nota"
+ },
+ "7a53e7770083": {
+  "en": "· Figures checked {0}",
+  "t": "· Cifras revisadas en {0}"
+ },
+ "7ddd66b689c9": {
+  "en": "Try it",
+  "t": "Pruébalo"
+ },
+ "7df542e4777f": {
+  "en": "Retirement and money calculators",
+  "t": "Calculadoras de retiro y de dinero"
+ },
+ "7e439c353ec8": {
+  "en": "On this page",
+  "t": "En esta página"
+ },
+ "7eac730c858c": {
+  "en": "Taken {0}. Retake it any time and track how you change.",
+  "t": "Hecha el {0}. Repítela cuando quieras y mira cómo cambias."
+ },
+ "7ed0aecf6f78": {
+  "en": "{0} terms. Each links to the lesson where you can play with it.",
+  "t": "{0} términos. Cada uno enlaza a la lección donde puedes jugar con él."
+ },
+ "7efad23d43b3": {
+  "en": "Spending, withdrawal rate and other income: the number that makes work optional.",
+  "t": "Gasto, tasa de retiro y otros ingresos: el número que hace que trabajar sea opcional."
+ },
+ "7fa11e69e961": {
+  "en": "<b>Right.</b>",
+  "t": "<b>Correcto.</b>"
+ },
+ "810a5e0fb285": {
+  "en": "Replay a trading day bar by bar or run the wheel strategy month by month. Mistakes are free here.",
+  "t": "Repite un día de trading barra por barra o corre la estrategia de la rueda mes a mes. Aquí equivocarse es gratis."
+ },
+ "82ce5d8ebfeb": {
+  "en": "<span>Search terms</span>",
+  "t": "<span>Buscar términos</span>"
+ },
+ "82ea79e245ae": {
+  "en": "A trade journal spreadsheet next to a phone app",
+  "t": "Una hoja de cálculo de diario de trading junto a una app en el celular"
+ },
+ "83173a1aa745": {
+  "en": "Ten",
+  "t": "Diez"
+ },
+ "8421c02109e2": {
+  "en": "<br><a href=\"#{0}\">Lesson: {1}</a>",
+  "t": "<br><a href=\"#{0}\">Lección: {1}</a>"
+ },
+ "84977c8de772": {
+  "en": "{0}<a class=\"btn btn-g\" href=\"#track-{1}\">All {2} courses</a>",
+  "t": "{0}<a class=\"btn btn-g\" href=\"#track-{1}\">Los {2} cursos</a>"
+ },
+ "87a6869cff4e": {
+  "en": "Two simulators. Every click is a trade or a month, with a coach that explains what happened.",
+  "t": "Dos simuladores. Cada clic es una operación o un mes, con un coach que te explica lo que pasó."
+ },
+ "87df60de337f": {
+  "en": "Resources",
+  "t": "Recursos"
+ },
+ "88306943fea7": {
+  "en": "Method",
+  "t": "Método"
+ },
+ "886e7e341e87": {
+  "en": "Try this too",
+  "t": "Prueba también esto"
+ },
+ "89b86ab0e66f": {
+  "en": "Language",
+  "t": "Idioma"
+ },
+ "8a858eee6405": {
+  "en": "Keep going: practice, track and read trade notes",
+  "t": "Sigue: practica, lleva el control y lee notas de trading"
+ },
+ "8ec3bce700f9": {
+  "en": "32px \"Bebas Neue\"",
+  "t": "32px \"Bebas Neue\""
+ },
+ "9128db05418d": {
+  "en": "Fed decisions, CPI, jobs, PMI, options expiry, tax deadlines and open enrollment, with export.",
+  "t": "Decisiones de la Fed, IPC, empleo, PMI, vencimiento de opciones y fechas de impuestos, con exportación."
+ },
+ "9219827dc3e2": {
+  "en": " Completed",
+  "t": " Completada"
+ },
+ "92b3d3d78165": {
+  "en": "A month grid with colored dots for key dates",
+  "t": "Una cuadrícula del mes con puntos de colores en las fechas clave"
+ },
+ "94ca7f751724": {
+  "en": "Practise with fake money",
+  "t": "Practica con dinero ficticio"
+ },
+ "96f32fcb03e1": {
+  "en": "Interactive tools",
+  "t": "Herramientas interactivas"
+ },
+ "9716b73fc019": {
+  "en": "Sell a put while you hold cash. If the stock ends below the strike you buy 100 shares.",
+  "t": "Vende una put mientras tienes efectivo. Si la acción termina por debajo del strike, compras 100 acciones."
+ },
+ "9a2fe9ae34be": {
+  "en": "Browse all lessons",
+  "t": "Ver todas las lecciones"
+ },
+ "9b07473c7ced": {
+  "en": "<a tabindex=\"-1\" aria-hidden=\"true\"",
+  "t": "<a tabindex=\"-1\" aria-hidden=\"true\""
+ },
+ "9b43c7f73f44": {
+  "en": "<span><b>{0}</b>picture lessons</span><span><b>{1}</b>tools</span><span><b>{2}</b>tracks</span>",
+  "t": "<span><b>{0}</b>lecciones con imágenes</span><span><b>{1}</b>herramientas</span><span><b>{2}</b>rutas</span>"
+ },
+ "9bd075eb9f25": {
+  "en": "No lesson matches “{0}”. Try the <a href=\"#glossary\">glossary</a>.",
+  "t": "Ninguna lección coincide con “{0}”. Prueba el <a href=\"#glossary\">glosario</a>."
+ },
+ "9c21a11a3fec": {
+  "en": "{0} · {1} lessons · {2} min",
+  "t": "{0} · {1} lecciones · {2} min"
+ },
+ "9ed1a6e97c34": {
+  "en": "{0} tools. Every one draws a picture of its answer, so you learn while you calculate. No sign-up needed.",
+  "t": "{0} herramientas. Cada una dibuja su respuesta, así aprendes mientras calculas. No necesitas registrarte."
+ },
+ "a0a91a94d1eb": {
+  "en": "Your age, your money, your return. See what it grows into, and what waiting ten years costs.",
+  "t": "Tu edad, tu dinero, tu rentabilidad. Mira en qué se convierte y cuánto te cuesta esperar diez años."
+ },
+ "a0ba594d94ed": {
+  "en": "<span class=\"meta\">Done in this browser</span>{0}",
+  "t": "<span class=\"meta\">Hechas en este navegador</span>{0}"
+ },
+ "a16536d78dc3": {
+  "en": "Courses",
+  "t": "Cursos"
+ },
+ "a34ee489ba32": {
+  "en": "see results",
+  "t": "ver resultados"
+ },
+ "a3c26da6dc6a": {
+  "en": " and the sources above",
+  "t": " y las fuentes de arriba"
+ },
+ "a5d7697b4422": {
+  "en": "<span>Track {0}</span><span>{1} courses</span><span>{2} lessons</span>",
+  "t": "<span>Ruta {0}</span><span>{1} cursos</span><span>{2} lecciones</span>"
+ },
+ "a5da3aeb77e2": {
+  "en": "500 12px \"IBM Plex Mono\"",
+  "t": "500 12px \"IBM Plex Mono\""
+ },
+ "a602c8499d6a": {
+  "en": "Hypothetical example for illustration, not a forecast or a recommendation.",
+  "t": "Ejemplo hipotético para ilustrar, no es un pronóstico ni una recomendación."
+ },
+ "a8ea2a17fbe2": {
+  "en": "Terms you will learn",
+  "t": "Términos que vas a aprender"
+ },
+ "aac8448ea7b0": {
+  "en": "All lessons. <em>{0}</em> in one list.",
+  "t": "Todas las lecciones. <em>{0}</em> en una sola lista."
+ },
+ "aaed5f0dfb93": {
+  "en": "Drag the stock price and watch a call or put make or lose money.",
+  "t": "Arrastra el precio de la acción y mira cómo una call o una put gana o pierde dinero."
+ },
+ "aca70e410d9c": {
+  "en": "Fig. {0}.1 · {1}",
+  "t": "Fig. {0}.1 · {1}"
+ },
+ "af728591ad5c": {
+  "en": "600 16px \"IBM Plex Sans\"",
+  "t": "600 16px \"IBM Plex Sans\""
+ },
+ "af78ca37d87b": {
+  "en": "Draw the key levels, VWAP and EMA ribbon on your own charts, with alerts.",
+  "t": "Dibuja los niveles clave, el VWAP y la cinta de EMA en tus propios gráficos, con alertas."
+ },
+ "afc6c45769ec": {
+  "en": "Zero",
+  "t": "Cero"
+ },
+ "b0089dce9008": {
+  "en": "Learn the market by playing with it",
+  "t": "Aprende el mercado jugando con él"
+ },
+ "b048378ee8f5": {
+  "en": "Learn",
+  "t": "Aprender"
+ },
+ "b10d6634633e": {
+  "en": "Six",
+  "t": "Seis"
+ },
+ "b1d702459399": {
+  "en": "Mobile",
+  "t": "Móvil"
+ },
+ "b22c2b2a7097": {
+  "en": "{0} courses. <em>{1}</em> lessons.",
+  "t": "{0} cursos. <em>{1}</em> lecciones."
+ },
+ "b3d50f6b131a": {
+  "en": "Seven quick sections with sliders: goals, money, time, risk and temperament. Get your profile, best-fit styles, risk level and a learning path.",
+  "t": "Siete secciones rápidas con deslizadores: metas, dinero, tiempo, riesgo y temperamento. Recibe tu perfil, los estilos que mejor te van, tu nivel de riesgo y una ruta de aprendizaje."
+ },
+ "b4339b0b5f50": {
+  "en": "Fig. {0}.{1} · {2}",
+  "t": "Fig. {0}.{1} · {2}"
+ },
+ "b4a1b960f53d": {
+  "en": "Eleven",
+  "t": "Once"
+ },
+ "b5857bd2cdeb": {
+  "en": "<span>Copy this code</span>",
+  "t": "<span>Copia este código</span>"
+ },
+ "b58b5a8ced9d": {
+  "en": "One",
+  "t": "Una"
+ },
+ "b68e94a7e7b0": {
+  "en": "Each lesson is a single idea, a drawing you can play with, and a two-minute quiz.",
+  "t": "Cada lección es una sola idea, un dibujo con el que puedes jugar y un quiz de dos minutos."
+ },
+ "b7225f170f2a": {
+  "en": "<a href=\"#about\">About &amp; feedback</a>{0}<a href=\"#plans\">Plans</a><a href=\"#editorial\">Editorial standards</a><a href=\"#privacy\">Privacy</a><a href=\"#terms\">Terms</a><a href=\"#contact\">Contact</a><a href=\"#assessment\">Investor self-assessment</a><a href=\"#dashboard\">My dashboard</a><a href=\"#calendar\">Market &amp; tax calendar</a><a href=\"#indicator\">TradingView indicator</a><a href=\"#sheets\">Spreadsheets</a><a href=\"#blog\">Trade notes</a><a href=\"#apps\">Apps</a><a href=\"#offline\">Offline &amp; app</a><a href=\"#glossary\">Glossary</a><a href=\"#settings\">Privacy &amp; settings</a>",
+  "t": "<a href=\"#about\">Acerca de y comentarios</a>{0}<a href=\"#plans\">Planes</a><a href=\"#editorial\">Normas editoriales</a><a href=\"#privacy\">Privacidad</a><a href=\"#terms\">Términos</a><a href=\"#contact\">Contacto</a><a href=\"#assessment\">Autoevaluación del inversionista</a><a href=\"#dashboard\">Mi panel</a><a href=\"#calendar\">Calendario del mercado y de impuestos</a><a href=\"#indicator\">Indicador de TradingView</a><a href=\"#sheets\">Hojas de cálculo</a><a href=\"#blog\">Notas de trading</a><a href=\"#apps\">Apps</a><a href=\"#offline\">Sin conexión y app</a><a href=\"#glossary\">Glosario</a><a href=\"#settings\">Privacidad y ajustes</a>"
+ },
+ "b753687e70e5": {
+  "en": "Draw PDH, PDL, PMH, PML, VWAP and the 13/48/200 EMA ribbon on your own charts, with alerts. Copy the Pine Script.",
+  "t": "Dibuja PDH, PDL, PMH, PML, el VWAP y la cinta de EMA 13/48/200 en tus propios gráficos, con alertas. Copia el Pine Script."
+ },
+ "b89653b2c515": {
+  "en": "All {0} lessons",
+  "t": "Las {0} lecciones"
+ },
+ "b9a22bcc336d": {
+  "en": "<span style=\"display:flex;flex-wrap:wrap;gap:8px\"><a href=\"#tools\">Tools</a><span aria-hidden=\"true\">/</span><span>{0}</span><span aria-hidden=\"true\">/</span><span>{1}</span></span><span>{2} / {3}</span>",
+  "t": "<span style=\"display:flex;flex-wrap:wrap;gap:8px\"><a href=\"#tools\">Herramientas</a><span aria-hidden=\"true\">/</span><span>{0}</span><span aria-hidden=\"true\">/</span><span>{1}</span></span><span>{2} / {3}</span>"
+ },
+ "bc02aae539cc": {
+  "en": "Related lessons",
+  "t": "Lecciones relacionadas"
+ },
+ "bcb982b123d6": {
+  "en": "lesson 01",
+  "t": "lección 01"
+ },
+ "c310d2b25a33": {
+  "en": "This page <em>hopped</em> away",
+  "t": "Esta página se fue <em>saltando</em>"
+ },
+ "c4eb90afa5a8": {
+  "en": "{0} terms in plain English, each linked to its lesson.",
+  "t": "{0} términos en palabras sencillas, cada uno enlazado a su lección."
+ },
+ "c4ffc4abfe19": {
+  "en": "{0}<span class=\"meta\">{1} min read</span><span class=\"meta up\" id=\"l-done\"{2}>Completed</span>",
+  "t": "{0}<span class=\"meta\">{1} min de lectura</span><span class=\"meta up\" id=\"l-done\"{2}>Completada</span>"
+ },
+ "c5d87b23f24e": {
+  "en": "Four",
+  "t": "Cuatro"
+ },
+ "c766e665183d": {
+  "en": "Breadcrumb",
+  "t": "Ruta de navegación"
+ },
+ "c78e5ee5b4c4": {
+  "en": "Automate with an AI agent",
+  "t": "Automatiza con un agente de IA"
+ },
+ "c871f1056ac9": {
+  "en": "More tools",
+  "t": "Más herramientas"
+ },
+ "c8a602a5d4ec": {
+  "en": "A labelled candle from a lesson",
+  "t": "Una vela con sus partes señaladas, de una lección"
+ },
+ "c94906f594f2": {
+  "en": "The AI course",
+  "t": "El curso de IA"
+ },
+ "caf4fc62797b": {
+  "en": "Every result comes with a picture of why.",
+  "t": "Cada resultado viene con una imagen que explica por qué."
+ },
+ "cc197ccd64b5": {
+  "en": "<span>Search all lessons</span>",
+  "t": "<span>Buscar en todas las lecciones</span>"
+ },
+ "cc207a0598e4": {
+  "en": "Try “VWAP”, “Roth” or “Airbnb”",
+  "t": "Prueba “VWAP”, “rueda” o “Airbnb”"
+ },
+ "ccc6970712d9": {
+  "en": "Questions people ask",
+  "t": "Preguntas que la gente hace"
+ },
+ "ccf1ef2f6012": {
+  "en": "Learn the market by <em>playing</em> with it.",
+  "t": "Aprende el mercado <em>jugando</em> con él."
+ },
+ "ce52ac2a9950": {
+  "en": "approve? yes",
+  "t": "¿aprobar? sí"
+ },
+ "cea6b709e007": {
+  "en": "Track your real trades",
+  "t": "Lleva el control de tus operaciones reales"
+ },
+ "cefa183f62e9": {
+  "en": "The wheel: sell puts from cash, sell calls from shares",
+  "t": "La rueda: vende puts con efectivo, vende calls con acciones"
+ },
+ "d17d977d7514": {
+  "en": "Full lesson",
+  "t": "Lección completa"
+ },
+ "d31d14332f12": {
+  "en": "<a class=\"more\" href=\"#l-wheel\">Lesson: The wheel strategy {0}</a>",
+  "t": "<a class=\"more\" href=\"#l-wheel\">Lección: La estrategia de la rueda {0}</a>"
+ },
+ "d3d761de3056": {
+  "en": "Filter by first letter",
+  "t": "Filtrar por la primera letra"
+ },
+ "d55738c984a3": {
+  "en": "No experience needed. Each lesson explains its terms, and the glossary at the end of every lesson covers the rest.",
+  "t": "No necesitas experiencia. Cada lección explica sus términos, y el glosario al final de cada lección cubre el resto."
+ },
+ "d70abd34da81": {
+  "en": "<a href=\"#track-{0}\" class=\"trk-tab{1}\"{2}><span class=\"tt-n\" aria-hidden=\"true\">{3}</span><span class=\"tt-b\"><b>{4}</b><small>{5} courses · {6} lessons{7}</small></span></a>",
+  "t": "<a href=\"#track-{0}\" class=\"trk-tab{1}\"{2}><span class=\"tt-n\" aria-hidden=\"true\">{3}</span><span class=\"tt-b\"><b>{4}</b><small>{5} cursos · {6} lecciones{7}</small></span></a>"
+ },
+ "d79350d3a048": {
+  "en": "Pages that work like tools",
+  "t": "Páginas que funcionan como herramientas"
+ },
+ "d7b0d637ab14": {
+  "en": "Drag open, high, low and close. The candle tells you who won.",
+  "t": "Arrastra la apertura, el máximo, el mínimo y el cierre. La vela te dice quién ganó."
+ },
+ "da421e83885a": {
+  "en": "700 16px \"IBM Plex Sans\"",
+  "t": "700 16px \"IBM Plex Sans\""
+ },
+ "da93c843bda9": {
+  "en": "My space",
+  "t": "Mi espacio"
+ },
+ "dac9edd0fc9a": {
+  "en": "Pine Script code next to the chart it draws",
+  "t": "Código de Pine Script junto al gráfico que dibuja"
+ },
+ "dad7927cf76d": {
+  "en": "{0} lessons in {1} tracks. Start with {2}.",
+  "t": "{0} lecciones en {1} rutas. Empieza con {2}."
+ },
+ "dd08e8a11741": {
+  "en": "Four money questions everyone asks, answered with numbers you can drag.",
+  "t": "Cuatro preguntas de dinero que todos se hacen, respondidas con números que puedes arrastrar."
+ },
+ "dd98a1251027": {
+  "en": "<span style=\"display:flex;gap:8px\"><a href=\"#play\">Playground</a><span aria-hidden=\"true\">/</span><span>Simulator</span></span><span>Fake money</span>",
+  "t": "<span style=\"display:flex;gap:8px\"><a href=\"#play\">Práctica</a><span aria-hidden=\"true\">/</span><span>Simulador</span></span><span>Dinero ficticio</span>"
+ },
+ "ddfeb348024b": {
+  "en": "Trading with AI, safely",
+  "t": "Trading con IA, de forma segura"
+ },
+ "e1a4dced950c": {
+  "en": "<span class=\"ab-b\"><span class=\"ab-k\">Self-assessment</span><b>{0}</b><small>{1}</small></span>\n      <span class=\"btn btn-p\">{2} {3}</span></a>",
+  "t": "<span class=\"ab-b\"><span class=\"ab-k\">Autoevaluación</span><b>{0}</b><small>{1}</small></span>\n      <span class=\"btn btn-p\">{2} {3}</span></a>"
+ },
+ "e1e6a99d8856": {
+  "en": "Ten years of money lessons, shared free. Learn it early, keep your cool, buy back your time.",
+  "t": "Diez años de lecciones de dinero, compartidas gratis. Aprende temprano, mantén la calma y recupera tu tiempo."
+ },
+ "e217b59659cf": {
+  "en": "What it assumes",
+  "t": "Qué supone"
+ },
+ "e68fc16c7bed": {
+  "en": "What it calculates",
+  "t": "Qué calcula"
+ },
+ "e6aad70fec33": {
+  "en": "Mistakes and takeaways",
+  "t": "Errores y conclusiones"
+ },
+ "e6ad5f794d2d": {
+  "en": "Goals, net worth, household income, lesson progress and your investor profile over time.",
+  "t": "Metas, patrimonio, ingresos del hogar, avance en las lecciones y tu perfil de inversionista a lo largo del tiempo."
+ },
+ "e6fa9ba6c2ae": {
+  "en": "Inflation 0.2% m/m",
+  "t": "Inflación 0,2 % mensual"
+ },
+ "e7842fb81da7": {
+  "en": "<a href=\"#c-{0}\"><span>{1} Previous course</span><strong>{2}</strong></a>",
+  "t": "<a href=\"#c-{0}\"><span>{1} Curso anterior</span><strong>{2}</strong></a>"
+ },
+ "e863feb27334": {
+  "en": "Pick one and start touching things.",
+  "t": "Elige una y empieza a tocar."
+ },
+ "e900e6a44176": {
+  "en": "Net worth from buying versus renting and investing the difference, year by year.",
+  "t": "Patrimonio si compras frente a si arriendas e inviertes la diferencia, año por año."
+ },
+ "e9750801e0cf": {
+  "en": "Figures checked {0}. Limits and rates change every year; confirm before you act. <a href=\"#editorial\">How lessons are checked</a>.",
+  "t": "Cifras revisadas en {0}. Los límites y las tasas cambian cada año; confírmalos antes de actuar. <a href=\"#editorial\">Cómo se revisan las lecciones</a>."
+ },
+ "e99f74e212e6": {
+  "en": "Part {0}",
+  "t": "Parte {0}"
+ },
+ "eab4fc7fec09": {
+  "en": "Holding shares? Sell a call. If the stock ends above the strike, your shares are sold.",
+  "t": "¿Tienes acciones? Vende una call. Si la acción termina por encima del strike, se venden tus acciones."
+ },
+ "ebd31dd66a86": {
+  "en": "<a class=\"next\" href=\"#{0}\"><span>Next{1} {2}</span><strong>{3}</strong></a>",
+  "t": "<a class=\"next\" href=\"#{0}\"><span>Siguiente{1} {2}</span><strong>{3}</strong></a>"
+ },
+ "f07ac22a9e93": {
+  "en": "Common questions",
+  "t": "Preguntas frecuentes"
+ },
+ "f14bcf9b919f": {
+  "en": "Twelve",
+  "t": "Doce"
+ },
+ "f16a813ee73d": {
+  "en": "<b>Calculators in this course:</b> {0}.",
+  "t": "<b>Calculadoras de este curso:</b> {0}."
+ },
+ "f2654b295999": {
+  "en": "Lessons for this course are on the way.",
+  "t": "Las lecciones de este curso vienen en camino."
+ },
+ "f2c631ee45a4": {
+  "en": "Posts are on the way.",
+  "t": "Las notas vienen en camino."
+ },
+ "f3cd4632fcbc": {
+  "en": "Three",
+  "t": "Tres"
+ },
+ "f5d5c5905700": {
+  "en": "Trade journal, wheel tracker, retirement planner and watchlist.",
+  "t": "Diario de trading, control de la rueda, plan de jubilación y lista de seguimiento."
+ },
+ "f80814a0e96a": {
+  "en": "Try four lessons in miniature",
+  "t": "Prueba cuatro lecciones en miniatura"
+ },
+ "f8d145c56e64": {
+  "en": "Research, automation, backtesting and indicators, with the guardrails that keep you safe.",
+  "t": "Investigación, automatización, backtesting e indicadores, con las protecciones que te mantienen a salvo."
+ },
+ "f8e4e04fa65d": {
+  "en": "<span class=\"up\">Completed</span>",
+  "t": "<span class=\"up\">Completada</span>"
+ },
+ "f8ed82841b9b": {
+  "en": "Five",
+  "t": "Cinco"
+ },
+ "f93367f1bde1": {
+  "en": "collect premium every month",
+  "t": "cobra prima cada mes"
+ },
+ "fa2dc69576fa": {
+  "en": "All {0} FiredBunny lessons in one list, grouped by track and course. Each lesson is one idea you can play with, then a quick check.",
+  "t": "Las {0} lecciones de FiredBunny en una sola lista, agrupadas por ruta y curso. Cada lección es una idea con la que puedes jugar, y luego una prueba rápida."
+ },
+ "fa4326280a9f": {
+  "en": "The lesson <a href=\"#{0}\">{1}</a> explains the idea step by step.",
+  "t": "La lección <a href=\"#{0}\">{1}</a> explica la idea paso a paso."
+ },
+ "fab43af1cb6d": {
+  "en": "Start ",
+  "t": "Empezar "
+ },
+ "fae8857826a3": {
+  "en": "All courses. <em>{0}</em> in {1} tracks.",
+  "t": "Todos los cursos. <em>{0}</em> en {1} rutas."
+ },
+ "fdc8792a62f8": {
+  "en": "<a class=\"next\" href=\"#c-{0}\"><span>Next course {1}</span><strong>{2}</strong></a>",
+  "t": "<a class=\"next\" href=\"#c-{0}\"><span>Curso siguiente {1}</span><strong>{2}</strong></a>"
+ },
+ "fea0ca457dc1": {
+  "en": "Mark as complete",
+  "t": "Marcar como completada"
+ },
+ "ff2ab3e5b194": {
+  "en": "<a class=\"more\" href=\"#{0}\">Lesson: {1} {2}</a>",
+  "t": "<a class=\"more\" href=\"#{0}\">Lección: {1} {2}</a>"
+ },
+ "ff99f4890dc9": {
+  "en": "<a class=\"ulink\" href=\"#courses\">Browse by course</a> · <a class=\"ulink\" href=\"#glossary\">Glossary of {0} terms</a>",
+  "t": "<a class=\"ulink\" href=\"#courses\">Ver por curso</a> · <a class=\"ulink\" href=\"#glossary\">Glosario de {0} términos</a>"
+ },
+ "ffc9020156db": {
+  "en": "Education only. Nothing here is financial, investment or tax advice. Most charts use simulated prices and most examples use made-up numbers; the Read a Real Company course uses real reported figures, checked October 2026. Trading and investing can lose money, including more than you put in with options or margin.",
+  "t": "Solo educación. Nada de lo que hay aquí es asesoría financiera, de inversión ni tributaria. La mayoría de los gráficos usan precios simulados y la mayoría de los ejemplos usan cifras inventadas; el curso Lee una empresa real usa cifras reportadas reales, revisadas en octubre de 2026. Invertir y hacer trading puede hacerte perder dinero, incluso más de lo que pusiste si usas opciones o margen."
+ }
+}

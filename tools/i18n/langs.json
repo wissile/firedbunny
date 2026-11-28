@@ -3,31 +3,11 @@
   "es": {
     "name": "Español",
     "htmlLang": "es",
-    "locale": "es-MX",
-    "hreflang": "es-419",
-    "ogLocale": "es_MX",
+    "locale": "es-CO",
+    "hreflang": "es-CO",
+    "ogLocale": "es_CO",
     "prefix": "/es",
     "countries": {
-      "MX": {
-        "name": "México",
-        "locale": "es-MX",
-        "currency": "MXN",
-        "tz": [
-          "America/Mexico_City",
-          "America/Cancun",
-          "America/Merida",
-          "America/Monterrey",
-          "America/Matamoros",
-          "America/Chihuahua",
-          "America/Ciudad_Juarez",
-          "America/Ojinaga",
-          "America/Mazatlan",
-          "America/Bahia_Banderas",
-          "America/Hermosillo",
-          "America/Tijuana"
-        ],
-        "scale": 20
-      },
       "CO": {
         "name": "Colombia",
         "locale": "es-CO",
@@ -38,7 +18,7 @@
         "scale": 4000
       }
     },
-    "defaultCountry": "MX",
+    "defaultCountry": "CO",
     "sections": {
       "l-": "/lecciones/",
       "c-": "/cursos/",
@@ -79,7 +59,30 @@
       "contact": "contacto"
     },
     "live": false,
-    "and": "y"
+    "and": "y",
+    "countriesLater": {
+      "MX": {
+        "name": "México",
+        "locale": "es-MX",
+        "currency": "MXN",
+        "tz": [
+          "America/Mexico_City",
+          "America/Cancun",
+          "America/Merida",
+          "America/Monterrey",
+          "America/Matamoros",
+          "America/Chihuahua",
+          "America/Ciudad_Juarez",
+          "America/Ojinaga",
+          "America/Mazatlan",
+          "America/Bahia_Banderas",
+          "America/Hermosillo",
+          "America/Tijuana"
+        ],
+        "scale": 20
+      }
+    },
+    "_why": "Colombia first (owner, 28 Nov 2026): Colombian Spanish, pesos and Colombian rules. Mexico (countriesLater) joins later and turns on the country picker; hreflang then becomes es-419."
   },
   "pt": {
     "name": "Português",
@@ -138,7 +141,9 @@
       "contact": "contato"
     },
     "live": false,
-    "and": "e"
+    "and": "e",
+    "paused": true,
+    "_why": "Waiting until Colombian Spanish is done (owner, 28 Nov 2026)."
   },
   "fr": {
     "name": "Français",

@@ -1,0 +1,1254 @@
+{
+ "00f2772637a3": {
+  "en": "Opening and closing trades within the same day.",
+  "t": "Abrir y cerrar operaciones en el mismo día."
+ },
+ "01a66de0f831": {
+  "en": "Which style fits you?",
+  "t": "¿Qué estilo te va?"
+ },
+ "023969250e79": {
+  "en": "Reading Charts",
+  "t": "Leer gráficos"
+ },
+ "02732cb4e084": {
+  "en": "Cash account",
+  "t": "Cuenta de efectivo"
+ },
+ "027dcf677fea": {
+  "en": "The fixed interest a bond pays each year, as a percent of its face value.",
+  "t": "El interés fijo que paga un bono cada año, como porcentaje de su valor nominal."
+ },
+ "028b38025675": {
+  "en": "Long-term gain",
+  "t": "Ganancia de largo plazo"
+ },
+ "0361ccdba938": {
+  "en": "Compounding",
+  "t": "Interés compuesto"
+ },
+ "04269bbe8198": {
+  "en": "Buy or sell only at your price or better.",
+  "t": "Compra o vende solo a tu precio o a uno mejor."
+ },
+ "044a8f9c0b33": {
+  "en": "Money a broker receives from market makers for sending them customer orders. It is how many $0-commission brokers earn.",
+  "t": "Dinero que un bróker recibe de los creadores de mercado por enviarles las órdenes de sus clientes. Así ganan muchos brókeres de comisión cero."
+ },
+ "0464d33df97d": {
+  "en": "Return and annualized yield from selling puts or covered calls.",
+  "t": "Rentabilidad y rendimiento anualizado de vender puts o calls cubiertas."
+ },
+ "049355f5f2c8": {
+  "en": "Volume-weighted average price",
+  "t": "Precio promedio ponderado por volumen"
+ },
+ "050cf5145cbc": {
+  "en": "Price with EMA lines and VWAP",
+  "t": "Precio con líneas EMA y VWAP"
+ },
+ "06ccc07f2c16": {
+  "en": "Stop order",
+  "t": "Orden stop"
+ },
+ "070001d926ee": {
+  "en": "Wick",
+  "t": "Mecha"
+ },
+ "0786ff3b19d8": {
+  "en": "Equity",
+  "t": "Participación"
+ },
+ "07bfca3f37bc": {
+  "en": "The instructions and context you give an AI model.",
+  "t": "Las instrucciones y el contexto que le das a un modelo de IA."
+ },
+ "0958deddf20b": {
+  "en": "Expectancy",
+  "t": "Esperanza matemática"
+ },
+ "09ca55ca52d2": {
+  "en": "Share",
+  "t": "Acción (unidad)"
+ },
+ "0a3d72a91a03": {
+  "en": "Fear of missing out",
+  "t": "Miedo a quedarse por fuera (FOMO)"
+ },
+ "0c09af833407": {
+  "en": "P/E, growth, margin, debt and cash flow at a glance.",
+  "t": "P/E, crecimiento, margen, deuda y flujo de caja de un vistazo."
+ },
+ "0c788f340115": {
+  "en": "Price closing through a key level, often with a jump in volume.",
+  "t": "El precio cierra al otro lado de un nivel clave, a menudo con un salto en el volumen."
+ },
+ "0ccdb9f8003d": {
+  "en": "Prompt injection",
+  "t": "Inyección de instrucciones"
+ },
+ "0d3b7ef6f675": {
+  "en": "Earning returns on your past returns, so growth speeds up over time.",
+  "t": "Ganar rentabilidad sobre tu rentabilidad pasada, así el crecimiento se acelera con el tiempo."
+ },
+ "0d48954f2205": {
+  "en": "A gain on something held more than 1 year. Taxed at 0%, 15% or 20% in the US.",
+  "t": "Una ganancia sobre algo que tuviste más de 1 año. En EE. UU. paga impuesto del 0 %, 15 % o 20 %."
+ },
+ "0d972afce858": {
+  "en": "Wheel",
+  "t": "Rueda"
+ },
+ "0f40be153860": {
+  "en": "Trading Styles",
+  "t": "Estilos de trading"
+ },
+ "1020fddb17af": {
+  "en": "Oversold",
+  "t": "Sobreventa"
+ },
+ "1072a086f806": {
+  "en": "Time value",
+  "t": "Valor temporal"
+ },
+ "10a8d341834a": {
+  "en": "Premarket high",
+  "t": "Máximo del premercado"
+ },
+ "11ca74626134": {
+  "en": "The gain you need to climb back from any loss.",
+  "t": "La ganancia que necesitas para recuperarte de cualquier pérdida."
+ },
+ "1267b9be4637": {
+  "en": "Fractional share",
+  "t": "Acción fraccionada"
+ },
+ "13699acfab96": {
+  "en": "Candles, key levels, breakouts, fakeouts and volume.",
+  "t": "Velas, niveles clave, rupturas, rupturas falsas y volumen."
+ },
+ "13e3f9263b93": {
+  "en": "Scoring text, such as headlines, as positive, negative or neutral.",
+  "t": "Calificar un texto, como un titular, como positivo, negativo o neutral."
+ },
+ "14145f2d27e2": {
+  "en": "The highest price traded before the 9:30 ET open. Often tested early in the day.",
+  "t": "El precio más alto negociado antes de la apertura de las 9:30 (hora de Nueva York). Suele ponerse a prueba temprano en el día."
+ },
+ "1597c32d9723": {
+  "en": "The part of an option price paid for the chance of a move before expiry. It melts to zero by expiration.",
+  "t": "La parte del precio de una opción que se paga por la posibilidad de un movimiento antes del vencimiento. Se derrite hasta cero al vencer."
+ },
+ "15e594471ec0": {
+  "en": "The lowest price of the prior regular session. A common support level.",
+  "t": "El precio más bajo de la sesión regular anterior. Un nivel de soporte común."
+ },
+ "164204be6e93": {
+  "en": "Two equity curves through a losing streak",
+  "t": "Dos curvas de capital durante una racha perdedora"
+ },
+ "166ab957ce11": {
+  "en": "Profit, breakeven and Greeks for any call or put.",
+  "t": "Ganancia, punto de equilibrio y griegas de cualquier call o put."
+ },
+ "16b02151aea9": {
+  "en": "Five questions, one suggested mix of styles.",
+  "t": "Cinco preguntas, una mezcla de estilos sugerida."
+ },
+ "18b8f8e59778": {
+  "en": "A fund that copies a market index such as the S&P 500, so you own every company in it at low cost.",
+  "t": "Un fondo que copia un índice del mercado, como el S&P 500, así eres dueño de todas las empresas que lo componen a bajo costo."
+ },
+ "19bdf0284b04": {
+  "en": "Five-number check",
+  "t": "Revisión de cinco números"
+ },
+ "19db242115b0": {
+  "en": "Research, automation, backtesting and indicators with AI, and the mistakes to avoid.",
+  "t": "Investigación, automatización, backtesting e indicadores con IA, y los errores que debes evitar."
+ },
+ "1a404a45d69b": {
+  "en": "A slice of one share, so you can invest by dollar amount instead of buying whole shares.",
+  "t": "Una porción de una acción, así puedes invertir por monto en vez de comprar acciones enteras."
+ },
+ "1c82119c3167": {
+  "en": "Expiration",
+  "t": "Vencimiento"
+ },
+ "1e45cc692ed4": {
+  "en": "A fee per trade. Most US brokers now charge $0 for online stock and ETF trades.",
+  "t": "Un cobro por operación. La mayoría de los brókeres de EE. UU. ya cobran US$0 por operaciones en línea de acciones y ETF."
+ },
+ "1fe71519b745": {
+  "en": "TradingView’s programming language for indicators, strategies and alerts.",
+  "t": "El lenguaje de programación de TradingView para indicadores, estrategias y alertas."
+ },
+ "205bdd606518": {
+  "en": "Volatility",
+  "t": "Volatilidad"
+ },
+ "208e06c9cbac": {
+  "en": "The right to sell 100 shares at the strike price. Gains when the stock falls.",
+  "t": "El derecho a vender 100 acciones al precio de ejercicio (strike). Gana cuando la acción baja."
+ },
+ "20940aca96d1": {
+  "en": "A moving average that gives more weight to recent prices, so it turns faster than an SMA.",
+  "t": "Una media móvil que les da más peso a los precios recientes, así gira más rápido que una SMA."
+ },
+ "24d64dd79c5f": {
+  "en": "Look-ahead bias",
+  "t": "Sesgo de anticipación"
+ },
+ "26db009730de": {
+  "en": "Simple moving average",
+  "t": "Media móvil simple"
+ },
+ "291a0a58dfa6": {
+  "en": "Call",
+  "t": "Call"
+ },
+ "29bae7d11e60": {
+  "en": "A message one app sends another when something happens, such as a TradingView alert that tells a bot to act.",
+  "t": "Un mensaje que una app le envía a otra cuando pasa algo, como una alerta de TradingView que le dice a un bot que actúe."
+ },
+ "2aa42157d30f": {
+  "en": "Previous day high",
+  "t": "Máximo del día anterior"
+ },
+ "2bdb0477a676": {
+  "en": "The most requests a service allows in a period. Going over gets you slowed down or blocked.",
+  "t": "El máximo de solicitudes que permite un servicio en un periodo. Si te pasas, te frenan o te bloquean."
+ },
+ "2bde101117a8": {
+  "en": "Spread",
+  "t": "Spread"
+ },
+ "2fc4b3180a6d": {
+  "en": "Bid-ask spread",
+  "t": "Diferencial de compra y venta"
+ },
+ "30ea35cdb29e": {
+  "en": "Trading before the regular session, roughly 4:00 to 9:30 ET. Volume is thin.",
+  "t": "Operaciones antes de la sesión regular, más o menos de 4:00 a 9:30 (hora de Nueva York). El volumen es bajo."
+ },
+ "31943e5ccc3c": {
+  "en": "Coupon",
+  "t": "Cupón"
+ },
+ "3359ab1caa3e": {
+  "en": "Drawdown",
+  "t": "Caída desde el máximo"
+ },
+ "335d7354a8ae": {
+  "en": "A 0 to 100 gauge of recent momentum. Above 70 is stretched up, below 30 stretched down.",
+  "t": "Un indicador de 0 a 100 del impulso reciente. Por encima de 70 está estirado hacia arriba, por debajo de 30 estirado hacia abajo."
+ },
+ "3384f751ffd6": {
+  "en": "A preset exit that closes the trade if price reaches the point that proves your idea wrong.",
+  "t": "Una salida fijada de antemano que cierra la operación si el precio llega al punto que demuestra que tu idea estaba equivocada."
+ },
+ "33b0fd0f74fa": {
+  "en": "Yield",
+  "t": "Rendimiento"
+ },
+ "34010fadcad0": {
+  "en": "A candle that opens and closes at almost the same price. Nobody won that period.",
+  "t": "Una vela que abre y cierra casi al mismo precio. Nadie ganó ese periodo."
+ },
+ "3424edc2354c": {
+  "en": "Confirmation",
+  "t": "Confirmación"
+ },
+ "35cf82f9d2a9": {
+  "en": "Revenue",
+  "t": "Ingresos"
+ },
+ "376d2d4b2f21": {
+  "en": "Options & the Wheel",
+  "t": "Opciones y la rueda"
+ },
+ "377735452ecc": {
+  "en": "Price pokes through a level, then closes back inside and reverses.",
+  "t": "El precio atraviesa un nivel, luego cierra otra vez adentro y se devuelve."
+ },
+ "3ac2826f1733": {
+  "en": "Webhook",
+  "t": "Webhook"
+ },
+ "3b18e8e33250": {
+  "en": "Volume",
+  "t": "Volumen"
+ },
+ "3b5b4cf01ee9": {
+  "en": "A chart bar showing the open, high, low and close for one period of time.",
+  "t": "Una barra del gráfico que muestra la apertura, el máximo, el mínimo y el cierre de un periodo."
+ },
+ "3c028c08f641": {
+  "en": "Option profit",
+  "t": "Ganancia de una opción"
+ },
+ "3c9f7869cf0a": {
+  "en": "Today’s volume compared with the usual volume for that time. 2× means twice as busy as normal.",
+  "t": "El volumen de hoy comparado con el volumen usual a esa hora. 2× significa el doble de movimiento de lo normal."
+ },
+ "3d3676e5e548": {
+  "en": "The range options are pricing in for any date.",
+  "t": "El rango que las opciones están descontando para cualquier fecha."
+ },
+ "3d94078fa3b2": {
+  "en": "Relative volume",
+  "t": "Volumen relativo"
+ },
+ "3e5c886d842d": {
+  "en": "How much you aim to make compared with how much you risk on a trade.",
+  "t": "Cuánto buscas ganar comparado con cuánto arriesgas en una operación."
+ },
+ "427c09c46127": {
+  "en": "Trading badly because of emotion, usually after a painful loss or a big win.",
+  "t": "Operar mal por las emociones, por lo general después de una pérdida dolorosa o una gran ganancia."
+ },
+ "42f6eefc0e5c": {
+  "en": "At Robinhood, a separate account an outside AI agent can trade in. The agent can only spend the money you put there.",
+  "t": "En Robinhood, una cuenta aparte en la que un agente de IA externo puede operar. El agente solo puede gastar el dinero que pongas ahí."
+ },
+ "44bab4f277e7": {
+  "en": "Short-term gain",
+  "t": "Ganancia de corto plazo"
+ },
+ "45214b594a7b": {
+  "en": "False breakout",
+  "t": "Ruptura falsa"
+ },
+ "45e2a96820cb": {
+  "en": "A gain on something held 1 year or less. Taxed like salary in the US.",
+  "t": "Una ganancia sobre algo que tuviste 1 año o menos. En EE. UU. paga impuesto como un salario."
+ },
+ "45eaad8b8ce8": {
+  "en": "Settlement",
+  "t": "Liquidación"
+ },
+ "46d4aee4cece": {
+  "en": "Free cash flow",
+  "t": "Flujo de caja libre"
+ },
+ "470ffc11fbee": {
+  "en": "Cash from operations minus spending on equipment and buildings. Money truly left over.",
+  "t": "El efectivo de la operación menos lo que se gasta en equipos y edificios. Dinero que de verdad sobra."
+ },
+ "475b4602c0d0": {
+  "en": "Exchange-traded fund",
+  "t": "Fondo cotizado (ETF)"
+ },
+ "47b149d4e2d3": {
+  "en": "An order that becomes a market order once price touches your stop price.",
+  "t": "Una orden que se vuelve orden a mercado cuando el precio toca tu precio stop."
+ },
+ "48488d751d41": {
+  "en": "Testing only on companies that still exist today, which hides the ones that failed.",
+  "t": "Probar solo con empresas que todavía existen hoy, lo que esconde las que fracasaron."
+ },
+ "4870ed172f9e": {
+  "en": "Sales minus costs equals profit",
+  "t": "Ventas menos costos es igual a utilidad"
+ },
+ "48d6857f6b28": {
+  "en": "Breakout",
+  "t": "Ruptura"
+ },
+ "4a67034a6034": {
+  "en": "An open standard that lets AI assistants connect to outside tools and data, such as a broker or a news feed.",
+  "t": "Un estándar abierto que deja a los asistentes de IA conectarse a herramientas y datos externos, como un bróker o un servicio de noticias."
+ },
+ "4ac0a9275e6d": {
+  "en": "Tax-loss harvesting",
+  "t": "Cosecha de pérdidas fiscales"
+ },
+ "4bc0b238ca97": {
+  "en": "The yearly move the options market is pricing in. High IV means expensive options.",
+  "t": "El movimiento anual que el mercado de opciones está descontando. Una IV alta significa opciones caras."
+ },
+ "4bfc46bc9213": {
+  "en": "Commission",
+  "t": "Comisión"
+ },
+ "4d6174a48092": {
+  "en": "A way for software to talk to a service, such as reading quotes or placing orders without opening the app.",
+  "t": "Una forma en que un programa habla con un servicio, por ejemplo para leer cotizaciones o poner órdenes sin abrir la app."
+ },
+ "4df6f583026a": {
+  "en": "Run hundreds of trades to see if your edge survives.",
+  "t": "Corre cientos de operaciones para ver si tu ventaja sobrevive."
+ },
+ "4ee754412ab6": {
+  "en": "Size every trade and survive the losing streaks.",
+  "t": "Dimensiona cada operación y sobrevive a las rachas perdedoras."
+ },
+ "5091adf85b6a": {
+  "en": "A fast way to stop an automated system, such as disconnecting the agent or cancelling every open order.",
+  "t": "Una forma rápida de detener un sistema automático, como desconectar el agente o cancelar todas las órdenes abiertas."
+ },
+ "520b432b2181": {
+  "en": "RSI above about 70. Price has risen fast and may pause, though strong trends can stay there.",
+  "t": "RSI por encima de 70, más o menos. El precio subió rápido y puede hacer una pausa, aunque las tendencias fuertes pueden quedarse ahí."
+ },
+ "529251526da1": {
+  "en": "A price area where sellers have stepped in before, acting like a ceiling.",
+  "t": "Una zona de precio donde los vendedores ya han entrado antes, y que funciona como un techo."
+ },
+ "5293e1185ba2": {
+  "en": "Overfitting",
+  "t": "Sobreajuste"
+ },
+ "566c1ff669e2": {
+  "en": "Price returning to a level it just broke to check it from the other side.",
+  "t": "El precio vuelve a un nivel que acaba de romper para probarlo desde el otro lado."
+ },
+ "56d8bc4efcd4": {
+  "en": "Selling a call against 100 shares you own, collecting premium in exchange for capping your upside.",
+  "t": "Vender una call sobre 100 acciones que tienes, cobrando una prima a cambio de ponerle techo a tu ganancia."
+ },
+ "57e1a32b3a75": {
+  "en": "The sharp drop in implied volatility after an event like earnings, which cuts option prices.",
+  "t": "La caída fuerte de la volatilidad implícita después de un evento como los resultados trimestrales, que baja los precios de las opciones."
+ },
+ "580b10e9e4d6": {
+  "en": "Cash a company pays to its shareholders, usually every quarter.",
+  "t": "Dinero en efectivo que una empresa les paga a sus accionistas, por lo general cada trimestre."
+ },
+ "5a0ba3bb83f0": {
+  "en": "Contract",
+  "t": "Contrato"
+ },
+ "5a0c77732d5b": {
+  "en": "Confirmation bias",
+  "t": "Sesgo de confirmación"
+ },
+ "5a5d725fc843": {
+  "en": "Sales minus costs over a period, ending in net profit.",
+  "t": "Ventas menos costos durante un periodo, que termina en la utilidad neta."
+ },
+ "5a6ec7bd6d21": {
+  "en": "Short-term versus long-term tax rates",
+  "t": "Tasas de impuestos a corto plazo frente a largo plazo"
+ },
+ "5c0dc0bdb70d": {
+  "en": "When an AI states something false with confidence, such as a made-up earnings number or a date that never happened.",
+  "t": "Cuando una IA afirma algo falso con seguridad, como una cifra de resultados inventada o una fecha que nunca pasó."
+ },
+ "5d291f28b180": {
+  "en": "When an option seller must buy or sell the shares because the buyer exercised.",
+  "t": "Cuando quien vendió una opción debe comprar o vender las acciones porque el comprador la ejerció."
+ },
+ "5d51f13dad9d": {
+  "en": "Holding trades for days to weeks to catch one swing in price.",
+  "t": "Mantener operaciones de días a semanas para atrapar una oscilación del precio."
+ },
+ "5f314a945357": {
+  "en": "Payment for order flow",
+  "t": "Pago por flujo de órdenes"
+ },
+ "5f85367af51f": {
+  "en": "How much time each candle covers, such as 2 minutes or 15 minutes.",
+  "t": "Cuánto tiempo cubre cada vela, por ejemplo 2 minutos o 15 minutos."
+ },
+ "60bf26723209": {
+  "en": "PDT rule",
+  "t": "Regla PDT"
+ },
+ "6203bf058a31": {
+  "en": "Pine Script",
+  "t": "Pine Script"
+ },
+ "6361723597cf": {
+  "en": "IV crush",
+  "t": "Caída de la IV"
+ },
+ "6585392f459f": {
+  "en": "The part of an option price that is real right now: how far it is in the money.",
+  "t": "La parte del precio de una opción que es real en este momento: qué tan dentro del dinero está."
+ },
+ "65d8d451ee22": {
+  "en": "Swing",
+  "t": "Swing"
+ },
+ "66db4ad49df0": {
+  "en": "Compare price to an estimate of what a business is worth.",
+  "t": "Compara el precio con un estimado de lo que vale un negocio."
+ },
+ "6729732a0bb9": {
+  "en": "A company’s own forecast for coming quarters. It can move the stock more than past results.",
+  "t": "El pronóstico de la propia empresa para los próximos trimestres. Puede mover la acción más que los resultados pasados."
+ },
+ "679338648297": {
+  "en": "The price of an option. Quoted per share, so multiply by 100 for one contract.",
+  "t": "El precio de una opción. Se cotiza por acción, así que multiplícalo por 100 para un contrato."
+ },
+ "69a706c0312e": {
+  "en": "The gap between the highest buy offer and the lowest sell offer. A hidden cost on every trade.",
+  "t": "La diferencia entre la mejor oferta de compra y la mejor oferta de venta. Un costo oculto en cada operación."
+ },
+ "6aba328d40e9": {
+  "en": "Candles breaking above a dashed level",
+  "t": "Velas que rompen por encima de un nivel punteado"
+ },
+ "6c2f2888c561": {
+  "en": "Premium",
+  "t": "Prima"
+ },
+ "6cb5dfbd4940": {
+  "en": "risk 10%",
+  "t": "riesgo 10 %"
+ },
+ "6cddd0d43357": {
+  "en": "Holding periods for each style",
+  "t": "Tiempo de tenencia de cada estilo"
+ },
+ "6d94758ed108": {
+  "en": "Data held back from tuning and used only to check whether a strategy still works.",
+  "t": "Datos que se guardan aparte al afinar y que se usan solo para revisar si una estrategia sigue funcionando."
+ },
+ "6dabedbc0a56": {
+  "en": "your slice",
+  "t": "tu porción"
+ },
+ "6ebe5f591243": {
+  "en": "A contract giving the right, but not the duty, to buy or sell 100 shares at a set price before a set date.",
+  "t": "Un contrato que da el derecho, pero no la obligación, de comprar o vender 100 acciones a un precio fijo antes de una fecha fija."
+ },
+ "6fb393447ae7": {
+  "en": "Bond",
+  "t": "Bono"
+ },
+ "6fbd32b3d21e": {
+  "en": "The average size of a candle’s range in dollars. Useful for setting stops.",
+  "t": "El tamaño promedio del rango de una vela, en dinero. Útil para poner stops."
+ },
+ "6fd38a595351": {
+  "en": "Wheel income",
+  "t": "Ingresos de la rueda"
+ },
+ "7035a917cdd2": {
+  "en": "Limit order",
+  "t": "Orden límite"
+ },
+ "73ca3a8d1ce2": {
+  "en": "Candlestick",
+  "t": "Vela japonesa"
+ },
+ "73f73f786267": {
+  "en": "How much an option price moves for a $1 move in the stock. Also a rough chance of finishing in the money.",
+  "t": "Cuánto se mueve el precio de una opción por cada US$1 que se mueve la acción. También es una probabilidad aproximada de terminar dentro del dinero."
+ },
+ "73fd4cdec969": {
+  "en": "A candle with a small body and a long lower wick. Sellers pushed down and buyers pushed back.",
+  "t": "Una vela con el cuerpo pequeño y una mecha inferior larga. Los vendedores empujaron hacia abajo y los compradores lo devolvieron."
+ },
+ "76a3e625b1e6": {
+  "en": "Liquidity",
+  "t": "Liquidez"
+ },
+ "78004363df6d": {
+  "en": "R multiple",
+  "t": "Múltiplo de R"
+ },
+ "782428110b5d": {
+  "en": "One option. It covers 100 shares.",
+  "t": "Una opción. Cubre 100 acciones."
+ },
+ "78fe2bd7aa45": {
+  "en": "Out of the money",
+  "t": "Fuera del dinero"
+ },
+ "7972832f4281": {
+  "en": "Tax-loss harvest",
+  "t": "Cosecha de pérdidas"
+ },
+ "79bcb3dd18f9": {
+  "en": "Win rate",
+  "t": "Tasa de acierto"
+ },
+ "79c11b3ffd6e": {
+  "en": "Margin of safety",
+  "t": "Margen de seguridad"
+ },
+ "79d30e71031a": {
+  "en": "Company profit divided by the number of shares.",
+  "t": "La utilidad de la empresa dividida por el número de acciones."
+ },
+ "7caea392023a": {
+  "en": "A company as a pie with your slice pulled out",
+  "t": "Una empresa como un pastel con tu porción separada"
+ },
+ "7ec16f66f7f8": {
+  "en": "Order types on a price ladder and a journal",
+  "t": "Tipos de órdenes en una escalera de precios y un diario"
+ },
+ "7f8d8e9a065a": {
+  "en": "Trading with fake money in a simulated account to test a strategy or a bot safely.",
+  "t": "Operar con dinero ficticio en una cuenta simulada para probar una estrategia o un bot sin riesgo."
+ },
+ "7fd768e4fe7b": {
+  "en": "Put",
+  "t": "Put"
+ },
+ "80b011ef6a18": {
+  "en": "Short vs long term, tax-loss harvesting and wash sales.",
+  "t": "Corto frente a largo plazo, cosecha de pérdidas y ventas ficticias."
+ },
+ "80e53e077c15": {
+  "en": "Profit factor",
+  "t": "Factor de beneficio"
+ },
+ "823bbd66d019": {
+  "en": "Value investing",
+  "t": "Inversión en valor"
+ },
+ "85decb73d143": {
+  "en": "Timeframe",
+  "t": "Temporalidad"
+ },
+ "877c023f22fb": {
+  "en": "Gross profit divided by gross loss. Above 1 means the strategy made money overall.",
+  "t": "La ganancia bruta dividida por la pérdida bruta. Por encima de 1 significa que la estrategia ganó dinero en total."
+ },
+ "8826e029263e": {
+  "en": "Income statement",
+  "t": "Estado de resultados"
+ },
+ "887bfdb9b93e": {
+  "en": "Profit from selling an investment for more than you paid.",
+  "t": "La ganancia de vender una inversión por más de lo que pagaste."
+ },
+ "889a131dd5a3": {
+  "en": "Kill switch",
+  "t": "Interruptor de emergencia"
+ },
+ "899b9b61662b": {
+  "en": "Chasing a move because it feels like everyone else is making money.",
+  "t": "Perseguir un movimiento porque parece que todos los demás están ganando dinero."
+ },
+ "8aa36fe05df3": {
+  "en": "Expected move",
+  "t": "Movimiento esperado"
+ },
+ "8ab35c4a46bf": {
+  "en": "An AI model that can take actions with tools, such as looking up a quote or placing an order, instead of only answering.",
+  "t": "Un modelo de IA que puede tomar acciones con herramientas, como buscar una cotización o poner una orden, en vez de solo responder."
+ },
+ "8bc2514ceb0e": {
+  "en": "In the money",
+  "t": "Dentro del dinero"
+ },
+ "8caa86a2fddc": {
+  "en": "All the money a company takes in from selling its products before any costs.",
+  "t": "Todo el dinero que entra a una empresa por vender sus productos, antes de cualquier costo."
+ },
+ "8cf71374fa09": {
+  "en": "Indicators",
+  "t": "Indicadores"
+ },
+ "8d8e19b2f0d3": {
+  "en": "Selling a put while holding enough cash to buy the 100 shares if assigned.",
+  "t": "Vender una put teniendo suficiente efectivo para comprar las 100 acciones si te asignan."
+ },
+ "8d8fd6765e18": {
+  "en": "Candle",
+  "t": "Vela"
+ },
+ "8dce170de238": {
+  "en": "Value",
+  "t": "Valor"
+ },
+ "8e53c34ea2d8": {
+  "en": "Premarket",
+  "t": "Premercado"
+ },
+ "8e7e7d37527a": {
+  "en": "Overbought",
+  "t": "Sobrecompra"
+ },
+ "90f0239d99f7": {
+  "en": "Retest",
+  "t": "Retesteo"
+ },
+ "921b02c557bc": {
+  "en": "Feeling a loss about twice as strongly as a gain of the same size, which makes people hold losers too long.",
+  "t": "Sentir una pérdida casi el doble de fuerte que una ganancia del mismo tamaño, lo que hace que la gente se quede demasiado tiempo con las posiciones perdedoras."
+ },
+ "937e8ef03b25": {
+  "en": "Extra evidence before entering: a close past the level, strong volume, a retest that holds.",
+  "t": "Evidencia extra antes de entrar: un cierre más allá del nivel, volumen fuerte, un retesteo que se sostiene."
+ },
+ "93c7b4f166b5": {
+  "en": "An option with no value if it expired now. Cheaper, and most of them expire worthless.",
+  "t": "Una opción que no valdría nada si venciera ahora. Es más barata, y la mayoría vencen sin valor."
+ },
+ "957ca8b0edf7": {
+  "en": "Where cash actually came from and went over a period.",
+  "t": "De dónde vino y a dónde fue de verdad el efectivo durante un periodo."
+ },
+ "971bb16039a0": {
+  "en": "How much and how fast a price moves around.",
+  "t": "Cuánto y qué tan rápido se mueve un precio."
+ },
+ "987b9ced08d4": {
+  "en": "Day",
+  "t": "Día"
+ },
+ "98bc091b28e4": {
+  "en": "Slippage",
+  "t": "Deslizamiento"
+ },
+ "9a00c0838c6f": {
+  "en": "Diversification",
+  "t": "Diversificación"
+ },
+ "9bd8899a339b": {
+  "en": "Margin account",
+  "t": "Cuenta de margen"
+ },
+ "9c6f364cfbe1": {
+  "en": "A fund that holds many investments and trades like one stock during the day.",
+  "t": "Un fondo que tiene muchas inversiones y se negocia como una sola acción durante el día."
+ },
+ "9d91e2909f49": {
+  "en": "A backtest mistake where the rules use information that was not yet known at that moment.",
+  "t": "Un error de backtesting en el que las reglas usan información que todavía no se conocía en ese momento."
+ },
+ "9dd062e82a3f": {
+  "en": "Call option",
+  "t": "Opción de compra"
+ },
+ "9ddd8f59efba": {
+  "en": "Relative strength index",
+  "t": "Índice de fuerza relativa"
+ },
+ "9e253470c876": {
+  "en": "Stop",
+  "t": "Stop"
+ },
+ "9e8ca62abb84": {
+  "en": "The average price paid today, weighted by volume. Resets every session.",
+  "t": "El precio promedio pagado hoy, ponderado por el volumen. Se reinicia en cada sesión."
+ },
+ "9ec196d4ba1c": {
+  "en": "An AI model trained on huge amounts of text that can read, write and reason in plain language. Claude and ChatGPT are LLMs.",
+  "t": "Un modelo de IA entrenado con enormes cantidades de texto que puede leer, escribir y razonar en lenguaje sencillo. Claude y ChatGPT son LLM."
+ },
+ "9ed3829d5620": {
+  "en": "Loss aversion",
+  "t": "Aversión a la pérdida"
+ },
+ "9f1d90a631a9": {
+  "en": "Cash flow statement",
+  "t": "Estado de flujos de efectivo"
+ },
+ "9fb3016b7ae0": {
+  "en": "How much an option price changes for a 1-point change in implied volatility.",
+  "t": "Cuánto cambia el precio de una opción por un punto de cambio en la volatilidad implícita."
+ },
+ "a093571e7769": {
+  "en": "Market Basics",
+  "t": "Bases del mercado"
+ },
+ "a136b7c6ea4f": {
+  "en": "Wheel strategy",
+  "t": "Estrategia de la rueda"
+ },
+ "a5efec41b671": {
+  "en": "How many shares or contracts you trade, set so a stop-out loses only your planned risk.",
+  "t": "Cuántas acciones o contratos negocias, calculado para que si salta el stop solo pierdas el riesgo que planeaste."
+ },
+ "a7566ce12add": {
+  "en": "The highest price of the prior regular session. A common resistance level.",
+  "t": "El precio más alto de la sesión regular anterior. Un nivel de resistencia común."
+ },
+ "a7dcb9a53e97": {
+  "en": "Win rate & R simulator",
+  "t": "Simulador de tasa de acierto y R"
+ },
+ "a817d7eb8e0f": {
+  "en": "Prompt",
+  "t": "Prompt"
+ },
+ "a882cca9d54f": {
+  "en": "Broker",
+  "t": "Bróker"
+ },
+ "a92ee4d0da58": {
+  "en": "Strike price",
+  "t": "Precio de ejercicio"
+ },
+ "a978d8e92c5f": {
+  "en": "Hallucination",
+  "t": "Alucinación"
+ },
+ "aa0e7e86b7aa": {
+  "en": "Shadow",
+  "t": "Sombra"
+ },
+ "aa15963867a5": {
+  "en": "Earnings per share",
+  "t": "Utilidad por acción"
+ },
+ "aa7e162b9d64": {
+  "en": "Pattern day trader rule",
+  "t": "Regla del pattern day trader"
+ },
+ "ab15eb3d82fc": {
+  "en": "AI agent",
+  "t": "Agente de IA"
+ },
+ "ab7b8ea47ead": {
+  "en": "Hammer",
+  "t": "Martillo"
+ },
+ "abbfcce59c68": {
+  "en": "Application programming interface",
+  "t": "Interfaz de programación de aplicaciones (API)"
+ },
+ "abf2534a8eb6": {
+  "en": "Implied volatility",
+  "t": "Volatilidad implícita"
+ },
+ "ad3ec25f25af": {
+  "en": "The gap between what you think a business is worth and the price you pay.",
+  "t": "La diferencia entre lo que crees que vale un negocio y el precio que pagas."
+ },
+ "af55336221b7": {
+  "en": "Balance sheet",
+  "t": "Balance general"
+ },
+ "afe36da67645": {
+  "en": "1 year",
+  "t": "1 año"
+ },
+ "b0226d02cda6": {
+  "en": "The average result per trade in R: win rate × average win minus loss rate × average loss.",
+  "t": "El resultado promedio por operación en R: tasa de acierto × ganancia promedio menos tasa de pérdida × pérdida promedio."
+ },
+ "b110f807a8b4": {
+  "en": "A price area where buyers have stepped in before, acting like a floor.",
+  "t": "Una zona de precio donde los compradores ya han entrado antes, y que funciona como un piso."
+ },
+ "b13140c49d3b": {
+  "en": "Share price divided by yearly EPS. Roughly how many years of profit you pay for.",
+  "t": "Precio de la acción dividido por la utilidad por acción anual. Más o menos cuántos años de utilidad estás pagando."
+ },
+ "b1d0abd55156": {
+  "en": "An account that trades only with your own settled cash. No borrowing.",
+  "t": "Una cuenta que solo opera con tu propio efectivo liquidado. Sin préstamos."
+ },
+ "b22282801403": {
+  "en": "Index fund",
+  "t": "Fondo indexado"
+ },
+ "b3558dfb1977": {
+  "en": "Call option payoff: small fixed loss, open-ended gain",
+  "t": "Resultado de una opción call: pérdida pequeña y fija, ganancia abierta"
+ },
+ "b5e0b544d4f7": {
+  "en": "Guidance",
+  "t": "Guía"
+ },
+ "b765cb393390": {
+  "en": "Noticing only the information that agrees with what you already believe.",
+  "t": "Fijarse solo en la información que coincide con lo que ya crees."
+ },
+ "b776f2a05fa7": {
+  "en": "Selling losing positions to offset gains, plus up to $3,000 of other income a year.",
+  "t": "Vender posiciones en pérdida para compensar ganancias, más hasta US$3.000 de otros ingresos al año (regla de EE. UU.)."
+ },
+ "b8c5bdd87fc9": {
+  "en": "The gap between the price you expected and the price you actually got.",
+  "t": "La diferencia entre el precio que esperabas y el precio que de verdad obtuviste."
+ },
+ "b9a4b93babe4": {
+  "en": "Hidden instructions inside text an AI reads, such as a web page or news story, that try to make it do something you did not ask.",
+  "t": "Instrucciones escondidas en un texto que lee una IA, como una página web o una noticia, que intentan hacerla hacer algo que no pediste."
+ },
+ "ba8f571e0f93": {
+  "en": "Expiry",
+  "t": "Fecha de vencimiento"
+ },
+ "bcecf4562f17": {
+  "en": "Stock",
+  "t": "Acción"
+ },
+ "bd661c732348": {
+  "en": "Protects up to $500,000 per customer, including $250,000 of cash, if a member broker fails. It does not cover market losses.",
+  "t": "En EE. UU., protege hasta US$500.000 por cliente, incluidos US$250.000 en efectivo, si quiebra un bróker miembro. No cubre las pérdidas del mercado."
+ },
+ "bdc98ffb870b": {
+  "en": "Sentiment analysis",
+  "t": "Análisis de sentimiento"
+ },
+ "bed1629b1c78": {
+  "en": "Cash-secured put",
+  "t": "Put garantizada con efectivo"
+ },
+ "bf1199089942": {
+  "en": "Fakeout",
+  "t": "Fakeout"
+ },
+ "c026873b411d": {
+  "en": "How much harvesting losses can cut this year’s tax bill.",
+  "t": "Cuánto puede bajar la cosecha de pérdidas los impuestos de este año."
+ },
+ "c045a1004b56": {
+  "en": "Curve fitting",
+  "t": "Ajuste de curva"
+ },
+ "c059a34ca162": {
+  "en": "Trading with AI",
+  "t": "Trading con IA"
+ },
+ "c0be7c8a25fc": {
+  "en": "Order types, account rules, psychology and journaling.",
+  "t": "Tipos de órdenes, reglas de la cuenta, psicología y diario."
+ },
+ "c10e0a88323c": {
+  "en": "Price-to-earnings ratio",
+  "t": "Relación precio-utilidad (P/E)"
+ },
+ "c24639fe899b": {
+  "en": "The drop from an account’s peak to its lowest point before a new peak.",
+  "t": "La caída desde el punto más alto de una cuenta hasta su punto más bajo, antes de un nuevo máximo."
+ },
+ "c27d48ae7f6f": {
+  "en": "An option that would be worth something if it expired now: a call below the stock price, a put above it.",
+  "t": "Una opción que valdría algo si venciera ahora: una call por debajo del precio de la acción, una put por encima."
+ },
+ "c44bf0907d08": {
+  "en": "Intrinsic value",
+  "t": "Valor intrínseco"
+ },
+ "c499047c5b2f": {
+  "en": "Exponential moving average",
+  "t": "Media móvil exponencial"
+ },
+ "c5645411e8b9": {
+  "en": "How easily you can buy or sell without moving the price. High volume means high liquidity.",
+  "t": "Qué tan fácil puedes comprar o vender sin mover el precio. Mucho volumen significa mucha liquidez."
+ },
+ "c6e3b6551008": {
+  "en": "Backtest",
+  "t": "Backtest"
+ },
+ "c6e92cdbdf66": {
+  "en": "Risk:reward",
+  "t": "Riesgo:beneficio"
+ },
+ "c6ffe04915e4": {
+  "en": "The old FINRA rule that required $25,000 to day trade often in a margin account. Removed in 2026.",
+  "t": "La antigua regla de FINRA que exigía US$25.000 para hacer day trading con frecuencia en una cuenta de margen en EE. UU. Se eliminó en 2026."
+ },
+ "c80d7bcd3537": {
+  "en": "Buy or sell right now at the best available price.",
+  "t": "Compra o vende ya mismo al mejor precio disponible."
+ },
+ "c8c705e5b722": {
+  "en": "Tuning a strategy so closely to past data that it stops working on new data.",
+  "t": "Afinar una estrategia tanto a los datos pasados que deja de funcionar con datos nuevos."
+ },
+ "c942ca8bee1f": {
+  "en": "Doji",
+  "t": "Doji"
+ },
+ "c99e7e848bf3": {
+  "en": "Agentic account",
+  "t": "Cuenta para agentes"
+ },
+ "ca8f00eab64e": {
+  "en": "Put option",
+  "t": "Opción de venta"
+ },
+ "cb9ea5ef6789": {
+  "en": "The last day an option exists. After that it is exercised or worthless.",
+  "t": "El último día en que existe una opción. Después se ejerce o no vale nada."
+ },
+ "cba508b12182": {
+  "en": "Gamma",
+  "t": "Gamma"
+ },
+ "cc4af2cbe9af": {
+  "en": "Profit or loss measured in units of your planned risk. Risk $100 and make $200 = +2R.",
+  "t": "Ganancia o pérdida medida en unidades de tu riesgo planeado. Arriesgas US$100 y ganas US$200 = +2R."
+ },
+ "ccd9a4a32040": {
+  "en": "Sell cash-secured puts until assigned, then sell covered calls until the shares are called away, and repeat.",
+  "t": "Vender puts garantizadas con efectivo hasta que te asignen, luego vender calls cubiertas hasta que te compren las acciones, y repetir."
+ },
+ "cd5c073fe84d": {
+  "en": "The price at which an option lets you buy or sell the shares.",
+  "t": "El precio al que una opción te deja comprar o vender las acciones."
+ },
+ "cd7624042ba6": {
+  "en": "Swing trading",
+  "t": "Swing trading"
+ },
+ "ceb84bb1f982": {
+  "en": "Vega",
+  "t": "Vega"
+ },
+ "cf16efa04e65": {
+  "en": "Day trading",
+  "t": "Day trading"
+ },
+ "cf50f00348f6": {
+  "en": "Rebuying the same or a substantially identical security within 30 days of a loss sale. The loss is deferred.",
+  "t": "Volver a comprar el mismo valor, o uno sustancialmente idéntico, dentro de los 30 días de venderlo con pérdida. La pérdida se aplaza (regla de EE. UU.)."
+ },
+ "cf9c71b014be": {
+  "en": "The thin line above or below a candle body showing the highest and lowest prices reached.",
+  "t": "La línea delgada por encima o por debajo del cuerpo de una vela que muestra los precios más altos y más bajos alcanzados."
+ },
+ "d08521b2c463": {
+  "en": "Capital gain",
+  "t": "Ganancia de capital"
+ },
+ "d08e55f59ddd": {
+  "en": "Rate limit",
+  "t": "Límite de solicitudes"
+ },
+ "d0edfb6e8c55": {
+  "en": "Sales",
+  "t": "Ventas"
+ },
+ "d0f5a2cffb3e": {
+  "en": "Position size",
+  "t": "Tamaño de posición"
+ },
+ "d3c856cea4f6": {
+  "en": "One unit of a stock. Buying 10 shares means you own 10 units.",
+  "t": "Una unidad de una acción. Comprar 10 acciones significa que tienes 10 unidades."
+ },
+ "d52f3dee2728": {
+  "en": "Calls, puts, the Greeks and a steady income strategy.",
+  "t": "Calls, puts, las griegas y una estrategia de ingresos constante."
+ },
+ "d5f3d2d43aba": {
+  "en": "The yearly income from an investment as a percent of its price. When bond prices fall, yields rise.",
+  "t": "El ingreso anual de una inversión como porcentaje de su precio. Cuando los precios de los bonos bajan, los rendimientos suben."
+ },
+ "d707841a94d8": {
+  "en": "Out-of-sample",
+  "t": "Fuera de la muestra"
+ },
+ "d7419111a446": {
+  "en": "How fast delta changes as the stock moves. Highest near the strike and close to expiry.",
+  "t": "Qué tan rápido cambia el delta cuando la acción se mueve. Es más alto cerca del strike y cerca del vencimiento."
+ },
+ "d804ddb1c190": {
+  "en": "Moving averages, VWAP, RSI and volatility, and how to combine them.",
+  "t": "Medias móviles, VWAP, RSI y volatilidad, y cómo combinarlos."
+ },
+ "dab8613f9e0e": {
+  "en": "Execution & Habits",
+  "t": "Ejecución y hábitos"
+ },
+ "dc53165e7620": {
+  "en": "Dividend",
+  "t": "Dividendo"
+ },
+ "dc76648c2982": {
+  "en": "An option whose strike is at or very near the current stock price.",
+  "t": "Una opción cuyo strike está en el precio actual de la acción o muy cerca."
+ },
+ "dc86522fb845": {
+  "en": "How many shares traded in a period. Volume shows how much conviction is behind a move.",
+  "t": "Cuántas acciones se negociaron en un periodo. El volumen muestra cuánta convicción hay detrás de un movimiento."
+ },
+ "dcd1935568eb": {
+  "en": "The plain average of the last N closing prices.",
+  "t": "El promedio simple de los últimos N precios de cierre."
+ },
+ "de09bded7973": {
+  "en": "Model Context Protocol",
+  "t": "Model Context Protocol (MCP)"
+ },
+ "df62207a1574": {
+  "en": "What steady saving and returns grow into over the years.",
+  "t": "En qué se convierten el ahorro constante y la rentabilidad con los años."
+ },
+ "e2396d7b4ca5": {
+  "en": "The range options are pricing in by a date: price × IV × √(days ÷ 365).",
+  "t": "El rango que las opciones están descontando hasta una fecha: precio × IV × √(días ÷ 365)."
+ },
+ "e31d972229de": {
+  "en": "Option",
+  "t": "Opción"
+ },
+ "e3c5a6d97c18": {
+  "en": "Taxes for Traders",
+  "t": "Impuestos para traders"
+ },
+ "e3e38579357e": {
+  "en": "Earnings and the three financial statements.",
+  "t": "Resultados trimestrales y los tres estados financieros."
+ },
+ "e436789b2626": {
+  "en": "Drawdown recovery",
+  "t": "Recuperación de una caída"
+ },
+ "e44aee5ca2d6": {
+  "en": "Paper trading",
+  "t": "Paper trading"
+ },
+ "e466d63b14c0": {
+  "en": "Testing a strategy’s rules on past data to see how it would have done.",
+  "t": "Probar las reglas de una estrategia con datos pasados para ver cómo le habría ido."
+ },
+ "e55df441e895": {
+  "en": "Assignment",
+  "t": "Asignación"
+ },
+ "e6dd93d065b1": {
+  "en": "The lowest price traded before the 9:30 ET open.",
+  "t": "El precio más bajo negociado antes de la apertura de las 9:30 (hora de Nueva York)."
+ },
+ "e71c7ed3cb74": {
+  "en": "Market order",
+  "t": "Orden a mercado"
+ },
+ "e78ce7af85b8": {
+  "en": "Company Fundamentals",
+  "t": "Fundamentales de una empresa"
+ },
+ "e7f61791f2d0": {
+  "en": "Tilt",
+  "t": "Tilt"
+ },
+ "e8d98b193f30": {
+  "en": "RSI below about 30. Price has fallen fast and may bounce, though downtrends can stay there.",
+  "t": "RSI por debajo de 30, más o menos. El precio cayó rápido y puede rebotar, aunque las tendencias bajistas pueden quedarse ahí."
+ },
+ "e932617e19c3": {
+  "en": "Stocks, bonds, index funds and options in plain words.",
+  "t": "Acciones, bonos, fondos indexados y opciones en palabras sencillas."
+ },
+ "e9c139a4293b": {
+  "en": "How many shares to buy so a loss stays at your risk limit.",
+  "t": "Cuántas acciones comprar para que una pérdida se quede en tu límite de riesgo."
+ },
+ "ecb7adc29d77": {
+  "en": "The right to buy 100 shares at the strike price. Gains when the stock rises.",
+  "t": "El derecho a comprar 100 acciones al precio de ejercicio (strike). Gana cuando la acción sube."
+ },
+ "ecfdc406653d": {
+  "en": "Stop loss",
+  "t": "Stop loss"
+ },
+ "eec119011372": {
+  "en": "Large language model",
+  "t": "Modelo de lenguaje grande (LLM)"
+ },
+ "ef32d0515ccc": {
+  "en": "Average true range",
+  "t": "Rango verdadero promedio"
+ },
+ "ef382e29e803": {
+  "en": "Risk & Sizing",
+  "t": "Riesgo y tamaño de posición"
+ },
+ "efb9402e13bd": {
+  "en": "Securities Investor Protection Corporation",
+  "t": "Securities Investor Protection Corporation (SIPC)"
+ },
+ "f01d41a6ec4b": {
+  "en": "Resistance",
+  "t": "Resistencia"
+ },
+ "f042bf480c51": {
+  "en": "Previous day low",
+  "t": "Mínimo del día anterior"
+ },
+ "f0b1e25a92dc": {
+  "en": "What a company owns (assets) and owes (liabilities) on one day. Assets = liabilities + equity.",
+  "t": "Lo que una empresa tiene (activos) y debe (pasivos) en un día. Activos = pasivos + patrimonio."
+ },
+ "f2341d0b385b": {
+  "en": "The company that holds your account and sends your orders to the market.",
+  "t": "La empresa que tiene tu cuenta y envía tus órdenes al mercado."
+ },
+ "f2df68273619": {
+  "en": "How much value an option loses each day from the passage of time.",
+  "t": "Cuánto valor pierde una opción cada día por el paso del tiempo."
+ },
+ "f32d5a3b17e6": {
+  "en": "Support",
+  "t": "Soporte"
+ },
+ "f4cda5639d47": {
+  "en": "risk 1%",
+  "t": "riesgo 1 %"
+ },
+ "f622b3a9f90b": {
+  "en": "Survivorship bias",
+  "t": "Sesgo de supervivencia"
+ },
+ "f641ee28eb4e": {
+  "en": "▲ price",
+  "t": "▲ precio"
+ },
+ "f76d9722acc6": {
+  "en": "The share of trades that make money.",
+  "t": "La proporción de operaciones que ganan dinero."
+ },
+ "f9ae58aa354c": {
+  "en": "Strike",
+  "t": "Strike"
+ },
+ "fa0ba2817df4": {
+  "en": "At the money",
+  "t": "En el dinero"
+ },
+ "faeb97530f9d": {
+  "en": "Extrinsic value",
+  "t": "Valor extrínseco"
+ },
+ "fbaa000bd1cf": {
+  "en": "Spreading money across many investments so one failure cannot sink you.",
+  "t": "Repartir el dinero entre muchas inversiones para que un solo fracaso no te hunda."
+ },
+ "fbd74900e35f": {
+  "en": "Day, swing, wheel and value investing, and how to blend them.",
+  "t": "Day trading, swing, la rueda e inversión en valor, y cómo mezclarlos."
+ },
+ "fc3f063fb6ea": {
+  "en": "Premarket low",
+  "t": "Mínimo del premercado"
+ },
+ "fc70b48c0442": {
+  "en": "When a trade officially completes and cash or shares change hands. US stocks settle in 1 business day (T+1).",
+  "t": "Cuando una operación se completa oficialmente y el efectivo o las acciones cambian de manos. Las acciones de EE. UU. se liquidan en 1 día hábil (T+1)."
+ },
+ "fcb874682660": {
+  "en": "A loan you make to a government or company. It pays you interest and returns your money at a set date.",
+  "t": "Un préstamo que le haces a un gobierno o a una empresa. Te paga intereses y te devuelve tu dinero en una fecha fija."
+ },
+ "fd2020ca8524": {
+  "en": "Buying good businesses below what they are worth and holding for years.",
+  "t": "Comprar buenos negocios por debajo de lo que valen y mantenerlos durante años."
+ },
+ "fd3b54d1bd97": {
+  "en": "Compounding & retirement",
+  "t": "Interés compuesto y retiro"
+ },
+ "fd96f9e3abf6": {
+  "en": "A small piece of ownership in a company. Its price moves with what investors think the company is worth.",
+  "t": "Una pequeña parte de la propiedad de una empresa. Su precio se mueve con lo que los inversionistas creen que vale la empresa."
+ },
+ "ff180f71cad9": {
+  "en": "$ dividends",
+  "t": "$ dividendos"
+ },
+ "ff3600a782c7": {
+  "en": "A brokerage account that lets you borrow against your holdings. Needs at least $2,000.",
+  "t": "Una cuenta de corretaje que te deja pedir prestado contra lo que tienes. En EE. UU. necesita al menos US$2.000."
+ },
+ "ff5cf164e72f": {
+  "en": "An AI agent connected through MCP to a broker",
+  "t": "Un agente de IA conectado por MCP a un bróker"
+ }
+}
