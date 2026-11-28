@@ -1,14 +1,2034 @@
 {
+ "0069322bbf58": {
+  "en": "Why traders read a slow chart and a fast chart together.",
+  "t": "Por qué los traders leen juntos un gráfico lento y uno rápido."
+ },
+ "0081cd5b8b1e": {
+  "en": "When the 13 EMA is above the 48 and the 48 is above the 200, all three trends agree on up.",
+  "t": "Cuando la EMA de 13 está por encima de la de 48 y la de 48 por encima de la de 200, las tres tendencias coinciden al alza."
+ },
+ "01288ad5771c": {
+  "en": "How far an indicator trails price. Longer periods lag more.",
+  "t": "Qué tan atrás del precio va un indicador. Los periodos más largos se retrasan más."
+ },
+ "0183cb8c6d33": {
+  "en": "A shorter period makes RSI jumpier.",
+  "t": "Un periodo más corto hace que el RSI salte más."
+ },
+ "02835adb428e": {
+  "en": "Price change",
+  "t": "Cambio de precio"
+ },
+ "02d81def2cb1": {
+  "en": "Drag the amber line (or its round handle) up and down, or use the slider. A touch counts when a candle comes within $0.18.",
+  "t": "Arrastra la línea ámbar (o su manija redonda) hacia arriba y hacia abajo, o usa el deslizador. Cuenta como toque cuando una vela llega a menos de US$0,18."
+ },
+ "02ebd780b8c2": {
+  "en": "Thin stocks",
+  "t": "Acciones con poca liquidez"
+ },
+ "031f4a8e898e": {
+  "en": "{0} candles = one 15-min candle",
+  "t": "{0} velas = una vela de 15 min"
+ },
+ "0335957f2dfe": {
+  "en": "These are FiredBunny’s rules of thumb for day trading, not facts. Test them in the trade replay before using real money.",
+  "t": "Estas son reglas prácticas de FiredBunny para el day trading, no hechos. Ponlas a prueba en la repetición de trading antes de usar dinero real."
+ },
+ "03e05d5e458e": {
+  "en": "StockCharts notes that VWAP was developed for institutions placing large orders: a buy filled below VWAP, or a sell filled above it, counts as a good fill. Day traders read it as the day’s fair price: intraday prices tend to fall when below VWAP and rise when above it. A pullback to VWAP that holds is a common long setup; losing VWAP after a run is a warning.",
+  "t": "StockCharts señala que el VWAP se creó para instituciones que ponen órdenes grandes: una compra ejecutada por debajo del VWAP, o una venta por encima, cuenta como una buena ejecución. Los day traders lo leen como el precio justo del día: los precios intradía tienden a caer cuando están por debajo del VWAP y a subir cuando están por encima. Un retroceso al VWAP que se sostiene es una configuración de compra común; perder el VWAP después de una subida es una advertencia."
+ },
+ "041bbe2883cb": {
+  "en": "PDH and PDL are the previous day’s high and low; PMH and PML are the high and low of the premarket session before the 9:30 a.m. ET open. Many traders watch the same four prices, so orders cluster there and price often stalls, bounces or speeds up when it reaches one.",
+  "t": "PDH y PDL son el máximo y el mínimo del día anterior; PMH y PML son el máximo y el mínimo de la sesión de premercado antes de la apertura de las 9:30 a. m., hora de Nueva York (en Colombia, 8:30 o 9:30 según la época del año). Muchos traders miran los mismos cuatro precios, así que las órdenes se acumulan ahí y el precio a menudo se frena, rebota o se acelera cuando llega a uno."
+ },
+ "0493472f11c3": {
+  "en": "Volatility & expected move",
+  "t": "Volatilidad y movimiento esperado"
+ },
+ "0613ef3f9291": {
+  "en": "Engulfing",
+  "t": "Envolvente"
+ },
+ "0682f7d0f94b": {
+  "en": "Placing the stop far below the level, which turns a small loss into a big one.",
+  "t": "Poner el stop muy por debajo del nivel, lo que convierte una pérdida pequeña en una grande."
+ },
+ "08326c6294d1": {
+  "en": "VWAP is now $40.60. Price pulls back to $40.65 on light volume.",
+  "t": "El VWAP ahora está en US$40,60. El precio retrocede a US$40,65 con poco volumen."
+ },
+ "08383f190a3e": {
+  "en": "Hover or tap the chart to pick a candle. The same three hours of trading in every view.",
+  "t": "Pasa el cursor o toca el gráfico para elegir una vela. Las mismas tres horas de trading en cada vista."
+ },
+ "09b024e9ff15": {
+  "en": "A breakout is price moving through a level that held before; a fakeout is a break that quickly fails and traps buyers. Waiting for confirmation, a close beyond the level on strong volume and a retest that holds, filters out many fakeouts at the cost of sometimes missing a move.",
+  "t": "Una ruptura es el precio atravesando un nivel que antes aguantó; una ruptura falsa es una ruptura que falla rápido y atrapa a los compradores. Esperar la confirmación (un cierre más allá del nivel con volumen fuerte y un retesteo que se sostiene) filtra muchas rupturas falsas, a cambio de perderte a veces un movimiento."
+ },
+ "0a4e071a8fea": {
+  "en": "Your target is $30.72, the next level above.",
+  "t": "Tu objetivo es US$30,72, el siguiente nivel por encima."
+ },
+ "0a97bfb1a1d6": {
+  "en": "Treating a level as one exact penny. Price often overshoots by a few cents before it reacts.",
+  "t": "Tratar un nivel como un centavo exacto. El precio a menudo se pasa unos centavos antes de reaccionar."
+ },
+ "0b2d7ced0b69": {
+  "en": "Lower timeframe = entry timing and stop placement.",
+  "t": "Temporalidad menor = momento de entrada y ubicación del stop."
+ },
+ "0b66b1a98d2a": {
+  "en": "A bounce off VWAP to buy",
+  "t": "Un rebote en el VWAP para comprar"
+ },
+ "0ba684f067b9": {
+  "en": "Pick two timeframes and use the same ones every day.",
+  "t": "Elige dos temporalidades y usa las mismas todos los días."
+ },
+ "0bb9c57c5248": {
+  "en": "Timeframes",
+  "t": "Temporalidades"
+ },
+ "0d2705cb0df1": {
+  "en": "The exact numbers matter less than using the same ones every day.",
+  "t": "Los números exactos importan menos que usar los mismos todos los días."
+ },
+ "0d8ba04f8f67": {
+  "en": "Chasing a breakout that is already several ATRs past the level.",
+  "t": "Perseguir una ruptura que ya va varios ATR más allá del nivel."
+ },
+ "0dcc15cdac4f": {
+  "en": "Sellers pushed price down and buyers pushed it back; a possible floor, if it forms at support",
+  "t": "Los vendedores empujaron el precio hacia abajo y los compradores lo devolvieron; un posible piso, si se forma en un soporte"
+ },
+ "0e046ad4426f": {
+  "en": "<span class=\"note\">Hover or tap a candle to read it.</span>",
+  "t": "<span class=\"note\">Pasa el cursor o toca una vela para leerla.</span>"
+ },
+ "0f01ed56a1e3": {
+  "en": "Example",
+  "t": "Ejemplo"
+ },
+ "0f86b17f3428": {
+  "en": "Back to the open",
+  "t": "Volver a la apertura"
+ },
+ "10083f4f5e56": {
+  "en": "Taking a 2-minute signal against a clear 15-minute trend.",
+  "t": "Tomar una señal de 2 minutos en contra de una tendencia clara de 15 minutos."
+ },
+ "101184a78bd8": {
+  "en": "The wicks show prices that were reached and rejected. A long lower wick means price went there and buyers refused it. A long upper wick means sellers refused higher prices. Several long wicks into the same price, close together, mark a level more clearly than any single candle.",
+  "t": "Las mechas muestran precios que se alcanzaron y se rechazaron. Una mecha inferior larga significa que el precio llegó ahí y los compradores no lo aceptaron. Una mecha superior larga significa que los vendedores rechazaron precios más altos. Varias mechas largas hacia el mismo precio, cerca unas de otras, marcan un nivel con más claridad que cualquier vela sola."
+ },
+ "103165f0ede5": {
+  "en": "At 9:48 a candle closes at $26.02, the retest dips to $25.96 and holds, and you buy at $26.00.",
+  "t": "A las 9:48 una vela cierra en US$26,02, el retesteo baja a US$25,96 y se sostiene, y compras en US$26,00."
+ },
+ "1058b67ff7d1": {
+  "en": "Volume counts how many shares traded. Big moves on big volume tend to last; moves on thin volume tend to fade.",
+  "t": "El volumen cuenta cuántas acciones se negociaron. Los movimientos grandes con mucho volumen tienden a durar; los movimientos con poco volumen tienden a apagarse."
+ },
+ "107566781fcc": {
+  "en": "A candle opens at $50.20, drops to $49.40 and closes at $50.30. The lower wick is $0.80 long and the body only $0.10.",
+  "t": "Una vela abre en US$50,20, baja a US$49,40 y cierra en US$50,30. La mecha inferior mide US$0,80 y el cuerpo solo US$0,10."
+ },
+ "10b13e168cd9": {
+  "en": "Fakeouts",
+  "t": "Rupturas falsas"
+ },
+ "10d4e5460f0d": {
+  "en": "Set a price, an implied volatility and a number of days. The cone shows the expected range.",
+  "t": "Fija un precio, una volatilidad implícita y un número de días. El cono muestra el rango esperado."
+ },
+ "120776b6a414": {
+  "en": "A clean break plus a retest is stronger than a first touch.",
+  "t": "Una ruptura limpia más un retesteo pesa más que un primer toque."
+ },
+ "1237c95d2312": {
+  "en": "Look for shorts on rallies to the 13 or 48",
+  "t": "Busca ventas en corto en rebotes a la de 13 o la de 48"
+ },
+ "12aeeaab8156": {
+  "en": "Rising price with {0} volume",
+  "t": "Precio al alza con volumen {0}"
+ },
+ "12e9fc4f71fe": {
+  "en": "Role reversal",
+  "t": "Cambio de papel"
+ },
+ "136962076e05": {
+  "en": "The 13, 48 and 200 EMA read short, medium and long trend on one chart. When they are stacked in order, 13 above 48 above 200, the uptrend is clean; stacked the other way, the downtrend is. Mixed means the trend is changing or choppy.",
+  "t": "Las EMA de 13, 48 y 200 leen la tendencia corta, mediana y larga en un solo gráfico. Cuando están alineadas en orden, 13 por encima de 48 por encima de 200, la tendencia alcista está limpia; alineadas al revés, lo está la bajista. Mixtas significa que la tendencia está cambiando o está picada."
+ },
+ "1424c73c77f1": {
+  "en": "Why not the 9 and 21 EMA?",
+  "t": "¿Por qué no las EMA de 9 y 21?"
+ },
+ "1426903c3403": {
+  "en": "Mixing SMA and EMA without checking which one your chart is showing.",
+  "t": "Mezclar SMA y EMA sin revisar cuál está mostrando tu gráfico."
+ },
+ "143f8c230505": {
+  "en": "Busy, high-volume candles count more than quiet ones.",
+  "t": "Las velas con mucho movimiento y volumen alto cuentan más que las tranquilas."
+ },
+ "1480a0c5ec9f": {
+  "en": "PDH, PDL, PMH, PML",
+  "t": "PDH, PDL, PMH, PML"
+ },
+ "14fda6ea29b5": {
+  "en": "Why 13, 48, 200",
+  "t": "Por qué 13, 48 y 200"
+ },
+ "1634d6a4b258": {
+  "en": "<b>Relative volume</b> compares today with normal. 2× means twice the usual activity for this time of day. Stocks that are “in play” often trade at 2× or more.",
+  "t": "El <b>volumen relativo</b> compara hoy con lo normal. 2× significa el doble de la actividad habitual para esta hora del día. Las acciones que están “en juego” a menudo negocian a 2× o más."
+ },
+ "16f8872209b3": {
+  "en": "A 2-minute candle tests $41.95, then closes back at $42.15. The next one closes higher at $42.30.",
+  "t": "Una vela de 2 minutos prueba US$41,95 y luego cierra otra vez en US$42,15. La siguiente cierra más arriba, en US$42,30."
+ },
+ "170a28a9db6d": {
+  "en": "Period",
+  "t": "Periodo"
+ },
+ "17b7923ad255": {
+  "en": "Your target is the next swing high at $19.10.",
+  "t": "Tu objetivo es el siguiente máximo de swing, en US$19,10."
+ },
+ "180df4982b9f": {
+  "en": "None of these is a signal on its own. A hammer in the middle of nowhere means little; a hammer on a level that held twice before is worth watching.",
+  "t": "Ninguna de estas es una señal por sí sola. Un martillo en medio de la nada significa poco; un martillo en un nivel que ya aguantó dos veces vale la pena vigilarlo."
+ },
+ "18dda9faae08": {
+  "en": "What are the premarket hours?",
+  "t": "¿Cuál es el horario del premercado?"
+ },
+ "19085d28054b": {
+  "en": "Treating any big volume bar as bullish. Heavy volume on a red candle at resistance is selling.",
+  "t": "Tomar cualquier barra de volumen grande como alcista. Mucho volumen en una vela roja en una resistencia es venta."
+ },
+ "19ddc4b1757a": {
+  "en": "What counts as high volume?",
+  "t": "¿Qué cuenta como volumen alto?"
+ },
+ "1a5c80d90f27": {
+  "en": "13 above 48 above 200: all three agree. {0} Favor longs.",
+  "t": "13 por encima de 48 por encima de 200: las tres coinciden. {0} Favorece las compras."
+ },
+ "1af2de27dddc": {
+  "en": "Press Play the day or drag the time slider. Toggle each level and follow the numbered reactions.",
+  "t": "Presiona Reproducir el día o arrastra el deslizador de la hora. Activa cada nivel y sigue las reacciones numeradas."
+ },
+ "1b3b6239a23f": {
+  "en": "old ceiling = new floor",
+  "t": "techo viejo = piso nuevo"
+ },
+ "1b7f68aaaf5b": {
+  "en": "At 10:15 price drifts back to $42.10, so you switch to the 2-minute chart.",
+  "t": "A las 10:15 el precio vuelve a US$42,10, así que cambias al gráfico de 2 minutos."
+ },
+ "1be81b7d97d0": {
+  "en": "Not reliably on their own. They describe who won a period. Their value comes from where they form: at support, resistance or VWAP.",
+  "t": "Por sí solos, no de forma confiable. Describen quién ganó un periodo. Su valor viene de dónde se forman: en un soporte, una resistencia o el VWAP."
+ },
+ "1c23e8e75dcb": {
+  "en": "When price makes a new high or low but the indicator does not, a sign the move is losing strength.",
+  "t": "Cuando el precio hace un máximo o un mínimo nuevo pero el indicador no, una señal de que el movimiento está perdiendo fuerza."
+ },
+ "1c84d8242cd2": {
+  "en": "<b>Support</b> is a floor: price falls to it and bounces. <b>Resistance</b> is a ceiling: price rises to it and gets pushed back down.",
+  "t": "El <b>soporte</b> es un piso: el precio cae hasta ahí y rebota. La <b>resistencia</b> es un techo: el precio sube hasta ahí y lo devuelven hacia abajo."
+ },
+ "1ce9c573ce61": {
+  "en": "Premarket risks",
+  "t": "Riesgos del premercado"
+ },
+ "1d7992ae675d": {
+  "en": "DEMO opens at $40 and climbs to $41.20 by 10:30, staying above VWAP the whole time.",
+  "t": "DEMO abre en US$40 y sube a US$41,20 para las 10:30, siempre por encima del VWAP."
+ },
+ "1e05c437d04d": {
+  "en": "Flipping through timeframes until one agrees with the trade you already want.",
+  "t": "Pasar de temporalidad en temporalidad hasta que una coincida con la operación que ya querías hacer."
+ },
+ "1ef87ad5e8cd": {
+  "en": "A pullback comes on only 30,000 shares, well below average. Sellers are not stepping in.",
+  "t": "Llega un retroceso con solo 30.000 acciones, muy por debajo del promedio. Los vendedores no están entrando."
+ },
+ "1f09332fcb9f": {
+  "en": "You buy at $42.30 with a stop at $41.85, below the 2-minute low, instead of $41.40 below the 15-minute candle.",
+  "t": "Compras en US$42,30 con un stop en US$41,85, debajo del mínimo de 2 minutos, en vez de US$41,40 debajo de la vela de 15 minutos."
+ },
+ "1fcba3c9776c": {
+  "en": "Shorting the moment RSI crosses 70 in a strong uptrend.",
+  "t": "Ir en corto en el momento en que el RSI cruza 70 en una tendencia alcista fuerte."
+ },
+ "1fd95e6f5ea4": {
+  "en": "For each candle, take its typical price, the average of the high, low and close, and multiply it by the candle’s volume. Keep running totals: VWAP is the sum of (typical price × volume) divided by the sum of volume since the open.",
+  "t": "Para cada vela, toma su precio típico, el promedio del máximo, el mínimo y el cierre, y multiplícalo por el volumen de la vela. Lleva totales acumulados: el VWAP es la suma de (precio típico × volumen) dividida entre la suma del volumen desde la apertura."
+ },
+ "215953ae73ca": {
+  "en": "Lag",
+  "t": "Retraso"
+ },
+ "2184f5a1ff22": {
+  "en": "Short periods react fast and give more false signals.",
+  "t": "Los periodos cortos reaccionan rápido y dan más señales falsas."
+ },
+ "2207883d9143": {
+  "en": "You do not chase. Two candles later price dips to $30.03 and closes at $30.12. The retest holds and price is above VWAP.",
+  "t": "No persigues el precio. Dos velas después, el precio baja a US$30,03 y cierra en US$30,12. El retesteo se sostiene y el precio está por encima del VWAP."
+ },
+ "22f82ec36f28": {
+  "en": "They confirm trends late and give false signals in sideways markets. They are better as a trend filter than as an entry signal.",
+  "t": "Confirman las tendencias tarde y dan señales falsas en mercados laterales. Sirven más como filtro de tendencia que como señal de entrada."
+ },
+ "23837eb44131": {
+  "en": "Formulas",
+  "t": "Fórmulas"
+ },
+ "23b2820baf69": {
+  "en": "{0} bars overbought",
+  "t": "{0} barras en sobrecompra"
+ },
+ "2404bd7efe40": {
+  "en": "IV = the yearly move options are pricing in.",
+  "t": "IV = el movimiento anual que están descontando las opciones."
+ },
+ "249cb92a7501": {
+  "en": "Your target stays the 15-minute high at $43.20.",
+  "t": "Tu objetivo sigue siendo el máximo de 15 minutos, US$43,20."
+ },
+ "25a80676cd15": {
+  "en": "Plan B: if price loses $25.40, stand aside or look for a short toward $24.90.",
+  "t": "Plan B: si el precio pierde US$25,40, hazte a un lado o busca una venta en corto hacia US$24,90."
+ },
+ "265091fa143e": {
+  "en": "Buying every reading under 30 in a stock that keeps falling.",
+  "t": "Comprar cada lectura por debajo de 30 en una acción que sigue cayendo."
+ },
+ "268767aabde3": {
+  "en": "How many touches make a level strong?",
+  "t": "¿Cuántos toques hacen fuerte un nivel?"
+ },
+ "26db8db9c7db": {
+  "en": "Expected move cone for a {0} stock with {1}% IV over {2} days",
+  "t": "Cono del movimiento esperado para una acción de {0} con {1} % de IV durante {2} días"
+ },
+ "26e3b0d0020d": {
+  "en": "Premarket traded between $25.40 (PML) and $25.95 (PMH). Price is now $25.80.",
+  "t": "El premercado se movió entre US$25,40 (PML) y US$25,95 (PMH). El precio ahora está en US$25,80."
+ },
+ "2753627598e3": {
+  "en": "Big funds use VWAP to judge whether they bought at a good price. Day traders use it as a line in the sand: favor longs above it and shorts below it.",
+  "t": "Los fondos grandes usan el VWAP para juzgar si compraron a buen precio. Los day traders lo usan como línea divisoria: favorecen las compras por encima y las ventas en corto por debajo."
+ },
+ "278d79fe84dc": {
+  "en": "Not on that alone. In a strong trend RSI can stay above 70 while price keeps rising. Check the trend first.",
+  "t": "No solo por eso. En una tendencia fuerte el RSI puede quedarse por encima de 70 mientras el precio sigue subiendo. Revisa primero la tendencia."
+ },
+ "2825d61a8957": {
+  "en": "No. RSI measures a stock against its own recent moves. Comparing a stock with an index is a different idea, also called relative strength.",
+  "t": "No. El RSI mide una acción frente a sus propios movimientos recientes. Comparar una acción con un índice es otra idea, que también se llama fuerza relativa."
+ },
+ "28522ae49292": {
+  "en": "Quiet, low-volume pullbacks inside a trend are normal.",
+  "t": "Los retrocesos tranquilos y de poco volumen dentro de una tendencia son normales."
+ },
+ "29540f759e5b": {
+  "en": "The same morning on a {0}-minute chart; the selected 15-minute block is highlighted",
+  "t": "La misma mañana en un gráfico de {0} minutos; el bloque de 15 minutos elegido está resaltado"
+ },
+ "2a81a9eab108": {
+  "en": "Sometimes you miss the move, which costs nothing. Chasing a fakeout costs a full loss.",
+  "t": "A veces te pierdes el movimiento, y eso no cuesta nada. Perseguir una ruptura falsa cuesta una pérdida completa."
+ },
+ "2caf8e61f938": {
+  "en": "You add to the trade on the quiet pullback and keep your stop under $12.40.",
+  "t": "Le sumas a la operación en el retroceso tranquilo y mantienes tu stop debajo de US$12,40."
+ },
+ "2ec8c63799ac": {
+  "en": "Over one year the expected move is simply price × IV: $100 × 0.36 = $36.",
+  "t": "En un año, el movimiento esperado es simplemente precio × IV: US$100 × 0,36 = US$36."
+ },
+ "2ee173dd70a7": {
+  "en": "Giving late-day VWAP crosses too much weight. By the afternoon VWAP barely moves.",
+  "t": "Darles demasiado peso a los cruces del VWAP al final del día. Por la tarde el VWAP casi no se mueve."
+ },
+ "2f739d14c7cf": {
+  "en": "StockCharts ChartSchool: Volume-weighted average price (VWAP)",
+  "t": "StockCharts ChartSchool: Volume-weighted average price (VWAP) (en inglés)"
+ },
+ "2fa171178330": {
+  "en": "Nothing until the afternoon",
+  "t": "Nada hasta la tarde"
+ },
+ "30ab6325a3bb": {
+  "en": "Wait, or trade smaller",
+  "t": "Espera, u opera más pequeño"
+ },
+ "31d035abd74c": {
+  "en": "RSI stays between 70 and 82 for six more days while price climbs to $26.",
+  "t": "El RSI se queda entre 70 y 82 seis días más mientras el precio sube a US$26."
+ },
+ "320970443548": {
+  "en": "Waiting for the retest",
+  "t": "Esperar el retesteo"
+ },
+ "320c9dc2e9bd": {
+  "en": "Pick a chart, press Next candle, and make the call when the game asks: Enter or Wait?",
+  "t": "Elige un gráfico, presiona Vela siguiente y decide cuando el juego te pregunte: ¿Entrar o Esperar?"
+ },
+ "326211c3d7c2": {
+  "en": "Volatility measures how much price swings. Options turn it into an expected move: the range price lands in about two times out of three.",
+  "t": "La volatilidad mide cuánto oscila el precio. Las opciones la convierten en un movimiento esperado: el rango donde el precio termina más o menos dos de cada tres veces."
+ },
+ "329ad608157e": {
+  "en": "Ignoring volume. A break on below-average volume fails far more often.",
+  "t": "Ignorar el volumen. Una ruptura con volumen por debajo del promedio falla con mucha más frecuencia."
+ },
+ "32e6ed56c4c0": {
+  "en": "DEMO closes at $10, $10, $10 and $10, then jumps to $12.",
+  "t": "DEMO cierra en US$10, US$10, US$10 y US$10, y luego salta a US$12."
+ },
+ "33e85b4c6c83": {
+  "en": "You risk $0.35 to make $0.40 to the high, a bit over 1R, with room for more if the trend holds.",
+  "t": "Arriesgas US$0,35 para ganar US$0,40 hasta el máximo, un poco más de 1R, con espacio para más si la tendencia se sostiene."
+ },
+ "34e8e297bd02": {
+  "en": "A typical fakeout pokes above resistance, often on thin volume, draws in buyers who fear missing out, then falls back below the level within a few candles. The trapped buyers’ stops then push price lower. StockCharts notes that brief moves past a level are common, which is why many traders treat levels as zones and wait for a close.",
+  "t": "Una ruptura falsa típica pincha por encima de la resistencia, a menudo con poco volumen, atrae a compradores con miedo a quedarse por fuera y luego vuelve a caer debajo del nivel en pocas velas. Los stops de esos compradores atrapados empujan después el precio más abajo. StockCharts señala que los movimientos breves más allá de un nivel son comunes, por eso muchos traders tratan los niveles como zonas y esperan un cierre."
+ },
+ "34f740b6c793": {
+  "en": "A candle closes back at $63.70. You buy with a stop at $62.70, just under the 48 EMA.",
+  "t": "Una vela vuelve a cerrar en US$63,70. Compras con un stop en US$62,70, justo debajo de la EMA de 48."
+ },
+ "3532172d67cb": {
+  "en": "A false breakout",
+  "t": "Una ruptura falsa"
+ },
+ "36c6beec6948": {
+  "en": "Small body near the top, long lower wick",
+  "t": "Cuerpo pequeño cerca de la parte de arriba, mecha inferior larga"
+ },
+ "36ce2eb9646a": {
+  "en": "Stacked averages mean the trend is clean.",
+  "t": "Medias alineadas significan que la tendencia está limpia."
+ },
+ "37e54ed24185": {
+  "en": "ATR set the stop and the size. IV told you how big a month could be.",
+  "t": "El ATR fijó el stop y el tamaño. La IV te dijo qué tan grande podría ser un mes."
+ },
+ "3958a43e871c": {
+  "en": "grey line = price",
+  "t": "línea gris = precio"
+ },
+ "3a247db8140a": {
+  "en": "<b>PMH and PML</b>: the highest and lowest prices traded this morning before 9:30 a.m. ET. Mark them just before the open, once the premarket range is set.",
+  "t": "<b>PMH y PML</b>: los precios más alto y más bajo negociados esta mañana antes de las 9:30 a. m., hora de Nueva York. Márcalos justo antes de la apertura, cuando ya está definido el rango del premercado."
+ },
+ "3a75ddaeede6": {
+  "en": "Volume is how many shares trade in each candle; it shows how many people took part in a move. Relative volume compares it with what is normal for that time of day: 2× means twice the usual activity. Moves on rising volume are more trustworthy than moves on fading volume.",
+  "t": "El volumen es cuántas acciones se negocian en cada vela; muestra cuánta gente participó en un movimiento. El volumen relativo lo compara con lo normal para esa hora del día: 2× significa el doble de la actividad habitual. Los movimientos con volumen creciente son más confiables que los movimientos con volumen que se apaga."
+ },
+ "3a8f1c00b6c6": {
+  "en": "Using the same dollar stop on a calm stock and a wild one.",
+  "t": "Usar el mismo stop en dólares en una acción tranquila y en una muy movida."
+ },
+ "3aee0bca209e": {
+  "en": "Using a VWAP carried over from yesterday. VWAP resets at every open.",
+  "t": "Usar un VWAP que viene de ayer. El VWAP se reinicia en cada apertura."
+ },
+ "3b2cda2a0044": {
+  "en": "StockCharts ChartSchool: Support and resistance",
+  "t": "StockCharts ChartSchool: Support and resistance (en inglés)"
+ },
+ "3b36da34cf4b": {
+  "en": "SEC Investor.gov: Extended-hours trading, investor bulletin (June 2022)",
+  "t": "SEC Investor.gov: Extended-hours trading, boletín para inversionistas (junio de 2022, en inglés)"
+ },
+ "3cd212d31d18": {
+  "en": "<b>VWAP</b> stands for volume-weighted average price. Each candle’s typical price is multiplied by its volume, the results are added up, and the total is divided by all the volume so far. It resets every morning.",
+  "t": "<b>VWAP</b> significa precio promedio ponderado por volumen (por sus siglas en inglés). El precio típico de cada vela se multiplica por su volumen, los resultados se suman y el total se divide entre todo el volumen hasta ahora. Se reinicia cada mañana."
+ },
+ "3d3d20b607c2": {
+  "en": "As the trend continues you trail your stop under the 13 EMA.",
+  "t": "Mientras la tendencia sigue, vas subiendo tu stop debajo de la EMA de 13."
+ },
+ "3df126e04deb": {
+  "en": "Few buyers took part, so there is little fuel to carry the break.",
+  "t": "Participaron pocos compradores, así que hay poco combustible para sostener la ruptura."
+ },
+ "3e918cf7953a": {
+  "en": "You buy at $18.20 with a stop at $17.85, just under the zone.",
+  "t": "Compras en US$18,20 con un stop en US$17,85, justo debajo de la zona."
+ },
+ "41c618826eec": {
+  "en": "One that fits how long you plan to hold. Day traders often watch 2- and 15-minute candles; swing traders use daily candles.",
+  "t": "Una que vaya con el tiempo que piensas mantener la operación. Los day traders suelen mirar velas de 2 y 15 minutos; los swing traders usan velas diarias."
+ },
+ "41cdb8a1acdf": {
+  "en": "Support & resistance",
+  "t": "Soporte y resistencia"
+ },
+ "41d23c583f80": {
+  "en": "RSI runs from 0 to 100; 14 periods is the default.",
+  "t": "El RSI va de 0 a 100; 14 periodos es lo predeterminado."
+ },
+ "4217a93cb321": {
+  "en": "One that fits your timeframe. Day traders use short averages on intraday charts; investors watch the 50- and 200-day.",
+  "t": "Uno que vaya con tu temporalidad. Los day traders usan medias cortas en gráficos intradía; los inversionistas miran las de 50 y 200 días."
+ },
+ "427ef7023420": {
+  "en": "Heavier weight on the newest closes makes the EMA respond sooner.",
+  "t": "Darles más peso a los cierres más nuevos hace que la EMA responda antes."
+ },
+ "42e9f76bd35e": {
+  "en": "The next three bars push higher on 90,000, 80,000 and 75,000 shares, all above average.",
+  "t": "Las tres barras siguientes empujan más arriba con 90.000, 80.000 y 75.000 acciones, todas por encima del promedio."
+ },
+ "436cb318905d": {
+  "en": "You risk $0.20 to make $0.60, a 3R trade. If the retest had failed, you would have skipped it and lost nothing.",
+  "t": "Arriesgas US$0,20 para ganar US$0,60, una operación de 3R. Si el retesteo hubiera fallado, la habrías dejado pasar sin perder nada."
+ },
+ "43b60fd27691": {
+  "en": "Buyers were in control from open to close, with almost no pullback.",
+  "t": "Los compradores tuvieron el control de la apertura al cierre, casi sin retrocesos."
+ },
+ "43deb0908207": {
+  "en": "DEMO usually trades about 50,000 shares per 2-minute bar around 10:00.",
+  "t": "DEMO suele negociar unas 50.000 acciones por barra de 2 minutos alrededor de las 10:00."
+ },
+ "446920853b28": {
+  "en": "13 = momentum, 48 = medium trend, 200 = big trend.",
+  "t": "13 = impulso, 48 = tendencia mediana, 200 = tendencia grande."
+ },
+ "449cc627e041": {
+  "en": "Use the EMA when you want speed and the SMA when you want fewer false turns.",
+  "t": "Usa la EMA cuando quieras velocidad y la SMA cuando quieras menos giros falsos."
+ },
+ "44ab85a252ad": {
+  "en": "Origin",
+  "t": "Origen"
+ },
+ "45e118d0563e": {
+  "en": "Normal",
+  "t": "Normal"
+ },
+ "465afe22aaf8": {
+  "en": "Breakout game chart, {0} of {1} candles shown",
+  "t": "Gráfico del juego de rupturas, {0} de {1} velas mostradas"
+ },
+ "46afdbd8c7c3": {
+  "en": "Price often pulls back to VWAP and reacts there.",
+  "t": "El precio a menudo retrocede al VWAP y reacciona ahí."
+ },
+ "46bec2a94543": {
+  "en": "Marking levels after the open, when price is already moving and you are reacting instead of planning.",
+  "t": "Marcar los niveles después de la apertura, cuando el precio ya se está moviendo y estás reaccionando en vez de planear."
+ },
+ "474f87ba36ae": {
+  "en": "RELATIVE VOLUME",
+  "t": "VOLUMEN RELATIVO"
+ },
+ "47eae82387f8": {
+  "en": "Volume is most useful where something should happen. Heavy volume on a break of resistance shows real demand; Schwab notes that breaking support takes heavy selling volume. A break on light volume, by contrast, is easier to reverse. Quiet, low-volume pullbacks inside a trend are normal and often healthy.",
+  "t": "El volumen es más útil donde algo debería pasar. Mucho volumen en la ruptura de una resistencia muestra demanda real; Schwab señala que romper un soporte requiere mucho volumen de venta. En cambio, una ruptura con poco volumen es más fácil de revertir. Los retrocesos tranquilos y de poco volumen dentro de una tendencia son normales y a menudo sanos."
+ },
+ "4836d4de4e3e": {
+  "en": "Those work the same way. The point is a short, a medium and a long average used consistently, not the exact numbers.",
+  "t": "Funcionan igual. Lo importante es una media corta, una mediana y una larga usadas siempre, no los números exactos."
+ },
+ "49737a36df23": {
+  "en": "Why they form",
+  "t": "Por qué se forman"
+ },
+ "499554b35cb7": {
+  "en": "Do these levels work for swing trading?",
+  "t": "¿Estos niveles sirven para el swing trading?"
+ },
+ "49aac78c921f": {
+  "en": "The 15-minute chart sets the direction; the 2-minute chart helps you enter at a good price with a tight stop.",
+  "t": "El gráfico de 15 minutos fija la dirección; el de 2 minutos te ayuda a entrar a buen precio con un stop ajustado."
+ },
+ "4aa7c6d11461": {
+  "en": "A strong uptrend",
+  "t": "Una tendencia alcista fuerte"
+ },
+ "4ac7f57ab813": {
+  "en": "Price chart with a {0}-period RSI below; overbought above {1}, oversold below {2}",
+  "t": "Gráfico de precio con un RSI de {0} periodos abajo; sobrecompra por encima de {1}, sobreventa por debajo de {2}"
+ },
+ "4ae804ff9e62": {
+  "en": "The 15-minute chart filters out noise. Use it to find the trend and the levels that matter today.",
+  "t": "El gráfico de 15 minutos filtra el ruido. Úsalo para encontrar la tendencia y los niveles que importan hoy."
+ },
+ "4bd291394543": {
+  "en": "Neutral",
+  "t": "Neutral"
+ },
+ "4be5ed1ddd38": {
+  "en": "A strong, lasting move",
+  "t": "Un movimiento fuerte y duradero"
+ },
+ "4d9b84d332e6": {
+  "en": "<span class=\"note\">Each candle adds its price × volume to the running total.</span>",
+  "t": "<span class=\"note\">Cada vela suma su precio × volumen al total acumulado.</span>"
+ },
+ "4f19e86a067a": {
+  "en": "Expecting a moving average to predict a turn. It can only confirm one after it starts.",
+  "t": "Esperar que una media móvil prediga un giro. Solo puede confirmarlo después de que empieza."
+ },
+ "4f3b8976a3ff": {
+  "en": "StockCharts notes that momentum oscillators can become overbought and stay so in a strong uptrend. Some analysts read the range instead of the extremes: Constance Brown observed that in bull markets RSI tends to swing between about 40 and 90, with 40 to 50 acting as support, and in bear markets between about 10 and 60, with 50 to 60 as resistance.",
+  "t": "StockCharts señala que los osciladores de impulso pueden entrar en sobrecompra y quedarse ahí en una tendencia alcista fuerte. Algunos analistas leen el rango en vez de los extremos: Constance Brown observó que en mercados alcistas el RSI tiende a moverse entre más o menos 40 y 90, con 40 a 50 actuando como soporte, y en mercados bajistas entre más o menos 10 y 60, con 50 a 60 como resistencia."
+ },
+ "4fd4dcf5f458": {
+  "en": "Above 70 = stretched up. Below 30 = stretched down.",
+  "t": "Por encima de 70 = estirado hacia arriba. Por debajo de 30 = estirado hacia abajo."
+ },
+ "5082699d702a": {
+  "en": "When a faster average crosses above or below a slower one.",
+  "t": "Cuando una media más rápida cruza por encima o por debajo de una más lenta."
+ },
+ "516a808260d7": {
+  "en": "Standard VWAP resets every session, so it is meant for intraday charts. Anchored VWAP, started from a chosen date, is a separate tool for longer views.",
+  "t": "El VWAP estándar se reinicia en cada sesión, así que es para gráficos intradía. El VWAP anclado, que arranca desde una fecha que tú escoges, es una herramienta aparte para miradas más largas."
+ },
+ "522b53152646": {
+  "en": "The nearest level above and below frame your target and your stop.",
+  "t": "El nivel más cercano por encima y por debajo enmarcan tu objetivo y tu stop."
+ },
+ "523fe0ddbccc": {
+  "en": "<b>The right side of VWAP</b>: above it for a long trade, below it for a short.",
+  "t": "<b>El lado correcto del VWAP</b>: por encima para una compra, por debajo para una venta en corto."
+ },
+ "5291b24ea056": {
+  "en": "Your first target is the morning high at $41.20.",
+  "t": "Tu primer objetivo es el máximo de la mañana, US$41,20."
+ },
+ "533e4827bfa9": {
+  "en": "Next candle ▶",
+  "t": "Vela siguiente ▶"
+ },
+ "53705ea9088d": {
+  "en": "It gives recent prices more weight",
+  "t": "Les da más peso a los precios recientes"
+ },
+ "545fe73d87d8": {
+  "en": "<span class=\"wg-title\">Presets</span>{0}",
+  "t": "<span class=\"wg-title\">Ejemplos</span>{0}"
+ },
+ "547d8fa17147": {
+  "en": "Stocks that trade little have wider gaps between the bid and ask, and a single large order can move them. That makes entries and stops less reliable. Many day traders set a minimum average daily volume before they will trade a stock at all.",
+  "t": "Las acciones que se negocian poco tienen diferenciales más amplios entre la compra y la venta, y una sola orden grande puede moverlas. Eso hace que las entradas y los stops sean menos confiables. Muchos day traders fijan un volumen diario promedio mínimo antes de operar una acción."
+ },
+ "54e26ac7979c": {
+  "en": "The <b class=\"acc\">13 EMA</b> tracks fast momentum and makes a handy trailing stop. The <b class=\"info\">48 EMA</b> shows the medium trend; it behaves almost exactly like the popular 50. The <b>200 EMA</b> is the big trend nearly everyone watches.",
+  "t": "La <b class=\"acc\">EMA de 13</b> sigue el impulso rápido y sirve como stop móvil. La <b class=\"info\">EMA de 48</b> muestra la tendencia mediana; se comporta casi exactamente como la popular de 50. La <b>EMA de 200</b> es la tendencia grande que casi todo el mundo mira."
+ },
+ "54f8de57f610": {
+  "en": "Who uses it",
+  "t": "Quién lo usa"
+ },
+ "5547aec0ee03": {
+  "en": "Keep only the nearest level above and below price; a chart full of lines hides the ones that matter.",
+  "t": "Quédate solo con el nivel más cercano por encima y por debajo del precio; un gráfico lleno de líneas esconde las que importan."
+ },
+ "55e89ae0b805": {
+  "en": "Holding the old ceiling from above is the classic role reversal.",
+  "t": "Sostener el techo viejo desde arriba es el cambio de papel clásico."
+ },
+ "567485a3125b": {
+  "en": "Switch timeframes, then hover a candle to see which 15-minute candle it belongs to.",
+  "t": "Cambia de temporalidad y pasa el cursor por una vela para ver a qué vela de 15 minutos pertenece."
+ },
+ "569aae5b47e4": {
+  "en": "Scenario",
+  "t": "Escenario"
+ },
+ "56ad75128288": {
+  "en": "Price pulls back to $50 on the 15-minute chart.",
+  "t": "El precio retrocede a US$50 en el gráfico de 15 minutos."
+ },
+ "56e92e6e837a": {
+  "en": "VWAP, the volume-weighted average price, is the average price paid so far today with busy candles counting more than quiet ones. It starts fresh at each open. Price above VWAP suggests buyers are in control; below it, sellers.",
+  "t": "El VWAP, el precio promedio ponderado por volumen, es el precio promedio pagado hasta ahora en el día, donde las velas con mucho movimiento cuentan más que las tranquilas. Empieza de cero en cada apertura. El precio por encima del VWAP sugiere que los compradores tienen el control; por debajo, los vendedores."
+ },
+ "571b0901bdcc": {
+  "en": "<b>RSI</b> (relative strength index) looks at the last 14 candles by default. If most of them closed up, RSI is high. If most closed down, it is low.",
+  "t": "El <b>RSI</b> (índice de fuerza relativa) mira las últimas 14 velas por defecto. Si la mayoría cerró al alza, el RSI está alto. Si la mayoría cerró a la baja, está bajo."
+ },
+ "57233b7dada9": {
+  "en": "Is buying above VWAP always right?",
+  "t": "¿Comprar por encima del VWAP siempre es lo correcto?"
+ },
+ "577030a29e88": {
+  "en": "During the rally RSI stayed above {0} for {1} bars in a row while price kept climbing. Overbought warns you not to chase. It does not mean sell. {2}",
+  "t": "Durante el rally, el RSI se quedó por encima de {0} durante {1} barras seguidas mientras el precio seguía subiendo. La sobrecompra te advierte que no persigas el precio. No significa vender. {2}"
+ },
+ "583b33361e49": {
+  "en": "Ignoring the timeframe. A hammer on a 1-minute chart means far less than one on a 15-minute chart.",
+  "t": "Ignorar la temporalidad. Un martillo en un gráfico de 1 minuto significa mucho menos que uno en un gráfico de 15 minutos."
+ },
+ "586bf09a3f14": {
+  "en": "WHO PUSHED",
+  "t": "QUIÉN EMPUJÓ"
+ },
+ "5891394a7014": {
+  "en": "FINRA describes premarket trading as typically 7 to 9:30 a.m. ET, though some brokers open earlier. Regular trading runs 9:30 a.m. to 4 p.m. ET.",
+  "t": "FINRA describe el premercado como de 7 a 9:30 a. m., hora de Nueva York, en general, aunque algunos brókeres abren antes. La sesión regular va de 9:30 a. m. a 4 p. m., hora de Nueva York."
+ },
+ "58bf0d893a99": {
+  "en": "Higher timeframe = direction and key levels.",
+  "t": "Temporalidad mayor = dirección y niveles clave."
+ },
+ "58cd1242f1be": {
+  "en": "Why does my VWAP differ from someone else’s?",
+  "t": "¿Por qué mi VWAP es distinto al de otra persona?"
+ },
+ "592b7afc7bf9": {
+  "en": "Options price DEMO at 30% IV. Over 30 days the expected move is $80 × 0.30 × √(30 ÷ 365) ≈ $6.88.",
+  "t": "Las opciones le ponen a DEMO una IV del 30 %. En 30 días, el movimiento esperado es US$80 × 0,30 × √(30 ÷ 365) ≈ US$6,88."
+ },
+ "594dad7f5c88": {
+  "en": "You risk $1.00 to make $2.40, a 2.4R trade that followed the trend instead of predicting it.",
+  "t": "Arriesgas US$1,00 para ganar US$2,40, una operación de 2,4R que siguió la tendencia en vez de predecirla."
+ },
+ "59bc51f846b5": {
+  "en": "You buy at $40.80 with a stop at $40.45, below VWAP and the wick.",
+  "t": "Compras en US$40,80 con un stop en US$40,45, debajo del VWAP y de la mecha."
+ },
+ "5a5725935967": {
+  "en": "▶ Play",
+  "t": "▶ Reproducir"
+ },
+ "5a7fa5626672": {
+  "en": "◀ Previous candle",
+  "t": "◀ Vela anterior"
+ },
+ "5a914737fedc": {
+  "en": "Do moving average crossovers work?",
+  "t": "¿Funcionan los cruces de medias móviles?"
+ },
+ "5aebbb9d99ae": {
+  "en": "VWAP resets at every open.",
+  "t": "El VWAP se reinicia en cada apertura."
+ },
+ "5b2fbea3cd83": {
+  "en": "Marking them",
+  "t": "Cómo marcarlos"
+ },
+ "5baa46ad8b94": {
+  "en": "It breaks above $12.40 on a bar of 140,000 shares. Relative volume is 140,000 ÷ 50,000 = 2.8×.",
+  "t": "Rompe por encima de US$12,40 en una barra de 140.000 acciones. El volumen relativo es 140.000 ÷ 50.000 = 2,8×."
+ },
+ "5bad74796475": {
+  "en": "No. It means many people are trading. Heavy volume on a down move shows strong selling.",
+  "t": "No. Significa que mucha gente está negociando. Mucho volumen en un movimiento a la baja muestra ventas fuertes."
+ },
+ "5c01eecbb204": {
+  "en": "SMA or EMA: which is better?",
+  "t": "SMA o EMA: ¿cuál es mejor?"
+ },
+ "5cdc91ad00a6": {
+  "en": "The space between the lines matters too. Lines fanning apart show a strengthening trend; lines squeezing together show it losing steam.",
+  "t": "El espacio entre las líneas también importa. Líneas que se abren muestran una tendencia que se fortalece; líneas que se juntan muestran que pierde fuerza."
+ },
+ "5d63fee01660": {
+  "en": "<b>Volume</b> is the number of shares traded during each candle. It shows how many people took part in the move.",
+  "t": "El <b>volumen</b> es el número de acciones negociadas durante cada vela. Muestra cuánta gente participó en el movimiento."
+ },
+ "5e56b84a8572": {
+  "en": "Candle closes above the level",
+  "t": "La vela cierra por encima del nivel"
+ },
+ "5eaab0991cdb": {
+  "en": "<span class=\"wg-title\">Levels</span>{0}",
+  "t": "<span class=\"wg-title\">Niveles</span>{0}"
+ },
+ "5f53aaedc1cc": {
+  "en": "Gap days",
+  "t": "Días con gap"
+ },
+ "5f862db49b49": {
+  "en": "Open and close almost equal, wicks either side",
+  "t": "Apertura y cierre casi iguales, mechas a ambos lados"
+ },
+ "5f97aeb85c3b": {
+  "en": "Expected move = price × IV × √(days ÷ 365).",
+  "t": "Movimiento esperado = precio × IV × √(días ÷ 365)."
+ },
+ "5fa7f11414fe": {
+  "en": "Intraday candles with the VWAP line; green shading above VWAP, red below",
+  "t": "Velas del día con la línea del VWAP; sombreado verde por encima del VWAP, rojo por debajo"
+ },
+ "5ffa854d35c9": {
+  "en": "The 15-min chart hides the noise. Use it for the trend and the day's key levels. This candle moved {0} in 15 minutes.",
+  "t": "El gráfico de 15 min esconde el ruido. Úsalo para la tendencia y los niveles clave del día. Esta vela se movió {0} en 15 minutos."
+ },
+ "602d04023c1c": {
+  "en": "What RSI setting should I use?",
+  "t": "¿Qué configuración de RSI debo usar?"
+ },
  "61a0ae3b849d": {
   "en": "Limits",
   "t": "Límites"
+ },
+ "61b294646988": {
+  "en": "Checklist",
+  "t": "Lista de chequeo"
+ },
+ "61ff6753d149": {
+  "en": "A <b>simple moving average (SMA)</b> adds up the last N closing prices and divides by N. Every close counts the same.",
+  "t": "Una <b>media móvil simple (SMA)</b> suma los últimos N precios de cierre y divide entre N. Cada cierre cuenta lo mismo."
+ },
+ "6275712ba66d": {
+  "en": "EMA +{0}",
+  "t": "EMA +{0}"
+ },
+ "627dba248110": {
+  "en": "DEMO stalls at $30.00 three times this morning. Average 2-minute volume is 40,000 shares.",
+  "t": "DEMO se frena en US$30,00 tres veces esta mañana. El volumen promedio por vela de 2 minutos es de 40.000 acciones."
+ },
+ "63c70ab38ed1": {
+  "en": "Both lag, because both are built from past prices. The EMA lags less.",
+  "t": "Las dos van con retraso, porque las dos se construyen con precios pasados. La EMA se retrasa menos."
+ },
+ "645fb95fe5f7": {
+  "en": "the {0}",
+  "t": "el {0}"
+ },
+ "6465c63916cb": {
+  "en": "Nothing useful",
+  "t": "Nada útil"
+ },
+ "64b01b4014cb": {
+  "en": "Is RSI the same as relative strength against the market?",
+  "t": "¿El RSI es lo mismo que la fuerza relativa frente al mercado?"
+ },
+ "6592908b83a4": {
+  "en": "Floors, ceilings, and why they swap roles.",
+  "t": "Pisos, techos y por qué cambian de papel."
+ },
+ "6733b8c18272": {
+  "en": "It ignores volume",
+  "t": "Ignora el volumen"
+ },
+ "67783cd2b1d6": {
+  "en": "DEMO trades at $80. Its 14-day ATR is $2.40, so a normal day covers about $2.40 from high to low.",
+  "t": "DEMO está en US$80. Su ATR de 14 días es US$2,40, así que un día normal cubre unos US$2,40 del máximo al mínimo."
+ },
+ "682ecc05af90": {
+  "en": "A long lower wick shows buyers stepping in. A long upper wick shows sellers.",
+  "t": "Una mecha inferior larga muestra compradores entrando. Una mecha superior larga muestra vendedores."
+ },
+ "6925b45a8ecd": {
+  "en": "Small body near the bottom, long upper wick",
+  "t": "Cuerpo pequeño cerca de la parte de abajo, mecha superior larga"
+ },
+ "6959602ec191": {
+  "en": "FINRA: Extended-hours trading, know the risks",
+  "t": "FINRA: Extended-hours trading, know the risks (en inglés)"
+ },
+ "69c60a67d912": {
+  "en": "RSI is broken",
+  "t": "El RSI está dañado"
+ },
+ "6a72c487f111": {
+  "en": "Price keeps stalling at $100. That is resistance. Press Next candle and watch for a breakout.",
+  "t": "El precio se sigue frenando en US$100. Eso es una resistencia. Presiona Vela siguiente y espera una ruptura."
+ },
+ "6a7925f0d46f": {
+  "en": "The same trading looks different on each timeframe. Use the slow chart for direction and the fast chart for timing.",
+  "t": "La misma negociación se ve distinta en cada temporalidad. Usa el gráfico lento para la dirección y el rápido para el momento de entrar."
+ },
+ "6adb991ab34b": {
+  "en": "Clean downtrend",
+  "t": "Tendencia bajista limpia"
+ },
+ "6c23f906a2ed": {
+  "en": "Does VWAP work on daily charts?",
+  "t": "¿El VWAP funciona en gráficos diarios?"
+ },
+ "6cbf6b9b49a7": {
+  "en": "Trust a candle signal more when it appears at support or resistance.",
+  "t": "Confía más en la señal de una vela cuando aparece en un soporte o una resistencia."
+ },
+ "6d55d6884c67": {
+  "en": "Placing the stop exactly on the level, where normal noise will hit it.",
+  "t": "Poner el stop justo sobre el nivel, donde el ruido normal lo va a tocar."
+ },
+ "6dbe4b0fb849": {
+  "en": "It uses more data",
+  "t": "Usa más datos"
+ },
+ "6def68ab23bc": {
+  "en": "Should I sell when RSI is above 70?",
+  "t": "¿Debo vender cuando el RSI está por encima de 70?"
+ },
+ "6e1615781649": {
+  "en": "Common shapes",
+  "t": "Formas comunes"
+ },
+ "6e4d7d1111d4": {
+  "en": "<b>ATR</b> (average true range) measures volatility in dollars: the average high-to-low range of the last 14 candles. Traders use it for stops, because a stop tighter than one ATR often gets hit by normal noise.",
+  "t": "El <b>ATR</b> (rango verdadero promedio) mide la volatilidad en dólares: el rango promedio de máximo a mínimo de las últimas 14 velas. Los traders lo usan para los stops, porque un stop más ajustado que un ATR a menudo lo toca el ruido normal."
+ },
+ "6ee0feabdc5e": {
+  "en": "J. Welles Wilder introduced RSI in his 1978 book <i>New Concepts in Technical Trading Systems</i>, with 14 periods as the default and 70 and 30 as overbought and oversold. It is calculated from the average gain and average loss over those periods, so it rises when up moves dominate and falls when down moves do.",
+  "t": "J. Welles Wilder presentó el RSI en su libro de 1978 <i>New Concepts in Technical Trading Systems</i>, con 14 periodos por defecto y 70 y 30 como sobrecompra y sobreventa. Se calcula a partir de la ganancia promedio y la pérdida promedio en esos periodos, así que sube cuando dominan los movimientos al alza y baja cuando dominan los movimientos a la baja."
+ },
+ "7100e781b74f": {
+  "en": "On Wednesday it pulls back to $18.05 and a 15-minute candle closes at $18.20. The old ceiling holds as a floor.",
+  "t": "El miércoles retrocede a US$18,05 y una vela de 15 minutos cierra en US$18,20. El techo viejo se sostiene como piso."
+ },
+ "710260cc7304": {
+  "en": "A bearish divergence is price making a higher high while RSI makes a lower high; a bullish divergence is the reverse. Divergences hint that momentum is fading, but in strong trends they can appear well before any turn, or not lead to one at all. Treat them as a reason to tighten a stop, not to bet against the trend.",
+  "t": "Una divergencia bajista es el precio haciendo un máximo más alto mientras el RSI hace un máximo más bajo; una divergencia alcista es al revés. Las divergencias sugieren que el impulso se está apagando, pero en tendencias fuertes pueden aparecer mucho antes de cualquier giro, o no llevar a ninguno. Tómalas como razón para ajustar un stop, no para apostar en contra de la tendencia."
+ },
+ "716b7b72450d": {
+  "en": "Buying the first touch of a level from below instead of waiting for a close above it and a retest.",
+  "t": "Comprar el primer toque de un nivel desde abajo en vez de esperar un cierre por encima y un retesteo."
+ },
+ "718a7e8a582e": {
+  "en": "Body",
+  "t": "Cuerpo"
+ },
+ "720de0cde0a3": {
+  "en": "1.5× avg",
+  "t": "1,5× prom."
+ },
+ "723f2c00d246": {
+  "en": "A higher chance the break fails",
+  "t": "Más probabilidad de que la ruptura falle"
+ },
+ "729431cd275a": {
+  "en": "A shooting star",
+  "t": "Una estrella fugaz"
+ },
+ "72c3edfb9d9e": {
+  "en": "Options are pricing a move of about ±{0} (±{1}) by day {2}. Price ends inside {3}–{4} roughly 2 times out of 3. In this sample, {5} of 6 paths ended inside.",
+  "t": "Las opciones descuentan un movimiento de cerca de ±{0} (±{1}) para el día {2}. El precio termina dentro de {3}–{4} más o menos 2 de cada 3 veces. En esta muestra, {5} de 6 trayectorias terminaron adentro."
+ },
+ "72fd10fc0445": {
+  "en": "overbought ▲",
+  "t": "sobrecompra ▲"
+ },
+ "755df7c13f4f": {
+  "en": "DEMO turns down at $18.00 three times in two weeks. That is resistance.",
+  "t": "DEMO gira hacia abajo en US$18,00 tres veces en dos semanas. Eso es una resistencia."
+ },
+ "76e5ab3a2dce": {
+  "en": "Body = open to close. Wicks = the high and the low.",
+  "t": "Cuerpo = de la apertura al cierre. Mechas = el máximo y el mínimo."
+ },
+ "77a8224f3dbc": {
+  "en": "Reading color only. A green candle with a long upper wick still shows sellers pushing back.",
+  "t": "Leer solo el color. Una vela verde con una mecha superior larga igual muestra vendedores empujando de vuelta."
+ },
+ "77a853865672": {
+  "en": "Averages lined up in order, 13 above 48 above 200 or the reverse, showing a clean trend.",
+  "t": "Medias en orden, 13 por encima de 48 por encima de 200 o al revés, que muestran una tendencia limpia."
+ },
+ "77ce2c8da56d": {
+  "en": "Sellers",
+  "t": "Vendedores"
+ },
+ "78eca20d7bed": {
+  "en": "Draw a zone across the wicks and closes, not a single line; brief pokes past a level are common.",
+  "t": "Dibuja una zona que cubra las mechas y los cierres, no una sola línea; los pinchazos breves más allá de un nivel son comunes."
+ },
+ "79f2cfa64a22": {
+  "en": "Latest candle: typical price (H+L+C)/3 = <b>{0}</b> × volume <b>{1}</b>. VWAP = <b>{2}</b> ÷ <b>{3}</b> = <b>{4}</b>",
+  "t": "Última vela: precio típico (M+m+C)/3 = <b>{0}</b> × volumen <b>{1}</b>. VWAP = <b>{2}</b> ÷ <b>{3}</b> = <b>{4}</b>"
+ },
+ "7a49ad3ac31f": {
+  "en": "Drag the time slider or press Play. Watch the running math build the VWAP line candle by candle.",
+  "t": "Arrastra el deslizador de la hora o presiona Reproducir. Mira cómo la cuenta acumulada construye la línea del VWAP vela por vela."
+ },
+ "7aec4238e141": {
+  "en": "The tighter stop risks $0.45 instead of $0.90, so the same $0.90 move to the target pays 2R instead of 1R.",
+  "t": "El stop más ajustado arriesga US$0,45 en vez de US$0,90, así que el mismo movimiento de US$0,90 hasta el objetivo paga 2R en vez de 1R."
+ },
+ "7baff8610f67": {
+  "en": "With a {0}-bar period the EMA turned up {1} bars after the bottom and the SMA {2}. {3}",
+  "t": "Con un periodo de {0} barras, la EMA giró hacia arriba {1} barras después del piso y la SMA {2}. {3}"
  },
  "7c7f5d049fad": {
   "en": "Level",
   "t": "Nivel"
  },
+ "7cc03710d5b0": {
+  "en": "StockCharts ChartSchool: Moving averages, simple and exponential",
+  "t": "StockCharts ChartSchool: Moving averages, simple and exponential (en inglés)"
+ },
+ "7ce354eea82e": {
+  "en": "A 5-period SMA adds the last five closes and divides by five: (10 + 10 + 10 + 10 + 12) ÷ 5 = $10.40.",
+  "t": "Una SMA de 5 periodos suma los últimos cinco cierres y divide entre cinco: (10 + 10 + 10 + 10 + 12) ÷ 5 = US$10,40."
+ },
+ "7e40999bf7be": {
+  "en": "Yesterday’s high and low and this morning’s premarket high and low are where price most often reacts.",
+  "t": "El máximo y el mínimo de ayer y el máximo y el mínimo del premercado de esta mañana son donde el precio reacciona con más frecuencia."
+ },
+ "7ea9a0fbb29a": {
+  "en": "On the 15-minute chart DEMO trades at $64. The 13 EMA is $63.50, the 48 EMA $62.80 and the 200 EMA $60.10: stacked up.",
+  "t": "En el gráfico de 15 minutos DEMO está en US$64. La EMA de 13 está en US$63,50, la de 48 en US$62,80 y la de 200 en US$60,10: alineadas al alza."
+ },
+ "7fe321cc1c49": {
+  "en": "Retest of the level holds",
+  "t": "El retesteo del nivel se sostiene"
+ },
+ "80506e0b6bb6": {
+  "en": "Stops and targets",
+  "t": "Stops y objetivos"
+ },
+ "8101dd4d6b64": {
+  "en": "Buying the first wick above the level before the candle closes.",
+  "t": "Comprar la primera mecha por encima del nivel antes de que cierre la vela."
+ },
+ "812f1a2248d4": {
+  "en": "ATR = the typical range in dollars. Use it to size stops.",
+  "t": "ATR = el rango típico en dólares. Úsalo para dimensionar los stops."
+ },
+ "82a44f45fd3d": {
+  "en": "StockCharts ChartSchool: Relative Strength Index (RSI)",
+  "t": "StockCharts ChartSchool: Relative Strength Index (RSI) (en inglés)"
+ },
+ "82e2b77f014f": {
+  "en": "On a strong day VWAP often acts as support on pullbacks.",
+  "t": "En un día fuerte, el VWAP a menudo actúa como soporte en los retrocesos."
+ },
+ "8337de97843e": {
+  "en": "Volume is the fuel behind every move.",
+  "t": "El volumen es el combustible detrás de cada movimiento."
+ },
+ "83974ba45667": {
+  "en": "Change the period and the two lines. Hover the chart to read RSI at any bar.",
+  "t": "Cambia el periodo y las dos líneas. Pasa el cursor por el gráfico para leer el RSI en cualquier barra."
+ },
+ "844c15d3315d": {
+  "en": "Reading it",
+  "t": "Cómo leerlas"
+ },
+ "84c7527bc239": {
+  "en": "<b>A retest that holds</b>: price comes back to the old level and bounces.",
+  "t": "<b>Un retesteo que se sostiene</b>: el precio vuelve al nivel viejo y rebota."
+ },
+ "84d5b2d08b47": {
+  "en": "Lower wick",
+  "t": "Mecha inferior"
+ },
+ "84e5f4734433": {
+  "en": "Sellers won the period overall, but buyers pushed price well off its low. At support, that can be the first sign of buyers stepping in.",
+  "t": "Los vendedores ganaron el periodo en total, pero los compradores alejaron bastante el precio de su mínimo. En un soporte, puede ser la primera señal de que están entrando compradores."
+ },
+ "850eb2689872": {
+  "en": "Schwab: How to read stock charts and trading patterns (May 2025)",
+  "t": "Schwab: How to read stock charts and trading patterns (mayo de 2025, en inglés)"
+ },
+ "8523c54e43e3": {
+  "en": "The same trading can look very different by timeframe. A 15-minute hammer can be made of seven 2-minute candles that show a clear flush and recovery. Many day traders read direction on a slower chart and time entries on a faster one; the <a href=\\\"#l-timeframes\\\">2-minute vs 15-minute</a> lesson shows how.",
+  "t": "La misma negociación puede verse muy distinta según la temporalidad. Un martillo de 15 minutos puede estar hecho de siete velas de 2 minutos que muestran una caída fuerte y una recuperación clara. Muchos day traders leen la dirección en un gráfico más lento y escogen el momento de entrar en uno más rápido; la lección <a href=\"#l-timeframes\">2 minutos frente a 15 minutos</a> muestra cómo."
+ },
+ "855259b611e7": {
+  "en": "<b>SMA</b>: add the last N closes and divide by N. Every close counts the same.",
+  "t": "<b>SMA</b>: suma los últimos N cierres y divide entre N. Cada cierre cuenta lo mismo."
+ },
+ "85a5d4590a3c": {
+  "en": "Draw levels where price turned more than once.",
+  "t": "Dibuja los niveles donde el precio giró más de una vez."
+ },
+ "8610581d3807": {
+  "en": "Heavy volume on the push and light volume on the pullback is what a healthy move looks like.",
+  "t": "Mucho volumen en el empuje y poco volumen en el retroceso: así se ve un movimiento sano."
+ },
+ "861f3b10b9fc": {
+  "en": "News from overnight is traded at the open, and many funds place orders near the close, which sets the day’s official price.",
+  "t": "Las noticias de la noche se negocian en la apertura, y muchos fondos ponen órdenes cerca del cierre, que fija el precio oficial del día."
+ },
+ "8744c4e41d64": {
+  "en": "Treat levels as zones a few cents wide, not exact pennies.",
+  "t": "Trata los niveles como zonas de unos cuantos centavos de ancho, no como centavos exactos."
+ },
+ "874a9432a33c": {
+  "en": "Is price above the 200 EMA a buy signal?",
+  "t": "¿El precio por encima de la EMA de 200 es una señal de compra?"
+ },
+ "87947d5f42d0": {
+  "en": "An <b>exponential moving average (EMA)</b> gives the newest closes more weight. It hugs price more closely and turns sooner, which is why many day traders prefer it.",
+  "t": "Una <b>media móvil exponencial (EMA)</b> les da más peso a los cierres más nuevos. Se pega más al precio y gira antes, por eso muchos day traders la prefieren."
+ },
+ "8860e780fb19": {
+  "en": "Each candle shows one slice of time: where price opened, where it closed, and how far it travelled in between.",
+  "t": "Cada vela muestra una porción de tiempo: dónde abrió el precio, dónde cerró y cuánto se movió entre los dos."
+ },
+ "8875acc382a7": {
+  "en": "A retest: old resistance acted as support",
+  "t": "Un retesteo: la resistencia vieja actuó como soporte"
+ },
+ "895a3eab8274": {
+  "en": "oversold ▼",
+  "t": "sobreventa ▼"
+ },
+ "89fa8942350d": {
+  "en": "Hover or tap the chart to read RSI at any bar.",
+  "t": "Pasa el cursor o toca el gráfico para leer el RSI en cualquier barra."
+ },
+ "8a0838ff851d": {
+  "en": "Green closes above its open; red closes below it.",
+  "t": "La verde cierra por encima de su apertura; la roja cierra por debajo."
+ },
+ "8a399a6cd292": {
+  "en": "Buyers",
+  "t": "Compradores"
+ },
+ "8af8205b9555": {
+  "en": "Strong trends can stay overbought for a long time.",
+  "t": "Las tendencias fuertes pueden quedarse en sobrecompra mucho tiempo."
+ },
+ "8b8fc5a672c0": {
+  "en": "Price pulls back to $63.45, touching the 13 EMA, while the 48 and 200 keep rising.",
+  "t": "El precio retrocede a US$63,45 y toca la EMA de 13, mientras la de 48 y la de 200 siguen subiendo."
+ },
+ "8c8f420a3f95": {
+  "en": "That shape is a hammer: sellers pushed price down and buyers pushed it all the way back.",
+  "t": "Esa forma es un martillo: los vendedores empujaron el precio hacia abajo y los compradores lo devolvieron hasta arriba."
+ },
+ "8d5552ac4b3a": {
+  "en": "Popular lengths",
+  "t": "Largos populares"
+ },
+ "8e77b11694d2": {
+  "en": "At 10:06 a candle closes at $30.18 on 92,000 shares, 2.3 times average: a close above the level on strong volume.",
+  "t": "A las 10:06 una vela cierra en US$30,18 con 92.000 acciones, 2,3 veces el promedio: un cierre por encima del nivel con volumen fuerte."
+ },
+ "8f06757cf13f": {
+  "en": "If the stock opens above PDH, yesterday’s high becomes the first support to watch, and the premarket high becomes the level to break. If it opens below PDL, the roles reverse. The bigger the gap, the more likely the first minutes are wild; many traders wait for the first 5 or 15 minutes to set a range before acting.",
+  "t": "Si la acción abre por encima del PDH, el máximo de ayer se vuelve el primer soporte para vigilar, y el máximo del premercado se vuelve el nivel a romper. Si abre por debajo del PDL, los papeles se invierten. Mientras más grande el gap, más probable es que los primeros minutos sean locos; muchos traders esperan los primeros 5 o 15 minutos para que se forme un rango antes de actuar."
+ },
+ "8f4fb0d49436": {
+  "en": "If DEMO keeps closing at $12, the SMA reaches $12 after five bars. The EMA gets close faster but never quite touches it.",
+  "t": "Si DEMO sigue cerrando en US$12, la SMA llega a US$12 después de cinco barras. La EMA se acerca más rápido pero nunca llega a tocarlo del todo."
+ },
+ "8f82512947a1": {
+  "en": "A stop $0.50 away would sit inside normal noise, so you place it 1 ATR away, at $77.60.",
+  "t": "Un stop a US$0,50 quedaría dentro del ruido normal, así que lo pones a 1 ATR, en US$77,60."
+ },
+ "8ff29c824795": {
+  "en": "A real breakout closes past the level on strong volume and holds the retest. A fakeout only pokes through.",
+  "t": "Una ruptura real cierra más allá del nivel con volumen fuerte y sostiene el retesteo. Una ruptura falsa solo lo pincha."
+ },
+ "901075c57d9e": {
+  "en": "Shooting star",
+  "t": "Estrella fugaz"
+ },
+ "9042d867c708": {
+  "en": "Price is above the 200 EMA, so the big trend is up.",
+  "t": "El precio está por encima de la EMA de 200, así que la tendencia grande es alcista."
+ },
+ "906e49cafa41": {
+  "en": "A confirmed breakout",
+  "t": "Una ruptura confirmada"
+ },
+ "90a0d3bb4b09": {
+  "en": "The level stopped mattering",
+  "t": "El nivel dejó de importar"
+ },
+ "90d60b254326": {
+  "en": "Can I short a failed breakout?",
+  "t": "¿Puedo ir en corto en una ruptura fallida?"
+ },
+ "9109ce2ee11c": {
+  "en": "Draw each as a zone a few cents wide, not one exact penny.",
+  "t": "Dibuja cada uno como una zona de unos cuantos centavos de ancho, no como un precio exacto."
+ },
+ "91f23298a6ac": {
+  "en": "A big green body",
+  "t": "Un cuerpo verde grande"
+ },
+ "91f7d0a4535c": {
+  "en": "Treat repeated crossing as a sign the level isn’t working today. Step aside rather than taking each cross.",
+  "t": "Toma los cruces repetidos como señal de que el nivel no está funcionando hoy. Hazte a un lado en vez de tomar cada cruce."
+ },
+ "927dc8ced25f": {
+  "en": "Buyers were rejected; a possible ceiling, if it forms at resistance",
+  "t": "Los compradores fueron rechazados; un posible techo, si se forma en una resistencia"
+ },
+ "929bb704428a": {
+  "en": "Should my stop go exactly at support?",
+  "t": "¿Mi stop debe ir justo en el soporte?"
+ },
+ "92f9f36dd052": {
+  "en": "A 0 to 100 gauge of how stretched a move is.",
+  "t": "Un medidor de 0 a 100 de qué tan estirado está un movimiento."
+ },
+ "9302045de41b": {
+  "en": "Long wicks mean rejection: price went there, and the other side pushed it back. One candle is only a hint. It matters most when it forms at a level you already marked.",
+  "t": "Las mechas largas significan rechazo: el precio llegó ahí y el otro lado lo devolvió. Una vela es solo una pista. Importa más cuando se forma en un nivel que ya marcaste."
+ },
+ "93423ee413a3": {
+  "en": "No. It tilts the odds toward longs in a trending day but whips back and forth on choppy days.",
+  "t": "No. Inclina las probabilidades hacia las compras en un día con tendencia, pero va y viene en los días picados."
+ },
+ "9357ca3975fb": {
+  "en": "Forgetting that IV usually jumps before earnings and drops right after.",
+  "t": "Olvidar que la IV suele saltar antes de los resultados trimestrales y caer justo después."
+ },
+ "9389f264bda0": {
+  "en": "No. It says the long-term trend is up. Many traders use it as a filter: only longs above it, only shorts below it.",
+  "t": "No. Dice que la tendencia de largo plazo es alcista. Muchos traders la usan como filtro: solo compras por encima, solo ventas en corto por debajo."
+ },
+ "94120c249d91": {
+  "en": "You feel like shorting because RSI is above 70. First you check the trend: higher highs, and price above the 48 EMA.",
+  "t": "Te dan ganas de ir en corto porque el RSI está por encima de 70. Primero revisas la tendencia: máximos cada vez más altos y el precio por encima de la EMA de 48."
+ },
+ "94320a980440": {
+  "en": "A retest",
+  "t": "Un retesteo"
+ },
+ "946bd0d7b1bb": {
+  "en": "After a break, the old ceiling often becomes the new floor. Traders who missed the breakout buy the pullback to it. That pullback is called a <b>retest</b>.",
+  "t": "Después de una ruptura, el techo viejo a menudo se vuelve el piso nuevo. Los traders que se perdieron la ruptura compran el retroceso hasta ahí. Ese retroceso se llama <b>retesteo</b>."
+ },
+ "948c28fe8f5e": {
+  "en": "A 2-minute candle wicks to $40.58 and closes at $40.80, back above VWAP.",
+  "t": "Una vela de 2 minutos deja una mecha hasta US$40,58 y cierra en US$40,80, otra vez por encima del VWAP."
+ },
+ "95c4a5f199e1": {
+  "en": "Above 70 is called <b>overbought</b> and below 30 is <b>oversold</b>. Those words sound like signals, but they only mean the move is stretched.",
+  "t": "Por encima de 70 se llama <b>sobrecompra</b> y por debajo de 30 <b>sobreventa</b>. Esas palabras suenan a señales, pero solo significan que el movimiento está estirado."
+ },
+ "96149379b903": {
+  "en": "Price is testing {0} from below. Sellers defended this price before.",
+  "t": "El precio está probando el {0} desde abajo. Los vendedores ya defendieron este precio antes."
+ },
+ "9784caf72680": {
+  "en": "A sharp change in control from one side to the other",
+  "t": "Un cambio brusco del control de un lado al otro"
+ },
+ "97a210947827": {
+  "en": "Hover or tap any candle, or use the arrows, to read the story each one tells.",
+  "t": "Pasa el cursor o toca cualquier vela, o usa las flechas, para leer la historia que cuenta cada una."
+ },
+ "97be072e2400": {
+  "en": "The move is stretched, so avoid chasing a new entry",
+  "t": "El movimiento está estirado, así que evita perseguirlo con una entrada nueva"
+ },
+ "980d5e2dd44b": {
+  "en": "Level ",
+  "t": "Nivel "
+ },
+ "982b8245e732": {
+  "en": "A morning of 2-minute candles; the selected candle is highlighted",
+  "t": "Una mañana de velas de 2 minutos; la vela elegida está resaltada"
+ },
+ "98d2aefb5291": {
+  "en": "A body that covers the whole body before it, in the other colour",
+  "t": "Un cuerpo que cubre todo el cuerpo anterior, del otro color"
+ },
+ "9968d34e3a6d": {
+  "en": "Acting before the candle closes. A hammer can turn into a big red candle in its last minute.",
+  "t": "Actuar antes de que cierre la vela. Un martillo se puede volver una vela roja grande en su último minuto."
+ },
+ "996a6e1085ea": {
+  "en": "Sellers pushed price down to {0}, then buyers pushed it back up near the high. At support, this hints buyers are stepping in.",
+  "t": "Los vendedores empujaron el precio hasta {0}, y luego los compradores lo devolvieron cerca del máximo. En un soporte, esto sugiere que están entrando compradores."
+ },
+ "9978cbf4ca47": {
+  "en": "Often, because many orders sit at prices like $50 or $100. Treat them like any other level and look for reactions.",
+  "t": "A menudo, porque hay muchas órdenes en precios como US$50 o US$100. Trátalos como cualquier otro nivel y busca reacciones."
+ },
+ "9b88d3549721": {
+  "en": "Three averages for the fast, medium and big trend.",
+  "t": "Tres medias para la tendencia rápida, la mediana y la grande."
+ },
+ "9c327a98bdde": {
+  "en": "Drag the scrubber or press Play. The ribbon under the chart shows when the averages were stacked.",
+  "t": "Arrastra el deslizador o presiona Reproducir. La cinta debajo del gráfico muestra cuándo estaban alineadas las medias."
+ },
+ "9c403b2d600c": {
+  "en": "Drawing levels",
+  "t": "Cómo dibujar niveles"
+ },
+ "9e3fdc220e98": {
+  "en": "Levels come from supply and demand. Prior turning points are the usual places: StockCharts notes that support often forms at previous reaction lows and resistance at previous reaction highs. Traders who bought at a level and watched it fail often sell when price comes back to their entry to get out even, which is one reason a broken floor turns into a ceiling.",
+  "t": "Los niveles salen de la oferta y la demanda. Los puntos de giro anteriores son los lugares habituales: StockCharts señala que el soporte suele formarse en mínimos de reacción anteriores y la resistencia en máximos de reacción anteriores. Los traders que compraron en un nivel y lo vieron fallar a menudo venden cuando el precio vuelve a su entrada para salir tablas, y esa es una razón por la que un piso roto se vuelve techo."
+ },
+ "9ea0515efa5b": {
+  "en": "Above VWAP: buyers in control. Below: sellers.",
+  "t": "Por encima del VWAP: los compradores tienen el control. Por debajo: los vendedores."
+ },
+ "9ea1a88bceef": {
+  "en": "The next candle trades above the hammer’s high of $50.45. That is your confirmation.",
+  "t": "La vela siguiente negocia por encima del máximo del martillo, US$50,45. Esa es tu confirmación."
+ },
+ "a019d7642c7a": {
+  "en": "Changing the periods every week to fit the latest chart.",
+  "t": "Cambiar los periodos cada semana para que encajen con el último gráfico."
+ },
+ "a0454557f970": {
+  "en": "Comparing volume to the whole day instead of the same time of day. The open is always busy.",
+  "t": "Comparar el volumen con todo el día en vez de con la misma hora del día. La apertura siempre tiene mucho movimiento."
+ },
+ "a0d95b7976a9": {
+  "en": "Write a plan for each: what you will do if price breaks it, and what you will do if it fails.",
+  "t": "Escribe un plan para cada uno: qué vas a hacer si el precio lo rompe y qué vas a hacer si falla."
+ },
+ "a124d2f59b87": {
+  "en": "Two or three clear reactions make a level worth watching. Each test also uses up orders waiting there, so a level hit many times can eventually break.",
+  "t": "Dos o tres reacciones claras hacen que un nivel valga la pena vigilarlo. Cada prueba también gasta órdenes que esperaban ahí, así que un nivel tocado muchas veces puede terminar rompiéndose."
+ },
+ "a1f6c0babc3e": {
+  "en": "The EMA reacted $0.27 more to the new price, so it turns sooner.",
+  "t": "La EMA reaccionó US$0,27 más al precio nuevo, así que gira antes."
+ },
+ "a2cdb9319847": {
+  "en": "Divide the current volume by the average volume for the same time of day over recent sessions. If DEMO usually trades 50,000 shares in the 10:00 2-minute candle and today trades 140,000, relative volume is 140,000 ÷ 50,000 = 2.8×. Comparing by time of day matters because the open and close are always busier than midday.",
+  "t": "Divide el volumen actual entre el volumen promedio a la misma hora del día en las sesiones recientes. Si DEMO suele negociar 50.000 acciones en la vela de 2 minutos de las 10:00 y hoy negocia 140.000, el volumen relativo es 140.000 ÷ 50.000 = 2,8×. Comparar por hora del día importa porque la apertura y el cierre siempre tienen más movimiento que el mediodía."
+ },
+ "a4186a23f413": {
+  "en": "<b>Volume well above normal</b> on the breakout candle, ideally 1.5 times the recent average or more.",
+  "t": "<b>Volumen muy por encima de lo normal</b> en la vela de ruptura, idealmente 1,5 veces el promedio reciente o más."
+ },
+ "a45606cded89": {
+  "en": "Strong breakouts usually come with 1.5× to 3× normal volume.",
+  "t": "Las rupturas fuertes suelen venir con 1,5× a 3× el volumen normal."
+ },
+ "a49a4a472253": {
+  "en": "What is a trailing stop with the 13 EMA?",
+  "t": "¿Qué es un stop móvil con la EMA de 13?"
+ },
+ "a52c12838cd3": {
+  "en": "Chart with a draggable line at ${0}: {1} touches, {2} bounces, {3} breaks",
+  "t": "Gráfico con una línea que se arrastra en US${0}: {1} toques, {2} rebotes, {3} rupturas"
+ },
+ "a5c607e9ea13": {
+  "en": "Mark all four every morning before the open. A break above the premarket high on strong volume, followed by a retest that holds, is one of the most common day-trading setups. A quick poke above it that fails is one of the most common traps.",
+  "t": "Marca los cuatro cada mañana antes de la apertura. Una ruptura por encima del máximo del premercado con volumen fuerte, seguida de un retesteo que se sostiene, es una de las configuraciones más comunes del day trading. Un pinchazo rápido por encima que falla es una de las trampas más comunes."
+ },
+ "a5eb78c4b657": {
+  "en": "In a strong trend RSI can stay above 70 for a long time while price keeps climbing. Selling just because RSI is high is a classic beginner mistake. Use it to avoid chasing, not to call tops.",
+  "t": "En una tendencia fuerte el RSI puede quedarse por encima de 70 mucho tiempo mientras el precio sigue subiendo. Vender solo porque el RSI está alto es un error clásico de principiante. Úsalo para no perseguir el precio, no para adivinar techos."
+ },
+ "a5f0ee764256": {
+  "en": "Drawing a level through every wiggle. A useful level has at least two clear turns.",
+  "t": "Dibujar un nivel por cada movimiento pequeño. Un nivel útil tiene al menos dos giros claros."
+ },
+ "a7c1e145057b": {
+  "en": "Breakout on {0} times normal volume and the follow-through that comes after",
+  "t": "Ruptura con {0} veces el volumen normal y la continuación que viene después"
+ },
+ "a84b3dc55cba": {
+  "en": "Price above VWAP",
+  "t": "El precio está por encima del VWAP"
+ },
+ "a8632db961ad": {
+  "en": "{0} volume: a real crowd joined the break, and the move follows through.",
+  "t": "Volumen {0}: una multitud real se sumó a la ruptura, y el movimiento continúa."
+ },
+ "a9b0b9d91838": {
+  "en": "On the 15-minute chart DEMO makes higher highs and higher lows, and $42 has held as support twice. Your plan: look for a long near $42.",
+  "t": "En el gráfico de 15 minutos, DEMO hace máximos y mínimos cada vez más altos, y US$42 ya aguantó como soporte dos veces. Tu plan: buscar una compra cerca de US$42."
+ },
+ "a9b46d13d9f9": {
+  "en": "Neither in general. The EMA reacts faster; the SMA is steadier. Pick one and use it consistently.",
+  "t": "Ninguna en general. La EMA reacciona más rápido; la SMA es más estable. Elige una y úsala siempre."
+ },
+ "a9db327c490b": {
+  "en": "Play all three charts",
+  "t": "Reproducir los tres gráficos"
+ },
+ "a9fea5a28f4b": {
+  "en": "Treat a level as a zone, not a single penny.",
+  "t": "Trata un nivel como una zona, no como un solo centavo."
+ },
+ "aaecebdce5f7": {
+  "en": "One candle: open {0}, high {1}, low {2}, close {3}",
+  "t": "Una vela: apertura {0}, máximo {1}, mínimo {2}, cierre {3}"
+ },
+ "ab4b96b81b9b": {
+  "en": "Follow-through",
+  "t": "Continuación"
+ },
+ "ac6563c91b37": {
+  "en": "Swing traders use the same idea on longer timeframes: last week’s high and low, or major prior highs, instead of yesterday’s.",
+  "t": "Los swing traders usan la misma idea en temporalidades más largas: el máximo y el mínimo de la semana pasada, o máximos importantes anteriores, en vez de los de ayer."
+ },
+ "ac6dcba1ef58": {
+  "en": "Using a very short period and trading every cross, which gives many false signals in choppy markets.",
+  "t": "Usar un periodo muy corto y operar cada cruce, lo que da muchas señales falsas en mercados picados."
+ },
  "ac7987f65d47": {
   "en": "buyers won",
   "t": "ganaron los compradores"
+ },
+ "acc940a39548": {
+  "en": "The 2-min chart shows the moves inside each 15-min candle: the dips, the retest, the exact spot for a tight stop. That's what you time entries with.",
+  "t": "El gráfico de 2 min muestra los movimientos dentro de cada vela de 15 min: los retrocesos, el retesteo, el punto exacto para un stop ajustado. Con eso escoges el momento de entrar."
+ },
+ "adbcc7b17d7e": {
+  "en": "A hammer",
+  "t": "Un martillo"
+ },
+ "ae1a25ef9fea": {
+  "en": "Price with 13, 48 and 200 EMAs; the ribbon below shows when the averages were stacked up or down",
+  "t": "Precio con las EMA de 13, 48 y 200; la cinta de abajo muestra cuándo las medias estaban alineadas al alza o a la baja"
+ },
+ "ae3a1a6a91bb": {
+  "en": "There is no reliable universal figure; it depends on the stock, the market and the timeframe. Track your own breakouts in a journal to learn yours.",
+  "t": "No hay una cifra universal confiable; depende de la acción, del mercado y de la temporalidad. Registra tus propias rupturas en un diario para conocer la tuya."
+ },
+ "ae3ca2bc9e49": {
+  "en": "How many bars an indicator looks back over. A 20-period average uses the last 20 closes.",
+  "t": "Cuántas barras hacia atrás mira un indicador. Una media de 20 periodos usa los últimos 20 cierres."
+ },
+ "ae9d9679999e": {
+  "en": "The more times a level holds, the more traders notice it. Each touch also uses up some of the orders waiting there, which is why a level tested many times often breaks in the end.",
+  "t": "Mientras más veces se sostiene un nivel, más traders lo notan. Cada toque también gasta parte de las órdenes que esperan ahí, por eso un nivel probado muchas veces a menudo termina rompiéndose."
+ },
+ "af44367cfad8": {
+  "en": "Replacing the 15-minute chart",
+  "t": "Reemplazar el gráfico de 15 minutos"
+ },
+ "af9493f844a4": {
+  "en": "The long lower wick and tiny body near the top show buyers pushed price all the way back up.",
+  "t": "La mecha inferior larga y el cuerpo diminuto cerca de la parte de arriba muestran que los compradores devolvieron el precio hasta arriba."
+ },
+ "afbe0790e418": {
+  "en": "pushed back up",
+  "t": "lo devolvieron hacia arriba"
+ },
+ "b043311f1e8e": {
+  "en": "Use prices where the market turned at least twice, ideally with a clear reaction each time.",
+  "t": "Usa precios donde el mercado giró al menos dos veces, idealmente con una reacción clara cada vez."
+ },
+ "b0e328539d66": {
+  "en": "You buy at $50.50 with a stop at $49.30, just under the wick, and a target at the next resistance, $52.",
+  "t": "Compras en US$50,50 con un stop en US$49,30, justo debajo de la mecha, y un objetivo en la siguiente resistencia, US$52."
+ },
+ "b14f12b2fdb0": {
+  "en": "Reading wicks",
+  "t": "Leer las mechas"
+ },
+ "b16a6b8e7942": {
+  "en": "Using a different pair of timeframes every day, so no chart ever becomes familiar.",
+  "t": "Usar un par distinto de temporalidades cada día, así ningún gráfico se te vuelve familiar."
+ },
+ "b1a5954a483f": {
+  "en": "High",
+  "t": "Máximo"
+ },
+ "b1d664f840b7": {
+  "en": "ribbon: green = stacked up · red = stacked down · grey = mixed",
+  "t": "cinta: verde = alineadas al alza · rojo = alineadas a la baja · gris = mixtas"
+ },
+ "b21eed262069": {
+  "en": "A failed breakout",
+  "t": "Una ruptura fallida"
+ },
+ "b251b16b34fb": {
+  "en": "Candle 2 was higher but quiet, so it pulled VWAP up only a little. Candle 3 was busy, so it weighs more.",
+  "t": "La vela 2 estuvo más arriba pero tranquila, así que subió el VWAP solo un poco. La vela 3 tuvo mucho movimiento, así que pesa más."
+ },
+ "b299d311baa6": {
+  "en": "Price bounced off this line {0} times from below, broke through, then came back and held it from above. The old ceiling became the floor.",
+  "t": "El precio rebotó en esta línea {0} veces desde abajo, la rompió, luego volvió y la sostuvo desde arriba. El techo viejo se volvió el piso."
+ },
+ "b2a04eec52aa": {
+  "en": "Trend changing or choppy",
+  "t": "Tendencia cambiando o picada"
+ },
+ "b416379128cf": {
+  "en": "Hammer at the morning low. Sellers pushed to $98.40, buyers pushed it all the way back. Watch for follow-through.",
+  "t": "Martillo en el mínimo de la mañana. Los vendedores lo empujaron a US$98,40 y los compradores lo devolvieron hasta arriba. Espera la continuación."
+ },
+ "b49cf5097d39": {
+  "en": "SMA vs EMA",
+  "t": "SMA frente a EMA"
+ },
+ "b55950613c79": {
+  "en": "Crossover",
+  "t": "Cruce"
+ },
+ "b564e470d263": {
+  "en": "You risk $1.20 per share to make $1.50, a 1.25R trade.",
+  "t": "Arriesgas US$1,20 por acción para ganar US$1,50, una operación de 1,25R."
+ },
+ "b57bea999200": {
+  "en": "Rising price on fading volume = weakening.",
+  "t": "Precio al alza con volumen que se apaga = se está debilitando."
+ },
+ "b64f25b98bd5": {
+  "en": "A <b class=\"up\">green</b> candle closed higher than it opened, so buyers won that period. A <b class=\"dn\">red</b> candle closed lower, so sellers won.",
+  "t": "Una vela <b class=\"up\">verde</b> cerró más alto de lo que abrió, así que los compradores ganaron ese periodo. Una vela <b class=\"dn\">roja</b> cerró más bajo, así que ganaron los vendedores."
+ },
+ "b7845f659bd7": {
+  "en": "Nothing; volume does not matter",
+  "t": "Nada; el volumen no importa"
+ },
+ "b79e6d6c3899": {
+  "en": "Overbought warns against buying late. It does not say the trend is over.",
+  "t": "La sobrecompra advierte contra comprar tarde. No dice que la tendencia terminó."
+ },
+ "b7cf5dac1d25": {
+  "en": "The premarket is thinner than the regular session. The SEC warns that extended-hours trading generally has less trading interest, wider gaps between the bid and ask, larger price swings and prices that may not match the regular session; FINRA notes that the 4 p.m. close stays the official price. A PMH set by a few thin trades is weaker than one tested by heavy volume. Many brokers accept only limit orders before the open.",
+  "t": "El premercado tiene menos movimiento que la sesión regular. La SEC de EE. UU. advierte que la negociación fuera del horario regular suele tener menos interés, diferenciales más amplios entre la compra y la venta, oscilaciones de precio más grandes y precios que pueden no coincidir con los de la sesión regular; FINRA señala que el cierre de las 4 p. m. sigue siendo el precio oficial. Un PMH marcado por unas pocas operaciones pequeñas es más débil que uno puesto a prueba con mucho volumen. Muchos brókeres solo aceptan órdenes límite antes de la apertura."
+ },
+ "b7ee5b794117": {
+  "en": "Put the stop just on the other side of the level: if price returns there, the breakout has failed. Put the first target at the next level, such as the next swing high or yesterday’s high. Measure the trade in R: if the stop is $0.20 away and the target $0.80, the trade risks 1R to make 4R, and the <a href=\\\"#l-risk-reward\\\">win rate and R</a> lesson shows why that ratio matters.",
+  "t": "Pon el stop justo al otro lado del nivel: si el precio vuelve ahí, la ruptura falló. Pon el primer objetivo en el siguiente nivel, como el siguiente máximo de swing o el máximo de ayer. Mide la operación en R: si el stop está a US$0,20 y el objetivo a US$0,80, la operación arriesga 1R para ganar 4R, y la lección <a href=\"#l-risk-reward\">Tasa de acierto y R</a> muestra por qué importa esa relación."
+ },
+ "b815877a248c": {
+  "en": "7 to 8",
+  "t": "7 a 8"
+ },
+ "b86e28f166d1": {
+  "en": "Yesterday’s high was $26.40 (PDH) and yesterday’s low was $24.90 (PDL).",
+  "t": "El máximo de ayer fue US$26,40 (PDH) y el mínimo de ayer fue US$24,90 (PDL)."
+ },
+ "b8ac51ae496c": {
+  "en": "The retest is your entry; the stop goes just past the level.",
+  "t": "El retesteo es tu entrada; el stop va justo más allá del nivel."
+ },
+ "b921f5b3a6aa": {
+  "en": "Just beyond the zone, where the idea is clearly wrong, not on the line where many other stops sit.",
+  "t": "Un poco más allá de la zona, donde la idea claramente está equivocada, no sobre la línea donde están muchos otros stops."
+ },
+ "ba7fdb037a1f": {
+  "en": "A stacked downtrend",
+  "t": "Una tendencia bajista alineada"
+ },
+ "ba8d41ed1a0b": {
+  "en": "Shortening the period to get more signals, which mostly adds noise.",
+  "t": "Acortar el periodo para tener más señales, lo que sobre todo suma ruido."
+ },
+ "bb0c789be739": {
+  "en": "Breakout volume should be at least 1.5× the recent average.",
+  "t": "El volumen de la ruptura debe ser de al menos 1,5× el promedio reciente."
+ },
+ "bb3025ad4292": {
+  "en": "Some traders do: a fakeout that falls back below the level is a setup in its own right, with the stop above the failed high.",
+  "t": "Algunos traders lo hacen: una ruptura falsa que vuelve a caer debajo del nivel es una configuración por derecho propio, con el stop por encima del máximo fallido."
+ },
+ "bb60f1e9766b": {
+  "en": "Once resistance breaks and holds, it can serve as support, and a broken support can become resistance. Traders who missed a breakout often buy the first pullback to the old ceiling; if that retest holds, it confirms the break. If price falls back through, the breakout has failed (see <a href=\\\"#l-breakouts\\\">Breakouts &amp; fakeouts</a>).",
+  "t": "Cuando una resistencia se rompe y se sostiene, puede servir como soporte, y un soporte roto puede volverse resistencia. Los traders que se perdieron una ruptura a menudo compran el primer retroceso al techo viejo; si ese retesteo se sostiene, confirma la ruptura. Si el precio vuelve a caer a través del nivel, la ruptura falló (mira <a href=\"#l-breakouts\">Rupturas y rupturas falsas</a>)."
+ },
+ "bb7255567b68": {
+  "en": "Drag the amber line onto a price where the chart keeps turning. The counters show touches and bounces.",
+  "t": "Arrastra la línea ámbar a un precio donde el gráfico siga girando. Los contadores muestran toques y rebotes."
+ },
+ "bc04d8d6061d": {
+  "en": "Rising price on rising volume = healthy.",
+  "t": "Precio al alza con volumen al alza = sano."
+ },
+ "bc08cbc74cbf": {
+  "en": "Moving your stop up under the 13 EMA as the trend continues, and exiting when a candle closes below it.",
+  "t": "Ir subiendo tu stop debajo de la EMA de 13 mientras la tendencia sigue, y salir cuando una vela cierra por debajo."
+ },
+ "bc3be49886e7": {
+  "en": "All three averages agree on down when they stack in that order.",
+  "t": "Las tres medias coinciden a la baja cuando se alinean en ese orden."
+ },
+ "bc8b35a464b7": {
+  "en": "The 2-minute chart shows the detail inside each move. Use it to time your entry, see the retest happen, and place a tight stop.",
+  "t": "El gráfico de 2 minutos muestra el detalle dentro de cada movimiento. Úsalo para escoger el momento de entrar, ver cómo pasa el retesteo y poner un stop ajustado."
+ },
+ "bd286f143147": {
+  "en": "TODAY 9:30",
+  "t": "HOY 9:30"
+ },
+ "bd9685e8aa0a": {
+  "en": "A candle has a <b>body</b> and two <b>wicks</b>. The body runs from the open price to the close price. The wicks reach the highest and lowest prices traded during that period.",
+  "t": "Una vela tiene un <b>cuerpo</b> y dos <b>mechas</b>. El cuerpo va del precio de apertura al precio de cierre. Las mechas llegan a los precios más alto y más bajo negociados durante ese periodo."
+ },
+ "be64d34f2948": {
+  "en": "▶ Play the day",
+  "t": "▶ Reproducir el día"
+ },
+ "be9b6cf1d092": {
+  "en": "Different start times (premarket included or not) and different data feeds change the running totals.",
+  "t": "Horas de inicio distintas (con o sin premercado) y fuentes de datos distintas cambian los totales acumulados."
+ },
+ "bef3e348084b": {
+  "en": "Which timeframe should I use?",
+  "t": "¿Qué temporalidad debo usar?"
+ },
+ "bf0a4927b9cd": {
+  "en": "EMA stack",
+  "t": "Alineación de EMA"
+ },
+ "bf54a4e831c8": {
+  "en": "Do candlestick patterns predict price?",
+  "t": "¿Los patrones de velas predicen el precio?"
+ },
+ "bf9c3012d61b": {
+  "en": "2-min vs 15-min",
+  "t": "2 min frente a 15 min"
+ },
+ "c0dcb865ad81": {
+  "en": "Mixed",
+  "t": "Mixtas"
+ },
+ "c14b4fd63d0b": {
+  "en": "Deciding the trend",
+  "t": "Decidir la tendencia"
+ },
+ "c153336cf91a": {
+  "en": "Price is {0} above VWAP. Today's average buyer is in profit, so buyers are in control. Favor longs; pullbacks to VWAP are often bought.",
+  "t": "El precio está {0} por encima del VWAP. El comprador promedio de hoy va ganando, así que los compradores tienen el control. Favorece las compras; los retrocesos al VWAP suelen comprarse."
+ },
+ "c1c2293fe772": {
+  "en": "Short it right away",
+  "t": "Ir en corto de inmediato"
+ },
+ "c207c78edbf0": {
+  "en": "You buy at $30.12 with a stop at $29.92, just under the level.",
+  "t": "Compras en US$30,12 con un stop en US$29,92, justo debajo del nivel."
+ },
+ "c265b05cd34e": {
+  "en": "Its limits",
+  "t": "Sus límites"
+ },
+ "c2ab44656b9c": {
+  "en": "Treating the expected move as a promise. Price ends outside it about one time in three.",
+  "t": "Tomar el movimiento esperado como una promesa. El precio termina afuera más o menos una de cada tres veces."
+ },
+ "c2c38849446a": {
+  "en": "Are round numbers support and resistance?",
+  "t": "¿Los números redondos son soporte y resistencia?"
+ },
+ "c32b421ada0f": {
+  "en": "In a healthy uptrend, volume grows on up candles and shrinks on pullbacks. If price keeps rising while volume fades, fewer buyers are joining and the move is getting tired.",
+  "t": "En una tendencia alcista sana, el volumen crece en las velas al alza y baja en los retrocesos. Si el precio sigue subiendo mientras el volumen se apaga, se suman menos compradores y el movimiento se está cansando."
+ },
+ "c368b171551d": {
+  "en": "No close above the level and weak volume are the two classic fakeout signs.",
+  "t": "Ningún cierre por encima del nivel y volumen débil son las dos señales clásicas de una ruptura falsa."
+ },
+ "c3d9f1fd38a4": {
+  "en": "An instant short",
+  "t": "Una venta en corto inmediata"
+ },
+ "c42f5f13d506": {
+  "en": "<span class=\"wg-title\">Timeframe</span>{0}<span class=\"grow\"></span>{1}",
+  "t": "<span class=\"wg-title\">Temporalidad</span>{0}<span class=\"grow\"></span>{1}"
+ },
+ "c5705f3b8059": {
+  "en": "SMA +{0}",
+  "t": "SMA +{0}"
+ },
+ "c5b3cc60d09d": {
+  "en": "Which length should I use?",
+  "t": "¿Qué largo debo usar?"
+ },
+ "c605c97536de": {
+  "en": "From below, a prior high is a ceiling until price closes above it.",
+  "t": "Desde abajo, un máximo anterior es un techo hasta que el precio cierra por encima."
+ },
+ "c69417465ab2": {
+  "en": "A moving average smooths price into one line. The EMA weights recent prices more, so it turns sooner than the SMA.",
+  "t": "Una media móvil suaviza el precio en una sola línea. La EMA les da más peso a los precios recientes, así que gira antes que la SMA."
+ },
+ "c6bdd1a45828": {
+  "en": "There is nothing magic about them. The 200 is used because so many traders watch it (StockCharts calls the 200-day the most widely followed long-term average). The 48 behaves almost exactly like the popular 50. The 13 is short enough to hug momentum. What matters is using the same three every day, so the chart looks familiar and your rules stay the same.",
+  "t": "No tienen nada de mágico. La de 200 se usa porque muchísimos traders la miran (StockCharts llama a la de 200 días la media de largo plazo más seguida). La de 48 se comporta casi exactamente como la popular de 50. La de 13 es lo bastante corta para pegarse al impulso. Lo que importa es usar las mismas tres todos los días, para que el gráfico se te haga familiar y tus reglas no cambien."
+ },
+ "c6ff0a4f4187": {
+  "en": "Look for a close beyond the level, not just a wick.",
+  "t": "Busca un cierre más allá del nivel, no solo una mecha."
+ },
+ "c7a5ca71e39b": {
+  "en": "Assuming a level holds forever. Every extra test uses up the buyers or sellers defending it.",
+  "t": "Suponer que un nivel aguanta para siempre. Cada prueba adicional gasta a los compradores o vendedores que lo defienden."
+ },
+ "c7c66ff7dff7": {
+  "en": "When the two disagree, the higher timeframe usually wins.",
+  "t": "Cuando las dos no coinciden, por lo general gana la temporalidad mayor."
+ },
+ "c876c4abe1a6": {
+  "en": "The 200-day average is the most widely watched long-term trend line and the 50-day the usual medium-term one. When a shorter average crosses above a longer one, it is called a golden cross; below, a death cross. Because so many traders watch them, these averages can act as support in an uptrend and resistance in a downtrend, as zones rather than exact prices.",
+  "t": "La media de 200 días es la línea de tendencia de largo plazo más vigilada y la de 50 días la habitual para el mediano plazo. Cuando una media más corta cruza por encima de una más larga se llama cruce dorado; por debajo, cruce de la muerte. Como tantos traders las miran, estas medias pueden actuar como soporte en una tendencia alcista y como resistencia en una bajista, como zonas más que como precios exactos."
+ },
+ "c91ba39d89ad": {
+  "en": "Thousands of traders watch these same prices, so orders pile up there. That is why price often stalls, bounces, or speeds up when it reaches one.",
+  "t": "Miles de traders miran estos mismos precios, así que las órdenes se acumulan ahí. Por eso el precio a menudo se frena, rebota o se acelera cuando llega a uno."
+ },
+ "c9448fa58b85": {
+  "en": "How far a stock tends to move, in dollars.",
+  "t": "Cuánto tiende a moverse una acción, en dólares."
+ },
+ "cacbb2989063": {
+  "en": "<b>IV</b> (implied volatility) is the yearly move that option prices imply. The <b>expected move</b> is price × IV × √(days ÷ 365). Price ends inside that range roughly 68% of the time, so about one time in three it ends outside.",
+  "t": "La <b>IV</b> (volatilidad implícita) es el movimiento anual que implican los precios de las opciones. El <b>movimiento esperado</b> es precio × IV × √(días ÷ 365). El precio termina dentro de ese rango cerca del 68 % de las veces, así que más o menos una de cada tres veces termina afuera."
+ },
+ "cb371b3923fa": {
+  "en": "Yesterday, premarket and today with the four key levels; numbered badges mark reactions at the levels",
+  "t": "Ayer, el premercado y hoy con los cuatro niveles clave; las insignias numeradas marcan las reacciones en los niveles"
+ },
+ "cb5d1ed8c51f": {
+  "en": "Change the period and toggle each average. The markers show how many bars each one lagged the bottom.",
+  "t": "Cambia el periodo y activa o desactiva cada media. Las marcas muestran cuántas barras se retrasó cada una frente al piso."
+ },
+ "cbcf76fa6a49": {
+  "en": "VWAP is an intraday tool and lags more as the day goes on, because each new candle is a smaller share of the total. Early in the session it rests on few candles and can jump. It also says nothing about the long-term trend, so pair it with the <a href=\\\"#l-ema-stack\\\">EMA stack</a>.",
+  "t": "El VWAP es una herramienta intradía y se retrasa más a medida que avanza el día, porque cada vela nueva es una parte más pequeña del total. Temprano en la sesión se apoya en pocas velas y puede saltar. Tampoco dice nada sobre la tendencia de largo plazo, así que combínalo con la <a href=\"#l-ema-stack\">alineación de EMA</a>."
+ },
+ "cc0ce1324c9f": {
+  "en": "New sample paths",
+  "t": "Nuevas trayectorias de ejemplo"
+ },
+ "cc565b363a73": {
+  "en": "Isn’t waiting for a retest too slow?",
+  "t": "¿Esperar un retesteo no es demasiado lento?"
+ },
+ "ccf74f2c2889": {
+  "en": "DEMO rallies from $20 to $24 in eight days and RSI(14) reads 78.",
+  "t": "DEMO sube de US$20 a US$24 en ocho días y el RSI(14) marca 78."
+ },
+ "cde71daeffc6": {
+  "en": "So the market expects DEMO to end the month between about $73 and $87, roughly two times out of three.",
+  "t": "Así que el mercado espera que DEMO termine el mes entre unos US$73 y US$87, más o menos dos de cada tres veces."
+ },
+ "ce7c1019098f": {
+  "en": "On Tuesday it closes at $18.35 on strong volume and breaks through.",
+  "t": "El martes cierra en US$18,35 con volumen fuerte y la atraviesa."
+ },
+ "cf922348e84d": {
+  "en": "Price makes a V-shaped bottom; a {0}-bar EMA turns up {1} bars later and the SMA {2} bars later",
+  "t": "El precio hace un piso en forma de V; una EMA de {0} barras gira hacia arriba {1} barras después y la SMA {2} barras después"
+ },
+ "cf9b77061f7b": {
+  "en": "Open",
+  "t": "Apertura"
+ },
+ "cfbf89147695": {
+  "en": "A <b>breakout</b> is price moving through a level that held before. Many breakouts fail. A <b>false breakout</b> pokes above the level, traps eager buyers, then falls back.",
+  "t": "Una <b>ruptura</b> es el precio atravesando un nivel que antes aguantó. Muchas rupturas fallan. Una <b>ruptura falsa</b> pincha por encima del nivel, atrapa a los compradores ansiosos y luego vuelve a caer."
+ },
+ "cfcba1802dde": {
+  "en": "Ignoring a breakout that happens on fading volume.",
+  "t": "Ignorar que una ruptura ocurre con volumen que se apaga."
+ },
+ "cffa899d43f8": {
+  "en": "VWAP to reset at noon",
+  "t": "Que el VWAP se reinicie al mediodía"
+ },
+ "d174c7b2cd3c": {
+  "en": "Every average lags because it is built from past prices. A shorter period lags less but flips back and forth more when the market is choppy.",
+  "t": "Toda media va con retraso porque se construye con precios pasados. Un periodo más corto se retrasa menos, pero va y viene más cuando el mercado está picado."
+ },
+ "d1c0a1914025": {
+  "en": "High relative to the stock’s own normal. Two to three times usual volume for the time of day is a common sign that a stock is in play.",
+  "t": "Alto en relación con lo normal de la propia acción. De dos a tres veces el volumen habitual para la hora del día es una señal común de que una acción está en juego."
+ },
+ "d1ea348e6505": {
+  "en": "Pick a preset or drag the sliders. Watch the candle change shape and name.",
+  "t": "Elige un ejemplo o arrastra los deslizadores. Mira cómo la vela cambia de forma y de nombre."
+ },
+ "d34fea19aa0f": {
+  "en": "Forgetting that PMH and PML only show when extended-hours data is turned on in your charting app.",
+  "t": "Olvidar que el PMH y el PML solo aparecen cuando activas los datos de horario extendido en tu app de gráficos."
+ },
+ "d375992c7a99": {
+  "en": "one 15-min candle",
+  "t": "una vela de 15 min"
+ },
+ "d38475510305": {
+  "en": "Both averages lag; the EMA lags less.",
+  "t": "Las dos medias van con retraso; la EMA se retrasa menos."
+ },
+ "d3e8e88335b7": {
+  "en": "What if price chops around a level?",
+  "t": "¿Y si el precio va y viene alrededor de un nivel?"
+ },
+ "d46fc8885a0d": {
+  "en": "A candlestick shows four prices for one period: the open, high, low and close. The body runs from the open to the close; the thin wicks reach the high and the low. Green means it closed higher than it opened, red lower. A single candle is a hint; it means most at a level you already marked.",
+  "t": "Una vela muestra cuatro precios de un periodo: la apertura, el máximo, el mínimo y el cierre. El cuerpo va de la apertura al cierre; las mechas delgadas llegan al máximo y al mínimo. Verde significa que cerró más alto de lo que abrió, rojo más bajo. Una sola vela es una pista; significa más en un nivel que ya marcaste."
+ },
+ "d53df254c03f": {
+  "en": "<span class=\"wg-title\">Show</span>{0}",
+  "t": "<span class=\"wg-title\">Mostrar</span>{0}"
+ },
+ "d6a3a30b245a": {
+  "en": "You tighten the stop on your long to $25.60 instead of shorting.",
+  "t": "Ajustas el stop de tu compra a US$25,60 en vez de ir en corto."
+ },
+ "d6c8165ebae3": {
+  "en": "With a $20,000 account and 1% risk ($200), you can buy $200 ÷ $2.40 = 83 shares.",
+  "t": "Con una cuenta de US$20.000 y un riesgo del 1 % (US$200), puedes comprar US$200 ÷ US$2,40 = 83 acciones."
+ },
+ "d759d4714434": {
+  "en": "Why is volume highest at the open and close?",
+  "t": "¿Por qué el volumen es más alto en la apertura y el cierre?"
+ },
+ "d8c725321f02": {
+  "en": "Four prices to mark before the opening bell.",
+  "t": "Cuatro precios para marcar antes de la campana de apertura."
+ },
+ "d94d31a8d831": {
+  "en": "VWAP is the average price everyone paid today, weighted by volume. Above it, buyers are in control. Below it, sellers are.",
+  "t": "El VWAP es el precio promedio que todos pagaron hoy, ponderado por volumen. Por encima, los compradores tienen el control. Por debajo, los vendedores."
+ },
+ "d9f854f2cf83": {
+  "en": "Price above the 200 EMA keeps the big picture bullish. Many traders only take longs above it and only take shorts below it.",
+  "t": "El precio por encima de la EMA de 200 mantiene alcista el panorama grande. Muchos traders solo compran por encima y solo van en corto por debajo."
+ },
+ "da38ac48d670": {
+  "en": "<b>Volatility</b> is the size of a stock’s typical swings. Calm stocks move in small ranges. Volatile stocks can move several percent in a single day.",
+  "t": "La <b>volatilidad</b> es el tamaño de las oscilaciones típicas de una acción. Las acciones tranquilas se mueven en rangos pequeños. Las volátiles pueden moverse varios puntos porcentuales en un solo día."
+ },
+ "dbe42d964717": {
+  "en": "Volume at least 1.5× average",
+  "t": "Volumen de al menos 1,5× el promedio"
+ },
+ "dc3303a145ab": {
+  "en": "Shorting just because price is far above the 200 EMA. Stretched is not the same as finished.",
+  "t": "Ir en corto solo porque el precio está muy por encima de la EMA de 200. Estirado no es lo mismo que terminado."
+ },
+ "dc89715cbca8": {
+  "en": "Wait for confirmation before you trust a break.",
+  "t": "Espera la confirmación antes de confiar en una ruptura."
+ },
+ "dccb4314cae9": {
+  "en": "Today’s average price, weighted by volume.",
+  "t": "El precio promedio de hoy, ponderado por volumen."
+ },
+ "de55f36429c1": {
+  "en": "What percentage of breakouts fail?",
+  "t": "¿Qué porcentaje de rupturas falla?"
+ },
+ "de8441710ce7": {
+  "en": "A 5-period EMA gives the newest close a weight of 2 ÷ (5 + 1) = 0.33. It moves from $10 to 10 + 0.33 × (12 - 10) = $10.67.",
+  "t": "Una EMA de 5 periodos le da al cierre más nuevo un peso de 2 ÷ (5 + 1) = 0,33. Pasa de US$10 a 10 + 0,33 × (12 - 10) = US$10,67."
+ },
+ "df4d19aed3b7": {
+  "en": "Waiting means you sometimes miss a move. That costs nothing. Chasing a fakeout costs a full loss. Results here are counted in <b>R</b>: 1R is the amount you planned to risk.",
+  "t": "Esperar significa que a veces te pierdes un movimiento. Eso no cuesta nada. Perseguir una ruptura falsa cuesta una pérdida completa. Aquí los resultados se cuentan en <b>R</b>: 1R es la cantidad que planeaste arriesgar."
+ },
+ "df8e36e59386": {
+  "en": "Indecision; nobody won the period",
+  "t": "Indecisión; nadie ganó el periodo"
+ },
+ "dfba78bb7d3e": {
+  "en": "Divergence",
+  "t": "Divergencia"
+ },
+ "e0d282c08814": {
+  "en": "Volume at levels",
+  "t": "El volumen en los niveles"
+ },
+ "e0d34da018ca": {
+  "en": "Support = floor. Resistance = ceiling.",
+  "t": "Soporte = piso. Resistencia = techo."
+ },
+ "e0d874b98409": {
+  "en": "<b>Stacked up</b> means 13 above 48 above 200, the cleanest uptrend. <b>Stacked down</b> is the mirror image. Anything else is mixed: the trend is changing or choppy.",
+  "t": "<b>Alineadas al alza</b> significa 13 por encima de 48 por encima de 200, la tendencia alcista más limpia. <b>Alineadas a la baja</b> es la imagen en espejo. Cualquier otra cosa es mixta: la tendencia está cambiando o está picada."
+ },
+ "e1341cb6a5ac": {
+  "en": "Missing a trade costs 0R. A fakeout costs 1R.",
+  "t": "Perderte una operación cuesta 0R. Una ruptura falsa cuesta 1R."
+ },
+ "e18bc8311ec9": {
+  "en": "Use averages to read the trend, not to predict turns.",
+  "t": "Usa las medias para leer la tendencia, no para predecir giros."
+ },
+ "e1c39dca8b05": {
+  "en": "Long periods are slow but show the big trend.",
+  "t": "Los periodos largos son lentos pero muestran la tendencia grande."
+ },
+ "e2aa5e1a4c45": {
+  "en": "pushed back down",
+  "t": "lo devolvieron hacia abajo"
+ },
+ "e303590721b4": {
+  "en": "Prefer recent levels and those visible on a higher timeframe.",
+  "t": "Prefiere los niveles recientes y los que se ven en una temporalidad mayor."
+ },
+ "e56e668c7a65": {
+  "en": "Support is a price where buyers keep showing up. Resistance is where sellers do. Once broken, they often switch jobs.",
+  "t": "El soporte es un precio donde los compradores siguen apareciendo. La resistencia es donde aparecen los vendedores. Una vez rotos, a menudo cambian de papel."
+ },
+ "e6501ed52a6c": {
+  "en": "It is 9:15 a.m. ET and you are marking DEMO before the open.",
+  "t": "Son las 9:15 a. m., hora de Nueva York, y estás marcando DEMO antes de la apertura."
+ },
+ "e6aa2c34475c": {
+  "en": "Two days later the 13 crosses below the 48. The stack is broken, so you exit at $66.10.",
+  "t": "Dos días después la de 13 cruza por debajo de la de 48. La alineación se rompió, así que sales en US$66,10."
+ },
+ "e6e6242d64a9": {
+  "en": "You risk $0.35 to make $0.90, about 2.6R.",
+  "t": "Arriesgas US$0,35 para ganar US$0,90, cerca de 2,6R."
+ },
+ "e72544af7b96": {
+  "en": "Candle presets",
+  "t": "Velas de ejemplo"
+ },
+ "e7468e239bb5": {
+  "en": "What does a red candle with a long lower wick mean?",
+  "t": "¿Qué significa una vela roja con una mecha inferior larga?"
+ },
+ "e760b7bba576": {
+  "en": "<b>PDH and PDL</b>: the highest and lowest prices of yesterday’s regular session (9:30 a.m. to 4 p.m. ET).",
+  "t": "<b>PDH y PDL</b>: los precios más alto y más bajo de la sesión regular de ayer (de 9:30 a. m. a 4 p. m., hora de Nueva York)."
+ },
+ "e8117563a7a2": {
+  "en": "volume fading",
+  "t": "el volumen se apaga"
+ },
+ "e899c1f7c5d6": {
+  "en": "The calculation",
+  "t": "El cálculo"
+ },
+ "e99da19bf870": {
+  "en": "<b>A close beyond the level</b>, not just a wick.",
+  "t": "<b>Un cierre más allá del nivel</b>, no solo una mecha."
+ },
+ "ea8775dbe5e4": {
+  "en": "Buying every touch of VWAP on a choppy day when price keeps crossing back and forth.",
+  "t": "Comprar cada toque del VWAP en un día picado cuando el precio cruza de un lado al otro una y otra vez."
+ },
+ "eb7db86598eb": {
+  "en": "A <b>reclaim</b>, when price drops below VWAP and then closes back above it, is a common long setup. Losing VWAP after a strong run is a warning sign.",
+  "t": "Una <b>recuperación</b>, cuando el precio cae por debajo del VWAP y luego vuelve a cerrar por encima, es una configuración de compra común. Perder el VWAP después de una subida fuerte es una señal de advertencia."
+ },
+ "ec32cf42b972": {
+  "en": "RSI compares recent gains with recent losses on a 0 to 100 scale. High means stretched up; low means stretched down.",
+  "t": "El RSI compara las ganancias recientes con las pérdidas recientes en una escala de 0 a 100. Alto significa estirado hacia arriba; bajo, estirado hacia abajo."
+ },
+ "ec392038ecf8": {
+  "en": "RSI, the relative strength index, compares recent up moves with recent down moves on a scale from 0 to 100, over 14 periods by default. Above 70 is called overbought and below 30 oversold, but in a strong trend RSI can stay there for a long time; use it to avoid chasing, not to call tops.",
+  "t": "El RSI, índice de fuerza relativa, compara los movimientos recientes al alza con los movimientos a la baja en una escala de 0 a 100, sobre 14 periodos por defecto. Por encima de 70 se llama sobrecompra y por debajo de 30 sobreventa, pero en una tendencia fuerte el RSI puede quedarse ahí mucho tiempo; úsalo para no perseguir el precio, no para adivinar techos."
+ },
+ "ec3c17ab9dfa": {
+  "en": "Look for longs on pullbacks to the 13 or 48",
+  "t": "Busca compras en retrocesos a la de 13 o la de 48"
+ },
+ "ec42d288fb04": {
+  "en": "Restart chart",
+  "t": "Reiniciar el gráfico"
+ },
+ "ec4ac810aca4": {
+  "en": "A <b>timeframe</b> is how much time each candle covers. On a 15-minute chart one candle holds 15 minutes of trading. On a 2-minute chart the same 15 minutes is split into seven or eight smaller candles.",
+  "t": "Una <b>temporalidad</b> es cuánto tiempo cubre cada vela. En un gráfico de 15 minutos, una vela tiene 15 minutos de negociación. En un gráfico de 2 minutos, esos mismos 15 minutos se dividen en siete u ocho velas más pequeñas."
+ },
+ "ed5169ea1a62": {
+  "en": "Mark PDH, PDL, PMH and PML before 9:30 a.m. ET.",
+  "t": "Marca PDH, PDL, PMH y PML antes de las 9:30 a. m., hora de Nueva York."
+ },
+ "ede1f1b9e713": {
+  "en": "Tiring",
+  "t": "Cansado"
+ },
+ "ee844505c351": {
+  "en": "Buying pullbacks while the 13, 48 and 200 are tangled. Mixed averages mean chop.",
+  "t": "Comprar retrocesos mientras la de 13, la de 48 y la de 200 están enredadas. Medias mixtas significan un mercado picado."
+ },
+ "eee803833f77": {
+  "en": "Price is still rising, but each push comes on less volume. Fewer buyers are joining, so the trend is running out of fuel.",
+  "t": "El precio sigue subiendo, pero cada empuje llega con menos volumen. Se suman menos compradores, así que a la tendencia se le está acabando el combustible."
+ },
+ "f0f2615ca6c6": {
+  "en": "Clean uptrend",
+  "t": "Tendencia alcista limpia"
+ },
+ "f16447b56a2a": {
+  "en": "Then price makes a new high at $26.40 but RSI only reaches 66, lower than before. That divergence is a warning.",
+  "t": "Luego el precio hace un máximo nuevo en US$26,40, pero el RSI solo llega a 66, más bajo que antes. Esa divergencia es una advertencia."
+ },
+ "f1dd716d829b": {
+  "en": "A simple moving average (SMA) is the plain average of the last N closes; an exponential moving average (EMA) gives the newest closes more weight, so it turns sooner. Both lag price: they show the trend after it has started, not before.",
+  "t": "Una media móvil simple (SMA) es el promedio llano de los últimos N cierres; una media móvil exponencial (EMA) les da más peso a los cierres más nuevos, así que gira antes. Las dos van con retraso respecto al precio: muestran la tendencia después de que empezó, no antes."
+ },
+ "f38773049e7d": {
+  "en": "14 is the standard. Shorter settings make RSI jumpier and more often extreme; longer ones smooth it.",
+  "t": "14 es lo estándar. Configuraciones más cortas hacen que el RSI salte más y llegue a los extremos más seguido; las más largas lo suavizan."
+ },
+ "f3ca7870114e": {
+  "en": "Plan A: if price closes above $25.95 and a retest holds, buy with a stop at $25.75 and a target at $26.40.",
+  "t": "Plan A: si el precio cierra por encima de US$25,95 y el retesteo se sostiene, compra con un stop en US$25,75 y un objetivo en US$26,40."
+ },
+ "f3fd2c28d731": {
+  "en": "Does high volume mean price will rise?",
+  "t": "¿Volumen alto significa que el precio va a subir?"
+ },
+ "f4482570199d": {
+  "en": "About 1 time in 3, price ends outside the 1σ range.",
+  "t": "Más o menos 1 de cada 3 veces, el precio termina fuera del rango de 1σ."
+ },
+ "f6b912223041": {
+  "en": "Timing a pullback entry",
+  "t": "Escoger el momento de entrar en un retroceso"
+ },
+ "f7c2eb778497": {
+  "en": "You marked $50 as support because price bounced there twice last week.",
+  "t": "Marcaste US$50 como soporte porque el precio rebotó ahí dos veces la semana pasada."
+ },
+ "f8721d268eec": {
+  "en": "Broken resistance often becomes support on the retest.",
+  "t": "Una resistencia rota a menudo se vuelve soporte en el retesteo."
+ },
+ "f8e512a75a85": {
+  "en": "<b>PDH</b> and <b>PDL</b> are the previous day’s high and low. <b>PMH</b> and <b>PML</b> are the high and low of the <b>premarket</b>, the trading that happens before the 9:30 a.m. ET open.",
+  "t": "<b>PDH</b> y <b>PDL</b> son el máximo y el mínimo del día anterior. <b>PMH</b> y <b>PML</b> son el máximo y el mínimo del <b>premercado</b>, la negociación que ocurre antes de la apertura de las 9:30 a. m., hora de Nueva York."
+ },
+ "f908ee16967e": {
+  "en": "What one candle tells you about buyers and sellers.",
+  "t": "Lo que una vela te dice sobre compradores y vendedores."
+ },
+ "f90961d69664": {
+  "en": "RSI helped you manage the trade. Shorting at 78 would have cost $2 a share.",
+  "t": "El RSI te ayudó a manejar la operación. Ir en corto en 78 te habría costado US$2 por acción."
+ },
+ "f9139eb4697d": {
+  "en": "StockCharts calls moving averages trend-following, or lagging, indicators that are always a step behind. Shorter averages lag less but whip back and forth in choppy markets; longer ones are smoother but slower. The EMA lags less than an SMA of the same length.",
+  "t": "StockCharts llama a las medias móviles indicadores seguidores de tendencia, o rezagados, que siempre van un paso atrás. Las medias más cortas se retrasan menos pero van y vienen en mercados picados; las más largas son más suaves pero más lentas. La EMA se retrasa menos que una SMA del mismo largo."
+ },
+ "f99a5f26d064": {
+  "en": "Support is a price where buying has been strong enough to stop a fall; resistance is a price where selling has stopped a rise. Draw them where price turned more than once, treat them as zones, and watch for an old ceiling to act as a new floor after a break.",
+  "t": "El soporte es un precio donde las compras han sido lo bastante fuertes para frenar una caída; la resistencia es un precio donde las ventas han frenado una subida. Dibújalos donde el precio giró más de una vez, trátalos como zonas y vigila si un techo viejo actúa como piso nuevo después de una ruptura."
+ },
+ "fa5ccfb96b89": {
+  "en": "You risk $0.25 to make $0.40, a 1.6R trade framed entirely by levels you marked before the bell.",
+  "t": "Arriesgas US$0,25 para ganar US$0,40, una operación de 1,6R enmarcada por completo con niveles que marcaste antes de la campana."
+ },
+ "faaa317c1997": {
+  "en": "<span class=\"note\">Expected move = price × IV × √(days ÷ 365). A rough guide, not a promise.</span>",
+  "t": "<span class=\"note\">Movimiento esperado = precio × IV × √(días ÷ 365). Una guía aproximada, no una promesa.</span>"
+ },
+ "fab39994d791": {
+  "en": "Slide the breakout volume and watch the follow-through change. Then compare a healthy and a weak trend.",
+  "t": "Mueve el volumen de la ruptura y mira cómo cambia la continuación. Luego compara una tendencia sana con una débil."
+ },
+ "fb5284965ef8": {
+  "en": "RSI in trends",
+  "t": "El RSI en tendencias"
+ },
+ "fcac9a72d25c": {
+  "en": "A stack on the daily chart shows the big picture; the same stack on a 15-minute chart shows today’s trend. Trades taken in the direction of both are easier than trades against the bigger one.",
+  "t": "La alineación en el gráfico diario muestra el panorama grande; la misma alineación en un gráfico de 15 minutos muestra la tendencia de hoy. Las operaciones en la dirección de las dos son más fáciles que las que van en contra de la mayor."
+ },
+ "fcb5089feb2e": {
+  "en": "Two ways to smooth price, and why the EMA reacts faster.",
+  "t": "Dos formas de suavizar el precio, y por qué la EMA reacciona más rápido."
+ },
+ "fcb846d11f76": {
+  "en": "Trading every hammer or doji you see. Without a level behind it, one candle is mostly noise.",
+  "t": "Operar cada martillo o doji que ves. Sin un nivel detrás, una vela es casi solo ruido."
+ },
+ "fccdecf0a080": {
+  "en": "<b>Confirmation</b> means waiting for proof: a candle that closes beyond the level, volume well above average, a retest that holds, and price on the right side of VWAP.",
+  "t": "La <b>confirmación</b> significa esperar pruebas: una vela que cierra más allá del nivel, volumen muy por encima del promedio, un retesteo que se sostiene y el precio en el lado correcto del VWAP."
+ },
+ "feb0609cb518": {
+  "en": "Mixed averages mean wait, or trade smaller.",
+  "t": "Medias mixtas significan esperar, u operar más pequeño."
  }
 }
