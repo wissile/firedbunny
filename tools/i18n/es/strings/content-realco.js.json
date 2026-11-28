@@ -1,19 +1,107 @@
 {
+ "011fa1a21ef1": {
+  "en": "Gross profit",
+  "t": "Utilidad bruta"
+ },
+ "044a18794e80": {
+  "en": "Sep 2026",
+  "t": "Sep. 2026"
+ },
+ "169daa3659ce": {
+  "en": "Bret Johnsen, CFO",
+  "t": "Bret Johnsen, director financiero"
+ },
  "20e338624cee": {
   "en": "Assets",
   "t": "Activos"
+ },
+ "2b1ab3e857d8": {
+  "en": "Lockup",
+  "t": "Periodo de bloqueo"
+ },
+ "3814480a61ea": {
+  "en": "Operating loss",
+  "t": "Pérdida operativa"
+ },
+ "39c038724f5c": {
+  "en": "Operating income",
+  "t": "Utilidad operativa"
+ },
+ "3feba10ac822": {
+  "en": "Gross margin",
+  "t": "Margen bruto"
+ },
+ "476432a3e85a": {
+  "en": "Apple",
+  "t": "Apple"
+ },
+ "4c565a915bc4": {
+  "en": "Operating expenses",
+  "t": "Gastos operativos"
+ },
+ "60b29e44beaa": {
+  "en": "One-time item",
+  "t": "Partida única"
  },
  "690d2fadac07": {
   "en": "Market cap",
   "t": "Capitalización bursátil"
  },
+ "6a552a449526": {
+  "en": "Andrea Williams, investor relations",
+  "t": "Andrea Williams, relación con inversionistas"
+ },
+ "6aa8ed0e2916": {
+  "en": "Adjusted EBITDA",
+  "t": "EBITDA ajustado"
+ },
  "84c5b876462a": {
   "en": "Net income",
   "t": "Utilidad neta"
  },
+ "8a1a2b5224cc": {
+  "en": "Kevan Parekh, CFO",
+  "t": "Kevan Parekh, director financiero"
+ },
+ "92db85bf4808": {
+  "en": "Dilution",
+  "t": "Dilución"
+ },
+ "9eb09b3e0a6c": {
+  "en": "Other income",
+  "t": "Otros ingresos"
+ },
  "a1a6cd89dd4f": {
   "en": "Beat",
   "t": "Supera"
+ },
+ "a32b009dd2d1": {
+  "en": "Gwynne Shotwell, President and COO",
+  "t": "Gwynne Shotwell, presidenta y directora de operaciones"
+ },
+ "ad3d7b91dbef": {
+  "en": "Share count",
+  "t": "Número de acciones"
+ },
+ "ae7d2bc2112b": {
+  "en": "Elon Musk, CEO",
+  "t": "Elon Musk, CEO"
+ },
+ "b5b50a171333": {
+  "en": "Earnings call",
+  "t": "Llamada de resultados"
+ },
+ "c0a3d683d1ab": {
+  "en": "Net loss",
+  "t": "Pérdida neta"
+ },
+ "d57e5ac459d4": {
+  "en": "Cost of sales",
+  "t": "Costo de ventas"
+ },
+ "d6b6d79748f2": {
+  "en": "Diluted EPS",
+  "t": "UPA diluida"
  },
  "e4062ee5a2c0": {
   "en": "Capex",
@@ -22,5 +110,13 @@
  "e763d92c95b5": {
   "en": "Miss",
   "t": "Se queda corto"
+ },
+ "e8571b18e52b": {
+  "en": "Net cash",
+  "t": "Caja neta"
+ },
+ "f4e821747c88": {
+  "en": "SpaceX",
+  "t": "SpaceX"
  }
 }
