@@ -1,6 +1,894 @@
 {
+ "002857d6d989": {
+  "en": "A hardware wallet suits larger long-term holdings if you can protect the seed phrase.",
+  "t": "Una billetera de hardware sirve para tenencias más grandes de largo plazo si puedes proteger la frase semilla."
+ },
+ "0093f866be27": {
+  "en": "Run 100 slots",
+  "t": "Correr 100 turnos"
+ },
+ "0275798187be": {
+  "en": "Believing “it is on the blockchain” means a project is legitimate. Anyone can launch a token, including scammers.",
+  "t": "Creer que “está en la blockchain” significa que un proyecto es legítimo. Cualquiera puede lanzar un token, incluidos los estafadores."
+ },
+ "03082fa660bc": {
+  "en": "How many people are talking about it online",
+  "t": "Cuánta gente habla de ella en internet"
+ },
+ "03c6df742b78": {
+  "en": "On the exchange, withdraw a test amount of about $50 to the address shown on the device screen. Wait until it arrives.",
+  "t": "En el exchange, retira un monto de prueba de cerca de US$50 a la dirección que muestra la pantalla del dispositivo. Espera hasta que llegue."
+ },
+ "07d83cfd831a": {
+  "en": "Never share your seed phrase with anyone.",
+  "t": "Nunca compartas tu frase semilla con nadie."
+ },
+ "0b152087e72d": {
+  "en": "Yearly fund fee, trades only in market hours, you never touch the coins.",
+  "t": "Comisión anual del fondo, solo se negocia en horario de mercado, nunca tocas las monedas."
+ },
+ "0c63e7c6047a": {
+  "en": "There is no undo button. Send coins to the wrong address and they are usually gone.",
+  "t": "No hay botón de deshacer. Si mandas monedas a la dirección equivocada, por lo general se pierden."
+ },
+ "0ce04ad91077": {
+  "en": "It does not make a coin valuable or a project honest. Scam tokens run on blockchains too (see <a href=\"#l-crypto-risks\">risks, scams and taxes</a>).",
+  "t": "No hace valiosa una moneda ni honesto un proyecto. Los tokens de estafa también corren en blockchains (mira <a href=\"#l-crypto-risks\">riesgos, estafas e impuestos</a>)."
+ },
+ "0e38833b828e": {
+  "en": "<b>Confirmations:</b> each new block on top of yours is a confirmation. To undo a payment, an attacker must redo that block and every block after it faster than the rest of the network.",
+  "t": "<b>Confirmaciones:</b> cada bloque nuevo encima del tuyo es una confirmación. Para deshacer un pago, un atacante tiene que rehacer ese bloque y todos los siguientes más rápido que el resto de la red."
+ },
+ "0e4d5a186797": {
+  "en": "near 0% if the peg holds",
+  "t": "cerca de 0 % si se mantiene la paridad"
+ },
+ "0ee403b1bd74": {
+  "en": "Having no plan for heirs. Coins in self-custody can be lost forever if nobody knows how to reach them.",
+  "t": "No tener un plan para los herederos. Las monedas en autocustodia se pueden perder para siempre si nadie sabe cómo llegar a ellas."
+ },
+ "1087c949fe18": {
+  "en": "Digital money with a fixed supply of 21 million. Used mainly as a long-term store of value.",
+  "t": "Dinero digital con una oferta fija de 21 millones. Se usa sobre todo como reserva de valor de largo plazo."
+ },
+ "10def4b61f9d": {
+  "en": "About 20.1 million of the 21 million already exist, roughly 95.7%. The rest trickles out over the following century.",
+  "t": "Ya existen cerca de 20,1 millones de los 21 millones, más o menos el 95,7 %. El resto va saliendo a goteo durante el siglo siguiente."
+ },
+ "114139b36243": {
+  "en": "Pool F",
+  "t": "Pool F"
+ },
+ "12cdc218b988": {
+  "en": "Ethereum (ether)",
+  "t": "Ethereum (ether)"
+ },
+ "132d9fbff10a": {
+  "en": "That block’s hash changes, so the next block no longer links to it and every later block must be redone",
+  "t": "El hash de ese bloque cambia, así que el siguiente bloque ya no se enlaza con él y todos los bloques posteriores se tienen que rehacer"
+ },
+ "171ca0385a0e": {
+  "en": "Behaviour",
+  "t": "Comportamiento"
+ },
+ "17b1ad476d3a": {
+  "en": "CoinGecko: bitcoin price, supply and record high",
+  "t": "CoinGecko: precio, oferta y récord de bitcoin"
+ },
+ "1cbcaed1c8ba": {
+  "en": "Most altcoins and memecoins lose most of their value.",
+  "t": "La mayoría de las altcoins y las memecoins pierden la mayor parte de su valor."
+ },
+ "1e5f8d757226": {
+  "en": "IF YOU CONTROL THIS MUCH STAKE",
+  "t": "SI CONTROLAS ESTA PARTE DEL STAKE"
+ },
+ "20191415f532": {
+  "en": "Ratings are a teaching summary, not a product review. Check fees and terms on the provider’s site. Never share a seed phrase with anyone, including “support”.",
+  "t": "Las calificaciones son un resumen didáctico, no una reseña de productos. Revisa las comisiones y las condiciones en el sitio del proveedor. Nunca compartas una frase semilla con nadie, incluido el “soporte”."
+ },
+ "211aa267a4fb": {
+  "en": "How much will you hold?",
+  "t": "¿Cuánto vas a tener?"
+ },
+ "21686ef0b593": {
+  "en": "Each block stores the previous block’s hash, its fingerprint. Mine the new block, then edit an older one.",
+  "t": "Cada bloque guarda el hash del bloque anterior, su huella digital. Mina el bloque nuevo y luego edita uno más viejo."
+ },
+ "22da5c4c464c": {
+  "en": "Using the formula from the Bitcoin white paper, an attacker with 10% of all mining power has about a 0.02% chance of undoing a payment buried under six blocks.",
+  "t": "Con la fórmula del white paper de Bitcoin, un atacante con el 10 % de todo el poder de minería tiene cerca de un 0,02 % de probabilidad de deshacer un pago enterrado bajo seis bloques."
+ },
+ "260f7a8cd4f6": {
+  "en": "Node",
+  "t": "Nodo"
+ },
+ "267ad69b6d39": {
+  "en": "Spreads can be hidden in the price; withdrawal options vary.",
+  "t": "Los diferenciales pueden estar escondidos en el precio; las opciones de retiro varían."
+ },
+ "2a6d630b903c": {
+  "en": "Broker app",
+  "t": "App de bróker"
+ },
+ "2b09eaed0265": {
+  "en": "Sending coins to the wrong address and expecting a refund. There is no bank to reverse it; test with a small amount first.",
+  "t": "Mandar monedas a la dirección equivocada y esperar un reembolso. No hay un banco que lo reverse; prueba primero con un monto pequeño."
+ },
+ "2c8b05b618d7": {
+  "en": "Blocks, hashes, mining and staking: why a shared ledger is so hard to fake.",
+  "t": "Bloques, hashes, minería y staking: por qué un libro contable compartido es tan difícil de falsificar."
+ },
+ "2d28df290d6f": {
+  "en": "Wallets, keys, exchanges and ETFs",
+  "t": "Billeteras, claves, exchanges y ETF"
+ },
+ "2e0a872bad4f": {
+  "en": "Bitcoin, past year",
+  "t": "Bitcoin, último año"
+ },
+ "2f4bb3743d7f": {
+  "en": "ethereum.org: Proof-of-stake attack and defense",
+  "t": "ethereum.org: ataques y defensas en la prueba de participación"
+ },
+ "302b8ffbb245": {
+  "en": "<b>Backed by reserves held by the issuer</b> (USDT, USDC): together about $255 billion of the roughly $301 billion stablecoin total in October 2026. The reserves are mostly cash-like assets; check the issuer’s attestations. They are only as safe as those reserves and the company behind them. Not FDIC-insured.",
+  "t": "<b>Respaldadas por reservas que tiene el emisor</b> (USDT, USDC): juntas, cerca de US$255.000 millones de los cerca de US$301.000 millones del total de stablecoins en octubre de 2026. Las reservas son sobre todo activos parecidos al efectivo; revisa las certificaciones del emisor. Son tan seguras como esas reservas y la empresa que hay detrás. No están aseguradas por la FDIC de EE. UU."
+ },
+ "306a008b1978": {
+  "en": "A coin’s <b>market capitalization</b> is its price times the number of coins. A token at $0.0001 with a trillion coins is worth more in total than one at $50 with a million coins. In October 2026 the whole crypto market was worth about $2.8 to $2.9 trillion, and bitcoin alone was 58% to 60% of it.",
+  "t": "La <b>capitalización de mercado</b> de una moneda es su precio por el número de monedas. Un token a US$0,0001 con un billón de monedas vale más en total que uno a US$50 con un millón de monedas. En octubre de 2026 todo el mercado cripto valía cerca de US$2,8 a 2,9 billones, y bitcoin solo era entre el 58 % y el 60 % de eso."
+ },
+ "30c3b9fb84f0": {
+  "en": "Keep a backup in a second safe place and tell a trusted person how to find it if something happens to you (see <a href=\"#l-estate\">wills and beneficiaries</a>).",
+  "t": "Guarda una copia en un segundo lugar seguro y dile a una persona de confianza cómo encontrarla si te pasa algo (mira <a href=\"#l-estate\">testamentos y beneficiarios</a>)."
+ },
+ "3135175d21d4": {
+  "en": "A scheduled release of coins held by founders or early investors, which can add selling pressure.",
+  "t": "Una liberación programada de monedas en manos de los fundadores o de los primeros inversionistas, que puede sumar presión vendedora."
+ },
+ "31986179aea8": {
+  "en": "At about $84,500 per coin (October 2026), that is about $38 million of new bitcoin a day that miners can sell to pay for power.",
+  "t": "A cerca de US$84.500 por moneda (octubre de 2026), eso son unos US$38 millones de bitcoin nuevo al día que los mineros pueden vender para pagar la energía."
+ },
+ "319c8d5dd9a6": {
+  "en": "Online device risk; you track every cost basis yourself.",
+  "t": "Riesgo de un dispositivo conectado; tú llevas la cuenta de cada costo base."
+ },
+ "3507328a8c5b": {
+  "en": "Validators in a ring, sized by stake; one is picked to propose each block",
+  "t": "Validadores en un anillo, con tamaño según su stake; se escoge uno para proponer cada bloque"
+ },
+ "35c1eba18cf1": {
+  "en": "A miner includes it in a block. Blocks arrive about every 10 minutes on average, so the payment usually gets its first confirmation within minutes.",
+  "t": "Un minero lo incluye en un bloque. Los bloques llegan cerca de cada 10 minutos en promedio, así que el pago por lo general recibe su primera confirmación en minutos."
+ },
+ "36d2ca5d939c": {
+  "en": "From the formula in section 11 of the Bitcoin white paper: the chance an attacker who is behind ever catches up with the honest chain. Drag the dot or the sliders.",
+  "t": "Con la fórmula de la sección 11 del white paper de Bitcoin: la probabilidad de que un atacante que va atrás alcance alguna vez la cadena honesta. Arrastra el punto o los deslizadores."
+ },
+ "3793f4430c0d": {
+  "en": "SHARE OF THE TOTAL CRYPTO MARKET",
+  "t": "PARTE DEL MERCADO CRIPTO TOTAL"
+ },
+ "37a7049b9180": {
+  "en": "Never type it into a website or app you reached from a link, and never give it to “support”. Real support never asks.",
+  "t": "Nunca la escribas en un sitio web o una app a la que llegaste por un enlace, y nunca se la des al “soporte”. El soporte de verdad nunca la pide."
+ },
+ "389f911e71a5": {
+  "en": "ethereum.org: The Merge (September 15, 2022; energy use down ~99.95%)",
+  "t": "ethereum.org: The Merge (15 de septiembre de 2022; consumo de energía ~99,95 % menor)"
+ },
+ "3a94c013d6bd": {
+  "en": "The app company",
+  "t": "La empresa de la app"
+ },
+ "3aed2d569b84": {
+  "en": "Nonce",
+  "t": "Nonce"
+ },
+ "3bf3a31b070a": {
+  "en": "Withdraw the rest. Before confirming, compare the whole address on the device screen with where you are sending, at least the start, middle and end. Malware can swap addresses, and look-alike “poisoned” addresses can match the first and last characters.",
+  "t": "Retira el resto. Antes de confirmar, compara toda la dirección de la pantalla del dispositivo con el destino al que mandas, por lo menos el principio, la mitad y el final. El malware puede cambiar las direcciones, y las direcciones “envenenadas” que se parecen pueden coincidir en los primeros y los últimos caracteres."
+ },
+ "3c6ed4624944": {
+  "en": "Send them so they can fix it quickly",
+  "t": "Mandarlas para que lo puedan arreglar rápido"
+ },
+ "3c940a71e99e": {
+  "en": "Price times the number of coins or shares. The real size of an asset.",
+  "t": "El precio por el número de monedas o de acciones. El tamaño real de un activo."
+ },
+ "3f1e4d5d4d4a": {
+  "en": "<span class=\"n\">{0}</span><span><b>{1}</b><small>{2}</small></span><span class=\"sc\">{3}% fit</span>",
+  "t": "<span class=\"n\">{0}</span><span><b>{1}</b><small>{2}</small></span><span class=\"sc\">{3} % de ajuste</span>"
+ },
+ "3f77c8997304": {
+  "en": "The fund’s custodian",
+  "t": "El custodio del fondo"
+ },
+ "424eecdf076a": {
+  "en": "What each kind of coin is for, how its supply works and how much it swings.",
+  "t": "Para qué sirve cada tipo de moneda, cómo funciona su oferta y cuánto oscila."
+ },
+ "45c90fbc8226": {
+  "en": "Ethereum is a platform for smart contracts; ether pays fees and secures it through staking.",
+  "t": "Ethereum es una plataforma de contratos inteligentes; el ether paga las comisiones y la asegura mediante staking."
+ },
+ "45e9e19b0870": {
+  "en": "After {0} block{1} an attacker with {2}% of the power has a {3} chance. Each extra block makes the odds drop fast, which is why exchanges wait for several confirmations.",
+  "t": "Después de {0} bloque{1}, un atacante con el {2} % del poder tiene una probabilidad de {3}. Cada bloque extra hace que las probabilidades caigan rápido, por eso los exchanges esperan varias confirmaciones."
+ },
+ "4613da8fd889": {
+  "en": "DefiLlama: stablecoin supply",
+  "t": "DefiLlama: oferta de stablecoins"
+ },
+ "48636f35f0aa": {
+  "en": "How comfortable are you with tech?",
+  "t": "¿Qué tan cómodo te sientes con la tecnología?"
+ },
+ "4a21ae077f32": {
+  "en": "Ana’s wallet signs the payment with her private key. Anyone can check the signature against her address, but nobody can forge it.",
+  "t": "La billetera de Ana firma el pago con su clave privada. Cualquiera puede verificar la firma con su dirección, pero nadie la puede falsificar."
+ },
+ "4ab5b91bd993": {
+  "en": "<span class=\"ctl-lab\">Difficulty: zeros the hash must start with</span>{0}",
+  "t": "<span class=\"ctl-lab\">Dificultad: ceros con los que debe empezar el hash</span>{0}"
+ },
+ "4b4222751598": {
+  "en": "The number miners change over and over until the block’s hash meets the target.",
+  "t": "El número que los mineros cambian una y otra vez hasta que el hash del bloque cumple con el objetivo."
+ },
+ "4cae0fdc2a86": {
+  "en": "<b>DeFi risks:</b> a bug in a smart contract can be drained in minutes, and bridges that move coins between chains are frequent targets. Hacks topped about $935 million in the first half of 2026, including KelpDAO (about $292 million) and Drift (about $285 million). When an app asks to spend your tokens, that approval can stay open; revoke the ones you no longer use.",
+  "t": "<b>Riesgos de DeFi:</b> un error en un contrato inteligente puede ser vaciado en minutos, y los puentes que mueven monedas entre cadenas son blancos frecuentes. Los hackeos superaron cerca de US$935 millones en el primer semestre de 2026, incluidos KelpDAO (cerca de US$292 millones) y Drift (cerca de US$285 millones). Cuando una app pide gastar tus tokens, esa aprobación puede quedar abierta; revoca las que ya no uses."
+ },
+ "4d8186265a00": {
+  "en": "Mine the new block. Then change the data in an older block and watch every block after it break. Switch to proof of stake to see how validators replace miners.",
+  "t": "Mina el bloque nuevo. Luego cambia los datos de un bloque más viejo y mira cómo se rompen todos los bloques siguientes. Cambia a prueba de participación para ver cómo los validadores reemplazan a los mineros."
+ },
+ "4ee601cad55e": {
+  "en": "How a blockchain works",
+  "t": "Cómo funciona una blockchain"
+ },
+ "4efca4442bb8": {
+  "en": "Below a third you cannot stall the chain.",
+  "t": "Por debajo de un tercio no puedes frenar la cadena."
+ },
+ "50d172b1ebba": {
+  "en": "bitcoin.org FAQ: supply cap and block time",
+  "t": "Preguntas frecuentes de bitcoin.org: tope de oferta y tiempo por bloque"
+ },
+ "52cd81f65643": {
+  "en": "Your <b>address</b> is like an account number. You can share it to receive coins.",
+  "t": "Tu <b>dirección</b> es como un número de cuenta. La puedes compartir para recibir monedas."
+ },
+ "54c798423987": {
+  "en": "Thousands of other tokens, from large smart-contract chains to joke coins with no purpose.",
+  "t": "Miles de otros tokens, desde grandes cadenas de contratos inteligentes hasta monedas de chiste sin ningún propósito."
+ },
+ "54fdf8b497b9": {
+  "en": "<b>Algorithmic</b>: backed by code and confidence. TerraUSD lost its peg in May 2022 and investors lost an estimated $40 billion.",
+  "t": "<b>Algorítmicas</b>: respaldadas por código y confianza. TerraUSD perdió su paridad en mayo de 2022 y los inversionistas perdieron unos US$40.000 millones, según las estimaciones."
+ },
+ "559b70d76710": {
+  "en": "Altcoins and memecoins",
+  "t": "Altcoins y memecoins"
+ },
+ "562271854b5c": {
+  "en": "<span class=\"ctl-lab\">How you behave</span>{0}",
+  "t": "<span class=\"ctl-lab\">Cómo te comportas</span>{0}"
+ },
+ "57883a488078": {
+  "en": "Each block stores the previous block’s hash, so editing old data breaks every later link.",
+  "t": "Cada bloque guarda el hash del bloque anterior, así que editar datos viejos rompe todos los eslabones posteriores."
+ },
+ "5793e250cceb": {
+  "en": "<span class=\"kc1-k\">Nonce</span><code>{0}</code><i></i>",
+  "t": "<span class=\"kc1-k\">Nonce</span><code>{0}</code><i></i>"
+ },
+ "58b920345871": {
+  "en": "White House fact sheet: GENIUS Act signed July 18, 2025",
+  "t": "Hoja informativa de la Casa Blanca: se firma la Ley GENIUS el 18 de julio de 2025 (en inglés)"
+ },
+ "5b71639088ad": {
+  "en": "Buying a memecoin because it is trending. Many lose most of their value within months.",
+  "t": "Comprar una memecoin porque está de moda. Muchas pierden la mayor parte de su valor en meses."
+ },
+ "5f1c218b5cd1": {
+  "en": "Judge a coin by market cap and supply rules, not its price per coin.",
+  "t": "Juzga una moneda por su capitalización de mercado y sus reglas de oferta, no por su precio por moneda."
+ },
+ "5f5f7f50f390": {
+  "en": "How will you use it?",
+  "t": "¿Cómo lo vas a usar?"
+ },
+ "60fb57e9c6ac": {
+  "en": "Pool A",
+  "t": "Pool A"
+ },
+ "61947e544f09": {
+  "en": "After the next halving, expected around April 2028, the reward drops to 1.5625 BTC: 225 new coins a day.",
+  "t": "Después del próximo halving, esperado cerca de abril de 2028, la recompensa baja a 1,5625 BTC: 225 monedas nuevas al día."
+ },
+ "6255a6c0301a": {
+  "en": "<b>51% attack:</b> with more than half of all mining power, an attacker can eventually rewrite recent blocks. Big networks make that very expensive; small coins are easier targets.",
+  "t": "<b>Ataque del 51 %:</b> con más de la mitad de todo el poder de minería, un atacante puede terminar reescribiendo los bloques recientes. Las redes grandes hacen eso muy caro; las monedas pequeñas son blancos más fáciles."
+ },
+ "634640b3b260": {
+  "en": "Where do you want it?",
+  "t": "¿Dónde lo quieres?"
+ },
+ "63bedbfa4240": {
+  "en": "<b>Government holdings:</b> a Strategic Bitcoin Reserve was created by executive order on March 6, 2025, funded with forfeited bitcoin. It had made no purchases as of June 2026.",
+  "t": "<b>Tenencias del gobierno:</b> se creó una Reserva Estratégica de Bitcoin por orden ejecutiva el 6 de marzo de 2025, financiada con bitcoin decomisado. No había hecho compras a junio de 2026."
+ },
+ "644341cd1964": {
+  "en": "Exchange hacks and failures, account takeovers, tracking basis across platforms.",
+  "t": "Hackeos y quiebras de exchanges, robo de cuentas, llevar el costo base entre plataformas."
+ },
+ "64c8282e13fb": {
+  "en": "21M cap",
+  "t": "Tope de 21 M"
+ },
+ "67543bc3b4d6": {
+  "en": "Treating a stablecoin like a bank deposit. It is not FDIC-insured, and it depends on the issuer’s reserves.",
+  "t": "Tratar una stablecoin como un depósito bancario. No tiene seguro de depósitos, y depende de las reservas del emisor."
+ },
+ "69a962892d3b": {
+  "en": "Pool G",
+  "t": "Pool G"
+ },
+ "6c0846c1160d": {
+  "en": "With nothing solid behind it, each redemption prints more of a sister token, its price falls, confidence breaks and the coin spirals toward zero. TerraUSD failed this way in May 2022.",
+  "t": "Sin nada sólido detrás, cada retiro imprime más de un token hermano, su precio cae, la confianza se rompe y la moneda se va en espiral hacia cero. TerraUSD falló así en mayo de 2022."
+ },
+ "6d3b03925a7c": {
+  "en": "Pool E",
+  "t": "Pool E"
+ },
+ "6decc65ce0af": {
+  "en": "Not all crypto is alike. Bitcoin has a fixed supply, ether runs programs, stablecoins try to stay at $1, and most other tokens are long shots.",
+  "t": "No todas las cripto son iguales. Bitcoin tiene una oferta fija, el ether corre programas, las stablecoins tratan de mantenerse en US$1, y la mayoría de los demás tokens son apuestas muy arriesgadas."
+ },
+ "6ee0a10aa2ac": {
+  "en": "It is public, not private. Every transaction stays visible forever, and addresses can often be linked to people through exchanges.",
+  "t": "Es pública, no privada. Cada transacción queda visible para siempre, y las direcciones a menudo se pueden vincular con personas a través de los exchanges."
+ },
+ "6f2849ee856b": {
+  "en": "Confusing the technology with the investment. A working blockchain does not make its coin a good buy.",
+  "t": "Confundir la tecnología con la inversión. Una blockchain que funciona no hace de su moneda una buena compra."
+ },
+ "6fcf5cc0d4ee": {
+  "en": "~15% (long run)",
+  "t": "~15 % (largo plazo)"
+ },
+ "6ff4dd49933e": {
+  "en": "<b>Stake attacks:</b> on Ethereum, someone with a third of all staked ether could stop the chain from finalizing (blocks keep coming, and a penalty called the inactivity leak slowly drains the attacker), and about two thirds could rewrite finalized history, at the risk of losing that stake.",
+  "t": "<b>Ataques de stake:</b> en Ethereum, alguien con un tercio de todo el ether en staking podría impedir que la cadena se finalice (los bloques siguen llegando, y una penalización llamada fuga por inactividad le va quitando poco a poco al atacante), y con cerca de dos tercios podría reescribir la historia ya finalizada, a riesgo de perder ese stake."
+ },
+ "70ecc6fcd2e7": {
+  "en": "can stop blocks",
+  "t": "puedes impedir que los bloques"
+ },
+ "71f087f060e7": {
+  "en": "What if the company fails?",
+  "t": "¿Y si la empresa quiebra?"
+ },
+ "7434403a1206": {
+  "en": "<b>Market structure:</b> the CLARITY Act, which would split oversight between the CFTC and the SEC, passed the House 294–134 in July 2025. A Senate vote to move it forward failed 49–50 on September 15, 2026.",
+  "t": "<b>Estructura del mercado:</b> la Ley CLARITY, que dividiría la supervisión entre la CFTC y la SEC, pasó en la Cámara de Representantes 294–134 en julio de 2025. Una votación en el Senado para avanzarla fracasó 49–50 el 15 de septiembre de 2026."
+ },
+ "74ce3c52a8e4": {
+  "en": "No exchange failure can now freeze those coins. The trade-off: lose the device and both seed copies and the coins are gone for good.",
+  "t": "Ya ninguna quiebra de un exchange puede congelar esas monedas. Lo que cedes: si pierdes el dispositivo y las dos copias de la semilla, las monedas se pierden para siempre."
+ },
+ "74e149965f6f": {
+  "en": "Re-mine broken blocks",
+  "t": "Volver a minar los bloques rotos"
+ },
+ "75ed878fe27f": {
+  "en": "Custodian",
+  "t": "Custodio"
+ },
+ "763c72182508": {
+  "en": "iShares Bitcoin Trust ETF (IBIT): fee and assets",
+  "t": "iShares Bitcoin Trust ETF (IBIT): comisión y activos (en inglés)"
+ },
+ "77ee542add51": {
+  "en": "Stablecoin price over a week of heavy redemptions",
+  "t": "Precio de la stablecoin durante una semana de muchos retiros"
+ },
+ "78261a154a0e": {
+  "en": "Simplified model: one proposer per slot, picked at random in proportion to stake. Real networks also have committees that vote on each block. Pools here are made up.",
+  "t": "Modelo simplificado: un proponente por turno, escogido al azar en proporción a lo que tiene en staking. Las redes reales también tienen comités que votan cada bloque. Los pools de aquí son inventados."
+ },
+ "78e0c193cff3": {
+  "en": "Chance an attacker catches up, by number of blocks waited",
+  "t": "Probabilidad de que un atacante alcance la cadena, según el número de bloques esperados"
+ },
+ "78f67a9228cc": {
+  "en": "Since April 2024 each block creates 3.125 new BTC: 144 × 3.125 = 450 new coins a day.",
+  "t": "Desde abril de 2024 cada bloque crea 3,125 BTC nuevos: 144 × 3,125 = 450 monedas nuevas al día."
+ },
+ "7945d3c8f7a0": {
+  "en": "Difficulty",
+  "t": "Dificultad"
+ },
+ "796366dcf1f4": {
+  "en": "Bitcoin aims for one block about every 10 minutes: 6 an hour, 144 a day.",
+  "t": "Bitcoin apunta a un bloque cerca de cada 10 minutos: 6 por hora, 144 al día."
+ },
+ "7ed69b19355c": {
+  "en": "Its market cap: price times the number of coins",
+  "t": "Su capitalización de mercado: el precio por el número de monedas"
+ },
+ "8148dae8c6f0": {
+  "en": "A <b>hot wallet</b> is an app on a phone or browser: handy for using crypto apps, but online and open to phishing and malware. A <b>cold wallet</b>, usually a hardware device, keeps keys offline and signs transactions on the device. Self-custody removes company risk and adds personal risk: you are the bank, the security team and the record keeper. You also track your own cost basis for taxes.",
+  "t": "Una <b>billetera caliente</b> es una app en un celular o un navegador: práctica para usar apps cripto, pero está conectada y expuesta al phishing y al malware. Una <b>billetera fría</b>, por lo general un dispositivo de hardware, guarda las claves sin conexión y firma las transacciones en el dispositivo. La autocustodia quita el riesgo de la empresa y suma el riesgo personal: tú eres el banco, el equipo de seguridad y quien lleva los registros. También llevas tu propio costo base para los impuestos."
+ },
+ "824384be1831": {
+  "en": "Pool B",
+  "t": "Pool B"
+ },
+ "82d362395d1a": {
+  "en": "Mine block",
+  "t": "Minar el bloque"
+ },
+ "870e457e2b19": {
+  "en": "Answer four questions to rank five ways to hold crypto. Then compare all five and tick “What if the company fails?”.",
+  "t": "Responde cuatro preguntas para ordenar cinco formas de tener cripto. Luego compara las cinco y marca “¿Y si la empresa quiebra?”."
+ },
+ "87101cf1e61b": {
+  "en": "New transaction",
+  "t": "Transacción nueva"
+ },
+ "878802518d14": {
+  "en": "Spot bitcoin ETFs started trading in January 2024 and spot ether ETFs in July 2024. You buy shares like any stock, including in an IRA, and never handle keys. The fund pays a custodian; you pay a yearly fee, and fees differ a lot: iShares’ IBIT charges 0.25%, Grayscale’s ETHE charges 2.5% and keeps 23% of its staking rewards, BlackRock’s staked ether fund ETHB charges 0.25% plus 18% of rewards, and Bitwise’s Solana fund BSOL charges 0.20%. US spot bitcoin ETFs held about $100 billion in October 2026. Spot funds for Solana, Litecoin and Hedera launched in late October 2025 and for XRP on November 13, 2025, and some ether funds now stake their coins. Trade-offs: trading only in market hours and no access to crypto apps. ETF shares get normal tax forms, and the wash-sale rule applies to them.",
+  "t": "Los ETF de bitcoin al contado empezaron a negociarse en enero de 2024 y los de ether al contado en julio de 2024. Compras acciones como cualquier otra, incluso en una cuenta de retiro, y nunca manejas claves. El fondo le paga a un custodio; tú pagas una comisión anual, y las comisiones cambian mucho: el IBIT de iShares cobra 0,25 %, el ETHE de Grayscale cobra 2,5 % y se queda con el 23 % de sus recompensas de staking, el fondo de ether en staking ETHB de BlackRock cobra 0,25 % más el 18 % de las recompensas, y el fondo de Solana BSOL de Bitwise cobra 0,20 %. Los ETF de bitcoin al contado de EE. UU. tenían cerca de US$100.000 millones en octubre de 2026. Los fondos al contado de Solana, Litecoin y Hedera salieron a finales de octubre de 2025 y el de XRP el 13 de noviembre de 2025, y algunos fondos de ether ya hacen staking con sus monedas. Lo que cedes: solo se negocian en horario de mercado y no hay acceso a las apps cripto. En EE. UU. las acciones de los ETF reciben certificados tributarios normales, y la regla de la venta ficticia aplica a ellas."
+ },
+ "879f2e318c66": {
+  "en": "The exchange",
+  "t": "El exchange"
+ },
+ "87cd8a2ab6d3": {
+  "en": "HOW MUCH IT SWINGS: TYPICAL YEARLY VOLATILITY",
+  "t": "CUÁNTO OSCILA: VOLATILIDAD ANUAL TÍPICA"
+ },
+ "8808bcf3faee": {
+  "en": "A public string of characters you share so others can send you crypto.",
+  "t": "Una cadena pública de caracteres que compartes para que otros te puedan mandar cripto."
+ },
+ "893f213ffb53": {
+  "en": "Stablecoins are only as safe as their reserves.",
+  "t": "Las stablecoins son tan seguras como sus reservas."
+ },
+ "8a4a28ef9e89": {
+  "en": "Send only the first six words",
+  "t": "Mandar solo las primeras seis palabras"
+ },
+ "8b721f19158a": {
+  "en": "Set it up at home. It shows a 24-word seed phrase once; write it on paper and store it offline. No photos, no typing.",
+  "t": "Configúralo en la casa. Muestra una frase semilla de 24 palabras una sola vez; escríbela en papel y guárdala sin conexión. Nada de fotos, nada de escribirla en un teclado."
+ },
+ "8b995de81bce": {
+  "en": "<span class=\"wg-title\">Pick your setup</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">Escoge tu configuración</span><span class=\"grow\"></span>{0}"
+ },
+ "8d0fbfbb215c": {
+  "en": "Slide the attacker’s share of mining power and the number of blocks you wait. See why exchanges wait for several confirmations.",
+  "t": "Mueve la parte del poder de minería del atacante y el número de bloques que esperas. Mira por qué los exchanges esperan varias confirmaciones."
+ },
+ "8e1837a5fa24": {
+  "en": "Layer 2",
+  "t": "Capa 2"
+ },
+ "8e4e1bf610f3": {
+  "en": "Nothing; old blocks can be edited freely",
+  "t": "Nada; los bloques viejos se pueden editar libremente"
+ },
+ "8ed9a39d1baf": {
+  "en": "On proof-of-stake chains you can lock coins to help secure the network and earn rewards. Rewards are taxed as income when you receive them, coins can be locked for a while, and staking through an exchange adds that company’s risk. Some spot ether ETFs now stake for you.",
+  "t": "En las cadenas de prueba de participación puedes bloquear monedas para ayudar a asegurar la red y ganar recompensas. En EE. UU. las recompensas pagan impuesto como ingreso cuando las recibes, las monedas pueden quedar bloqueadas un tiempo, y hacer staking a través de un exchange suma el riesgo de esa empresa. Algunos ETF de ether al contado ya hacen staking por ti."
+ },
+ "8f2361befed7": {
+  "en": "A shared computer that runs smart contracts. Ether pays the fees and is staked to secure the network.",
+  "t": "Un computador compartido que corre contratos inteligentes. El ether paga las comisiones y se pone en staking para asegurar la red."
+ },
+ "9039f1575bf1": {
+  "en": "Thinking a coin at a fraction of a cent is cheap. Check the market cap and how many coins exist.",
+  "t": "Pensar que una moneda a una fracción de centavo es barata. Revisa la capitalización de mercado y cuántas monedas existen."
+ },
+ "90b54dc5637a": {
+  "en": "blocks waited",
+  "t": "bloques esperados"
+ },
+ "91070bf5b5ae": {
+  "en": "A blockchain is a shared ledger copied across thousands of computers.",
+  "t": "Una blockchain es un libro contable compartido copiado en miles de computadores."
+ },
+ "919eea643b7b": {
+  "en": "<span class=\"wg-title\">A blockchain you can break</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">Una blockchain que puedes romper</span><span class=\"grow\"></span>{0}"
+ },
+ "93524897d202": {
+  "en": "The seed phrase is the master key. Anyone who asks for it is trying to steal your coins.",
+  "t": "La frase semilla es la llave maestra. Cualquiera que te la pida está tratando de robarte las monedas."
+ },
+ "96356b746fdd": {
+  "en": "Your <b>seed phrase</b>, 12 or 24 words, can rebuild your keys on any device. There is no password reset: lose it and the coins stay locked forever; leak it and they can be taken in seconds. Chainalysis estimated in 2020 that about 3.7 million bitcoin were probably lost for good.",
+  "t": "Tu <b>frase semilla</b>, de 12 o 24 palabras, puede reconstruir tus claves en cualquier dispositivo. No hay forma de restablecer la contraseña: si la pierdes, las monedas quedan bloqueadas para siempre; si se filtra, te las pueden quitar en segundos. Chainalysis estimó en 2020 que cerca de 3,7 millones de bitcoin probablemente se perdieron para siempre."
+ },
+ "9863445a0dfc": {
+  "en": "To add a block, <b>miners</b> race to find a number (the nonce) that makes the block’s hash start with enough zeros. The only way is trial and error, so it costs computing power and electricity. The winner earns new coins plus fees. Bitcoin adjusts the difficulty about every two weeks so a block arrives roughly every 10 minutes, no matter how many miners join.",
+  "t": "Para agregar un bloque, los <b>mineros</b> compiten por encontrar un número (el nonce) que haga que el hash del bloque empiece con suficientes ceros. La única forma es ensayo y error, así que cuesta poder de cómputo y electricidad. El ganador recibe monedas nuevas más las comisiones. Bitcoin ajusta la dificultad más o menos cada dos semanas para que llegue un bloque cerca de cada 10 minutos, sin importar cuántos mineros se sumen."
+ },
+ "9a86eca3af89": {
+  "en": "A company that holds assets, or the keys to them, on someone else’s behalf.",
+  "t": "Una empresa que guarda activos, o sus claves, en nombre de otra persona."
+ },
+ "9b581f275881": {
+  "en": "can rewrite",
+  "t": "puedes reescribir"
+ },
+ "9bbb7866b00c": {
+  "en": "Ethereum runs <b>smart contracts</b>, programs that move money when conditions are met. They power stablecoins, lending and trading apps (<b>DeFi</b>) and NFTs. Every action pays a <b>gas fee</b> in ether. <b>Layer 2</b> networks bundle many transactions and settle them on Ethereum to cut fees. Ether has no fixed cap, and since 2022 it is secured by staking, which paid roughly 3% a year in 2026.",
+  "t": "Ethereum corre <b>contratos inteligentes</b>, programas que mueven dinero cuando se cumplen unas condiciones. Impulsan las stablecoins, las apps de préstamos y de trading (<b>DeFi</b>) y los NFT. Cada acción paga una <b>comisión de gas</b> en ether. Las redes de <b>capa 2</b> empaquetan muchas transacciones y las liquidan en Ethereum para bajar las comisiones. El ether no tiene un tope fijo, y desde 2022 se asegura con staking, que pagaba más o menos el 3 % al año en 2026."
+ },
+ "9c1c6818a527": {
+  "en": "The network asks the sender’s bank to approve the change",
+  "t": "La red le pide al banco del remitente que apruebe el cambio"
+ },
+ "9d662f8f55b5": {
+  "en": "A token built around a joke or internet trend, usually with no use beyond speculation.",
+  "t": "Un token construido alrededor de un chiste o una moda de internet, por lo general sin más uso que la especulación."
+ },
+ "9ef3e3c44813": {
+  "en": "Write it on paper or metal. Never photograph it, email it or save it in the cloud.",
+  "t": "Escríbela en papel o en metal. Nunca le tomes foto, ni la mandes por correo, ni la guardes en la nube."
+ },
+ "9f6251a82f6a": {
+  "en": "Ethereum switched from mining to <b>proof of stake</b> on September 15, 2022, which cut its energy use by about 99.95%. Validators lock up ether as a deposit. The network picks them at random, in proportion to their stake, to propose and vote on blocks. Break the rules, such as signing two different blocks, and part of the deposit is destroyed (“slashed”).",
+  "t": "Ethereum pasó de la minería a la <b>prueba de participación</b> (proof of stake) el 15 de septiembre de 2022, lo que recortó su consumo de energía cerca de un 99,95 %. Los validadores bloquean ether como depósito. La red los escoge al azar, en proporción a su stake, para proponer y votar bloques. Si rompes las reglas, por ejemplo firmando dos bloques distintos, se destruye parte del depósito (“slashing”)."
+ },
+ "9fac91e54d84": {
+  "en": "Breaking the rules gets your stake slashed.",
+  "t": "Romper las reglas hace que te recorten el stake (slashing)."
+ },
+ "a04ce3ea9263": {
+  "en": "Saving the seed phrase as a phone photo, email or cloud note, where a hack can find it.",
+  "t": "Guardar la frase semilla como una foto en el celular, un correo o una nota en la nube, donde un hackeo la puede encontrar."
+ },
+ "a0d8e676664a": {
+  "en": "The payment is broadcast to the network and waits in a queue with others. Ana adds a fee; higher fees tend to get picked up sooner.",
+  "t": "El pago se transmite a la red y espera en una fila con otros. Ana agrega una comisión; las comisiones más altas tienden a recogerse antes."
+ },
+ "a10b4e11b0de": {
+  "en": "Thinking crypto is anonymous. Every transaction is public forever, and exchanges link addresses to real names.",
+  "t": "Pensar que las cripto son anónimas. Cada transacción es pública para siempre, y los exchanges vinculan las direcciones con nombres reales."
+ },
+ "a1a15471b167": {
+  "en": "Tap each group to compare them, drag through bitcoin’s supply schedule, then put a stablecoin under stress.",
+  "t": "Toca cada grupo para compararlos, recorre el calendario de oferta de bitcoin y luego pon a prueba una stablecoin."
+ },
+ "a385aa3c3933": {
+  "en": "<span>New transaction</span>",
+  "t": "<span>Transacción nueva</span>"
+ },
+ "a40e762001ca": {
+  "en": "Transactions are grouped into blocks. Each block stores the hash of the block before it. Edit an old block and its hash changes, so the next block no longer points to it, and every block after that is broken too. That is the “chain”.",
+  "t": "Las transacciones se agrupan en bloques. Cada bloque guarda el hash del bloque anterior. Edita un bloque viejo y su hash cambia, así que el siguiente bloque ya no apunta a él, y todos los bloques posteriores también quedan rotos. Esa es la “cadena”."
+ },
+ "a478715e8b8a": {
+  "en": "Tokens built to stay at $1, usually backed by reserves of cash-like assets held by the issuer. The plumbing of crypto trading.",
+  "t": "Tokens hechos para mantenerse en US$1, por lo general respaldados por reservas de activos parecidos al efectivo que tiene el emisor. La tubería del trading de cripto."
+ },
+ "a4a7fd22ab66": {
+  "en": "Transactions are permanent and public.",
+  "t": "Las transacciones son permanentes y públicas."
+ },
+ "a733b809d2f1": {
+  "en": "Active",
+  "t": "Activo"
+ },
+ "a851ca276219": {
+  "en": "Token unlock",
+  "t": "Liberación de tokens"
+ },
+ "aaa0cc6bfb02": {
+  "en": "Bitcoin is capped at 21 million coins; new issuance halves about every four years.",
+  "t": "Bitcoin tiene un tope de 21 millones de monedas; la emisión nueva se reduce a la mitad más o menos cada cuatro años."
+ },
+ "ab6fb45b4323": {
+  "en": "Store a second copy of the seed phrase somewhere separate and note in your estate papers how to find it.",
+  "t": "Guarda una segunda copia de la frase semilla en otro lugar y anota en tus papeles de herencia cómo encontrarla."
+ },
+ "ac10e094fcfb": {
+  "en": "Keys never touch the internet. Best for large long-term holdings you control.",
+  "t": "Las claves nunca tocan internet. Lo mejor para tenencias grandes de largo plazo que tú controlas."
+ },
+ "acd486c8feb4": {
+  "en": "US Attorney SDNY: Samuel Bankman-Fried sentenced to 25 years",
+  "t": "Fiscalía de EE. UU. del Distrito Sur de Nueva York: Samuel Bankman-Fried condenado a 25 años (en inglés)"
+ },
+ "ae7deacdcce7": {
+  "en": "<b>Funds:</b> on September 17, 2025 the SEC approved generic listing standards, so exchanges can list qualifying crypto funds without a separate approval each time.",
+  "t": "<b>Fondos:</b> el 17 de septiembre de 2025 la SEC aprobó estándares genéricos de listado, así que las bolsas pueden listar fondos de cripto que califiquen sin una aprobación aparte cada vez."
+ },
+ "aed19ef6128e": {
+  "en": "$1 peg",
+  "t": "Paridad de US$1"
+ },
+ "aff8fb862153": {
+  "en": "About $84,500 in October 2026, a third below its record near $126,000 (October 6, 2025), after falling as low as about $57,700 in July 2026. Past bear markets took it down 77% to 93%. Its supply rule is fixed in code.",
+  "t": "Cerca de US$84.500 en octubre de 2026, un tercio por debajo de su récord cerca de US$126.000 (6 de octubre de 2025), después de caer hasta cerca de US$57.700 en julio de 2026. Los mercados bajistas pasados lo hicieron caer entre 77 % y 93 %. Su regla de oferta está fija en el código."
+ },
+ "b0099616af3b": {
+  "en": "Stablecoins",
+  "t": "Stablecoins"
+ },
+ "b3b257b4b6e9": {
+  "en": "Leaving large amounts on an exchange because it is convenient. Not your keys, not your coins.",
+  "t": "Dejar montos grandes en un exchange porque es cómodo. Si no son tus claves, no son tus monedas."
+ },
+ "b438e39a4b4c": {
+  "en": "Your <b>private key</b> signs transactions. Whoever has it controls the coins.",
+  "t": "Tu <b>clave privada</b> firma las transacciones. Quien la tiene controla las monedas."
+ },
+ "b46e3ede510c": {
+  "en": " (edit me)",
+  "t": " (edítame)"
+ },
+ "b53eb729c003": {
+  "en": "Refuse: anyone with the words can take everything, and real support never asks",
+  "t": "Negarte: cualquiera con las palabras se puede llevar todo, y el soporte de verdad nunca las pide"
+ },
+ "b6623c04f736": {
+  "en": "A network that bundles many transactions and settles them on a main blockchain such as Ethereum, for lower fees.",
+  "t": "Una red que empaqueta muchas transacciones y las liquida en una blockchain principal como Ethereum, para bajar las comisiones."
+ },
+ "b76ab65957a6": {
+  "en": "Hardware",
+  "t": "Hardware"
+ },
+ "b7c5c7402307": {
+  "en": "Buy the device directly from the maker’s own website, not from a marketplace seller.",
+  "t": "Compra el dispositivo directamente en el sitio web del fabricante, no a un vendedor de un marketplace."
+ },
+ "b8fd964a5f4f": {
+  "en": "A <b>hash</b> turns any data into a short fingerprint. Bitcoin uses SHA-256, the same function running in the demo above. Change one letter and the fingerprint changes completely, and you cannot work backwards from a fingerprint to the data.",
+  "t": "Un <b>hash</b> convierte cualquier dato en una huella digital corta. Bitcoin usa SHA-256, la misma función que corre en la demostración de arriba. Cambia una letra y la huella cambia por completo, y no puedes devolverte de una huella a los datos."
+ },
+ "b92acb25d0b2": {
+  "en": "Backing",
+  "t": "Respaldo"
+ },
+ "b949d8c57b15": {
+  "en": "Each new block on top adds a confirmation. Six blocks take about an hour.",
+  "t": "Cada bloque nuevo encima suma una confirmación. Seis bloques toman más o menos una hora."
+ },
+ "ba0e4ce707dc": {
+  "en": "No mining here. Validators lock up coins, and the network picks who proposes each block in proportion to stake. With {0}% of the stake you should be picked about {1}% of the time.",
+  "t": "Aquí no hay minería. Los validadores bloquean monedas, y la red escoge quién propone cada bloque en proporción a su stake. Con el {0} % del stake deberían escogerte cerca del {1} % de las veces."
+ },
+ "ba262995e718": {
+  "en": "A blockchain is a ledger that thousands of computers keep in sync. Each block locks in the one before it, so changing history means redoing everything after it.",
+  "t": "Una blockchain es un libro contable que miles de computadores mantienen sincronizado. Cada bloque amarra al anterior, así que cambiar la historia significa rehacer todo lo que viene después."
+ },
+ "ba64117df6b1": {
+  "en": "Who holds the keys: exchanges, broker apps, ETFs, hot wallets and hardware wallets.",
+  "t": "Quién tiene las claves: exchanges, apps de brókeres, ETF, billeteras calientes y billeteras de hardware."
+ },
+ "bc2ce7d45b43": {
+  "en": "A real SHA-256 runs in your browser. Each try changes the nonce and hashes the block again. Real Bitcoin blocks need many more zeros, so the whole network shares the work. Edit any block’s data to tamper with it.",
+  "t": "Un SHA-256 real corre en tu navegador. Cada intento cambia el nonce y vuelve a calcular el hash del bloque. Los bloques reales de Bitcoin necesitan muchos más ceros, así que toda la red comparte el trabajo. Edita los datos de cualquier bloque para alterarlo."
+ },
+ "bc37071cf309": {
+  "en": "SEC: generic listing standards for commodity-based trust shares (September 17, 2025)",
+  "t": "SEC: estándares genéricos de listado para acciones de fideicomisos basados en materias primas (17 de septiembre de 2025, en inglés)"
+ },
+ "bd4d91db555f": {
+  "en": "October 2026 snapshot (CoinGecko, CoinMarketCap, DefiLlama); shares move daily. Volatility: Grayscale for bitcoin, Callan for the S&P 500. Smaller coins usually swing even more.",
+  "t": "Foto de octubre de 2026 (CoinGecko, CoinMarketCap, DefiLlama); las partes se mueven a diario. Volatilidad: Grayscale para bitcoin, Callan para el S&P 500. Las monedas más pequeñas por lo general oscilan todavía más."
+ },
+ "bda8ebdd6701": {
+  "en": "The schedule is certain; the price is not. A halving cuts new supply, but demand decides where the price goes.",
+  "t": "El calendario es seguro; el precio no. Un halving recorta la oferta nueva, pero la demanda decide hacia dónde va el precio."
+ },
+ "be1dbd0cd396": {
+  "en": "On an exchange or an app like Robinhood or Coinbase, the company holds the keys for you. It is convenient and you can reset a password. But your coins are only as safe as the company: it can be hacked, freeze withdrawals or go bankrupt. When FTX collapsed in November 2022, its founder had taken more than $8 billion of customer money; he was sentenced to 25 years. SIPC does not protect crypto that is not a security, and the FDIC does not insure crypto.",
+  "t": "En un exchange o en una app como Robinhood o Coinbase, la empresa tiene las claves por ti. Es cómodo y puedes restablecer una contraseña. Pero tus monedas son tan seguras como la empresa: la pueden hackear, puede congelar los retiros o puede quebrar. Cuando FTX colapsó en noviembre de 2022, su fundador se había llevado más de US$8.000 millones de dinero de los clientes; lo condenaron a 25 años. En EE. UU., el SIPC no protege las cripto que no son valores, y la FDIC no asegura las cripto."
+ },
+ "be747c64f2bd": {
+  "en": "Its price: anything under a penny is cheap",
+  "t": "Su precio: cualquier cosa por debajo de un centavo es barata"
+ },
+ "bf721272444b": {
+  "en": "Proof of work makes rewriting costly with electricity; proof of stake puts locked coins at risk instead.",
+  "t": "La prueba de trabajo encarece la reescritura con electricidad; la prueba de participación pone en riesgo las monedas bloqueadas."
+ },
  "c062287a8794": {
   "en": "Consensus",
   "t": "Consenso"
+ },
+ "c1ac932fdf7d": {
+  "en": "Bitcoin, 10-yr avg",
+  "t": "Bitcoin, promedio de 10 años"
+ },
+ "c29af35caf62": {
+  "en": "<b>Backed by other crypto</b>: they hold extra collateral, which can fall at the same time as the market.",
+  "t": "<b>Respaldadas por otras cripto</b>: tienen garantías extra, que pueden caer al mismo tiempo que el mercado."
+ },
+ "c2d1a2fdbc1a": {
+  "en": "from being final",
+  "t": "queden definitivos"
+ },
+ "c5b87ec27e57": {
+  "en": "Assuming every halving brings a rally. Past peaks came 12 to 18 months after halvings, but that is a pattern, not a law.",
+  "t": "Suponer que cada halving trae una subida. Los picos pasados llegaron entre 12 y 18 meses después de los halvings, pero eso es un patrón, no una ley."
+ },
+ "c75e3e7c8dd5": {
+  "en": "51% attack",
+  "t": "Ataque del 51 %"
+ },
+ "c7e3890c4141": {
+  "en": "<br>Watch out:",
+  "t": "<br>Cuidado:"
+ },
+ "ca509723aa57": {
+  "en": "press Next",
+  "t": "presiona Siguiente"
+ },
+ "ca6e3283c882": {
+  "en": "Bitcoin: A Peer-to-Peer Electronic Cash System (white paper, section 11)",
+  "t": "Bitcoin: A Peer-to-Peer Electronic Cash System (white paper, sección 11; en inglés)"
+ },
+ "cb999d47679a": {
+  "en": "Spot ETFs give crypto exposure in a regular brokerage or IRA without handling keys.",
+  "t": "Los ETF al contado dan exposición a cripto en una cuenta de inversión normal o de retiro sin manejar claves."
+ },
+ "cbdf2b58904f": {
+  "en": "Not your keys, not your coins: companies holding crypto can be hacked, freeze withdrawals or fail.",
+  "t": "Si no son tus claves, no son tus monedas: las empresas que tienen cripto pueden ser hackeadas, congelar los retiros o quebrar."
+ },
+ "cd9af84be147": {
+  "en": "HISTORY (LAST 60 SLOTS)",
+  "t": "HISTORIAL (ÚLTIMOS 60 TURNOS)"
+ },
+ "ce9ea85c793f": {
+  "en": "Each block stores the previous block’s hash, so one edit breaks every link after it.",
+  "t": "Cada bloque guarda el hash del bloque anterior, así que una sola edición rompe todos los eslabones siguientes."
+ },
+ "d00fee321917": {
+  "en": "Costs money, takes care to set up, and the seed phrase backup is on you.",
+  "t": "Cuesta dinero, requiere cuidado al configurarla y el respaldo de la frase semilla depende de ti."
+ },
+ "d05b96e0fa89": {
+  "en": "That is why many exchanges wait for several confirmations before they credit a large deposit.",
+  "t": "Por eso muchos exchanges esperan varias confirmaciones antes de abonar un depósito grande."
+ },
+ "d07b2e8eb988": {
+  "en": "<span class=\"ctl-lab\">What backs the coin</span>{0}",
+  "t": "<span class=\"ctl-lab\">Qué respalda la moneda</span>{0}"
+ },
+ "d09f83e4e89f": {
+  "en": "<span>Data{0}</span>",
+  "t": "<span>Datos{0}</span>"
+ },
+ "d15432cd0760": {
+  "en": "How much new bitcoin enters the market each day, and what the next halving changes.",
+  "t": "Cuánto bitcoin nuevo entra al mercado cada día, y qué cambia el próximo halving."
+ },
+ "d1d81a8f2f58": {
+  "en": "1 in ",
+  "t": "1 de cada "
+ },
+ "d4b4a5a52f5f": {
+  "en": "It still swings far more than stocks: about 43% a year recently against roughly 15% for the S&amp;P 500. It fell 84% from its December 2017 peak and 77% from its November 2021 peak, and from its record of about $126,000 in October 2025 it dropped more than half by July 2026.",
+  "t": "Todavía oscila mucho más que las acciones: cerca del 43 % al año recientemente frente a más o menos el 15 % del S&amp;P 500. Cayó 84 % desde su pico de diciembre de 2017 y 77 % desde su pico de noviembre de 2021, y desde su récord de cerca de US$126.000 en octubre de 2025 perdió más de la mitad para julio de 2026."
+ },
+ "d521d9bb83df": {
+  "en": "The GENIUS Act, signed July 18, 2025, requires US payment stablecoins to hold 100% reserves in cash and short-term Treasuries, publish them monthly, and not pay interest to holders. It takes effect by January 18, 2027 at the latest.",
+  "t": "La Ley GENIUS de EE. UU., firmada el 18 de julio de 2025, exige que las stablecoins de pago estadounidenses tengan reservas del 100 % en efectivo y letras del Tesoro de corto plazo, las publiquen cada mes y no les paguen intereses a los tenedores. Entra en vigor a más tardar el 18 de enero de 2027."
+ },
+ "d65c89992590": {
+  "en": "<b>Stablecoins:</b> the GENIUS Act was signed July 18, 2025 and takes effect by January 18, 2027 at the latest. Regulators missed the July 2026 deadline for final rules, and none were confirmed final as of October 2026.",
+  "t": "<b>Stablecoins:</b> la Ley GENIUS se firmó el 18 de julio de 2025 y entra en vigor a más tardar el 18 de enero de 2027. Los reguladores incumplieron el plazo de julio de 2026 para las reglas finales, y ninguna se había confirmado como final a octubre de 2026."
+ },
+ "d6607aae7f9b": {
+  "en": "Wallet address",
+  "t": "Dirección de la billetera"
+ },
+ "da0f6abd181e": {
+  "en": "Ana sends Ben 0.01 BTC. Here is what happens before Ben can treat it as final.",
+  "t": "Ana le manda a Ben 0,01 BTC. Esto es lo que pasa antes de que Ben pueda tomarlo como definitivo."
+ },
+ "dd9d4175684d": {
+  "en": "Controlling most of a network’s mining power (or stake) to rewrite recent history.",
+  "t": "Controlar la mayor parte del poder de minería (o del stake) de una red para reescribir la historia reciente."
+ },
+ "de2011f7c44a": {
+  "en": "Rules can still change quickly, which is a risk of its own.",
+  "t": "Las reglas todavía pueden cambiar rápido, lo que es un riesgo en sí mismo."
+ },
+ "e09d60069341": {
+  "en": "SIPC and the FDIC do not protect crypto coins.",
+  "t": "En EE. UU., el SIPC y la FDIC no protegen las monedas cripto."
+ },
+ "e1ab9b322f8f": {
+  "en": "Buy hardware wallets directly from the maker, never second-hand.",
+  "t": "Compra las billeteras de hardware directamente al fabricante, nunca de segunda mano."
+ },
+ "e3f6e8e6ff88": {
+  "en": "Next slot",
+  "t": "Siguiente turno"
+ },
+ "e57de2a0e671": {
+  "en": "SEC Investor Bulletin: Crypto asset custody basics (December 12, 2025)",
+  "t": "Boletín de la SEC para inversionistas: lo básico de la custodia de criptoactivos (12 de diciembre de 2025, en inglés)"
+ },
+ "e5f0ee8b2f48": {
+  "en": "Whoever holds the private key controls the coins. Pick your trade-off between convenience and control, and guard the seed phrase like cash.",
+  "t": "Quien tiene la clave privada controla las monedas. Escoge tu equilibrio entre comodidad y control, y cuida la frase semilla como si fuera efectivo."
+ },
+ "e752605dfceb": {
+  "en": "Bitcoin launched in 2009 with a hard cap of 21 million coins. New coins come from mining, and the reward per block halves every 210,000 blocks, about every four years. The last <b>halving</b>, on April 20, 2024, cut it to 3.125 BTC; the next is expected around April 2028. About 20.1 million coins existed by October 2026.",
+  "t": "Bitcoin salió en 2009 con un tope fijo de 21 millones de monedas. Las monedas nuevas salen de la minería, y la recompensa por bloque se reduce a la mitad cada 210.000 bloques, más o menos cada cuatro años. El último <b>halving</b>, el 20 de abril de 2024, la redujo a 3,125 BTC; el próximo se espera cerca de abril de 2028. Para octubre de 2026 existían cerca de 20,1 millones de monedas."
+ },
+ "e86869a80378": {
+  "en": "<span class=\"wg-title\">How safe is a payment after N blocks?</span>",
+  "t": "<span class=\"wg-title\">¿Qué tan seguro es un pago después de N bloques?</span>"
+ },
+ "ec80a18a2055": {
+  "en": "Pool C",
+  "t": "Pool C"
+ },
+ "eccefb70fdf8": {
+  "en": "A digital file can be copied, so how do you stop someone spending the same coin twice? A bank solves this by keeping the only ledger. A <b>blockchain</b> solves it by giving every participant a copy of the ledger and a set of rules for adding to it. No single company can quietly edit it.",
+  "t": "Un archivo digital se puede copiar, así que ¿cómo impides que alguien gaste la misma moneda dos veces? Un banco lo resuelve llevando el único libro contable. Una <b>blockchain</b> lo resuelve dándole a cada participante una copia del libro y un conjunto de reglas para agregarle cosas. Ninguna empresa puede editarlo a escondidas."
+ },
+ "ed02ed06de64": {
+  "en": "Pool D",
+  "t": "Pool D"
+ },
+ "ed769beb0aa8": {
+  "en": "Typing the seed phrase into a website or giving it to someone claiming to be support. That is how wallets get emptied.",
+  "t": "Escribir la frase semilla en un sitio web o dársela a alguien que dice ser del soporte. Así es como se vacían las billeteras."
+ },
+ "ed924c6fc21e": {
+  "en": "Bitcoin, Ethereum, stablecoins and altcoins",
+  "t": "Bitcoin, Ethereum, stablecoins y altcoins"
+ },
+ "edab56cdc0b6": {
+  "en": "Every extra confirmation makes a payment much harder to undo.",
+  "t": "Cada confirmación extra hace mucho más difícil deshacer un pago."
+ },
+ "eea2444368b1": {
+  "en": "Thousands of other tokens exist. Some run large networks; many are hype. Warning signs: insiders holding most of the supply, big <b>token unlocks</b> coming, thin trading and promises of guaranteed returns. Most small coins never get back to their highs. See <a href=\"#l-crypto-risks\">risks, scams and taxes</a>.",
+  "t": "Existen miles de otros tokens. Algunos corren redes grandes; muchos son puro bombo. Señales de alerta: los internos tienen la mayor parte de la oferta, vienen grandes <b>liberaciones de tokens</b>, poca negociación y promesas de rentabilidad garantizada. La mayoría de las monedas pequeñas nunca vuelven a sus máximos. Mira <a href=\"#l-crypto-risks\">riesgos, estafas e impuestos</a>."
+ },
+ "ef314502f799": {
+  "en": "A simplified model, not a forecast. Reserve-backed coins hold up as long as the reserves are real, safe and quick to sell. Algorithmic coins rely on confidence, which is what failed with TerraUSD in May 2022.",
+  "t": "Un modelo simplificado, no un pronóstico. Las monedas respaldadas por reservas aguantan mientras las reservas sean reales, seguras y rápidas de vender. Las monedas algorítmicas dependen de la confianza, que es lo que falló con TerraUSD en mayo de 2022."
+ },
+ "f029b501aa35": {
+  "en": "Market share by coin type and how much each swings",
+  "t": "Participación de mercado por tipo de moneda y cuánto oscila cada una"
+ },
+ "f27cd5ace207": {
+  "en": "<span class=\"wg-title\">The crypto map</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">El mapa cripto</span><span class=\"grow\"></span>{0}"
+ },
+ "f2908da23fd9": {
+  "en": "Normal brokerage account, IRA-friendly, clean tax forms.",
+  "t": "Cuenta de inversión normal, compatible con cuentas de retiro, certificados tributarios limpios."
+ },
+ "f955218c2723": {
+  "en": "A computer that keeps a copy of the blockchain and checks new blocks against the rules.",
+  "t": "Un computador que guarda una copia de la blockchain y verifica los bloques nuevos contra las reglas."
+ },
+ "fb0f83784e45": {
+  "en": "Memecoin",
+  "t": "Memecoin"
  }
 }
