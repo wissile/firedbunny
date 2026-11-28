@@ -7,9 +7,21 @@
   "en": "Nov 3",
   "t": "3 nov."
  },
+ "8a68c2c4aa0c": {
+  "en": "Capex ",
+  "t": "Capex "
+ },
  "8d0a03ab0cc6": {
   "en": " YoY",
   "t": " anual"
+ },
+ "b8b1b9ff4036": {
+  "en": "Capex (capital expenditures)",
+  "t": "Capex (gasto de capital)"
+ },
+ "bb62b1e87ea5": {
+  "en": "added back",
+  "t": "sumado de vuelta"
  },
  "c68195387744": {
   "en": "Cart loan",
@@ -22,5 +34,9 @@
  "decd52e07b2c": {
   "en": "Previous line",
   "t": "Línea anterior"
+ },
+ "e50d6b06fde3": {
+  "en": "Next ▶",
+  "t": "Siguiente ▶"
  }
 }
