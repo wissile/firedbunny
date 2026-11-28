@@ -1,0 +1,4 @@
+{
+  "_about": "Source files whose every lesson and tool is hidden in all languages (tools/i18n/_shared/0-hide-us.js). make.js todo and stats leave them out, so no translation time goes to pages nobody will see. Remove a file from here when a language brings one of its pages back.",
+  "files": ["mod-f-abroad.js", "mod-w-wheeltax.js", "mod-w-401k.js", "mod-w-ss.js", "mod-w-tax.js", "mod-w-bank.js", "mod-f-health.js", "mod-w-equity.js", "mod-w-accounts.js", "mod-w-retire.js", "mod-f-tax.js"]
+}

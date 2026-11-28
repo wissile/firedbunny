@@ -23,6 +23,10 @@ const SRC = path.join(ROOT, 'src');
 const LANGS = JSON.parse(fs.readFileSync(path.join(__dirname, 'langs.json'), 'utf8'));
 const words = (s) => (String(s).replace(/<[^>]+>|\{\d+\}/g, ' ').match(/[A-Za-zÀ-ÿ]+/g) || []).length;
 const srcFiles = () => fs.readdirSync(SRC).filter((f) => f.endsWith('.js')).sort();
+// files that only hold pages hidden in every language (tools/i18n/_shared/skip-files.json): left out of todo and stats
+let SKIP = new Set();
+try { SKIP = new Set(JSON.parse(fs.readFileSync(path.join(__dirname, '_shared', 'skip-files.json'), 'utf8')).files); } catch (e) {}
+const workFiles = () => srcFiles().filter((f) => !SKIP.has(f));
 const dir = (lang, ...p) => path.join(__dirname, lang, ...p);
 
 function loadStrings(lang) {
@@ -62,6 +66,8 @@ function build(lang, out, opts) {
     fs.writeFileSync(path.join(out, f), r.out);
   }
   // the language's own modules (country lessons, hidden pages): loaded after every other module
+  const shared = path.join(__dirname, '_shared');
+  if (fs.existsSync(shared)) for (const f of fs.readdirSync(shared).filter((f) => f.endsWith('.js')).sort()) fs.copyFileSync(path.join(shared, f), path.join(out, `mod-zz-${f}`));
   const cdir = dir(lang, 'content');
   if (fs.existsSync(cdir)) for (const f of fs.readdirSync(cdir).filter((f) => f.endsWith('.js')).sort()) fs.copyFileSync(path.join(cdir, f), path.join(out, `mod-zz-${lang}-${f}`));
   let frozen = {};
@@ -81,7 +87,7 @@ function build(lang, out, opts) {
 function todo(lang, files, max) {
   const { all } = loadStrings(lang);
   const out = {}; let n = 0;
-  for (const f of files.length ? files : srcFiles()) {
+  for (const f of files.length ? files : workFiles()) {
     for (const g of segmentsOf(f)) {
       if (all[g.key] != null || out[g.key] != null) continue;
       out[g.key] = g.en; if (++n >= max) break;
@@ -111,7 +117,7 @@ function add(lang, file) {
 }
 
 function stats(only) {
-  const files = srcFiles();
+  const files = workFiles();
   const segs = Object.fromEntries(files.map((f) => [f, segmentsOf(f)]));
   for (const lang of Object.keys(LANGS).filter((l) => !l.startsWith('_') && !LANGS[l].paused && (!only || l === only))) {
     const { all, byFile } = loadStrings(lang);

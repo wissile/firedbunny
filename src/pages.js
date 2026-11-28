@@ -891,6 +891,8 @@
   function fixLink(a) {
     const h = a.getAttribute('href'); if (!h || h.charAt(0) !== '#' || h.length < 2) return;
     const t = h.slice(1); if (R.exists(t)) a.setAttribute('href', R.path(t));
+    // a page this language doesn't have (US-only, tools/i18n/_shared): keep the words, drop the link
+    else if (SML.HIDDEN && SML.HIDDEN.has(t)) a.replaceWith(...a.childNodes);
   }
   function linkify(root) {
     if (!PATHS || !root) return;
