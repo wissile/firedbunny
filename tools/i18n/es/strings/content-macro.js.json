@@ -1,6 +1,718 @@
 {
+ "0014ab3d1503": {
+  "en": "Liquidation",
+  "t": "Liquidación (cripto)"
+ },
+ "00cf89981193": {
+  "en": "A blockchain that runs programs called smart contracts. Its coin is ether.",
+  "t": "Una blockchain que corre programas llamados contratos inteligentes. Su moneda es el ether."
+ },
+ "02605a94b3c0": {
+  "en": "What a central bank does with interest rates and its balance sheet to steer the economy.",
+  "t": "Lo que hace un banco central con las tasas de interés y su balance para dirigir la economía."
+ },
+ "02ded7d7b855": {
+  "en": "Digital money or tokens recorded on a blockchain instead of by a bank.",
+  "t": "Dinero digital o tokens registrados en una blockchain en vez de en un banco."
+ },
+ "033488e54e09": {
+  "en": "The government’s main measure of prices people pay, released monthly by the BLS.",
+  "t": "La principal medida del gobierno de EE. UU. de los precios que paga la gente, publicada cada mes por el BLS."
+ },
+ "03b15bc9f60b": {
+  "en": "Companies people buy from in any economy, such as utilities, groceries and health care.",
+  "t": "Empresas a las que la gente les compra en cualquier economía, como las de servicios públicos, mercados y salud."
+ },
+ "048a07db0999": {
+  "en": "Where a leveraged crypto position gets liquidated, and a safer size.",
+  "t": "Dónde se liquida una posición apalancada en cripto, y un tamaño más seguro."
+ },
+ "0742de714313": {
+  "en": "Inverted yield curve",
+  "t": "Curva de rendimientos invertida"
+ },
+ "07ec61ac85b9": {
+  "en": "Cold wallet",
+  "t": "Billetera fría"
+ },
+ "08118670d2ed": {
+  "en": "The interest rate the US government pays to borrow, set by trading in its bonds.",
+  "t": "La tasa de interés que paga el gobierno de EE. UU. para endeudarse, fijada por la negociación de sus bonos."
+ },
+ "08bd9bcc9db9": {
+  "en": "A shared record of transactions, grouped into blocks that are linked so past entries are very hard to change.",
+  "t": "Un registro compartido de transacciones, agrupadas en bloques encadenados para que las entradas pasadas sean muy difíciles de cambiar."
+ },
+ "0ce66d2e3a7f": {
+  "en": "DeFi",
+  "t": "DeFi"
+ },
+ "0dfc39993f0b": {
+  "en": "How the Federal Reserve sets rates, why bond yields matter and how both move stocks.",
+  "t": "Cómo fija las tasas la Reserva Federal de EE. UU., por qué importan los rendimientos de los bonos y cómo ambos mueven las acciones."
+ },
+ "0e834550ba9c": {
+  "en": "How far the market is pricing a move on CPI or jobs day, and how to size around it.",
+  "t": "Cuánto movimiento descuenta el mercado el día del IPC o del empleo, y cómo dimensionar alrededor de eso."
+ },
+ "0eb0398256a9": {
+  "en": "Smart contract",
+  "t": "Contrato inteligente"
+ },
+ "0efd25dbc2ae": {
+  "en": "Proof of stake",
+  "t": "Prueba de participación"
+ },
+ "0f37c7756370": {
+  "en": "A way to secure a blockchain where validators lock up coins and can lose them for cheating.",
+  "t": "Una forma de asegurar una blockchain en la que los validadores bloquean monedas y pueden perderlas si hacen trampa."
+ },
+ "0fb30122d4a3": {
+  "en": "Earnings season",
+  "t": "Temporada de resultados"
+ },
+ "107b8e6f7f42": {
+  "en": "Job Openings and Labor Turnover Survey",
+  "t": "Encuesta de vacantes y rotación laboral (JOLTS)"
+ },
+ "1370004da76f": {
+  "en": "Duration",
+  "t": "Duración"
+ },
+ "1444a896c51f": {
+  "en": "A program on a blockchain that runs automatically when its conditions are met.",
+  "t": "Un programa en una blockchain que se ejecuta automáticamente cuando se cumplen sus condiciones."
+ },
+ "173c4dc61e4b": {
+  "en": "A crypto token designed to stay worth one dollar (or another currency), usually backed by cash and Treasuries.",
+  "t": "Un token cripto diseñado para valer siempre un dólar (u otra moneda), por lo general respaldado con efectivo y bonos del Tesoro."
+ },
+ "1addf1a880e0": {
+  "en": "The Fed & Interest Rates",
+  "t": "La Fed y las tasas de interés"
+ },
+ "1b5a571459ec": {
+  "en": "Staking",
+  "t": "Staking"
+ },
+ "1bc5b43c5dd7": {
+  "en": "A fund that holds real bitcoin and trades like a stock in a regular brokerage account.",
+  "t": "Un fondo que tiene bitcóin real y se negocia como una acción en una cuenta de corretaje normal."
+ },
+ "1f7786df2657": {
+  "en": "Payments between long and short perpetual futures traders, usually every few hours.",
+  "t": "Pagos entre quienes tienen posiciones largas y cortas en futuros perpetuos, por lo general cada pocas horas."
+ },
+ "217a9ef2b6f5": {
+  "en": "Consensus estimate",
+  "t": "Estimado de consenso"
+ },
+ "233ee51cbf04": {
+  "en": "Federal funds rate",
+  "t": "Tasa de fondos federales"
+ },
+ "2486dfed641b": {
+  "en": "Monthly spending at stores, restaurants and online. Consumers drive most of the US economy.",
+  "t": "El gasto mensual en tiendas, restaurantes y en línea. Los consumidores mueven la mayor parte de la economía de EE. UU."
+ },
+ "249c35490ac4": {
+  "en": "Oil, gold, silver, copper, the dollar, tension and sanctions, and how they ripple into stocks.",
+  "t": "Petróleo, oro, plata, cobre, el dólar, las tensiones y las sanciones, y cómo repercuten en las acciones."
+ },
+ "257c5f23e19f": {
+  "en": "The weeks after each quarter ends when most companies report results.",
+  "t": "Las semanas después del cierre de cada trimestre en las que la mayoría de las empresas reportan sus resultados."
+ },
+ "2d8ed38c4157": {
+  "en": "Futures contract",
+  "t": "Contrato de futuros"
+ },
+ "2e652761b334": {
+  "en": "Quantitative easing",
+  "t": "Flexibilización cuantitativa"
+ },
+ "2ea1ae8ee99b": {
+  "en": "Slow growth and high inflation at the same time. Hard for stocks, bonds and the Fed.",
+  "t": "Crecimiento lento e inflación alta al mismo tiempo. Difícil para las acciones, los bonos y la Fed."
+ },
+ "303c3caeecb4": {
+  "en": "A line of Treasury yields from short to long maturities. Normally it slopes up.",
+  "t": "Una línea con los rendimientos del Tesoro de plazos cortos a largos. Normalmente tiene pendiente positiva."
+ },
+ "318d78af644d": {
+  "en": "Gas fee",
+  "t": "Comisión de gas"
+ },
+ "31c9e8460e8e": {
+  "en": "Quantitative tightening",
+  "t": "Endurecimiento cuantitativo"
+ },
+ "3319c6a841db": {
+  "en": "A bond yield minus expected inflation. Rising real yields tend to weigh on stocks and gold.",
+  "t": "El rendimiento de un bono menos la inflación esperada. Un rendimiento real al alza suele pesar sobre las acciones y el oro."
+ },
+ "372a893a4882": {
+  "en": "Federal Open Market Committee",
+  "t": "Comité Federal de Mercado Abierto (FOMC)"
+ },
+ "37ce2950c7cc": {
+  "en": "A way to secure a blockchain by making block creators spend computing power and electricity.",
+  "t": "Una forma de asegurar una blockchain que obliga a quienes crean bloques a gastar poder de cómputo y electricidad."
+ },
+ "38cd724235f1": {
+  "en": "Purchasing Managers’ Index",
+  "t": "Índice de gerentes de compras (PMI)"
+ },
+ "38dfc233193c": {
+  "en": "Commodity",
+  "t": "Materia prima"
+ },
+ "391264371ab3": {
+  "en": "A raw material traded in bulk, such as oil, gold, copper or wheat.",
+  "t": "Un insumo que se negocia en grandes cantidades, como el petróleo, el oro, el cobre o el trigo."
+ },
+ "3ab2a5dffe4d": {
+  "en": "The overnight rate banks charge each other. The Fed sets a target range for it, and other rates follow.",
+  "t": "La tasa a un día que se cobran los bancos entre sí. La Fed le fija un rango objetivo, y las demás tasas la siguen."
+ },
+ "3ccc7aeed884": {
+  "en": "Crypto leverage and liquidation",
+  "t": "Apalancamiento y liquidación en cripto"
+ },
+ "3d07d0f476c0": {
+  "en": "Seed phrase",
+  "t": "Frase semilla"
+ },
+ "3ef74c5de860": {
+  "en": "A list of 12 or 24 words that can rebuild your wallet. Anyone who sees it can take everything.",
+  "t": "Una lista de 12 o 24 palabras que puede reconstruir tu billetera. Cualquiera que la vea se puede llevar todo."
+ },
+ "3f9b3fd3271d": {
+  "en": "Cryptocurrency",
+  "t": "Criptomoneda"
+ },
+ "40cf652b6293": {
+  "en": "Companies whose sales rise and fall with the economy, such as carmakers, airlines and banks.",
+  "t": "Empresas cuyas ventas suben y bajan con la economía, como fabricantes de carros, aerolíneas y bancos."
+ },
+ "42bd6b9eeb1d": {
+  "en": "Bitcoin",
+  "t": "Bitcóin"
+ },
+ "44b89e257a6a": {
+  "en": "Compare the metals, the gold-silver ratio and what drives each one.",
+  "t": "Compara los metales, la relación oro-plata y lo que mueve a cada uno."
+ },
+ "45049b6d091f": {
+  "en": "Fiscal policy",
+  "t": "Política fiscal"
+ },
+ "45e85c23e31e": {
+  "en": "Inflation and your money",
+  "t": "La inflación y tu dinero"
+ },
+ "460283011810": {
+  "en": "An agreement to buy or sell something at a set price on a future date. Used for oil, metals, indexes and bitcoin.",
+  "t": "Un acuerdo para comprar o vender algo a un precio fijo en una fecha futura. Se usa para petróleo, metales, índices y bitcóin."
+ },
+ "466f4bcfa0db": {
+  "en": "Federal Reserve",
+  "t": "Reserva Federal"
+ },
+ "487d9343366d": {
+  "en": "The Fed",
+  "t": "La Fed"
+ },
+ "4890e62a36f3": {
+  "en": "Spot bitcoin ETF",
+  "t": "ETF de bitcóin al contado"
+ },
+ "48a1484d893c": {
+  "en": "Dual mandate",
+  "t": "Doble mandato"
+ },
+ "48a1fae3a875": {
+  "en": "Dr. Copper",
+  "t": "Dr. Copper"
+ },
+ "4961e190a97a": {
+  "en": "An asset people buy when they are scared, such as gold, Treasuries or the dollar.",
+  "t": "Un activo que la gente compra cuando tiene miedo, como el oro, los bonos del Tesoro o el dólar."
+ },
+ "49901217ac6e": {
+  "en": "A wallet kept offline, such as a hardware device. Safer from hackers.",
+  "t": "Una billetera que se guarda sin conexión, como un dispositivo físico. Más segura frente a los hackers."
+ },
+ "49f5c6a3c6ca": {
+  "en": "Unemployment rate",
+  "t": "Tasa de desempleo"
+ },
+ "4af90447107d": {
+  "en": "Data that tends to turn before the economy does, such as claims, PMI new orders and the yield curve.",
+  "t": "Datos que suelen girar antes que la economía, como las solicitudes de subsidio, los pedidos nuevos del PMI y la curva de rendimientos."
+ },
+ "4c52d71b50db": {
+  "en": "Self-custody",
+  "t": "Autocustodia"
+ },
+ "4d7ea3e02741": {
+  "en": "Gold, silver and copper",
+  "t": "Oro, plata y cobre"
+ },
+ "4e1066bf0a7d": {
+  "en": "Hot wallet",
+  "t": "Billetera caliente"
+ },
+ "5152881bb65b": {
+  "en": "Crypto & Blockchain",
+  "t": "Cripto y blockchain"
+ },
+ "51a885b7f4bf": {
+  "en": "Options expiration",
+  "t": "Vencimiento de opciones"
+ },
+ "51b22efaf983": {
+  "en": "Altcoin",
+  "t": "Altcoin"
+ },
+ "54ae5ba97363": {
+  "en": "Software or a device that holds the keys that control your crypto.",
+  "t": "Un programa o dispositivo que guarda las claves que controlan tus criptomonedas."
+ },
+ "56982f25ae0b": {
+  "en": "The total value of everything an economy produces. The headline number is growth at an annual rate.",
+  "t": "El valor total de todo lo que produce una economía. La cifra principal es el crecimiento a tasa anual."
+ },
+ "56e73381ba9d": {
+  "en": "Geopolitical risk",
+  "t": "Riesgo geopolítico"
+ },
+ "595c91d5056c": {
+  "en": "Retail sales",
+  "t": "Ventas minoristas"
+ },
+ "5977691c0fdd": {
+  "en": "A tax on imported goods, paid by the importer.",
+  "t": "Un impuesto a los bienes importados, que paga el importador."
+ },
+ "5bab894c103f": {
+  "en": "Prices businesses receive for their goods and services. It can hint at future consumer prices.",
+  "t": "Los precios que reciben las empresas por sus bienes y servicios. Puede anticipar los precios al consumidor."
+ },
+ "5f422403cf42": {
+  "en": "Core inflation",
+  "t": "Inflación básica"
+ },
+ "6437ca385008": {
+  "en": "Decentralized finance",
+  "t": "Finanzas descentralizadas"
+ },
+ "65a851bb75d7": {
+  "en": "US Dollar Index",
+  "t": "Índice del dólar (DXY)"
+ },
+ "676f9e30cbda": {
+  "en": "Monetary policy",
+  "t": "Política monetaria"
+ },
+ "6825ba06e000": {
+  "en": "Perps",
+  "t": "Perps"
+ },
+ "6a4afd8be329": {
+  "en": "Soft landing",
+  "t": "Aterrizaje suave"
+ },
+ "6af05e4c7f41": {
+  "en": "Using computers to compete to add the next block in a proof-of-work blockchain, for a reward.",
+  "t": "Usar computadores que compiten por agregar el siguiente bloque en una blockchain de prueba de trabajo, a cambio de una recompensa."
+ },
+ "6b4fd4de573e": {
+  "en": "Basis point",
+  "t": "Punto básico"
+ },
+ "6cde555109d2": {
+  "en": "The Fed’s two goals set by Congress: maximum employment and stable prices.",
+  "t": "Los dos objetivos que el Congreso le fijó a la Fed: máximo empleo y precios estables."
+ },
+ "6d806f67b499": {
+  "en": "Personal consumption expenditures price index",
+  "t": "Índice de precios del gasto de consumo personal (PCE)"
+ },
+ "70896cc91b15": {
+  "en": "The main global crude oil price benchmark, from the North Sea.",
+  "t": "La principal referencia mundial del precio del petróleo crudo, del mar del Norte."
+ },
+ "741dea2e0932": {
+  "en": "Weekly count of people filing for unemployment benefits. A fast early warning for layoffs.",
+  "t": "El conteo semanal de personas que piden subsidio por desempleo en EE. UU. Una alerta temprana y rápida de despidos."
+ },
+ "754dea34fba1": {
+  "en": "A monthly report on job openings, hires and quits.",
+  "t": "Un reporte mensual de vacantes, contrataciones y renuncias en EE. UU."
+ },
+ "7714c306c752": {
+  "en": "Backwardation",
+  "t": "Backwardation"
+ },
+ "77c9473028bb": {
+  "en": "The secret that proves you own crypto. Whoever has it controls the coins.",
+  "t": "El secreto que demuestra que eres dueño de tus criptomonedas. Quien la tenga controla las monedas."
+ },
+ "7a1a1051bb97": {
+  "en": "The share of people in the labor force who are looking for work and cannot find it.",
+  "t": "La parte de las personas en la fuerza laboral que buscan trabajo y no lo encuentran."
+ },
+ "7b1acb5bb38d": {
+  "en": "Private key",
+  "t": "Clave privada"
+ },
+ "7b55ae70f311": {
+  "en": "Producer Price Index",
+  "t": "Índice de precios al productor (IPP)"
+ },
+ "7d9cc347b277": {
+  "en": "Business cycle",
+  "t": "Ciclo económico"
+ },
+ "861bfb3b59f3": {
+  "en": "When investors sell risky assets and buy safe ones at the same time.",
+  "t": "Cuando los inversionistas venden activos riesgosos y compran activos seguros al mismo tiempo."
+ },
+ "863760edd991": {
+  "en": "The first cryptocurrency, with a fixed supply of 21 million coins.",
+  "t": "La primera criptomoneda, con una oferta fija de 21 millones de monedas."
+ },
+ "873507a022b5": {
+  "en": "Hash",
+  "t": "Hash"
+ },
+ "874addadffbb": {
+  "en": "The US central bank. It sets short-term interest rates and oversees banks.",
+  "t": "El banco central de EE. UU. Fija las tasas de interés de corto plazo y supervisa a los bancos."
+ },
+ "8d45ac3cf3bb": {
+  "en": "The fee paid to process a transaction on a blockchain such as Ethereum.",
+  "t": "La comisión que se paga para procesar una transacción en una blockchain como Ethereum."
+ },
+ "8e06c499e97d": {
+  "en": "Economic Data & the Calendar",
+  "t": "Datos económicos y el calendario"
+ },
+ "9053f8a70808": {
+  "en": "How blockchains work, what moves crypto, how to trade it and the risks to respect.",
+  "t": "Cómo funcionan las blockchains, qué mueve las criptomonedas, cómo operarlas y los riesgos que debes respetar."
+ },
+ "91e6d0ae2dde": {
+  "en": "What a change in interest rates does to a stock’s fair value and a bond’s price.",
+  "t": "Lo que un cambio en las tasas de interés le hace al valor justo de una acción y al precio de un bono."
+ },
+ "92016ab4d696": {
+  "en": "A broad, lasting fall in economic activity. In the US the NBER makes the official call.",
+  "t": "Una caída amplia y duradera de la actividad económica. En EE. UU. la declara oficialmente la NBER."
+ },
+ "93d8812e4cb3": {
+  "en": "Cyclical stocks",
+  "t": "Acciones cíclicas"
+ },
+ "953e3cc73d13": {
+  "en": "Ethereum",
+  "t": "Ethereum"
+ },
+ "957ac57b673d": {
+  "en": "West Texas Intermediate",
+  "t": "West Texas Intermediate (WTI)"
+ },
+ "973209b39575": {
+  "en": "The Fed buying bonds to push long-term rates down and add money to the system.",
+  "t": "La Fed compra bonos para bajar las tasas de largo plazo y meter dinero al sistema."
+ },
+ "97ff1e71b260": {
+  "en": "The chance that wars, tension or political events disrupt trade, energy or markets.",
+  "t": "La posibilidad de que guerras, tensiones o hechos políticos alteren el comercio, la energía o los mercados."
+ },
+ "98bd0c7df15f": {
+  "en": "Contango",
+  "t": "Contango"
+ },
+ "99d73790c054": {
+  "en": "A monthly survey of business activity. Above 50 means growing, below 50 means shrinking.",
+  "t": "Una encuesta mensual de la actividad empresarial. Por encima de 50 significa crecimiento, por debajo de 50 contracción."
+ },
+ "9d5e0ac3e3a5": {
+  "en": "Consumer Price Index",
+  "t": "Índice de precios al consumidor (IPC)"
+ },
+ "9d80f15b2532": {
+  "en": "When inflation cools without a recession.",
+  "t": "Cuando la inflación se enfría sin una recesión."
+ },
+ "9dcb52b7938c": {
+  "en": "Stablecoin",
+  "t": "Stablecoin"
+ },
+ "a00288334687": {
+  "en": "OPEC oil producers plus allies such as Russia. They coordinate how much oil to pump.",
+  "t": "Los productores de petróleo de la OPEP más aliados como Rusia. Coordinan cuánto petróleo bombear."
+ },
+ "a09653342327": {
+  "en": "Locking up coins to help secure a proof-of-stake network in return for rewards.",
+  "t": "Bloquear monedas para ayudar a asegurar una red de prueba de participación a cambio de recompensas."
+ },
+ "a09877534259": {
+  "en": "Data-day move",
+  "t": "Movimiento en días de datos"
+ },
+ "a107de9a15bc": {
+  "en": "Perpetual futures",
+  "t": "Futuros perpetuos"
+ },
+ "a15d3881e1f6": {
+  "en": "Proof of work",
+  "t": "Prueba de trabajo"
+ },
+ "a81bf90a2f15": {
+  "en": "Money moving between industries as the economy moves through the cycle.",
+  "t": "El dinero que se mueve entre industrias a medida que la economía avanza por el ciclo."
+ },
+ "a913fc99fd39": {
+  "en": "Nonfarm payrolls",
+  "t": "Nóminas no agrícolas"
+ },
+ "a92905c8fffa": {
+  "en": "Leading indicator",
+  "t": "Indicador adelantado"
+ },
+ "ad9d18e0f156": {
+  "en": "Stagflation",
+  "t": "Estanflación"
+ },
  "b1cfe72fd271": {
   "en": "Intermediate",
   "t": "Intermedio"
+ },
+ "b21db8f5f7e3": {
+  "en": "Oil, Metals & Geopolitics",
+  "t": "Petróleo, metales y geopolítica"
+ },
+ "b2f4d904825c": {
+  "en": "The main US crude oil price benchmark.",
+  "t": "La principal referencia del precio del petróleo crudo en EE. UU."
+ },
+ "b34507798755": {
+  "en": "Recession",
+  "t": "Recesión"
+ },
+ "b3883bf60b24": {
+  "en": "Yield curve",
+  "t": "Curva de rendimientos"
+ },
+ "b3b20f32fd01": {
+  "en": "The third Friday of March, June, September and December, when several kinds of options and futures expire together.",
+  "t": "El tercer viernes de marzo, junio, septiembre y diciembre, cuando vencen juntos varios tipos de opciones y futuros."
+ },
+ "b4dd7dc3027b": {
+  "en": "Safe haven",
+  "t": "Refugio seguro"
+ },
+ "b94947dc1965": {
+  "en": "Gross domestic product",
+  "t": "Producto interno bruto (PIB)"
+ },
+ "b97dcfc5b824": {
+  "en": "Sector rotation",
+  "t": "Rotación sectorial"
+ },
+ "b9f8ccb54c56": {
+  "en": "Sanctions",
+  "t": "Sanciones"
+ },
+ "c214221a4a44": {
+  "en": "Defensive stocks",
+  "t": "Acciones defensivas"
+ },
+ "c5e3ce74d782": {
+  "en": "Treasury yield",
+  "t": "Rendimiento del Tesoro"
+ },
+ "c6e709110971": {
+  "en": "Inflation without food and energy, which jump around. It shows the underlying trend.",
+  "t": "La inflación sin alimentos ni energía, que saltan mucho. Muestra la tendencia de fondo."
+ },
+ "c7283553e7c8": {
+  "en": "Tariff",
+  "t": "Arancel"
+ },
+ "c7b2473a9fc8": {
+  "en": "The repeating pattern of expansion, peak, slowdown and recovery in an economy.",
+  "t": "El patrón que se repite de expansión, pico, desaceleración y recuperación en una economía."
+ },
+ "c8578f78a910": {
+  "en": "The Fed shrinking its bond holdings, the reverse of QE.",
+  "t": "La Fed reduce su tenencia de bonos, lo contrario de la flexibilización cuantitativa."
+ },
+ "c8a7b64a23c7": {
+  "en": "Funding rate",
+  "t": "Tasa de financiación"
+ },
+ "c8ae03b1355d": {
+  "en": "Strategic Petroleum Reserve",
+  "t": "Reserva Estratégica de Petróleo"
+ },
+ "c9caa53476ce": {
+  "en": "When nearer futures cost more than later ones, often a sign of tight supply.",
+  "t": "Cuando los futuros más cercanos cuestan más que los más lejanos, a menudo una señal de oferta escasa."
+ },
+ "c9f2f4a84544": {
+  "en": "The US government’s emergency stockpile of crude oil.",
+  "t": "La reserva de emergencia de petróleo crudo del gobierno de EE. UU."
+ },
+ "c9f35ed833f5": {
+  "en": "When short-term yields are above long-term yields. It has often come before recessions.",
+  "t": "Cuando los rendimientos de corto plazo están por encima de los de largo plazo. A menudo ha llegado antes de las recesiones."
+ },
+ "cd2d42ea08c5": {
+  "en": "How much a bond’s price moves when rates change. A duration of 8 means about 8% for a 1-point rate move.",
+  "t": "Cuánto se mueve el precio de un bono cuando cambian las tasas. Una duración de 8 significa cerca de un 8 % por cada punto de movimiento en la tasa."
+ },
+ "cf546f042455": {
+  "en": "When later futures cost more than nearer ones. Funds that roll contracts lose a little each time.",
+  "t": "Cuando los futuros más lejanos cuestan más que los más cercanos. Los fondos que renuevan contratos pierden un poco cada vez."
+ },
+ "d0882a245317": {
+  "en": "The cut in half of new bitcoin issued per block, about every four years.",
+  "t": "La reducción a la mitad de los bitcoines nuevos que se emiten por bloque, más o menos cada cuatro años."
+ },
+ "d45afcb299df": {
+  "en": "The number of jobs added or lost last month, from the monthly jobs report.",
+  "t": "El número de empleos que se crearon o se perdieron el mes pasado en EE. UU., según el reporte mensual de empleo."
+ },
+ "d5746147ca59": {
+  "en": "How many ounces of silver one ounce of gold buys.",
+  "t": "Cuántas onzas de plata compra una onza de oro."
+ },
+ "d6a168a80468": {
+  "en": "The inflation measure the Fed targets at 2%. It covers more spending than CPI.",
+  "t": "La medida de inflación con la que la Fed apunta al 2 %. Cubre más gasto que el IPC."
+ },
+ "d72d0bc7c6c2": {
+  "en": "A short fingerprint of data. Change one character and the fingerprint changes completely.",
+  "t": "Una huella corta de unos datos. Si cambias un solo carácter, la huella cambia por completo."
+ },
+ "d72ea0b0ebba": {
+  "en": "The Fed group that votes on interest rates at eight scheduled meetings a year.",
+  "t": "El grupo de la Fed que vota las tasas de interés en ocho reuniones programadas al año."
+ },
+ "d770386f6289": {
+  "en": "Rates and stock values",
+  "t": "Tasas y valor de las acciones"
+ },
+ "d7e1ca5a7cc1": {
+  "en": "Quad witching",
+  "t": "Cuádruple vencimiento"
+ },
+ "d7ea33d9da7b": {
+  "en": "When an exchange closes a leveraged position because losses ate the margin behind it.",
+  "t": "Cuando un exchange cierra una posición apalancada porque las pérdidas se comieron el margen que la respaldaba."
+ },
+ "d82a4412d58d": {
+  "en": "What inflation does to cash, bonds and stocks over the years.",
+  "t": "Lo que la inflación le hace al efectivo, a los bonos y a las acciones con los años."
+ },
+ "d83309550e9f": {
+  "en": "Real yield",
+  "t": "Rendimiento real"
+ },
+ "da9ebf3c639c": {
+  "en": "The day options stop trading. Monthly stock options expire on the third Friday.",
+  "t": "El día en que las opciones dejan de negociarse. Las opciones mensuales sobre acciones vencen el tercer viernes."
+ },
+ "df344adc7d41": {
+  "en": "One hundredth of a percentage point. A 0.25% rate cut is 25 basis points.",
+  "t": "Una centésima de punto porcentual. Un recorte de tasa de 0,25 % son 25 puntos básicos."
+ },
+ "df721e149219": {
+  "en": "The average forecast of economists or analysts. Markets move on the gap between actual and consensus.",
+  "t": "El pronóstico promedio de los economistas o analistas. Los mercados se mueven por la diferencia entre el dato real y el consenso."
+ },
+ "e215a2a7ba0c": {
+  "en": "Inflation, jobs, PMI, GDP, earnings season, the business cycle and the dates to mark every month.",
+  "t": "Inflación, empleo, PMI, PIB, temporada de resultados, el ciclo económico y las fechas para marcar cada mes."
+ },
+ "e24768bbc11e": {
+  "en": "Dot plot",
+  "t": "Gráfico de puntos"
+ },
+ "e365bd705075": {
+  "en": "Halving",
+  "t": "Halving"
+ },
+ "e5628d9ff406": {
+  "en": "Any cryptocurrency other than bitcoin.",
+  "t": "Cualquier criptomoneda distinta del bitcóin."
+ },
+ "ec542bc0ac13": {
+  "en": "Holding your own keys instead of leaving coins with an exchange.",
+  "t": "Tener tus propias claves en vez de dejar las monedas en un exchange."
+ },
+ "eeb23422bcb3": {
+  "en": "Brent",
+  "t": "Brent"
+ },
+ "ef65185b6105": {
+  "en": "A wallet connected to the internet, such as a phone app. Handy, but easier to attack.",
+  "t": "Una billetera conectada a internet, como una app del celular. Práctica, pero más fácil de atacar."
+ },
+ "efe3fbaa6db3": {
+  "en": "Blockchain",
+  "t": "Blockchain"
+ },
+ "f002e083a3fb": {
+  "en": "Crypto wallet",
+  "t": "Billetera cripto"
+ },
+ "f1037d869921": {
+  "en": "Lending, trading and other financial services run by smart contracts instead of companies.",
+  "t": "Préstamos, negociación y otros servicios financieros manejados por contratos inteligentes en vez de empresas."
+ },
+ "f1e7b5425cb9": {
+  "en": "The dollar’s value against a basket of six major currencies.",
+  "t": "El valor del dólar frente a una canasta de seis monedas principales."
+ },
+ "f256aff22897": {
+  "en": "What the government does with taxes and spending.",
+  "t": "Lo que hace el gobierno con los impuestos y el gasto."
+ },
+ "f4042ad75f48": {
+  "en": "A nickname for copper, whose price is often read as a sign of global industrial demand.",
+  "t": "Un apodo del cobre, cuyo precio se lee a menudo como señal de la demanda industrial mundial."
+ },
+ "f5d57dfd1572": {
+  "en": "A chart in the Fed’s projections where each official marks where they expect rates to be at each year end.",
+  "t": "Un gráfico de las proyecciones de la Fed donde cada funcionario marca dónde espera que estén las tasas al final de cada año."
+ },
+ "f610cf252b76": {
+  "en": "Gold-silver ratio",
+  "t": "Relación oro-plata"
+ },
+ "f655c2275f00": {
+  "en": "Government limits on trade or money flows with a country, company or person.",
+  "t": "Límites del gobierno al comercio o a los flujos de dinero con un país, una empresa o una persona."
+ },
+ "f6c07367c6ba": {
+  "en": "Jobless claims",
+  "t": "Solicitudes de subsidio por desempleo"
+ },
+ "f87268cb1dcf": {
+  "en": "Crypto futures with no expiry date, kept near the spot price by regular funding payments.",
+  "t": "Futuros cripto sin fecha de vencimiento, que se mantienen cerca del precio al contado con pagos de financiación regulares."
+ },
+ "faabcf8b4b60": {
+  "en": "Mining",
+  "t": "Minería"
+ },
+ "fce29d6f0470": {
+  "en": "Risk-off",
+  "t": "Aversión al riesgo"
  }
 }

@@ -3,8 +3,16 @@
   "en": "Brokerage",
   "t": "Corretaje"
  },
+ "9337ca085dbb": {
+  "en": "Mortgage",
+  "t": "Crédito de vivienda"
+ },
  "c36b92368857": {
   "en": "FiredBunny",
   "t": "FiredBunny"
+ },
+ "e849494484ed": {
+  "en": "Crypto",
+  "t": "Cripto"
  }
 }

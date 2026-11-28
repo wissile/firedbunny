@@ -1,38 +1,638 @@
 {
+ "02cfd0e6255e": {
+  "en": "Savings rate",
+  "t": "Tasa de ahorro"
+ },
+ "038400734f66": {
+  "en": "Lifestyle creep",
+  "t": "Inflación del estilo de vida"
+ },
+ "06c8fd661f3b": {
+  "en": "Candles breaking above a level",
+  "t": "Velas que rompen por encima de un nivel"
+ },
+ "07d107b85e00": {
+  "en": "Material participation",
+  "t": "Participación material"
+ },
+ "08f66693cdf7": {
+  "en": "Cost segregation",
+  "t": "Segregación de costos"
+ },
+ "0d827b82f214": {
+  "en": "Target-date fund",
+  "t": "Fondo con fecha objetivo"
+ },
+ "0ec2a74fcb4b": {
+  "en": "Net worth",
+  "t": "Patrimonio neto"
+ },
+ "13721fa8f828": {
+  "en": "What FIRE means, your true spending, your number and the savings rate that gets you there.",
+  "t": "Qué significa FIRE, tu gasto real, tu número y la tasa de ahorro que te lleva hasta allá."
+ },
+ "151b6b0504e5": {
+  "en": "A rule of thumb from historical US data: withdraw 4% in year one and raise it with inflation, and the money lasted 30 years in almost every past period.",
+  "t": "Una regla práctica basada en datos históricos de EE. UU.: retira el 4 % el primer año y súbelo con la inflación; el dinero duró 30 años en casi todos los periodos pasados."
+ },
+ "153dad3fff68": {
+  "en": "Price-to-rent ratio",
+  "t": "Relación precio-arriendo"
+ },
+ "156ffed88854": {
+  "en": "Down payment",
+  "t": "Cuota inicial"
+ },
+ "168fdc203633": {
+  "en": "Your return after inflation. A 7% return with 3% inflation is about a 4% real return.",
+  "t": "Tu rentabilidad después de la inflación. Una rentabilidad del 7 % con inflación del 3 % es cerca de un 4 % real."
+ },
+ "1695d99bb40e": {
+  "en": "Stocks, charts, options, the wheel, risk, value investing, trader taxes and trading with AI.",
+  "t": "Acciones, gráficos, opciones, la rueda, riesgo, inversión en valor, impuestos para traders y trading con IA."
+ },
+ "177333672033": {
+  "en": "Closing costs",
+  "t": "Gastos de cierre"
+ },
+ "1a4e9eefdda1": {
+  "en": "Rule of 72",
+  "t": "Regla del 72"
+ },
+ "1ceedcb9ca54": {
+  "en": "A loan to buy a home, secured by the home itself.",
+  "t": "Un préstamo para comprar una vivienda, garantizado con la misma vivienda."
+ },
+ "1d491f9d2669": {
+  "en": "Your FIRE Number",
+  "t": "Tu número FIRE"
+ },
+ "1dbe11927125": {
+  "en": "Domicile",
+  "t": "Domicilio"
+ },
+ "1e09fcc9dcb9": {
+  "en": "A single fund that shifts from stocks to bonds as a chosen retirement year gets closer.",
+  "t": "Un solo fondo que pasa de acciones a bonos a medida que se acerca el año de retiro elegido."
+ },
+ "1f69ed4db4dc": {
+  "en": "Private mortgage insurance",
+  "t": "Seguro hipotecario privado"
+ },
+ "222e3c5b006a": {
+  "en": "Compound growth, index funds, asset allocation and where extra money should go.",
+  "t": "Crecimiento compuesto, distribución de activos y cómo cambia tu mezcla con la edad."
+ },
+ "2245c6ce14bb": {
+  "en": "= free to choose",
+  "t": "= libre para elegir"
+ },
+ "22bb59396426": {
+  "en": "Prices rising over time, so the same dollars buy less.",
+  "t": "Los precios suben con el tiempo, así los mismos pesos compran menos."
+ },
+ "253a1afcf065": {
+  "en": "A rent-or-buy shortcut: multiply the home price by about 5% and divide by 12. Rent below that tends to favor renting.",
+  "t": "Un atajo para arrendar o comprar: multiplica el precio de la vivienda por cerca del 5 % y divide por 12. Un arriendo por debajo de eso suele favorecer arrendar."
+ },
+ "253af969db77": {
+  "en": "Financial independence with a large budget and plenty of room for travel and comfort.",
+  "t": "Independencia financiera con un presupuesto grande y mucho espacio para viajes y comodidades."
+ },
+ "2852ae45f514": {
+  "en": "The highest starting withdrawal rate that would have lasted through bad historical periods for your time horizon.",
+  "t": "La tasa de retiro inicial más alta que habría resistido los peores periodos históricos para tu horizonte de tiempo."
+ },
+ "2d9f1b449e57": {
+  "en": "Barista FIRE",
+  "t": "Barista FIRE"
+ },
+ "2dd5f894e52e": {
+  "en": "Guardrails",
+  "t": "Barandas"
+ },
+ "2e8686708476": {
+  "en": "Snowball method",
+  "t": "Método bola de nieve"
+ },
+ "2ea0348cf955": {
+  "en": "Cost of living by place",
+  "t": "Costo de vida por lugar"
+ },
+ "319cfcfcc278": {
+  "en": "Stress-Test Your Plan",
+  "t": "Pon a prueba tu plan"
+ },
+ "31bfc16bf916": {
+  "en": "Open enrollment",
+  "t": "Inscripción abierta"
+ },
+ "31e80fb4729a": {
+  "en": "Saving and investing enough that work becomes optional, often decades before the usual retirement age.",
+  "t": "Ahorrar e invertir lo suficiente para que trabajar sea opcional, a menudo décadas antes de la edad usual de retiro."
+ },
  "35c18d23c676": {
   "en": "Rent or buy",
   "t": "Arrendar o comprar"
+ },
+ "36a06afe0e7d": {
+  "en": "Split take-home pay into needs, wants and saving, and see your savings rate.",
+  "t": "Divide tu ingreso neto en necesidades, gustos y ahorro, y mira tu tasa de ahorro."
+ },
+ "3a4c4782cf89": {
+  "en": "Your home’s value minus what you still owe on it.",
+  "t": "El valor de tu vivienda menos lo que todavía debes de ella."
+ },
+ "3bcccb99d79e": {
+  "en": "age 25",
+  "t": "25 años"
  },
  "3c48bd272b7a": {
   "en": "Compound interest",
   "t": "Interés compuesto"
  },
+ "3d106f2bfdfe": {
+  "en": "The average price per booked night.",
+  "t": "El precio promedio por noche reservada."
+ },
+ "3f7f4b318e25": {
+  "en": "Your age, your money, your return: see what it grows into and what waiting costs.",
+  "t": "Tu edad, tu dinero, tu rentabilidad: mira en qué se convierte y cuánto cuesta esperar."
+ },
+ "3fbb1ba1711e": {
+  "en": "Paying a loan off in equal payments, where early payments are mostly interest and later ones mostly principal.",
+  "t": "Pagar un préstamo en cuotas iguales, donde las primeras cuotas son sobre todo intereses y las últimas sobre todo capital."
+ },
+ "423fd74ca9a7": {
+  "en": "A mortgage whose rate is fixed for a few years and then moves with the market.",
+  "t": "Un crédito cuya tasa es fija unos años y luego se mueve con el mercado."
+ },
+ "43c99009f466": {
+  "en": "Rebalancing",
+  "t": "Rebalanceo"
+ },
+ "44ae2dc2c4f7": {
+  "en": "Earning returns on your past returns, so growth speeds up the longer you leave money alone.",
+  "t": "Ganar rentabilidad sobre tu rentabilidad pasada, así el crecimiento se acelera mientras más tiempo dejes el dinero quieto."
+ },
+ "45155ac25586": {
+  "en": "Debt payoff plan",
+  "t": "Plan para pagar deudas"
+ },
+ "45f633ecca9d": {
+  "en": "Paying off debts from the smallest balance up, for quick wins that keep you going.",
+  "t": "Pagar las deudas empezando por el saldo más pequeño, para tener victorias rápidas que te mantengan motivado."
+ },
+ "4691d8db25a5": {
+  "en": "Money set aside each month for a known future cost, such as car repairs, gifts or a trip.",
+  "t": "Dinero que apartas cada mes para un costo futuro conocido, como arreglos del carro, regalos o un viaje."
+ },
+ "4727d329b3d9": {
+  "en": "Find your number, choose where to live, cut the tax bill, cover health care and stress-test the plan.",
+  "t": "Encuentra tu número, elige dónde vivir y pon a prueba tu plan."
+ },
+ "48dc21e81e89": {
+  "en": "Budget, company benefits, retirement accounts, taxes, debt, banking, housing and retiring early or late.",
+  "t": "Presupuesto, deudas, vivienda, inversión de largo plazo y protección de lo que construyes."
+ },
  "49352196f6d2": {
   "en": "Trading",
   "t": "Trading"
+ },
+ "499ea0bf5c2f": {
+  "en": "Home price divided by a year of rent for a similar place. High ratios favor renting.",
+  "t": "El precio de la vivienda dividido por un año de arriendo de un lugar parecido. Una relación alta favorece arrendar."
  },
  "4d064726954a": {
   "en": "Advanced",
   "t": "Avanzado"
  },
+ "4d0ad7740da7": {
+  "en": "Living in one unit of a small multi-unit property, or renting rooms, so tenants help pay the mortgage.",
+  "t": "Vivir en una unidad de una propiedad pequeña con varias unidades, o arrendar habitaciones, para que los arrendatarios ayuden a pagar el crédito."
+ },
+ "505be9f7764a": {
+  "en": "The amount invested that can pay your yearly spending for life, often about 25 times annual spending.",
+  "t": "El monto invertido que puede pagar tu gasto anual de por vida, a menudo cerca de 25 veces el gasto anual."
+ },
+ "52f6dc4146f8": {
+  "en": "Net worth from renting and investing versus buying, year by year.",
+  "t": "Patrimonio si arriendas e inviertes frente a si compras, año por año."
+ },
+ "547dc3c0e7a1": {
+  "en": "Rent or buy, mortgages, home taxes, rental property and Airbnb.",
+  "t": "Arrendar o comprar, créditos de vivienda, si una casa es una inversión y Airbnb."
+ },
  "54acc2806d4d": {
   "en": "Start here",
   "t": "Empieza aquí"
+ },
+ "55213e8991d1": {
+  "en": "Spending, withdrawal rate and other income: the number that sets you free.",
+  "t": "Gasto, tasa de retiro y otros ingresos: el número que te hace libre."
+ },
+ "5747afd4a534": {
+  "en": "Home equity line of credit",
+  "t": "Línea de crédito sobre la vivienda"
+ },
+ "58ec77be746c": {
+  "en": "Withdrawal rate",
+  "t": "Tasa de retiro"
+ },
+ "594d5d7399a9": {
+  "en": "Amortization",
+  "t": "Amortización"
+ },
+ "5a09d2043268": {
+  "en": "Cost of living",
+  "t": "Costo de vida"
+ },
+ "5b4e842dfdf3": {
+  "en": "Inflation",
+  "t": "Inflación"
+ },
+ "5c682639680b": {
+  "en": "Fat FIRE",
+  "t": "Fat FIRE"
+ },
+ "5dc2ccaa2592": {
+  "en": "Avalanche method",
+  "t": "Método avalancha"
+ },
+ "601aca480436": {
+  "en": "Investing for Decades",
+  "t": "Invertir por décadas"
  },
  "60575a6ebba9": {
   "en": "Beginner",
   "t": "Principiante"
  },
+ "6079665a3f63": {
+  "en": "Spending that rises every time your income rises, so you never save more.",
+  "t": "Un gasto que sube cada vez que sube tu ingreso, así nunca ahorras más."
+ },
+ "60e535734a84": {
+  "en": "Budget, track spending, see what small habits cost and build a cash cushion.",
+  "t": "Haz un presupuesto, lleva el control de tus gastos, mira lo que cuestan los pequeños hábitos y arma un colchón de efectivo."
+ },
  "62b61e5abc36": {
   "en": "Geographic arbitrage",
   "t": "Arbitraje geográfico"
+ },
+ "62c5518c4388": {
+  "en": "Having enough invested that it will grow to your number by retirement age with no more saving.",
+  "t": "Tener invertido lo suficiente para que crezca hasta tu número a la edad de retiro sin ahorrar más."
+ },
+ "6378820a216e": {
+  "en": "Insurance you pay when your down payment is under 20%. It protects the lender, not you.",
+  "t": "Un seguro que pagas cuando tu cuota inicial es menor al 20 % (común en EE. UU.). Protege al prestamista, no a ti."
+ },
+ "6404f91e0317": {
+  "en": "Pay yourself first",
+  "t": "Págate primero"
+ },
+ "657b22599d9f": {
+  "en": "Cost basis",
+  "t": "Costo fiscal"
+ },
+ "6707dff1ac03": {
+  "en": "The danger that big market losses early in retirement drain savings faster than the same losses later.",
+  "t": "El peligro de que grandes pérdidas del mercado al principio del retiro drenen los ahorros más rápido que las mismas pérdidas más adelante."
+ },
+ "68e02c1c1920": {
+  "en": "Short-term rental",
+  "t": "Arriendo de corta estadía"
+ },
+ "68e8d9a7dca1": {
+  "en": "Cost of living around the world, van life, travel, household size and visas.",
+  "t": "El costo de vida en el mundo, vivir en una van y viajar."
+ },
+ "6b8d015b6b86": {
+  "en": "Asset location",
+  "t": "Ubicación de activos"
+ },
+ "6cbedf32d366": {
+  "en": "How your money is split between stocks, bonds and cash. It drives most of your risk and return.",
+  "t": "Cómo se reparte tu dinero entre acciones, bonos y efectivo. Define la mayor parte de tu riesgo y tu rentabilidad."
+ },
+ "730378164347": {
+  "en": "Monthly debt payments divided by monthly gross income. Lenders use it to decide how much you can borrow.",
+  "t": "Las cuotas mensuales de deuda divididas por el ingreso mensual bruto. Los prestamistas lo usan para decidir cuánto te pueden prestar."
+ },
+ "74776fe0ca1e": {
+  "en": "Fees paid up front to lower your mortgage rate. One point costs 1% of the loan.",
+  "t": "Cobros pagados por adelantado para bajar la tasa del crédito. Un punto cuesta el 1 % del préstamo."
+ },
+ "74edc69f063b": {
+  "en": "The yearly interest rate you pay on a loan or card balance.",
+  "t": "La tasa de interés anual que pagas por un crédito o por el saldo de una tarjeta."
+ },
+ "756e041adcf5": {
+  "en": "Selling some of what grew and buying what lagged to get back to your target mix.",
+  "t": "Vender parte de lo que creció y comprar lo que se quedó atrás para volver a tu mezcla objetivo."
+ },
+ "75e5ce7dedb6": {
+  "en": "Full FIRE plan",
+  "t": "Plan FIRE completo"
+ },
+ "75f372bbf570": {
+  "en": "What card and ATM fees cost on a trip, and how to avoid them.",
+  "t": "Lo que cuestan los cobros de la tarjeta y del cajero en un viaje, y cómo evitarlos."
+ },
+ "76540234ad89": {
+  "en": "Leaving full-time work while part-time work covers some costs and often health insurance.",
+  "t": "Dejar el trabajo de tiempo completo mientras un trabajo de medio tiempo cubre parte de los gastos y, a menudo, el seguro de salud."
+ },
+ "7b20abccaf8d": {
+  "en": "Mortgage points",
+  "t": "Puntos del crédito"
+ },
+ "7cc42f0bb634": {
+  "en": "5% rule",
+  "t": "Regla del 5 %"
+ },
+ "7dad88fdc76c": {
+  "en": "Earning or saving in a high-cost place and living in a cheaper one.",
+  "t": "Ganar o ahorrar en un lugar caro y vivir en uno más barato."
+ },
+ "7fbb65eda4e3": {
+  "en": "The share of available nights that are actually booked.",
+  "t": "La parte de las noches disponibles que de verdad se reservan."
+ },
+ "80194571f52a": {
+  "en": "Saving and investing automatically on payday, before you spend anything else.",
+  "t": "Ahorrar e invertir automáticamente el día de pago, antes de gastar en cualquier otra cosa."
+ },
+ "826d3963f08b": {
+  "en": "Compare a loan with paying cash while your money earns interest, after tax.",
+  "t": "Compara un crédito con pagar de contado mientras tu dinero gana intereses, después de impuestos."
+ },
+ "86433c75c5f8": {
+  "en": "A plan for where each month’s take-home pay goes: needs, wants and saving.",
+  "t": "Un plan de a dónde va el ingreso neto de cada mes: necesidades, gustos y ahorro."
+ },
+ "8a6158205862": {
+  "en": "Debt-to-income ratio",
+  "t": "Nivel de endeudamiento"
+ },
+ "8a73685761f3": {
+  "en": "What habits really cost",
+  "t": "Lo que de verdad cuestan los hábitos"
+ },
+ "8e09d2adebec": {
+  "en": "14-day rule",
+  "t": "Regla de los 14 días"
+ },
+ "91cd8ba879bc": {
+  "en": "Renting a home by the night or week, as on Airbnb or Vrbo.",
+  "t": "Arrendar una vivienda por noches o por semanas, como en Airbnb o Vrbo."
+ },
+ "928b0cc8866b": {
+  "en": "Paying off debts from the highest interest rate down. It saves the most money.",
+  "t": "Pagar las deudas empezando por la de tasa de interés más alta. Es el que más dinero ahorra."
+ },
+ "96355175bb3d": {
+  "en": "Fees paid when a home is bought or sold, such as lender, title and agent fees.",
+  "t": "Cobros que se pagan cuando se compra o se vende una vivienda, como los del banco, la notaría y el agente."
+ },
+ "9861d6235a1f": {
+  "en": "House hacking",
+  "t": "House hacking"
+ },
+ "98ee9a8cbfe1": {
+  "en": "A study that splits a building into parts with shorter lives, so you can depreciate more, sooner.",
+  "t": "Un estudio que divide un edificio en partes con vidas más cortas, para depreciar más y más pronto (regla de EE. UU.)."
+ },
+ "9a6bf7896f32": {
+  "en": "How the wheel is taxed",
+  "t": "Cómo paga impuestos la rueda"
+ },
+ "9ae36d0a07c3": {
+  "en": "Currency risk",
+  "t": "Riesgo cambiario"
+ },
+ "9b17579c0bbe": {
+  "en": "Insurance, wills and beneficiaries, and the scams that target savers.",
+  "t": "Las estafas dirigidas a los ahorradores y cómo detectarlas."
+ },
+ "9e2c356b9277": {
+  "en": "Sinking fund",
+  "t": "Fondo para gastos previstos"
+ },
+ "a0664254f778": {
+  "en": "Payment, total interest, PMI and the effect of extra payments.",
+  "t": "Cuota, intereses totales, seguros y el efecto de los abonos extra."
+ },
+ "a90ff5a5afda": {
+  "en": "Airbnb real profit",
+  "t": "Ganancia real de Airbnb"
+ },
+ "ab7a157576c3": {
+  "en": "Real return",
+  "t": "Rentabilidad real"
+ },
+ "aced44e2b3e8": {
+  "en": "Asset allocation",
+  "t": "Distribución de activos"
+ },
+ "ad321a29576e": {
+  "en": "Home equity",
+  "t": "Valor propio de la vivienda"
+ },
+ "ae7d07ee6858": {
+  "en": "Emergency fund",
+  "t": "Fondo de emergencia"
+ },
+ "afeea1785ee4": {
+  "en": "Avalanche or snowball: months to debt-free and interest saved.",
+  "t": "Avalancha o bola de nieve: meses hasta quedar sin deudas e intereses ahorrados."
+ },
+ "b0a7f460869a": {
+  "en": "What it costs to live in a place: housing, food, transport, health care and the rest.",
+  "t": "Lo que cuesta vivir en un lugar: vivienda, comida, transporte, salud y lo demás."
+ },
+ "b341d7651052": {
+  "en": "Protect What You Build",
+  "t": "Protege lo que construyes"
  },
  "b4183caefb6d": {
   "en": "Essential",
   "t": "Esencial"
  },
+ "b45a830f4b6d": {
+  "en": "Home & Real Estate",
+  "t": "Vivienda y finca raíz"
+ },
+ "be121eda4248": {
+  "en": "Divide 72 by a yearly return to estimate how many years money takes to double.",
+  "t": "Divide 72 por una rentabilidad anual para estimar en cuántos años se duplica el dinero."
+ },
+ "c1a308345fd1": {
+  "en": "Rent your home for 14 days or fewer in a year and the rent is tax-free, with no rental deductions.",
+  "t": "En EE. UU., si arriendas tu casa 14 días o menos en un año, el arriendo no paga impuesto y no hay deducciones de arriendo."
+ },
+ "c456b28c9acd": {
+  "en": "A simple budget split: about half of take-home pay for needs, 30% for wants and 20% for saving and debt.",
+  "t": "Una división sencilla del presupuesto: cerca de la mitad del ingreso neto para necesidades, 30 % para gustos y 20 % para ahorro y deudas."
+ },
+ "c49da3dafbe2": {
+  "en": "Daily coffee, pods or takeout: the yearly cost and what it grows into if invested.",
+  "t": "El tinto diario, las cápsulas o los domicilios: el costo anual y en qué se convierte si lo inviertes."
+ },
+ "c4edb0d019f0": {
+  "en": "25× spending",
+  "t": "25× el gasto"
+ },
+ "c5e07c3f2840": {
+  "en": "The risk that exchange-rate moves change what your dollars buy abroad.",
+  "t": "El riesgo de que los movimientos de la tasa de cambio cambien lo que compra tu dinero en el exterior."
+ },
+ "c6e7ab9201f4": {
+  "en": "Occupancy rate",
+  "t": "Tasa de ocupación"
+ },
+ "c7267ed61b7e": {
+  "en": "Foreign fee cost",
+  "t": "Costo de los cobros en el exterior"
+ },
+ "c87433b9e1ba": {
+  "en": "Adjustable-rate mortgage",
+  "t": "Crédito de tasa variable"
+ },
+ "ca4818f07ceb": {
+  "en": "Success rates by withdrawal rate, years and stock share.",
+  "t": "Tasas de éxito según la tasa de retiro, los años y la proporción en acciones."
+ },
+ "ccac4afbad6d": {
+  "en": "What you give up by choosing one use of money over another, such as the growth that money could have earned.",
+  "t": "Lo que dejas de ganar al elegir un uso del dinero en vez de otro, como el crecimiento que ese dinero habría podido tener."
+ },
+ "ce453a73f869": {
+  "en": "Years to freedom",
+  "t": "Años hasta la libertad"
+ },
+ "cedbf071b521": {
+  "en": "Opportunity cost",
+  "t": "Costo de oportunidad"
+ },
+ "cf52cdf979ca": {
+  "en": "Sequence of returns risk",
+  "t": "Riesgo de secuencia de rentabilidades"
+ },
+ "d0ab7a9d1c97": {
+  "en": "Monthly budgets for cities, countries and van life, for your household.",
+  "t": "Presupuestos mensuales de ciudades, países y la vida en una van, para tu hogar."
+ },
+ "d2db5debc2b7": {
+  "en": "Lean FIRE",
+  "t": "Lean FIRE"
+ },
+ "d3ca656ec189": {
+  "en": "Average daily rate",
+  "t": "Tarifa diaria promedio"
+ },
+ "d3ed2a3eb9d2": {
+  "en": "A van on the road toward the sun: financial independence",
+  "t": "Una van en la carretera hacia el sol: independencia financiera"
+ },
+ "d5e6c1a38258": {
+  "en": "The cash you pay up front when you buy a home. The rest is the mortgage.",
+  "t": "El efectivo que pagas de entrada cuando compras una vivienda. El resto es el crédito."
+ },
+ "d6db5327f55a": {
+  "en": "Where Will You Live?",
+  "t": "¿Dónde vas a vivir?"
+ },
+ "d8018c271ae8": {
+  "en": "Retirement & Wealth",
+  "t": "Retiro y patrimonio"
+ },
+ "dd955170c0e1": {
+  "en": "Car: cash or loan",
+  "t": "Carro: de contado o a crédito"
+ },
+ "de70e91a2a15": {
+  "en": "Savings growing from age 25 to 65, most of it from compound growth",
+  "t": "Ahorros que crecen de los 25 a los 65 años, la mayor parte por el interés compuesto"
+ },
+ "df1486ddb00c": {
+  "en": "Credit scores, card debt, 0% APR transfers, car loans and smart leverage.",
+  "t": "Deudas de tarjeta, créditos de carro y cómo salir de deudas."
+ },
+ "df691f4e4470": {
+  "en": "The 4% rule, sequence risk, flexible spending and your full year-by-year plan.",
+  "t": "La regla del 4 %, el riesgo de secuencia, el gasto flexible y los escenarios de “¿y si?”."
+ },
+ "dfe936cb0b21": {
+  "en": "Money Foundations",
+  "t": "Bases del dinero"
+ },
+ "e016747974e8": {
+  "en": "The share of your income you save. The single biggest lever on when you can retire.",
+  "t": "La parte de tu ingreso que ahorras. La palanca más grande sobre cuándo te puedes retirar."
+ },
+ "e12111dc5c47": {
+  "en": "Being involved in a rental business regularly and substantially, as defined by IRS hour tests. It changes how losses are treated.",
+  "t": "Participar en un negocio de arriendo de forma regular y sustancial, según las pruebas de horas del IRS de EE. UU. Cambia cómo se tratan las pérdidas."
+ },
+ "e193ac3ac3db": {
+  "en": "Rules that cut spending a little after bad years and raise it after good ones, so the money lasts.",
+  "t": "Reglas que bajan un poco el gasto después de años malos y lo suben después de años buenos, para que el dinero alcance."
+ },
+ "e28774e884b6": {
+  "en": "The share of your savings you take out in the first year of retirement.",
+  "t": "La parte de tus ahorros que sacas en el primer año de retiro."
+ },
+ "e40ee446bedf": {
+  "en": "Tax bracket",
+  "t": "Tramo de impuestos"
+ },
+ "e5d75362129a": {
+  "en": "From gross bookings to what you actually keep after fees, costs and tax.",
+  "t": "De las reservas brutas a lo que de verdad te queda después de comisiones, costos e impuestos."
+ },
  "eb395027f280": {
   "en": "FIRE number",
   "t": "Número FIRE"
+ },
+ "ebb290bf7a8a": {
+  "en": "Your savings rate decides how many years you work.",
+  "t": "Tu tasa de ahorro decide cuántos años trabajas."
+ },
+ "f0234526c27b": {
+  "en": "Financial independence, retire early",
+  "t": "Independencia financiera, retiro temprano"
+ },
+ "f09f5e042d86": {
+  "en": "The place you legally call home, which decides your state taxes and more.",
+  "t": "El lugar que legalmente consideras tu hogar, que define tus impuestos y más."
+ },
+ "f146feb63883": {
+  "en": "Financial independence on a small budget.",
+  "t": "Independencia financiera con un presupuesto pequeño."
+ },
+ "f260ddafcb04": {
+  "en": "Monthly budget",
+  "t": "Presupuesto mensual"
+ },
+ "f551cf01557f": {
+  "en": "Safe withdrawal rate",
+  "t": "Tasa de retiro segura"
+ },
+ "f5c544ae6923": {
+  "en": "Debt & Credit",
+  "t": "Deudas y crédito"
+ },
+ "faf1d518e716": {
+  "en": "50/30/20 rule",
+  "t": "Regla 50/30/20"
+ },
+ "fbf7828f81c1": {
+  "en": "A line of credit secured by your home equity. Easy to borrow, and your home is on the line.",
+  "t": "Una línea de crédito garantizada con el valor propio de tu vivienda. Es fácil pedir prestado, y tu casa queda en juego."
+ },
+ "fca7fd338368": {
+  "en": "Annual percentage rate",
+  "t": "Tasa efectiva anual"
  }
 }

@@ -7,6 +7,10 @@
   "en": "4% rule",
   "t": "Regla del 4 %"
  },
+ "0ebae7e975e3": {
+  "en": "Housing",
+  "t": "Vivienda"
+ },
  "1359e40679d2": {
   "en": "Coast FIRE",
   "t": "Coast FIRE"
@@ -14,6 +18,10 @@
  "1c2a91079005": {
   "en": "Market & tax calendar",
   "t": "Calendario del mercado y de impuestos"
+ },
+ "3703cd216881": {
+  "en": "Health",
+  "t": "Salud"
  },
  "3d3c5a4ea57d": {
   "en": "Use FiredBunny without a connection: save lesson audio for offline listening and install the site as an app.",
@@ -23,6 +31,10 @@
   "en": "Covered call",
   "t": "Call cubierta"
  },
+ "64716e652483": {
+  "en": "Expense ratio",
+  "t": "Gasto total del fondo"
+ },
  "6c1d0e2cce46": {
   "en": "Wash sale",
   "t": "Venta ficticia"
@@ -30,6 +42,14 @@
  "7427cf697be1": {
   "en": "Glossary",
   "t": "Glosario"
+ },
+ "7aeba4cd15b1": {
+  "en": "Budget",
+  "t": "Presupuesto"
+ },
+ "7e36e3192e07": {
+  "en": "Taxes",
+  "t": "Impuestos"
  },
  "87b363d25651": {
   "en": "Trade replay",
@@ -43,9 +63,17 @@
   "en": "Delta",
   "t": "Delta"
  },
+ "ac14e51f3290": {
+  "en": "Debt",
+  "t": "Deudas"
+ },
  "ac81417bc6dc": {
   "en": "Theta",
   "t": "Theta"
+ },
+ "ae2f98a099fe": {
+  "en": "Plan",
+  "t": "Plan"
  },
  "b390ab308b4e": {
   "en": "All tools",
