@@ -1,14 +1,54 @@
 {
+ "0684e80f3e7d": {
+  "en": "Long-term",
+  "t": "Largo plazo"
+ },
+ "23408b19b29e": {
+  "en": "Wed",
+  "t": "Mié"
+ },
  "24345a14377f": {
   "en": "Today",
   "t": "Hoy"
+ },
+ "24b2a0993d0c": {
+  "en": "Mon",
+  "t": "Lun"
+ },
+ "3593ccd96f6c": {
+  "en": "Thu",
+  "t": "Jue"
+ },
+ "529541bb390c": {
+  "en": "Tue",
+  "t": "Mar"
+ },
+ "75509fab53c4": {
+  "en": "Short-term",
+  "t": "Corto plazo"
+ },
+ "805f230533b9": {
+  "en": "SEC: Beginners’ guide to financial statements",
+  "t": "SEC: Beginners’ guide to financial statements (en inglés)"
  },
  "816c52fd2bdd": {
   "en": "No",
   "t": "No"
  },
+ "bae7d5be7082": {
+  "en": "Status",
+  "t": "Estado"
+ },
+ "bbd6e32ee132": {
+  "en": "Fri",
+  "t": "Vie"
+ },
  "cf1c85adba54": {
   "en": "Position",
   "t": "Posición"
+ },
+ "ded334c3c00d": {
+  "en": "Fidelity: The P/E ratio, how it is calculated and its limits",
+  "t": "Fidelity: The P/E ratio, how it is calculated and its limits (en inglés)"
  }
 }

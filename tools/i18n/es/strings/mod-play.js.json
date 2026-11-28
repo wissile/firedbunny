@@ -1,4 +1,12 @@
 {
+ "06ea52a5e7c6": {
+  "en": "A day-trade game plan",
+  "t": "Un plan de juego para el day trading"
+ },
+ "3b180070c057": {
+  "en": "Which stocks to trade",
+  "t": "Qué acciones operar"
+ },
  "475c848673a3": {
   "en": "Not found",
   "t": "No encontrada"
@@ -6,5 +14,17 @@
  "cb9ce97bfc9a": {
   "en": "Lessons",
   "t": "Lecciones"
+ },
+ "e666cefe34c0": {
+  "en": "Stop {0}",
+  "t": "Stop {0}"
+ },
+ "ee60472dbe2d": {
+  "en": "Position sizing",
+  "t": "Tamaño de la posición"
+ },
+ "f3b21e049fad": {
+  "en": "Growth",
+  "t": "Crecimiento"
  }
 }

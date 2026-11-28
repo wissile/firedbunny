@@ -1,0 +1,1522 @@
+{
+ "0071021d0e05": {
+  "en": "A 40% win rate is a winning strategy when the average win is big enough.",
+  "t": "Una tasa de acierto del 40 % es una estrategia ganadora cuando la ganancia promedio es lo bastante grande."
+ },
+ "03232516a47c": {
+  "en": "Letting the trading buckets quietly grow bigger than the core.",
+  "t": "Dejar que los grupos de trading crezcan en silencio hasta ser más grandes que el núcleo."
+ },
+ "0340e440aeb5": {
+  "en": "10:40: Price reaches $52.30 just under PDH and you sell. Profit is $1.00 × 400 = $400.",
+  "t": "10:40: El precio llega a US$52,30, justo debajo del PDH, y vendes. La ganancia es US$1,00 × 400 = US$400."
+ },
+ "051ded06e5a8": {
+  "en": "Put the stop where the trade idea is clearly wrong, such as just past the support level you bought at, not at a round number or a fixed percentage. Then let the size follow from it. Moving the stop to fit a size you want is the most common way a planned small loss becomes a large one.",
+  "t": "Pon el stop donde la idea de la operación claramente está equivocada, como justo más allá del soporte donde compraste, no en un número redondo ni en un porcentaje fijo. Luego deja que el tamaño salga de ahí. Mover el stop para que encaje con el tamaño que quieres es la forma más común en que una pérdida pequeña planeada se vuelve una grande."
+ },
+ "05e9d3d6c71d": {
+  "en": "Split news",
+  "t": "Noticia de split"
+ },
+ "05f229647b70": {
+  "en": "Selling after a few months because the price has not moved. Value plays usually take years.",
+  "t": "Vender después de unos meses porque el precio no se ha movido. Las apuestas de valor por lo general toman años."
+ },
+ "06419b3f1f0b": {
+  "en": "HOLDING PERIOD",
+  "t": "PERIODO DE TENENCIA"
+ },
+ "071a23419814": {
+  "en": "Turn the filters on and off, then click a row to see why that stock passes or fails.",
+  "t": "Activa y desactiva los filtros, luego haz clic en una fila para ver por qué esa acción pasa o no pasa."
+ },
+ "074c5cf4625c": {
+  "en": "Gain needed = loss ÷ (1 − loss).",
+  "t": "Ganancia necesaria = pérdida ÷ (1 − pérdida)."
+ },
+ "0954e162f2ec": {
+  "en": "Keep the buckets separate. Never sell the core to cover a losing trade. If a bucket hits its loss limit, pause it and review before adding money.",
+  "t": "Mantén los grupos separados. Nunca vendas el núcleo para cubrir una operación perdedora. Si un grupo llega a su límite de pérdida, ponlo en pausa y revisa antes de meterle más dinero."
+ },
+ "09642476808c": {
+  "en": "A bad month of day trading costs $300, not the whole account.",
+  "t": "Un mal mes de day trading cuesta US$300, no toda la cuenta."
+ },
+ "0a7a2c43b231": {
+  "en": "<span class=\"note\">Five quick questions. Nothing is saved.</span>",
+  "t": "<span class=\"note\">Cinco preguntas rápidas. No se guarda nada.</span>"
+ },
+ "0a818e7381b7": {
+  "en": "Slow: results take years",
+  "t": "Lento: los resultados tardan años"
+ },
+ "0a97004d6e94": {
+  "en": "Switching styles after every losing week, so you never get enough trades to learn any one style.",
+  "t": "Cambiar de estilo después de cada semana perdedora, así nunca tienes suficientes operaciones para aprender ninguno."
+ },
+ "0ce284ef2616": {
+  "en": "Almost none",
+  "t": "Casi nada"
+ },
+ "0d03e195a0dc": {
+  "en": "$100 ÷ $0.50 risk per share = 200 shares.",
+  "t": "US$100 ÷ US$0,50 de riesgo por acción = 200 acciones."
+ },
+ "0d4530045ca9": {
+  "en": "Risk is what you lose if your stop is hit, not what you buy.",
+  "t": "El riesgo es lo que pierdes si se activa tu stop, no lo que compras."
+ },
+ "0e664c8ae42a": {
+  "en": "Your risk budget is 1% of $25,000 = $250.",
+  "t": "Tu presupuesto de riesgo es el 1 % de US$25.000 = US$250."
+ },
+ "0ed8efece3bc": {
+  "en": "Analyst note",
+  "t": "Nota de un analista"
+ },
+ "0ef56b8f93d7": {
+  "en": "A bucket that hits its loss limit pauses until you review it.",
+  "t": "Un grupo que llega a su límite de pérdida se pausa hasta que lo revises."
+ },
+ "0f275378911d": {
+  "en": "Fewer, calmer decisions",
+  "t": "Menos decisiones, más tranquilas"
+ },
+ "1033a3ac9f6a": {
+  "en": "{0} simulated equity curves over {1} trades with {2}% win rate and {3} to 1 reward to risk",
+  "t": "{0} curvas de capital simuladas a lo largo de {1} operaciones con una tasa de acierto del {2} % y una relación ganancia/riesgo de {3} a 1"
+ },
+ "106d2b248ab2": {
+  "en": "Trade one planned setup, with the stop set before entry.",
+  "t": "Opera una configuración planeada, con el stop puesto antes de entrar."
+ },
+ "1154b87e0fdc": {
+  "en": "Ask for a bigger cushion when you are less sure.",
+  "t": "Pide un colchón más grande cuando estés menos seguro."
+ },
+ "11c243ee1bc9": {
+  "en": "Use the account’s current value, not its starting value, and recalculate as it changes. After a losing run your 1% gets smaller, which slows the losses; after a winning run it grows. Some traders use 0.5% while learning or after a drawdown, and few experienced traders go above 2%.",
+  "t": "Usa el valor actual de la cuenta, no su valor inicial, y vuelve a calcular a medida que cambia. Después de una racha perdedora tu 1 % se hace más pequeño, lo que frena las pérdidas; después de una racha ganadora crece. Algunos traders usan 0,5 % mientras aprenden o después de una caída, y pocos traders con experiencia pasan del 2 %."
+ },
+ "124229737f17": {
+  "en": "Prep in the premarket: news, levels, 2–4 stocks.",
+  "t": "Prepárate en el premercado: noticias, niveles, 2–4 acciones."
+ },
+ "133277e02f4f": {
+  "en": "<b>Check the position</b>: 200 × $30 = $6,000. Make sure it fits your buying power and any limit you set on a single position.",
+  "t": "<b>Revisa la posición</b>: 200 × US$30 = US$6.000. Asegúrate de que quepa en tu poder de compra y en cualquier límite que te hayas puesto para una sola posición."
+ },
+ "1461f7d61c1b": {
+  "en": "You have a full-time job, $12,000 and about 30 minutes each evening.",
+  "t": "Tienes un trabajo de tiempo completo, US$12.000 y unos 30 minutos cada noche."
+ },
+ "14ed5521e9a0": {
+  "en": "After a {0}% loss you need +{1}%. At a good 10% a year that's about {2} years of growth just to get back.",
+  "t": "Después de una pérdida del {0} % necesitas +{1} %. A un buen 10 % al año, son unos {2} años de crecimiento solo para volver a donde estabas."
+ },
+ "153d5471cf6f": {
+  "en": "A <b>drawdown</b> is how far your account has fallen from its high. If $10,000 drops 50% you have $5,000 left. A 50% gain on $5,000 only gets you to $7,500. You need +100% to get back to $10,000.",
+  "t": "Una <b>caída</b> (drawdown) es cuánto ha caído tu cuenta desde su máximo. Si US$10.000 caen 50 %, te quedan US$5.000. Una ganancia del 50 % sobre US$5.000 solo te lleva a US$7.500. Necesitas +100 % para volver a US$10.000."
+ },
+ "153fb4922ce1": {
+  "en": "90.4% of the start",
+  "t": "90,4 % del inicio"
+ },
+ "15b863897c71": {
+  "en": "If you had stopped trading and reviewed at −10% ($18,000), you would need only $2,000 ÷ $18,000, about 11%.",
+  "t": "Si hubieras dejado de operar para revisar en −10 % (US$18.000), solo necesitarías US$2.000 ÷ US$18.000, cerca del 11 %."
+ },
+ "18b27cb4fd72": {
+  "en": "Cut losses while they are small.",
+  "t": "Corta las pérdidas mientras son pequeñas."
+ },
+ "1967d15787a2": {
+  "en": "Same streak, same trades: about 5% lost at 1% risk versus about 41% lost at 10% risk.",
+  "t": "La misma racha, las mismas operaciones: cerca del 5 % perdido con un riesgo del 1 % frente a cerca del 41 % perdido con un riesgo del 10 %."
+ },
+ "19df1f32ad58": {
+  "en": "Trading without a stop, so the real risk on the trade is unknown.",
+  "t": "Operar sin stop, así el riesgo real de la operación es desconocido."
+ },
+ "1b30b15d430d": {
+  "en": "9:30 to 9:45: You wait. The first candles swing between $50.40 and $51.60.",
+  "t": "9:30 a 9:45: Esperas. Las primeras velas oscilan entre US$50,40 y US$51,60."
+ },
+ "1baca3836c23": {
+  "en": "It feels small, but at 1% risk a trade that makes 3R adds 3% to the account. The limit is on losses, not on gains.",
+  "t": "Se siente poco, pero con un riesgo del 1 % una operación que gana 3R le suma un 3 % a la cuenta. El límite está en las pérdidas, no en las ganancias."
+ },
+ "1bc965f3caca": {
+  "en": "New product",
+  "t": "Producto nuevo"
+ },
+ "1bf64e290208": {
+  "en": "$2 stock, 50M shares a day, no news",
+  "t": "Acción de US$2, 50 millones de acciones al día, sin noticias"
+ },
+ "1cb20bdaa27f": {
+  "en": "If the stop is hit you lose 200 × $1.25 = $250, exactly 1%. A fast drop can fill a little lower, so a bit of slippage is normal.",
+  "t": "Si se activa el stop pierdes 200 × US$1,25 = US$250, exactamente el 1 %. Una caída rápida puede ejecutarse un poco más abajo, así que un poco de deslizamiento es normal."
+ },
+ "1d98275b8f41": {
+  "en": "Every loss needs a bigger gain to recover, and the gap grows fast as losses get deeper.",
+  "t": "Toda pérdida necesita una ganancia más grande para recuperarse, y la brecha crece rápido a medida que las pérdidas son más hondas."
+ },
+ "1de0bbdfb876": {
+  "en": "90% loss",
+  "t": "Pérdida del 90 %"
+ },
+ "205c1a92a76a": {
+  "en": "Sizing day trades from the whole account instead of the day-trading bucket.",
+  "t": "Dimensionar las operaciones intradía con toda la cuenta en vez de con el grupo de day trading."
+ },
+ "2087311bf208": {
+  "en": "$60 stock, 4M shares a day, earnings today, $0.01 spread",
+  "t": "Acción de US$60, 4 millones de acciones al día, resultados hoy, diferencial de US$0,01"
+ },
+ "209798fe8487": {
+  "en": "Day trading needs you at the screen from 9:30 to about 11:00 ET. You are at work then, so it is out.",
+  "t": "El day trading te necesita frente a la pantalla de 9:30 a más o menos 11:00, hora de Nueva York. A esa hora estás en el trabajo, así que queda descartado."
+ },
+ "212f8fb7c3a7": {
+  "en": "8:45 ET: DEMO has earnings news and 3× its usual premarket volume. PMH is $51.20, PML $49.80 and PDH $52.40.",
+  "t": "8:45, hora de Nueva York: DEMO tiene noticias de resultados y 3× su volumen habitual de premercado. El PMH es US$51,20, el PML US$49,80 y el PDH US$52,40."
+ },
+ "2181a15a79c9": {
+  "en": "Know why stocks are moving before you look at charts, and note scheduled events like a 10:00 economic report.",
+  "t": "Entiende por qué se están moviendo las acciones antes de mirar los gráficos, y anota los eventos programados, como un informe económico a las 10:00."
+ },
+ "21cb9858c060": {
+  "en": "<b>Liquidity</b> means lots of shares trade every day. In a liquid stock your order fills fast, near the price you see. In a thin stock you can get stuck.",
+  "t": "La <b>liquidez</b> significa que se negocian muchas acciones cada día. En una acción líquida tu orden se ejecuta rápido, cerca del precio que ves. En una acción con poca liquidez te puedes quedar atascado."
+ },
+ "2200afab61b2": {
+  "en": "Filter thousands of stocks down to a short watchlist worth your time.",
+  "t": "Filtra miles de acciones hasta una lista corta que valga tu tiempo."
+ },
+ "22507a8ea84e": {
+  "en": "Give each style its own bucket and its own rules.",
+  "t": "Dale a cada estilo su propio grupo y sus propias reglas."
+ },
+ "22905522aeb0": {
+  "en": "Three stocks, each with a reason to move, tight spreads and levels you can plan around.",
+  "t": "Tres acciones, cada una con una razón para moverse, diferenciales estrechos y niveles con los que puedes planear."
+ },
+ "237fd6079a39": {
+  "en": "Bigger risk per trade makes the bad futures much worse.",
+  "t": "Más riesgo por operación hace mucho peores los futuros malos."
+ },
+ "2512df535c81": {
+  "en": "Trade plan chart with entry, stop and profit targets",
+  "t": "Gráfico del plan de operación con entrada, stop y objetivos de ganancia"
+ },
+ "25673b77c4ce": {
+  "en": "How many trades do I need to trust the numbers?",
+  "t": "¿Cuántas operaciones necesito para confiar en los números?"
+ },
+ "276a33182619": {
+  "en": "Then you buy fewer shares, so the dollar risk stays at 1%. If that makes the position too small to bother with, skip the trade.",
+  "t": "Entonces compras menos acciones, así el riesgo en dólares se queda en 1 %. Si eso deja la posición tan pequeña que no vale la pena, sáltate la operación."
+ },
+ "281f7a7998c2": {
+  "en": "All stocks",
+  "t": "Todas las acciones"
+ },
+ "28b70e18db28": {
+  "en": "Not in the same way. It is built for trades with a defined stop. Long-term investors manage risk with diversification and position limits instead.",
+  "t": "No de la misma forma. Está hecha para operaciones con un stop definido. Los inversionistas de largo plazo manejan el riesgo con diversificación y límites por posición."
+ },
+ "291f5a5b58ec": {
+  "en": "{0} You can start with {1}.",
+  "t": "{0} Puedes empezar con {1}."
+ },
+ "2a262484ef74": {
+  "en": "Whether a strategy makes money depends on its win rate and the size of its wins compared with its losses, together. Expectancy = win rate × average win − loss rate × average loss, in R. A strategy that wins 40% of the time can be profitable if its winners are much bigger than its losers.",
+  "t": "Que una estrategia gane plata depende de su tasa de acierto y del tamaño de sus ganancias comparado con sus pérdidas, juntos. Esperanza matemática = tasa de acierto × ganancia promedio − tasa de pérdida × pérdida promedio, en R. Una estrategia que gana el 40 % de las veces puede ser rentable si sus ganadoras son mucho más grandes que sus perdedoras."
+ },
+ "2ac5c9e075f4": {
+  "en": "Core long-term",
+  "t": "Núcleo de largo plazo"
+ },
+ "2b5278238991": {
+  "en": "Margin of safety = (value − price) ÷ value.",
+  "t": "Margen de seguridad = (valor − precio) ÷ valor."
+ },
+ "2bdc11ea6c53": {
+  "en": "How do I avoid large drawdowns?",
+  "t": "¿Cómo evito caídas grandes?"
+ },
+ "2be4a6bde409": {
+  "en": "Every trade should risk the same amount. Position sizes will differ because stops differ.",
+  "t": "Todas las operaciones deben arriesgar la misma cantidad. Los tamaños de las posiciones van a ser distintos porque los stops son distintos."
+ },
+ "2c76791bed2e": {
+  "en": "1% of $20,000 is $200. That is your planned loss if the stop is hit.",
+  "t": "El 1 % de US$20.000 son US$200. Esa es tu pérdida planeada si se activa el stop."
+ },
+ "2d050bc4109a": {
+  "en": "Good day trades are planned before the open. The session is for following the plan.",
+  "t": "Las buenas operaciones intradía se planean antes de la apertura. La sesión es para seguir el plan."
+ },
+ "2de402bc96c0": {
+  "en": "The first minutes after 9:30 are the most volatile of the day. Many traders wait 5 to 15 minutes for the dust to settle, then trade only the setup they planned.",
+  "t": "Los primeros minutos después de las 9:30 son los más volátiles del día. Muchos traders esperan de 5 a 15 minutos a que se asiente el polvo y luego operan solo la configuración que planearon."
+ },
+ "2e7a93658762": {
+  "en": "Your first job is to protect your capital.",
+  "t": "Tu primer trabajo es proteger tu capital."
+ },
+ "2ec6e534b95e": {
+  "en": "How win rate and reward-to-risk combine into an edge.",
+  "t": "Cómo la tasa de acierto y la relación ganancia/riesgo se combinan en una ventaja."
+ },
+ "2f6429dab7ca": {
+  "en": "Gains usually taxed short-term",
+  "t": "En EE. UU., las ganancias suelen pagar impuesto de corto plazo"
+ },
+ "2fd4978d946a": {
+  "en": "Needs research into businesses",
+  "t": "Necesita investigar los negocios"
+ },
+ "2ff91df41d4b": {
+  "en": "The first 15 minutes",
+  "t": "Los primeros 15 minutos"
+ },
+ "301b2d1c0d43": {
+  "en": "Picking stocks with no news or reason to move. They tend to drift and chop.",
+  "t": "Escoger acciones sin noticias ni razón para moverse. Tienden a ir a la deriva y a moverse picado."
+ },
+ "30ac2198c2c4": {
+  "en": "Losing streaks are normal. Even a trader who wins half the time will see about 8 losses in a row somewhere in a few hundred trades. At 1% risk that streak costs about 8%. At 10% risk it costs more than half the account.",
+  "t": "Las rachas perdedoras son normales. Incluso un trader que gana la mitad de las veces va a ver unas 8 pérdidas seguidas en algún momento a lo largo de unos cientos de operaciones. Con un riesgo del 1 % esa racha cuesta cerca del 8 %. Con un riesgo del 10 % cuesta más de la mitad de la cuenta."
+ },
+ "30c28b353910": {
+  "en": "SCREEN TIME (0 TO 6 HOURS A DAY)",
+  "t": "TIEMPO DE PANTALLA (0 A 6 HORAS AL DÍA)"
+ },
+ "31144a54690c": {
+  "en": "A tight stop gives you more shares and a wide stop fewer, but the dollar loss stays the same. Put the stop where the idea is wrong, like just under a support level, not at a random round number.",
+  "t": "Un stop ajustado te da más acciones y uno amplio menos, pero la pérdida en dólares es la misma. Pon el stop donde la idea está equivocada, como justo debajo de un soporte, no en un número redondo al azar."
+ },
+ "31e87f677a54": {
+  "en": "Confusing position size with risk. A $4,200 position can risk only $150 when the stop is close.",
+  "t": "Confundir el tamaño de la posición con el riesgo. Una posición de US$4.200 puede arriesgar solo US$150 cuando el stop está cerca."
+ },
+ "3261c50f8cce": {
+  "en": "Prices swing around value for years because of fear and greed. Value investors use those swings, buying when others are scared and holding while the price catches up.",
+  "t": "Los precios oscilan alrededor del valor durante años por el miedo y la codicia. Los inversionistas de valor usan esas oscilaciones: compran cuando los demás tienen miedo y mantienen mientras el precio se pone al día."
+ },
+ "3266f886a378": {
+  "en": "Day trading: minutes to hours, hours of screen time.",
+  "t": "Day trading: de minutos a horas, horas de tiempo de pantalla."
+ },
+ "334e4f2d857a": {
+  "en": "Taxes differ too. Gains on anything held a year or less are taxed like your salary. Holding longer than a year usually gets a lower rate.",
+  "t": "Los impuestos también cambian. En EE. UU., las ganancias de cualquier cosa mantenida un año o menos pagan impuesto como tu salario, y mantener más de un año por lo general tiene una tarifa más baja. En Colombia las reglas son distintas."
+ },
+ "34e1186bc0ef": {
+  "en": "The deeper the hole, the faster the climb gets steep. A trader at −50% has to double the account just to start again.",
+  "t": "Mientras más hondo el hueco, más rápido se empina la subida. Un trader en −50 % tiene que duplicar la cuenta solo para volver a empezar."
+ },
+ "3578b28a8529": {
+  "en": "Size day trades from the day-trading bucket, not the whole account. 1% of a $2,500 bucket is $25 per trade, which is plenty while you learn.",
+  "t": "Dimensiona las operaciones intradía con el grupo de day trading, no con toda la cuenta. El 1 % de un grupo de US$2.500 son US$25 por operación, que es bastante mientras aprendes."
+ },
+ "374bf92246c4": {
+  "en": "Value trap",
+  "t": "Trampa de valor"
+ },
+ "37de11633e0f": {
+  "en": "Choosing day trading because it looks exciting, not because your schedule allows it.",
+  "t": "Escoger el day trading porque se ve emocionante, no porque tu horario lo permita."
+ },
+ "38052352041d": {
+  "en": "For a short trade, risk per share is the stop minus the entry. The <a href=\\\"#tool-size\\\">position size calculator</a> does the arithmetic.",
+  "t": "Para una venta en corto, el riesgo por acción es el stop menos la entrada. La <a href=\"#tool-size\">calculadora de tamaño de posición</a> hace las cuentas."
+ },
+ "3845d4b45fd8": {
+  "en": "Funnel from {0} sample stocks down to {1} after filters",
+  "t": "Embudo de {0} acciones de ejemplo a {1} después de los filtros"
+ },
+ "39af8a6cb8e3": {
+  "en": "The arithmetic does. Long-term investors recover through time and new savings rather than through bigger bets.",
+  "t": "La aritmética sí. Los inversionistas de largo plazo se recuperan con el tiempo y con ahorros nuevos, no con apuestas más grandes."
+ },
+ "39e1ff374c4c": {
+  "en": "Value investing fits: $300 a month into an index fund, plus a company you studied when it trades well below your value estimate.",
+  "t": "La inversión en valor encaja: US$300 al mes en un fondo indexado, más una empresa que estudiaste cuando se negocia muy por debajo de tu estimación de valor."
+ },
+ "3ac705f4db59": {
+  "en": "Each style trades a different amount of your time for a different kind of return.",
+  "t": "Cada estilo cambia una cantidad distinta de tu tiempo por un tipo distinto de rentabilidad."
+ },
+ "3b7da0bf83ef": {
+  "en": "Slide the loss from 10% to 50%, then press Replay to watch the drop and the climb back.",
+  "t": "Mueve la pérdida de 10 % a 50 % y luego presiona Repetir para ver la caída y la subida de vuelta."
+ },
+ "3ca05c74786d": {
+  "en": "Day, swing, wheel, value",
+  "t": "Day trading, swing, rueda y valor"
+ },
+ "3cd3e6493fca": {
+  "en": "Price is {0} below your value estimate. Even if your estimate is a bit too high, you have a cushion.",
+  "t": "El precio está {0} por debajo de tu estimación del valor. Aunque tu estimación esté un poco alta, tienes un colchón."
+ },
+ "3d1b61a94fb2": {
+  "en": "The gain needed to recover a loss L is L ÷ (1 − L):",
+  "t": "La ganancia necesaria para recuperar una pérdida L es L ÷ (1 − L):"
+ },
+ "3d65376a1172": {
+  "en": "Merger rumor",
+  "t": "Rumor de fusión"
+ },
+ "3daf4eb88ba3": {
+  "en": "Keep only those with news and relative volume of 2× or more: 5 are left.",
+  "t": "Quédate solo con las que tienen noticias y volumen relativo de 2× o más: quedan 5."
+ },
+ "3dbf35123932": {
+  "en": "9:30–9:45 AM",
+  "t": "9:30–9:45 a. m."
+ },
+ "3dd5574e83d3": {
+  "en": "Hype post",
+  "t": "Publicación de bombo"
+ },
+ "3e8ba7c5b6ce": {
+  "en": "Catches bigger moves per trade",
+  "t": "Captura movimientos más grandes por operación"
+ },
+ "40a719d8067a": {
+  "en": "11:30–2:00 PM",
+  "t": "11:30 a. m.–2:00 p. m."
+ },
+ "412d885fd631": {
+  "en": "At {0} risk, {1} losses in a row erase {2} of the account. Getting back needs +{3}.",
+  "t": "Con un riesgo de {0}, {1} pérdidas seguidas borran el {2} de la cuenta. Recuperarte necesita +{3}."
+ },
+ "4175e891c606": {
+  "en": "Your journal shows 50 trades: 20 winners and 30 losers. The win rate is 40%.",
+  "t": "Tu diario muestra 50 operaciones: 20 ganadoras y 30 perdedoras. La tasa de acierto es 40 %."
+ },
+ "43eccb30e65b": {
+  "en": "Value investing: years, little screen time, lower taxes.",
+  "t": "Inversión en valor: años, poco tiempo de pantalla, en EE. UU. menos impuestos."
+ },
+ "444ff6939718": {
+  "en": "Volume dries up around midday, so moves get choppy. Many traders stop after the morning, set a daily loss limit, and journal every trade after the close.",
+  "t": "El volumen se seca cerca del mediodía, así que los movimientos se ponen picados. Muchos traders paran después de la mañana, fijan un límite de pérdida diario y registran cada operación en el diario después del cierre."
+ },
+ "44e68c309b90": {
+  "en": "Small losses are cheap to fix: −10% needs +11%. Big ones are brutal: −75% needs +300%. Protecting the downside matters more than chasing the upside.",
+  "t": "Las pérdidas pequeñas son baratas de arreglar: −10 % necesita +11 %. Las grandes son brutales: −75 % necesita +300 %. Proteger contra la caída importa más que perseguir la subida."
+ },
+ "44f7458146cc": {
+  "en": "losses in a row →",
+  "t": "pérdidas seguidas →"
+ },
+ "45840d5d95c5": {
+  "en": "Setting the stop so tight that normal wiggles hit it. A tiny stop also inflates the share count and the position.",
+  "t": "Poner el stop tan ajustado que los movimientos normales lo tocan. Un stop diminuto también infla el número de acciones y la posición."
+ },
+ "45a40f40276f": {
+  "en": "Made-up tickers and numbers. Click any row to see why it passes or fails.",
+  "t": "Tickers y números inventados. Haz clic en cualquier fila para ver por qué pasa o no pasa."
+ },
+ "472825de6f27": {
+  "en": "Placing the stop",
+  "t": "Dónde poner el stop"
+ },
+ "47a98ae0f955": {
+  "en": "Required margin of safety",
+  "t": "Margen de seguridad requerido"
+ },
+ "48360ce257d2": {
+  "en": "It is liquid, cheap to trade and has a reason to move today.",
+  "t": "Es líquida, barata de operar y tiene una razón para moverse hoy."
+ },
+ "4982b37802af": {
+  "en": "Spread $0.03 or less",
+  "t": "Diferencial de US$0,03 o menos"
+ },
+ "4aeec19478f2": {
+  "en": "Climb back",
+  "t": "Recuperación"
+ },
+ "4b94f09d6927": {
+  "en": "<span class=\"note\">20 possible futures, $10,000 start. Same rules, different luck. Hover the chart to inspect a trade.</span>",
+  "t": "<span class=\"note\">20 futuros posibles, empezando con US$10.000. Las mismas reglas, distinta suerte. Pasa el cursor por el gráfico para revisar una operación.</span>"
+ },
+ "4c14aad9eee5": {
+  "en": "Taking trades that were not in the plan just because the stock is moving.",
+  "t": "Tomar operaciones que no estaban en el plan solo porque la acción se está moviendo."
+ },
+ "4cbcdfbd1e35": {
+  "en": "No buy at $36. You wait for $33.60, or for new facts that change your estimate.",
+  "t": "No compras en US$36. Esperas a US$33,60, o a hechos nuevos que cambien tu estimación."
+ },
+ "4de74b3e6a1a": {
+  "en": "Switch between the four styles and compare holding time, screen time and taxes.",
+  "t": "Cambia entre los cuatro estilos y compara el tiempo de tenencia, el tiempo de pantalla y los impuestos."
+ },
+ "4e9a3b58ec3e": {
+  "en": "Drop anything with a spread wider than $0.03: 9 are left.",
+  "t": "Descarta todo lo que tenga un diferencial de más de US$0,03: quedan 9."
+ },
+ "4f89f6d21f8e": {
+  "en": "Compounding does the heavy lifting",
+  "t": "El interés compuesto hace el trabajo pesado"
+ },
+ "5070192c491f": {
+  "en": "A step-by-step routine from premarket prep to the closing journal.",
+  "t": "Una rutina paso a paso, desde la preparación en el premercado hasta el diario al cierre."
+ },
+ "50a703703756": {
+  "en": "Tap each step to see when it happens, and tick it off as you get ready.",
+  "t": "Toca cada paso para ver cuándo ocurre, y márcalo a medida que te preparas."
+ },
+ "50eddedcd97b": {
+  "en": "{0}: holding period, a sample week and daily screen time",
+  "t": "{0}: periodo de tenencia, una semana de ejemplo y tiempo de pantalla diario"
+ },
+ "514762b17b8c": {
+  "en": "Buying a low P/E stock without asking why it is cheap. Some are cheap because the business is shrinking.",
+  "t": "Comprar una acción con P/U bajo sin preguntarte por qué está barata. Algunas están baratas porque el negocio se está achicando."
+ },
+ "5185004fa2a0": {
+  "en": "+$400, or 2.5R. You journal it the same way you would journal a loss.",
+  "t": "+US$400, o 2,5R. La registras en el diario igual que registrarías una pérdida."
+ },
+ "5296d372e5f7": {
+  "en": "Ignoring taxes. Frequent short-term gains are taxed at your income rate, which can cut returns a lot.",
+  "t": "Ignorar los impuestos. Las ganancias frecuentes de corto plazo pueden pagar más impuesto y recortar mucho la rentabilidad."
+ },
+ "537801d83af2": {
+  "en": "Bigger targets are hit less often. The right target is the next real level, and the ratio follows from it.",
+  "t": "Los objetivos más grandes se alcanzan menos seguido. El objetivo correcto es el siguiente nivel real, y la relación sale de ahí."
+ },
+ "54fef137620a": {
+  "en": "{0} pass every filter. That short list is today's watchlist.",
+  "t": "{0} pasan todos los filtros. Esa lista corta es la lista de seguimiento de hoy."
+ },
+ "551cc56f3e01": {
+  "en": "Expectancy = 0.40 × 2.5 − 0.60 × 1 = 1.0 − 0.6 = +0.4R per trade.",
+  "t": "Esperanza = 0,40 × 2,5 − 0,60 × 1 = 1,0 − 0,6 = +0,4R por operación."
+ },
+ "559307a99200": {
+  "en": "Should I always aim for 3 : 1 trades?",
+  "t": "¿Siempre debo buscar operaciones de 3 a 1?"
+ },
+ "56ae4fdd7feb": {
+  "en": "Margin of safety = ($48 − $36) ÷ $48 = 25%.",
+  "t": "Margen de seguridad = (US$48 − US$36) ÷ US$48 = 25 %."
+ },
+ "57160134302f": {
+  "en": "Breakeven win rate at 2.5 : 1 is 1 ÷ 3.5, about 29%. You are about 11 points above it.",
+  "t": "La tasa de acierto de equilibrio con 2,5 a 1 es 1 ÷ 3,5, cerca del 29 %. Estás unos 11 puntos por encima."
+ },
+ "5777d89bc3e6": {
+  "en": "Traders measure results in <b>R</b>, where 1R is the amount you risked on a trade. A 2R win made twice what you risked. A full loss is −1R.",
+  "t": "Los traders miden los resultados en <b>R</b>, donde 1R es la cantidad que arriesgaste en una operación. Una ganancia de 2R ganó el doble de lo que arriesgaste. Una pérdida completa es −1R."
+ },
+ "5788ac1e785e": {
+  "en": "Having no drawdown limit. Decide in advance at what loss you stop trading and review, for example −10%.",
+  "t": "No tener límite de caída. Decide por adelantado con qué pérdida dejas de operar y revisas, por ejemplo −10 %."
+ },
+ "584a828d1c64": {
+  "en": "Trading the first 5 minutes",
+  "t": "Operar los primeros 5 minutos"
+ },
+ "58e04536f802": {
+  "en": "More is better. A few dozen gives a rough idea; results from 10 trades are mostly luck.",
+  "t": "Mientras más, mejor. Unas cuantas docenas dan una idea aproximada; los resultados de 10 operaciones son sobre todo suerte."
+ },
+ "59ae6f638638": {
+  "en": "Tight spread: a few cents or less.",
+  "t": "Diferencial estrecho: unos cuantos centavos o menos."
+ },
+ "5a48479e7e21": {
+  "en": "you {0}%",
+  "t": "tú {0} %"
+ },
+ "5aac21836914": {
+  "en": "Moving money from the core to refill a losing trading bucket.",
+  "t": "Pasar dinero del núcleo para rellenar un grupo de trading que va perdiendo."
+ },
+ "5ab97278fc25": {
+  "en": "The 1% rule",
+  "t": "La regla del 1 %"
+ },
+ "5b55320dd42e": {
+  "en": "<span class=\"pill acc\">Watchlist</span>",
+  "t": "<span class=\"pill acc\">Lista de seguimiento</span>"
+ },
+ "5b62db20854e": {
+  "en": "Keep it around 1% per trade (2% at most) while learning.",
+  "t": "Mantenlo cerca del 1 % por operación (2 % como máximo) mientras aprendes."
+ },
+ "5be3b10ceada": {
+  "en": "Shares = risk in dollars ÷ (entry − stop).",
+  "t": "Acciones = riesgo en dólares ÷ (entrada − stop)."
+ },
+ "5c4691640fce": {
+  "en": "Volume is U-shaped: heavy at the open and the close, light around lunch.",
+  "t": "El volumen tiene forma de U: pesado en la apertura y el cierre, liviano cerca del almuerzo."
+ },
+ "5ca0481debd9": {
+  "en": "Replay the drop and climb",
+  "t": "Repetir la caída y la subida"
+ },
+ "5d7173f09121": {
+  "en": "Why does a 50% loss need a 100% gain?",
+  "t": "¿Por qué una pérdida del 50 % necesita una ganancia del 100 %?"
+ },
+ "5e2d7ebfdab9": {
+  "en": "Donut of how the account is split between buckets",
+  "t": "Dona de cómo se reparte la cuenta entre los grupos"
+ },
+ "5ecd399f0c20": {
+  "en": "Losses are lopsided",
+  "t": "Las pérdidas son desiguales"
+ },
+ "5f5af5509930": {
+  "en": "Having no daily loss limit, so one bad morning turns into a bad month.",
+  "t": "No tener límite de pérdida diario, así una mala mañana se vuelve un mal mes."
+ },
+ "5f6d92bc3433": {
+  "en": "<b>Relative volume</b> (RVOL) compares today's volume to normal. RVOL of 2 or more usually means news, and news brings the moves. Very cheap stocks move a lot but are easy to push around, so most traders skip them.",
+  "t": "El <b>volumen relativo</b> (RVOL) compara el volumen de hoy con lo normal. Un RVOL de 2 o más por lo general significa noticias, y las noticias traen los movimientos. Las acciones muy baratas se mueven mucho pero son fáciles de manipular, así que la mayoría de los traders las evitan."
+ },
+ "5fad4fed3154": {
+  "en": "3:00–4:00 PM",
+  "t": "3:00–4:00 p. m."
+ },
+ "604ee0f46088": {
+  "en": "A few hours most mornings",
+  "t": "Unas cuantas horas casi todas las mañanas"
+ },
+ "608937268aa5": {
+  "en": "Your premarket scanner lists 40 stocks up or down more than 3%.",
+  "t": "Tu escáner de premercado muestra 40 acciones que suben o bajan más del 3 %."
+ },
+ "6154b76f824c": {
+  "en": "Record every trade in R in a <a href=\\\"#l-journal\\\">trading journal</a>: the result divided by what you planned to risk. After 30 to 50 trades of the same setup, work out the win rate, the average win and the average loss. Costs and slippage come off the expectancy, so include them.",
+  "t": "Registra cada operación en R en un <a href=\"#l-journal\">diario de trading</a>: el resultado dividido entre lo que planeaste arriesgar. Después de 30 a 50 operaciones de la misma configuración, calcula la tasa de acierto, la ganancia promedio y la pérdida promedio. Los costos y el deslizamiento se restan de la esperanza, así que inclúyelos."
+ },
+ "61694dca5bf0": {
+  "en": "Losses and gains are lopsided: after a loss you need a bigger percentage gain to get back to even. A 20% loss needs a 25% gain, and a 50% loss needs 100%. That is why limiting drawdowns matters more than chasing big returns.",
+  "t": "Las pérdidas y las ganancias son desiguales: después de una pérdida necesitas una ganancia porcentual más grande para volver a quedar tablas. Una pérdida del 20 % necesita una ganancia del 25 %, y una pérdida del 50 % necesita el 100 %. Por eso limitar las caídas importa más que perseguir rentabilidades grandes."
+ },
+ "61c81e3bc167": {
+  "en": "Swing, the wheel and value all fit your week. Day trading does not, and that is fine.",
+  "t": "El swing, la rueda y el valor encajan en tu semana. El day trading no, y está bien."
+ },
+ "638e19fa4ced": {
+  "en": "In play: RVOL 2×+",
+  "t": "En juego: volumen relativo de 2× o más"
+ },
+ "63d214104338": {
+  "en": "0.20 ÷ 0.80 = 25%. After a loss you are growing a smaller base.",
+  "t": "0,20 ÷ 0,80 = 25 %. Después de una pérdida estás haciendo crecer una base más pequeña."
+ },
+ "63ea24cc0675": {
+  "en": "Each bucket has its own limit. Pausing protects the rest of the account.",
+  "t": "Cada grupo tiene su propio límite. Pausar protege el resto de la cuenta."
+ },
+ "64243631bd37": {
+  "en": "Contract win",
+  "t": "Contrato ganado"
+ },
+ "64c81e6e7cce": {
+  "en": "Getting back to $20,000 takes $6,000 on a $14,000 base: $6,000 ÷ $14,000 is about 43%.",
+  "t": "Volver a US$20.000 requiere US$6.000 sobre una base de US$14.000: US$6.000 ÷ US$14.000 es cerca del 43 %."
+ },
+ "65a3a490fa31": {
+  "en": "Does the 1% rule apply to long-term investing?",
+  "t": "¿La regla del 1 % aplica a la inversión de largo plazo?"
+ },
+ "663cbacee636": {
+  "en": "<b>Shares</b>: $250 ÷ $1.25 = 200. Round down, never up.",
+  "t": "<b>Acciones</b>: US$250 ÷ US$1,25 = 200. Redondea hacia abajo, nunca hacia arriba."
+ },
+ "66752641e611": {
+  "en": "1 ÷ (1 + 3) = 25%. Win more than one trade in four and the math is on your side.",
+  "t": "1 ÷ (1 + 3) = 25 %. Gana más de una de cada cuatro operaciones y las matemáticas están de tu lado."
+ },
+ "675e24e50c02": {
+  "en": "Five trades in a row hit their stops. Each loss is 1% of what is left, so the account ends near $14,265, down about 5%.",
+  "t": "Cinco operaciones seguidas tocan sus stops. Cada pérdida es el 1 % de lo que queda, así que la cuenta termina cerca de US$14.265, abajo cerca del 5 %."
+ },
+ "67ad0f157ea5": {
+  "en": "Holding a failed day trade overnight and calling it a swing trade, or a failed swing trade and calling it an investment.",
+  "t": "Mantener de noche una operación intradía fallida y llamarla swing, o una operación swing fallida y llamarla inversión."
+ },
+ "695472bf02e7": {
+  "en": "Why small bets keep you in the game through losing streaks.",
+  "t": "Por qué las apuestas pequeñas te mantienen en el juego durante las rachas perdedoras."
+ },
+ "69c1414708a7": {
+  "en": "At a steady +2% a month, +11% takes about 5 to 6 months. +43% takes about 18 months.",
+  "t": "A un +2 % constante al mes, +11 % toma unos 5 a 6 meses. +43 % toma unos 18 meses."
+ },
+ "6bdc63f1cedf": {
+  "en": "Small, fixed risk per trade, a daily loss limit and stepping back after a losing run.",
+  "t": "Riesgo pequeño y fijo por operación, un límite de pérdida diario y alejarte después de una racha perdedora."
+ },
+ "6e26e6a6e242": {
+  "en": "High win rates",
+  "t": "Tasas de acierto altas"
+ },
+ "6e4dc5a8e181": {
+  "en": "A few hours a quarter",
+  "t": "Unas pocas horas por trimestre"
+ },
+ "7158fc290f1b": {
+  "en": "A bad month drops it 30% to $14,000.",
+  "t": "Un mal mes la baja 30 %, a US$14.000."
+ },
+ "724e998169a8": {
+  "en": "Days to weeks",
+  "t": "De días a semanas"
+ },
+ "72cc6a98fd44": {
+  "en": "Illustration: value grows about 6% a year and the price swings around it. Value = EPS × fair P/E is a rough first estimate.",
+  "t": "Ilustración: el valor crece cerca de 6 % al año y el precio oscila a su alrededor. Valor = UPA × P/U justo es una primera estimación aproximada."
+ },
+ "737a80e23253": {
+  "en": "8:45–9:25 AM",
+  "t": "8:45–9:25 a. m."
+ },
+ "7380a788b3f7": {
+  "en": "4:00 AM",
+  "t": "4:00 a. m."
+ },
+ "73c0d44f84e7": {
+  "en": "20–60 min a day",
+  "t": "20–60 min al día"
+ },
+ "75ab3e12107e": {
+  "en": "Double the size to win it back",
+  "t": "Duplicar el tamaño para recuperarlo"
+ },
+ "77b0b59b928e": {
+  "en": "Account balance through {0} losses in a row at {1}% risk versus 1% risk",
+  "t": "Saldo de la cuenta a lo largo de {0} pérdidas seguidas con un riesgo del {1} % frente a un riesgo del 1 %"
+ },
+ "7849b7d9e1ab": {
+  "en": "Breakeven win rate = 1 ÷ (1 + reward:risk). At 2 : 1 it's 33%.",
+  "t": "Tasa de acierto de equilibrio = 1 ÷ (1 + ganancia:riesgo). Con 2 a 1 es 33 %."
+ },
+ "78f2a121ffe8": {
+  "en": "The same five losses at 10% risk per trade would leave about $8,857, down about 41%.",
+  "t": "Esas mismas cinco pérdidas con un riesgo del 10 % por operación dejarían unos US$8.857, abajo cerca del 41 %."
+ },
+ "792b98dafc00": {
+  "en": "You are not sure about the estimate, so you want 30%. Your buy price is $48 × 0.70 = $33.60, and you place a limit order there.",
+  "t": "No estás seguro de la estimación, así que quieres 30 %. Tu precio de compra es US$48 × 0,70 = US$33,60, y pones una orden límite ahí."
+ },
+ "793271af02ec": {
+  "en": "Taking profits early out of fear, so the average win shrinks below what the math needs.",
+  "t": "Tomar ganancias temprano por miedo, así la ganancia promedio se encoge por debajo de lo que necesitan las matemáticas."
+ },
+ "79b905d8e0a3": {
+  "en": "The same arithmetic explains why a portfolio that falls less in a crash can end ahead of one that rises more in good years, and why retirees worry about losses early in retirement (see <a href=\\\"#l-sequence\\\">sequence of returns risk</a>).",
+  "t": "La misma aritmética explica por qué un portafolio que cae menos en un desplome puede terminar por delante de uno que sube más en los años buenos, y por qué a los jubilados les preocupan las pérdidas al principio del retiro (mira <a href=\"#l-sequence\">el riesgo de secuencia de rentabilidades</a>)."
+ },
+ "79c5e4f20e14": {
+  "en": "Treating the value estimate as exact. It is a range, which is why you want a margin of safety.",
+  "t": "Tomar la estimación del valor como exacta. Es un rango, por eso quieres un margen de seguridad."
+ },
+ "7a48a7359174": {
+  "en": "Trading thin, low-priced stocks because they move a lot. Wide spreads and slippage eat the profits.",
+  "t": "Operar acciones baratas y con poca liquidez porque se mueven mucho. Los diferenciales amplios y el deslizamiento se comen las ganancias."
+ },
+ "7ae3dc12358d": {
+  "en": "You can mix styles, as long as each one gets its own bucket of money and its own rules.",
+  "t": "Puedes mezclar estilos, siempre que cada uno tenga su propio grupo de dinero y sus propias reglas."
+ },
+ "7bc28e777217": {
+  "en": "Position size is the number of shares that makes a stopped-out trade lose exactly what you planned to risk. Shares = dollars at risk ÷ (entry price − stop price). A tight stop gives more shares and a wide stop fewer, but the planned dollar loss stays the same.",
+  "t": "El tamaño de la posición es el número de acciones que hace que una operación que toca el stop pierda exactamente lo que planeaste arriesgar. Acciones = dólares en riesgo ÷ (precio de entrada − precio del stop). Un stop ajustado da más acciones y uno amplio da menos, pero la pérdida planeada en dólares es la misma."
+ },
+ "7da627846cc6": {
+  "en": "A $25,000 example account risking 1% per trade.",
+  "t": "Una cuenta de ejemplo de US$25.000 que arriesga el 1 % por operación."
+ },
+ "7ddc7cb811f2": {
+  "en": "Many traders set rules in advance: stop for the day after a fixed loss, cut risk in half after a 10% drawdown, and pause to review after 15% or 20%. Rules decided in a calm moment are easier to follow than decisions made while losing.",
+  "t": "Muchos traders fijan reglas por adelantado: parar por el día después de una pérdida fija, reducir el riesgo a la mitad después de una caída del 10 % y hacer una pausa para revisar después del 15 % o el 20 %. Las reglas decididas en un momento de calma son más fáciles de seguir que las decisiones tomadas mientras pierdes."
+ },
+ "7dde7695811c": {
+  "en": "Because each share risks less. The total planned loss, shares × risk per share, stays the same.",
+  "t": "Porque cada acción arriesga menos. La pérdida total planeada, acciones × riesgo por acción, se queda igual."
+ },
+ "7f1e6ecb63b6": {
+  "en": "Skipping the journal on winning days. Wins teach you as much as losses.",
+  "t": "Saltarte el diario en los días ganadores. Las ganancias te enseñan tanto como las pérdidas."
+ },
+ "7fa8975b2db3": {
+  "en": "YOUR LEANING (ANSWER TO FILL THE BARS)",
+  "t": "HACIA DÓNDE TE INCLINAS (RESPONDE PARA LLENAR LAS BARRAS)"
+ },
+ "7fb126237c82": {
+  "en": "Expectancy = win % × average win − loss % × average loss.",
+  "t": "Esperanza = % de acierto × ganancia promedio − % de pérdida × pérdida promedio."
+ },
+ "7fefd29b1406": {
+  "en": "Change the earnings, the fair P/E and the price to move in and out of the buy zone.",
+  "t": "Cambia las utilidades, el P/U justo y el precio para entrar y salir de la zona de compra."
+ },
+ "807f71cb4391": {
+  "en": "7:00–8:00 AM",
+  "t": "7:00–8:00 a. m."
+ },
+ "814ba63068b4": {
+  "en": "The wheel: steady option income on stocks you want to own.",
+  "t": "La rueda: ingresos constantes con opciones sobre acciones que quieres tener."
+ },
+ "814d0906cd1a": {
+  "en": "If the position is bigger than your account, the stop is too tight or the trade is too big.",
+  "t": "Si la posición es más grande que tu cuenta, el stop está demasiado ajustado o la operación es demasiado grande."
+ },
+ "8177621a241a": {
+  "en": "8:00–8:45 AM",
+  "t": "8:00–8:45 a. m."
+ },
+ "81b761e2f89d": {
+  "en": "Every strategy has losing streaks. Here is what ten losses in a row do to an account at different risk levels, with each loss taken from what is left:",
+  "t": "Toda estrategia tiene rachas perdedoras. Esto es lo que diez pérdidas seguidas le hacen a una cuenta con distintos niveles de riesgo, tomando cada pérdida de lo que queda:"
+ },
+ "82576029c37d": {
+  "en": "breakeven {0}%",
+  "t": "equilibrio {0} %"
+ },
+ "825d8a50aa03": {
+  "en": "If every win is R times the size of every loss, you break even (before costs) at a win rate of 1 ÷ (1 + R):",
+  "t": "Si cada ganancia es R veces el tamaño de cada pérdida, quedas tablas (antes de costos) con una tasa de acierto de 1 ÷ (1 + R):"
+ },
+ "86be95277145": {
+  "en": "Entry {0}",
+  "t": "Entrada {0}"
+ },
+ "8700893511e2": {
+  "en": "The math is one line: <b>shares = money you're willing to lose ÷ distance from entry to stop</b>. $250 of risk with a $1.50 stop distance means 166 shares.",
+  "t": "La cuenta es de una línea: <b>acciones = plata que estás dispuesto a perder ÷ distancia de la entrada al stop</b>. US$250 de riesgo con un stop a US$1,50 significa 166 acciones."
+ },
+ "883fb588b892": {
+  "en": "Choosing the number of shares first, then placing the stop wherever the loss feels small enough.",
+  "t": "Escoger primero el número de acciones y luego poner el stop donde la pérdida se sienta lo bastante pequeña."
+ },
+ "886255b255dd": {
+  "en": "Midday",
+  "t": "El mediodía"
+ },
+ "894431758bf5": {
+  "en": "Targets: 1R is $31.25, 2R is $32.50 and 3R is $33.75 (entry plus 1, 2 or 3 times $1.25).",
+  "t": "Objetivos: 1R es US$31,25, 2R es US$32,50 y 3R es US$33,75 (la entrada más 1, 2 o 3 veces US$1,25)."
+ },
+ "8964871cf4ed": {
+  "en": "Cash, 10%: $3,000 kept ready for a sale in the market.",
+  "t": "Efectivo, 10 %: US$3.000 listos para una rebaja en el mercado."
+ },
+ "89e930057eda": {
+  "en": "Betting more on trades that feel like sure things. Every trade gets the same risk because you cannot tell in advance which ones will work.",
+  "t": "Apostar más en las operaciones que se sienten seguras. Cada operación lleva el mismo riesgo porque no puedes saber de antemano cuáles van a funcionar."
+ },
+ "8c9098d61fb5": {
+  "en": "In investing",
+  "t": "En la inversión"
+ },
+ "8d32dd04d2be": {
+  "en": "Trading day from 4 AM to 4 PM Eastern with trading volume and the game plan steps",
+  "t": "Día de trading de 4 a. m. a 4 p. m., hora de Nueva York, con el volumen negociado y los pasos del plan de juego"
+ },
+ "8ed6448baeff": {
+  "en": "In play: news and relative volume of 2× or more.",
+  "t": "En juego: noticias y volumen relativo de 2× o más."
+ },
+ "8fac8198f2f9": {
+  "en": "$300 stock, 200K shares a day, $0.40 spread",
+  "t": "Acción de US$300, 200.000 acciones al día, diferencial de US$0,40"
+ },
+ "919f92d84cab": {
+  "en": "After a market sell-off, the stock trades at $36.",
+  "t": "Después de una caída del mercado, la acción se negocia a US$36."
+ },
+ "921ecd3ce047": {
+  "en": "WIN RATE",
+  "t": "TASA DE ACIERTO"
+ },
+ "934af8caf0e4": {
+  "en": "A WEEK IN THE LIFE",
+  "t": "UNA SEMANA TÍPICA"
+ },
+ "938fda8fe02e": {
+  "en": "4:00 close",
+  "t": "cierre 4:00"
+ },
+ "93c1bab50fa7": {
+  "en": "One example blend. Your own split depends on your goals and time.",
+  "t": "Una combinación de ejemplo. Tu propio reparto depende de tus metas y tu tiempo."
+ },
+ "93dd70ace1ee": {
+  "en": "After loss",
+  "t": "Después de la pérdida"
+ },
+ "94c0504b68b3": {
+  "en": "Value ≈ EPS × fair P/E, as a rough first estimate.",
+  "t": "Valor ≈ UPA × P/U justo, como primera estimación aproximada."
+ },
+ "94dc83d12ac2": {
+  "en": "The same idea applies: size by what you can lose. For a bought option the most you can lose is the premium, so the number of contracts × premium × 100 should fit your risk budget.",
+  "t": "Aplica la misma idea: dimensiona según lo que puedes perder. En una opción comprada, lo máximo que puedes perder es la prima, así que el número de contratos × prima × 100 debe caber en tu presupuesto de riesgo."
+ },
+ "94e1d3eb2006": {
+  "en": "Example only. Move one slider and the others adjust so the total stays 100%.",
+  "t": "Solo un ejemplo. Mueve un deslizador y los otros se ajustan para que el total siga en 100 %."
+ },
+ "95060abaa68c": {
+  "en": "Move money from the core into it",
+  "t": "Pasarle dinero del núcleo"
+ },
+ "967b370741b4": {
+  "en": "10 years ago",
+  "t": "Hace 10 años"
+ },
+ "971e7a723632": {
+  "en": "Let the open settle before your first trade.",
+  "t": "Deja que la apertura se asiente antes de tu primera operación."
+ },
+ "977b66e45663": {
+  "en": "Trading style",
+  "t": "Estilo de trading"
+ },
+ "989f921d4c89": {
+  "en": "Small risk also keeps your head clear. When one trade can't hurt you much, you can follow your plan instead of panicking.",
+  "t": "Un riesgo pequeño también te mantiene la cabeza fría. Cuando una operación no te puede hacer mucho daño, puedes seguir tu plan en vez de entrar en pánico."
+ },
+ "98abf94af107": {
+  "en": "Shares = $250 ÷ $1.25 = 200 shares. The position is $6,000, or 24% of the account.",
+  "t": "Acciones = US$250 ÷ US$1,25 = 200 acciones. La posición es de US$6.000, o el 24 % de la cuenta."
+ },
+ "98d2b376bf67": {
+  "en": "Trusting expectancy from 10 trades. You need dozens of trades before the numbers mean much.",
+  "t": "Confiar en la esperanza de 10 operaciones. Necesitas docenas de operaciones antes de que los números signifiquen mucho."
+ },
+ "9a6b18cc92c9": {
+  "en": "Works around a job",
+  "t": "Se acomoda a un trabajo"
+ },
+ "9ae7a5cd315b": {
+  "en": "<b>Risk budget</b>: account × risk percentage. $25,000 × 1% = $250.",
+  "t": "<b>Presupuesto de riesgo</b>: cuenta × porcentaje de riesgo. US$25.000 × 1 % = US$250."
+ },
+ "9b1cd6a92cfe": {
+  "en": "Fits people with a day job who can plan in the evening and let orders do the work.",
+  "t": "Le sirve a gente con trabajo de día que puede planear en la noche y dejar que las órdenes hagan el trabajo."
+ },
+ "9b4d1572f279": {
+  "en": "Keep the watchlist to 2–4 stocks you know well.",
+  "t": "Mantén la lista de seguimiento en 2–4 acciones que conozcas bien."
+ },
+ "9bbe3f55ecbe": {
+  "en": "A stock that looks cheap on the numbers but keeps falling because the business is getting worse.",
+  "t": "Una acción que se ve barata en los números pero sigue cayendo porque el negocio está empeorando."
+ },
+ "9c09e4da04e8": {
+  "en": "Estimate what a business is worth and buy it for less.",
+  "t": "Estima cuánto vale un negocio y cómpralo por menos."
+ },
+ "9ca26b786e76": {
+  "en": "A positive edge still has losing streaks.",
+  "t": "Una ventaja positiva igual tiene rachas perdedoras."
+ },
+ "9d05bc9a9100": {
+  "en": "{0} of your account in one stock. The stop limits the planned loss to {1}, but a gap through the stop could cost more.",
+  "t": "El {0} de tu cuenta en una sola acción. El stop limita la pérdida planeada a {1}, pero un gap que salte el stop podría costar más."
+ },
+ "9da8af6d7c11": {
+  "en": "Keeping no cash, so you cannot act when prices drop.",
+  "t": "No mantener efectivo, así no puedes actuar cuando los precios bajan."
+ },
+ "9dd0f948096f": {
+  "en": "Decide the stop before the entry.",
+  "t": "Decide el stop antes de la entrada."
+ },
+ "9e342d06bf05": {
+  "en": "Keep the long-term core the biggest bucket.",
+  "t": "Mantén el núcleo de largo plazo como el grupo más grande."
+ },
+ "9e376ed58a78": {
+  "en": "1% risk",
+  "t": "riesgo del 1 %"
+ },
+ "9ef37af4eb25": {
+  "en": "How much time can you watch the market on a weekday?",
+  "t": "¿Cuánto tiempo puedes mirar el mercado un día entre semana?"
+ },
+ "9f89fc1fd7e9": {
+  "en": "Price $10 to $500",
+  "t": "Precio de US$10 a US$500"
+ },
+ "a02da5f9ea0b": {
+  "en": "9:45–11:30 AM",
+  "t": "9:45–11:30 a. m."
+ },
+ "a0d91872e7d9": {
+  "en": "Risking $100 per trade, 100 more trades like these would make about 40R, roughly $4,000, with losing streaks along the way.",
+  "t": "Arriesgando US$100 por operación, 100 operaciones más como estas ganarían unos 40R, más o menos US$4.000, con rachas perdedoras en el camino."
+ },
+ "a153bb52e75a": {
+  "en": "Your account is $15,000. At 1% risk, the most you plan to lose on one trade is $150.",
+  "t": "Tu cuenta tiene US$15.000. Con un riesgo del 1 %, lo máximo que planeas perder en una operación son US$150."
+ },
+ "a1cee70715a5": {
+  "en": "Price is what you pay and value is what the business is worth. Buy with a cushion between them.",
+  "t": "El precio es lo que pagas y el valor es lo que vale el negocio. Compra con un colchón entre los dos."
+ },
+ "a22ffcf91e95": {
+  "en": "Careful",
+  "t": "Cuidado"
+ },
+ "a24839d369a8": {
+  "en": "What is a good expectancy?",
+  "t": "¿Qué es una buena esperanza?"
+ },
+ "a2af3f6e7aba": {
+  "en": "−10% needs +11%. −50% needs +100%.",
+  "t": "−10 % necesita +11 %. −50 % necesita +100 %."
+ },
+ "a436a3cec3d4": {
+  "en": "How your answers so far lean toward each trading style",
+  "t": "Cómo se inclinan tus respuestas hasta ahora hacia cada estilo de trading"
+ },
+ "a4afe7a14f66": {
+  "en": "Sizing from last month's balance instead of today's account value after a losing stretch.",
+  "t": "Dimensionar con el saldo del mes pasado en vez del valor actual de la cuenta después de una racha perdedora."
+ },
+ "a5024e147e6d": {
+  "en": "The <b>bid-ask spread</b> is the gap between the best price to sell and the best price to buy. A $0.10 spread costs you $10 per 100 shares the moment you enter. Day traders want a spread of a penny or two.",
+  "t": "El <b>diferencial de compra-venta</b> (spread) es la brecha entre el mejor precio para vender y el mejor precio para comprar. Un diferencial de US$0,10 te cuesta US$10 por cada 100 acciones en el momento en que entras. Los day traders quieren un diferencial de uno o dos centavos."
+ },
+ "a5e33b2f4282": {
+  "en": "Measuring it",
+  "t": "Cómo medirla"
+ },
+ "a5e7ed0d50d8": {
+  "en": "Because the gain is measured on the smaller amount that is left. $10,000 falls to $5,000; getting back needs another $5,000, which is 100% of $5,000.",
+  "t": "Porque la ganancia se mide sobre la cantidad más pequeña que queda. US$10.000 caen a US$5.000; volver necesita otros US$5.000, que son el 100 % de US$5.000."
+ },
+ "a5fc5faf941f": {
+  "en": "Overnight gaps can jump your stop",
+  "t": "Los gaps de la noche pueden saltarse tu stop"
+ },
+ "a658f0cb7694": {
+  "en": "An example $16,000 account and a made-up stock.",
+  "t": "Una cuenta de ejemplo de US$16.000 y una acción inventada."
+ },
+ "a6f47e00e036": {
+  "en": "Upgrade",
+  "t": "Mejora de calificación"
+ },
+ "a739dd764562": {
+  "en": "Losing streaks will happen. Size so you survive them.",
+  "t": "Las rachas perdedoras van a llegar. Dimensiona para sobrevivirlas."
+ },
+ "a8322d0fffd7": {
+  "en": "The last hour",
+  "t": "La última hora"
+ },
+ "a895454ef2e7": {
+  "en": "The deeper the hole, the harder the climb back.",
+  "t": "Mientras más hondo el hueco, más difícil la subida de vuelta."
+ },
+ "aa02579e9e75": {
+  "en": "Swing and wheel, 25%: $7,500. One cash-secured put on a $30 stock ties up $3,000 of it.",
+  "t": "Swing y rueda, 25 %: US$7.500. Un put asegurado con efectivo sobre una acción de US$30 amarra US$3.000 de eso."
+ },
+ "ab74ed24a5af": {
+  "en": "Lower long-term tax rate",
+  "t": "En EE. UU., una tarifa de impuesto más baja a largo plazo"
+ },
+ "abdc713e5dea": {
+  "en": "Expect to hold for years.",
+  "t": "Espera mantener por años."
+ },
+ "ac606401f1a7": {
+  "en": "The <b>premarket</b> runs from 4:00 to 9:30 AM Eastern. Use it to find what is moving and why, and to mark the key levels: yesterday's high and low (PDH, PDL) and the premarket high and low (PMH, PML).",
+  "t": "El <b>premercado</b> va de 4:00 a 9:30 a. m., hora de Nueva York. Úsalo para encontrar qué se está moviendo y por qué, y para marcar los niveles clave: el máximo y el mínimo de ayer (PDH, PDL) y el máximo y el mínimo del premercado (PMH, PML)."
+ },
+ "acce6013b4d0": {
+  "en": "Four ways to use the market, from minutes to years.",
+  "t": "Cuatro formas de usar el mercado, de minutos a años."
+ },
+ "ace643cf920b": {
+  "en": "Forgetting that a gap through the stop can lose more than planned. Keep any single position small enough to survive a gap.",
+  "t": "Olvidar que un gap que salte el stop puede perder más de lo planeado. Mantén cualquier posición individual lo bastante pequeña para sobrevivir a un gap."
+ },
+ "adb80d13dd3e": {
+  "en": "Raising risk after a loss to win it back faster. That is how a normal streak turns into a deep hole.",
+  "t": "Subir el riesgo después de una pérdida para recuperarla más rápido. Así es como una racha normal se vuelve un hueco hondo."
+ },
+ "af37a487633a": {
+  "en": "Raising risk because the expectancy is positive. A real edge still has long losing streaks.",
+  "t": "Subir el riesgo porque la esperanza es positiva. Una ventaja real igual tiene rachas perdedoras largas."
+ },
+ "af6bdbbf3647": {
+  "en": "A 10% drawdown is a bad month. A 65% drawdown needs a gain of almost 190% to recover (see <a href=\\\"#l-drawdowns\\\">Losses are lopsided</a>).",
+  "t": "Una caída del 10 % es un mal mes. Una caída del 65 % necesita una ganancia de casi 190 % para recuperarse (mira <a href=\"#l-drawdowns\">Las pérdidas son desiguales</a>)."
+ },
+ "afc6c5f1daa3": {
+  "en": "An example account with made-up prices.",
+  "t": "Una cuenta de ejemplo con precios inventados."
+ },
+ "b049a0b71d7a": {
+  "en": "Penny pump",
+  "t": "Inflado de acción de centavos"
+ },
+ "b0b2ee989f02": {
+  "en": "A {0}% core with {1}% for day trading. Risking 1% of that bucket means about {2} per day trade.",
+  "t": "Un núcleo del {0} % con {1} % para day trading. Arriesgar el 1 % de ese grupo significa unos {2} por operación intradía."
+ },
+ "b0cf2b1e569d": {
+  "en": "Trading the first five minutes before any level has been tested.",
+  "t": "Operar los primeros cinco minutos antes de que se haya probado algún nivel."
+ },
+ "b295c6eb7948": {
+  "en": "Liquid: about 1 million or more shares a day.",
+  "t": "Líquida: más o menos 1 millón de acciones o más al día."
+ },
+ "b397f8c903c6": {
+  "en": "Set the win rate to 40% and reward to 2 : 1, then press Run again a few times.",
+  "t": "Pon la tasa de acierto en 40 % y la relación en 2 a 1, y luego presiona Correr otra vez unas cuantas veces."
+ },
+ "b45490eaf8aa": {
+  "en": "Above the breakeven line the strategy has a positive expectancy; below it, it loses money however good it feels.",
+  "t": "Por encima de la línea de equilibrio la estrategia tiene una esperanza positiva; por debajo, pierde plata por bien que se sienta."
+ },
+ "b4bb98541fce": {
+  "en": "What if the right stop is far away?",
+  "t": "¿Y si el stop correcto está lejos?"
+ },
+ "b64e75cee92a": {
+  "en": "Split one account into buckets, each with its own rules.",
+  "t": "Divide una cuenta en grupos, cada uno con sus propias reglas."
+ },
+ "b7f06acd51c3": {
+  "en": "Spreads, commissions and slippage add to the real loss. A stop order turns into a market order when hit and may fill at a worse price in a fast market. Some traders add a few cents to the risk per share to allow for this, which slightly reduces the share count.",
+  "t": "Los diferenciales, las comisiones y el deslizamiento se suman a la pérdida real. Una orden stop se vuelve orden de mercado cuando se activa y puede ejecutarse a un peor precio en un mercado rápido. Algunos traders le suman unos centavos al riesgo por acción para cubrir esto, lo que baja un poco el número de acciones."
+ },
+ "ba37b1aa394c": {
+  "en": "Stops can slip",
+  "t": "Los stops pueden deslizarse"
+ },
+ "ba883f5e1ec5": {
+  "en": "A rough month takes the day bucket down 20% to $1,200. It hits its loss limit and pauses for review. The core is untouched.",
+  "t": "Un mes difícil baja el grupo de day trading 20 %, a US$1.200. Llega a su límite de pérdida y se pausa para revisión. El núcleo queda intacto."
+ },
+ "ba92cc00116e": {
+  "en": "<span class=\"wg-title\">Cushion you want</span>{0}",
+  "t": "<span class=\"wg-title\">Colchón que quieres</span>{0}"
+ },
+ "bb880c9d7535": {
+  "en": "Swing trading: days to weeks, fits around a job.",
+  "t": "Swing trading: de días a semanas, se acomoda a un trabajo."
+ },
+ "bd0d25d18ec6": {
+  "en": "shares = (account × risk %) ÷ (entry − stop). Drag the red stop line on the chart or type your own numbers. A stop above the entry means a short trade.",
+  "t": "acciones = (cuenta × % de riesgo) ÷ (entrada − stop). Arrastra la línea roja del stop en el gráfico o escribe tus propios números. Un stop por encima de la entrada significa una venta en corto."
+ },
+ "bd1a186db9ba": {
+  "en": "Lowest stress and trading costs",
+  "t": "El menor estrés y los menores costos de negociación"
+ },
+ "bfb95cdfaa58": {
+  "en": "Trades held days to weeks",
+  "t": "Operaciones que se mantienen de días a semanas"
+ },
+ "c02e80a14826": {
+  "en": "Tap a step to see when it happens. Tick the box when it's done. All times Eastern.",
+  "t": "Toca un paso para ver cuándo ocurre. Marca la casilla cuando esté hecho. Todas las horas son de Nueva York."
+ },
+ "c1238cd1a905": {
+  "en": "A {0} percent loss needs a {1} percent gain to recover",
+  "t": "Una pérdida del {0} por ciento necesita una ganancia del {1} por ciento para recuperarse"
+ },
+ "c141a7045b3b": {
+  "en": "Mark the levels on each. Three have clean PDH and PMH lines: DEMO-A, DEMO-B and DEMO-C. That is your watchlist.",
+  "t": "Marca los niveles en cada una. Tres tienen líneas de PDH y PMH limpias: DEMO-A, DEMO-B y DEMO-C. Esa es tu lista de seguimiento."
+ },
+ "c274255f56a1": {
+  "en": "Guidance raised",
+  "t": "Proyecciones al alza"
+ },
+ "c29270df015c": {
+  "en": "An example $20,000 account after a bad month.",
+  "t": "Una cuenta de ejemplo de US$20.000 después de un mal mes."
+ },
+ "c5389aa15933": {
+  "en": "Watching 15 tickers at once and missing the setup on all of them.",
+  "t": "Mirar 15 tickers a la vez y perderte la configuración en todos."
+ },
+ "c6a627d11f6d": {
+  "en": "<b>Risk per share</b>: entry − stop. $30.00 − $28.75 = $1.25.",
+  "t": "<b>Riesgo por acción</b>: entrada − stop. US$30,00 − US$28,75 = US$1,25."
+ },
+ "c6c174776b64": {
+  "en": "Thinking a 50% loss needs a 50% gain. It needs 100%.",
+  "t": "Pensar que una pérdida del 50 % necesita una ganancia del 50 %. Necesita el 100 %."
+ },
+ "c6d4cd76b8bc": {
+  "en": "9:52: A 2-minute candle closes at $51.45 on high volume, then a retest at $51.25 holds. You buy 400 shares at $51.30 with a stop at $50.90. Risk is $0.40 × 400 = $160, about 1%.",
+  "t": "9:52: Una vela de 2 minutos cierra en US$51,45 con volumen alto, y luego un retesteo en US$51,25 se sostiene. Compras 400 acciones en US$51,30 con un stop en US$50,90. El riesgo es US$0,40 × 400 = US$160, cerca del 1 %."
+ },
+ "c6da03cd361f": {
+  "en": "Each trade earns {0} on average. Luck still decides the order: the worst future dipped {1} from its high before recovering.",
+  "t": "Cada operación gana {0} en promedio. La suerte igual decide el orden: el peor futuro cayó {1} desde su máximo antes de recuperarse."
+ },
+ "c767e7f85554": {
+  "en": "Recovery table",
+  "t": "Tabla de recuperación"
+ },
+ "c76e83ecf13e": {
+  "en": "Drag the red stop line closer to the entry and watch the share count grow while the max loss stays put.",
+  "t": "Arrastra la línea roja del stop más cerca de la entrada y mira cómo crece el número de acciones mientras la pérdida máxima se queda quieta."
+ },
+ "c76effeece3f": {
+  "en": "drag the stop",
+  "t": "arrastra el stop"
+ },
+ "c7a4b18af975": {
+  "en": "A strategy that wins 80% of the time but loses five times as much on its losers as it makes on its winners has an expectancy of 0.8 × 1 − 0.2 × 5 = −0.2R per trade. Selling options and taking quick small profits often looks like this: many small wins and a rare large loss. Measure both numbers, not just the win rate.",
+  "t": "Una estrategia que gana el 80 % de las veces pero pierde en sus perdedoras cinco veces lo que gana en sus ganadoras tiene una esperanza de 0,8 × 1 − 0,2 × 5 = −0,2R por operación. Vender opciones y tomar ganancias pequeñas rápido a menudo se ve así: muchas ganancias pequeñas y una pérdida grande de vez en cuando. Mide los dos números, no solo la tasa de acierto."
+ },
+ "c7ee61ecee51": {
+  "en": "1% of what",
+  "t": "El 1 % de qué"
+ },
+ "c80ffc609e5e": {
+  "en": "Your <b>expectancy</b> is the average R per trade: win rate × average win − loss rate × average loss. At 40% wins and 2R targets that is 0.4 × 2 − 0.6 × 1 = +0.2R per trade.",
+  "t": "Tu <b>esperanza matemática</b> es el R promedio por operación: tasa de acierto × ganancia promedio − tasa de pérdida × pérdida promedio. Con 40 % de aciertos y objetivos de 2R eso es 0,4 × 2 − 0,6 × 1 = +0,2R por operación."
+ },
+ "c86aa5634471": {
+  "en": "Risk $250 to make $500 at the 2R target.",
+  "t": "Arriesgas US$250 para ganar US$500 en el objetivo de 2R."
+ },
+ "c8a2895fe2df": {
+  "en": "A common blend: a large <b>core</b> of index funds or value stocks you hold for years, a middle bucket for swing trades and the wheel, a small bucket for day trading while you learn, and some cash.",
+  "t": "Una combinación común: un <b>núcleo</b> grande de fondos indexados o acciones de valor que mantienes por años, un grupo intermedio para operaciones swing y la rueda, un grupo pequeño para day trading mientras aprendes, y algo de efectivo."
+ },
+ "c95b2720b22a": {
+  "en": "Core, 60%: $18,000 in index funds that you add to and do not trade.",
+  "t": "Núcleo, 60 %: US$18.000 en fondos indexados a los que les sumas y que no operas."
+ },
+ "ca5fd00a9c87": {
+  "en": "Risk about 1% of your account per trade, so a losing streak hurts but never knocks you out.",
+  "t": "Arriesga más o menos el 1 % de tu cuenta por operación, así una racha perdedora duele pero nunca te saca del juego."
+ },
+ "cc7e2d974ca4": {
+  "en": "Your account starts at $20,000.",
+  "t": "Tu cuenta empieza con US$20.000."
+ },
+ "cd834dc8460f": {
+  "en": "Drawdown limits",
+  "t": "Límites de caída"
+ },
+ "cd9dd704163d": {
+  "en": "Swing + wheel",
+  "t": "Swing + rueda"
+ },
+ "ce41b2bf6b2d": {
+  "en": "Long-term after 1 year",
+  "t": "En EE. UU., de largo plazo después de 1 año"
+ },
+ "ce743d5f2506": {
+  "en": "Trade stocks that are liquid, moving for a reason, and cheap to get in and out of.",
+  "t": "Opera acciones líquidas, que se mueven por una razón y que son baratas para entrar y salir."
+ },
+ "cf06d7fcacef": {
+  "en": "You want to buy DEMO at $42.00 with a stop at $40.50, just under support. That is $1.50 of risk per share.",
+  "t": "Quieres comprar DEMO en US$42,00 con un stop en US$40,50, justo debajo del soporte. Son US$1,50 de riesgo por acción."
+ },
+ "cf6f94a1ec61": {
+  "en": "Needs patience to hold winners",
+  "t": "Necesita paciencia para aguantar las ganadoras"
+ },
+ "cff5a67c74d4": {
+  "en": "Taxes: swing gains held a year or less are taxed like salary. Value holdings kept more than a year get the lower long-term rates.",
+  "t": "Impuestos (en EE. UU.): las ganancias swing mantenidas un año o menos pagan como salario. Las inversiones de valor mantenidas más de un año tienen las tarifas más bajas de largo plazo."
+ },
+ "d13d00b7572f": {
+  "en": "30 to 60 minutes",
+  "t": "De 30 a 60 minutos"
+ },
+ "d14b243c5fe7": {
+  "en": "You can lose more often than you win and still grow, if your wins are bigger than your losses.",
+  "t": "Puedes perder más seguido de lo que ganas y aun así crecer, si tus ganancias son más grandes que tus pérdidas."
+ },
+ "d1517250decc": {
+  "en": "<span class=\"wg-title\">Filters</span>{0}<span class=\"grow\"></span><span class=\"pill\">sample data</span>",
+  "t": "<span class=\"wg-title\">Filtros</span>{0}<span class=\"grow\"></span><span class=\"pill\">datos de ejemplo</span>"
+ },
+ "d181684abb58": {
+  "en": "The wheel fits: one cash-secured put on a $40 stock ties up $4,000, so you can run one or two at a time.",
+  "t": "La rueda encaja: un put asegurado con efectivo sobre una acción de US$40 amarra US$4.000, así que puedes tener uno o dos a la vez."
+ },
+ "d2468a7e0d51": {
+  "en": "FINRA: Extended-hours trading (less liquid, often more volatile)",
+  "t": "FINRA: Extended-hours trading (menos líquido, a menudo más volátil; en inglés)"
+ },
+ "d254248f6b9c": {
+  "en": "Dry powder for chances",
+  "t": "Munición para oportunidades"
+ },
+ "d291cc35775a": {
+  "en": "Why does a tight stop let me buy more shares?",
+  "t": "¿Por qué un stop ajustado me deja comprar más acciones?"
+ },
+ "d371f0ed1455": {
+  "en": "Any positive number after costs, measured over enough trades. +0.2R per trade on 100 trades a year at 1% risk is roughly +20%, before compounding and taxes.",
+  "t": "Cualquier número positivo después de costos, medido sobre suficientes operaciones. +0,2R por operación en 100 operaciones al año con un riesgo del 1 % es más o menos +20 %, antes del interés compuesto y de impuestos."
+ },
+ "d3c22bbcfd78": {
+  "en": "volume through the day",
+  "t": "volumen a lo largo del día"
+ },
+ "d4290a762d19": {
+  "en": "Judging a strategy by its win rate alone. A 70% win rate loses money if the losers are much bigger than the winners.",
+  "t": "Juzgar una estrategia solo por su tasa de acierto. Una tasa de acierto del 70 % pierde plata si las perdedoras son mucho más grandes que las ganadoras."
+ },
+ "d5dd02170f06": {
+  "en": "Breakeven win rate",
+  "t": "Tasa de acierto de equilibrio"
+ },
+ "d5df28a2c883": {
+  "en": "No style is best for everyone. The right one fits your schedule, your temperament and your account. Most people do better with less screen time, not more.",
+  "t": "Ningún estilo es el mejor para todo el mundo. El correcto se acomoda a tu horario, a tu temperamento y a tu cuenta. A la mayoría de la gente le va mejor con menos tiempo de pantalla, no con más."
+ },
+ "d80eb4ffe36a": {
+  "en": "<b>Risk</b> is the money you lose if the trade hits your stop loss. It is not the size of the position. With a $10,000 account, 1% risk means you plan to lose at most $100 on that trade.",
+  "t": "El <b>riesgo</b> es la plata que pierdes si la operación toca tu stop loss. No es el tamaño de la posición. Con una cuenta de US$10.000, un riesgo del 1 % significa que planeas perder como máximo US$100 en esa operación."
+ },
+ "d840a2eef8c9": {
+  "en": "Pause it and review your trades",
+  "t": "Ponerlo en pausa y revisar tus operaciones"
+ },
+ "d8e4fac9b762": {
+  "en": "Liquid: 1M+ shares a day",
+  "t": "Líquida: más de 1 millón de acciones al día"
+ },
+ "d92adfd4bb8b": {
+  "en": "Winners average +2.5R. Losers average −1R because you always respect the stop.",
+  "t": "Las ganadoras promedian +2,5R. Las perdedoras promedian −1R porque siempre respetas el stop."
+ },
+ "d99f99331ccf": {
+  "en": "Each line in the chart is one possible future with the same rules. Luck decides the order of wins and losses, so even a good system has ugly stretches. That is why risk per trade must stay small.",
+  "t": "Cada línea del gráfico es un futuro posible con las mismas reglas. La suerte decide el orden de las ganancias y las pérdidas, así que incluso un buen sistema tiene rachas feas. Por eso el riesgo por operación tiene que seguir siendo pequeño."
+ },
+ "d9d2f1b7c939": {
+  "en": "Is 1% too small to make money?",
+  "t": "¿El 1 % es muy poco para ganar plata?"
+ },
+ "d9de35732ba6": {
+  "en": "Price is only {0} below value. You asked for {1}%, so wait for {2} or less.",
+  "t": "El precio está solo {0} por debajo del valor. Pediste {1} %, así que espera a {2} o menos."
+ },
+ "da42b482d09c": {
+  "en": "Ignoring the spread when you size. A $0.20 spread on a $0.50 stop is 40% of your risk gone on entry and exit.",
+  "t": "Ignorar el diferencial al dimensionar. Un diferencial de US$0,20 con un stop de US$0,50 es el 40 % de tu riesgo perdido entre la entrada y la salida."
+ },
+ "dab2eee8911c": {
+  "en": "Months to years",
+  "t": "De meses a años"
+ },
+ "dabd09223754": {
+  "en": "Doubling position size to make it back faster. Bigger size in a drawdown usually makes the hole deeper.",
+  "t": "Duplicar el tamaño de la posición para recuperarte más rápido. Más tamaño en una caída por lo general hace el hueco más hondo."
+ },
+ "daf10cb1696e": {
+  "en": "Can lag the market for long stretches",
+  "t": "Puede quedarse detrás del mercado por temporadas largas"
+ },
+ "dc73bf98abaf": {
+  "en": "Using a fair P/E from a fast-growing sector for a slow, steady business.",
+  "t": "Usar un P/U justo de un sector de crecimiento rápido para un negocio lento y estable."
+ },
+ "dd1f8a573a2d": {
+  "en": "GAIN NEEDED TO RECOVER",
+  "t": "GANANCIA NECESARIA PARA RECUPERARTE"
+ },
+ "dd6697e0ebf7": {
+  "en": "Price swinging around an estimated value of {0} with the buy zone shaded",
+  "t": "Precio oscilando alrededor de un valor estimado de {0}, con la zona de compra sombreada"
+ },
+ "ddc9e4994081": {
+  "en": "A stop order becomes a market order when its price is reached, and the SEC notes the fill can differ from the stop price, especially in a fast-moving market. Overnight gaps can skip past a stop entirely. So a planned 1% loss can sometimes be 1.5% or more. Avoid holding through earnings with a size you couldn’t afford to see gap.",
+  "t": "Una orden stop se vuelve una orden de mercado cuando se alcanza su precio, y la SEC señala que la ejecución puede ser distinta del precio del stop, sobre todo en un mercado que se mueve rápido. Los gaps de la noche pueden saltarse un stop por completo. Así que una pérdida planeada del 1 % a veces puede ser del 1,5 % o más. Evita mantener una posición durante los resultados con un tamaño que no te puedas permitir ver con un gap."
+ },
+ "ddd2ed918da8": {
+  "en": "Nasdaq: system hours (pre-market from 4:00 a.m. ET)",
+  "t": "Nasdaq: horario del sistema (premercado desde las 4:00 a. m., hora de Nueva York; en inglés)"
+ },
+ "dea59ebc2c49": {
+  "en": "Pick the stop first, then buy only as many shares as your risk budget allows.",
+  "t": "Escoge primero el stop y luego compra solo las acciones que permita tu presupuesto de riesgo."
+ },
+ "df30d83bad5f": {
+  "en": "The 1% rule means planning to lose no more than 1% of your account on any one trade if the stop is hit. It limits the risk, not the position size: with $10,000, a trade can be a $4,000 position as long as the stop caps the loss at $100.",
+  "t": "La regla del 1 % significa planear no perder más del 1 % de tu cuenta en ninguna operación si se activa el stop. Limita el riesgo, no el tamaño de la posición: con US$10.000, una operación puede ser una posición de US$4.000 siempre que el stop limite la pérdida a US$100."
+ },
+ "e14101d3d2bd": {
+  "en": "Stop at your daily loss limit. Journal every trade.",
+  "t": "Para en tu límite de pérdida diario. Registra cada operación en el diario."
+ },
+ "e1882b143bb5": {
+  "en": "A tighter stop means more shares with the same dollar risk.",
+  "t": "Un stop más ajustado significa más acciones con el mismo riesgo en dólares."
+ },
+ "e2a4af78661e": {
+  "en": "Small, while you learn",
+  "t": "Pequeño, mientras aprendes"
+ },
+ "e2c0c77379f5": {
+  "en": "Streaks by risk",
+  "t": "Rachas según el riesgo"
+ },
+ "e2e684db8baa": {
+  "en": "Fits people who want wealth over years with little screen time and low stress.",
+  "t": "Le sirve a gente que quiere construir patrimonio a lo largo de los años con poco tiempo de pantalla y poco estrés."
+ },
+ "e4c23dd83b6c": {
+  "en": "DEMO Foods earns $3.00 per share (EPS) and has grown slowly and steadily for years.",
+  "t": "DEMO Foods gana US$3,00 por acción (UPA) y ha crecido lenta y constantemente durante años."
+ },
+ "e51994ee261c": {
+  "en": "Index funds and value stocks",
+  "t": "Fondos indexados y acciones de valor"
+ },
+ "e52d19b019dc": {
+  "en": "Swing trading fits: you scan after the close, place limit entries and stops as orders, and check once each evening.",
+  "t": "El swing trading encaja: escaneas después del cierre, pones entradas límite y stops como órdenes, y revisas una vez cada noche."
+ },
+ "e79d5d0bb304": {
+  "en": "Swing trades are planned in the evening and managed with orders, so you don't need to watch all day.",
+  "t": "Las operaciones swing se planean en la noche y se manejan con órdenes, así que no necesitas mirar todo el día."
+ },
+ "e7c09c646aa1": {
+  "en": "Fifty example trades from a journal.",
+  "t": "Cincuenta operaciones de ejemplo de un diario."
+ },
+ "e8ef09f8ead2": {
+  "en": "Turn your stop and your risk budget into an exact share count.",
+  "t": "Convierte tu stop y tu presupuesto de riesgo en un número exacto de acciones."
+ },
+ "eadb20f37421": {
+  "en": "Push the risk per trade up to 10% and see what ten losses in a row do to the account.",
+  "t": "Sube el riesgo por operación hasta el 10 % y mira lo que diez pérdidas seguidas le hacen a la cuenta."
+ },
+ "eb7a6b0b526e": {
+  "en": "Day trading, 5%: $1,500. Risking 1% of this bucket means $15 per day trade.",
+  "t": "Day trading, 5 %: US$1.500. Arriesgar el 1 % de este grupo significa US$15 por operación intradía."
+ },
+ "edb520a0cf56": {
+  "en": "9:00: You write the plan. Long only above PMH on a retest that holds, stop under $51.00, target PDH.",
+  "t": "9:00: Escribes el plan. Solo compras por encima del PMH en un retesteo que se sostenga, stop debajo de US$51,00, objetivo en el PDH."
+ },
+ "edf4e32ae1c1": {
+  "en": "Move the sliders. The others adjust so the total always stays at 100%.",
+  "t": "Mueve los deslizadores. Los otros se ajustan para que el total siempre se quede en 100 %."
+ },
+ "ee1d36fe5fd2": {
+  "en": "Run again",
+  "t": "Correr otra vez"
+ },
+ "eee0e8b5dc87": {
+  "en": "What about options?",
+  "t": "¿Y las opciones?"
+ },
+ "ef7568cb9f53": {
+  "en": "A simple first estimate of value is <b>earnings per share × a fair P/E</b>. A company earning $4 a share at a fair multiple of 15 is worth about $60 a share.",
+  "t": "Una primera estimación simple del valor es <b>utilidad por acción × un P/U justo</b>. Una empresa que gana US$4 por acción con un múltiplo justo de 15 vale unos US$60 por acción."
+ },
+ "f0193811f338": {
+  "en": "your {0}% risk",
+  "t": "tu riesgo del {0} %"
+ },
+ "f05964e10d28": {
+  "en": "Should every trade be the same size?",
+  "t": "¿Todas las operaciones deben ser del mismo tamaño?"
+ },
+ "f1df1f0a2c68": {
+  "en": "Earnings beat",
+  "t": "Resultados mejores de lo esperado"
+ },
+ "f2bf24332c27": {
+  "en": "Similar steady companies trade around 16 times earnings, so a rough value is $3.00 × 16 = $48.",
+  "t": "Empresas estables parecidas se negocian a unas 16 veces sus utilidades, así que un valor aproximado es US$3,00 × 16 = US$48."
+ },
+ "f5ae0d9640f9": {
+  "en": "Your estimate will be off by some amount. A <b>margin of safety</b> protects you: only buy when the price is well below your estimate, often 20–40% below.",
+  "t": "Tu estimación se va a equivocar en algo. Un <b>margen de seguridad</b> te protege: compra solo cuando el precio está bien por debajo de tu estimación, a menudo entre 20 y 40 % por debajo."
+ },
+ "f5d04e8b97f5": {
+  "en": "You plan to buy DEMO at $30.00 on a retest. The stop goes under the level at $28.75, so risk per share is $1.25.",
+  "t": "Planeas comprar DEMO en US$30,00 en un retesteo. El stop va debajo del nivel, en US$28,75, así que el riesgo por acción es US$1,25."
+ },
+ "f5fa3f1cccd2": {
+  "en": "Size trades from their bucket, not the whole account.",
+  "t": "Dimensiona las operaciones con su grupo, no con toda la cuenta."
+ },
+ "f667506beb1b": {
+  "en": "$150 ÷ $1.50 = 100 shares, a $4,200 position. The position is far bigger than the risk, and that is fine.",
+  "t": "US$150 ÷ US$1,50 = 100 acciones, una posición de US$4.200. La posición es mucho más grande que el riesgo, y eso está bien."
+ },
+ "f752d4b2097c": {
+  "en": "<b>Day trading</b> opens and closes trades the same day. <b>Swing trading</b> holds for days to weeks to catch a bigger move. <b>The wheel</b> sells options on stocks you would happily own to collect income. <b>Value investing</b> buys good businesses below what they are worth and holds for years.",
+  "t": "El <b>day trading</b> abre y cierra operaciones el mismo día. El <b>swing trading</b> mantiene de días a semanas para capturar un movimiento más grande. <b>La rueda</b> vende opciones sobre acciones que tendrías con gusto para cobrar ingresos. La <b>inversión en valor</b> compra buenos negocios por debajo de lo que valen y los mantiene por años."
+ },
+ "f94273c2bede": {
+  "en": "Why a 50% loss needs a 100% gain to get back to even.",
+  "t": "Por qué una pérdida del 50 % necesita una ganancia del 100 % para quedar tablas."
+ },
+ "f9cd13394876": {
+  "en": "After 4:00 PM",
+  "t": "Después de las 4:00 p. m."
+ },
+ "fa71f53edb43": {
+  "en": "Win rate & reward",
+  "t": "Tasa de acierto y R"
+ },
+ "fa72639cacb8": {
+  "en": "YOUR $10,000 ACCOUNT",
+  "t": "TU CUENTA DE US$10.000"
+ },
+ "fb9b19a7a371": {
+  "en": "Moving or removing the stop to avoid taking a loss, which turns a small drawdown into a deep one.",
+  "t": "Mover o quitar el stop para no asumir una pérdida, lo que convierte una caída pequeña en una honda."
+ },
+ "fcd8ddd38421": {
+  "en": "A premarket scan with made-up tickers.",
+  "t": "Un escaneo de premercado con tickers inventados."
+ },
+ "fd02c503c33e": {
+  "en": "The deeper the drawdown, the longer and harder the climb back.",
+  "t": "Mientras más honda la caída, más larga y difícil la subida de vuelta."
+ },
+ "fd8758d2bbd3": {
+  "en": "Does this apply to index funds?",
+  "t": "¿Esto aplica a los fondos indexados?"
+ },
+ "fe9fee6aff49": {
+  "en": "Most beginners pick a share count first (“I'll buy 100”) and hope. Pros work the other way. They decide where the trade is proven wrong, which is the <b>stop</b>, then size the position so being wrong costs a fixed amount.",
+  "t": "La mayoría de los principiantes escogen primero un número de acciones (“voy a comprar 100”) y esperan que salga bien. Los profesionales lo hacen al revés. Deciden dónde queda demostrado que la operación está equivocada, que es el <b>stop</b>, y luego dimensionan la posición para que equivocarse cueste una cantidad fija."
+ },
+ "fec1c1fd9b9b": {
+  "en": "Drop anything that trades under 1 million shares a day on average: 14 are left.",
+  "t": "Descarta todo lo que negocie menos de 1 millón de acciones al día en promedio: quedan 14."
+ },
+ "ff5e6d21ec80": {
+  "en": "A made-up company with example numbers.",
+  "t": "Una empresa inventada con números de ejemplo."
+ }
+}
