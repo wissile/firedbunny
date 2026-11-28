@@ -1,0 +1,886 @@
+{
+ "000a03ef86df": {
+  "en": "1990: after Iraq invaded Kuwait in August, oil climbed from about $17 to a peak near $46 in October and helped tip the US into recession.",
+  "t": "1990: después de que Irak invadió Kuwait en agosto, el petróleo subió de unos US$17 a un pico cerca de US$46 en octubre y ayudó a empujar a EE. UU. a una recesión."
+ },
+ "00768e21f966": {
+  "en": "Oil at {0} a barrel ({1}): gasoline about {2} a gallon, headline CPI {3}, and the effect on sectors.",
+  "t": "Petróleo a {0} el barril ({1}): gasolina a cerca de {2} el galón, IPC total {3}, y el efecto en los sectores."
+ },
+ "00f5521d9499": {
+  "en": "<b>OPEC+</b>: OPEC members plus allies such as Russia agree on how much to pump. Their meetings move prices (see the <a href=\"#calendar\">calendar</a>). The United Arab Emirates left OPEC and OPEC+ effective May 1, 2026.",
+  "t": "<b>OPEP+</b>: los miembros de la OPEP más aliados como Rusia acuerdan cuánto bombear. Sus reuniones mueven los precios (mira el <a href=\"#calendar\">calendario</a>). Los Emiratos Árabes Unidos salieron de la OPEP y de la OPEP+ a partir del 1 de mayo de 2026."
+ },
+ "014c9825110f": {
+  "en": "iShares Gold Trust (IAU) fund page",
+  "t": "Página del fondo iShares Gold Trust (IAU) (en inglés)"
+ },
+ "02ff0f564577": {
+  "en": "Why copper is read as a sign of growth, when that signal works and when it lies.",
+  "t": "Por qué el cobre se lee como una señal de crecimiento, cuándo funciona esa señal y cuándo engaña."
+ },
+ "05b4b1c360b3": {
+  "en": "pushes down",
+  "t": "empuja a la baja"
+ },
+ "05f6e9f8681c": {
+  "en": "The gap between the price of crude and the fuels refined from it. It is roughly a refiner’s profit margin.",
+  "t": "La brecha entre el precio del crudo y el de los combustibles refinados a partir de él. Es más o menos el margen de ganancia de una refinería."
+ },
+ "08c41f2af016": {
+  "en": "A Goldman Sachs look at the 1973, 1979, 1990 and 2022 shocks found oil rose a median 169% and the S&P 500 fell a median 23% from peak to trough. Shocks that feed inflation and change the Fed's path do far more damage than brief scares (see <a href=\"#l-geopolitics\">Tension, war, sanctions and tariffs</a>).",
+  "t": "Un análisis de Goldman Sachs de los choques de 1973, 1979, 1990 y 2022 encontró que el petróleo subió una mediana del 169 % y el S&P 500 cayó una mediana del 23 % del pico al piso. Los choques que alimentan la inflación y cambian el rumbo de la Fed hacen mucho más daño que los sustos breves (mira <a href=\"#l-geopolitics\">Tensión, guerra, sanciones y aranceles</a>)."
+ },
+ "0a6371432fa1": {
+  "en": "Grid and EV boom",
+  "t": "Auge de redes eléctricas y carros eléctricos"
+ },
+ "0a65499869a2": {
+  "en": "Silver follows gold but swings harder because industry uses so much of it.",
+  "t": "La plata sigue al oro pero oscila más fuerte porque la industria usa mucha."
+ },
+ "0b243e696f14": {
+  "en": "Gold ETF (GLD)",
+  "t": "ETF de oro (GLD)"
+ },
+ "0c4b5057acad": {
+  "en": "War or disruption",
+  "t": "Guerra o interrupción"
+ },
+ "0c990be5978d": {
+  "en": "spot $",
+  "t": "spot US$"
+ },
+ "0f8df39994b2": {
+  "en": "Trucking and delivery",
+  "t": "Transporte de carga y domicilios"
+ },
+ "1062c0de247b": {
+  "en": "Slow trend",
+  "t": "Tendencia lenta"
+ },
+ "10785b5818fe": {
+  "en": "Switch on drivers to see which metal they lift, try prices on the gold-silver ratio, then compare ways to own gold after tax.",
+  "t": "Activa factores para ver qué metal suben, prueba precios en la relación oro-plata y luego compara formas de tener oro después de impuestos."
+ },
+ "10cc51e4ec33": {
+  "en": "<b>The Strategic Petroleum Reserve</b>: the government's emergency stockpile, released in a crisis. After large releases it held about 283 million barrels in mid-October 2026, reportedly the lowest since 1982.",
+  "t": "<b>La Reserva Estratégica de Petróleo</b>: las existencias de emergencia del gobierno de EE. UU., que se liberan en una crisis. Después de grandes liberaciones tenía cerca de 283 millones de barriles a mediados de octubre de 2026, según se informó lo más bajo desde 1982."
+ },
+ "12c4d7f37af6": {
+  "en": "Buying an oil fund and expecting it to match the oil price. Futures rolls in contango can leave it far behind over a year.",
+  "t": "Comprar un fondo de petróleo y esperar que siga el precio del petróleo. Las renovaciones de futuros en contango lo pueden dejar muy atrás en un año."
+ },
+ "1368b50ac17c": {
+  "en": "15%, like stocks",
+  "t": "15 %, como las acciones"
+ },
+ "16469a40fdbd": {
+  "en": "tax on the gain",
+  "t": "impuesto sobre la ganancia"
+ },
+ "171f8ba613bd": {
+  "en": "Gold or silver in bars or coins valued for their metal content.",
+  "t": "Oro o plata en lingotes o monedas que valen por su contenido de metal."
+ },
+ "18d9ef79f2c0": {
+  "en": "Buying coins at a large dealer markup and forgetting the lower price you will get when you sell.",
+  "t": "Comprar monedas con un gran recargo del comerciante y olvidar el precio más bajo que vas a recibir cuando vendas."
+ },
+ "1940726b29fc": {
+  "en": "Treating mining stocks as if they were the metal. They can fall harder and carry company risk.",
+  "t": "Tratar las acciones mineras como si fueran el metal. Pueden caer más fuerte y cargan el riesgo de la empresa."
+ },
+ "1aae187e8bec": {
+  "en": "<b>Demand shock down</b> (recession): oil falls because the world needs less. Cheap gas does not rescue the economy; energy stocks drop most and the broad market usually falls too.",
+  "t": "<b>Choque de demanda a la baja</b> (recesión): el petróleo cae porque el mundo necesita menos. La gasolina barata no rescata la economía; las acciones de energía son las que más caen y el mercado amplio por lo general también cae."
+ },
+ "1ac4dba559ef": {
+  "en": "EIA: Factors affecting gasoline prices",
+  "t": "EIA: Factors affecting gasoline prices (en inglés)"
+ },
+ "1ba104a880b3": {
+  "en": "Refiners",
+  "t": "Refinerías"
+ },
+ "1cfbb6883022": {
+  "en": "Sectors: oil producers' revenue rises with every barrel, while airlines (fuel is one of their biggest costs) and delivery companies see margins squeezed.",
+  "t": "Sectores: los ingresos de los productores de petróleo suben con cada barril, mientras que las aerolíneas (el combustible es uno de sus mayores costos) y las empresas de domicilios ven sus márgenes apretados."
+ },
+ "1d2e4d516a0f": {
+  "en": "Chasing energy stocks after a war headline. Spikes driven by fear often fade as supply finds new routes and buyers cut back.",
+  "t": "Perseguir acciones de energía después de un titular de guerra. Los picos impulsados por el miedo a menudo se apagan a medida que la oferta encuentra nuevas rutas y los compradores recortan."
+ },
+ "1ee66e23ed7d": {
+  "en": "economy running hot",
+  "t": "economía recalentada"
+ },
+ "1f516d52499d": {
+  "en": "Later months are cheaper, often when supply is tight now. Each roll buys cheaper oil that rises toward spot, so the fund gains about {0}% with spot flat.",
+  "t": "Los meses posteriores son más baratos, a menudo cuando la oferta está apretada ahora. Cada renovación compra petróleo más barato que sube hacia el spot, así que el fondo gana cerca de {0} % con el spot plano."
+ },
+ "1f9556d8b5bc": {
+  "en": "{0} that rises {1}%, sold after {2} years",
+  "t": "{0} que sube {1} %, vendido después de {2} años"
+ },
+ "1fe0f9bee8b9": {
+  "en": "pushes up",
+  "t": "empuja al alza"
+ },
+ "2067adeaa890": {
+  "en": "Same 15% move: Rally A was a growth signal, Rally B was noise.",
+  "t": "El mismo movimiento del 15 %: la subida A fue una señal de crecimiento, la subida B fue ruido."
+ },
+ "210de8b12351": {
+  "en": "<span class=\"wg-title\">Why oil moved</span>{0}",
+  "t": "<span class=\"wg-title\">Por qué se movió el petróleo</span>{0}"
+ },
+ "24a4939aab36": {
+  "en": "24%, the collectibles rule (capped at 28%)",
+  "t": "24 %, la regla de los coleccionables (con tope del 28 %)"
+ },
+ "24c1f14284ff": {
+  "en": "Buying a single mining stock as a copper bet and taking on that company’s debt and mine risk.",
+  "t": "Comprar una sola acción minera como apuesta al cobre y asumir la deuda y el riesgo de mina de esa empresa."
+ },
+ "255374e97988": {
+  "en": "central banks bought more than 1,000 tonnes a year in 2022–2024, 863 tonnes in 2025, and 289 tonnes in the second quarter of 2026, a record for any second quarter (World Gold Council).",
+  "t": "los bancos centrales compraron más de 1.000 toneladas al año en 2022–2024, 863 toneladas en 2025 y 289 toneladas en el segundo trimestre de 2026, un récord para cualquier segundo trimestre (World Gold Council)."
+ },
+ "2612d938e3eb": {
+  "en": "Metal Charts: precious metals all-time highs",
+  "t": "Metal Charts: máximos históricos de los metales preciosos (en inglés)"
+ },
+ "2686dd7e1a69": {
+  "en": "Every Wednesday at 10:30 am ET the Energy Information Administration (EIA) reports US crude and gasoline inventories. A surprise build or draw can move oil a few percent in minutes.",
+  "t": "Cada miércoles a las 10:30 a. m., hora de Nueva York, la Administración de Información Energética (EIA) reporta los inventarios de crudo y gasolina de EE. UU. Un aumento o una baja inesperados pueden mover el petróleo unos cuantos puntos porcentuales en minutos."
+ },
+ "26d187b3e4a4": {
+  "en": "Gold and silver",
+  "t": "Oro y plata"
+ },
+ "28ab7f47cd18": {
+  "en": "VanEck: GDX fund page",
+  "t": "VanEck: página del fondo GDX (en inglés)"
+ },
+ "294928c1b994": {
+  "en": "Divide the gold price by the silver price to see how many ounces of silver one ounce of gold buys. {0} A high ratio means silver is cheap relative to gold; some investors tilt toward silver then. It is a comparison, not a timing tool, and it can stay stretched for years.",
+  "t": "Divide el precio del oro entre el precio de la plata para ver cuántas onzas de plata compra una onza de oro. {0} Una relación alta significa que la plata está barata frente al oro; algunos inversionistas se inclinan hacia la plata en ese momento. Es una comparación, no una herramienta para escoger el momento, y puede quedarse estirada durante años."
+ },
+ "29976b249357": {
+  "en": "2026: from late February, fighting involving Iran disrupted tanker traffic through the Strait of Hormuz. Brent futures neared $120 in early March, touched about $126 on April 30, fell to about $74 by late June and were back above $100 in October.",
+  "t": "2026: desde finales de febrero, los combates en los que participaba Irán interrumpieron el tráfico de petroleros por el estrecho de Ormuz. Los futuros del Brent se acercaron a US$120 a principios de marzo, tocaron cerca de US$126 el 30 de abril, bajaron a cerca de US$74 a finales de junio y volvieron a estar por encima de US$100 en octubre."
+ },
+ "2c6fa1fc8d9e": {
+  "en": "Supply is slow to change, so mine problems can cause big price swings.",
+  "t": "La oferta tarda en cambiar, así que los problemas en las minas pueden causar grandes oscilaciones de precio."
+ },
+ "2e2f537e239d": {
+  "en": "Stock index fund",
+  "t": "Fondo de índice accionario"
+ },
+ "2f3a391be58d": {
+  "en": "Most copper comes from a small number of very large mines. A new mine can take many years to plan and build, so supply cannot jump quickly when demand rises. Strikes, floods and political changes at a single big mine can move the world price.",
+  "t": "La mayor parte del cobre sale de un número pequeño de minas muy grandes. Una mina nueva puede tomar muchos años en planearse y construirse, así que la oferta no puede saltar rápido cuando sube la demanda. Las huelgas, las inundaciones y los cambios políticos en una sola mina grande pueden mover el precio mundial."
+ },
+ "313c1ba08df6": {
+  "en": "Your fuel bill: 600 gallons × {0} ≈ {1} more a year, money that no longer goes to restaurants or shops.",
+  "t": "Tu cuenta de combustible: 600 galones × {0} ≈ {1} más al año, dinero que ya no va a restaurantes ni tiendas."
+ },
+ "335ef190bd89": {
+  "en": "Rally B: a strike shuts one of the world’s largest mines. Copper jumps 15%, but the PMI stays at 48 and new orders keep falling.",
+  "t": "Subida B: una huelga cierra una de las minas más grandes del mundo. El cobre salta 15 %, pero el PMI se queda en 48 y los pedidos nuevos siguen cayendo."
+ },
+ "3376b1fee8f3": {
+  "en": "0%, because it is gold",
+  "t": "0 %, porque es oro"
+ },
+ "340d95f98457": {
+  "en": "<b>Tariffs</b>: a July 30, 2025 proclamation put a 50% tariff on the copper in semi-finished products such as pipes and wire, and in copper-heavy parts, from August 1. Refined copper cathodes were left out. US copper futures had climbed far above London prices as importers rushed to buy ahead of the tariff, then fell 22% in a day, their steepest one-day drop on record. A tariff on refined copper was floated for 2027 but had not been decided as of mid-October 2026.",
+  "t": "<b>Los aranceles</b>: una proclamación del 30 de julio de 2025 puso un arancel del 50 % sobre el cobre de productos semiterminados como tubos y alambre, y de partes con mucho cobre, desde el 1 de agosto. Los cátodos de cobre refinado quedaron por fuera. Los futuros del cobre en EE. UU. habían subido muy por encima de los precios de Londres porque los importadores se apuraron a comprar antes del arancel, y luego cayeron 22 % en un día, su caída de un día más fuerte registrada. Se habló de un arancel sobre el cobre refinado para 2027, pero no se había decidido a mediados de octubre de 2026."
+ },
+ "34a44706c4fe": {
+  "en": "Forgetting the 28% collectibles rate when holding gold or silver ETFs in a taxable account.",
+  "t": "Olvidar la tarifa de coleccionables del 28 % al tener ETF de oro o plata en una cuenta gravable de EE. UU."
+ },
+ "35c2a8cb95d0": {
+  "en": "Price for oil delivered in later months",
+  "t": "Precio del petróleo entregado en meses posteriores"
+ },
+ "367be6e3f53d": {
+  "en": "A slow, long-term demand trend: power grids, data centers and electric cars use a lot of copper. Prices can rise even when factory surveys are flat.",
+  "t": "Una tendencia de demanda lenta y de largo plazo: las redes eléctricas, los centros de datos y los carros eléctricos usan mucho cobre. Los precios pueden subir incluso cuando las encuestas industriales están planas."
+ },
+ "392696b69184": {
+  "en": "Copper",
+  "t": "Cobre"
+ },
+ "3934c21fc9e2": {
+  "en": "Pass-through to the pump: $25 ÷ 42 gallons ≈ {0} a gallon (about {1} cents), so regular gas rises from about {2} to about {3}, a {4} jump.",
+  "t": "Traslado a la bomba: US$25 ÷ 42 galones ≈ {0} por galón (cerca de {1} centavos), así que la gasolina corriente sube de cerca de {2} a cerca de {3}, un salto de {4}."
+ },
+ "3c0179d04a91": {
+  "en": "The IRS treats physical gold and silver as <b>collectibles</b>. Sell coins, bars or a physically backed ETF after more than a year and the gain is taxed at your ordinary rate, capped at 28%, instead of the 0/15/20% rates for stocks (see <a href=\"#l-cap-gains\">Capital gains</a>). Held a year or less, it is ordinary income like any short-term gain. Mining-stock funds are taxed like stocks. Futures-based funds set up as partnerships (commodity pools that send you a K-1) pass through the 60/40 treatment of Section 1256 contracts, but many futures ETFs set up as regular funds pay ordinary distributions on a 1099; check the tax section of the fund's prospectus. Holding a gold ETF inside an IRA sidesteps the collectibles rate.",
+  "t": "En EE. UU., el IRS trata el oro y la plata físicos como <b>coleccionables</b>. Si vendes monedas, lingotes o un ETF respaldado físicamente después de más de un año, la ganancia paga impuesto a tu tarifa ordinaria, con un tope del 28 %, en vez de las tarifas de 0/15/20 % de las acciones (mira <a href=\"#l-cap-gains\">Ganancias de capital</a>). Si lo mantuviste un año o menos, es ingreso ordinario como cualquier ganancia de corto plazo. Los fondos de acciones mineras pagan impuesto como acciones. Los fondos basados en futuros organizados como sociedades (fondos de materias primas que te envían un K-1) trasladan el tratamiento 60/40 de los contratos de la Sección 1256, pero muchos ETF de futuros organizados como fondos normales pagan distribuciones ordinarias en un 1099; revisa la sección tributaria del prospecto del fondo. Mantener un ETF de oro dentro de una IRA evita la tarifa de coleccionables."
+ },
+ "3cc68f6fe5bd": {
+  "en": "<b>Mining stocks</b> (such as the GDX fund, {0}% fee): companies whose profits rise faster than gold when prices climb, and fall faster when they drop, with company risk on top.",
+  "t": "<b>Acciones mineras</b> (como el fondo GDX, costo del {0} %): empresas cuyas utilidades suben más rápido que el oro cuando los precios suben, y caen más rápido cuando bajan, con el riesgo de la empresa encima."
+ },
+ "3ce5797f4ce0": {
+  "en": "Crack spread",
+  "t": "Margen de refinación (crack spread)"
+ },
+ "419377416f39": {
+  "en": "BLS: Consumer Price Index news release",
+  "t": "BLS: comunicado del índice de precios al consumidor (en inglés)"
+ },
+ "42093f23f111": {
+  "en": "Hellenic Shipping News (citing Investing.com): copper demand by country and end use",
+  "t": "Hellenic Shipping News (citando a Investing.com): demanda de cobre por país y por uso final (en inglés)"
+ },
+ "42e6f1427c0e": {
+  "en": "Typical push on each metal from the drivers you picked",
+  "t": "Empujón típico sobre cada metal según los factores que escogiste"
+ },
+ "43481fbab2a8": {
+  "en": "collectibles, 6% spread",
+  "t": "coleccionables, diferencial del 6 %"
+ },
+ "43a756c6353c": {
+  "en": "Futures curve with each later month {0}% different. A fund that rolls futures for {1} months returns about {2} while spot is flat.",
+  "t": "Curva de futuros con cada mes posterior un {0} % distinto. Un fondo que renueva futuros durante {1} meses rinde cerca de {2} mientras el spot está plano."
+ },
+ "43be48293fcf": {
+  "en": "The check: before treating copper as a forecast, ask what moved it and whether surveys and orders agree.",
+  "t": "La revisión: antes de tomar el cobre como un pronóstico, pregúntate qué lo movió y si las encuestas y los pedidos coinciden."
+ },
+ "47489641cf40": {
+  "en": "Gold pays no interest or dividend. People hold it because it is scarce, lasts forever, is owned by central banks and has been treated as money for thousands of years. Its main drivers:",
+  "t": "El oro no paga intereses ni dividendos. La gente lo tiene porque es escaso, dura para siempre, los bancos centrales lo tienen y se ha tratado como dinero durante miles de años. Sus principales factores:"
+ },
+ "4afb6dfff013": {
+  "en": "Supply shocks put the Fed in a bind between inflation and growth.",
+  "t": "Los choques de oferta ponen a la Fed en un aprieto entre la inflación y el crecimiento."
+ },
+ "4f72f8a9b5ac": {
+  "en": "<span class=\"ctl-top\"><span class=\"ctl-lab\">Your top tax bracket</span></span>{0}",
+  "t": "<span class=\"ctl-top\"><span class=\"ctl-lab\">Tu tramo de impuesto más alto</span></span>{0}"
+ },
+ "50ad63b2e7c1": {
+  "en": "Gold ETF (IAU)",
+  "t": "ETF de oro (IAU)"
+ },
+ "514033d7d758": {
+  "en": "Physically backed metal ETFs are taxed as collectibles: ordinary rates up to 28% on long-term gains.",
+  "t": "En EE. UU., los ETF de metales respaldados físicamente pagan impuesto como coleccionables: tarifas ordinarias de hasta el 28 % sobre las ganancias de largo plazo."
+ },
+ "5254f9146ad1": {
+  "en": "Most oil funds hold futures, not barrels. When later months cost more than the current month (<b>contango</b>), the fund keeps selling the expiring contract and buying a pricier one, losing a little each roll. When later months are cheaper (<b>backwardation</b>), rolling adds return. Energy company stocks are another route; their profits follow oil but also costs, debt and management choices. Try the curve below.",
+  "t": "La mayoría de los fondos de petróleo tienen futuros, no barriles. Cuando los meses posteriores cuestan más que el mes actual (<b>contango</b>), el fondo sigue vendiendo el contrato que vence y comprando uno más caro, y pierde un poco en cada renovación. Cuando los meses posteriores son más baratos (<b>backwardation</b>), renovar suma rentabilidad. Las acciones de empresas de energía son otro camino; sus utilidades siguen al petróleo pero también a los costos, la deuda y las decisiones de la gerencia. Prueba la curva de abajo."
+ },
+ "5498d57d6576": {
+  "en": "<b>Long-term trends</b> such as power grids, data centers and electric cars can lift demand even when factory surveys are flat.",
+  "t": "<b>Las tendencias de largo plazo</b>, como las redes eléctricas, los centros de datos y los carros eléctricos, pueden subir la demanda incluso cuando las encuestas industriales están planas."
+ },
+ "5632a82afe26": {
+  "en": "<b>Fear</b>: wars, bank failures and crashes send buyers to <b>safe havens</b>.",
+  "t": "<b>El miedo</b>: las guerras, las quiebras de bancos y los desplomes mandan a los compradores a los <b>refugios seguros</b>."
+ },
+ "57eb1350e314": {
+  "en": "strong up",
+  "t": "fuerte al alza"
+ },
+ "5a12c2f5ec24": {
+  "en": "Simplified: the spot price and the curve's shape stay the same the whole time, and the fund holds next month's contract and rolls once a month. Real curves change shape all the time.",
+  "t": "Simplificado: el precio spot y la forma de la curva se quedan iguales todo el tiempo, y el fondo tiene el contrato del mes siguiente y lo renueva una vez al mes. Las curvas reales cambian de forma todo el tiempo."
+ },
+ "5cdc75001ea3": {
+  "en": "World Gold Council: central bank demand, full year 2025",
+  "t": "World Gold Council: demanda de los bancos centrales, año completo 2025 (en inglés)"
+ },
+ "5da058067c63": {
+  "en": "<b>Demand boom</b>: oil rises because the economy is strong. Energy and most cyclical stocks can rise together.",
+  "t": "<b>Auge de la demanda</b>: el petróleo sube porque la economía está fuerte. La energía y la mayoría de las acciones cíclicas pueden subir juntas."
+ },
+ "5e69cd4e229a": {
+  "en": "A recession is certain",
+  "t": "Una recesión es segura"
+ },
+ "5f4179d0599b": {
+  "en": "Dilemma",
+  "t": "Dilema"
+ },
+ "5f74784ec47a": {
+  "en": "A barrel holds 42 gallons: each $1 on a barrel is about 2.4 cents a gallon at the pump.",
+  "t": "Un barril tiene 42 galones: cada US$1 por barril son cerca de 2,4 centavos por galón en la bomba."
+ },
+ "60b7b787848d": {
+  "en": "Oil is a cost inside almost everything. Why it moves, supply or demand, matters as much as how far it moves.",
+  "t": "El petróleo es un costo dentro de casi todo. Por qué se mueve, por oferta o por demanda, importa tanto como cuánto se mueve."
+ },
+ "61b85608b01d": {
+  "en": "Oil: prices, OPEC+ and the economy",
+  "t": "Petróleo: precios, OPEP+ y la economía"
+ },
+ "6207822483fb": {
+  "en": "<b>Physically backed ETFs</b>: funds that hold bullion in vaults, bought like a stock. Yearly fees: IAU {0}%, GLD {1}%, SLV {2}% (see sources).",
+  "t": "<b>ETF respaldados físicamente</b>: fondos que guardan metal en bóvedas, que se compran como una acción. Costos anuales: IAU {0} %, GLD {1} %, SLV {2} % (mira las fuentes)."
+ },
+ "6361e18241ed": {
+  "en": "Drag the oil price along the track",
+  "t": "Arrastra el precio del petróleo a lo largo de la pista"
+ },
+ "643d26b7e21c": {
+  "en": "Stock fund tax: the gain of about {0} is a normal long-term gain at 15%: about {1}.",
+  "t": "Impuesto del fondo de acciones: la ganancia de unos {0} es una ganancia normal de largo plazo al 15 %: unos {1}."
+ },
+ "6518fdd5b7bd": {
+  "en": "Assuming gold always rises with inflation or in a crisis. It has had long flat and falling stretches.",
+  "t": "Suponer que el oro siempre sube con la inflación o en una crisis. Ha tenido temporadas largas planas y a la baja."
+ },
+ "68597a3ae701": {
+  "en": "direct effect only",
+  "t": "solo efecto directo"
+ },
+ "685e0af448d7": {
+  "en": "Physical-gold ETFs count as collectibles: long-term gains are taxed at your income rate up to 28%, not the {0}% stock rate. On this gain that costs about {1} more than a stock fund. Holding gold inside an IRA avoids the problem.",
+  "t": "En EE. UU., los ETF de oro físico cuentan como coleccionables: las ganancias de largo plazo pagan impuesto a tu tarifa de renta hasta el 28 %, no a la tarifa del {0} % de las acciones. Sobre esta ganancia eso cuesta cerca de {1} más que un fondo de acciones. Mantener el oro dentro de una IRA evita el problema."
+ },
+ "6864c673171b": {
+  "en": "Silver follows gold on money and fear, but much of it is used in industry, including electronics and solar panels. That makes it swing harder than gold in both directions and gives it a link to factory demand. {0}",
+  "t": "La plata sigue al oro en su papel de dinero y de refugio, pero buena parte se usa en la industria, incluidos los electrónicos y los paneles solares. Eso la hace oscilar más fuerte que el oro en las dos direcciones y le da un vínculo con la demanda de las fábricas. {0}"
+ },
+ "69af40a30619": {
+  "en": "Dollar weakens",
+  "t": "El dólar se debilita"
+ },
+ "6a61769217bd": {
+  "en": "Pick a curve shape and slide how steep it is. See what a fund that rolls futures earns while oil stays flat.",
+  "t": "Escoge una forma de curva y mueve qué tan empinada es. Mira lo que gana un fondo que renueva futuros mientras el petróleo se queda plano."
+ },
+ "6d226a5318a0": {
+  "en": "Coins and bars",
+  "t": "Monedas y lingotes"
+ },
+ "6f1a416da571": {
+  "en": "<b>Central banks</b>: {0}",
+  "t": "<b>Los bancos centrales</b>: {0}"
+ },
+ "6fd92f01a166": {
+  "en": "Made-up example. Over three months copper rises 15% twice in different years.",
+  "t": "Ejemplo inventado. En tres meses el cobre sube 15 % dos veces, en años distintos."
+ },
+ "713376bd0bd9": {
+  "en": "etf.com: Navigating the tax minefield of gold ETFs",
+  "t": "etf.com: Navigating the tax minefield of gold ETFs (en inglés)"
+ },
+ "71782fefa387": {
+  "en": "Construction and electrical infrastructure each take roughly a quarter of world copper use; machinery, transport and consumer goods take most of the rest. China uses about half of all copper, so Chinese building and factory activity moves the price more than any other country. {0}",
+  "t": "La construcción y la infraestructura eléctrica se llevan cada una más o menos una cuarta parte del uso mundial de cobre; la maquinaria, el transporte y los bienes de consumo se llevan casi todo el resto. China usa cerca de la mitad de todo el cobre, así que la actividad de construcción y de fábricas en China mueve el precio más que la de cualquier otro país. {0}"
+ },
+ "71ff8ba9b2e9": {
+  "en": "What moves gold and silver, the gold-silver ratio, how to own them and the tax quirk.",
+  "t": "Qué mueve el oro y la plata, la relación oro-plata, cómo tenerlos y la rareza tributaria."
+ },
+ "73b14915c603": {
+  "en": "Gold is money that pays no interest; it shines when real yields fall, the dollar weakens or fear rises. Silver adds a factory job on top.",
+  "t": "El oro es dinero que no paga intereses; brilla cuando los rendimientos reales bajan, el dólar se debilita o sube el miedo. La plata suma un trabajo industrial encima."
+ },
+ "73d594347b11": {
+  "en": "<b>The dollar</b>: gold is priced in dollars, so a weaker dollar usually lifts it (see <a href=\"#l-dollar\">The dollar</a>).",
+  "t": "<b>El dólar</b>: el oro tiene precio en dólares, así que un dólar más débil por lo general lo sube (mira <a href=\"#l-dollar\">El dólar</a>)."
+ },
+ "73e9c53c5814": {
+  "en": "The standard unit for crude oil: 42 US gallons.",
+  "t": "La unidad estándar del crudo: 42 galones estadounidenses."
+ },
+ "768f1fcb73bf": {
+  "en": "Gasoline is roughly 3% to 4% of the CPI, so pump prices move headline inflation quickly.",
+  "t": "La gasolina es más o menos del 3 % al 4 % del IPC de EE. UU., así que los precios en la bomba mueven rápido la inflación total."
+ },
+ "76bd4604a543": {
+  "en": "China uses about half of the world’s copper",
+  "t": "China usa cerca de la mitad del cobre del mundo"
+ },
+ "779f382bc27d": {
+  "en": "Forgetting the lags: gas follows crude within weeks, and the CPI shows it the next month.",
+  "t": "Olvidar los rezagos: la gasolina sigue al crudo en semanas, y el IPC lo muestra al mes siguiente."
+ },
+ "77abc70cdba7": {
+  "en": " · about ",
+  "t": " · cerca de "
+ },
+ "7858fd8a7ae5": {
+  "en": "Gold ETF tax: the gain of about {0} is a collectible gain, taxed at your 24% bracket (capped at 28%): about {1}.",
+  "t": "Impuesto del ETF de oro: la ganancia de unos {0} es una ganancia de coleccionables, que paga a tu tramo del 24 % (con tope del 28 %): unos {1}."
+ },
+ "78abf6263b3c": {
+  "en": "China builds",
+  "t": "China construye"
+ },
+ "78d103699dbc": {
+  "en": "<b>Demand</b>: global growth, China, the summer driving season and air travel.",
+  "t": "<b>Demanda</b>: el crecimiento mundial, China, la temporada de viajes de verano en EE. UU. y los viajes en avión."
+ },
+ "7c02aa1bc5a4": {
+  "en": "Very little: supply moved the price, not demand",
+  "t": "Muy poco: la oferta movió el precio, no la demanda"
+ },
+ "7c59d2389f74": {
+  "en": "Demand-driven: copper rises a couple of months before factory surveys improve. This is the move people mean by Dr. Copper.",
+  "t": "Impulsado por la demanda: el cobre sube un par de meses antes de que mejoren las encuestas industriales. Este es el movimiento al que se refiere la gente con Dr. Cobre."
+ },
+ "7c7045b638c5": {
+  "en": "THE FED",
+  "t": "LA FED"
+ },
+ "7d889cce7480": {
+  "en": "Aluminum (cans, cars, planes), nickel and lithium (batteries) and iron ore (steel) follow the same logic: demand from building and manufacturing, supply from a handful of producing countries, and big swings when either changes.",
+  "t": "El aluminio (latas, carros, aviones), el níquel y el litio (baterías) y el mineral de hierro (acero) siguen la misma lógica: demanda de la construcción y la industria, oferta de un puñado de países productores, y grandes oscilaciones cuando cualquiera de las dos cambia."
+ },
+ "7e71fe5796bc": {
+  "en": "Shops and restaurants",
+  "t": "Tiendas y restaurantes"
+ },
+ "7f11f0858432": {
+  "en": "Gold first topped $4,000 an ounce in October 2025, rose about 67% that year and set a record of roughly $5,600 on January 28–29, 2026. By October 21, 2026 it was about $4,141, around a quarter below the high, as rising bond yields and bets on rate hikes pulled it down even while geopolitical risk stayed high. Silver set a record of about $121.60 on January 29, 2026 and was about $58 in October.",
+  "t": "El oro superó por primera vez los US$4.000 la onza en octubre de 2025, subió cerca de 67 % ese año y marcó un récord de más o menos US$5.600 el 28 y 29 de enero de 2026. Para el 21 de octubre de 2026 estaba en cerca de US$4.141, más o menos una cuarta parte por debajo del máximo, porque los rendimientos de los bonos al alza y las apuestas por subidas de tasas lo bajaron, aunque el riesgo geopolítico seguía alto. La plata marcó un récord de cerca de US$121,60 el 29 de enero de 2026 y estaba en cerca de US$58 en octubre."
+ },
+ "82bd00537d6a": {
+  "en": "About {0} a year out of your pocket and about {1} points on headline inflation from one $25 move.",
+  "t": "Cerca de {0} al año de tu bolsillo y cerca de {1} puntos de inflación total por un solo movimiento de US$25."
+ },
+ "864bebb78150": {
+  "en": "Fees: IAU charges {0}% a year, so $16,000 shrinks to about {1}. A 0.03% index fund ends at about {2}.",
+  "t": "Costos: IAU cobra {0} % al año, así que US$16.000 se encogen a unos {1}. Un fondo indexado de 0,03 % termina en unos {2}."
+ },
+ "8697f432058b": {
+  "en": "Silver",
+  "t": "Plata"
+ },
+ "885537e4c5b2": {
+  "en": "Check the PMI and other data before reading copper as a forecast (see <a href=\"#l-pmi\">PMI, GDP and retail sales</a>).",
+  "t": "Revisa el PMI y otros datos antes de leer el cobre como un pronóstico (mira <a href=\"#l-pmi\">PMI, PIB y ventas minoristas</a>)."
+ },
+ "88d28d7a1c34": {
+  "en": "Copper carries electricity and heat, so it goes into wiring, plumbing, motors, power lines and electronics. When factories and builders get busier, they buy more copper, often before official reports show the pickup. That is why traders say copper has a \"PhD in economics.\"",
+  "t": "El cobre conduce la electricidad y el calor, así que va en cableado, plomería, motores, líneas eléctricas y electrónicos. Cuando las fábricas y los constructores tienen más trabajo, compran más cobre, a menudo antes de que los informes oficiales muestren la mejora. Por eso los traders dicen que el cobre tiene un \"doctorado en economía\"."
+ },
+ "88efa293076b": {
+  "en": "Bullion",
+  "t": "Metal en lingotes"
+ },
+ "89a5a5a1a3cc": {
+  "en": "Gold miners fund",
+  "t": "Fondo de mineras de oro"
+ },
+ "8a9840605d49": {
+  "en": "Who tends to win or lose from this move",
+  "t": "Quién suele ganar o perder con este movimiento"
+ },
+ "8c090687682c": {
+  "en": "Growth is speeding up",
+  "t": "El crecimiento se está acelerando"
+ },
+ "8c886e1efc13": {
+  "en": " a gallon",
+  "t": " el galón"
+ },
+ "8e09a0d5da5a": {
+  "en": "Machinery, transport, appliances and more",
+  "t": "Maquinaria, transporte, electrodomésticos y más"
+ },
+ "8fa91c872423": {
+  "en": "Cathode",
+  "t": "Cátodo"
+ },
+ "900c6b899ac0": {
+  "en": "Gold tends to rise when real yields fall, the dollar weakens, fear spikes or central banks buy.",
+  "t": "El oro tiende a subir cuando bajan los rendimientos reales, se debilita el dólar, se dispara el miedo o compran los bancos centrales."
+ },
+ "935bd4a4d587": {
+  "en": "Yes, early",
+  "t": "Sí, antes"
+ },
+ "95cb7e66889f": {
+  "en": "Polsinelli: Section 232 tariffs formalized on copper imports",
+  "t": "Polsinelli: se formalizan los aranceles de la Sección 232 sobre las importaciones de cobre (en inglés)"
+ },
+ "9d05a8ae28b1": {
+  "en": "Copper is a growth signal only when demand moves it; check the PMI and orders.",
+  "t": "El cobre es una señal de crecimiento solo cuando lo mueve la demanda; revisa el PMI y los pedidos."
+ },
+ "9d1b991676f4": {
+  "en": "Rolling fund",
+  "t": "Fondo que renueva"
+ },
+ "9d6657e57785": {
+  "en": "The gold-silver ratio compares the two; it is not a timing signal.",
+  "t": "La relación oro-plata compara los dos; no es una señal para escoger el momento."
+ },
+ "9d75aa0f6eca": {
+  "en": "Chemicals and plastics",
+  "t": "Químicos y plásticos"
+ },
+ "a0527dc6812f": {
+  "en": "Treating every oil drop as good news. If oil falls because a recession is coming, stocks usually fall with it.",
+  "t": "Tomar cada caída del petróleo como una buena noticia. Si el petróleo cae porque viene una recesión, las acciones por lo general caen con él."
+ },
+ "a28aa8b5d5f3": {
+  "en": "<span class=\"wg-title\">What is moving copper?</span>{0}",
+  "t": "<span class=\"wg-title\">¿Qué mueve el cobre?</span>{0}"
+ },
+ "a465f1f4f837": {
+  "en": "A conflict cuts supply and WTI jumps from {0} to {1} a barrel. You buy about 600 gallons of gas a year.",
+  "t": "Un conflicto recorta la oferta y el WTI salta de {0} a {1} el barril. Compras unos 600 galones de gasolina al año."
+ },
+ "a5427f8e0f69": {
+  "en": "Barrel",
+  "t": "Barril"
+ },
+ "a63903f3f8a7": {
+  "en": "Copper is a growth signal only when demand drives it; a supply shock says nothing about demand.",
+  "t": "El cobre es una señal de crecimiento solo cuando lo impulsa la demanda; un choque de oferta no dice nada sobre la demanda."
+ },
+ "a6fc9deb1a9c": {
+  "en": "Power grid and electrical",
+  "t": "Redes eléctricas y electricidad"
+ },
+ "a8c11cef266c": {
+  "en": "Refined copper in plate form, the raw material that factories turn into wire, pipe and sheet.",
+  "t": "Cobre refinado en forma de placa, la materia prima que las fábricas convierten en alambre, tubos y láminas."
+ },
+ "a95bd4ae404e": {
+  "en": "HEADLINE CPI",
+  "t": "IPC TOTAL"
+ },
+ "a9b70525bbe2": {
+  "en": "Rally A: Chinese builders and power-grid projects order more. Over the next two months the factory PMI climbs from 48 to 51, above the 50 line between shrinking and growing.",
+  "t": "Subida A: los constructores chinos y los proyectos de redes eléctricas piden más. En los dos meses siguientes el PMI industrial sube de 48 a 51, por encima de la línea de 50 que separa achicarse de crecer."
+ },
+ "ab7586a91a28": {
+  "en": "copper moves ~{0} months first",
+  "t": "el cobre se mueve ~{0} meses antes"
+ },
+ "ad23a819d486": {
+  "en": "<b>Real yields</b>: when bonds pay less after inflation, the cost of holding a metal that pays nothing falls, and gold tends to rise (see <a href=\"#l-rates\">Rates and yields</a>).",
+  "t": "<b>Los rendimientos reales</b>: cuando los bonos pagan menos después de inflación, el costo de tener un metal que no paga nada baja, y el oro tiende a subir (mira <a href=\"#l-rates\">Tasas y rendimientos</a>)."
+ },
+ "ae44d52d7774": {
+  "en": "It hit a modern record of about 124 in March 2020, averaged 86 in 2019, and dropped to about 45 at the January 2026 peaks. In October 2026 it was about 71.",
+  "t": "Llegó a un récord moderno de cerca de 124 en marzo de 2020, promedió 86 en 2019 y bajó a cerca de 45 en los picos de enero de 2026. En octubre de 2026 estaba en cerca de 71."
+ },
+ "af5ec253ad93": {
+  "en": "Oil itself",
+  "t": "El petróleo en sí"
+ },
+ "af66032630c3": {
+  "en": "Hold or hike",
+  "t": "Mantener o subir"
+ },
+ "b01c38204524": {
+  "en": "A weaker dollar and falling real yields lift all three, since they are priced in dollars and pay no interest.",
+  "t": "Un dólar más débil y unos rendimientos reales a la baja suben a los tres, porque tienen precio en dólares y no pagan intereses."
+ },
+ "b3ce0e883ea1": {
+  "en": "The Fed: headline inflation rises while consumers slow down. Central banks often look through a one-time energy jump as long as core inflation stays calm; if it spreads into other prices, they may raise rates instead.",
+  "t": "La Fed: la inflación total sube mientras los consumidores se frenan. Los bancos centrales a menudo miran más allá de un salto único de la energía mientras la inflación básica se mantenga tranquila; si se pasa a otros precios, pueden subir las tasas."
+ },
+ "b3dc9a91c72c": {
+  "en": "% vs today",
+  "t": "% frente a hoy"
+ },
+ "b61f9ae2f8e6": {
+  "en": "Reading A: demand moved copper first and the data followed. Cyclical stocks such as industrials and materials often do well in this phase.",
+  "t": "Lectura A: la demanda movió el cobre primero y los datos lo siguieron. A las acciones cíclicas como las industriales y las de materiales a menudo les va bien en esta fase."
+ },
+ "b6b4e79a9c8b": {
+  "en": "prices up, growth down",
+  "t": "precios al alza, crecimiento a la baja"
+ },
+ "b801d1dc0267": {
+  "en": "China uses about half the world’s copper.",
+  "t": "China usa cerca de la mitad del cobre del mundo."
+ },
+ "b96c872fa19c": {
+  "en": "Oil funds that hold futures can lag spot in contango and beat it in backwardation.",
+  "t": "Los fondos de petróleo que tienen futuros pueden quedarse detrás del spot en contango y superarlo en backwardation."
+ },
+ "b9c5224c2875": {
+  "en": "Gold pays no income; keep it as a small diversifier, not the core.",
+  "t": "El oro no paga ingresos; mantenlo como una porción pequeña para diversificar, no como el centro."
+ },
+ "ba8555fe8afc": {
+  "en": "Cause of the oil move",
+  "t": "Causa del movimiento del petróleo"
+ },
+ "baef823fbe8b": {
+  "en": "It usually falls, because earnings are expected to drop",
+  "t": "Por lo general cae, porque se espera que las utilidades bajen"
+ },
+ "bb08548602a7": {
+  "en": "Copper goes into buildings, grids and machines, so demand-driven moves often show where the economy is heading before the data does.",
+  "t": "El cobre va en edificios, redes eléctricas y máquinas, así que los movimientos impulsados por la demanda a menudo muestran hacia dónde va la economía antes que los datos."
+ },
+ "bb68fe4e4b33": {
+  "en": "Oil is priced per <b>barrel</b>, which holds 42 gallons. The US benchmark is <b>WTI</b> (West Texas Intermediate); the global one is <b>Brent</b>, from the North Sea. They usually sit a few dollars apart. On October 21, 2026, WTI futures were about {0} and Brent futures about {1}. Both trade as <b>futures contracts</b>, agreements to buy or sell oil on a future date, so the price on the news is usually the nearest futures contract. Physical oil for immediate delivery can trade at a different price: the EIA's Brent spot price was {2} on October 14, 2026, far above futures, a sign of very tight near-term supply.",
+  "t": "El petróleo tiene precio por <b>barril</b>, que tiene 42 galones. La referencia de EE. UU. es el <b>WTI</b> (West Texas Intermediate); la mundial es el <b>Brent</b>, del mar del Norte. Por lo general están a unos pocos dólares de distancia. El 21 de octubre de 2026, los futuros del WTI estaban en cerca de {0} y los del Brent en cerca de {1}. Los dos se negocian como <b>contratos de futuros</b>, acuerdos para comprar o vender petróleo en una fecha futura, así que el precio de las noticias suele ser el del contrato de futuros más cercano. El petróleo físico para entrega inmediata puede negociarse a otro precio: el precio spot del Brent de la EIA fue de {2} el 14 de octubre de 2026, muy por encima de los futuros, una señal de oferta de muy corto plazo muy apretada."
+ },
+ "bcc6de1cce2d": {
+  "en": "CRUDE (WTI)",
+  "t": "CRUDO (WTI)"
+ },
+ "bcdf5035685c": {
+  "en": "PMI 50",
+  "t": "PMI 50"
+ },
+ "bf19d0e6d8d0": {
+  "en": "Where copper goes (world, rough shares)",
+  "t": "A dónde va el cobre (mundo, partes aproximadas)"
+ },
+ "bfd0d3b69b2f": {
+  "en": "Later months cost more, so every roll sells low and buys high. Over {0} months the fund loses about {1}% even though oil did not move. This is why oil funds can trail the price you see on the news.",
+  "t": "Los meses posteriores cuestan más, así que cada renovación vende barato y compra caro. En {0} meses el fondo pierde cerca de {1} % aunque el petróleo no se movió. Por eso los fondos de petróleo pueden quedarse detrás del precio que ves en las noticias."
+ },
+ "c02d9a9022f1": {
+  "en": "Ask why oil moved: supply shocks hurt consumers and help producers; demand slumps hurt almost everyone.",
+  "t": "Pregúntate por qué se movió el petróleo: los choques de oferta perjudican a los consumidores y ayudan a los productores; las caídas de la demanda perjudican a casi todos."
+ },
+ "c030aad534d2": {
+  "en": "Trading Economics: copper price",
+  "t": "Trading Economics: precio del cobre"
+ },
+ "c0a6a6ab090a": {
+  "en": "<b>Mine disruptions</b> push prices up even as the economy slows.",
+  "t": "<b>Las interrupciones en las minas</b> suben los precios incluso cuando la economía se frena."
+ },
+ "c1644fe966bc": {
+  "en": "US copper futures (COMEX) were about $6.54 a pound on October 21, 2026, up about a third in a year, after a record near $6.85 in September 2026.",
+  "t": "Los futuros del cobre en EE. UU. (COMEX) estaban en cerca de US$6,54 la libra el 21 de octubre de 2026, cerca de un tercio más que hace un año, después de un récord cerca de US$6,85 en septiembre de 2026."
+ },
+ "c2a1aa159610": {
+  "en": "Gold can rise when stocks fall, which is why some investors keep a small slice as a diversifier. It has also gone through long stretches of falling or flat prices, and it produces no income. Size it as insurance, not as the core of a plan (see <a href=\"#l-allocation\">Stocks, bonds and your age</a>).",
+  "t": "El oro puede subir cuando las acciones caen, por eso algunos inversionistas mantienen una porción pequeña para diversificar. También ha pasado por temporadas largas de precios a la baja o planos, y no produce ingresos. Dimensiónalo como un seguro, no como el centro de un plan (mira <a href=\"#l-allocation\">Acciones, bonos y tu edad</a>)."
+ },
+ "c2f83a081cb0": {
+  "en": "Real yields fall",
+  "t": "Los rendimientos reales bajan"
+ },
+ "c308d42e6391": {
+  "en": "Demand boom",
+  "t": "Auge de la demanda"
+ },
+ "c43d915e07bd": {
+  "en": "Less oil for the same demand: gas jumps about {0} a gallon, costing you about {1} a year, and headline inflation gets a {2}-point push. Producers profit while airlines and shoppers pay. The Fed faces higher prices and slower growth at once, the stagflation trap.",
+  "t": "Menos petróleo para la misma demanda: la gasolina salta cerca de {0} el galón, lo que te cuesta cerca de {1} al año, y la inflación total recibe un empujón de {2} puntos. Los productores ganan mientras las aerolíneas y los compradores pagan. La Fed enfrenta precios más altos y crecimiento más lento a la vez, la trampa de la estanflación."
+ },
+ "c4c57d8bfb49": {
+  "en": "Physical gold counts as a collectible: long-term gains are taxed at ordinary rates up to 28%.",
+  "t": "El oro físico cuenta como coleccionable: las ganancias de largo plazo pagan a tarifas ordinarias de hasta el 28 %."
+ },
+ "c6a1e7314afe": {
+  "en": "A teaching model with made-up paths, not real data. The PMI is a monthly survey of purchasing managers: above 50 means factories are growing. Copper's link to the economy only holds when demand, not supply or policy, is moving the price.",
+  "t": "Un modelo didáctico con caminos inventados, no datos reales. El PMI es una encuesta mensual a gerentes de compras: por encima de 50 significa que las fábricas están creciendo. El vínculo del cobre con la economía solo se cumple cuando es la demanda, no la oferta ni la política, la que mueve el precio."
+ },
+ "c78de8f08e48": {
+  "en": "Pick why oil moved, then drag the price. Watch gas, inflation, the Fed and each sector react.",
+  "t": "Escoge por qué se movió el petróleo y luego arrastra el precio. Mira cómo reaccionan la gasolina, la inflación, la Fed y cada sector."
+ },
+ "c81995baf3db": {
+  "en": "buy next month, it slides to spot",
+  "t": "compras el mes siguiente, se desliza hacia el spot"
+ },
+ "c8bf1fcd818b": {
+  "en": "Copper is only a growth signal when <b>demand</b> moves it. Supply problems and policy can move the price with no change in the economy:",
+  "t": "El cobre solo es una señal de crecimiento cuando lo mueve la <b>demanda</b>. Los problemas de oferta y la política pueden mover el precio sin ningún cambio en la economía:"
+ },
+ "ca8e6d3f9d7c": {
+  "en": "Federal Reserve History: Oil shock of 1973–74",
+  "t": "Federal Reserve History: la crisis del petróleo de 1973–74 (en inglés)"
+ },
+ "caba3fe18fe5": {
+  "en": "Reading B: supply moved the price, not demand. The economy is still soft, and the rally fades once the mine restarts.",
+  "t": "Lectura B: la oferta movió el precio, no la demanda. La economía sigue floja, y la subida se apaga cuando la mina vuelve a abrir."
+ },
+ "cadb734c1155": {
+  "en": "Prices are about {0} levels and change every day. Bars show the usual direction of each driver, based on how these metals have tended to react, not a forecast. Gold is mostly a money and fear asset, copper mostly an industrial one, and silver sits in between.",
+  "t": "Los precios están en niveles de cerca de {0} y cambian todos los días. Las barras muestran la dirección habitual de cada factor, según cómo han tendido a reaccionar estos metales, no un pronóstico. El oro es sobre todo un activo de dinero y de miedo, el cobre sobre todo uno industrial, y la plata está en medio."
+ },
+ "cce69258fe15": {
+  "en": "Copper price (amber, left) and factory PMI (blue, right)",
+  "t": "Precio del cobre (ámbar, izquierda) y PMI industrial (azul, derecha)"
+ },
+ "cd53dcc5e41e": {
+  "en": "Same price gain, but about {0} less in your pocket from the gold ETF in a taxable account.",
+  "t": "La misma subida de precio, pero cerca de {0} menos en tu bolsillo con el ETF de oro en una cuenta gravable."
+ },
+ "d15ea20c25ad": {
+  "en": "You invest $10,000 in a physical gold ETF (IAU) or in a stock index fund. Both rise 60% over 5 years. You are in the 24% bracket.",
+  "t": "Inviertes US$10.000 en un ETF de oro físico (IAU) o en un fondo de índice accionario. Los dos suben 60 % en 5 años. Estás en el tramo del 24 % (reglas de EE. UU.)."
+ },
+ "d172c9192550": {
+  "en": "AAA: national average gas prices",
+  "t": "AAA: precio promedio nacional de la gasolina en EE. UU. (en inglés)"
+ },
+ "d1a36b87b207": {
+  "en": "Ordinary income tax bracket",
+  "t": "Tramo del impuesto sobre la renta ordinaria"
+ },
+ "d399934f8fbf": {
+  "en": "Ignoring China. About half of world demand comes from one country.",
+  "t": "Ignorar a China. Cerca de la mitad de la demanda mundial viene de un solo país."
+ },
+ "d3d5a904eda0": {
+  "en": "<span class=\"wg-title\">Futures curve</span>{0}",
+  "t": "<span class=\"wg-title\">Curva de futuros</span>{0}"
+ },
+ "d469115b387f": {
+  "en": "<b>Supply shock up</b> (war, OPEC+ cut): higher prices with the same or weaker economy. Consumers pay more, airlines and shops suffer, energy producers profit. Headline inflation rises while growth slows.",
+  "t": "<b>Choque de oferta al alza</b> (guerra, recorte de la OPEP+): precios más altos con una economía igual o más débil. Los consumidores pagan más, las aerolíneas y las tiendas sufren, los productores de energía ganan. La inflación total sube mientras el crecimiento se frena."
+ },
+ "d4eb7984609b": {
+  "en": "month 0",
+  "t": "mes 0"
+ },
+ "d63d4c755d74": {
+  "en": "A supply shock pushes inflation up and growth down at the same time, the recipe for <b>stagflation</b>. Raising rates fights the inflation but deepens the slowdown; cutting does the reverse. Central banks watch core inflation partly so they can see through short energy swings, but a long oil shock that feeds into wages and prices gets their attention. With energy prices surging, the Fed raised rates on September 16, 2026 instead of cutting (see <a href=\"#l-fed\">How the Fed works</a>).",
+  "t": "Un choque de oferta empuja la inflación hacia arriba y el crecimiento hacia abajo al mismo tiempo, la receta de la <b>estanflación</b>. Subir las tasas combate la inflación pero profundiza la desaceleración; bajarlas hace lo contrario. Los bancos centrales miran la inflación básica en parte para poder ver más allá de las oscilaciones cortas de la energía, pero un choque petrolero largo que se pasa a los salarios y los precios les llama la atención. Con los precios de la energía disparados, la Fed subió las tasas el 16 de septiembre de 2026 en vez de bajarlas (mira <a href=\"#l-fed\">Cómo funciona la Fed</a>)."
+ },
+ "d7e2daadfe40": {
+  "en": "US crude output hit a record of about 14 million barrels a day in October 2025 (EIA).",
+  "t": "La producción de crudo de EE. UU. llegó a un récord de cerca de 14 millones de barriles al día en octubre de 2025 (EIA)."
+ },
+ "d802c646b8b6": {
+  "en": "Drag the oil price on the track or use the slider. Starting point: WTI futures about {0} and regular gas about {1} a gallon (AAA), {2}. A barrel holds 42 gallons, so each $1 on a barrel is about 2.4 cents a gallon once it passes through, usually within weeks. The CPI push is the direct effect of gasoline only, using a weight of about {3}%: gasoline was 2.9% of the CPI basket at December 2025 prices (BLS) and its share grows when gas prices jump. Airfares, shipping and plastics add more over months. Sector bars show the typical direction, not a forecast.",
+  "t": "Arrastra el precio del petróleo en la pista o usa el deslizador. Punto de partida: futuros del WTI en cerca de {0} y gasolina corriente en cerca de {1} el galón (AAA), {2}. Un barril tiene 42 galones, así que cada US$1 por barril son cerca de 2,4 centavos por galón cuando se traslada, por lo general en unas semanas. El empujón al IPC es solo el efecto directo de la gasolina, con un peso de cerca del {3} %: la gasolina era el 2,9 % de la canasta del IPC de EE. UU. a precios de diciembre de 2025 (BLS), y su parte crece cuando la gasolina se dispara. Los tiquetes aéreos, el transporte y los plásticos suman más con los meses. Las barras de los sectores muestran la dirección típica, no un pronóstico."
+ },
+ "d8857bcab78b": {
+  "en": "Crude was about 51% of the price of a gallon of regular gas in 2025; refining, distribution and taxes make up the rest (EIA). Because a barrel is 42 gallons, each $1 on a barrel adds roughly 2.4 cents a gallon once it passes through, usually within a few weeks. Gasoline was about 3% of the CPI basket at end-2025 weights (BLS), and its share rises when gas gets more expensive, so a 10% jump at the pump adds roughly 0.3 to 0.4 percentage points to headline inflation by itself. In September 2026, energy prices were up 20.4% from a year earlier and gasoline 34.2%, while regular gas averaged about {0} a gallon on October 21 (AAA). Core inflation leaves energy out, but expensive fuel leaks into airfares, shipping and plastics over the following months (see <a href=\"#l-inflation\">Inflation</a>).",
+  "t": "En EE. UU., el crudo fue cerca del 51 % del precio de un galón de gasolina corriente en 2025; la refinación, la distribución y los impuestos son el resto (EIA). Como un barril tiene 42 galones, cada US$1 por barril suma más o menos 2,4 centavos por galón cuando se traslada, por lo general en unas semanas. La gasolina era cerca del 3 % de la canasta del IPC con los pesos de finales de 2025 (BLS), y su parte sube cuando la gasolina se encarece, así que un salto del 10 % en la bomba suma por sí solo más o menos 0,3 a 0,4 puntos porcentuales a la inflación total. En septiembre de 2026, los precios de la energía estaban 20,4 % por encima de un año antes y la gasolina 34,2 %, mientras la gasolina corriente promediaba cerca de {0} el galón el 21 de octubre (AAA). La inflación básica deja por fuera la energía, pero el combustible caro se filtra a los tiquetes aéreos, el transporte y los plásticos en los meses siguientes (mira <a href=\"#l-inflation\">Inflación</a>)."
+ },
+ "d9e892b68c01": {
+  "en": "The London Metal Exchange, the main global market for industrial metals.",
+  "t": "La Bolsa de Metales de Londres, el principal mercado mundial de metales industriales."
+ },
+ "da3419c7569c": {
+  "en": "In an IRA neither would be taxed on the sale, so the collectibles penalty disappears there.",
+  "t": "En una IRA ninguno pagaría impuesto al vender, así que ahí desaparece la penalización de los coleccionables."
+ },
+ "dcc0188b3f49": {
+  "en": "<b>US shale producers</b>: they add or cut drilling as prices rise or fall. {0}",
+  "t": "<b>Los productores de esquisto de EE. UU.</b>: suman o recortan perforación a medida que los precios suben o bajan. {0}"
+ },
+ "dd1d00d92014": {
+  "en": "BLS: CPI relative importance of components, December 2025",
+  "t": "BLS: importancia relativa de los componentes del IPC, diciembre de 2025 (en inglés)"
+ },
+ "dfd557e43777": {
+  "en": "2022: after Russia invaded Ukraine, Brent peaked at about $139 in March, the highest since 2008.",
+  "t": "2022: después de que Rusia invadió Ucrania, el Brent tocó un pico de cerca de US$139 en marzo, el más alto desde 2008."
+ },
+ "e022c66d9662": {
+  "en": "<b>Supply glut</b>: too much oil; gas gets cheaper and inflation cools while energy stocks lag.",
+  "t": "<b>Exceso de oferta</b>: demasiado petróleo; la gasolina se abarata y la inflación se enfría mientras las acciones de energía se quedan atrás."
+ },
+ "e0249abed124": {
+  "en": "S&P Global: prices decline as US 50% tariff excludes refined copper",
+  "t": "S&P Global: los precios bajan porque el arancel del 50 % de EE. UU. excluye el cobre refinado (en inglés)"
+ },
+ "e1e87e2f0720": {
+  "en": "A demand-driven drop signals weaker spending and profits; cheap gas does not offset that.",
+  "t": "Una caída impulsada por la demanda señala menos gasto y menos utilidades; la gasolina barata no compensa eso."
+ },
+ "e5f2b46b4d05": {
+  "en": "collectibles rate",
+  "t": "tarifa de coleccionables"
+ },
+ "e7bec2253a64": {
+  "en": "Same price gain for every row so you can compare costs and tax only. Expense ratios: IAU {0}%, GLD {1}%, GDX {2}% (see sources). Coins assume about 6% lost to dealer buy-sell spreads, an assumption that varies widely. Long-term gains only (held over a year). The 3.8% net investment income tax is added from the 32% bracket as a rough proxy for high income.",
+  "t": "La misma subida de precio para cada fila, así comparas solo costos e impuestos. Costos anuales: IAU {0} %, GLD {1} %, GDX {2} % (mira las fuentes). Las monedas suponen cerca de 6 % perdido en los diferenciales de compra y venta del comerciante, un supuesto que varía mucho. Solo ganancias de largo plazo (mantenidas más de un año). El impuesto del 3,8 % sobre el ingreso neto de inversiones se suma desde el tramo del 32 % como aproximación de ingresos altos. Son reglas tributarias de EE. UU."
+ },
+ "e884673b3bc4": {
+  "en": "The tax rate on long-term gains from collectibles such as gold: your ordinary rate, capped at 28%.",
+  "t": "La tarifa de impuesto sobre las ganancias de largo plazo de coleccionables como el oro en EE. UU.: tu tarifa ordinaria, con tope del 28 %."
+ },
+ "e93c15e6998e": {
+  "en": "Nothing, oil and stocks are unrelated",
+  "t": "Nada, el petróleo y las acciones no tienen relación"
+ },
+ "e9aec73be440": {
+  "en": "Inflation: at today's prices gasoline is roughly {0}% of the CPI basket (2.9% at December 2025 prices), so {1} × {2}% ≈ {3} percentage points added to headline inflation, before airfares and shipping catch up.",
+  "t": "Inflación: a los precios de hoy la gasolina es más o menos el {0} % de la canasta del IPC (2,9 % a precios de diciembre de 2025), así que {1} × {2} % ≈ {3} puntos porcentuales sumados a la inflación total, antes de que se pongan al día los tiquetes aéreos y el transporte."
+ },
+ "eaddf9a79045": {
+  "en": "Reading every copper rally as a sign of growth. Strikes, tariffs and stockpiling can move it with no change in demand.",
+  "t": "Leer cada subida del cobre como una señal de crecimiento. Las huelgas, los aranceles y la acumulación de inventarios lo pueden mover sin ningún cambio en la demanda."
+ },
+ "ed0a4416f95f": {
+  "en": "Why oil swings, how it reaches your gas tank and inflation, and who wins or loses.",
+  "t": "Por qué oscila el petróleo, cómo llega a tu tanque de gasolina y a la inflación, y quién gana o pierde."
+ },
+ "ee50552e1f2f": {
+  "en": "After {0} month{1} with spot unchanged",
+  "t": "Después de {0} vencimiento{1} con el spot igual"
+ },
+ "f0347140ad26": {
+  "en": "Copper is used in building, power and machines, so demand-driven moves can lead the economic data.",
+  "t": "El cobre se usa en construcción, energía y máquinas, así que los movimientos impulsados por la demanda pueden adelantarse a los datos económicos."
+ },
+ "f152813929c2": {
+  "en": "After-tax value of gold held through ETFs, coins, miners and a stock index fund.",
+  "t": "Valor después de impuestos del oro mantenido a través de ETF, monedas, mineras y un fondo de índice accionario."
+ },
+ "f30c37cef6cd": {
+  "en": "It rises, because gas is cheaper",
+  "t": "Sube, porque la gasolina está más barata"
+ },
+ "f3ec1b0cd28a": {
+  "en": "Copper and industrial metals",
+  "t": "Cobre y metales industriales"
+ },
+ "f437c9c13875": {
+  "en": "Broad stock market",
+  "t": "Mercado accionario amplio"
+ },
+ "f6bfb330037f": {
+  "en": "Oil is rising because the economy is strong. Energy and most cyclical stocks can rise together, but the inflation push ({0}) can keep the Fed from cutting.",
+  "t": "El petróleo está subiendo porque la economía está fuerte. La energía y la mayoría de las acciones cíclicas pueden subir juntas, pero el empujón a la inflación ({0}) puede impedir que la Fed baje las tasas."
+ },
+ "f7a1a4a1fc6b": {
+  "en": "Chasing tariff-driven price gaps between US and London copper; policy changes can close them overnight.",
+  "t": "Perseguir brechas de precio entre el cobre de EE. UU. y el de Londres causadas por aranceles; los cambios de política las pueden cerrar de la noche a la mañana."
+ },
+ "f9515df7e2f5": {
+  "en": "In the month to October 21, 2026 alone, silver fell about 14%.",
+  "t": "Solo en el mes hasta el 21 de octubre de 2026, la plata cayó cerca de 14 %."
+ },
+ "f9923d95746d": {
+  "en": "<b>Coins and bars</b>: you own the metal, but dealers charge a premium to buy and pay less when you sell, and you need safe storage and insurance.",
+  "t": "<b>Monedas y lingotes</b>: tienes el metal, pero los comerciantes cobran una prima al comprar y pagan menos cuando vendes, y necesitas un lugar seguro y un seguro."
+ },
+ "fa937ba74f65": {
+  "en": "Most people get exposure through mining stocks or futures-based funds. Miners add company risk and debt; futures funds face the contract rolls explained in <a href=\"#l-oil\">Oil</a>. Copper is volatile and cyclical: it tends to fall hard in recessions (see <a href=\"#l-cycle\">The business cycle</a>).",
+  "t": "La mayoría de la gente se expone a través de acciones mineras o de fondos basados en futuros. Las mineras suman el riesgo de la empresa y su deuda; los fondos de futuros enfrentan las renovaciones de contratos explicadas en <a href=\"#l-oil\">Petróleo</a>. El cobre es volátil y cíclico: tiende a caer fuerte en las recesiones (mira <a href=\"#l-cycle\">El ciclo económico</a>)."
+ },
+ "fb354cf563c2": {
+  "en": "{0}: copper {1} over 18 months while the PMI ends at {2}.",
+  "t": "{0}: el cobre {1} en 18 meses mientras el PMI termina en {2}."
+ },
+ "fc02a266ea11": {
+  "en": "Typical direction each selected driver pushes gold, silver and copper.",
+  "t": "Dirección típica en que cada factor escogido empuja el oro, la plata y el cobre."
+ },
+ "fc27a60cb856": {
+  "en": "Collectibles rate",
+  "t": "Tarifa de coleccionables"
+ },
+ "fc88cccc9250": {
+  "en": "Switch between demand, supply and policy moves. Watch when copper and factory surveys move together and when they do not.",
+  "t": "Cambia entre movimientos de demanda, de oferta y de política. Mira cuándo el cobre y las encuestas industriales se mueven juntos y cuándo no."
+ },
+ "fed3f5eaea68": {
+  "en": "After tax you keep about {0} from gold and {1} from stocks.",
+  "t": "Después de impuestos te quedan unos {0} del oro y {1} de las acciones."
+ }
+}
