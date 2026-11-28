@@ -1,4 +1,8 @@
 {
+ "0f5857108392": {
+  "en": "Options Industry Council: Covered call (buy/write)",
+  "t": "Options Industry Council: Covered call (buy/write) (en inglés)"
+ },
  "30891eaca4e4": {
   "en": "Options Industry Council: Understanding the “rule of 16” in plain terms (July 2025)",
   "t": "Options Industry Council: Understanding the “rule of 16” in plain terms (julio de 2025, en inglés)"
@@ -7,8 +11,32 @@
   "en": "November 2026",
   "t": "noviembre de 2026"
  },
+ "820c14300546": {
+  "en": "OCC: Characteristics and Risks of Standardized Options (the options disclosure document)",
+  "t": "OCC: Characteristics and Risks of Standardized Options (el documento de divulgación de opciones, en inglés)"
+ },
+ "8663548b99ee": {
+  "en": "Schwab: The risks of options assignment (October 2025)",
+  "t": "Schwab: The risks of options assignment (octubre de 2025, en inglés)"
+ },
  "c01a7c727b48": {
   "en": "CME Group: Discover options volatility (annualized volatility and the square root of time)",
   "t": "CME Group: Discover options volatility (volatilidad anualizada y raíz cuadrada del tiempo; en inglés)"
+ },
+ "d3bcace22a97": {
+  "en": "Fidelity: How dividends can increase options assignment risk (October 2026)",
+  "t": "Fidelity: How dividends can increase options assignment risk (octubre de 2026, en inglés)"
+ },
+ "e090c3b76b72": {
+  "en": "Options Industry Council: Cash-secured put",
+  "t": "Options Industry Council: Cash-secured put (en inglés)"
+ },
+ "eff50d26ff7d": {
+  "en": "Investor.gov (SEC): An introduction to options, investor bulletin (updated July 2026)",
+  "t": "Investor.gov (SEC): An introduction to options, boletín para inversionistas (actualizado en julio de 2026, en inglés)"
+ },
+ "f473ed931b3a": {
+  "en": "Schwab: Managing cash-secured equity puts (May 2025)",
+  "t": "Schwab: Managing cash-secured equity puts (mayo de 2025, en inglés)"
  }
 }

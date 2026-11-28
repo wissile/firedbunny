@@ -3,6 +3,14 @@
   "en": "Entry",
   "t": "Entrada"
  },
+ "44c57abd888a": {
+  "en": "Reset",
+  "t": "Reiniciar"
+ },
+ "6eef6648406c": {
+  "en": "None",
+  "t": "Ninguno"
+ },
  "6f7b3a08ffc2": {
   "en": "13, 48 & 200 EMA",
   "t": "EMA de 13, 48 y 200"
@@ -18,6 +26,10 @@
  "befd0bcd0c93": {
   "en": "Breakouts & fakeouts",
   "t": "Rupturas y rupturas falsas"
+ },
+ "e24e824b6811": {
+  "en": "Assigned",
+  "t": "Asignado"
  },
  "f83b6fe3aebf": {
   "en": "Exit",

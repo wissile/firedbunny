@@ -1,6 +1,2318 @@
 {
+ "001e0040e365": {
+  "en": "Profit or loss of a bought {0} after earnings, across stock moves. IV falls from {1}% to {2}%.",
+  "t": "Ganancia o pérdida de un {0} comprado después de los resultados, según el movimiento de la acción. La IV cae de {1} % a {2} %."
+ },
+ "00f64a712663": {
+  "en": "Putting most of your money into one stock. If that company fails, so does your account.",
+  "t": "Meter la mayor parte de tu dinero en una sola acción. Si esa empresa quiebra, tu cuenta también."
+ },
+ "019fc63a9e51": {
+  "en": "The call is now worth about $3.75. Its intrinsic value is $3.00, but most of its time value vanished with the IV.",
+  "t": "Ahora el call vale unos US$3,75. Su valor intrínseco es US$3,00, pero la mayor parte de su valor temporal desapareció con la IV."
+ },
+ "01eedcc31fb7": {
+  "en": "DEMO has 2,000,000 shares and trades at $40, so the whole company is valued at 2,000,000 × $40 = $80 million.",
+  "t": "DEMO tiene 2.000.000 de acciones y se negocia a US$40, así que toda la empresa vale 2.000.000 × US$40 = US$80 millones."
+ },
+ "01f49e30cfbf": {
+  "en": "DEMO finishes at $56. The call is worth $56 − $52 = $4.00, or $400 for the contract.",
+  "t": "DEMO termina en US$56. El call vale US$56 − US$52 = US$4,00, o US$400 por el contrato."
+ },
+ "020cfca0e3d8": {
+  "en": "Decay is slow when expiration is months away and fast in the final weeks. At-the-money options lose the most dollars because they hold the most time value.",
+  "t": "El desgaste es lento cuando faltan meses para el vencimiento y rápido en las últimas semanas. Las opciones en el dinero pierden más dólares porque tienen el mayor valor temporal."
+ },
+ "0246419af443": {
+  "en": "An option is a contract that gives its buyer the right, not the duty, to buy (a call) or sell (a put) 100 shares at a set price before a set date. The buyer pays a premium for that right and can lose no more than that premium. The seller collects the premium and takes on the obligation.",
+  "t": "Una opción es un contrato que le da a su comprador el derecho, no la obligación, de comprar (un call) o vender (un put) 100 acciones a un precio fijo antes de una fecha fija. El comprador paga una prima por ese derecho y no puede perder más que esa prima. El vendedor recibe la prima y asume la obligación."
+ },
+ "02942cecd86e": {
+  "en": "none yet",
+  "t": "todavía nada"
+ },
+ "03342dbb856b": {
+  "en": "Balanced",
+  "t": "Equilibrado"
+ },
+ "0348c85f4eda": {
+  "en": "Face value $1,000, one coupon a year. Bars are to scale: light = cash paid to you, solid = what that future cash is worth today.",
+  "t": "Valor nominal de US$1.000, un cupón al año. Las barras están a escala: claro = el efectivo que te pagan, sólido = lo que vale hoy ese efectivo futuro."
+ },
+ "0370e86aa62b": {
+  "en": "Selling calls below your cost basis and locking in a loss when the shares are called away.",
+  "t": "Vender calls por debajo de tu costo base y asegurar una pérdida cuando te compran las acciones."
+ },
+ "0401729c31ea": {
+  "en": "Investment",
+  "t": "Inversión"
+ },
+ "041fc73ef203": {
+  "en": "These are FiredBunny’s rules of thumb, not facts:",
+  "t": "Estas son reglas prácticas de FiredBunny, no hechos:"
+ },
+ "04c4ff7b425f": {
+  "en": "Illustrative one-year ranges based on past extremes, not forecasts. Tap a row to pick it.",
+  "t": "Rangos ilustrativos a un año basados en extremos pasados, no pronósticos. Toca una fila para elegirla."
+ },
+ "04e5d75d02b6": {
+  "en": "Protecting shares you own. A put locks in a selling price until it expires, in exchange for its premium.",
+  "t": "Para proteger acciones que tienes. Un put asegura un precio de venta hasta que vence, a cambio de su prima."
+ },
+ "04ffad2bc2e4": {
+  "en": "DEMO trades at $50. You buy one $52 call that expires in 30 days for $1.50, which costs $150.",
+  "t": "DEMO está en US$50. Compras un call de US$52 que vence en 30 días por US$1,50, lo que cuesta US$150."
+ },
+ "05145f37e51d": {
+  "en": "Does every contract cover exactly 100 shares?",
+  "t": "¿Todos los contratos cubren exactamente 100 acciones?"
+ },
+ "0538ae3b157b": {
+  "en": "A year later, new 4-year bonds pay 6%. A buyer can now get $60 a year elsewhere.",
+  "t": "Un año después, los bonos nuevos a 4 años pagan 6 %. Ahora un comprador puede conseguir US$60 al año en otra parte."
+ },
+ "07a7ddccf94a": {
+  "en": "Pick 1, 10 or 500 holdings, then crash one company and compare the damage.",
+  "t": "Elige 1, 10 o 500 inversiones, luego hunde una empresa y compara el daño."
+ },
+ "07fa39f6503d": {
+  "en": "The trade-off",
+  "t": "El intercambio"
+ },
+ "082bc378cd60": {
+  "en": "Month",
+  "t": "Mes"
+ },
+ "08d17709795f": {
+  "en": "The yearly fee a fund charges, as a percent of the money you hold in it.",
+  "t": "La comisión anual que cobra un fondo, como porcentaje del dinero que tienes en él."
+ },
+ "08fd282a0b24": {
+  "en": "Selling an index fund during a market drop. The whole market can fall together, and diversification does not prevent that.",
+  "t": "Vender un fondo indexado durante una caída del mercado. Todo el mercado puede caer junto, y la diversificación no lo evita."
+ },
+ "096ff88ac57e": {
+  "en": "Most likely IV crush: the drop in implied volatility after the news removed more value than the stock’s move added. The stock needed to move more than the market had priced in.",
+  "t": "Lo más probable es el desplome de la IV: la caída de la volatilidad implícita después de la noticia quitó más valor del que sumó el movimiento de la acción. La acción necesitaba moverse más de lo que el mercado había descontado."
+ },
+ "09d6698edd8a": {
+  "en": "Owning five funds that all hold the same big companies and calling it diversified.",
+  "t": "Tener cinco fondos que tienen las mismas empresas grandes y llamar a eso diversificación."
+ },
+ "09ef60ac9413": {
+  "en": "The out-of-the-money call is pure time value: {0}.",
+  "t": "El call fuera del dinero es puro valor temporal: {0}."
+ },
+ "0a275d2263f4": {
+  "en": "Options Industry Council: Vega",
+  "t": "Options Industry Council: Vega (en inglés)"
+ },
+ "0adb880835b5": {
+  "en": "If it expires out of the money, it disappears and you lose the premium. If it is in the money by $0.01 or more at expiration, most brokers exercise it automatically, which means you buy (call) or sell (put) 100 shares at the strike, so make sure you have the cash or shares, or sell the option before it expires.",
+  "t": "Si vence fuera del dinero, desaparece y pierdes la prima. Si está dentro del dinero por US$0,01 o más al vencimiento, la mayoría de los brókeres la ejercen automáticamente, lo que significa que compras (call) o vendes (put) 100 acciones al strike, así que asegúrate de tener el efectivo o las acciones, o vende la opción antes de que venza."
+ },
+ "0bd4c228f077": {
+  "en": "Longer maturities mean bigger price swings.",
+  "t": "Plazos más largos significan oscilaciones de precio más grandes."
+ },
+ "0c59c9bd77e2": {
+  "en": "No. Most option buyers sell the option back before expiration to take a profit or cut a loss. Its price changes every day with the stock, time and volatility.",
+  "t": "No. La mayoría de los compradores de opciones las venden antes del vencimiento para tomar una ganancia o cortar una pérdida. Su precio cambia cada día con la acción, el tiempo y la volatilidad."
+ },
+ "0d3a0a8f7387": {
+  "en": "Index funds & ETFs",
+  "t": "Fondos indexados y ETF"
+ },
+ "0dbd53528db3": {
+  "en": "This put is {0}. If the stock rises $1, it loses about {1} ({2} per contract). If the stock falls $1, it gains about that much.",
+  "t": "Este put está {0}. Si la acción sube US$1, pierde cerca de {1} ({2} por contrato). Si la acción baja US$1, gana más o menos lo mismo."
+ },
+ "0e762b725272": {
+  "en": "Breakeven = strike + premium for a call, strike − premium for a put.",
+  "t": "Punto de equilibrio = strike + prima para un call, strike − prima para un put."
+ },
+ "0ec5a8e75a2d": {
+  "en": "Price zones for a {0} with strike {1} and breakeven {2}.",
+  "t": "Zonas de precio para un {0} con strike {1} y punto de equilibrio {2}."
+ },
+ "0fe568c46d58": {
+  "en": "Seesaw: market rate {0} versus bond price {1}, with the bond's cash flows below.",
+  "t": "Balancín: tasa del mercado {0} frente al precio del bono {1}, con los flujos de caja del bono abajo."
+ },
+ "0fe68c5c9d49": {
+  "en": "Buyer vs seller",
+  "t": "Comprador frente a vendedor"
+ },
+ "10179a17eb5b": {
+  "en": "Slide the stock price, days and volatility, or drag across the chart. Watch the markers ride the curves.",
+  "t": "Mueve el precio de la acción, los días y la volatilidad, o arrastra sobre el gráfico. Mira cómo los marcadores recorren las curvas."
+ },
+ "10b37999cb1b": {
+  "en": "<b>No earnings report before expiration</b>, unless you accept a possible gap. Premiums are richer before earnings because a bigger move is expected (see <a href=\\\"#l-iv-crush\\\">IV crush</a>).",
+  "t": "<b>Ningún informe de resultados antes del vencimiento</b>, a menos que aceptes un posible gap. Las primas son más altas antes de los resultados porque se espera un movimiento más grande (mira <a href=\"#l-iv-crush\">El desplome de la IV</a>)."
+ },
+ "1128990bda35": {
+  "en": "Ignoring a wide bid-ask spread. A $0.30 spread on a $1.00 option costs about 30% to get in and back out.",
+  "t": "Ignorar un diferencial amplio entre la compra y la venta. Un diferencial de US$0,30 en una opción de US$1,00 cuesta cerca del 30 % entre entrar y salir."
+ },
+ "11e6e84ece07": {
+  "en": ", {0} below today's price.",
+  "t": ", {0} por debajo del precio de hoy."
+ },
+ "11f8a97f0175": {
+  "en": "When a borrower fails to pay interest or return the face value.",
+  "t": "Cuando un emisor no paga los intereses o no devuelve el valor nominal."
+ },
+ "1234d16129b2": {
+  "en": "Straddle",
+  "t": "Straddle"
+ },
+ "12dc8c7f427f": {
+  "en": "Intrinsic value: $103 − $100 = $3.00. That part is real right now.",
+  "t": "Valor intrínseco: US$103 − US$100 = US$3,00. Esa parte es real ahora mismo."
+ },
+ "12e827fb5479": {
+  "en": "That is an index on 500 companies with no trading costs or taxes. A wheel on one stock is far less spread out, and one crash can undo years of premium. Read the record as evidence that put-selling smooths the ride, not that it beats owning the shares. In a strong rally the wheel falls behind, because the covered call caps your gain.",
+  "t": "Eso es un índice sobre 500 empresas sin costos de negociación ni impuestos. Una rueda sobre una sola acción está mucho menos repartida, y un desplome puede deshacer años de primas. Lee ese registro como evidencia de que vender puts suaviza el camino, no de que le gana a tener las acciones. En una subida fuerte la rueda se queda atrás, porque el covered call le pone tope a tu ganancia."
+ },
+ "135e6c674abc": {
+  "en": "You pay {0} for the right to buy 100 shares at {1}. You profit if the stock finishes above {2}. The most you can lose is the {3} you paid.",
+  "t": "Pagas {0} por el derecho a comprar 100 acciones a {1}. Ganas si la acción termina por encima de {2}. Lo máximo que puedes perder son los {3} que pagaste."
+ },
+ "13c883250011": {
+  "en": "New bonds pay {0}, more than this bond's {1}. Nobody pays full price for the lower coupon, so its price falls to {2}, where a buyer still earns {3} a year.",
+  "t": "Los bonos nuevos pagan {0}, más que el {1} de este bono. Nadie paga el precio completo por el cupón más bajo, así que su precio cae a {2}, donde un comprador igual gana {3} al año."
+ },
+ "14b5c4e1821a": {
+  "en": "<b>The covered call’s strike</b> is the price you agree to sell your shares at. Keep it above your cost basis, or a rally locks in a loss.",
+  "t": "<b>El strike del covered call</b> es el precio al que aceptas vender tus acciones. Mantenlo por encima de tu costo base, o una subida te deja una pérdida asegurada."
+ },
+ "158e67ca2620": {
+  "en": "<b>Step two:</b> if the stock falls below the strike, you are <b>assigned</b> and buy 100 shares at the strike. Your real cost is lower because you kept the premium.",
+  "t": "<b>Paso dos:</b> si la acción cae por debajo del strike, te <b>asignan</b> y compras 100 acciones al strike. Tu costo real es más bajo porque te quedaste con la prima."
+ },
+ "15f17c24ab64": {
+  "en": "<b>Bought options have positive gamma</b>: a winning call’s delta rises toward 1, so gains speed up, and a losing call’s delta falls toward 0, so losses slow down. <b>Sold options have negative gamma</b>, so the opposite happens: losses speed up as the stock moves against the seller. That is why short options near the strike in the final days of their life can swing hard.",
+  "t": "<b>Las opciones compradas tienen gamma positiva</b>: la delta de un call ganador sube hacia 1, así que las ganancias se aceleran, y la delta de un call perdedor baja hacia 0, así que las pérdidas se frenan. <b>Las opciones vendidas tienen gamma negativa</b>, así que pasa lo contrario: las pérdidas se aceleran cuando la acción se mueve en contra del vendedor. Por eso las opciones vendidas cerca del strike en sus últimos días pueden oscilar fuerte."
+ },
+ "16c63a7e3a9e": {
+  "en": "NYU Stern (Damodaran): S&P 500 returns by year, 1928-2025 (2008: −36.6%; 1931: −43.8%)",
+  "t": "NYU Stern (Damodaran): rentabilidad del S&P 500 por año, 1928-2025 (2008: −36,6 %; 1931: −43,8 %; en inglés)"
+ },
+ "16c7767caf2c": {
+  "en": "Buy more time than you think you need, avoid holding through the final weeks without a reason, and set a time stop: if the move hasn’t come by a set date, close the trade.",
+  "t": "Compra más tiempo del que crees que necesitas, evita aguantar las últimas semanas sin una razón y pon un stop de tiempo: si el movimiento no ha llegado para una fecha fija, cierra la operación."
+ },
+ "16e6e60ed16c": {
+  "en": "YOUR SHARES",
+  "t": "TUS ACCIONES"
+ },
+ "17068c1de8fb": {
+  "en": "You sell for a loss of about $1.25 per share, or $125 per contract, after guessing the direction right.",
+  "t": "Vendes con una pérdida de unos US$1,25 por acción, o US$125 por contrato, después de adivinar bien la dirección."
+ },
+ "1734eaf38265": {
+  "en": "Theta: time decay",
+  "t": "Theta: el desgaste por el tiempo"
+ },
+ "17b2b3c52772": {
+  "en": "← call assigned",
+  "t": "← call asignado"
+ },
+ "184ad8d1bae1": {
+  "en": "keep shares + premium",
+  "t": "te quedas con las acciones + la prima"
+ },
+ "1855bdcfdcb7": {
+  "en": "Selling options because they usually expire worthless, without planning for the big move.",
+  "t": "Vender opciones porque por lo general vencen sin valor, sin planear para el movimiento grande."
+ },
+ "19755499261c": {
+  "en": "put assigned →",
+  "t": "put asignado →"
+ },
+ "1ad61a79c393": {
+  "en": "Lend money, earn fixed interest, and why prices fall when rates rise.",
+  "t": "Prestar dinero, ganar un interés fijo, y por qué los precios caen cuando suben las tasas."
+ },
+ "1af209c3d1dc": {
+  "en": "Only options",
+  "t": "Solo las opciones"
+ },
+ "1afa0f122549": {
+  "en": "An index of about 500 large US companies, often used as a measure of the whole US market.",
+  "t": "Un índice de unas 500 empresas grandes de EE. UU., que se usa a menudo como medida de todo el mercado estadounidense."
+ },
+ "1bb58e8ae098": {
+  "en": "It rises",
+  "t": "Sube"
+ },
+ "1c42b6130138": {
+  "en": "<b>Find the zero crossing.</b> That is the breakeven. The distance from today’s price tells you how far the stock must move for the trade to pay.",
+  "t": "<b>Busca el cruce por cero.</b> Ese es el punto de equilibrio. La distancia desde el precio de hoy te dice cuánto tiene que moverse la acción para que la operación pague."
+ },
+ "1cb476495c5a": {
+  "en": "Theta and gamma come as a pair. A bought option pays theta every day in exchange for positive gamma, the chance that a big move speeds up gains. A sold option collects theta in exchange for negative gamma, the risk that a big move speeds up losses. Neither side gets something for nothing.",
+  "t": "La theta y la gamma vienen en pareja. Una opción comprada paga theta cada día a cambio de gamma positiva, la posibilidad de que un movimiento grande acelere las ganancias. Una opción vendida cobra theta a cambio de gamma negativa, el riesgo de que un movimiento grande acelere las pérdidas. Ningún lado recibe algo a cambio de nada."
+ },
+ "1d2c17114314": {
+  "en": "Putting all your cash into one wheel. One crash can tie up the whole account.",
+  "t": "Meter todo tu efectivo en una sola rueda. Un desplome puede amarrar toda la cuenta."
+ },
+ "1d67b6a7841e": {
+  "en": "Sell puts, maybe get shares, sell calls, repeat. Collect premium each turn.",
+  "t": "Vende puts, quizás recibes acciones, vende calls, repite. Cobra prima en cada vuelta."
+ },
+ "1eab3ed4eefa": {
+  "en": "At-the-money options have the most time value, so they lose the most dollars to decay. Deep in-the-money and far out-of-the-money options have little time value left, so they decay less in dollars, even though a cheap out-of-the-money option can lose a large share of its price.",
+  "t": "Las opciones en el dinero tienen el mayor valor temporal, así que pierden más dólares por el desgaste. Las opciones muy dentro del dinero y muy fuera del dinero tienen poco valor temporal, así que se desgastan menos en dólares, aunque una opción barata fuera del dinero puede perder una parte grande de su precio."
+ },
+ "1f70432857e9": {
+  "en": "<b>Delta</b> runs from 0 to 1 for calls and from 0 to −1 for puts. A call with delta 0.50 gains about $0.50 per share ($50 per contract) when the stock rises $1. Traders also read delta as a rough chance the option finishes in the money.",
+  "t": "La <b>delta</b> va de 0 a 1 para los calls y de 0 a −1 para los puts. Un call con delta de 0,50 gana unos US$0,50 por acción (US$50 por contrato) cuando la acción sube US$1. Los traders también leen la delta como una probabilidad aproximada de que la opción termine dentro del dinero."
+ },
+ "1f741cc230ad": {
+  "en": "Vega shows how much the price changes per 1 point of IV.",
+  "t": "La vega muestra cuánto cambia el precio por cada punto de IV."
+ },
+ "1f7591b39e46": {
+  "en": "Your $10,000 split across {0} companies. Portfolio value {1}.",
+  "t": "Tus US$10.000 repartidos en {0} empresas. Valor del portafolio: {1}."
+ },
+ "20b81c6c4a46": {
+  "en": "fast decay",
+  "t": "desgaste rápido"
+ },
+ "215dd698e503": {
+  "en": "<b>Step one:</b> with enough cash to buy 100 shares, sell a <b>cash-secured put</b>. If the stock stays above the strike, you keep the premium and do it again.",
+  "t": "<b>Paso uno:</b> con suficiente efectivo para comprar 100 acciones, vende un <b>put asegurado con efectivo</b>. Si la acción se queda por encima del strike, te quedas con la prima y lo vuelves a hacer."
+ },
+ "223889cd7ba6": {
+  "en": "You split $20,000: $4,000 cash, $4,000 bonds, $10,000 in an index fund, $1,500 across two stocks and $500 for options.",
+  "t": "Repartes US$20.000: US$4.000 en efectivo, US$4.000 en bonos, US$10.000 en un fondo indexado, US$1.500 entre dos acciones y US$500 para opciones."
+ },
+ "22a51d4c531d": {
+  "en": "In the US, nearly all of it is short-term gain, taxed at your ordinary income rate. Premium is taxed when the option ends, not when you collect it, and assignment folds it into the share price. <a href=\\\"#l-wheel-tax\\\">How the wheel is taxed</a> walks through each case.",
+  "t": "En EE. UU., casi todo es ganancia de corto plazo, que paga impuesto a tu tarifa de ingresos ordinarios. La prima paga impuesto cuando la opción termina, no cuando la cobras, y la asignación la suma al precio de las acciones. <a href=\"#l-wheel-tax\">Cómo pagan impuestos las operaciones de la rueda</a> explica cada caso."
+ },
+ "22d16953fc7b": {
+  "en": "Sell a call (without the shares)",
+  "t": "Vender un call (sin las acciones)"
+ },
+ "22fbffcf3948": {
+  "en": "Size each rung so a bad year cannot wreck you.",
+  "t": "Dimensiona cada escalón para que un mal año no te destruya."
+ },
+ "23d11dd0d340": {
+  "en": "A year later the price is $46. Your shares are worth $460: a $60 gain on top of the $5 of dividends.",
+  "t": "Un año después el precio es US$46. Tus acciones valen US$460: una ganancia de US$60 además de los US$5 de dividendos."
+ },
+ "24a3d9a9d02b": {
+  "en": "Owning 100 shares and selling a call against them (a covered call) has nearly the same payoff as selling a put at the same strike with cash set aside: a capped gain above the strike and a loss that grows as the stock falls. That is why the two halves of the <a href=\\\"#l-wheel\\\">wheel</a> feel so similar. The difference is what you hold while you wait, shares or cash.",
+  "t": "Tener 100 acciones y venderles un call encima (un covered call) tiene casi el mismo pago que vender un put al mismo strike con el efectivo separado: una ganancia con tope por encima del strike y una pérdida que crece a medida que la acción cae. Por eso las dos mitades de la <a href=\"#l-wheel\">rueda</a> se sienten tan parecidas. La diferencia es lo que tienes mientras esperas: acciones o efectivo."
+ },
+ "26251c958ad8": {
+  "en": "Before earnings, option prices are pumped up by expected volatility. After the news, that air comes out.",
+  "t": "Antes de los resultados trimestrales, los precios de las opciones se inflan por la volatilidad esperada. Después de la noticia, ese aire se sale."
+ },
+ "26c8e92184ce": {
+  "en": "Do I have to hold an option until it expires?",
+  "t": "¿Tengo que mantener una opción hasta que venza?"
+ },
+ "26ce1153d4af": {
+  "en": "Year {0}",
+  "t": "Año {0}"
+ },
+ "26e49270d472": {
+  "en": "<b>Theta</b> is how much value an option loses per day if nothing else changes. A theta of −0.05 means about $5 per contract per day.",
+  "t": "La <b>theta</b> es cuánto valor pierde una opción al día si nada más cambia. Una theta de −0,05 significa unos US$5 por contrato al día."
+ },
+ "2717b75bb440": {
+  "en": "The strike minus the premium, times 100 (the stock can fall to zero)",
+  "t": "El strike menos la prima, por 100 (la acción puede caer a cero)"
+ },
+ "27d5a240584c": {
+  "en": "A bond is a loan you make. It pays fixed interest, and its price moves opposite to interest rates.",
+  "t": "Un bono es un préstamo que tú haces. Paga un interés fijo, y su precio se mueve al contrario de las tasas de interés."
+ },
+ "28289bf9fdda": {
+  "en": "Delta & gamma",
+  "t": "Delta y gamma"
+ },
+ "29356eb5669e": {
+  "en": "For a bought option it is a daily loss. For a seller the same decay is a daily gain, so a short option’s theta works in the seller’s favour.",
+  "t": "Para una opción comprada es una pérdida diaria. Para un vendedor, ese mismo desgaste es una ganancia diaria, así que la theta de una opción vendida juega a favor del vendedor."
+ },
+ "293789e12225": {
+  "en": "What is the most a put seller can lose?",
+  "t": "¿Qué es lo máximo que puede perder quien vende un put?"
+ },
+ "2995aa9766fb": {
+  "en": "It stays at $1,000",
+  "t": "Se queda en US$1.000"
+ },
+ "29bb6d9be5a6": {
+  "en": "How is wheel income taxed?",
+  "t": "¿Cómo pagan impuestos los ingresos de la rueda?"
+ },
+ "29c4190c8b15": {
+  "en": "Is an in-the-money option a better buy?",
+  "t": "¿Una opción dentro del dinero es mejor compra?"
+ },
+ "2a3519f53537": {
+  "en": "Share-equivalents",
+  "t": "Equivalente en acciones"
+ },
+ "2b3dc98e0493": {
+  "en": "Diversification does not stop the whole market from falling together. It removes the risk of one company sinking you, which is why index funds sit at the core of most long-term portfolios.",
+  "t": "La diversificación no impide que todo el mercado caiga junto. Quita el riesgo de que una sola empresa te hunda, por eso los fondos indexados son el centro de la mayoría de los portafolios de largo plazo."
+ },
+ "2b5ed96d7c70": {
+  "en": "SEC Investor.gov: Mutual funds and ETFs",
+  "t": "SEC Investor.gov: Mutual funds and ETFs (en inglés)"
+ },
+ "2bd80b2c826d": {
+  "en": "Delta runs from 0 to 1 for calls and from 0 to −1 for puts (puts lose value when the stock rises). Typical values:",
+  "t": "La delta va de 0 a 1 para los calls y de 0 a −1 para los puts (los puts pierden valor cuando la acción sube). Valores típicos:"
+ },
+ "2be98071ac88": {
+  "en": "Rates up means existing bond prices down, and the reverse.",
+  "t": "Tasas al alza significa precios de los bonos existentes a la baja, y al revés."
+ },
+ "2c40d85826e8": {
+  "en": "Highest",
+  "t": "La más alta"
+ },
+ "2c445dd5994f": {
+  "en": "Before you start",
+  "t": "Antes de empezar"
+ },
+ "2d098197485f": {
+  "en": "Is high IV good or bad?",
+  "t": "¿Una IV alta es buena o mala?"
+ },
+ "2d95954d1736": {
+  "en": "A fall of 20% or more from a recent high in a broad market index.",
+  "t": "Una caída del 20 % o más desde un máximo reciente en un índice amplio del mercado."
+ },
+ "2de07171f0cc": {
+  "en": "Cash, bonds, funds, stocks and options ranked from calm to wild.",
+  "t": "Efectivo, bonos, fondos, acciones y opciones, de lo más tranquilo a lo más salvaje."
+ },
+ "2e8249484cb3": {
+  "en": "Not better, different. It costs more, moves more like the stock and loses less to time, but you have more money at risk.",
+  "t": "No es mejor, es distinta. Cuesta más, se mueve más parecido a la acción y pierde menos por el tiempo, pero tienes más dinero en riesgo."
+ },
+ "2eee44e9ebc4": {
+  "en": "A call and a put at the same strike. Its price shows roughly how big a move the market expects.",
+  "t": "Un call y un put al mismo strike. Su precio muestra más o menos qué tan grande es el movimiento que espera el mercado."
+ },
+ "2f083d418410": {
+  "en": "The $100 call",
+  "t": "El call de US$100"
+ },
+ "2f8a9fd009c8": {
+  "en": "Bonds",
+  "t": "Bonos"
+ },
+ "2f92a0aa8ae9": {
+  "en": "Weekends",
+  "t": "Fines de semana"
+ },
+ "30585e8c4378": {
+  "en": "The risk ladder",
+  "t": "La escalera de riesgo"
+ },
+ "3167147548f1": {
+  "en": "100 shares per contract, and what in, at and out of the money mean.",
+  "t": "100 acciones por contrato, y qué significa dentro, en y fuera del dinero."
+ },
+ "34176afebee0": {
+  "en": "YOUR SLICE",
+  "t": "TU PORCIÓN"
+ },
+ "3491c4b75324": {
+  "en": "An index fund holds hundreds of companies, so one company’s disaster barely dents your money.",
+  "t": "Un fondo indexado tiene cientos de empresas, así que el desastre de una sola casi no toca tu dinero."
+ },
+ "34ab8b35370c": {
+  "en": "Call or put",
+  "t": "Call o put"
+ },
+ "3526cba0f88e": {
+  "en": "If DEMO is at $100 and the straddle costs $10, the options price in a move of roughly 10% either way. A bought call or put needs a move bigger than that to profit after the IV drop.",
+  "t": "Si DEMO está en US$100 y el straddle cuesta US$10, las opciones descuentan un movimiento de más o menos 10 % hacia cualquier lado. Un call o un put comprado necesita un movimiento más grande que ese para ganar después de la caída de la IV."
+ },
+ "35a144267ef1": {
+  "en": "Options Industry Council: Theta",
+  "t": "Options Industry Council: Theta (en inglés)"
+ },
+ "35a4676bbd32": {
+  "en": "Sell put",
+  "t": "Vender put"
+ },
+ "35f076c1c5f0": {
+  "en": "A share is a slice of ownership in a real business.",
+  "t": "Una acción es una porción de la propiedad de un negocio real."
+ },
+ "367c1dbd9d9b": {
+  "en": "What a stock is",
+  "t": "Qué es una acción"
+ },
+ "36dfcc01acea": {
+  "en": "Loses time value slowly",
+  "t": "Pierde valor temporal lentamente"
+ },
+ "379b9897c814": {
+  "en": "Pick a scenario above to look",
+  "t": "Elige un escenario arriba para mirar"
+ },
+ "37d98fac257c": {
+  "en": "Bonds & interest rates",
+  "t": "Bonos y tasas de interés"
+ },
+ "3873fdd30262": {
+  "en": "Multiply by 100 for one contract.",
+  "t": "Multiplica por 100 para un contrato."
+ },
+ "399cc2fe8e88": {
+  "en": "Strike − premium",
+  "t": "Strike − prima"
+ },
+ "39dbf8332849": {
+  "en": "Selling premium into earnings with too much size. A surprise gap can be several times the expected move.",
+  "t": "Vender prima antes de los resultados con un tamaño demasiado grande. Un gap sorpresa puede ser varias veces el movimiento esperado."
+ },
+ "39e37f496e28": {
+  "en": "Read any option trade in one chart: profit, loss and breakeven.",
+  "t": "Lee cualquier operación con opciones en un solo gráfico: ganancia, pérdida y punto de equilibrio."
+ },
+ "3b39fb990961": {
+  "en": "Time value shrinks to zero by expiration. On the last day an option is worth only its intrinsic value, which is why an option bought with only time value needs the stock to move.",
+  "t": "El valor temporal se encoge hasta cero al vencimiento. El último día, una opción solo vale su valor intrínseco; por eso una opción comprada que solo tiene valor temporal necesita que la acción se mueva."
+ },
+ "3b59ab5b504c": {
+  "en": "Before expiration an option holds time value, so its value changes smoothly with the stock instead of in a sharp corner at the strike.",
+  "t": "Antes del vencimiento una opción tiene valor temporal, así que su valor cambia suavemente con la acción en vez de hacer una esquina marcada en el strike."
+ },
+ "3b6721b43f04": {
+  "en": "Delta ≈ dollars the option moves per $1 in the stock, per share.",
+  "t": "Delta ≈ dólares que se mueve la opción por cada US$1 de la acción, por acción."
+ },
+ "3bde9461e940": {
+  "en": "Time decay accelerates as expiration gets close.",
+  "t": "El desgaste por el tiempo se acelera a medida que se acerca el vencimiento."
+ },
+ "3c3765cbad27": {
+  "en": "Neither. It makes options expensive, which helps sellers collect more and hurts buyers who need a bigger move. It also signals that a bigger move is expected.",
+  "t": "Ninguna de las dos. Encarece las opciones, lo que ayuda a los vendedores a cobrar más y perjudica a los compradores que necesitan un movimiento más grande. También indica que se espera un movimiento más grande."
+ },
+ "3c38ea581bf3": {
+  "en": "10,000 ÷ 1,000,000 = 0.01, which is 1%.",
+  "t": "10.000 ÷ 1.000.000 = 0,01, que es el 1 %."
+ },
+ "3c8c4bd6f070": {
+  "en": "Four shapes",
+  "t": "Cuatro formas"
+ },
+ "3db765f629df": {
+  "en": "Strike and expiration",
+  "t": "Strike y vencimiento"
+ },
+ "3e6f1829548c": {
+  "en": "Vega estimates how much an option’s price changes for each 1-point change in implied volatility. The Options Industry Council’s example: a call with a vega of 0.15 gains about $0.30 if IV rises 2 points. Longer-dated options have more vega than near-term ones.",
+  "t": "La vega estima cuánto cambia el precio de una opción por cada punto de cambio en la volatilidad implícita. El ejemplo del Options Industry Council: un call con vega de 0,15 gana unos US$0,30 si la IV sube 2 puntos. Las opciones de plazo más largo tienen más vega que las de corto plazo."
+ },
+ "3e74ed4ccbbd": {
+  "en": "To profit from buying options into earnings, the stock has to move more than the market already expected. Sellers aim to collect that inflated premium instead, and accept the risk of a huge move.",
+  "t": "Para ganar comprando opciones antes de los resultados, la acción tiene que moverse más de lo que el mercado ya esperaba. Los vendedores buscan más bien cobrar esa prima inflada, y aceptan el riesgo de un movimiento enorme."
+ },
+ "3e93d26e6329": {
+  "en": "Call $",
+  "t": "Call US$"
+ },
+ "3e95d268cc6f": {
+  "en": "Buy a call",
+  "t": "Comprar un call"
+ },
+ "3ef40360664c": {
+  "en": "You collect {0} for agreeing to sell your shares at {1}. That is {2} of their value ({3} a year if repeated). If the shares are called away, the trade makes {4} versus your {5} cost.",
+  "t": "Recibes {0} por aceptar vender tus acciones a {1}. Eso es {2} de su valor ({3} al año si lo repites). Si te compran las acciones, la operación gana {4} frente a tu costo de {5}."
+ },
+ "3f010c4634b8": {
+  "en": "one year ahead.",
+  "t": "un año adelante."
+ },
+ "3ff422f14a81": {
+  "en": "PRICE, NEXT 12 MONTHS",
+  "t": "PRECIO, PRÓXIMOS 12 MESES"
+ },
+ "40666320c5dc": {
+  "en": "Must sell 100 shares at the strike if assigned. Wants the stock to stay below the strike.",
+  "t": "Debe vender 100 acciones al strike si lo asignan. Quiere que la acción se quede por debajo del strike."
+ },
+ "40f9155a487b": {
+  "en": "Face value",
+  "t": "Valor nominal"
+ },
+ "414030a64771": {
+  "en": "You bought and sold at $38, so the profit is the two premiums: $170 on $3,800 over two months.",
+  "t": "Compraste y vendiste a US$38, así que la ganancia son las dos primas: US$170 sobre US$3.800 en dos meses."
+ },
+ "4186c93a90f9": {
+  "en": "Buyer",
+  "t": "Comprador"
+ },
+ "42125cf1bbf9": {
+  "en": "Forgetting the ×100. A $1.50 quote costs $150 per contract, not $1.50.",
+  "t": "Olvidar el ×100. Una cotización de US$1,50 cuesta US$150 por contrato, no US$1,50."
+ },
+ "42237ffd344a": {
+  "en": "Enough cash to buy 100 shares at the strike you sell, because one option contract covers 100 shares. A $38 strike needs $3,800. Lower-priced stocks and funds need less.",
+  "t": "Suficiente efectivo para comprar 100 acciones al strike que vendes, porque un contrato de opciones cubre 100 acciones. Un strike de US$38 necesita US$3.800. Las acciones y los fondos de precio más bajo necesitan menos."
+ },
+ "42b89af7f23e": {
+  "en": "Delta estimates how much an option’s price changes when the stock moves $1: a delta of 0.50 means about $50 per contract. Gamma estimates how much delta itself changes for each $1 move. Both are highest, and change fastest, when the stock is near the strike close to expiration.",
+  "t": "La delta estima cuánto cambia el precio de una opción cuando la acción se mueve US$1: una delta de 0,50 significa unos US$50 por contrato. La gamma estima cuánto cambia la propia delta por cada movimiento de US$1. Las dos son más altas, y cambian más rápido, cuando la acción está cerca del strike y cerca del vencimiento."
+ },
+ "4525442af5ad": {
+  "en": "IV & earnings",
+  "t": "La IV y los resultados"
+ },
+ "45498d745b03": {
+  "en": "In the money by $3",
+  "t": "Dentro del dinero por US$3"
+ },
+ "47346bb21fc0": {
+  "en": "Quote × 100 = the cost of one contract.",
+  "t": "Cotización × 100 = el costo de un contrato."
+ },
+ "473ab7f94b6d": {
+  "en": "Two dollars in the stock added about $1.08 to the option, $108 per contract, a 27% gain on $400.",
+  "t": "Dos dólares en la acción le sumaron cerca de US$1,08 a la opción, US$108 por contrato: una ganancia del 27 % sobre US$400."
+ },
+ "47460915a4de": {
+  "en": "Because one contract covers 100 shares, small-looking quotes add up. A $0.40 option costs $40; ten contracts cost $400 and control 1,000 shares. A seller of one $50 put has agreed to buy $5,000 of stock. Always multiply by 100 before deciding a trade is small.",
+  "t": "Como un contrato cubre 100 acciones, las cotizaciones que parecen pequeñas suman. Una opción de US$0,40 cuesta US$40; diez contratos cuestan US$400 y controlan 1.000 acciones. Quien vende un put de US$50 se comprometió a comprar US$5.000 en acciones. Siempre multiplica por 100 antes de decidir que una operación es pequeña."
+ },
+ "47d55d2a4bb0": {
+  "en": "Option values shrinking as expiration nears. {0} days left.",
+  "t": "Valores de opciones que se encogen a medida que se acerca el vencimiento. Quedan {0} días."
+ },
+ "48a19779c346": {
+  "en": "Switch between buying and selling calls and puts. Hover, tap or drag across the chart to read the result at any price.",
+  "t": "Cambia entre comprar y vender calls y puts. Pasa el cursor, toca o arrastra sobre el gráfico para leer el resultado a cualquier precio."
+ },
+ "4939141c2f68": {
+  "en": "A call is ITM when the stock is above its strike, and $103 is above $100.",
+  "t": "Un call está ITM cuando la acción está por encima de su strike, y US$103 está por encima de US$100."
+ },
+ "495d538ff8d3": {
+  "en": "Chasing the highest yield without checking who is borrowing. A higher yield usually means a higher risk of default.",
+  "t": "Perseguir el rendimiento más alto sin revisar quién está pidiendo prestado. Un rendimiento más alto suele significar un riesgo de incumplimiento más alto."
+ },
+ "4a06ea399311": {
+  "en": "A company can go bankrupt and an option can expire worthless.",
+  "t": "Una empresa puede quebrar y una opción puede vencer sin valor."
+ },
+ "4a1e7c6daaa0": {
+  "en": "The dashed line shows the same trade valued today. It is smoother because the option still holds some time value.",
+  "t": "La línea punteada muestra la misma operación valorada hoy. Es más suave porque la opción todavía tiene algo de valor temporal."
+ },
+ "4a82999c0f6f": {
+  "en": "A well-timed option can return several times its cost. That is why people chase them, and why most lose.",
+  "t": "Una opción en el momento justo puede devolver varias veces lo que costó. Por eso la gente las persigue, y por eso la mayoría pierde."
+ },
+ "4b1e7b995201": {
+  "en": "Forgetting that delta changes as the stock moves. Gamma makes it speed up or slow down.",
+  "t": "Olvidar que la delta cambia cuando la acción se mueve. La gamma hace que se acelere o se frene."
+ },
+ "4b3dadae7943": {
+  "en": "Contract size",
+  "t": "Tamaño del contrato"
+ },
+ "4b4f3008a357": {
+  "en": "Options on US stocks can be exercised on any trading day, so a seller can be assigned before expiration, not only at the end. Early assignment is more likely when the option is in the money and most of its time value has gone. For a covered call, the risky moment is just before the stock’s ex-dividend date: if the dividend is bigger than the call’s remaining time value, the buyer has a reason to exercise the day before, and you give up both the shares and the dividend.",
+  "t": "Las opciones sobre acciones de EE. UU. se pueden ejercer cualquier día de negociación, así que a un vendedor lo pueden asignar antes del vencimiento, no solo al final. La asignación anticipada es más probable cuando la opción está dentro del dinero y ya se fue la mayor parte de su valor temporal. En un covered call, el momento riesgoso es justo antes de la fecha ex-dividendo de la acción: si el dividendo es más grande que el valor temporal que le queda al call, el comprador tiene una razón para ejercer el día antes, y pierdes tanto las acciones como el dividendo."
+ },
+ "4b8e4acd4aa1": {
+  "en": "If you would rather not buy the shares yet, or not give them up, you can buy back the option you sold and sell a new one with a later expiration, often at a different strike. That is called rolling.",
+  "t": "Si prefieres no comprar las acciones todavía, o no entregarlas, puedes recomprar la opción que vendiste y vender una nueva con un vencimiento posterior, a menudo con otro strike. Eso se llama renovar o hacer rolling."
+ },
+ "4b92dff1e46d": {
+  "en": "Each seller’s line is the buyer’s line flipped upside down: what one side makes, the other side loses.",
+  "t": "La línea de cada vendedor es la línea del comprador volteada: lo que un lado gana, el otro lo pierde."
+ },
+ "4c1fd321030e": {
+  "en": "Choosing a broker",
+  "t": "Cómo escoger un bróker"
+ },
+ "4d4a349c7afc": {
+  "en": "About 0.25",
+  "t": "Cerca de 0,25"
+ },
+ "4d60c0b4dd51": {
+  "en": "Why an option can lose money even when the stock moves your way.",
+  "t": "Por qué una opción puede perder plata aunque la acción se mueva a tu favor."
+ },
+ "4dd4ce022b2b": {
+  "en": "Losses: bonds $400, index fund $3,000, the stock $450 and the options $500. That is $4,350 in total.",
+  "t": "Pérdidas: bonos US$400, fondo indexado US$3.000, la acción US$450 y las opciones US$500. Son US$4.350 en total."
+ },
+ "4e3a2a221c2c": {
+  "en": "No trades yet. Your trade log appears here.",
+  "t": "Todavía no hay operaciones. Tu registro de operaciones aparece aquí."
+ },
+ "4e8b212dbf8c": {
+  "en": "The premium paid",
+  "t": "La prima pagada"
+ },
+ "4ed7445f7aef": {
+  "en": "above {0}",
+  "t": "por encima de {0}"
+ },
+ "4f5d4c0f269a": {
+  "en": "Lose the premium",
+  "t": "Pierdes la prima"
+ },
+ "4f8881fac930": {
+  "en": "DEMO trades at $50. You sell one $47 put expiring in 30 days for $1.00 and collect $100.",
+  "t": "DEMO está en US$50. Vendes un put de US$47 que vence en 30 días por US$1,00 y recibes US$100."
+ },
+ "501d7f413707": {
+  "en": "Profit: $400 − $150 = $250. Had DEMO finished below $52, the call would have expired worthless and you would have lost the $150.",
+  "t": "Ganancia: US$400 − US$150 = US$250. Si DEMO hubiera terminado por debajo de US$52, el call habría vencido sin valor y habrías perdido los US$150."
+ },
+ "50845ee9c1ea": {
+  "en": "A bond is a loan with fixed interest payments.",
+  "t": "Un bono es un préstamo con pagos de interés fijos."
+ },
+ "5104a37a85ae": {
+  "en": "With 10 days left the call is worth about $1.85 and theta is close to −0.09, so each flat day now costs about $9.",
+  "t": "Cuando quedan 10 días, el call vale unos US$1,85 y la theta está cerca de −0,09, así que cada día plano ahora cuesta unos US$9."
+ },
+ "510730f25566": {
+  "en": "This bond pays {0}: {1} a year",
+  "t": "Este bono paga {0}: {1} al año"
+ },
+ "51a041daf191": {
+  "en": "<b>A share price your account can carry.</b> One put ties up 100 times the strike in cash: $3,800 for a $38 strike, $20,000 for a $200 strike.",
+  "t": "<b>Un precio por acción que tu cuenta aguante.</b> Un put amarra 100 veces el strike en efectivo: US$3.800 para un strike de US$38, US$20.000 para un strike de US$200."
+ },
+ "51edb6b010ef": {
+  "en": "Buying a company you cannot explain in one sentence just because its price is moving.",
+  "t": "Comprar una empresa que no puedes explicar en una frase solo porque su precio se está moviendo."
+ },
+ "52007690188e": {
+  "en": "90 to 60",
+  "t": "De 90 a 60"
+ },
+ "52668177a4cc": {
+  "en": "Time stop",
+  "t": "Stop de tiempo"
+ },
+ "52be9fc20644": {
+  "en": "<b>Step three:</b> sell a <b>covered call</b> above your cost. If the stock rises past the strike, your shares are sold and you are back to cash. If not, keep the premium and sell another call.",
+  "t": "<b>Paso tres:</b> vende un <b>covered call</b> por encima de tu costo. Si la acción sube más allá del strike, venden tus acciones y vuelves al efectivo. Si no, te quedas con la prima y vendes otro call."
+ },
+ "5353fcf67486": {
+  "en": "YOUR $10,000, SPLIT EQUALLY",
+  "t": "TUS US$10.000, REPARTIDOS EN PARTES IGUALES"
+ },
+ "5375833002e1": {
+  "en": "You pay {0} for {1} {2}{3}",
+  "t": "Pagas {0} por {1} {2}{3}"
+ },
+ "5392a3c4e221": {
+  "en": "Holding a losing option with no time stop and letting theta finish it off.",
+  "t": "Aguantar una opción perdedora sin stop de tiempo y dejar que la theta la remate."
+ },
+ "54547249fcf7": {
+  "en": "Total return: $65 on $400, or 16.25%. If the price had fallen to $34 instead, you would be down $60 before dividends.",
+  "t": "Rentabilidad total: US$65 sobre US$400, o 16,25 %. Si el precio hubiera caído a US$34, irías perdiendo US$60 antes de dividendos."
+ },
+ "54dead538525": {
+  "en": "An option’s price has two parts. <b>Intrinsic value</b> is what it is worth if used right now. <b>Time value</b> is the extra people pay for the chance it moves further before expiration. OTM options are pure time value.",
+  "t": "El precio de una opción tiene dos partes. El <b>valor intrínseco</b> es lo que vale si se usa ahora mismo. El <b>valor temporal</b> es lo extra que la gente paga por la posibilidad de que se mueva más antes del vencimiento. Las opciones OTM son puro valor temporal."
+ },
+ "550d39c73955": {
+  "en": "Not reliably. It tends to do better when a stock moves sideways, because the premiums add up, and worse in a strong rally, because the covered call caps your gain. From 1986 to 2018, Cboe’s put-selling index was steadier than the S&amp;P 500. Steadier is not the same as safe from a crash.",
+  "t": "No de forma confiable. Tiende a irle mejor cuando una acción se mueve de lado, porque las primas se suman, y peor en una subida fuerte, porque el covered call le pone tope a tu ganancia. De 1986 a 2018, el índice de venta de puts de Cboe fue más estable que el S&amp;P 500. Más estable no es lo mismo que a salvo de un desplome."
+ },
+ "5537978a9c21": {
+  "en": "Called away",
+  "t": "Te las compraron"
+ },
+ "555bc7d25ea6": {
+  "en": "Reading the dashed line (value today) as the final result. Only the solid line shows the outcome at expiration.",
+  "t": "Leer la línea punteada (valor hoy) como el resultado final. Solo la línea sólida muestra el resultado al vencimiento."
+ },
+ "55a6aa7e10b3": {
+  "en": "Solid line: result at expiration. Dashed line: value today.",
+  "t": "Línea sólida: resultado al vencimiento. Línea punteada: valor hoy."
+ },
+ "55ad5d1ee11d": {
+  "en": "Payoff diagram for {0} a {1} {2}. Breakeven {3}.",
+  "t": "Diagrama de pago de {0} un {2} con strike {1}. Punto de equilibrio: {3}."
+ },
+ "568919e57fb2": {
+  "en": "The decay curve",
+  "t": "La curva del desgaste"
+ },
+ "568ecdf086fb": {
+  "en": "Some traders also read delta as the rough chance that the option finishes in the money; the Options Industry Council notes this view. It is an estimate from a pricing model, not a promise, and it changes as the stock moves.",
+  "t": "Algunos traders también leen la delta como la probabilidad aproximada de que la opción termine dentro del dinero; el Options Industry Council menciona esta lectura. Es una estimación de un modelo de precios, no una promesa, y cambia a medida que se mueve la acción."
+ },
+ "56de5bd4687b": {
+  "en": "Selling a sound bond in a panic when rates rise, locking in a loss you could have waited out.",
+  "t": "Vender en pánico un bono sólido cuando suben las tasas, asegurando una pérdida que podías haber esperado a que pasara."
+ },
+ "570cf949d79a": {
+  "en": "Treating delta as an exact probability. It is only a rough guide from a pricing model.",
+  "t": "Tomar la delta como una probabilidad exacta. Es solo una guía aproximada de un modelo de precios."
+ },
+ "573d52a51ace": {
+  "en": "Calls and puts",
+  "t": "Calls y puts"
+ },
+ "578d2f84788f": {
+  "en": "Expiring options that close $0.01 or more in the money are usually exercised automatically unless you tell your broker not to (E*TRADE, for example, does this). Options that finish out of the money expire worthless. Prices can still move after the 4 p.m. close, so an option that looked out of the money can end up exercised, and a seller can be assigned on a position that looked safe. Close or roll anything near the strike before the final bell if you don’t want to buy or sell the shares.",
+  "t": "Las opciones que vencen dentro del dinero por US$0,01 o más por lo general se ejercen automáticamente, a menos que le digas a tu bróker que no lo haga (E*TRADE, por ejemplo, lo hace así). Las opciones que terminan fuera del dinero vencen sin valor. Los precios todavía se pueden mover después del cierre de las 4 p. m., hora de Nueva York, así que una opción que parecía fuera del dinero puede terminar ejercida, y a un vendedor lo pueden asignar en una posición que parecía segura. Cierra o renueva cualquier cosa cerca del strike antes de la campana final si no quieres comprar o vender las acciones."
+ },
+ "582c6df900dc": {
+  "en": "Spreading money across many companies is called <b>diversification</b>. One bad company hurts a lot when it is all you own and almost nothing when it is 1 of 500.",
+  "t": "Repartir el dinero entre muchas empresas se llama <b>diversificación</b>. Una mala empresa duele mucho cuando es todo lo que tienes y casi nada cuando es 1 de 500."
+ },
+ "5830562f4b12": {
+  "en": "Know your breakeven before you enter.",
+  "t": "Conoce tu punto de equilibrio antes de entrar."
+ },
+ "59da63fbe173": {
+  "en": "You risked $150 to make $250 at $56. The stock had to rise 7% just to break even.",
+  "t": "Arriesgaste US$150 para ganar US$250 en US$56. La acción tuvo que subir 7 % solo para quedar tablas."
+ },
+ "5a1f545e75fd": {
+  "en": "The short symbol a stock trades under, like DEMO in these examples.",
+  "t": "El símbolo corto con el que se negocia una acción, como DEMO en estos ejemplos."
+ },
+ "5a92daf58b44": {
+  "en": "What is a put used for if I don’t want to bet on a fall?",
+  "t": "¿Para qué sirve un put si no quiero apostar a una caída?"
+ },
+ "5afab2bceb67": {
+  "en": "Why is theta shown as a negative number?",
+  "t": "¿Por qué la theta aparece como un número negativo?"
+ },
+ "5b10915aafeb": {
+  "en": "Two trades, one shape",
+  "t": "Dos operaciones, una forma"
+ },
+ "5d2bb4f1dd73": {
+  "en": "There is no correct one. A put near 0.15 delta is assigned less often and pays less. One near 0.35 pays more and hands you shares more often. Try all three styles in the simulator above.",
+  "t": "No hay una correcta. A un put cerca de 0,15 de delta lo asignan menos seguido y paga menos. Uno cerca de 0,35 paga más y te entrega acciones más seguido. Prueba los tres estilos en el simulador de arriba."
+ },
+ "5d59a3926af5": {
+  "en": "You have $10,000. Choice A: all of it in one company. Choice B: a fund holding 500 companies in equal amounts.",
+  "t": "Tienes US$10.000. Opción A: todo en una empresa. Opción B: un fondo con 500 empresas en montos iguales."
+ },
+ "5da03415fc87": {
+  "en": "E*TRADE: Options expiration process and risks",
+  "t": "E*TRADE: Options expiration process and risks (en inglés)"
+ },
+ "5dac0eef09da": {
+  "en": "Put: the right to sell. It profits when the stock falls.",
+  "t": "Put: el derecho a vender. Gana cuando la acción baja."
+ },
+ "5e4946312b73": {
+  "en": "The $105 call",
+  "t": "El call de US$105"
+ },
+ "609ef56035bf": {
+  "en": "Sales slump and the price drops to {0}. Your shares are worth {1} ({2}). If a company fails, its shares can go to zero.",
+  "t": "Las ventas se caen y el precio baja a {0}. Tus acciones valen {1} ({2}). Si una empresa quiebra, sus acciones pueden llegar a cero."
+ },
+ "60b8976764b0": {
+  "en": "The SEC puts it plainly: option holders risk the whole premium, and option writers “may carry an even higher level of risk”, with some positions exposed to unlimited losses.",
+  "t": "La SEC lo dice claro: quienes tienen opciones arriesgan toda la prima, y quienes las emiten “pueden asumir un nivel de riesgo aún más alto”, con algunas posiciones expuestas a pérdidas ilimitadas."
+ },
+ "60c99b40a4bf": {
+  "en": "<b>Gamma</b> is the speed of delta. It is highest when the stock sits near the strike close to expiration. That is when option prices swing the most.",
+  "t": "La <b>gamma</b> es la velocidad de la delta. Es máxima cuando la acción está cerca del strike y cerca del vencimiento. Ahí es cuando los precios de las opciones oscilan más."
+ },
+ "60d37e307895": {
+  "en": "A payoff diagram plots your profit or loss on expiration day against every possible stock price. Where the line crosses zero is your breakeven. Reading one before you trade shows the most you can make, the most you can lose and how far the stock has to move.",
+  "t": "Un diagrama de pago grafica tu ganancia o pérdida el día del vencimiento frente a cada precio posible de la acción. Donde la línea cruza el cero está tu punto de equilibrio. Leer uno antes de operar muestra lo máximo que puedes ganar, lo máximo que puedes perder y cuánto tiene que moverse la acción."
+ },
+ "61d0c509cd1d": {
+  "en": "Choosing strikes",
+  "t": "Cómo escoger strikes"
+ },
+ "622d2d696996": {
+  "en": "High IV means expensive options.",
+  "t": "IV alta significa opciones caras."
+ },
  "62ebda637f63": {
   "en": "100 SHARES",
   "t": "100 ACCIONES"
+ },
+ "633a86e9f182": {
+  "en": "Is a 0.30 delta option a 30% chance of profit?",
+  "t": "¿Una opción con delta de 0,30 tiene 30 % de probabilidad de ganar?"
+ },
+ "6384f4db1c85": {
+  "en": "Almost like 100 shares",
+  "t": "Casi como 100 acciones"
+ },
+ "6416c8c03f8c": {
+  "en": "It falls",
+  "t": "Baja"
+ },
+ "641e921eb47b": {
+  "en": "One option contract usually covers 100 shares, so a quoted price of $2.50 costs $250. An option is in the money when using it now would be worth something: a call when the stock is above the strike, a put when it is below. Its price is intrinsic value (what it is worth now) plus time value (the chance of more).",
+  "t": "Un contrato de opciones por lo general cubre 100 acciones, así que un precio cotizado de US$2,50 cuesta US$250. Una opción está dentro del dinero cuando usarla ahora valdría algo: un call cuando la acción está por encima del strike, un put cuando está por debajo. Su precio es el valor intrínseco (lo que vale ahora) más el valor temporal (la posibilidad de que valga más)."
+ },
+ "642a70619e0b": {
+  "en": "In the final week",
+  "t": "En la última semana"
+ },
+ "643630f7a48a": {
+  "en": "Barely reacts",
+  "t": "Casi no reacciona"
+ },
+ "65b27d7daa93": {
+  "en": "Thinking a $5 share is cheaper than a $500 share. What matters is the value of the whole company, not the price of one slice.",
+  "t": "Pensar que una acción de US$5 es más barata que una de US$500. Lo que importa es el valor de toda la empresa, no el precio de una porción."
+ },
+ "6622d561db9c": {
+  "en": "<b>A bet with a fixed cost.</b> A call lets you profit from a rise while risking only the premium, instead of the full price of 100 shares.",
+  "t": "<b>Una apuesta con costo fijo.</b> Un call te deja ganar con una subida arriesgando solo la prima, en vez del precio completo de 100 acciones."
+ },
+ "6657eb95b468": {
+  "en": "Gamma is how much delta is expected to change for a $1 move in the stock. The Options Industry Council says gamma is higher for options that are at the money and closer to expiration, and highest when delta is around 0.40 to 0.60.",
+  "t": "La gamma es cuánto se espera que cambie la delta con un movimiento de US$1 en la acción. El Options Industry Council dice que la gamma es más alta en las opciones en el dinero y más cercanas al vencimiento, y máxima cuando la delta está entre 0,40 y 0,60, más o menos."
+ },
+ "66c4494c278a": {
+  "en": "DEMO is at $100 the day before earnings, with IV at 90%. A $100 call expiring in 7 days costs about $5.00.",
+  "t": "DEMO está en US$100 el día antes de sus resultados, con la IV en 90 %. Un call de US$100 que vence en 7 días cuesta unos US$5,00."
+ },
+ "6715610301e8": {
+  "en": "Contracts & moneyness",
+  "t": "Contratos y moneyness"
+ },
+ "6798e6889994": {
+  "en": "The most you can lose on shares you own is what you paid.",
+  "t": "Lo máximo que puedes perder en acciones que tienes es lo que pagaste."
+ },
+ "684be80a9f66": {
+  "en": "On expiration day DEMO is still at $100. The call is worth $0: all $320 was time value.",
+  "t": "El día del vencimiento DEMO sigue en US$100. El call vale US$0: los US$320 eran todo valor temporal."
+ },
+ "684ff905c66e": {
+  "en": "Buying long-term bonds for safety without realizing their prices can fall a lot when rates rise.",
+  "t": "Comprar bonos de largo plazo por seguridad sin darte cuenta de que sus precios pueden caer mucho cuando suben las tasas."
+ },
+ "685551dc072a": {
+  "en": "SEC Investor.gov: An Introduction to Options (investor bulletin, updated July 2026)",
+  "t": "SEC Investor.gov: An Introduction to Options (boletín para inversionistas, actualizado en julio de 2026, en inglés)"
+ },
+ "68618529cf24": {
+  "en": "Move the market rate above and below the coupon and watch the seesaw tip.",
+  "t": "Mueve la tasa del mercado por encima y por debajo del cupón y mira cómo se inclina el balancín."
+ },
+ "696100578c6f": {
+  "en": "Is selling options free money because of theta?",
+  "t": "¿Vender opciones es plata gratis gracias a la theta?"
+ },
+ "69862b90c03b": {
+  "en": "BOND PRICE",
+  "t": "PRECIO DEL BONO"
+ },
+ "69fc11ca4a7f": {
+  "en": "0.1% of the company",
+  "t": "El 0,1 % de la empresa"
+ },
+ "6a694fc2a52c": {
+  "en": "Solid line: profit or loss for one contract at expiration. Dashed blue line: the same trade valued today. Hover, tap or drag the chart to move the marker. Premium comes from the Black-Scholes model; type a quote to override it.",
+  "t": "Línea sólida: ganancia o pérdida de un contrato al vencimiento. Línea azul punteada: la misma operación valorada hoy. Pasa el cursor, toca o arrastra en el gráfico para mover el marcador. La prima sale del modelo Black-Scholes; escribe una cotización para reemplazarla."
+ },
+ "6af71d91a5a9": {
+  "en": "Near −1.00",
+  "t": "Cerca de −1,00"
+ },
+ "6b0615d9cbd5": {
+  "en": "DEMO is at $100. The $100 call costs $4.00 with delta 0.52 and gamma 0.04.",
+  "t": "DEMO está en US$100. El call de US$100 cuesta US$4,00 con delta de 0,52 y gamma de 0,04."
+ },
+ "6bfff1d9ade2": {
+  "en": "Right to buy 100 shares at the strike. Wants the stock to rise.",
+  "t": "Derecho a comprar 100 acciones al strike. Quiere que la acción suba."
+ },
+ "6c8636505bb7": {
+  "en": "The most you can lose is smaller in dollars, but the chance of losing all of it is much higher. Shares can wait years for a recovery; an option has a deadline.",
+  "t": "Lo máximo que puedes perder es menos en dólares, pero la probabilidad de perderlo todo es mucho más alta. Las acciones pueden esperar años a recuperarse; una opción tiene fecha límite."
+ },
+ "6d4771834230": {
+  "en": "The at-the-money call is worth {0} per contract and loses about {1} a day.",
+  "t": "El call en el dinero vale {0} por contrato y pierde cerca de {1} al día."
+ },
+ "6f2b6f6c5f4e": {
+  "en": "<b>Find the flat parts.</b> A flat line means the result stops changing there: a buyer’s worst case, or a seller’s best case.",
+  "t": "<b>Busca las partes planas.</b> Una línea plana significa que el resultado deja de cambiar ahí: el peor caso de un comprador, o el mejor caso de un vendedor."
+ },
+ "6fb32b719c59": {
+  "en": "You collect {0} and promise to buy 100 shares at {1}. You keep it all if the stock stays above {2}. Below {3} you lose money, and you may have to buy the shares.",
+  "t": "Recibes {0} y te comprometes a comprar 100 acciones a {1}. Te quedas con todo si la acción se mantiene por encima de {2}. Por debajo de {3} pierdes dinero, y puede que tengas que comprar las acciones."
+ },
+ "6fe1ee28bf5b": {
+  "en": "Number of holdings",
+  "t": "Número de inversiones"
+ },
+ "719f81fb5449": {
+  "en": "No. The seller collects theta in exchange for the risk of a large move. A single bad gap can erase many months of collected decay.",
+  "t": "No. El vendedor cobra la theta a cambio del riesgo de un movimiento grande. Un solo gap malo puede borrar muchos meses de desgaste cobrado."
+ },
+ "71d240e730f7": {
+  "en": "Risk ladder: illustrative one-year ranges for cash, bonds, an index fund, one stock and options.",
+  "t": "Escalera de riesgo: rangos ilustrativos a un año para efectivo, bonos, un fondo indexado, una acción y opciones."
+ },
+ "72542863937c": {
+  "en": "You buy a $1,000 bond with a 4% coupon, so it pays you $40 a year for 5 years.",
+  "t": "Compras un bono de US$1.000 con un cupón del 4 %, así que te paga US$40 al año durante 5 años."
+ },
+ "7296a9d78310": {
+  "en": "Single stocks and options",
+  "t": "Las acciones individuales y las opciones"
+ },
+ "72c8063572bb": {
+  "en": "Next: sell the <b>{0}</b> {1}, collect <b>{2}</b>, delta {3}{4}",
+  "t": "Siguiente: vende el {1} de <b>{0}</b>, recibe <b>{2}</b>, delta {3}{4}"
+ },
+ "73a5ea00e4c6": {
+  "en": "{0}<span class=\"grow\"></span><span class=\"pill\">Strike $100</span>",
+  "t": "{0}<span class=\"grow\"></span><span class=\"pill\">Strike US$100</span>"
+ },
+ "73db20af4360": {
+  "en": "<b>Delta is the usual yardstick.</b> Delta estimates how much an option’s price moves when the stock moves $1, and some traders also read it as the rough chance that the option finishes in the money. Read that way, a put with a delta of 0.25 (shown as −0.25, because puts move against the stock) has about a one-in-four chance of being assigned at expiration. It is an estimate that changes all day, not a promise.",
+  "t": "<b>La delta es la medida habitual.</b> La delta estima cuánto se mueve el precio de una opción cuando la acción se mueve US$1, y algunos traders también la leen como la probabilidad aproximada de que la opción termine dentro del dinero. Leído así, un put con delta de 0,25 (que aparece como −0,25, porque los puts se mueven en contra de la acción) tiene más o menos una probabilidad de una en cuatro de que lo asignen al vencimiento. Es una estimación que cambia todo el día, no una promesa."
+ },
+ "74bb14740d20": {
+  "en": "Selling a call without owning the shares has unlimited risk.",
+  "t": "Vender un call sin tener las acciones tiene riesgo ilimitado."
+ },
+ "754b0d27ffff": {
+  "en": "Every put you sell trades income against the chance of buying the shares. A strike close to the stock price pays more premium and is assigned more often. A strike further below pays less and is assigned less often.",
+  "t": "Cada put que vendes cambia ingresos por la posibilidad de comprar las acciones. Un strike cerca del precio de la acción paga más prima y lo asignan más seguido. Un strike más abajo paga menos y lo asignan menos seguido."
+ },
+ "756e9e2741bd": {
+  "en": "Play: let time run out",
+  "t": "Reproducir: dejar que se acabe el tiempo"
+ },
+ "75799340058f": {
+  "en": "The most a buyer can lose is the premium paid.",
+  "t": "Lo máximo que puede perder un comprador es la prima pagada."
+ },
+ "75cba35a98ed": {
+  "en": "Choice B: that company is 1/500 of the fund, $20 of your money, so you lose about $10.",
+  "t": "Opción B: esa empresa es 1/500 del fondo, US$20 de tu dinero, así que pierdes unos US$10."
+ },
+ "765f66b670f0": {
+  "en": "A small move your way can still lose money.",
+  "t": "Un movimiento pequeño a tu favor igual puede perder plata."
+ },
+ "7688f2c388e9": {
+  "en": "So a fall in IV from 90% to 35%, as in the worked example above, is 55 points. Multiplied by the option’s vega, that is a large part of its price.",
+  "t": "Así que una caída de la IV de 90 % a 35 %, como en el ejemplo de arriba, son 55 puntos. Multiplicado por la vega de la opción, eso es una parte grande de su precio."
+ },
+ "785765f502af": {
+  "en": "Your breakeven at expiration is $52 + $1.50 = $53.50.",
+  "t": "Tu punto de equilibrio al vencimiento es US$52 + US$1,50 = US$53,50."
+ },
+ "789aad50c8b4": {
+  "en": "You earn from a rising price and, sometimes, dividends.",
+  "t": "Ganas con la subida del precio y, a veces, con dividendos."
+ },
+ "79d18a2f65f2": {
+  "en": "Each step up the ladder offers more possible reward and asks you to accept bigger, faster losses.",
+  "t": "Cada escalón que subes ofrece más ganancia posible y te pide aceptar pérdidas más grandes y más rápidas."
+ },
+ "7b02462422ce": {
+  "en": "A <b>call</b> is the right to buy. It gains value when the stock climbs above the strike. A <b>put</b> is the right to sell. It gains value when the stock drops below the strike.",
+  "t": "Un <b>call</b> es el derecho a comprar. Gana valor cuando la acción sube por encima del strike. Un <b>put</b> es el derecho a vender. Gana valor cuando la acción cae por debajo del strike."
+ },
+ "7cbd70950c05": {
+  "en": "Assuming a correct direction guess means a profit.",
+  "t": "Suponer que adivinar bien la dirección significa ganar."
+ },
+ "7ceca51fcafe": {
+  "en": "Buy",
+  "t": "Comprar"
+ },
+ "7cf348fe8eb3": {
+  "en": "About −0.50",
+  "t": "Cerca de −0,50"
+ },
+ "7d850af5b9c2": {
+  "en": "The $105 call costs $1.10. It is out of the money, so all $1.10 is time value, and one contract costs $110.",
+  "t": "El call de US$105 cuesta US$1,10. Está fuera del dinero, así que los US$1,10 son todo valor temporal, y un contrato cuesta US$110."
+ },
+ "7f1d02e487fd": {
+  "en": "If the stock does not move far enough before expiration, the option can expire worthless and you lose the premium. That is the most a buyer can lose.",
+  "t": "Si la acción no se mueve lo suficiente antes del vencimiento, la opción puede vencer sin valor y pierdes la prima. Eso es lo máximo que puede perder un comprador."
+ },
+ "7fa1a72069cb": {
+  "en": "Max profit $100, max loss $4,600 if DEMO went to zero. Sellers win often, so they must size for the bad case.",
+  "t": "Ganancia máxima US$100, pérdida máxima US$4.600 si DEMO llegara a cero. Los vendedores ganan seguido, así que tienen que dimensionar para el caso malo."
+ },
+ "7fd0f2e5989b": {
+  "en": "Buy more or fewer shares, change the price, then see what happens if the company grows or struggles.",
+  "t": "Compra más o menos acciones, cambia el precio y luego mira qué pasa si la empresa crece o tiene problemas."
+ },
+ "7fe5851ae644": {
+  "en": "To profit, DEMO needed to move more than the roughly 10% the options were pricing in.",
+  "t": "Para ganar, DEMO necesitaba moverse más que el 10 % más o menos que las opciones estaban descontando."
+ },
+ "800e2bb59073": {
+  "en": "The stock did nothing and the buyer lost $320. A seller of the same call would have kept it.",
+  "t": "La acción no hizo nada y el comprador perdió US$320. Un vendedor del mismo call se los habría quedado."
+ },
+ "8030552bcb47": {
+  "en": "keep the premium",
+  "t": "te quedas con la prima"
+ },
+ "808731f1fa4c": {
+  "en": "Gamma peaks at the strike and near expiration.",
+  "t": "La gamma llega al máximo en el strike y cerca del vencimiento."
+ },
+ "80e9901fb4fa": {
+  "en": "None yet",
+  "t": "Todavía ninguna"
+ },
+ "82098a3b6823": {
+  "en": "Crash one company 50%",
+  "t": "Hundir una empresa un 50 %"
+ },
+ "82856b426b01": {
+  "en": "Reading the chart",
+  "t": "Cómo leer el gráfico"
+ },
+ "82a6ffcad51d": {
+  "en": "Why did my call lose money when the stock went up?",
+  "t": "¿Por qué mi call perdió plata cuando la acción subió?"
+ },
+ "82c5faba5df8": {
+  "en": "Keeping the full premium",
+  "t": "Quedarse con toda la prima"
+ },
+ "8307072c2537": {
+  "en": "Usually, yes. Most brokers allow cash-secured puts and covered calls in an IRA, with every put fully backed by cash. <a href=\\\"#l-wheel-ira\\\">Run the wheel in an IRA</a> covers the trade-offs.",
+  "t": "En EE. UU., por lo general sí. La mayoría de los brókeres permiten puts asegurados con efectivo y covered calls en una IRA (una cuenta de retiro estadounidense), con cada put totalmente respaldado por efectivo. <a href=\"#l-wheel-ira\">La rueda en una IRA</a> explica los pros y contras."
+ },
+ "83609c09211e": {
+  "en": "A call profits when the stock rises above the strike, a put when it falls below. Buyers can lose only what they paid.",
+  "t": "Un call gana cuando la acción sube por encima del strike, un put cuando baja por debajo. Los compradores solo pueden perder lo que pagaron."
+ },
+ "836a6fafc038": {
+  "en": "This call is {0}. If the stock rises $1, it gains about {1} ({2} per contract), and delta climbs to about {3}.",
+  "t": "Este call está {0}. Si la acción sube US$1, gana cerca de {1} ({2} por contrato), y la delta sube a cerca de {3}."
+ },
+ "83addc91e447": {
+  "en": "Options Industry Council: Gamma",
+  "t": "Options Industry Council: Gamma (en inglés)"
+ },
+ "83c992a10dbd": {
+  "en": "Options lose value every day, and the melt speeds up near expiration.",
+  "t": "Las opciones pierden valor cada día, y el desgaste se acelera cerca del vencimiento."
+ },
+ "848bcf0fb94a": {
+  "en": "Call: the right to buy. It profits when the stock rises.",
+  "t": "Call: el derecho a comprar. Gana cuando la acción sube."
+ },
+ "853aa8ab651a": {
+  "en": "Most the buyer can lose",
+  "t": "Lo máximo que puede perder el comprador"
+ },
+ "854666512b12": {
+  "en": "DEMO goes nowhere. Early in the month you lose about $0.05 a day, or $5 per contract.",
+  "t": "DEMO no va para ningún lado. A principios del mes pierdes unos US$0,05 al día, o US$5 por contrato."
+ },
+ "854f2ded05fb": {
+  "en": "How do I see the IV of an option?",
+  "t": "¿Cómo veo la IV de una opción?"
+ },
+ "856c823f19bf": {
+  "en": "Unlimited, unless the seller owns the shares",
+  "t": "Ilimitado, a menos que el vendedor tenga las acciones"
+ },
+ "85bd37b74e18": {
+  "en": "Held to maturity, you get the face value back unless the borrower defaults.",
+  "t": "Si lo mantienes hasta el vencimiento, te devuelven el valor nominal, salvo que el emisor incumpla."
+ },
+ "85e08cb60317": {
+  "en": "Naked call",
+  "t": "Call descubierto"
+ },
+ "85fccba8fe6d": {
+  "en": "Only wheel stocks you would hold for years.",
+  "t": "Usa la rueda solo con acciones que tendrías por años."
+ },
+ "8706c6156e0c": {
+  "en": "About 0.35",
+  "t": "Cerca de 0,35"
+ },
+ "876f3e0202ca": {
+  "en": "Strategies",
+  "t": "Estrategias"
+ },
+ "88003b7a2cba": {
+  "en": "Right to sell 100 shares at the strike. Wants the stock to fall.",
+  "t": "Derecho a vender 100 acciones al strike. Quiere que la acción baje."
+ },
+ "8829f8878bc5": {
+  "en": "Single stocks and bought options can go to zero.",
+  "t": "Las acciones individuales y las opciones compradas pueden llegar a cero."
+ },
+ "899c1c2de6ef": {
+  "en": "Pick an investment, switch between a good and a bad year, and see what your money could become.",
+  "t": "Elige una inversión, cambia entre un año bueno y uno malo, y mira en qué se podría convertir tu dinero."
+ },
+ "89abcd94ffcc": {
+  "en": "called away at ",
+  "t": "te las compran a "
+ },
+ "8a6117de8c51": {
+  "en": "Forgetting weekends. Time keeps passing while the market is closed.",
+  "t": "Olvidar los fines de semana. El tiempo sigue pasando mientras el mercado está cerrado."
+ },
+ "8a6d6ce51361": {
+  "en": "Why can selling a call lose an unlimited amount?",
+  "t": "¿Por qué vender un call puede perder una cantidad ilimitada?"
+ },
+ "8aac2553ea9b": {
+  "en": "You are down about 22%. It hurts, but your $4,000 of cash is untouched and ready to buy at lower prices.",
+  "t": "Vas perdiendo cerca del 22 %. Duele, pero tus US$4.000 en efectivo están intactos y listos para comprar a precios más bajos."
+ },
+ "8acea7c6d6a1": {
+  "en": "The wheel is an options income strategy in three steps. Sell a cash-secured put on a stock you want to own. If the stock falls below the strike, you are assigned and buy 100 shares. Then sell covered calls on those shares until they are called away, and start again. Each step pays a premium, but a stock that falls hard still loses money.",
+  "t": "La rueda es una estrategia de ingresos con opciones en tres pasos. Vende un put asegurado con efectivo sobre una acción que quieres tener. Si la acción cae por debajo del strike, te asignan y compras 100 acciones. Luego vende covered calls sobre esas acciones hasta que te las compren, y vuelve a empezar. Cada paso paga una prima, pero una acción que cae fuerte igual pierde plata."
+ },
+ "8b25b1508c97": {
+  "en": "1% of the company",
+  "t": "El 1 % de la empresa"
+ },
+ "8b8e50f4f83e": {
+  "en": "at the money",
+  "t": "en el dinero"
+ },
+ "8b967746a4e9": {
+  "en": "Buy or sell",
+  "t": "Comprar o vender"
+ },
+ "8bf25dcb4a64": {
+  "en": "<b>More time is left</b>, because the stock has longer to move.",
+  "t": "<b>Queda más tiempo</b>, porque la acción tiene más tiempo para moverse."
+ },
+ "8c72d16673b9": {
+  "en": "SEC Investor.gov: Stocks",
+  "t": "SEC Investor.gov: Stocks (en inglés)"
+ },
+ "8d1086130443": {
+  "en": "Switch between a call and a put, then drag across the chart to see the profit or loss at expiration.",
+  "t": "Cambia entre un call y un put, luego arrastra sobre el gráfico para ver la ganancia o la pérdida al vencimiento."
+ },
+ "8d8073e8fb61": {
+  "en": "Premium defaults to the Black-Scholes model price (4% interest rate). Type your broker's quote to override it. Greeks are for the whole position. Hover or tap the chart to read any price.",
+  "t": "La prima por defecto es el precio del modelo Black-Scholes (tasa de interés del 4 %). Escribe la cotización de tu bróker para reemplazarla. Las griegas son de toda la posición. Pasa el cursor o toca el gráfico para leer cualquier precio."
+ },
+ "8df259059e7d": {
+  "en": "Buying very cheap, far out-of-the-money options that need a huge move to pay off.",
+  "t": "Comprar opciones muy baratas y muy fuera del dinero que necesitan un movimiento enorme para pagar."
+ },
+ "8e52dc0e9ffd": {
+  "en": "Options Industry Council: Delta",
+  "t": "Options Industry Council: Delta (en inglés)"
+ },
+ "8e6f91644aac": {
+  "en": "The ${0} {1} is in the money by {2}. That is its intrinsic value; the other {3} is time value.",
+  "t": "El {1} de US${0} está dentro del dinero por {2}. Ese es su valor intrínseco; los otros {3} son valor temporal."
+ },
+ "8fcd24751db9": {
+  "en": "Strike ladder with the stock at {0}. Green cells are in the money.",
+  "t": "Escalera de strikes con la acción en {0}. Las celdas verdes están dentro del dinero."
+ },
+ "8fd96710355e": {
+  "en": "Each company is {0} of your money. Press the red button to see what one disaster does.",
+  "t": "Cada empresa es el {0} de tu dinero. Presiona el botón rojo para ver qué hace un solo desastre."
+ },
+ "905788e5cf9e": {
+  "en": "Theta hurts option buyers and pays option sellers. That is why strategies like the wheel sell options and let time work for them.",
+  "t": "La theta perjudica a los compradores de opciones y les paga a los vendedores. Por eso estrategias como la rueda venden opciones y dejan que el tiempo trabaje a su favor."
+ },
+ "90c632835375": {
+  "en": "Wheeling a stock you would not want to own just because its premium is high.",
+  "t": "Usar la rueda en una acción que no querrías tener solo porque su prima es alta."
+ },
+ "90c7cc96623c": {
+  "en": "Must buy 100 shares at the strike if assigned. Wants the stock to stay above the strike.",
+  "t": "Debe comprar 100 acciones al strike si lo asignan. Quiere que la acción se quede por encima del strike."
+ },
+ "91200ed0a0fc": {
+  "en": "In the money by $7",
+  "t": "Dentro del dinero por US$7"
+ },
+ "912cc1dd0fbd": {
+  "en": "Buyers have limited losses and room for big gains, but many short-dated options expire worthless. Sellers collect the premium up front and win more often, but they take larger losses when the stock moves hard against them.",
+  "t": "Los compradores tienen pérdidas limitadas y espacio para ganancias grandes, pero muchas opciones de corto plazo vencen sin valor. Los vendedores cobran la prima por adelantado y ganan más seguido, pero sufren pérdidas más grandes cuando la acción se mueve fuerte en su contra."
+ },
+ "916cf85f17ac": {
+  "en": "MARKET RATE",
+  "t": "TASA DEL MERCADO"
+ },
+ "9329ec4a3819": {
+  "en": "An exit based on time: if the trade has not worked by a set date, you close it.",
+  "t": "Una salida basada en el tiempo: si la operación no ha funcionado para una fecha fija, la cierras."
+ },
+ "933aa2f271da": {
+  "en": "Moneyness table",
+  "t": "Tabla de moneyness"
+ },
+ "93846209180b": {
+  "en": "No. It changes with the stock price (that change is gamma), with time and with implied volatility. Read it as today’s estimate.",
+  "t": "No. Cambia con el precio de la acción (ese cambio es la gamma), con el tiempo y con la volatilidad implícita. Léela como la estimación de hoy."
+ },
+ "955d648ddc9e": {
+  "en": "90 days before expiration",
+  "t": "90 días antes del vencimiento"
+ },
+ "957fec83ab6b": {
+  "en": "<b>Implied volatility is high</b>, because a bigger move is expected (see <a href=\\\"#l-iv-crush\\\">IV and earnings</a>).",
+  "t": "<b>La volatilidad implícita está alta</b>, porque se espera un movimiento más grande (mira <a href=\"#l-iv-crush\">La IV y los resultados</a>)."
+ },
+ "95c90430a943": {
+  "en": "Is the wheel better than buying and holding the stock?",
+  "t": "¿La rueda es mejor que comprar la acción y mantenerla?"
+ },
+ "95ec05297c8c": {
+  "en": "No change",
+  "t": "Ningún cambio"
+ },
+ "964b975a6b72": {
+  "en": "Because a stock has no price ceiling. If you sold a call without owning the shares and the stock rises far above the strike, you must deliver shares worth much more than the strike.",
+  "t": "Porque una acción no tiene techo de precio. Si vendiste un call sin tener las acciones y la acción sube muy por encima del strike, tienes que entregar acciones que valen mucho más que el strike."
+ },
+ "96e6505901fa": {
+  "en": "Why use them",
+  "t": "Para qué se usan"
+ },
+ "972efb7a6510": {
+  "en": "Decay picks up",
+  "t": "El desgaste se acelera"
+ },
+ "97aebe4be615": {
+  "en": "An <b>index fund</b> buys every company on a list, such as the S&amp;P 500 (about 500 large US companies). An <b>ETF</b> is a fund that trades on the exchange like a stock, so you can buy the whole basket in one order.",
+  "t": "Un <b>fondo indexado</b> compra todas las empresas de una lista, como el S&amp;P 500 (unas 500 empresas grandes de EE. UU.). Un <b>ETF</b> es un fondo que se negocia en la bolsa como una acción, así que puedes comprar toda la canasta en una sola orden."
+ },
+ "97f60a736e52": {
+  "en": "Multiply delta by 100 and by the number of contracts to see how many shares a position acts like. Two calls with delta 0.30 act like about 60 shares. A short put with delta −0.25 acts like owning about 25 shares, because it gains when the stock rises. Adding up these share-equivalents tells you how much a whole options account will move if the market moves $1.",
+  "t": "Multiplica la delta por 100 y por el número de contratos para ver como cuántas acciones se comporta una posición. Dos calls con delta de 0,30 se comportan como unas 60 acciones. Un put vendido con delta de −0,25 se comporta como tener unas 25 acciones, porque gana cuando la acción sube. Sumar esos equivalentes te dice cuánto se moverá toda una cuenta de opciones si el mercado se mueve US$1."
+ },
+ "98d6c6717585": {
+  "en": "0.40 × $2 = $0.80 per share, and × 100 shares = $80.",
+  "t": "0,40 × US$2 = US$0,80 por acción, y × 100 acciones = US$80."
+ },
+ "98e885808b57": {
+  "en": "A 2-point rise in rates cut about 7% from a bond with 4 years left. Longer bonds fall further for the same rate rise.",
+  "t": "Una subida de 2 puntos en las tasas le quitó cerca del 7 % a un bono al que le quedaban 4 años. Los bonos más largos caen más con la misma subida de tasas."
+ },
+ "9b0aae5a4f50": {
+  "en": "Theta and vega are shown per contract (100 shares). Drag across the chart to move the stock price.",
+  "t": "Theta y vega se muestran por contrato (100 acciones). Arrastra sobre el gráfico para mover el precio de la acción."
+ },
+ "9b4ab864ac43": {
+  "en": "In the money by $8",
+  "t": "Dentro del dinero por US$8"
+ },
+ "9b679f8e2623": {
+  "en": "Most broker option chains show implied volatility for each strike, and many show the expected move for the next expiration.",
+  "t": "La mayoría de las cadenas de opciones de los brókeres muestran la volatilidad implícita de cada strike, y muchas muestran el movimiento esperado para el siguiente vencimiento."
+ },
+ "9bc7e8e5f093": {
+  "en": "Strike + premium",
+  "t": "Strike + prima"
+ },
+ "9c4fcc9908d3": {
+  "en": "Option sellers often pick strikes by delta. A short put at a 0.20 delta pays less and is assigned less often than one at 0.40. Buyers do the reverse: a high-delta call costs more but behaves more like the stock. The <a href=\\\"#l-wheel\\\">wheel strategy</a> lesson shows the trade-off with three strike styles.",
+  "t": "Los vendedores de opciones a menudo escogen strikes por la delta. Un put vendido con delta de 0,20 paga menos y lo asignan menos seguido que uno con 0,40. Los compradores hacen lo contrario: un call de delta alta cuesta más pero se comporta más como la acción. La lección <a href=\"#l-wheel\">La estrategia de la rueda</a> muestra el equilibrio con tres estilos de strike."
+ },
+ "9c9e00bd3d67": {
+  "en": "IV usually drops sharply right after earnings.",
+  "t": "La IV suele caer fuerte justo después de los resultados."
+ },
+ "9ccf677240e9": {
+  "en": "A call bets on up, a put bets on down. Buyers risk only the premium.",
+  "t": "Un call apuesta al alza, un put apuesta a la baja. Los compradores solo arriesgan la prima."
+ },
+ "9d2a05661c8c": {
+  "en": "Theta estimates how much value an option loses each day if nothing else changes. A theta of −0.05 means about $5 per contract per day. Decay starts slowly and speeds up as expiration nears, and it is largest for at-the-money options.",
+  "t": "La theta estima cuánto valor pierde una opción cada día si nada más cambia. Una theta de −0,05 significa unos US$5 por contrato al día. El desgaste empieza lento y se acelera a medida que se acerca el vencimiento, y es mayor en las opciones en el dinero."
+ },
+ "9d812350ba9a": {
+  "en": "An index fund is many companies in one purchase.",
+  "t": "Un fondo indexado son muchas empresas en una sola compra."
+ },
+ "9e14d6246e5c": {
+  "en": "For calls, sell strikes above your cost.",
+  "t": "Para los calls, vende strikes por encima de tu costo."
+ },
+ "9e390b861758": {
+  "en": "Is buying a call safer than buying the stock?",
+  "t": "¿Comprar un call es más seguro que comprar la acción?"
+ },
+ "9ea237c77f91": {
+  "en": "Choice A: that company is your whole account, so you lose $5,000.",
+  "t": "Opción A: esa empresa es toda tu cuenta, así que pierdes US$5.000."
+ },
+ "9ed3c16be2e8": {
+  "en": "The longest public record of put-selling is Cboe’s S&amp;P 500 PutWrite Index, which sells an at-the-money put on the S&amp;P 500 every month and keeps the cash in Treasury bills. From mid-1986 to the end of 2018 it rose 1,835%, about 9.5% a year, with yearly swings (volatility) of 9.95% against 14.93% for the S&amp;P 500 in the same study.",
+  "t": "El registro público más largo de venta de puts es el S&amp;P 500 PutWrite Index de Cboe, que vende un put en el dinero sobre el S&amp;P 500 cada mes y mantiene el efectivo en letras del Tesoro de EE. UU. Desde mediados de 1986 hasta finales de 2018 subió 1.835 %, cerca de 9,5 % al año, con oscilaciones anuales (volatilidad) de 9,95 % frente a 14,93 % del S&amp;P 500 en el mismo estudio."
+ },
+ "9ef66b7a04a7": {
+  "en": "Choosing stocks",
+  "t": "Cómo escoger acciones"
+ },
+ "9fac825f927b": {
+  "en": "One company in the fund loses half its value in a single day.",
+  "t": "Una empresa del fondo pierde la mitad de su valor en un solo día."
+ },
+ "9fb53b88819f": {
+  "en": "COMPANY VALUE",
+  "t": "VALOR DE LA EMPRESA"
+ },
+ "a0053c66fdad": {
+  "en": "Prices from the Black-Scholes model with 30 days left and 30% implied volatility. Tap a row to inspect that strike.",
+  "t": "Precios del modelo Black-Scholes con 30 días restantes y 30 % de volatilidad implícita. Toca una fila para revisar ese strike."
+ },
+ "a0345a0e5cae": {
+  "en": "DEMO is at $103. The $100 call costs $4.20.",
+  "t": "DEMO está en US$103. El call de US$100 cuesta US$4,20."
+ },
+ "a0760b78ddb3": {
+  "en": "intrinsic $10",
+  "t": "intrínseco US$10"
+ },
+ "a0904ae5efed": {
+  "en": "Brokers ask you to apply for options trading and give you the official risk booklet, “Characteristics and Risks of Standardized Options”, before your first trade. Read the parts on the strategy you plan to use. Start with one contract, and write down your breakeven and the most you can lose before you enter.",
+  "t": "Los brókeres te piden solicitar permiso para operar opciones y te entregan el folleto oficial de riesgos, “Characteristics and Risks of Standardized Options”, antes de tu primera operación. Lee las partes sobre la estrategia que piensas usar. Empieza con un contrato, y anota tu punto de equilibrio y lo máximo que puedes perder antes de entrar."
+ },
+ "a11b5c03a97e": {
+  "en": "When you buy a <b>bond</b> you lend money to a government or a company. They pay you fixed interest every year, called the <b>coupon</b>, and hand back the face value (usually $1,000) at the end.",
+  "t": "Cuando compras un <b>bono</b>, le prestas dinero a un gobierno o a una empresa. Te pagan un interés fijo cada año, llamado <b>cupón</b>, y al final te devuelven el valor nominal (por lo general US$1.000)."
+ },
+ "a1b309ed13ff": {
+  "en": "Why is a put’s delta negative?",
+  "t": "¿Por qué la delta de un put es negativa?"
+ },
+ "a2132a1e0a93": {
+  "en": "Same bad news, $5,000 lost versus about $10. Diversification removes single-company risk, not the risk of the whole market falling.",
+  "t": "La misma mala noticia: US$5.000 perdidos frente a unos US$10. La diversificación quita el riesgo de una sola empresa, no el riesgo de que caiga todo el mercado."
+ },
+ "a29a02539ae8": {
+  "en": "Companies split their ownership into many equal pieces called <b>shares</b>. Buy one and you own a small part of the business: its profits and its future.",
+  "t": "Las empresas dividen su propiedad en muchas partes iguales llamadas <b>acciones</b>. Compra una y eres dueño de una pequeña parte del negocio: sus ganancias y su futuro."
+ },
+ "a2d2e246630a": {
+  "en": "Wheel simulation: month {0}, holding {1}, stock at {2}.",
+  "t": "Simulación de la rueda: mes {0}, posición {1}, acción en {2}."
+ },
+ "a322b56483e5": {
+  "en": "What happens if I do nothing with an option I bought?",
+  "t": "¿Qué pasa si no hago nada con una opción que compré?"
+ },
+ "a3515845fa63": {
+  "en": "worth {0} today",
+  "t": "vale {0} hoy"
+ },
+ "a45374bec80e": {
+  "en": "Which delta should you sell?",
+  "t": "¿Qué delta deberías vender?"
+ },
+ "a471f0506541": {
+  "en": "IV fell from {0}% to {1}%",
+  "t": "La IV cayó de {0} % a {1} %"
+ },
+ "a686465d4389": {
+  "en": "Near 0",
+  "t": "Cerca de 0"
+ },
+ "a689a999a5e6": {
+  "en": "Expired",
+  "t": "Vencida"
+ },
+ "a6c832475dba": {
+  "en": "<b>Implied volatility</b> (IV) is the size of move the market expects, baked into an option’s price. Before earnings nobody knows the news, so IV and option prices climb.",
+  "t": "La <b>volatilidad implícita</b> (IV) es el tamaño del movimiento que espera el mercado, metido en el precio de una opción. Antes de los resultados nadie conoce la noticia, así que la IV y los precios de las opciones suben."
+ },
+ "a6f358076981": {
+  "en": "Every option strategy is built from four basic positions. For each one, here is the result at expiration, per share (multiply by 100 per contract):",
+  "t": "Toda estrategia con opciones se arma con cuatro posiciones básicas. Para cada una, este es el resultado al vencimiento, por acción (multiplica por 100 por contrato):"
+ },
+ "a7857e3add1e": {
+  "en": "ETFs trade like stocks during market hours.",
+  "t": "Los ETF se negocian como acciones durante el horario del mercado."
+ },
+ "a7c65e2e1cb7": {
+  "en": "You collect {0} for selling {1} {2}{3}",
+  "t": "Recibes {0} por vender {1} {2}{3}"
+ },
+ "a7e3ccf574e2": {
+  "en": "loss if assigned",
+  "t": "pérdida si te asignan"
+ },
+ "a7f019c31302": {
+  "en": "Putting money you need within a year on the top rungs of the ladder.",
+  "t": "Poner en los escalones de arriba dinero que necesitas dentro de un año."
+ },
+ "a8151a7377a6": {
+  "en": "Can you run the wheel in an IRA?",
+  "t": "¿Puedes usar la rueda en una IRA?"
+ },
+ "a81960a15553": {
+  "en": "A company drawn as 100 blocks. You own {0}, shaded amber.",
+  "t": "Una empresa dibujada como 100 bloques. Tienes {0}, sombreados en ámbar."
+ },
+ "a8987649b5f0": {
+  "en": "Put the same $20,000 entirely into options and that bad year would have taken all of it.",
+  "t": "Si metes esos mismos US$20.000 solo en opciones, ese mal año se los habría llevado todos."
+ },
+ "a926e94f6010": {
+  "en": "Profit and loss for {0} {1} {2} contract{3} at strike {4}.",
+  "t": "Ganancia y pérdida de {0} {1} contrato{3} {2} con strike {4}."
+ },
+ "a97b2e5da5d0": {
+  "en": "Options Industry Council: What is an option?",
+  "t": "Options Industry Council: What is an option? (en inglés)"
+ },
+ "aa8904bd7abd": {
+  "en": "Buying options with only days left and hoping, just when decay is fastest.",
+  "t": "Comprar opciones a las que les quedan pocos días y tener esperanza, justo cuando el desgaste es más rápido."
+ },
+ "ab0d71fc0357": {
+  "en": "Run 12 months",
+  "t": "Correr 12 meses"
+ },
+ "abc5fc1bb2c0": {
+  "en": "Longer bonds swing more, because you are locked into the old rate for more years. Hold a bond to the end and you still get the $1,000 back, as long as the borrower does not default.",
+  "t": "Los bonos más largos oscilan más, porque quedas amarrado a la tasa vieja por más años. Si mantienes un bono hasta el final, igual te devuelven los US$1.000, siempre que el emisor no incumpla."
+ },
+ "ac17954951fa": {
+  "en": "If DEMO is still at $103 on expiration day, the $100 call ends worth $3.00 and the $105 call ends worth nothing.",
+  "t": "Si DEMO sigue en US$103 el día del vencimiento, el call de US$100 termina valiendo US$3,00 y el call de US$105 termina sin valor."
+ },
+ "ac4bf6b9b341": {
+  "en": "One contract covers 100 shares. An option is in the money when using it right now would be worth something.",
+  "t": "Un contrato cubre 100 acciones. Una opción está dentro del dinero cuando usarla ahora mismo valdría algo."
+ },
+ "acb8d034759f": {
+  "en": "A bad year hits: bonds fall 10%, the index fund falls 30%, one of the two $750 stock positions falls 60%, and the options expire worthless.",
+  "t": "Llega un mal año: los bonos caen 10 %, el fondo indexado cae 30 %, una de las dos posiciones de US$750 en acciones cae 60 % y las opciones vencen sin valor."
+ },
+ "ad9d4f588953": {
+  "en": "Every option has two sides. The <b>buyer</b> (the holder) pays the premium and gets a right. The <b>seller</b> (the writer) receives the premium and takes on an obligation if the buyer uses that right.",
+  "t": "Toda opción tiene dos lados. El <b>comprador</b> (el tenedor) paga la prima y obtiene un derecho. El <b>vendedor</b> (el emisor) recibe la prima y asume una obligación si el comprador usa ese derecho."
+ },
+ "adcef27cb07a": {
+  "en": "Near 1.00",
+  "t": "Cerca de 1,00"
+ },
+ "aeb3de13f641": {
+  "en": " Decay is still slow this far out.",
+  "t": " A esta distancia el desgaste todavía es lento."
+ },
+ "af9701bf8a8c": {
+  "en": "Gamma raises delta by about 0.04, so delta is now about 0.56.",
+  "t": "La gamma sube la delta en unos 0,04, así que la delta ahora es de unos 0,56."
+ },
+ "b03b3371d99a": {
+  "en": "How do I avoid theta as a buyer?",
+  "t": "¿Cómo evito la theta si soy comprador?"
+ },
+ "b1ef1fc33db8": {
+  "en": "One stock",
+  "t": "Una acción"
+ },
+ "b275bae275fd": {
+  "en": "A seller’s profit is capped at the premium collected.",
+  "t": "La ganancia de un vendedor tiene como tope la prima cobrada."
+ },
+ "b2a8918ab803": {
+  "en": "SEC Investor.gov: Bonds",
+  "t": "SEC Investor.gov: Bonds (en inglés)"
+ },
+ "b2d04c96042f": {
+  "en": "About 0.15",
+  "t": "Cerca de 0,15"
+ },
+ "b3aa83e0e978": {
+  "en": "Delta tells you how much the option moves when the stock moves $1. Gamma tells you how fast delta changes.",
+  "t": "La delta te dice cuánto se mueve la opción cuando la acción se mueve US$1. La gamma te dice qué tan rápido cambia la delta."
+ },
+ "b3bf5be5415c": {
+  "en": "Cboe: What options data may indicate about Mag 7 earnings (July 2025)",
+  "t": "Cboe: What options data may indicate about Mag 7 earnings (julio de 2025, en inglés)"
+ },
+ "b42cb2166304": {
+  "en": "Rolling buys time. It does not remove the risk. Buying back an option that has moved against you costs more than you were paid for it, each roll adds trading costs, and if the stock keeps falling the new put keeps losing too. Decide before you sell what you will do if the stock reaches your strike: take the shares, roll once, or close for a loss. <a href=\\\"#l-rolling\\\">Rolling options</a> and the <a href=\\\"#tool-roll\\\">roll calculator</a> go further.",
+  "t": "Renovar compra tiempo. No quita el riesgo. Recomprar una opción que se movió en tu contra cuesta más de lo que te pagaron por ella, cada renovación suma costos de negociación y, si la acción sigue cayendo, el put nuevo también sigue perdiendo. Decide antes de vender qué vas a hacer si la acción llega a tu strike: recibir las acciones, renovar una vez o cerrar con pérdida. <a href=\"#l-rolling\">Renovar opciones</a> y la <a href=\"#tool-roll\">calculadora de renovación</a> profundizan en esto."
+ },
+ "b43c866a1232": {
+  "en": "Most the seller can lose",
+  "t": "Lo máximo que puede perder el vendedor"
+ },
+ "b447453752e0": {
+  "en": "Premium cushions losses but cannot stop a crash.",
+  "t": "La prima amortigua las pérdidas pero no puede frenar un desplome."
+ },
+ "b4486802cf10": {
+  "en": "You can make money two ways. The price can rise because people expect the company to earn more. Some companies also pay a <b>dividend</b>, a slice of profits sent to owners in cash.",
+  "t": "Puedes ganar dinero de dos formas. El precio puede subir porque la gente espera que la empresa gane más. Algunas empresas también pagan un <b>dividendo</b>, una parte de las ganancias que se envía en efectivo a los dueños."
+ },
+ "b46eb2e49d59": {
+  "en": "Aggressive",
+  "t": "Agresivo"
+ },
+ "b47050536a8b": {
+  "en": "What you effectively paid per share after subtracting the premiums you collected.",
+  "t": "Lo que en la práctica pagaste por acción después de restar las primas que cobraste."
+ },
+ "b4e393e6a4dd": {
+  "en": "No. At best it is a rough chance of finishing in the money. To profit, a bought option must finish beyond its breakeven, which is further away than the strike.",
+  "t": "No. En el mejor de los casos es una probabilidad aproximada de terminar dentro del dinero. Para ganar, una opción comprada tiene que terminar más allá de su punto de equilibrio, que está más lejos que el strike."
+ },
+ "b505af623720": {
+  "en": "Payoff diagrams",
+  "t": "Diagramas de pago"
+ },
+ "b51bc4e02407": {
+  "en": "Sample company with 100,000 shares. Each block is 1% of the business (1,000 shares). Scenarios are made-up examples one year out.",
+  "t": "Empresa de ejemplo con 100.000 acciones. Cada bloque es el 1 % del negocio (1.000 acciones). Los escenarios son ejemplos inventados a un año."
+ },
+ "b57084627028": {
+  "en": "The Options Industry Council notes that implied volatility tends to rise with uncertainty or anticipated news and fall in calm times. Fed meetings, product events, court rulings and market sell-offs all move IV. The same crush can follow any scheduled event once the news is out.",
+  "t": "El Options Industry Council señala que la volatilidad implícita tiende a subir con la incertidumbre o con noticias esperadas y a bajar en tiempos tranquilos. Las reuniones de la Fed, los eventos de productos, los fallos judiciales y las caídas del mercado mueven la IV. El mismo desplome puede venir después de cualquier evento programado, una vez sale la noticia."
+ },
+ "b599e33e75b9": {
+  "en": "Delta by strike",
+  "t": "La delta según el strike"
+ },
+ "b5e5a8778663": {
+  "en": "An <b>option</b> is a contract that gives you the right to buy or sell 100 shares at a set price, the <b>strike</b>, until a set date, the <b>expiration</b>. You pay for that right. The price is called the <b>premium</b>.",
+  "t": "Una <b>opción</b> es un contrato que te da el derecho a comprar o vender 100 acciones a un precio fijo, el <b>strike</b>, hasta una fecha fija, el <b>vencimiento</b>. Pagas por ese derecho. El precio se llama <b>prima</b>."
+ },
+ "b62f6ee904f5": {
+  "en": "DEMO drops to $42. The put is worth $5.00, so you owe $500 against the $100 you collected: a $400 loss.",
+  "t": "DEMO cae a US$42. El put vale US$5,00, así que debes US$500 frente a los US$100 que cobraste: una pérdida de US$400."
+ },
+ "b666b75e745a": {
+  "en": "A put gains value when the stock falls, so its price moves the opposite way to the stock. A delta of −0.40 means it gains about $40 per contract when the stock drops $1.",
+  "t": "Un put gana valor cuando la acción cae, así que su precio se mueve al contrario de la acción. Una delta de −0,40 significa que gana unos US$40 por contrato cuando la acción baja US$1."
+ },
+ "b6fb3abfa7a0": {
+  "en": "<b>Income, from the other side.</b> Sellers collect premium in exchange for an obligation; the <a href=\\\"#l-wheel\\\">wheel strategy</a> is built on selling puts and calls.",
+  "t": "<b>Ingresos, desde el otro lado.</b> Los vendedores cobran la prima a cambio de una obligación; la <a href=\"#l-wheel\">estrategia de la rueda</a> se basa en vender puts y calls."
+ },
+ "b70c8faa5658": {
+  "en": "SIPC: What SIPC protects",
+  "t": "SIPC: What SIPC protects (en inglés)"
+ },
+ "b73a90de17a4": {
+  "en": "Beyond earnings",
+  "t": "Más allá de los resultados"
+ },
+ "b78dfa6a1b2b": {
+  "en": "The stock moved {0} against you and {1}. The {2} lost {3}.",
+  "t": "La acción se movió {0} en tu contra y {1}. El {2} perdió {3}."
+ },
+ "b81960e4df4e": {
+  "en": "One $100-strike contract on a $100 stock, bought 10 days before expiration, valued the day after earnings. Solid line: after IV drops. Dashed line: if IV had stayed the same.",
+  "t": "Un contrato con strike de US$100 sobre una acción de US$100, comprado 10 días antes del vencimiento y valorado el día después de los resultados. Línea sólida: después de que cae la IV. Línea punteada: si la IV se hubiera quedado igual."
+ },
+ "b83b2d7363a9": {
+  "en": "Selling options does not create free income. The premium is your pay for carrying the stock’s downside while giving up part of its upside.",
+  "t": "Vender opciones no crea ingresos gratis. La prima es tu pago por cargar con la caída de la acción mientras renuncias a parte de su subida."
+ },
+ "b87b903fa0af": {
+  "en": "Another $1 rise adds about $0.56, taking the call to about $5.08.",
+  "t": "Otra subida de US$1 suma unos US$0,56 y lleva el call a unos US$5,08."
+ },
+ "b8bef37b7153": {
+  "en": "Unlimited",
+  "t": "Ilimitado"
+ },
+ "b90010815e74": {
+  "en": "Breakeven: $47 − $1.00 = $46. Below that you start losing money.",
+  "t": "Punto de equilibrio: US$47 − US$1,00 = US$46. Por debajo de eso empiezas a perder dinero."
+ },
+ "b910b8875f4e": {
+  "en": "The wheel sells options on a stock you would happily own, collecting premium at every turn.",
+  "t": "La rueda vende opciones sobre una acción que tendrías con gusto, y cobra prima en cada vuelta."
+ },
+ "ba0ef8b04035": {
+  "en": "A loss, from IV crush",
+  "t": "Una pérdida, por el desplome de la IV"
+ },
+ "ba1b100124b9": {
+  "en": "Buyers fight time; sellers collect it.",
+  "t": "Los compradores pelean contra el tiempo; los vendedores lo cobran."
+ },
+ "ba4fb6a04226": {
+  "en": "DEMO pays a $0.50 dividend per share each year, so you receive $5 a year in cash.",
+  "t": "DEMO paga un dividendo de US$0,50 por acción cada año, así que recibes US$5 al año en efectivo."
+ },
+ "bac471b58e9b": {
+  "en": "Far out of the money",
+  "t": "Muy fuera del dinero"
+ },
+ "bb03b0d5eb6e": {
+  "en": "Long bonds like this {0}-year one swing more when rates move.",
+  "t": "Los bonos largos como este de {0} años oscilan más cuando se mueven las tasas."
+ },
+ "bb6b800b6f8f": {
+  "en": "60 to 30",
+  "t": "De 60 a 30"
+ },
+ "bb7dcc5f861e": {
+  "en": "Option type",
+  "t": "Tipo de opción"
+ },
+ "bbfb282366e0": {
+  "en": "A payoff diagram shows your profit or loss at every possible stock price on expiration day.",
+  "t": "Un diagrama de pago muestra tu ganancia o pérdida en cada precio posible de la acción el día del vencimiento."
+ },
+ "bc93d848321c": {
+  "en": "At-the-money options decay the most in dollars.",
+  "t": "Las opciones en el dinero se desgastan más en dólares."
+ },
+ "bca5d1b04bb5": {
+  "en": "S&P 500 fund",
+  "t": "Fondo del S&P 500"
+ },
+ "bcc19504a239": {
+  "en": "Your {0} shares are {1} of the business and cost {2}. You now share in its profits and its risks.",
+  "t": "Tus {0} acciones son el {1} del negocio y costaron {2}. Ahora participas en sus ganancias y en sus riesgos."
+ },
+ "bdb0c5c165cf": {
+  "en": "The stock moved {0} your way, yet the {1} lost {2} because {3}. You needed {4} just to break even.",
+  "t": "La acción se movió {0} a tu favor, y aun así el {1} perdió {2} porque {3}. Necesitabas {4} solo para quedar tablas."
+ },
+ "be1c53b99ce0": {
+  "en": "The stock price at which an option trade neither makes nor loses money at expiration.",
+  "t": "El precio de la acción en el que una operación con opciones ni gana ni pierde al vencimiento."
+ },
+ "be2f6977b962": {
+  "en": "In the wheel, assignment is the plan working, not an accident. The cash for the put is already set aside, and being called away is the exit you chose. The Options Industry Council calls the cash-secured put “primarily a stock acquisition strategy for a price-sensitive investor”. More in <a href=\\\"#l-assignment\\\">Assignment and early exercise</a>.",
+  "t": "En la rueda, la asignación es el plan funcionando, no un accidente. El efectivo para el put ya está separado, y que te compren las acciones es la salida que escogiste. El Options Industry Council llama al put asegurado con efectivo “principalmente una estrategia de adquisición de acciones para un inversionista sensible al precio”. Más en <a href=\"#l-assignment\">Asignación y ejercicio anticipado</a>."
+ },
+ "bf1c53e42acb": {
+  "en": "Back to 60 days",
+  "t": "Volver a 60 días"
+ },
+ "bf49a3b8985a": {
+  "en": "You sell a $38 covered call for $0.80 and collect $80. Your basis drops to $36.30.",
+  "t": "Vendes un covered call de US$38 por US$0,80 y recibes US$80. Tu costo base baja a US$36,30."
+ },
+ "bf5a8f835cff": {
+  "en": "You have {0} and a {1} stock you would be happy to own. Sell a put to get paid while you wait for a lower price.",
+  "t": "Tienes {0} y una acción de {1} que te gustaría tener. Vende un put para que te paguen mientras esperas un precio más bajo."
+ },
+ "c0c04de5d044": {
+  "en": "DEMO is at $40. You hold $3,800 cash and sell one $38 put for $0.90, collecting $90.",
+  "t": "DEMO está en US$40. Tienes US$3.800 en efectivo y vendes un put de US$38 por US$0,90, y recibes US$90."
+ },
+ "c1192bcda7e8": {
+  "en": "One call contract costs {0}.",
+  "t": "Un contrato call cuesta {0}."
+ },
+ "c13b75b51f0b": {
+  "en": "<span class=\"ctl-lab\">Strike style</span>{0}<span class=\"grow\"></span>{1}",
+  "t": "<span class=\"ctl-lab\">Estilo de strike</span>{0}<span class=\"grow\"></span>{1}"
+ },
+ "c2682d84e9f4": {
+  "en": "So do not turn a good month into a yearly figure. The worked example earned about 4.5% in two months, with the risk of being down about $630 instead.",
+  "t": "Así que no conviertas un buen mes en una cifra anual. El ejemplo ganó cerca del 4,5 % en dos meses, con el riesgo de terminar perdiendo unos US$630."
+ },
+ "c2fb45ce82fe": {
+  "en": "Why is the today line curved?",
+  "t": "¿Por qué la línea de hoy es curva?"
+ },
+ "c3670ce789da": {
+  "en": "The amount an option is in the money is its <b>intrinsic value</b>. Out-of-the-money and at-the-money options have no intrinsic value, so their whole price is <b>time value</b>.",
+  "t": "Lo que una opción está dentro del dinero es su <b>valor intrínseco</b>. Las opciones fuera del dinero y en el dinero no tienen valor intrínseco, así que todo su precio es <b>valor temporal</b>."
+ },
+ "c3a666d6f9f0": {
+  "en": "Strike − premium (stock at zero)",
+  "t": "Strike − prima (acción en cero)"
+ },
+ "c3c2cdc6b9cf": {
+  "en": "You own 100 shares that are worth less than you paid, cushioned by the premiums you kept. You can hold them and sell covered calls above your cost basis, or sell and take the loss. In the worked example, a fall to $30 leaves you down about $630 after both premiums.",
+  "t": "Tienes 100 acciones que valen menos de lo que pagaste, amortiguadas por las primas que te quedaste. Puedes mantenerlas y vender covered calls por encima de tu costo base, o vender y asumir la pérdida. En el ejemplo, una caída a US$30 te deja perdiendo unos US$630 después de las dos primas."
+ },
+ "c400a44ac7d0": {
+  "en": "New stock",
+  "t": "Otra acción"
+ },
+ "c45bca7e4121": {
+  "en": "Risk and reward rise together.",
+  "t": "El riesgo y la ganancia suben juntos."
+ },
+ "c53622d83912": {
+  "en": "Cash in a savings account",
+  "t": "El efectivo en una cuenta de ahorros"
+ },
+ "c591c05766f8": {
+  "en": "The whole market can still fall; diversification limits single-company risk.",
+  "t": "Todo el mercado igual puede caer; la diversificación limita el riesgo de una sola empresa."
+ },
+ "c666b2b381ff": {
+  "en": "The wheel works best on steady companies you want to own. Its risks: a stock that crashes leaves you holding a loser, and a stock that rockets past your call strike caps your upside.",
+  "t": "La rueda funciona mejor en empresas estables que quieres tener. Sus riesgos: una acción que se desploma te deja con una perdedora, y una acción que se dispara por encima del strike de tu call le pone tope a tu ganancia."
+ },
+ "c675756a6d54": {
+  "en": "THE COMPANY · 100,000 SHARES",
+  "t": "LA EMPRESA · 100.000 ACCIONES"
+ },
+ "c6fad8f34b51": {
+  "en": "Calls are ITM at strikes below the stock price, puts at strikes above it.",
+  "t": "Los calls están ITM en strikes por debajo del precio de la acción, los puts en strikes por encima."
+ },
+ "c72653374a15": {
+  "en": "Option prices are quoted per share, but one <b>contract</b> controls 100 shares. A quote of $2.50 costs $250.",
+  "t": "Los precios de las opciones se cotizan por acción, pero un <b>contrato</b> controla 100 acciones. Una cotización de US$2,50 cuesta US$250."
+ },
+ "c72ad3f291bd": {
+  "en": "You buy a 30-day $100 call on DEMO for $3.20. Theta is −0.05.",
+  "t": "Compras un call de US$100 sobre DEMO a 30 días por US$3,20. La theta es −0,05."
+ },
+ "c7a553989ea1": {
+  "en": "Decay is fastest; daily losses grow toward expiration",
+  "t": "El desgaste es más rápido; las pérdidas diarias crecen hacia el vencimiento"
+ },
+ "c87bbb3711a1": {
+  "en": "10% of the company",
+  "t": "El 10 % de la empresa"
+ },
+ "c89e075fe73e": {
+  "en": "Buyers can get 6% elsewhere, so they only buy your 4% bond at a discount.",
+  "t": "Los compradores pueden conseguir 6 % en otra parte, así que solo compran tu bono del 4 % con descuento."
+ },
+ "c8a9c1eb6164": {
+  "en": "A buyer’s max loss is the premium. A seller’s max profit is the premium.",
+  "t": "La pérdida máxima de un comprador es la prima. La ganancia máxima de un vendedor es la prima."
+ },
+ "c8e8f884d1b6": {
+  "en": "What happens if the stock falls after you are assigned?",
+  "t": "¿Qué pasa si la acción cae después de que te asignan?"
+ },
+ "c917c1aed2f6": {
+  "en": "Stock $100 now, strike $100, 30 days, premium from the pricing model. The line shows profit or loss for one contract on expiration day. Hover, tap or drag the chart to move the marker.",
+  "t": "Acción en US$100 hoy, strike de US$100, 30 días, prima según el modelo de precios. La línea muestra la ganancia o la pérdida de un contrato el día del vencimiento. Pasa el cursor, toca o arrastra en el gráfico para mover el marcador."
+ },
+ "ca18c598a3ad": {
+  "en": "You collect {0} now for agreeing to buy {1} shares at {2}. That is {3} on the {4} you set aside ({5} a year if repeated). If assigned, your real cost is {6} a share",
+  "t": "Recibes {0} ahora por aceptar comprar {1} acciones a {2}. Eso es {3} sobre los {4} que separaste ({5} al año si lo repites). Si te asignan, tu costo real es {6} por acción"
+ },
+ "ca7060ae1f28": {
+  "en": "Time value: $4.20 − $3.00 = $1.20. That is what you pay for the chance of a bigger move.",
+  "t": "Valor temporal: US$4,20 − US$3,00 = US$1,20. Eso es lo que pagas por la posibilidad de un movimiento más grande."
+ },
+ "ca7298661e65": {
+  "en": "Safer",
+  "t": "Más seguro"
+ },
+ "caca2ef4ae4a": {
+  "en": "The dashed “today” line sits between the stock price and the expiration line because the option still holds time value. It bends toward the solid line as expiration nears.",
+  "t": "La línea punteada de “hoy” queda entre el precio de la acción y la línea del vencimiento porque la opción todavía tiene valor temporal. Se dobla hacia la línea sólida a medida que se acerca el vencimiento."
+ },
+ "cb67565d7689": {
+  "en": "FINRA: Exchange-traded funds and products",
+  "t": "FINRA: Exchange-traded funds and products (en inglés)"
+ },
+ "cb9786950cd6": {
+  "en": "Choose a strike style, sell a put, and play month by month. Then compare with simply buying and holding.",
+  "t": "Escoge un estilo de strike, vende un put y juega mes a mes. Luego compara con simplemente comprar y mantener."
+ },
+ "cc26c941ebdd": {
+  "en": "Why does a cheap option cost so little?",
+  "t": "¿Por qué una opción barata cuesta tan poco?"
+ },
+ "cc5840fd2bf4": {
+  "en": "If you hold to maturity you still collect every $40 coupon and get the $1,000 back, so the loss disappears unless you sell early.",
+  "t": "Si lo mantienes hasta el vencimiento, igual cobras cada cupón de US$40 y te devuelven los US$1.000, así que la pérdida desaparece a menos que vendas antes."
+ },
+ "cca58b2018bc": {
+  "en": "Keep the premium",
+  "t": "Te quedas con la prima"
+ },
+ "cd69f98c1c2a": {
+  "en": "Unlimited profit",
+  "t": "Ganancia ilimitada"
+ },
+ "cddf5c38bf8a": {
+  "en": "For puts, keep enough cash to buy the shares.",
+  "t": "Para los puts, mantén suficiente efectivo para comprar las acciones."
+ },
+ "ce2d35683d23": {
+  "en": "One purchase, hundreds of companies, and why spreading out protects you.",
+  "t": "Una compra, cientos de empresas, y por qué repartir te protege."
+ },
+ "ce3a09946585": {
+  "en": "The three numbers",
+  "t": "Los tres números"
+ },
+ "ce817e737ac8": {
+  "en": "The solid line shows profit or loss at expiration. Above zero you make money, below zero you lose. Where it crosses zero is your <b>breakeven</b>.",
+  "t": "La línea sólida muestra la ganancia o la pérdida al vencimiento. Por encima de cero ganas dinero, por debajo pierdes. Donde cruza el cero está tu <b>punto de equilibrio</b>."
+ },
+ "ce825c09cb96": {
+  "en": "Unlimited as the stock rises",
+  "t": "Ilimitada a medida que la acción sube"
+ },
+ "ced02810fc9e": {
+  "en": "Middle",
+  "t": "Intermedia"
+ },
+ "cf7cedcae208": {
+  "en": "To give a new buyer a 6% yield, your bond’s price falls to about $931. That is a paper loss of about $69.",
+  "t": "Para darle a un comprador nuevo un rendimiento del 6 %, el precio de tu bono cae a unos US$931. Es una pérdida en el papel de unos US$69."
+ },
+ "cfdccd8f1fcd": {
+  "en": "Rolling",
+  "t": "Renovar (rolling)"
+ },
+ "d090e2c1b072": {
+  "en": "Buying options right before earnings without checking how big a move is already priced in.",
+  "t": "Comprar opciones justo antes de los resultados sin revisar qué tan grande es el movimiento que ya está descontado."
+ },
+ "d09d320bb617": {
+  "en": "<b>A company you would hold for years.</b> If you are assigned during a slump, you may own it for a long time.",
+  "t": "<b>Una empresa que tendrías por años.</b> Si te asignan durante una mala racha, puede que la tengas por mucho tiempo."
+ },
+ "d0cab233596f": {
+  "en": "Most people keep their long-term money on the lower rungs and use only a small slice for the top ones.",
+  "t": "La mayoría de la gente mantiene su dinero de largo plazo en los escalones bajos y usa solo una porción pequeña para los de arriba."
+ },
+ "d0ce891b7acf": {
+  "en": "Buy a put",
+  "t": "Comprar un put"
+ },
+ "d0d4f599f98a": {
+  "en": "<b>Buy shares instead of options.</b> Shares carry no implied volatility to lose, though they can gap just as far.",
+  "t": "<b>Compra acciones en vez de opciones.</b> Las acciones no tienen volatilidad implícita que perder, aunque pueden abrir con un gap igual de grande."
+ },
+ "d0e5452dbe88": {
+  "en": "How much money do you need to start the wheel?",
+  "t": "¿Cuánto dinero necesitas para empezar la rueda?"
+ },
+ "d21a78f9f623": {
+  "en": "Last 30",
+  "t": "Últimos 30"
+ },
+ "d2e9dc9dbee1": {
+  "en": "Getting 100 shares for free",
+  "t": "Recibir 100 acciones gratis"
+ },
+ "d32cbafdeabc": {
+  "en": "Calls on a $100 stock, 30% implied volatility, stock price held still so only time changes.",
+  "t": "Calls sobre una acción de US$100, 30 % de volatilidad implícita, con el precio de la acción quieto para que solo cambie el tiempo."
+ },
+ "d3b958b52e06": {
+  "en": "Can an option be in the money and still lose money?",
+  "t": "¿Una opción puede estar dentro del dinero y aun así perder plata?"
+ },
+ "d401211ea868": {
+  "en": "Decay speeds up in the last 30 days.",
+  "t": "El desgaste se acelera en los últimos 30 días."
+ },
+ "d4128ea37f90": {
+  "en": "You paid $38 but keep the $1 premium, so your cost basis is $37.",
+  "t": "Pagaste US$38 pero te quedaste con la prima de US$1, así que tu costo base es US$37."
+ },
+ "d46657f8c476": {
+  "en": "100 shares",
+  "t": "100 acciones"
+ },
+ "d5a3db046858": {
+  "en": "DEMO closes at $36.50 on expiration. You are assigned 100 shares at $38. Your cost basis is $38 − $0.90 = $37.10.",
+  "t": "DEMO cierra en US$36,50 al vencimiento. Te asignan 100 acciones a US$38. Tu costo base es US$38 − US$0,90 = US$37,10."
+ },
+ "d5f309c3457a": {
+  "en": "About 0.50",
+  "t": "Cerca de 0,50"
+ },
+ "d63f8af86365": {
+  "en": "Paying for a lot of time value on options that expire in a few days.",
+  "t": "Pagar mucho valor temporal en opciones que vencen en pocos días."
+ },
+ "d68a7f70e503": {
+  "en": "More holdings means any one failure matters less.",
+  "t": "Más inversiones significa que cualquier quiebra importa menos."
+ },
+ "d77edd0e9d01": {
+  "en": "A call is <b>in the money</b> (ITM) when the stock is above its strike. A put is ITM when the stock is below its strike. A strike right at the stock price is <b>at the money</b> (ATM). Everything else is <b>out of the money</b> (OTM).",
+  "t": "Un call está <b>dentro del dinero</b> (ITM) cuando la acción está por encima de su strike. Un put está ITM cuando la acción está por debajo de su strike. Un strike justo en el precio de la acción está <b>en el dinero</b> (ATM). Todo lo demás está <b>fuera del dinero</b> (OTM)."
+ },
+ "d7b5790e0015": {
+  "en": "The fixed cost is also the catch. A bought option needs the stock to move far enough, and soon enough, to beat its premium. In the worked example above, the stock had to rise 7% before the call made a cent.",
+  "t": "El costo fijo también es la trampa. Una opción comprada necesita que la acción se mueva lo suficiente, y pronto, para superar su prima. En el ejemplo de arriba, la acción tuvo que subir 7 % antes de que el call ganara un centavo."
+ },
+ "d809d035bc1a": {
+  "en": "Selling a call without owning the shares. The possible loss has no limit.",
+  "t": "Vender un call sin tener las acciones. La pérdida posible no tiene límite."
+ },
+ "d80ac365556c": {
+  "en": "Index funds have fallen more than 30% in bad years.",
+  "t": "Los fondos indexados han caído más del 30 % en años malos."
+ },
+ "d8b117df2a49": {
+  "en": "Holding to the final day hoping for a miracle while the time value melts away.",
+  "t": "Aguantar hasta el último día esperando un milagro mientras el valor temporal se derrite."
+ },
+ "d903e6c2c160": {
+  "en": "How much an option moves for each $1 in the stock, and how fast that changes.",
+  "t": "Cuánto se mueve una opción por cada US$1 de la acción, y qué tan rápido cambia eso."
+ },
+ "d95cfe50e088": {
+  "en": "<b>Sell premium with defined risk.</b> Some traders sell options to collect the inflated premium, often in a spread that caps the loss, because a surprise move can be several times the expected one.",
+  "t": "<b>Vende prima con riesgo definido.</b> Algunos traders venden opciones para cobrar la prima inflada, a menudo en un spread que limita la pérdida, porque un movimiento sorpresa puede ser varias veces el esperado."
+ },
+ "d993ee140e92": {
+  "en": "Selling calls on shares you do not own, which carries unlimited risk.",
+  "t": "Vender calls sobre acciones que no tienes, lo que tiene riesgo ilimitado."
+ },
+ "d9c17078533b": {
+  "en": "Sell a put",
+  "t": "Vender un put"
+ },
+ "da5fd5d66a0e": {
+  "en": "The S&P 500 fell about 37% in 2008. Holding on through that took nerves and years.",
+  "t": "El S&P 500 cayó cerca de un 37 % en 2008. Aguantar eso costó nervios y años."
+ },
+ "da6e03dff526": {
+  "en": "Delta 0.30 ≈ roughly a 30% chance of finishing in the money.",
+  "t": "Delta de 0,30 ≈ más o menos un 30 % de probabilidad de terminar dentro del dinero."
+ },
+ "dacc23e44614": {
+  "en": "Delta and gamma of a $100 {0} across stock prices. At {1} delta is {2}.",
+  "t": "Delta y gamma de un {0} de US$100 según el precio de la acción. En {1} la delta es {2}."
+ },
+ "db1a1fa39b42": {
+  "en": "<b>Insurance.</b> A put on shares you own gains value if they fall, which offsets part of the loss. Its premium is the cost of that insurance.",
+  "t": "<b>Un seguro.</b> Un put sobre acciones que tienes gana valor si caen, lo que compensa parte de la pérdida. Su prima es el costo de ese seguro."
+ },
+ "dbf2d4c98cdd": {
+  "en": "Implied volatility (IV) is the size of move the market expects, built into an option’s price. Before earnings it rises because nobody knows the news; afterwards it usually falls sharply. That drop, IV crush, can make an option lose money even when the stock moves the way you guessed.",
+  "t": "La volatilidad implícita (IV) es el tamaño del movimiento que espera el mercado, incluido en el precio de una opción. Antes de los resultados sube porque nadie conoce la noticia; después suele caer fuerte. Esa caída, el desplome de la IV (IV crush), puede hacer que una opción pierda plata aunque la acción se mueva como adivinaste."
+ },
+ "dc28d507102f": {
+  "en": "A share is a tiny slice of a company. Its price moves as people change their view of that business.",
+  "t": "Una acción es una porción diminuta de una empresa. Su precio se mueve a medida que la gente cambia su opinión sobre ese negocio."
+ },
+ "dccc9edd2364": {
+  "en": "Set the stock’s earnings move and see how much of it the drop in IV eats.",
+  "t": "Fija el movimiento de la acción en sus resultados y mira cuánto de él se come la caída de la IV."
+ },
+ "dd053dae2988": {
+  "en": "Yes. A call bought for $4.20 at the $100 strike is in the money at $103, but worth only about $3.00 on expiration day, a $1.20 loss per share.",
+  "t": "Sí. Un call con strike de US$100 comprado por US$4,20 está dentro del dinero en US$103, pero el día del vencimiento solo vale unos US$3,00: una pérdida de US$1,20 por acción."
+ },
+ "df24e082f970": {
+  "en": "About half as much as the shares",
+  "t": "Más o menos la mitad que las acciones"
+ },
+ "df4d85da123e": {
+  "en": "Profit and loss at different stock prices",
+  "t": "Ganancia y pérdida a distintos precios de la acción"
+ },
+ "e0c55d955494": {
+  "en": "{0} coupons",
+  "t": "{0} cupones"
+ },
+ "e19aee2ddbb9": {
+  "en": "The drop in IV removes more value than the small move adds.",
+  "t": "La caída de la IV quita más valor del que suma el movimiento pequeño."
+ },
+ "e1bd7a453091": {
+  "en": "It shows only expiration day. It doesn’t show the chance of each outcome, the swings in value before expiration, early assignment, or commissions. Use it to see the shape of a trade, then size the trade for the worst case it shows.",
+  "t": "Solo muestra el día del vencimiento. No muestra la probabilidad de cada resultado, las oscilaciones de valor antes del vencimiento, la asignación anticipada ni las comisiones. Úsalo para ver la forma de una operación y luego dimensiona la operación para el peor caso que muestra."
+ },
+ "e232ffb94c29": {
+  "en": "Annualized assumes you could repeat the same trade all year, which rarely happens exactly. No commissions or taxes included.",
+  "t": "El anualizado supone que podrías repetir la misma operación todo el año, lo que casi nunca pasa exactamente así. No incluye comisiones ni impuestos."
+ },
+ "e2a7dcbc43d6": {
+  "en": "Deep in the money",
+  "t": "Muy dentro del dinero"
+ },
+ "e2f470a323c8": {
+  "en": "OTM options are cheap because they are all time value.",
+  "t": "Las opciones OTM son baratas porque son todo valor temporal."
+ },
+ "e333d16a7f81": {
+  "en": "Options show how big a move the market is pricing in. A common shortcut is the price of the at-the-money straddle (a call plus a put at the same strike) for the first expiration after earnings, compared with the stock price. Cboe describes comparing that straddle price with the stock’s past earnings moves as the simplest way to judge whether the options look expensive or cheap.",
+  "t": "Las opciones muestran qué tan grande es el movimiento que el mercado está descontando. Un atajo común es el precio del straddle en el dinero (un call más un put al mismo strike) para el primer vencimiento después de los resultados, comparado con el precio de la acción. Cboe describe comparar ese precio del straddle con los movimientos pasados de la acción en sus resultados como la forma más simple de juzgar si las opciones se ven caras o baratas."
+ },
+ "e33dd34d8903": {
+  "en": "Press play to watch time run out, or drag the days slider yourself.",
+  "t": "Presiona reproducir para ver cómo se acaba el tiempo, o arrastra tú mismo el deslizador de los días."
+ },
+ "e3c4b256364f": {
+  "en": "It is out of the money, so all of its price is time value: you are paying only for the chance of a big move before it expires. Most such options expire worthless.",
+  "t": "Está fuera del dinero, así que todo su precio es valor temporal: solo estás pagando por la posibilidad de un movimiento grande antes de que venza. La mayoría de esas opciones vencen sin valor."
+ },
+ "e3e1dafe25a1": {
+  "en": "Letting one winning position grow until it dominates the whole account.",
+  "t": "Dejar que una posición ganadora crezca hasta dominar toda la cuenta."
+ },
+ "e3efe16fff59": {
+  "en": "You pay {0} for the right to sell 100 shares at {1}. You profit if the stock finishes below {2}. The most you can lose is the {3} you paid.",
+  "t": "Pagas {0} por el derecho a vender 100 acciones a {1}. Ganas si la acción termina por debajo de {2}. Lo máximo que puedes perder son los {3} que pagaste."
+ },
+ "e406c4b5012d": {
+  "en": "In the money by $2",
+  "t": "Dentro del dinero por US$2"
+ },
+ "e418bc6e5142": {
+  "en": "The ${0} {1} is out of the money, so its {2} is all time value.",
+  "t": "El {1} de US${0} está fuera del dinero, así que su {2} es todo valor temporal."
+ },
+ "e4567d4dd328": {
+  "en": "Put $",
+  "t": "Put US$"
+ },
+ "e45712063822": {
+  "en": "A big gain",
+  "t": "Una ganancia grande"
+ },
+ "e4bfde71f6f8": {
+  "en": "<b>Find the sloped part.</b> A slope of one share per dollar means the position gains or loses $100 per contract for each $1 the stock moves past the strike.",
+  "t": "<b>Busca la parte inclinada.</b> Una pendiente de una acción por dólar significa que la posición gana o pierde US$100 por contrato por cada US$1 que la acción se mueve más allá del strike."
+ },
+ "e4c50f3a008c": {
+  "en": "Move the stock price and watch the calls and puts change color. Tap a strike to split its price in two.",
+  "t": "Mueve el precio de la acción y mira cómo los calls y los puts cambian de color. Toca un strike para partir su precio en dos."
+ },
+ "e5109a721ce5": {
+  "en": "Time value is the difference between an option’s price and its intrinsic value. It is larger when:",
+  "t": "El valor temporal es la diferencia entre el precio de una opción y su valor intrínseco. Es más grande cuando:"
+ },
+ "e54511896654": {
+  "en": "DEMO is a made-up company used for this example.",
+  "t": "DEMO es una empresa inventada para este ejemplo."
+ },
+ "e56e60e9b343": {
+  "en": "Theta is the value lost per day.",
+  "t": "La theta es el valor que se pierde por día."
+ },
+ "e591779328f4": {
+  "en": "The amount a bond repays at the end, usually $1,000.",
+  "t": "La cantidad que un bono devuelve al final, por lo general US$1.000."
+ },
+ "e5dc09a7f7b4": {
+  "en": "<b>The strike is near the stock price</b>; at the money, the outcome is most uncertain.",
+  "t": "<b>El strike está cerca del precio de la acción</b>; en el dinero, el resultado es más incierto."
+ },
+ "e5df12b2b993": {
+  "en": "Bear market",
+  "t": "Mercado bajista"
+ },
+ "e60f28006301": {
+  "en": "Sell call",
+  "t": "Vender call"
+ },
+ "e63e4c3f8135": {
+  "en": "Who decays most",
+  "t": "Quién se desgasta más"
+ },
+ "e6d07b2b3c16": {
+  "en": "The premium is paid up front and is not refunded, whatever the stock does.",
+  "t": "La prima se paga por adelantado y no se devuelve, haga lo que haga la acción."
+ },
+ "e6e49a4de44f": {
+  "en": "At {0} on expiration day this {1} {2}.",
+  "t": "En {0} el día del vencimiento, esto {1} {2}."
+ },
+ "e7cae203371b": {
+  "en": "<b>Stay out.</b> Close or avoid options that expire just after the report.",
+  "t": "<b>Quédate por fuera.</b> Cierra o evita las opciones que vencen justo después del informe."
+ },
+ "e91f1e2b7d62": {
+  "en": "Higher possible reward always comes with higher risk. Nobody gets the upside without accepting the downside.",
+  "t": "Una ganancia posible más alta siempre viene con más riesgo. Nadie obtiene lo bueno sin aceptar lo malo."
+ },
+ "e9d0c7b460b0": {
+  "en": "<b>Choose expirations after the event carefully.</b> An option expiring weeks later loses less of its value to the IV drop than one expiring that week, but costs more.",
+  "t": "<b>Escoge con cuidado los vencimientos posteriores al evento.</b> Una opción que vence semanas después pierde menos valor por la caída de la IV que una que vence esa misma semana, pero cuesta más."
+ },
+ "ea9a804644af": {
+  "en": "It loses the same amount every day",
+  "t": "Pierde lo mismo todos los días"
+ },
+ "eb94c0bc9873": {
+  "en": "Earnings beat. DEMO opens at $103, up 3%, and IV falls to 35%.",
+  "t": "Los resultados superan lo esperado. DEMO abre en US$103, sube 3 %, y la IV cae a 35 %."
+ },
+ "ebeb1ff082a3": {
+  "en": "With the stock at $103, here is how the same strikes look for calls and puts:",
+  "t": "Con la acción en US$103, así se ven los mismos strikes para calls y puts:"
+ },
+ "ebf788c1a4c4": {
+  "en": "The stock must climb past the strike by the $3 you paid: $100 + $3 = $103.",
+  "t": "La acción tiene que pasar el strike por los US$3 que pagaste: US$100 + US$3 = US$103."
+ },
+ "ec3a3b0432bb": {
+  "en": "Best case: DEMO stays above $47 and you keep the whole $100.",
+  "t": "Mejor caso: DEMO se queda por encima de US$47 y te quedas con los US$100 completos."
+ },
+ "ec3ef051d5a8": {
+  "en": "Seller",
+  "t": "Vendedor"
+ },
+ "ec6bd9303804": {
+  "en": "DEMO rallies to $39 by expiration and your shares are called away at $38.",
+  "t": "DEMO sube a US$39 para el vencimiento y te compran las acciones a US$38."
+ },
+ "ec770c176c15": {
+  "en": "Time keeps passing when the market is closed. Pricing models count calendar days, so, in the Options Industry Council’s words, options tend to decay seven days over five trading days. A flat Friday-to-Monday move still costs a buyer three days of theta.",
+  "t": "El tiempo sigue pasando cuando el mercado está cerrado. Los modelos de precios cuentan días calendario, así que, como dice el Options Industry Council, las opciones tienden a desgastarse siete días en cinco días de negociación. Un movimiento plano de viernes a lunes igual le cuesta a un comprador tres días de theta."
+ },
+ "ece099ad21b2": {
+  "en": "calls / puts",
+  "t": "calls / puts"
+ },
+ "ed2127d81114": {
+  "en": "Strike style",
+  "t": "Estilo de strike"
+ },
+ "ed35f6e1d117": {
+  "en": "You buy 10 shares for $400. You now own 10 ÷ 2,000,000 = 0.0005% of the business.",
+  "t": "Compras 10 acciones por US$400. Ahora eres dueño de 10 ÷ 2.000.000 = 0,0005 % del negocio."
+ },
+ "ee79cd110441": {
+  "en": "The strike minus the premium, times 100, if the stock goes to zero. In the worked example above, $4,600 on one $47 put sold for $1.00.",
+  "t": "El strike menos la prima, por 100, si la acción llega a cero. En el ejemplo de arriba, US$4.600 en un put de US$47 vendido por US$1,00."
+ },
+ "ef161d28e271": {
+  "en": "An option quote is described by three numbers. The <b>strike</b> is the price at which the shares change hands if the option is used. The <b>expiration</b> is the last day it exists; standard monthly options generally expire after the third Friday of the month, and many stocks also have weekly expirations. The <b>premium</b> is the price, quoted per share, so a $1.50 quote costs $150 for one contract of 100 shares.",
+  "t": "Una cotización de opciones se describe con tres números. El <b>strike</b> (precio de ejercicio) es el precio al que las acciones cambian de manos si se usa la opción. El <b>vencimiento</b> es el último día que existe; las opciones mensuales estándar en general vencen después del tercer viernes del mes, y muchas acciones también tienen vencimientos semanales. La <b>prima</b> es el precio, cotizado por acción, así que una cotización de US$1,50 cuesta US$150 por un contrato de 100 acciones."
+ },
+ "ef505feb70e0": {
+  "en": "Ignoring the expense ratio. A fund that charges 1% a year costs ten times more than one that charges 0.1%.",
+  "t": "Ignorar el costo anual del fondo. Un fondo que cobra 1 % al año cuesta diez veces más que uno que cobra 0,1 %."
+ },
+ "efea2af72b01": {
+  "en": "Judging risk by last year’s returns. A calm year says little about the next bad one.",
+  "t": "Juzgar el riesgo por la rentabilidad del año pasado. Un año tranquilo dice poco sobre el próximo año malo."
+ },
+ "f0953a43634d": {
+  "en": "These are the three strike styles in the simulator at the top of this page, so you can feel the difference before risking money.",
+  "t": "Estos son los tres estilos de strike del simulador de arriba en esta página, para que sientas la diferencia antes de arriesgar dinero."
+ },
+ "f2461b8443c3": {
+  "en": "Price = intrinsic value + time value.",
+  "t": "Precio = valor intrínseco + valor temporal."
+ },
+ "f2c258b79c4d": {
+  "en": "Time value melts every day, and the melting speeds up in the last few weeks.",
+  "t": "El valor temporal se derrite cada día, y se derrite más rápido en las últimas semanas."
+ },
+ "f377ace75586": {
+  "en": "Mixing up calls and puts. A call is in the money below the stock price, a put above it.",
+  "t": "Confundir los calls con los puts. Un call está dentro del dinero por debajo del precio de la acción, un put por encima."
+ },
+ "f3a3bb14441b": {
+  "en": "Prices can fall too. If the business struggles, buyers only pay less for each slice. If a company fails, its shares can become worthless.",
+  "t": "Los precios también pueden bajar. Si el negocio tiene problemas, los compradores solo pagan menos por cada porción. Si una empresa quiebra, sus acciones pueden quedar sin valor."
+ },
+ "f41c12021484": {
+  "en": "That company is 0.2% of your money. Half of 0.2% is 0.1%.",
+  "t": "Esa empresa es el 0,2 % de tu dinero. La mitad de 0,2 % es 0,1 %."
+ },
+ "f474a95b3f47": {
+  "en": "About 4.5% in two months. Had DEMO kept falling to $30, you would be down about $630 even after both premiums.",
+  "t": "Cerca del 4,5 % en dos meses. Si DEMO hubiera seguido cayendo hasta US$30, irías perdiendo unos US$630 incluso después de las dos primas."
+ },
+ "f4eecf33640f": {
+  "en": "Does delta stay the same?",
+  "t": "¿La delta se mantiene igual?"
+ },
+ "f5177bb685c8": {
+  "en": "Buying short-dated, at-the-money options without respecting how fast gamma makes them swing.",
+  "t": "Comprar opciones de corto plazo en el dinero sin respetar qué tan rápido las hace oscilar la gamma."
+ },
+ "f59032309914": {
+  "en": "Sample stock with made-up prices. Each turn is one 30-day option. Safer, balanced and aggressive mean strikes near 0.15, 0.25 and 0.35 delta. Blue dashes are put strikes, amber dashes call strikes; A = assigned shares, C = shares called away. No commissions or taxes.",
+  "t": "Acción de ejemplo con precios inventados. Cada turno es una opción a 30 días. Más seguro, equilibrado y agresivo significan strikes cerca de 0,15, 0,25 y 0,35 de delta. Las rayas azules son strikes de put y las ámbar strikes de call; A = acciones asignadas, C = acciones que te compraron (call ejercido). Sin comisiones ni impuestos."
+ },
+ "f5b6aa41ae43": {
+  "en": "The Options Industry Council describes time decay as not linear: gradual at first, accelerating as expiration approaches. A 90-day option loses a little each day; the same option in its final two weeks loses value quickly.",
+  "t": "El Options Industry Council describe el desgaste por el tiempo como no lineal: gradual al principio y cada vez más rápido a medida que se acerca el vencimiento. Una opción a 90 días pierde un poco cada día; la misma opción en sus últimas dos semanas pierde valor rápido."
+ },
+ "f72b8df8e79e": {
+  "en": "When a put you sold is assigned, you must buy 100 shares per contract at the strike price, whatever the stock trades at that day. When a covered call is assigned, you must sell your 100 shares at the strike.",
+  "t": "Cuando te asignan un put que vendiste, tienes que comprar 100 acciones por contrato al strike, sin importar a cuánto se negocie la acción ese día. Cuando te asignan un covered call, tienes que vender tus 100 acciones al strike."
+ },
+ "f785e71e7f7b": {
+  "en": "<b>Expiration.</b> An option’s time value melts fastest in its last few weeks (see <a href=\\\"#l-theta\\\">Theta: time decay</a>). Many wheel traders therefore sell options about a month from expiration, as the simulator does. That is common practice, not a rule. Shorter options pay less each time and need more attention. Longer ones tie up your cash for longer.",
+  "t": "<b>Vencimiento.</b> El valor temporal de una opción se derrite más rápido en sus últimas semanas (mira <a href=\"#l-theta\">Theta: el desgaste por el tiempo</a>). Por eso muchos traders de la rueda venden opciones a cerca de un mes del vencimiento, como lo hace el simulador. Es una práctica común, no una regla. Las opciones más cortas pagan menos cada vez y necesitan más atención. Las más largas amarran tu efectivo por más tiempo."
+ },
+ "f7863dd939d5": {
+  "en": "The $100 put",
+  "t": "El put de US$100"
+ },
+ "f8c8b099dd97": {
+  "en": "Deep in-the-money options have delta near 1 and move almost like the stock. Far out-of-the-money options have delta near 0 and barely react.",
+  "t": "Las opciones muy dentro del dinero tienen una delta cercana a 1 y se mueven casi como la acción. Las opciones muy fuera del dinero tienen una delta cercana a 0 y casi no reaccionan."
+ },
+ "f98c7d0d26df": {
+  "en": "Option bought",
+  "t": "Opción comprada"
+ },
+ "f990d32f632d": {
+  "en": "Standard US stock options do. After a split, merger or special dividend a contract can be adjusted to cover a different number of shares or other assets; the details appear in the option’s symbol and the broker’s notice.",
+  "t": "Las opciones estándar sobre acciones de EE. UU. sí. Después de un split, una fusión o un dividendo extraordinario, un contrato se puede ajustar para cubrir otro número de acciones u otros activos; los detalles aparecen en el símbolo de la opción y en el aviso del bróker."
+ },
+ "fa04048246e0": {
+  "en": "Kind of year",
+  "t": "Tipo de año"
+ },
+ "fb19787e7afc": {
+  "en": "Cash in a savings account barely moves. Bonds move a little. A broad index fund can fall by a third in a bad year. A single company can go to zero, and an option can lose everything in days.",
+  "t": "El efectivo en una cuenta de ahorros casi no se mueve. Los bonos se mueven un poco. Un fondo indexado amplio puede caer un tercio en un mal año. Una sola empresa puede llegar a cero, y una opción puede perderlo todo en días."
+ },
+ "fb9faf5770c0": {
+  "en": "That curve is why option sellers like the last month and option buyers try to avoid holding through it without a reason.",
+  "t": "Esa curva es la razón por la que a los vendedores de opciones les gusta el último mes y los compradores tratan de no aguantarlo sin una razón."
+ },
+ "fd235ed34989": {
+  "en": "DEMO rises $1. The call gains about $0.52, to about $4.52, which is $52 per contract.",
+  "t": "DEMO sube US$1. El call gana unos US$0,52, hasta unos US$4,52, que son US$52 por contrato."
+ },
+ "fd9da7e43ecd": {
+  "en": "If new bonds start paying more, nobody will pay full price for your older, lower-paying bond. Its price drops until its <b>yield</b> matches the market. When rates fall, the opposite happens.",
+  "t": "Si los bonos nuevos empiezan a pagar más, nadie va a pagar el precio completo por tu bono más viejo, que paga menos. Su precio baja hasta que su <b>rendimiento</b> iguala al del mercado. Cuando las tasas bajan, pasa lo contrario."
+ },
+ "fdd6688ac0b4": {
+  "en": "Once the news is out the uncertainty is gone and IV collapses. This <b>IV crush</b> can wipe out the gain from guessing the direction right.",
+  "t": "Una vez sale la noticia, la incertidumbre desaparece y la IV se desploma. Este <b>desplome de la IV</b> puede borrar la ganancia de haber adivinado bien la dirección."
+ },
+ "fe2000d054e9": {
+  "en": "Owning a share means owning a small slice of a real business.",
+  "t": "Tener una acción significa ser dueño de una porción pequeña de un negocio real."
+ },
+ "fece247c70c5": {
+  "en": "<b>Options that trade heavily.</b> Thinly traded options have a wide gap between the buying and selling price, and you pay part of that gap every time you open or close.",
+  "t": "<b>Opciones que se negocian mucho.</b> Las opciones con poca negociación tienen una brecha amplia entre el precio de compra y el de venta, y pagas parte de esa brecha cada vez que abres o cierras."
+ },
+ "fefec3d8890d": {
+  "en": "The price reflects what buyers expect the company to earn.",
+  "t": "El precio refleja lo que los compradores esperan que gane la empresa."
  }
 }
