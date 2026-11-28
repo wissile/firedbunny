@@ -1,10 +1,822 @@
 {
+ "03e6f5e38e56": {
+  "en": "This year’s spending from the portfolio divided by its balance today.",
+  "t": "El gasto de este año desde el portafolio dividido entre su saldo de hoy."
+ },
+ "045812e34084": {
+  "en": "Nothing: stay at $50,000",
+  "t": "Nada: quedarse en US$50.000"
+ },
+ "0576936639f7": {
+  "en": "Bad years last",
+  "t": "Años malos al final"
+ },
+ "057d883b8968": {
+  "en": "about 29×",
+  "t": "cerca de 29×"
+ },
+ "07be37525388": {
+  "en": "$50,000 ÷ $780,000 = 6.4%, more than 20% above the 5% start, so the rule cuts spending by 10%.",
+  "t": "US$50.000 ÷ US$780.000 = 6,4 %, más de un 20 % por encima del 5 % inicial, así que la regla recorta el gasto un 10 %."
+ },
+ "0a1366ec7143": {
+  "en": "Working “one more year” again and again out of fear, instead of building a flexible plan.",
+  "t": "Trabajar “un año más” una y otra vez por miedo, en vez de construir un plan flexible."
+ },
+ "0bd30d0094db": {
+  "en": "Much less. With no withdrawals the order does not change the end result; adding money during a crash even helps.",
+  "t": "Mucho menos. Sin retiros, el orden no cambia el resultado final; meter dinero durante un desplome incluso ayuda."
+ },
+ "0cf7d56359d6": {
+  "en": "By length",
+  "t": "Según la duración"
+ },
+ "0e63643555e7": {
+  "en": "Early losses force them to sell more shares at low prices, leaving less to recover",
+  "t": "Las pérdidas tempranas los obligan a vender más acciones a precios bajos, y les queda menos para recuperarse"
+ },
+ "0ead6fc1566c": {
+  "en": "Stop withdrawals until the market recovers",
+  "t": "Detener los retiros hasta que el mercado se recupere"
+ },
+ "0fb2c79bb45c": {
+  "en": "90% line",
+  "t": "línea del 90 %"
+ },
+ "10221eb2c86f": {
+  "en": "Yes, because the money has to last longer and there is no paycheck to refill it after an early crash.",
+  "t": "Sí, porque el dinero tiene que durar más y no hay un sueldo para rellenarlo después de un desplome temprano."
+ },
+ "102d0a935560": {
+  "en": "Spending 4% in year one, raised with inflation, survived 30 years in US history. Longer retirements need a little less.",
+  "t": "Gastar el 4 % el primer año, subiéndolo con la inflación, sobrevivió 30 años en la historia de EE. UU. Las jubilaciones más largas necesitan un poco menos."
+ },
+ "12374104633f": {
+  "en": "Success rate",
+  "t": "Tasa de éxito"
+ },
+ "12548baedaf9": {
+  "en": "ran out, yr ",
+  "t": "se acabó, año "
+ },
+ "14236470d62a": {
+  "en": "Using a 30-year rule for a 50- or 60-year retirement without lowering the rate or adding flexibility.",
+  "t": "Usar una regla de 30 años para una jubilación de 50 o 60 años sin bajar la tasa ni agregar flexibilidad."
+ },
+ "176d559e3a36": {
+  "en": "No. They come out of the same withdrawal, so count them in your spending.",
+  "t": "No. Salen del mismo retiro, así que cuéntalos en tu gasto."
+ },
+ "18339540fc43": {
+  "en": "Same returns, same spending, same average. Only the order changed, and it cost Alex six years of income.",
+  "t": "Las mismas rentabilidades, el mismo gasto, el mismo promedio. Solo cambió el orden, y le costó a Alex seis años de ingresos."
+ },
+ "18c2be156ad7": {
+  "en": "Only {0} of futures lasted {1} years. At {2}% you would need a lot of luck or big spending cuts.",
+  "t": "Solo {0} de los futuros duraron {1} años. Al {2} % necesitarías mucha suerte o grandes recortes de gasto."
+ },
+ "18e5b948eed8": {
+  "en": "The Bogleheads <b>VPW</b> method withdraws a percentage of whatever you have each year, and the percentage rises with age. For a 60/40 mix their table starts at about 4.1% at age 40, 4.3% at 50, 4.7% at 60 and 5.0% at 65. You can never run out early, but your spending moves with the market, so plan a floor for the essentials. Bogleheads suggests considering an income annuity around age 80.",
+  "t": "El método <b>VPW</b> de Bogleheads retira cada año un porcentaje de lo que tengas, y el porcentaje sube con la edad. Para una mezcla 60/40 su tabla empieza en cerca del 4,1 % a los 40, 4,3 % a los 50, 4,7 % a los 60 y 5,0 % a los 65. Nunca te puedes quedar sin dinero antes de tiempo, pero tu gasto se mueve con el mercado, así que planea un piso para lo esencial. Bogleheads sugiere considerar una renta vitalicia cerca de los 80 años."
+ },
+ "1a2b129d3d1e": {
+  "en": "Flip the order",
+  "t": "Invertir el orden"
+ },
+ "1b5d91acfcdb": {
+  "en": "Portfolio balance for your order and the reversed order over {0} years",
+  "t": "Saldo del portafolio con tu orden y con el orden invertido durante {0} años"
+ },
+ "1c6864e09d7d": {
+  "en": "Planning at 3.5% means saving about $214,000 more than the 4% rule, in exchange for a plan that held up in most 60-year periods. Starting at 3.25% held up in about 97% of them.",
+  "t": "Planear al 3,5 % significa ahorrar cerca de US$214.000 más que con la regla del 4 %, a cambio de un plan que aguantó en la mayoría de los periodos de 60 años. Empezar al 3,25 % aguantó en cerca del 97 % de ellos."
+ },
+ "1c7834ded34c": {
+  "en": "<b>A lower starting rate.</b> See <a href=\"#l-swr\">the 4% rule and its limits</a>.",
+  "t": "<b>Una tasa inicial más baja.</b> Mira <a href=\"#l-swr\">la regla del 4 % y sus límites</a>."
+ },
+ "1c99d924718e": {
+  "en": "The red zone",
+  "t": "La zona roja"
+ },
+ "1d27a7ea2d26": {
+  "en": "Variable %",
+  "t": "% variable"
+ },
+ "1d31fc2c1adb": {
+  "en": "A 40-year-old may need money for 50 or 60 years. The research blog <b>Early Retirement Now</b> found that 4% with a 50/50 mix succeeded about 95% of the time over 30 years, but only about <b>65%</b> of the time over 60 years. Its summary for 40 to 60 year retirements: about <b>3.25% to 3.5%</b>. Looking forward instead of back, <b>Morningstar</b> puts the safe starting rate for 2026 at <b>3.9%</b> for 30 years with 30% to 50% in stocks. Bengen himself raised his figure to <b>4.7%</b> in a 2025 book by adding small-company and international stocks.",
+  "t": "Alguien de 40 años puede necesitar dinero durante 50 o 60 años. El blog de investigación <b>Early Retirement Now</b> encontró que el 4 % con una mezcla 50/50 tuvo éxito cerca del 95 % de las veces en 30 años, pero solo cerca del <b>65 %</b> de las veces en 60 años. Su resumen para jubilaciones de 40 a 60 años: cerca del <b>3,25 % al 3,5 %</b>. Mirando hacia adelante en vez de hacia atrás, <b>Morningstar</b> pone la tasa inicial segura para 2026 en <b>3,9 %</b> para 30 años con entre el 30 % y el 50 % en acciones. El propio Bengen subió su cifra al <b>4,7 %</b> en un libro de 2025 al agregar acciones de empresas pequeñas e internacionales."
+ },
+ "1e2e65c1d674": {
+  "en": "30 years",
+  "t": "30 años"
+ },
+ "1f9b12adff78": {
+  "en": "Split spending into needs (housing, food, insurance) and wants (travel, gifts, upgrades). Only wants should flex.",
+  "t": "Divide el gasto en necesidades (vivienda, comida, seguros) y gustos (viajes, regalos, mejoras). Solo los gustos deberían ser flexibles."
+ },
+ "23ae06cc0971": {
+  "en": "Pick how many years your money must last, then drag the dot on the lower chart and watch the success rate change.",
+  "t": "Escoge cuántos años tiene que durar tu dinero y luego arrastra el punto del gráfico de abajo y mira cómo cambia la tasa de éxito."
+ },
+ "25c6ae667cd7": {
+  "en": "50 to 60 years",
+  "t": "50 a 60 años"
+ },
+ "26405824db5c": {
+  "en": "Without withdrawals, the order of returns does not matter: a 20% loss then a 25% gain ends in the same place as the gain then the loss. Switch the widget to <i>No withdrawals</i> and both lines finish together.",
+  "t": "Sin retiros, el orden de las rentabilidades no importa: una pérdida del 20 % y luego una ganancia del 25 % terminan en el mismo lugar que la ganancia y luego la pérdida. Pon el widget en <i>Sin retiros</i> y las dos líneas terminan juntas."
+ },
+ "268964523e7e": {
+  "en": "In the last 15 years of the plan the cut rule no longer applies, so spending only rises with good years.",
+  "t": "En los últimos 15 años del plan la regla del recorte ya no aplica, así que el gasto solo sube con los años buenos."
+ },
+ "2834e54a2ad7": {
+  "en": "They also agree to trim travel after a bad year, which gives them a cushion if the first decade goes badly.",
+  "t": "También acuerdan recortar los viajes después de un año malo, lo que les da un colchón si la primera década sale mal."
+ },
+ "28da863ef7a1": {
+  "en": "Spending each year",
+  "t": "Gasto de cada año"
+ },
+ "2940193eebf0": {
+  "en": "Capital preservation rule",
+  "t": "Regla de preservación del capital"
+ },
+ "294c0c703dba": {
+  "en": "Why bad years at the start of retirement hurt far more than the same years later.",
+  "t": "Por qué los años malos al principio de la jubilación duelen mucho más que los mismos años más adelante."
+ },
+ "2b0757bececf": {
+  "en": "Where the 4% rule comes from, and why early retirees often use less.",
+  "t": "De dónde viene la regla del 4 %, y por qué quienes se retiran temprano a menudo usan menos."
+ },
+ "2bb7abab4110": {
+  "en": "A cash and bond buffer, flexible spending and early part-time income are the main defenses.",
+  "t": "Un colchón de efectivo y bonos, el gasto flexible y un ingreso de medio tiempo al principio son las principales defensas."
+ },
+ "2ceb79130cfd": {
+  "en": "A 1998 study by three Trinity University professors that tested withdrawal rates on historical US returns.",
+  "t": "Un estudio de 1998 de tres profesores de la Universidad Trinity que probó tasas de retiro con rentabilidades históricas de EE. UU."
+ },
+ "2dda741b43d3": {
+  "en": "Fixed spending of {0} a year runs out in year {1}. Guardrails started higher at {2}, cut {3} time{4} in the bad years (lowest {5}) and still has {6} after 30 years.",
+  "t": "Un gasto fijo de {0} al año se acaba en el año {1}. Las barandas empezaron más alto, en {2}, con {3} recorte{4} en los años malos (el más bajo, {5}) y todavía tienen {6} después de 30 años."
+ },
+ "2e12c3e8bbc5": {
+  "en": "Do I withdraw 4% every year?",
+  "t": "¿Retiro el 4 % cada año?"
+ },
+ "2f50265334ec": {
+  "en": "Reading the rule as 4% of each year’s balance. That is a different method, and its spending swings up and down with the market.",
+  "t": "Leer la regla como el 4 % del saldo de cada año. Ese es otro método, y su gasto sube y baja con el mercado."
+ },
+ "31efd079f5a1": {
+  "en": "<b>Rebalance.</b> Selling bonds to buy stocks after a crash keeps your mix steady and spends the safer money first.",
+  "t": "<b>Rebalancea.</b> Vender bonos para comprar acciones después de un desplome mantiene estable tu mezcla y gasta primero el dinero más seguro."
+ },
+ "32da1f51faaa": {
+  "en": "year 1",
+  "t": "año 1"
+ },
+ "34a6acd5a2bb": {
+  "en": "Panicking after one bad year instead of checking your current withdrawal rate against your plan.",
+  "t": "Entrar en pánico después de un año malo en vez de comparar tu tasa de retiro actual con tu plan."
+ },
+ "360b9191d96f": {
+  "en": "starting balance",
+  "t": "saldo inicial"
+ },
+ "36d528bd41af": {
+  "en": "With no withdrawals, the order of returns does not matter. With withdrawals, it matters a lot.",
+  "t": "Sin retiros, el orden de las rentabilidades no importa. Con retiros, importa mucho."
+ },
+ "379b3b37c668": {
+  "en": "For $60,000 a year that is $1.5M, $1.71M, $1.85M or $2M. Build yours in <a href=\"#l-fire-number\">Your FIRE number</a>.",
+  "t": "Para US$60.000 al año eso es US$1,5 M, US$1,71 M, US$1,85 M o US$2 M. Arma el tuyo en <a href=\"#l-fire-number\">Tu número FIRE</a>."
+ },
+ "39db229be211": {
+  "en": "Is sequence risk worse for early retirees?",
+  "t": "¿El riesgo de secuencia es peor para quienes se retiran temprano?"
+ },
+ "3fb6d997a5da": {
+  "en": " runs out, yr ",
+  "t": " se acaba, año "
+ },
+ "43d9a6aca53e": {
+  "en": "<b>i</b><span>Marks 1, 2 and 4 are 30-year findings from history or forecasts. Set 30 years to compare like with like.</span>",
+  "t": "<b>i</b><span>Las marcas 1, 2 y 4 son hallazgos de 30 años sacados de la historia o de pronósticos. Pon 30 años para comparar lo comparable.</span>"
+ },
+ "45fe5b098231": {
+  "en": "A plan that can bend rarely breaks: small, rule-based cuts after bad years let you start higher and still last.",
+  "t": "Un plan que se puede doblar rara vez se rompe: recortes pequeños y con reglas después de los años malos te dejan empezar más alto y que igual alcance."
+ },
+ "4658ba07bdcf": {
+  "en": "Only flexible spending should flex: cover essentials with steady income or a buffer.",
+  "t": "Solo el gasto flexible debería moverse: cubre lo esencial con un ingreso estable o un colchón."
+ },
+ "46c83599b388": {
+  "en": "Fan chart of 1,000 simulated portfolios over {0} years at a {1}% withdrawal rate",
+  "t": "Gráfico de abanico de 1.000 portafolios simulados durante {0} años con una tasa de retiro del {1} %"
+ },
+ "478241d72930": {
+  "en": "<b>Part-time income early on.</b> Even a small income in the first years means smaller withdrawals when they hurt most.",
+  "t": "<b>Ingreso de medio tiempo al principio.</b> Incluso un ingreso pequeño en los primeros años significa retiros más pequeños cuando más duelen."
+ },
+ "4876811be705": {
+  "en": "Portfolio left",
+  "t": "Portafolio restante"
+ },
+ "4a28d7ecd665": {
+  "en": "<b>Start</b> around 5.2% to 5.6% with at least 65% in stocks, using all the rules.",
+  "t": "<b>Empieza</b> entre el 5,2 % y el 5,6 % con al menos el 65 % en acciones, usando todas las reglas."
+ },
+ "4d1edb9cbdb2": {
+  "en": "Guyton-Klinger: cut 10% if your rate rises 20% above the start, raise 10% if it falls 20% below.",
+  "t": "Guyton-Klinger: recorta un 10 % si tu tasa sube un 20 % por encima del inicio, sube un 10 % si cae un 20 % por debajo."
+ },
+ "5298cb4ecb1d": {
+  "en": "Start at 5%: <b>$50,000</b> in year one. Upper rail: 5% × 1.2 = 6%. Lower rail: 5% × 0.8 = 4%.",
+  "t": "Empieza al 5 %: <b>US$50.000</b> el primer año. Baranda superior: 5 % × 1,2 = 6 %. Baranda inferior: 5 % × 0,8 = 4 %."
+ },
+ "55c47e0397e1": {
+  "en": "Kitces calls the final decade before retirement and the first half of retirement the “retirement red zone”. The reason is the <b>portfolio size effect</b>: your portfolio is at its largest then, so a bear market costs the most dollars exactly when you start depending on it.",
+  "t": "Kitces llama a la última década antes del retiro y a la primera mitad de la jubilación la “zona roja del retiro”. La razón es el <b>efecto del tamaño del portafolio</b>: en ese momento tu portafolio está en su punto más grande, así que un mercado bajista cuesta más dólares justo cuando empiezas a depender de él."
+ },
+ "565068807000": {
+  "en": "The 4% rule says you can withdraw 4% of your savings in the first year of retirement, then the same amount plus inflation every year, and historically have money left after 30 years. It came from Bill Bengen’s 1994 study and the 1998 Trinity study. Longer retirements and higher costs call for a lower start.",
+  "t": "La regla del 4 % dice que puedes retirar el 4 % de tus ahorros el primer año de jubilación, y luego el mismo monto más la inflación cada año, e históricamente te queda dinero después de 30 años. Salió del estudio de Bill Bengen de 1994 y del estudio Trinity de 1998. Las jubilaciones más largas y los costos más altos piden un comienzo más bajo."
+ },
+ "565545e38bbd": {
+  "en": "The cut rule stops applying in the last 15 years of the plan.",
+  "t": "La regla del recorte deja de aplicar en los últimos 15 años del plan."
+ },
+ "56a0aaa9f415": {
+  "en": "No. You withdraw 4% of the starting balance in year one, then raise that dollar amount with inflation, whatever the market does.",
+  "t": "No. Retiras el 4 % del saldo inicial el primer año, y luego subes ese monto en dólares con la inflación, haga lo que haga el mercado."
+ },
+ "56aed6143de6": {
+  "en": "The 4% rule assumes you never change your spending, even in a crash. Real people trim travel or delay a new car when markets fall. Building that flexibility into written rules lets you start with a higher withdrawal and still sleep at night.",
+  "t": "La regla del 4 % supone que nunca cambias tu gasto, ni siquiera en un desplome. La gente real recorta los viajes o aplaza un carro nuevo cuando los mercados caen. Poner esa flexibilidad en reglas escritas te deja empezar con un retiro más alto y aun así dormir tranquilo."
+ },
+ "56f84a4691e9": {
+  "en": "Years later the portfolio reaches $1,200,000. $45,000 ÷ $1.2M = 3.75%, below the 4% rail, so spending rises 10% to <b>$49,500</b>.",
+  "t": "Años después el portafolio llega a US$1.200.000. US$45.000 ÷ US$1,2 M = 3,75 %, por debajo de la baranda del 4 %, así que el gasto sube un 10 % a <b>US$49.500</b>."
+ },
+ "56fb6c389316": {
+  "en": "Flexible spending, part-time income and low fees let you safely spend more.",
+  "t": "El gasto flexible, el ingreso de medio tiempo y las comisiones bajas te dejan gastar más con seguridad."
+ },
+ "579d6341eaab": {
+  "en": "<b>A cash and bond buffer.</b> Schwab suggests about a year of spending (after Social Security or other income) in cash, plus two to four years in short-term high-quality bonds, so you do not have to sell stocks in a downturn. This is the <b>bucket strategy</b>.",
+  "t": "<b>Un colchón de efectivo y bonos.</b> Schwab sugiere cerca de un año de gasto (después de la pensión u otros ingresos) en efectivo, más dos a cuatro años en bonos de corto plazo y alta calidad, para que no tengas que vender acciones en una caída. Esta es la <b>estrategia de baldes</b>."
+ },
  "598143299f35": {
   "en": "Year 1",
   "t": "Año 1"
  },
+ "5a7276af01b4": {
+  "en": "out of money, yr ",
+  "t": "sin dinero, año "
+ },
+ "5b772b7bfd0a": {
+  "en": "Shuffle",
+  "t": "Mezclar"
+ },
+ "5bbe86a43fe9": {
+  "en": "<span class=\"lab\">Part-time income</span>{0}",
+  "t": "<span class=\"lab\">Ingreso de medio tiempo</span>{0}"
+ },
+ "5be90de3f4ac": {
+  "en": "Made-up returns after inflation, chosen to look like a rough 30 years: three bad years, some flat ones, many good ones. Withdrawals happen at the start of each year and stay the same in today’s dollars. Both lines use exactly the same 30 numbers, so the average is identical.",
+  "t": "Rentabilidades inventadas después de inflación, escogidas para parecer unos 30 años normales: tres años malos, algunos planos y muchos buenos. Los retiros pasan al principio de cada año y se quedan iguales en dólares de hoy. Las dos líneas usan exactamente los mismos 30 números, así que el promedio es idéntico."
+ },
+ "5d20fb38041a": {
+  "en": "Early Retirement Now: Does a 4% withdrawal rate survive a 60-year retirement?",
+  "t": "Early Retirement Now: ¿una tasa de retiro del 4 % sobrevive a una jubilación de 60 años? (en inglés)"
+ },
+ "5e009152b5b6": {
+  "en": "Keep a few years of part-time or <a href=\"#l-coast-fire\">Barista FIRE</a> income as a buffer for a bad start.",
+  "t": "Mantén unos años de ingreso de medio tiempo o de <a href=\"#l-coast-fire\">Barista FIRE</a> como colchón para un mal comienzo."
+ },
+ "60c4812aa909": {
+  "en": "Putting off retirement again and again, even after you have enough, out of fear.",
+  "t": "Aplazar el retiro una y otra vez, incluso después de tener suficiente, por miedo."
+ },
+ "610264454ce0": {
+  "en": "The 30-year range runs from Morningstar’s 2026 estimate (3.9%, 90% success) to Bengen’s 2025 figure for a more diversified portfolio (4.7%).",
+  "t": "El rango de 30 años va desde la estimación de Morningstar para 2026 (3,9 %, 90 % de éxito) hasta la cifra de Bengen de 2025 para un portafolio más diversificado (4,7 %)."
+ },
+ "634fda663e22": {
+  "en": "Bengen (1994): about 4.15% survived the worst 30-year period for a 60/40 mix of US stocks and Treasuries, rounded to the 4% rule.",
+  "t": "Bengen (1994): cerca del 4,15 % sobrevivió el peor periodo de 30 años para una mezcla 60/40 de acciones y bonos del Tesoro de EE. UU., redondeado a la regla del 4 %."
+ },
+ "6422979474dc": {
+  "en": "Starting at a guardrail rate when almost all of your spending is essential and nothing can be cut.",
+  "t": "Empezar con una tasa de barandas cuando casi todo tu gasto es esencial y no se puede recortar nada."
+ },
+ "65e6afa5b597": {
+  "en": "4% of whatever the balance is now",
+  "t": "El 4 % de lo que sea el saldo ahora"
+ },
+ "693435f9673d": {
+  "en": "Sequence of returns risk is the danger of bad returns early in retirement, while you are withdrawing. Selling shares at low prices to pay the bills leaves fewer shares to recover, so the same average return can end very differently. The decade around your retirement date matters most.",
+  "t": "El riesgo de secuencia de rentabilidades es el peligro de tener malas rentabilidades al principio de la jubilación, mientras estás retirando. Vender acciones a precios bajos para pagar las cuentas deja menos acciones para recuperarse, así que la misma rentabilidad promedio puede terminar de forma muy distinta. La década alrededor de tu fecha de retiro es la que más importa."
+ },
+ "69f0a2afe8b4": {
+  "en": "Leaving taxes, fund fees and health insurance out of the spending number the rate is applied to.",
+  "t": "Dejar los impuestos, las comisiones de los fondos y el seguro de salud por fuera del número de gasto al que se le aplica la tasa."
+ },
+ "6a252e39ec25": {
+  "en": "They need 50 years of withdrawals, not the 30 years the 4% rule was built for.",
+  "t": "Necesitan 50 años de retiros, no los 30 años para los que se construyó la regla del 4 %."
+ },
+ "6ad001f96d24": {
+  "en": "21 to 26×",
+  "t": "21 a 26×"
+ },
+ "6d5145fc7ea9": {
+  "en": "One-more-year syndrome",
+  "t": "El síndrome de un año más"
+ },
+ "6d5efff5d917": {
+  "en": "Flexible spending with guardrails",
+  "t": "Gasto flexible con barandas"
+ },
+ "6f573cf5b5f3": {
+  "en": "Bond tent",
+  "t": "Carpa de bonos"
+ },
+ "6f850663b98b": {
+  "en": "Part-time income in the early years is one of the strongest protections there is.",
+  "t": "Un ingreso de medio tiempo en los primeros años es una de las protecciones más fuertes que hay."
+ },
+ "7005376d5d2e": {
+  "en": "Watch the rate",
+  "t": "Vigila la tasa"
+ },
+ "703cc806dc32": {
+  "en": "<span class=\"wg-title grow\">Same 30 returns, two orders</span>{0}",
+  "t": "<span class=\"wg-title grow\">Las mismas 30 rentabilidades, dos órdenes</span>{0}"
+ },
+ "707eed41b194": {
+  "en": "Does the order of returns matter while I am still saving?",
+  "t": "¿El orden de las rentabilidades importa mientras todavía estoy ahorrando?"
+ },
+ "71a99dde636a": {
+  "en": "about 29 to 31×",
+  "t": "cerca de 29 a 31×"
+ },
+ "735e65682167": {
+  "en": "Both orders end at exactly {0}. Multiplying the same returns in any order gives the same answer. Order only matters once you take money out.",
+  "t": "Los dos órdenes terminan exactamente en {0}. Multiplicar las mismas rentabilidades en cualquier orden da la misma respuesta. El orden solo importa cuando sacas dinero."
+ },
+ "738f8c2b9ef9": {
+  "en": "They pick 3.5%. Year one they withdraw $60,000. Inflation runs 3%, so year two they withdraw $61,800, whatever the market did.",
+  "t": "Escogen el 3,5 %. El primer año retiran US$60.000. La inflación es del 3 %, así que el segundo año retiran US$61.800, haya hecho lo que haya hecho el mercado."
+ },
+ "760bd631562f": {
+  "en": "Track this year’s spending as a share of today’s balance to spot trouble early.",
+  "t": "Lleva la cuenta del gasto de este año como parte del saldo de hoy para detectar problemas temprano."
+ },
+ "77c9fd00d959": {
+  "en": "At 4% they would need $60,000 × 25 = <b>$1.5M</b>. Over 60-year periods, 4% held up only about 65% of the time in Early Retirement Now’s tests.",
+  "t": "Al 4 % necesitarían US$60.000 × 25 = <b>US$1,5 M</b>. En periodos de 60 años, el 4 % aguantó solo cerca del 65 % de las veces en las pruebas de Early Retirement Now."
+ },
+ "7848199c6b7e": {
+  "en": "Treating 90% success as a guarantee, or a failed path as going broke overnight. Failing paths show warning signs for years, and you can react.",
+  "t": "Tomar un 90 % de éxito como una garantía, o un camino fallido como quebrar de la noche a la mañana. Los caminos que fallan muestran señales de alerta durante años, y puedes reaccionar."
+ },
+ "785fef8c4322": {
+  "en": "drag the dot",
+  "t": "arrastra el punto"
+ },
+ "79b13d724fa5": {
+  "en": "4% = 25 times your yearly spending",
+  "t": "4 % = 25 veces tu gasto anual"
+ },
+ "7a4b74965efa": {
+  "en": "The first five to ten years of retirement matter most, because the portfolio is at its biggest and has the longest time left to fund. Schwab’s example: after early losses, a portfolio paying out 2% a year needed about 11.5 years to recover, while one paying out 4% needed about 28.",
+  "t": "Los primeros cinco a diez años de jubilación son los que más importan, porque el portafolio está en su punto más grande y tiene el tiempo más largo por financiar. El ejemplo de Schwab: después de pérdidas tempranas, un portafolio que pagaba el 2 % al año necesitó cerca de 11,5 años para recuperarse, mientras que uno que pagaba el 4 % necesitó cerca de 28."
+ },
+ "7c22df387478": {
+  "en": "Schwab suggests about a year of spending in cash plus two to four years in short-term high-quality bonds. Treat it as a starting point, not a rule.",
+  "t": "Schwab sugiere cerca de un año de gasto en efectivo más dos a cuatro años en bonos de corto plazo y alta calidad. Tómalo como un punto de partida, no como una regla."
+ },
+ "7df7bd106017": {
+  "en": "red bands: down years · ▼ cut · ▲ raise",
+  "t": "franjas rojas: años a la baja · ▼ recorte · ▲ aumento"
+ },
+ "7fa0919c5113": {
+  "en": "3.9% to 4.7%",
+  "t": "3,9 % a 4,7 %"
+ },
+ "813aac553fc0": {
+  "en": "Monte Carlo simulation",
+  "t": "Simulación de Monte Carlo"
+ },
+ "83546830bbaf": {
+  "en": "How big should a cash and bond buffer be?",
+  "t": "¿Qué tan grande debería ser un colchón de efectivo y bonos?"
+ },
+ "83a8d2725c2e": {
+  "en": "Part-time income in early retirement",
+  "t": "Ingreso de medio tiempo al principio del retiro"
+ },
+ "83bb795df6f8": {
+  "en": "Bengen’s research assumed tax-deferred accounts. Taxes, fund fees and advice fees come out of the same 4%, so count them in your spending.",
+  "t": "La investigación de Bengen supuso cuentas con impuestos diferidos. Los impuestos, las comisiones de los fondos y las comisiones de asesoría salen del mismo 4 %, así que cuéntalos en tu gasto."
+ },
+ "86a8b9e487c8": {
+  "en": "Variable percentage withdrawal",
+  "t": "Retiro de porcentaje variable"
+ },
+ "86c7e59b5652": {
+  "en": "The rule sets a dollar amount in year one and raises it with inflation each year, whatever the market does.",
+  "t": "La regla fija un monto en dólares el primer año y lo sube con la inflación cada año, haga lo que haga el mercado."
+ },
+ "89f600306983": {
+  "en": "The averages are identical. Withdrawing during early losses sells shares cheaply, so less money is left to benefit from the recovery.",
+  "t": "Los promedios son idénticos. Retirar durante las pérdidas tempranas vende acciones baratas, así que queda menos dinero para aprovechar la recuperación."
+ },
+ "8b4ab5be1881": {
+  "en": "<b>Success</b> means money was left at the end of the period. It says nothing about how much.",
+  "t": "<b>Éxito</b> significa que quedó dinero al final del periodo. No dice nada sobre cuánto."
+ },
+ "8b9d2b35c97b": {
+  "en": "% (both)",
+  "t": "% (los dos)"
+ },
+ "8bb7820c668c": {
+  "en": "<span class=\"wg-title grow\">Three ways to spend $1M</span>{0}",
+  "t": "<span class=\"wg-title grow\">Tres formas de gastar US$1 M</span>{0}"
+ },
+ "8c015fedb338": {
+  "en": "<b>Capital preservation:</b> if your current withdrawal rate rises more than 20% above where you started, cut spending by 10%.",
+  "t": "<b>Preservación del capital:</b> si tu tasa de retiro actual sube más de un 20 % por encima de donde empezaste, recorta el gasto un 10 %."
+ },
+ "8d57a0be6bf4": {
+  "en": "AAII Journal: Retirement savings, choosing a withdrawal rate that is sustainable (Feb. 1998)",
+  "t": "AAII Journal: Retirement savings, choosing a withdrawal rate that is sustainable (feb. 1998, en inglés)"
+ },
+ "8ee158601f9e": {
+  "en": "Bar chart of the 30 yearly returns in your chosen order; drag a bar to move it",
+  "t": "Gráfico de barras de las 30 rentabilidades anuales en el orden que escogiste; arrastra una barra para moverla"
+ },
+ "9042ee3402e4": {
+  "en": "Planners Jonathan Guyton and William Klinger published the best-known rules in 2006:",
+  "t": "Los planificadores Jonathan Guyton y William Klinger publicaron las reglas más conocidas en 2006:"
+ },
+ "9057f2153229": {
+  "en": "3.5% = 28.6 times",
+  "t": "3,5 % = 28,6 veces"
+ },
+ "9067d77c1179": {
+  "en": "Start at 5% on $1M ($50,000) and the rails sit at 6% and 4%. If the portfolio falls to $800,000, $50,000 is now 6.25%, so spending drops to $45,000.",
+  "t": "Empieza al 5 % sobre US$1 M (US$50.000) y las barandas quedan en 6 % y 4 %. Si el portafolio cae a US$800.000, US$50.000 ahora son el 6,25 %, así que el gasto baja a US$45.000."
+ },
+ "90d9b2a63ce9": {
+  "en": "Blair earns +6% in those years: $1,007,000 after year 1 and about $1.03M by year 9. The same two −15% years arrive in years 10 and 11, leaving <b>$652,386</b>.",
+  "t": "Blair gana +6 % en esos años: US$1.007.000 después del año 1 y cerca de US$1,03 M para el año 9. Los mismos dos años de −15 % llegan en los años 10 y 11, y le dejan <b>US$652.386</b>."
+ },
+ "911ef3cb5c32": {
+  "en": "At 3.5% they need $60,000 ÷ 0.035 = <b>$1.71M</b> (28.6 times). At 3.25%, $60,000 ÷ 0.0325 = <b>$1.85M</b> (30.8 times).",
+  "t": "Al 3,5 % necesitan US$60.000 ÷ 0,035 = <b>US$1,71 M</b> (28,6 veces). Al 3,25 %, US$60.000 ÷ 0,0325 = <b>US$1,85 M</b> (30,8 veces)."
+ },
+ "923ddac76469": {
+  "en": "Bogleheads wiki: Variable percentage withdrawal",
+  "t": "Wiki de Bogleheads: retiro de porcentaje variable (en inglés)"
+ },
+ "928575be828c": {
+  "en": "Once you are withdrawing, the same returns in a different order can mean money for life or running out.",
+  "t": "Una vez estás retirando, las mismas rentabilidades en otro orden pueden significar dinero de por vida o quedarte sin nada."
+ },
+ "92eb5d74f6b9": {
+  "en": "Early Retirement Now: about 3.25% to 3.5% for 40 to 60 year retirements.",
+  "t": "Early Retirement Now: cerca del 3,25 % al 3,5 % para jubilaciones de 40 a 60 años."
+ },
+ "93b80ed33706": {
+  "en": "Year 2: $807,500 − $51,000 = $756,500, then × 0.85 = <b>$643,025</b>. A third of the money is gone in two years.",
+  "t": "Año 2: US$807.500 − US$51.000 = US$756.500, y luego × 0,85 = <b>US$643.025</b>. Un tercio del dinero se fue en dos años."
+ },
+ "94a1e493ca44": {
+  "en": "Mistaking VPW’s lower spending in bad years for failure, instead of planning a floor for the essentials.",
+  "t": "Confundir el gasto más bajo del VPW en los años malos con un fracaso, en vez de planear un piso para lo esencial."
+ },
+ "94bdcf54ce40": {
+  "en": "Read the rule carefully. You withdraw 4% of your savings in the <i>first</i> year only. After that you take the same dollars plus inflation, whatever the market does. With $1M you take $40,000 in year one; if prices rise 3%, you take $41,200 in year two.",
+  "t": "Lee la regla con cuidado. Retiras el 4 % de tus ahorros solo el <i>primer</i> año. Después sacas los mismos dólares más la inflación, haga lo que haga el mercado. Con US$1 M sacas US$40.000 el primer año; si los precios suben 3 %, sacas US$41.200 el segundo año."
+ },
+ "94eee316a003": {
+  "en": "The 4% rule: withdraw 4% in year one, then raise that dollar amount with inflation.",
+  "t": "La regla del 4 %: retira el 4 % el primer año, y luego sube ese monto en dólares con la inflación."
+ },
+ "950ba1aeab0b": {
+  "en": "Press Flip the order, or drag a red bar to a later year, and watch two retirements with the same average return split apart.",
+  "t": "Presiona Invertir el orden, o arrastra una barra roja a un año posterior, y mira cómo se separan dos jubilaciones con la misma rentabilidad promedio."
+ },
+ "9512ca4b1887": {
+  "en": "Keeping spending fixed through a deep drop in the first years of retirement.",
+  "t": "Mantener el gasto fijo durante una caída profunda en los primeros años de jubilación."
+ },
+ "95431478aabf": {
+  "en": "One $5,000 cut during a bad stretch kept the plan on track, instead of locking in a much lower fixed rate for life.",
+  "t": "Un solo recorte de US$5.000 durante una mala racha mantuvo el plan en camino, en vez de asegurar una tasa fija mucho más baja de por vida."
+ },
+ "97eb7356619d": {
+  "en": "Schwab: Timing matters, understanding sequence-of-returns risk",
+  "t": "Schwab: el momento importa, entender el riesgo de secuencia de rentabilidades (en inglés)"
+ },
+ "98bebcd97874": {
+  "en": "White Coat Investor: The Guyton-Klinger guardrails approach",
+  "t": "White Coat Investor: el enfoque de barandas de Guyton-Klinger (en inglés)"
+ },
+ "98bfcdfc1f8a": {
+  "en": "<b>Flexible spending.</b> Cut the extras after a bad year. See <a href=\"#l-guardrails\">guardrails</a>.",
+  "t": "<b>Gasto flexible.</b> Recorta los extras después de un año malo. Mira <a href=\"#l-guardrails\">las barandas</a>."
+ },
+ "99d90d9c6456": {
+  "en": "Running thousands of random “what if” futures to see how often a plan works.",
+  "t": "Correr miles de futuros aleatorios de “qué pasaría si” para ver qué tan seguido funciona un plan."
+ },
+ "9a60e7249323": {
+  "en": "Alex gets the two bad years first. Year 1: $1,000,000 − $50,000 = $950,000, then × 0.85 = <b>$807,500</b>.",
+  "t": "A Alex le tocan primero los dos años malos. Año 1: US$1.000.000 − US$50.000 = US$950.000, y luego × 0,85 = <b>US$807.500</b>."
+ },
+ "9cc835a2a981": {
+  "en": "Spending and portfolio balance each year for fixed, guardrails and variable-percentage withdrawals",
+  "t": "Gasto y saldo del portafolio cada año para retiros fijos, con barandas y de porcentaje variable"
+ },
+ "a02fd4bf52e9": {
+  "en": "How many years the money must last",
+  "t": "Cuántos años tiene que durar el dinero"
+ },
+ "a044d4ae7d61": {
+  "en": "If you can cut spending after bad years, flexible methods such as guardrails can support higher starting rates.",
+  "t": "Si puedes recortar el gasto después de los años malos, los métodos flexibles como las barandas pueden sostener tasas iniciales más altas."
+ },
+ "a4c6f81de59b": {
+  "en": "In 1994 a financial planner named Bill Bengen tested every 30-year retirement in US history since 1926. He asked: what is the most you could withdraw in year one, then raise with inflation every year, without running out? For a mix of 60% US stocks and 40% Treasury bonds, the worst period still allowed about <b>4.15%</b>. That got rounded to the <b>4% rule</b>. In 1998 three professors at Trinity University ran a similar test (the <b>Trinity study</b>) and found 3% to 4% held up well for stock-heavy portfolios.",
+  "t": "En 1994 un planificador financiero llamado Bill Bengen probó cada jubilación de 30 años de la historia de EE. UU. desde 1926. Se preguntó: ¿qué es lo máximo que podrías retirar el primer año, y luego subir con la inflación cada año, sin quedarte sin dinero? Para una mezcla de 60 % acciones de EE. UU. y 40 % bonos del Tesoro, el peor periodo igual permitió cerca del <b>4,15 %</b>. Eso se redondeó a la <b>regla del 4 %</b>. En 1998 tres profesores de la Universidad Trinity hicieron una prueba parecida (el <b>estudio Trinity</b>) y encontraron que del 3 % al 4 % aguantaba bien para portafolios cargados en acciones."
+ },
+ "a57aa1c812d1": {
+  "en": "Rules that cut spending a little after bad years let you start higher and still last.",
+  "t": "Las reglas que recortan un poco el gasto después de los años malos te dejan empezar más alto y que igual alcance."
+ },
+ "a8a91df31b56": {
+  "en": "Roll 1,000 new futures",
+  "t": "Generar 1.000 futuros nuevos"
+ },
+ "aa6c5f59a876": {
+  "en": "A bad year is not failure. Track your current withdrawal rate: this year’s spending divided by today’s balance. If it climbs well above where you started, it is time to act, years before the money is in danger. Stress-test your own plan in <a href=\"#l-fire-whatif\">What if?</a>.",
+  "t": "Un año malo no es un fracaso. Lleva la cuenta de tu tasa de retiro actual: el gasto de este año dividido entre el saldo de hoy. Si sube muy por encima de donde empezaste, es hora de actuar, años antes de que el dinero esté en peligro. Pon a prueba tu propio plan en <a href=\"#l-fire-whatif\">¿Y si…?</a>."
+ },
+ "aaaffa22d0c9": {
+  "en": "Variable percentage never runs out early, but your income moves with the market.",
+  "t": "El porcentaje variable nunca se queda sin dinero antes de tiempo, pero tu ingreso se mueve con el mercado."
+ },
+ "ab5709d2aa8a": {
+  "en": "Can I start higher?",
+  "t": "¿Puedo empezar más alto?"
+ },
+ "ab9c8e28eadc": {
+  "en": "Taxes are always higher for the one who runs out",
+  "t": "Los impuestos siempre son más altos para el que se queda sin dinero"
+ },
  "abb490f65dea": {
   "en": "Lowest",
   "t": "La más baja"
+ },
+ "ac1d735cd77b": {
+  "en": "Switch between Rough start, Average and Lucky start, then add part-time income and see how each spending method copes.",
+  "t": "Cambia entre Comienzo difícil, Promedio y Comienzo con suerte, y luego agrega un ingreso de medio tiempo y mira cómo le va a cada método de gasto."
+ },
+ "ac9a7eec3fcd": {
+  "en": "The first five to ten years of retirement carry the most risk.",
+  "t": "Los primeros cinco a diez años de jubilación tienen el mayor riesgo."
+ },
+ "ada3f4d09f6d": {
+  "en": "A simulation, not history: each year draws a random return. Stocks average about 7% a year above inflation and swing about 16% in a typical year; bonds about 2% with 6% swings. Real markets have streaks and recoveries this simple model leaves out, so treat the percentages as rough. Spending starts at the withdrawal rate and rises with inflation every year (shown in today’s dollars). Drag the dot on the lower chart to change the rate.",
+  "t": "Una simulación, no la historia: cada año saca una rentabilidad al azar. Las acciones promedian cerca de 7 % al año por encima de la inflación y oscilan cerca de 16 % en un año típico; los bonos cerca de 2 % con oscilaciones del 6 %. Los mercados reales tienen rachas y recuperaciones que este modelo simple deja por fuera, así que toma los porcentajes como aproximados. El gasto empieza en la tasa de retiro y sube con la inflación cada año (mostrado en dólares de hoy). Arrastra el punto del gráfico de abajo para cambiar la tasa."
+ },
+ "b0045f548f39": {
+  "en": "Kitces: Managing the portfolio size effect with a bond tent in the retirement red zone",
+  "t": "Kitces: cómo manejar el efecto del tamaño del portafolio con una carpa de bonos en la zona roja del retiro (en inglés)"
+ },
+ "b3fd86a0357b": {
+  "en": "Cut spending 10% to $45,000, because 6.4% is above the 6% rail",
+  "t": "Recortar el gasto un 10 % a US$45.000, porque 6,4 % está por encima de la baranda del 6 %"
+ },
+ "b87313b1dc85": {
+  "en": "The 4% rule and its limits",
+  "t": "La regla del 4 % y sus límites"
+ },
+ "b903244228e3": {
+  "en": "Each year, divide this year’s withdrawal by the portfolio’s value. If it climbs well above where you started, that is the signal to trim spending, as <a href=\\\"#l-guardrails\\\">guardrails</a> do.",
+  "t": "Cada año, divide el retiro de este año entre el valor del portafolio. Si sube muy por encima de donde empezaste, esa es la señal para recortar el gasto, como hacen las <a href=\\\"#l-guardrails\\\">barandas</a>."
+ },
+ "bcf751f917d5": {
+  "en": "Bad years first",
+  "t": "Años malos primero"
+ },
+ "bd602d21ac20": {
+  "en": "Bengen calls inflation retirees’ greatest enemy: high inflation early in retirement and expensive stock markets both lower the safe rate.",
+  "t": "Bengen dice que la inflación es el peor enemigo de los jubilados: una inflación alta al principio de la jubilación y los mercados accionarios caros bajan la tasa segura."
+ },
+ "bde97218563c": {
+  "en": "Delay big one-off purchases after a down year.",
+  "t": "Aplaza las compras grandes y únicas después de un año a la baja."
+ },
+ "c072614be30c": {
+  "en": "Two retirees each start with $1M and withdraw $50,000 in year one, raising it 2% a year. Every year earns +6% except two years that lose 15%.",
+  "t": "Dos jubilados empiezan cada uno con US$1 M y retiran US$50.000 el primer año, subiéndolo 2 % al año. Cada año gana +6 % salvo dos años que pierden 15 %."
+ },
+ "c5917598bcfa": {
+  "en": "$40,000 again, whatever happens",
+  "t": "US$40.000 otra vez, pase lo que pase"
+ },
+ "c5a82f54376f": {
+  "en": "The Guyton-Klinger guardrail that cuts spending 10% when your withdrawal rate rises more than 20% above where it started.",
+  "t": "La baranda de Guyton-Klinger que recorta el gasto un 10 % cuando tu tasa de retiro sube más de un 20 % por encima de donde empezó."
+ },
+ "c5bbc5e16ba4": {
+  "en": "Kitces: Implementing retirement income guardrails",
+  "t": "Kitces: cómo implementar barandas en los ingresos de jubilación (en inglés)"
+ },
+ "c6c466379832": {
+  "en": "Per $1M saved, in today’s dollars, with made-up yearly returns for a 60/40 portfolio. Guardrails follow the Guyton-Klinger idea, simplified: if spending grows past the upper rail as a share of the portfolio, cut it; if it falls below the lower rail, give yourself a raise; no cuts in the last 15 years. Variable % works like the Bogleheads VPW method: spend a share of whatever is left, a share that rises as the years run out (here assuming a 4% return after inflation over 30 years), so it ends at zero by design. Part-time income is spent first and the portfolio covers the rest.",
+  "t": "Por cada US$1 M ahorrado, en dólares de hoy, con rentabilidades anuales inventadas para un portafolio 60/40. Las barandas siguen la idea de Guyton-Klinger, simplificada: si el gasto crece por encima de la baranda superior como parte del portafolio, lo recortas; si cae por debajo de la baranda inferior, te das un aumento; sin recortes en los últimos 15 años. El % variable funciona como el método VPW de Bogleheads: gastas una parte de lo que quede, una parte que sube a medida que se acaban los años (aquí suponiendo una rentabilidad del 4 % después de inflación en 30 años), así que termina en cero por diseño. El ingreso de medio tiempo se gasta primero y el portafolio cubre el resto."
+ },
+ "c7b5a88bd407": {
+  "en": "For 40 to 60 years, research points to roughly 3.25% to 3.5%, or about 29 to 31 times spending. Even that held up in most long periods, not all.",
+  "t": "Para 40 a 60 años, los estudios apuntan más o menos al 3,25 % al 3,5 %, o unas 29 a 31 veces el gasto. Incluso eso aguantó en la mayoría de los periodos largos, no en todos."
+ },
+ "c7d568eb83aa": {
+  "en": "Withdrawing a set percentage of the current balance each year, with the percentage rising as you age.",
+  "t": "Retirar cada año un porcentaje fijo del saldo actual, con un porcentaje que sube a medida que envejeces."
+ },
+ "c7ddc8ee7813": {
+  "en": "3.25% = 30.8 times",
+  "t": "3,25 % = 30,8 veces"
+ },
+ "cacbaa3c3109": {
+  "en": "About {0} in 10 futures ran out before year {1}. Lower the rate, plan part-time income, or use guardrails.",
+  "t": "Cerca de {0} de cada 10 futuros se quedaron sin dinero antes del año {1}. Baja la tasa, planea un ingreso de medio tiempo o usa barandas."
+ },
+ "cc02b946db78": {
+  "en": "Withdrawals change that. When you sell shares to pay for groceries during a crash, you sell more shares at low prices. Those shares are not there when the market recovers. A temporary drop becomes a permanent hole. That is <b>sequence of returns risk</b>.",
+  "t": "Los retiros cambian eso. Cuando vendes acciones para pagar el mercado durante un desplome, vendes más acciones a precios bajos. Esas acciones no están cuando el mercado se recupera. Una caída temporal se vuelve un hueco permanente. Eso es el <b>riesgo de secuencia de rentabilidades</b>."
+ },
+ "cc18fc9585d8": {
+  "en": "Write the rules down before you retire, so the cut is a plan, not a panic.",
+  "t": "Escribe las reglas antes de retirarte, para que el recorte sea un plan y no un pánico."
+ },
+ "cdc4578644f8": {
+  "en": "<span class=\"wg-title grow\">1,000 simulated futures</span>{0}",
+  "t": "<span class=\"wg-title grow\">1.000 futuros simulados</span>{0}"
+ },
+ "cf11f051cdbb": {
+  "en": "<b>Prosperity:</b> if it falls more than 20% below where you started, give yourself a 10% raise.",
+  "t": "<b>Prosperidad:</b> si cae más de un 20 % por debajo de donde empezaste, date un aumento del 10 %."
+ },
+ "d1212d2dfea6": {
+  "en": "It survived the worst 30-year period in Bengen’s US data; it is a floor from history, not a forecast.",
+  "t": "Sobrevivió el peor periodo de 30 años de los datos de EE. UU. de Bengen; es un piso sacado de la historia, no un pronóstico."
+ },
+ "d15a0a5c5374": {
+  "en": "Bengen (2025 book): 4.7% for 30 years, after adding small, mid-size and international stocks.",
+  "t": "Bengen (libro de 2025): 4,7 % para 30 años, después de agregar acciones pequeñas, medianas e internacionales."
+ },
+ "d35735d57d13": {
+  "en": "Withdrawals on or off",
+  "t": "Retiros activados o desactivados"
+ },
+ "d488afe76177": {
+  "en": "A couple aged 45 spends $60,000 a year and wants the money to last to 95.",
+  "t": "Una pareja de 45 años gasta US$60.000 al año y quiere que el dinero dure hasta los 95."
+ },
+ "d7f003825565": {
+  "en": "Having no cash or short-term bond buffer, so a crash forces you to sell stocks at low prices to pay the bills.",
+  "t": "No tener un colchón de efectivo o de bonos de corto plazo, así un desplome te obliga a vender acciones a precios bajos para pagar las cuentas."
+ },
+ "d82bbdaa61eb": {
+  "en": "Morningstar finds that flexible methods (guardrails, a constant percentage, endowment-style rules) can support starting rates approaching 6%, if your spending can really move. The price is variable income: the widget shows guardrails cutting deeply on a rough path.",
+  "t": "Morningstar encuentra que los métodos flexibles (barandas, un porcentaje constante, reglas tipo fondo patrimonial) pueden sostener tasas iniciales cercanas al 6 %, si tu gasto de verdad se puede mover. El precio es un ingreso variable: el widget muestra a las barandas recortando fuerte en un camino difícil."
+ },
+ "d84306cb41c1": {
+  "en": "Are taxes and fees included?",
+  "t": "¿Incluye los impuestos y las comisiones?"
+ },
+ "dba18f2925ff": {
+  "en": "The rates above assume you never change your spending. Real people do. Morningstar finds flexible methods can support starting rates approaching 6% if your spending can move with markets. Other levers: a few years of part-time income, a later and bigger Social Security check, and low fees. See <a href=\"#l-sequence\">sequence risk</a> and <a href=\"#l-guardrails\">guardrails</a> next.",
+  "t": "Las tasas de arriba suponen que nunca cambias tu gasto. La gente real sí lo cambia. Morningstar encuentra que los métodos flexibles pueden sostener tasas iniciales cercanas al 6 % si tu gasto se puede mover con los mercados. Otras palancas: unos años de ingreso de medio tiempo, una pensión más tardía y más grande, y comisiones bajas. Mira <a href=\"#l-sequence\">el riesgo de secuencia</a> y <a href=\"#l-guardrails\">las barandas</a> a continuación."
+ },
+ "dba781787c92": {
+  "en": "A retiree starts with $1M and follows Guyton-Klinger-style rails of ±20%.",
+  "t": "Un jubilado empieza con US$1 M y sigue barandas de ±20 % al estilo Guyton-Klinger."
+ },
+ "dbe72dc5b846": {
+  "en": "Morningstar (for 2026): 3.9% for 30 years at 90% success, with 30% to 50% in stocks.",
+  "t": "Morningstar (para 2026): 3,9 % para 30 años con un 90 % de éxito, con entre el 30 % y el 50 % en acciones."
+ },
+ "dc07824f11a0": {
+  "en": "After 18 years Alex has about <b>$24,000</b> left and runs out in year 19. Blair still has about <b>$396,000</b> and lasts until year 25.",
+  "t": "Después de 18 años a Alex le quedan cerca de <b>US$24.000</b> y se queda sin dinero en el año 19. Blair todavía tiene cerca de <b>US$396.000</b> y le alcanza hasta el año 25."
+ },
+ "dd17f616cac0": {
+  "en": "These are the ranges this lesson’s sources point to. Treat them as starting points, not promises:",
+  "t": "Estos son los rangos que señalan las fuentes de esta lección. Tómalos como puntos de partida, no como promesas:"
+ },
+ "de354be8703d": {
+  "en": "Morningstar: What’s a safe retirement withdrawal rate for 2026?",
+  "t": "Morningstar: ¿cuál es una tasa de retiro segura para 2026? (en inglés)"
+ },
+ "dfc306806a5a": {
+  "en": "$41,200: the same spending raised for inflation",
+  "t": "US$41.200: el mismo gasto subido por la inflación"
+ },
+ "e042e6f1877a": {
+  "en": "The rule is built on the <b>worst</b> historical stretch. In most periods retirees following it ended with more than they started with.",
+  "t": "La regla está construida sobre el <b>peor</b> tramo histórico. En la mayoría de los periodos, los jubilados que la siguieron terminaron con más de lo que tenían al empezar."
+ },
+ "e1574a12aed7": {
+  "en": "One defense is a <b>bond tent</b>: build up extra bonds in the last years before retirement, spend them first in the early years, and let the stock share rise again afterwards. On a chart the bond share looks like an upside-down V. The bonds pay the bills through a crash, so you are not forced to sell stocks at the bottom.",
+  "t": "Una defensa es una <b>carpa de bonos</b>: acumula bonos extra en los últimos años antes del retiro, gástalos primero en los primeros años, y deja que la parte en acciones vuelva a subir después. En un gráfico, la parte en bonos parece una V al revés. Los bonos pagan las cuentas durante un desplome, así no te ves obligado a vender acciones en el piso."
+ },
+ "e181825d3d89": {
+  "en": "Many people hit their number and keep working “just one more year”, then another, out of fear of a crash. Each extra year buys a little safety and costs a year of freedom. Flexible rules, a cash buffer and part-time income are cheaper insurance than years of your life. Set a date and test it in <a href=\"#l-fire-planner\">Your full FIRE plan</a>.",
+  "t": "Mucha gente llega a su número y sigue trabajando “solo un año más”, y luego otro, por miedo a un desplome. Cada año extra compra un poco de seguridad y cuesta un año de libertad. Las reglas flexibles, un colchón de efectivo y un ingreso de medio tiempo son un seguro más barato que años de tu vida. Fija una fecha y ponla a prueba en <a href=\"#l-fire-planner\">Tu plan FIRE completo</a>."
+ },
+ "e55a6fa865e8": {
+  "en": "Trinity study",
+  "t": "El estudio Trinity"
+ },
+ "e6786c4521a9": {
+  "en": "40 years",
+  "t": "40 años"
+ },
+ "e6ceec1d72a4": {
+  "en": "Cut spending 10%: $50,000 × 0.9 = <b>$45,000</b>. New rate: $45,000 ÷ $800,000 = 5.6%, back inside the rails.",
+  "t": "Recorta el gasto un 10 %: US$50.000 × 0,9 = <b>US$45.000</b>. Nueva tasa: US$45.000 ÷ US$800.000 = 5,6 %, otra vez dentro de las barandas."
+ },
+ "ea9eb2c476b5": {
+  "en": "3.25% to 3.5%",
+  "t": "3,25 % a 3,5 %"
+ },
+ "ead853c05dba": {
+  "en": "3% = 33.3 times",
+  "t": "3 % = 33,3 veces"
+ },
+ "eb7b8a93710c": {
+  "en": "Current withdrawal rate",
+  "t": "Tasa de retiro actual"
+ },
+ "f1748e92b134": {
+  "en": "Setting guardrails and then ignoring them when the cut arrives.",
+  "t": "Fijar barandas y luego ignorarlas cuando llega el recorte."
+ },
+ "f177905f4057": {
+  "en": "The share of past periods or simulated futures in which the money lasted the whole time.",
+  "t": "La parte de los periodos pasados o de los futuros simulados en los que el dinero alcanzó todo el tiempo."
+ },
+ "f1cede86ec4c": {
+  "en": "Fixed ends with {0}. Guardrails cut {1} and raised {2} time{3}, averaging {4} a year. Variable % averaged {5} but swung from {6} to {7}.",
+  "t": "El fijo termina con {0}. Las barandas tuvieron recortes: {1}; aumento{3}: {2}; con un promedio de {4} al año. El % variable promedió {5} pero osciló de {6} a {7}."
+ },
+ "f27e21e33d83": {
+  "en": "Their average returns are different",
+  "t": "Sus rentabilidades promedio son distintas"
+ },
+ "f4157d528935": {
+  "en": "A bear market drops the portfolio to $800,000. $50,000 ÷ $800,000 = <b>6.25%</b>, above the 6% rail.",
+  "t": "Un mercado bajista baja el portafolio a US$800.000. US$50.000 ÷ US$800.000 = <b>6,25 %</b>, por encima de la baranda del 6 %."
+ },
+ "f8877c28d0c0": {
+  "en": "Spend a bit more in good years and cut a little in bad ones so the money lasts.",
+  "t": "Gasta un poco más en los años buenos y recorta un poco en los malos para que el dinero alcance."
+ },
+ "f9720add60af": {
+  "en": "Success rate falls as the withdrawal rate rises; at {0}% about {1} of futures last {2} years",
+  "t": "La tasa de éxito baja a medida que sube la tasa de retiro; al {0} % cerca de {1} de los futuros duran {2} años"
+ },
+ "fa3019791361": {
+  "en": "about 3.5%",
+  "t": "cerca del 3,5 %"
+ },
+ "fbc382d5d606": {
+  "en": "Judging a retirement plan only by its average return.",
+  "t": "Juzgar un plan de jubilación solo por su rentabilidad promedio."
+ },
+ "fc543936c88c": {
+  "en": "Early Retirement Now: The ultimate guide to safe withdrawal rates, part 1",
+  "t": "Early Retirement Now: la guía definitiva de las tasas de retiro seguras, parte 1 (en inglés)"
+ },
+ "fe7acdd329fb": {
+  "en": "In February 1998, Carl Hubbard and two Trinity University colleagues published their tests in the AAII Journal. They tried withdrawal rates from 3% to 12% over 15, 20, 25 and 30 years, for portfolios from 100% stocks to 100% bonds, using returns from 1926 to 1995. They found that 3% and 4% were extremely unlikely to exhaust a stock-heavy portfolio over those periods, while inflation-adjusted withdrawals above 7% did poorly. The tests ignored taxes and fees.",
+  "t": "En febrero de 1998, Carl Hubbard y dos colegas de la Universidad Trinity publicaron sus pruebas en el AAII Journal. Probaron tasas de retiro del 3 % al 12 % durante 15, 20, 25 y 30 años, para portafolios desde 100 % acciones hasta 100 % bonos, usando rentabilidades de 1926 a 1995. Encontraron que con el 3 % y el 4 % era muy poco probable agotar un portafolio cargado en acciones en esos periodos, mientras que los retiros ajustados por inflación por encima del 7 % salieron mal. Las pruebas ignoraron los impuestos y las comisiones."
+ },
+ "feb5e20bf1be": {
+  "en": "Taking {0} a year while the market is down sells shares at low prices, and they are not there for the recovery. Your order runs out in year {1}; the reversed order ends with {2}.",
+  "t": "Sacar {0} al año mientras el mercado está abajo vende acciones a precios bajos, y ya no están para la recuperación. Tu orden se queda sin dinero en el año {1}; el orden invertido termina con {2}."
  }
 }
