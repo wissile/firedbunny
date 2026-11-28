@@ -1,4 +1,8 @@
 {
+ "0eecf4174775": {
+  "en": "Industrials",
+  "t": "Industriales"
+ },
  "2038bdec9210": {
   "en": "Up",
   "t": "Sube"
@@ -15,9 +19,21 @@
   "en": "October 2026",
   "t": "octubre de 2026"
  },
+ "b27cdaf8b1a3": {
+  "en": "Real estate",
+  "t": "Inmobiliario"
+ },
+ "b36ffdfa7dcf": {
+  "en": "Inverted",
+  "t": "Invertida"
+ },
  "c57604db5869": {
   "en": "Gold",
   "t": "Oro"
+ },
+ "c6eacf70bdd7": {
+  "en": "Consumer staples",
+  "t": "Consumo básico"
  },
  "e2cdf7d9f0c6": {
   "en": "Airlines",

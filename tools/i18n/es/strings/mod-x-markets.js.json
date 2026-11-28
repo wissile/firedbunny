@@ -1,6 +1,906 @@
 {
+ "00c3f678ee89": {
+  "en": "Falling; the Fed is cutting",
+  "t": "Bajando; la Fed está recortando"
+ },
+ "03753eedcbf0": {
+  "en": "Under 1 year",
+  "t": "Menos de 1 año"
+ },
+ "03b45092af81": {
+  "en": "An investor holding 100 shares is down about $1,215 overnight. A trader who bought calls for the beat loses on the price and on the drop in volatility.",
+  "t": "Un inversionista con 100 acciones pierde cerca de US$1.215 de la noche a la mañana. Un trader que compró calls por la sorpresa positiva pierde con el precio y con la caída de la volatilidad."
+ },
+ "0519ab681bba": {
+  "en": "Business cycle clock showing {0}; the readings point to {1}",
+  "t": "Reloj del ciclo económico que muestra {0}; las lecturas apuntan a {1}"
+ },
+ "052a76df5495": {
+  "en": "What the market fears",
+  "t": "Lo que teme el mercado"
+ },
+ "0531b6aa7568": {
+  "en": "The stock opens about 8.1% lower, near $137.85: a bigger drop than the ±7% priced in.",
+  "t": "La acción abre cerca de 8,1 % más abajo, cerca de US$137,85: una caída más grande que el ±7 % descontado."
+ },
+ "067c206d84d1": {
+  "en": "<b>2007 to 2009</b>: stocks peaked in October 2007, two months before the recession began, and bottomed in March 2009, three months before it ended in June.",
+  "t": "<b>2007 a 2009</b>: las acciones tocaron su pico en octubre de 2007, dos meses antes de que empezara la recesión, y tocaron fondo en marzo de 2009, tres meses antes de que terminara en junio."
+ },
+ "0b777aa36a3b": {
+  "en": "8:30 am ET, about mid-month, before the open",
+  "t": "8:30 a. m., hora de Nueva York, más o menos a mitad de mes, antes de la apertura"
+ },
+ "0e3c33b72046": {
+  "en": "FRED: Real-time Sahm rule recession indicator",
+  "t": "FRED: indicador de recesión de la regla de Sahm en tiempo real (en inglés)"
+ },
+ "0f0d9d22e922": {
+  "en": "The same surprise can push stocks either way. When the market fears inflation, a strong jobs report lifts yields because the Fed may keep rates high, and stocks can fall: good news is bad news. When the market fears a slowdown, the same report eases recession worries and stocks rise.",
+  "t": "La misma sorpresa puede empujar las acciones hacia cualquier lado. Cuando el mercado le teme a la inflación, un informe de empleo fuerte sube los rendimientos porque la Fed podría mantener las tasas altas, y las acciones pueden caer: una buena noticia es una mala noticia. Cuando el mercado le teme a una desaceleración, el mismo informe calma los miedos de recesión y las acciones suben."
+ },
+ "1500d0f68dec": {
+  "en": "In 2009 and 2020 stocks bottomed in March, before the June 2009 and April 2020 troughs. 2001 to 2002 was the exception.",
+  "t": "En 2009 y en 2020 las acciones tocaron fondo en marzo, antes de los pisos de junio de 2009 y abril de 2020. 2001 a 2002 fue la excepción."
+ },
+ "15376c81cd50": {
+  "en": "Reading “beat” in a headline and buying, without checking revenue and guidance.",
+  "t": "Leer “supera lo esperado” en un titular y comprar, sin revisar los ingresos ni las proyecciones."
+ },
+ "156ef1ebd582": {
+  "en": "<b>2001</b>: the exception. The recession ended in November 2001, but the dot-com bear market kept falling until October 2002.",
+  "t": "<b>2001</b>: la excepción. La recesión terminó en noviembre de 2001, pero el mercado bajista de las punto com siguió cayendo hasta octubre de 2002."
+ },
+ "1722a19b05ef": {
+  "en": "Markets react to the surprise versus the consensus, not the raw number.",
+  "t": "Los mercados reaccionan a la sorpresa frente al consenso, no al número en bruto."
+ },
+ "192947eac72a": {
+  "en": "Trading data-release days",
+  "t": "Operar en días de datos"
+ },
+ "1bbd2971b894": {
+  "en": "DEMO stock",
+  "t": "Acción DEMO"
+ },
+ "1e092afb785f": {
+  "en": "In past late cycles, energy, health care, consumer staples and utilities tended to hold up better, and stocks often fell before a recession was declared.",
+  "t": "En los finales de ciclo pasados, la energía, la salud, el consumo básico y los servicios públicos tendieron a aguantar mejor, y las acciones a menudo cayeron antes de que se declarara una recesión."
+ },
+ "1e180237c057": {
+  "en": "Usual shape of the {0} earnings season by week",
+  "t": "Forma habitual de la temporada de resultados de {0} por semana"
+ },
+ "22ac04259a53": {
+  "en": "Federal Reserve: FOMC meeting calendar",
+  "t": "Reserva Federal: calendario de reuniones del FOMC (en inglés)"
+ },
+ "2402ea363265": {
+  "en": "Materials",
+  "t": "Materiales"
+ },
+ "243f27a154db": {
+  "en": "Judging a company on one quarter instead of the trend in revenue, margins and guidance.",
+  "t": "Juzgar una empresa por un trimestre en vez de por la tendencia de los ingresos, los márgenes y las proyecciones."
+ },
+ "24e7bc218358": {
+  "en": "<b>ISM PMI and new orders</b>: below 50 means activity is shrinking. See <a href=\"#l-pmi\">PMI</a>.",
+  "t": "<b>El PMI del ISM y los pedidos nuevos</b>: por debajo de 50 significa que la actividad se está achicando. Mira <a href=\"#l-pmi\">PMI</a>."
+ },
+ "25767cfdcdc8": {
+  "en": "← falls",
+  "t": "← baja"
+ },
+ "259dca78bcaf": {
+  "en": "Hawkish and dovish",
+  "t": "Halcón y paloma"
+ },
+ "25aee007d2fb": {
+  "en": "higher for longer",
+  "t": "altas por más tiempo"
+ },
+ "2623019c8618": {
+  "en": "Do not bet everything on calling the phase. Single signals give false alarms, and the official recession call comes late.",
+  "t": "No lo apuestes todo a adivinar la fase. Las señales solas dan falsas alarmas, y el anuncio oficial de la recesión llega tarde."
+ },
+ "26f93f4ac68d": {
+  "en": "The beat was about the past; the guidance cut changed the future, and the run-up meant good news was already in the price.",
+  "t": "La sorpresa positiva era sobre el pasado; el recorte de las proyecciones cambió el futuro, y la subida previa significaba que las buenas noticias ya estaban en el precio."
+ },
+ "27247dbc116c": {
+  "en": "Switch between the presets, then drag the clock hand around to see which sectors have led in each phase.",
+  "t": "Cambia entre los escenarios y luego arrastra la manecilla del reloj para ver qué sectores han liderado en cada fase."
+ },
+ "273674ee9acd": {
+  "en": "priced-in move ±",
+  "t": "movimiento descontado ±"
+ },
+ "27ec527443f8": {
+  "en": "Fidelity’s study of US cycles since 1962 found these tendencies. <b>Early cycle</b>: consumer discretionary, real estate, industrials, financials, technology and materials led. <b>Mid cycle</b>: technology. <b>Late cycle</b>: energy (the most consistent), materials, health care, consumer staples and utilities. <b>Recession</b>: consumer staples, utilities and health care. The study covers only seven full cycles. It is a tendency drawn from past cycles, not a rule. Leadership can break the pattern, for example when a technology wave carries one sector through every phase.",
+  "t": "El estudio de Fidelity de los ciclos de EE. UU. desde 1962 encontró estas tendencias. <b>Principio del ciclo</b>: lideraron el consumo discrecional, el inmobiliario, los industriales, los financieros, la tecnología y los materiales. <b>Mitad del ciclo</b>: la tecnología. <b>Final del ciclo</b>: la energía (la más consistente), los materiales, la salud, el consumo básico y los servicios públicos. <b>Recesión</b>: el consumo básico, los servicios públicos y la salud. El estudio cubre solo siete ciclos completos. Es una tendencia sacada de ciclos pasados, no una regla. El liderazgo puede romper el patrón, por ejemplo cuando una ola tecnológica lleva a un sector a través de todas las fases."
+ },
+ "282dfc75771b": {
+  "en": "week starting",
+  "t": "semana que empieza el"
+ },
+ "28ba88479582": {
+  "en": "Conference call",
+  "t": "Llamada de resultados"
+ },
+ "29e3d1b07f92": {
+  "en": "Your plan: buy with a stop 0.4% ($2) below. Normal sizing gives $250 ÷ $2 = <b>125 shares</b>.",
+  "t": "Tu plan: comprar con un stop 0,4 % (US$2) por debajo. El dimensionamiento normal da US$250 ÷ US$2 = <b>125 acciones</b>."
+ },
+ "2d0bdea66e6c": {
+  "en": "<b>Gold</b>: often dips when inflation-adjusted yields jump. See <a href=\"#l-gold-silver\">gold and silver</a>.",
+  "t": "<b>El oro</b>: a menudo baja cuando saltan los rendimientos ajustados por inflación. Mira <a href=\"#l-gold-silver\">oro y plata</a>."
+ },
+ "2d0caef9adf1": {
+  "en": "Four times a year companies report. The stock reacts to the surprise and the outlook, and the outlook carries the economy inside it.",
+  "t": "Cuatro veces al año las empresas reportan. La acción reacciona a la sorpresa y al panorama, y el panorama lleva la economía adentro."
+ },
+ "2d83c0bcf151": {
+  "en": "Steady, moderate growth",
+  "t": "Crecimiento estable y moderado"
+ },
+ "2d8cb77ff39c": {
+  "en": "Sahm rule",
+  "t": "Regla de Sahm"
+ },
+ "2e08768b5e8a": {
+  "en": "Assuming hot data is always bad for stocks, or strong jobs always good. The reaction depends on what the market fears that month.",
+  "t": "Suponer que un dato caliente siempre es malo para las acciones, o que un empleo fuerte siempre es bueno. La reacción depende de a qué le teme el mercado ese mes."
+ },
+ "30ac4321fe2e": {
+  "en": "Weekly jobless claims climb from 210K to 260K, and the ISM PMI slips to 48: factories are shrinking.",
+  "t": "Las solicitudes semanales de subsidio por desempleo suben de 210.000 a 260.000, y el PMI del ISM baja a 48: las fábricas se están achicando."
+ },
+ "30b3eb86d261": {
+  "en": "Beating estimates for the quarter and raising guidance for the future. The combination markets like most.",
+  "t": "Superar las estimaciones del trimestre y subir las proyecciones para el futuro. La combinación que más le gusta a los mercados."
+ },
+ "31fbc725b0b6": {
+  "en": "On Fed days the 2:30 pm press conference can undo the 2:00 pm move.",
+  "t": "Los días de la Fed, la rueda de prensa de las 2:30 p. m. puede deshacer el movimiento de las 2:00 p. m."
+ },
+ "32e70feb37c5": {
+  "en": "A {0} move sits inside the ±{1}% priced in. Option buyers who paid for a big move lose money here as volatility drops after the report (<a href=\"#l-iv-crush\">IV crush</a>).",
+  "t": "Un movimiento de {0} queda dentro del ±{1} % descontado. Los compradores de opciones que pagaron por un movimiento grande pierden dinero aquí porque la volatilidad cae después del informe (<a href=\"#l-iv-crush\">el desplome de la IV</a>)."
+ },
+ "339cb61c706f": {
+  "en": "Most US companies report within a few weeks after each quarter ends. The biggest banks usually open the season about two weeks after the quarter closes; the busiest weeks follow, including several of the largest tech companies; big retailers come last because their quarters end a month later. JPMorgan Chase, which traditionally opens the season, has set its Q4 2026 report for Thursday, January 14, 2027, and its 2027 reports for April 13, July 13 and October 12. Each company posts its date on its investor-relations page, and the <a href=\"#calendar\">calendar</a> marks the season openings.",
+  "t": "La mayoría de las empresas de EE. UU. reportan unas pocas semanas después de que termina cada trimestre. Los bancos más grandes por lo general abren la temporada cerca de dos semanas después del cierre del trimestre; siguen las semanas de más movimiento, incluidas varias de las tecnológicas más grandes; los grandes minoristas llegan de últimos porque sus trimestres terminan un mes después. JPMorgan Chase, que tradicionalmente abre la temporada, fijó su informe del 4.º trimestre de 2026 para el jueves 14 de enero de 2027, y sus informes de 2027 para el 13 de abril, el 13 de julio y el 12 de octubre. Cada empresa publica su fecha en su página de relación con inversionistas, y el <a href=\"#calendar\">calendario</a> marca las aperturas de temporada."
+ },
+ "34272a66328b": {
+  "en": "Usual first reaction of stocks, yields and the dollar to the surprise",
+  "t": "Primera reacción habitual de las acciones, los rendimientos y el dólar a la sorpresa"
+ },
+ "34a2000dd54a": {
+  "en": "the weeks before: ",
+  "t": "las semanas anteriores: "
+ },
+ "36ff0ee5f1de": {
+  "en": "lower open",
+  "t": "apertura más baja"
+ },
+ "37ff1b23e5dd": {
+  "en": "Pick an event, then shrink the stop and raise your risk. Watch what one bad open would cost, and how the same jobs number reads differently when the market fears inflation or a slowdown.",
+  "t": "Escoge un evento, luego achica el stop y sube tu riesgo. Mira lo que costaría una sola mala apertura, y cómo el mismo número de empleo se lee distinto cuando el mercado le teme a la inflación o a una desaceleración."
+ },
+ "384cc8699c90": {
+  "en": "FactSet Earnings Insight (Oct. 16, 2026)",
+  "t": "FactSet Earnings Insight (16 de octubre de 2026, en inglés)"
+ },
+ "3926d06abec9": {
+  "en": "EPS beat/miss",
+  "t": "UPA por encima/debajo"
+ },
+ "396c791c3bd4": {
+  "en": "Bell curve of the next opening price, with the priced-in move of about {0} and your stop",
+  "t": "Campana del próximo precio de apertura, con el movimiento descontado de cerca de {0} y tu stop"
+ },
+ "398384828b1e": {
+  "en": "Rising gently",
+  "t": "Subiendo suavemente"
+ },
+ "3e3f9e3dbe09": {
+  "en": "2× move",
+  "t": "movimiento 2×"
+ },
+ "4310ed540c1c": {
+  "en": "Late",
+  "t": "Final"
+ },
+ "45614b9d14ec": {
+  "en": "<b>Fed decisions</b>: eight scheduled meetings a year, with the statement at 2:00 pm ET on the second day and the chair’s press conference at 2:30 pm. The next decisions are due October 28 and December 9, 2026. See <a href=\"#l-fed\">how the Fed works</a>.",
+  "t": "<b>Las decisiones de la Fed</b>: ocho reuniones programadas al año, con el comunicado a las 2:00 p. m., hora de Nueva York, el segundo día y la rueda de prensa del presidente a las 2:30 p. m. Las próximas decisiones son el 28 de octubre y el 9 de diciembre de 2026. Mira <a href=\"#l-fed\">cómo funciona la Fed</a>."
+ },
+ "45bff6929388": {
+  "en": "Before each report, economists publish forecasts. Their average is the <b>consensus</b>. Traders position for it ahead of time, so the consensus is already in the price. What moves markets is the <b>surprise</b>: the gap between the actual number and the consensus, plus details such as revisions to earlier months, the core number without food and energy, or wage growth.",
+  "t": "Antes de cada informe, los economistas publican pronósticos. Su promedio es el <b>consenso</b>. Los traders se posicionan para él por adelantado, así que el consenso ya está en el precio. Lo que mueve los mercados es la <b>sorpresa</b>: la brecha entre el número real y el consenso, más detalles como las revisiones de los meses anteriores, el número básico sin alimentos ni energía, o el crecimiento de los salarios."
+ },
+ "46547fc0ebda": {
+  "en": "Economies move in cycles. A few leading indicators hint at the phase, and different sectors have tended to lead in each one.",
+  "t": "Las economías se mueven en ciclos. Unos pocos indicadores adelantados dan pistas sobre la fase, y distintos sectores han tendido a liderar en cada una."
+ },
+ "4874c8875dd4": {
+  "en": "Drag the hand around the clock to explore a phase, or move the readings to see where they point. A rough rule of thumb from past cycles, not a forecast; cycles differ, and sector leadership does not repeat every time.",
+  "t": "Arrastra la manecilla alrededor del reloj para explorar una fase, o mueve las lecturas para ver hacia dónde apuntan. Una regla práctica aproximada sacada de ciclos pasados, no un pronóstico; los ciclos son distintos, y el liderazgo de los sectores no se repite cada vez."
+ },
+ "496ad53c94d8": {
+  "en": "tend to fall",
+  "t": "tienden a caer"
+ },
+ "49743425dead": {
+  "en": "the CPI inflation report",
+  "t": "el informe de inflación del IPC"
+ },
+ "49bd9d01c5e3": {
+  "en": "Different sectors have tended to lead in different phases, from cyclical early on to defensive late.",
+  "t": "Distintos sectores han tendido a liderar en distintas fases, de los cíclicos al principio a los defensivos al final."
+ },
+ "49d596f01adb": {
+  "en": "The season opens: the biggest US banks usually report first, about two weeks after the quarter ends. Their comments on loans, consumers and credit set the tone.",
+  "t": "La temporada abre: los bancos más grandes de EE. UU. por lo general reportan primero, cerca de dos semanas después de que termina el trimestre. Sus comentarios sobre los préstamos, los consumidores y el crédito marcan el tono."
+ },
+ "4b57cb8331d3": {
+  "en": "<b>The yield curve</b>: when the 2-year Treasury yields more than the 10-year, the curve is inverted. Inversions came before most past recessions, but the long inversion that started in 2022 has been a false alarm so far. See <a href=\"#l-rates\">rates and the yield curve</a>.",
+  "t": "<b>La curva de rendimientos</b>: cuando el bono del Tesoro a 2 años rinde más que el de 10 años, la curva está invertida. Las inversiones llegaron antes de la mayoría de las recesiones pasadas, pero la larga inversión que empezó en 2022 ha sido una falsa alarma hasta ahora. Mira <a href=\"#l-rates\">las tasas y la curva de rendimientos</a>."
+ },
+ "4b9eda01f28c": {
+  "en": "About ±$6, or 1.5%",
+  "t": "Cerca de ±US$6, o 1,5 %"
+ },
+ "4c6221f177e5": {
+  "en": "A handful of scheduled reports can move the whole market in seconds. They come out on dates set long in advance, so you can plan around them (see the <a href=\"#calendar\">calendar</a>):",
+  "t": "Un puñado de informes programados puede mover todo el mercado en segundos. Salen en fechas fijadas con mucha anticipación, así que puedes planear alrededor de ellos (mira el <a href=\"#calendar\">calendario</a>):"
+ },
+ "4d38937153ec": {
+  "en": "<b>Late cycle</b>: growth slows, inflation and rates are high, margins get squeezed.",
+  "t": "<b>Final del ciclo</b>: el crecimiento se frena, la inflación y las tasas están altas, los márgenes se aprietan."
+ },
+ "4e9b9fc2028e": {
+  "en": "The business cycle, sectors and recessions",
+  "t": "El ciclo económico, los sectores y las recesiones"
+ },
+ "4eae906566c2": {
+  "en": "Waiting for the official recession call. It comes months later, often after stocks have already bottomed.",
+  "t": "Esperar el anuncio oficial de la recesión. Llega meses después, a menudo cuando las acciones ya tocaron fondo."
+ },
+ "4ee45bca880b": {
+  "en": "<b>Revenue</b> against its estimate. A beat built on sales is worth more than one built on cost cuts.",
+  "t": "Los <b>ingresos</b> frente a su estimación. Una sorpresa positiva construida con ventas vale más que una construida con recortes de costos."
+ },
+ "4f3cc3b635b7": {
+  "en": "<b>EPS</b> (earnings per share) against the analysts’ consensus estimate.",
+  "t": "La <b>UPA</b> (utilidad por acción) frente a la estimación de consenso de los analistas."
+ },
+ "50342de00b0d": {
+  "en": "<b class=\"n\">2</b><span>Size for the gap, not the stop. A stop cannot fill at a price that never trades.</span>",
+  "t": "<b class=\"n\">2</b><span>Dimensiona para el gap, no para el stop. Un stop no se puede ejecutar a un precio al que nunca se negocia.</span>"
+ },
+ "51a526cf25c5": {
+  "en": "Readings in October 2026: the 10-year yield sat 0.33 points above the 2-year (positive but flat), weekly claims were about 199,000, the ISM manufacturing PMI was 54.5 for September, and the Sahm rule read 0.00. No single signal is perfect: the Sahm rule triggered in mid-2024 without a recession.",
+  "t": "Lecturas en octubre de 2026: el rendimiento a 10 años estaba 0,33 puntos por encima del de 2 años (positiva pero plana), las solicitudes semanales eran de unas 199.000, el PMI manufacturero del ISM fue de 54,5 en septiembre y la regla de Sahm marcaba 0,00. Ninguna señal sola es perfecta: la regla de Sahm se activó a mediados de 2024 sin que hubiera recesión."
+ },
+ "52c7d71d12af": {
+  "en": "JPMorgan Chase: 2027 earnings conference call dates",
+  "t": "JPMorgan Chase: fechas de las llamadas de resultados de 2027 (en inglés)"
+ },
+ "53408a3ad8b3": {
+  "en": "BLS: The Employment Situation news release",
+  "t": "BLS: comunicado The Employment Situation (en inglés)"
+ },
+ "55125792b6b6": {
+  "en": "Big-tech earnings",
+  "t": "Resultados de las grandes tecnológicas"
+ },
+ "5a50b41bffde": {
+  "en": "DEMO runs up 12% in the weeks before its report, to $150. Options price a move of about ±7%.",
+  "t": "DEMO sube 12 % en las semanas antes de su informe, a US$150. Las opciones descuentan un movimiento de cerca de ±7 %."
+ },
+ "5bf1549d79d1": {
+  "en": "higher open",
+  "t": "apertura más alta"
+ },
+ "5cb822631b34": {
+  "en": "<b>The Sahm rule</b>: when the 3-month average unemployment rate rises 0.5 points or more above its low of the past 12 months, past recessions had usually begun.",
+  "t": "<b>La regla de Sahm</b>: cuando el promedio de 3 meses de la tasa de desempleo sube 0,5 puntos o más por encima de su mínimo de los últimos 12 meses, las recesiones pasadas por lo general ya habían empezado."
+ },
+ "6026069c4312": {
+  "en": "Chasing the last cycle’s winners without checking whether conditions still match.",
+  "t": "Perseguir a las ganadoras del último ciclo sin revisar si las condiciones siguen siendo las mismas."
+ },
+ "612f950e5089": {
+  "en": "<b>CPI inflation</b>: 8:30 am ET, usually around the middle of the month (the September 2026 report came out on Wednesday, October 14). See <a href=\"#l-inflation\">inflation</a>.",
+  "t": "<b>Inflación del IPC</b>: 8:30 a. m., hora de Nueva York, por lo general cerca de la mitad del mes (el informe de septiembre de 2026 salió el miércoles 14 de octubre). Mira <a href=\"#l-inflation\">inflación</a>."
+ },
+ "62479f9f47ff": {
+  "en": "Stocks usually turn before the economy does, so waiting for good news often means buying higher.",
+  "t": "Las acciones por lo general dan la vuelta antes que la economía, así que esperar buenas noticias a menudo significa comprar más caro."
+ },
+ "637d9bd8ba41": {
+  "en": "<b>The banks</b> go first and act as a check-up on the economy: loan demand, defaults and consumer credit.",
+  "t": "<b>Los bancos</b> van primero y funcionan como un chequeo de la economía: demanda de préstamos, incumplimientos y crédito de consumo."
+ },
+ "6405a01193ad": {
+  "en": "Usually the longest phase. Gains are smaller than early cycle and sector leadership is less clear.",
+  "t": "Por lo general la fase más larga. Las ganancias son más pequeñas que al principio del ciclo y el liderazgo de los sectores es menos claro."
+ },
+ "643f878a088a": {
+  "en": "Normal; the Fed is neutral",
+  "t": "Normal; la Fed está neutral"
+ },
+ "649f43874090": {
+  "en": "Traders: notice which sectors show relative strength, and cut position size when volatility rises.",
+  "t": "Traders: fíjense en qué sectores muestran fuerza relativa, y reduzcan el tamaño de las posiciones cuando sube la volatilidad."
+ },
+ "6580b4ce480b": {
+  "en": "Earnings season and the economy",
+  "t": "La temporada de resultados y la economía"
+ },
+ "66581dede1a6": {
+  "en": "Results came in as a {0}. The stock takes the biggest hit or gain; its peers often move in sympathy, and a giant company can nudge the whole index. Guidance usually matters more than last quarter’s numbers. See <a href=\"#l-earnings-season\">earnings season</a>.",
+  "t": "Los resultados salieron como {0}. La acción se lleva el golpe o la ganancia más grande; sus pares a menudo se mueven por simpatía, y una empresa gigante puede empujar todo el índice. Las proyecciones por lo general importan más que los números del último trimestre. Mira <a href=\"#l-earnings-season\">la temporada de resultados</a>."
+ },
+ "670c67a737e9": {
+  "en": "<b>Guidance</b>: the company’s forecast for the next quarter or year. This is the future, and prices are built on the future.",
+  "t": "Las <b>proyecciones</b>: el pronóstico de la empresa para el próximo trimestre o año. Esto es el futuro, y los precios se construyen con el futuro."
+ },
+ "68210fc0b8d5": {
+  "en": "What drove the move",
+  "t": "Qué impulsó el movimiento"
+ },
+ "688bf2d14287": {
+  "en": "Illustrative readings, not today’s data.",
+  "t": "Lecturas ilustrativas, no los datos de hoy."
+ },
+ "68b37ca9ff65": {
+  "en": "<b>The dollar</b>: a strong dollar shrinks foreign sales when they are converted back, a headwind for multinationals. See <a href=\"#l-dollar\">the dollar</a>.",
+  "t": "<b>El dólar</b>: un dólar fuerte achica las ventas en el exterior cuando se convierten de vuelta, un viento en contra para las multinacionales. Mira <a href=\"#l-dollar\">el dólar</a>."
+ },
+ "68c0fba2ddf0": {
+  "en": "To keep even that bad open within $250, hold $250 ÷ $10 = <b>25 shares</b>, or wait until after 9:45 am and trade the new levels.",
+  "t": "Para mantener incluso esa mala apertura dentro de US$250, ten US$250 ÷ US$10 = <b>25 acciones</b>, o espera hasta después de las 9:45 a. m. y opera los niveles nuevos."
+ },
+ "6b002d8bb3fc": {
+  "en": "<b>The 2-year Treasury yield</b>: the most sensitive to what the Fed will do next. See <a href=\"#l-rates\">rates and yields</a>.",
+  "t": "<b>El rendimiento del Tesoro a 2 años</b>: el más sensible a lo que va a hacer la Fed. Mira <a href=\"#l-rates\">tasas y rendimientos</a>."
+ },
+ "6bcd3ec80ac1": {
+  "en": "Few warnings. Expansions can last for years; leadership often shifts toward growth sectors.",
+  "t": "Pocas alertas. Las expansiones pueden durar años; el liderazgo a menudo se mueve hacia los sectores de crecimiento."
+ },
+ "6c191a47de4a": {
+  "en": "The size of its dividend",
+  "t": "El tamaño de su dividendo"
+ },
+ "6e4e84c13cd6": {
+  "en": "A recession signal: the 3-month average unemployment rate rising 0.5 points or more above its low of the previous 12 months.",
+  "t": "Una señal de recesión: el promedio de 3 meses de la tasa de desempleo sube 0,5 puntos o más por encima de su mínimo de los 12 meses anteriores."
+ },
+ "7025f507361e": {
+  "en": "<b class=\"n\">3</b><span>Let the first 15 minutes finish. The first move often reverses once the details are read.</span>",
+  "t": "<b class=\"n\">3</b><span>Deja que terminen los primeros 15 minutos. El primer movimiento a menudo se voltea cuando se leen los detalles.</span>"
+ },
+ "719ff6a5f063": {
+  "en": ", most of all fast-growing tech and small companies that rely on borrowing.",
+  "t": ", sobre todo las tecnológicas de crecimiento rápido y las empresas pequeñas que dependen de los préstamos."
+ },
+ "725f2672ca86": {
+  "en": "The National Bureau of Economic Research, the private nonprofit whose committee officially dates US recessions.",
+  "t": "La Oficina Nacional de Investigación Económica de EE. UU., la organización privada sin ánimo de lucro cuyo comité fecha oficialmente las recesiones de EE. UU."
+ },
+ "739271cc03bc": {
+  "en": "Exactly when the recession was declared over",
+  "t": "Exactamente cuando se declaró terminada la recesión"
+ },
+ "73bc525ade68": {
+  "en": "a big company’s earnings",
+  "t": "los resultados de una empresa grande"
+ },
+ "74a13427e720": {
+  "en": "<span class=\"lab\">Your trade</span>{0}",
+  "t": "<span class=\"lab\">Tu operación</span>{0}"
+ },
+ "74f24b28637d": {
+  "en": "The Sahm rule reads 0.4, close to the 0.5 trigger. Three of the four lights are amber or red, pointing to late cycle.",
+  "t": "La regla de Sahm marca 0,4, cerca del disparador de 0,5. Tres de las cuatro luces están en ámbar o en rojo, y apuntan al final del ciclo."
+ },
+ "7d393601bad9": {
+  "en": "FactSet: S&P 500 earnings season update (Oct. 16, 2026)",
+  "t": "FactSet: actualización de la temporada de resultados del S&P 500 (16 de octubre de 2026, en inglés)"
+ },
+ "7d77f81636c1": {
+  "en": "The straddle’s price is roughly the size of the move the options market expects: $6 on $400 is 1.5%.",
+  "t": "El precio del straddle es más o menos el tamaño del movimiento que espera el mercado de opciones: US$6 sobre US$400 es 1,5 %."
+ },
+ "7e1a074aef25": {
+  "en": "The {0}% run-up meant buyers already expected good news, so a plain beat disappointed.",
+  "t": "La subida previa del {0} % significaba que los compradores ya esperaban buenas noticias, así que una simple sorpresa positiva decepcionó."
+ },
+ "7f2cac3f2563": {
+  "en": "<b>Costs</b>: oil, metals, wages and tariffs squeeze or lift margins. See <a href=\"#l-oil\">oil</a>, <a href=\"#l-copper\">copper</a> and <a href=\"#l-geopolitics\">tariffs</a>.",
+  "t": "<b>Los costos</b>: el petróleo, los metales, los salarios y los aranceles aprietan o suben los márgenes. Mira <a href=\"#l-oil\">petróleo</a>, <a href=\"#l-copper\">cobre</a> y <a href=\"#l-geopolitics\">aranceles</a>."
+ },
+ "8011f4d8ddd2": {
+  "en": "DEMO beat EPS by {0}%, yet the model says {1}. {2} {3}",
+  "t": "DEMO superó la UPA esperada en {0} %, y aun así el modelo dice {1}. {2} {3}"
+ },
+ "8018ca287da5": {
+  "en": "DEMO is a made-up company. The numbers follow the widget’s first scenario.",
+  "t": "DEMO es una empresa inventada. Los números siguen el primer escenario del widget."
+ },
+ "80b6778e9b97": {
+  "en": "Whole index",
+  "t": "Todo el índice"
+ },
+ "8144afa27990": {
+  "en": "0.1 pt hotter",
+  "t": "0,1 pt más caliente"
+ },
+ "8149dbd9beee": {
+  "en": "About ±$3, or 0.75%",
+  "t": "Cerca de ±US$3, o 0,75 %"
+ },
+ "815af984f90a": {
+  "en": "Watch the 2-year yield and the dollar for the market’s read of the data.",
+  "t": "Mira el rendimiento a 2 años y el dólar para ver cómo lee el mercado el dato."
+ },
+ "81ce6c34b657": {
+  "en": "Options show the move priced in; size for a gap and remember IV crush.",
+  "t": "Las opciones muestran el movimiento descontado; dimensiona para un gap y acuérdate del desplome de la IV."
+ },
+ "81eac77634ef": {
+  "en": "<b>1990 to 1991</b>: stocks bottomed in October 1990; the recession ended in March 1991.",
+  "t": "<b>1990 a 1991</b>: las acciones tocaron fondo en octubre de 1990; la recesión terminó en marzo de 1991."
+ },
+ "827b4538a2d8": {
+  "en": "<span class=\"wg-title\">DEMO reports</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">DEMO reporta</span><span class=\"grow\"></span>{0}"
+ },
+ "8301f49179bf": {
+  "en": "Size for a bad open, not just your stop. A move of twice the priced-in move should still fit inside your normal risk (see <a href=\"#l-position-size\">position size</a> and <a href=\"#l-one-percent\">the 1% rule</a>), or wait until after the release.",
+  "t": "Dimensiona para una mala apertura, no solo para tu stop. Un movimiento del doble del descontado debería caber igual en tu riesgo normal (mira <a href=\"#l-position-size\">tamaño de la posición</a> y <a href=\"#l-one-percent\">la regla del 1 %</a>), o espera a que salga el dato."
+ },
+ "830c7f403a6c": {
+  "en": "Hawkish means leaning toward higher rates to fight inflation; dovish means leaning toward lower rates to support jobs.",
+  "t": "Halcón (hawkish) significa inclinarse por tasas más altas para combatir la inflación; paloma (dovish) significa inclinarse por tasas más bajas para apoyar el empleo."
+ },
+ "84bfd912ee86": {
+  "en": "If the print is hot and the fund opens twice the priced-in move lower ($10 a share), 125 shares lose $1,250: <b>5R</b> instead of 1R.",
+  "t": "Si el dato sale caliente y el fondo abre el doble del movimiento descontado más abajo (US$10 por acción), 125 acciones pierden US$1.250: <b>5R</b> en vez de 1R."
+ },
+ "85e5903db0a7": {
+  "en": "Before the recession ended",
+  "t": "Antes de que terminara la recesión"
+ },
+ "8977d0211b23": {
+  "en": "Size so an open of twice the priced-in move still fits your normal risk, or wait until after the release.",
+  "t": "Dimensiona para que una apertura del doble del movimiento descontado quepa igual en tu riesgo normal, o espera a que salga el dato."
+ },
+ "8a764e638562": {
+  "en": "Ignoring how far the stock ran before the report. A big run-up raises the bar.",
+  "t": "Ignorar cuánto subió la acción antes del informe. Una gran subida previa sube la vara."
+ },
+ "8a78811112ef": {
+  "en": "You trade a $25,000 account and risk 1% ($250) per trade. CPI comes out at 8:30 am ET.",
+  "t": "Operas una cuenta de US$25.000 y arriesgas el 1 % (US$250) por operación. El IPC sale a las 8:30 a. m., hora de Nueva York."
+ },
+ "8af22c62ea62": {
+  "en": "Expansion, peak, slowdown and recovery: the signals to watch and the sectors that tend to lead.",
+  "t": "Expansión, pico, desaceleración y recuperación: las señales que hay que mirar y los sectores que suelen liderar."
+ },
+ "8aff1f18a859": {
+  "en": "Big surprises have tended to keep drifting in the same direction for days or weeks after the report, a pattern researchers call post-earnings drift. It is a tendency, not a promise.",
+  "t": "Las sorpresas grandes han tendido a seguir moviéndose en la misma dirección durante días o semanas después del informe, un patrón que los investigadores llaman deriva posterior a los resultados. Es una tendencia, no una promesa."
+ },
+ "8b06c620c7fe": {
+  "en": "Growing at a healthy pace",
+  "t": "Creciendo a un ritmo sano"
+ },
+ "8b541e457455": {
+  "en": "Trading the headline in the first seconds, when spreads are wide and the first move often reverses.",
+  "t": "Operar el titular en los primeros segundos, cuando los diferenciales están amplios y el primer movimiento a menudo se voltea."
+ },
+ "8bef37a5df62": {
+  "en": "Most companies beat estimates, so the size of the beat, revenue and guidance matter more than the word “beat”.",
+  "t": "La mayoría de las empresas superan las estimaciones, así que el tamaño de la sorpresa, los ingresos y las proyecciones importan más que la palabra “supera”."
+ },
+ "8bfedea377af": {
+  "en": "<b class=\"n\">1</b><span>Know the time. Data at 8:30 am ET lands before the open, so the first price you can trade may be far from yesterday’s close.</span>",
+  "t": "<b class=\"n\">1</b><span>Conoce la hora. Un dato a las 8:30 a. m., hora de Nueva York, llega antes de la apertura, así que el primer precio al que puedes operar puede estar lejos del cierre de ayer.</span>"
+ },
+ "8f109ef00c45": {
+  "en": "After the close it reports EPS of $1.10 against a $1.00 estimate, a 10% beat. Revenue matches the estimate.",
+  "t": "Después del cierre reporta una UPA de US$1,10 frente a una estimación de US$1,00, un 10 % por encima. Los ingresos igualan la estimación."
+ },
+ "91d01d209c12": {
+  "en": "<b>Weekly jobless claims</b>: a steady rise means layoffs are spreading. See <a href=\"#l-jobs\">jobs</a>.",
+  "t": "<b>Las solicitudes semanales de subsidio por desempleo</b>: una subida constante significa que los despidos se están extendiendo. Mira <a href=\"#l-jobs\">empleo</a>."
+ },
+ "92e99d0148d9": {
+  "en": "About 3½ years",
+  "t": "Unos 3 años y medio"
+ },
+ "93c323e89bbe": {
+  "en": "Waiting for the economy to look healthy has often meant buying back much higher.",
+  "t": "Esperar a que la economía se vea sana a menudo ha significado volver a comprar mucho más caro."
+ },
+ "94121bd743ca": {
+  "en": "<b>The consumer</b>: retailers, restaurants and card networks describe spending in real time.",
+  "t": "<b>El consumidor</b>: los minoristas, los restaurantes y las redes de tarjetas describen el gasto en tiempo real."
+ },
+ "94e7fb71a87c": {
+  "en": "<b>Rate-sensitive stocks</b>: fast-growing tech, small companies, homebuilders and real estate move most on rate surprises.",
+  "t": "<b>Las acciones sensibles a las tasas</b>: las tecnológicas de crecimiento rápido, las empresas pequeñas, las constructoras de vivienda y el sector inmobiliario son las que más se mueven con las sorpresas de tasas."
+ },
+ "9524aebe0e1a": {
+  "en": "The options market is pricing about ±{0} for {1}. Your stop is only {2} away, so there is about a {3} chance the price simply jumps past it. A bad open of twice the priced-in move would cost <b>{4}</b>, about <b>{5}R</b>. To keep even that within 1R, hold about <b>{6} shares</b>, or wait until after the release.",
+  "t": "El mercado de opciones está descontando cerca de ±{0} para {1}. Tu stop está a solo {2}, así que hay más o menos un {3} de probabilidad de que el precio simplemente lo salte. Una mala apertura del doble del movimiento descontado costaría <b>{4}</b>, cerca de <b>{5}R</b>. Para mantener incluso eso dentro de 1R, ten unas <b>{6} acciones</b>, o espera a que salga el dato."
+ },
+ "95c20894d3cb": {
+  "en": "When companies report, what really moves the stock, and how the economy shows up in results.",
+  "t": "Cuándo reportan las empresas, qué mueve de verdad la acción y cómo aparece la economía en los resultados."
+ },
+ "9861363dcd32": {
+  "en": "Prices are built on future profits. Guidance changes the future; the beat describes a quarter that is already over.",
+  "t": "Los precios se construyen con las utilidades futuras. Las proyecciones cambian el futuro; la sorpresa positiva describe un trimestre que ya terminó."
+ },
+ "9876f7a2d1cb": {
+  "en": "Markets move on the surprise, not the number. Options show how big a move is priced in; size so a gap cannot break your plan.",
+  "t": "Los mercados se mueven con la sorpresa, no con el número. Las opciones muestran qué tan grande es el movimiento descontado; dimensiona para que un gap no pueda romper tu plan."
+ },
+ "99874d4a7769": {
+  "en": "CNN Business via KVIA: what caused the last 12 bear markets",
+  "t": "CNN Business vía KVIA: qué causó los últimos 12 mercados bajistas (en inglés)"
+ },
+ "9a6af7cd96b7": {
+  "en": "Mid",
+  "t": "Mitad"
+ },
+ "9bfa2cbc0930": {
+  "en": "<b>Margins and commentary</b>: costs, demand, hiring and investment plans, mostly heard on the conference call.",
+  "t": "<b>Los márgenes y los comentarios</b>: costos, demanda, contrataciones y planes de inversión, sobre todo los que se oyen en la llamada de resultados."
+ },
+ "a18aaabcc2fe": {
+  "en": "Teaching model. The straddle price is roughly the average size of the move the options market expects. Chances use a normal bell curve, so real jumps can be bigger. Example prices; check your broker’s quotes.",
+  "t": "Modelo didáctico. El precio del straddle es más o menos el tamaño promedio del movimiento que espera el mercado de opciones. Las probabilidades usan una campana normal, así que los saltos reales pueden ser más grandes. Precios de ejemplo; revisa las cotizaciones de tu bróker."
+ },
+ "a41ea5ffa985": {
+  "en": "Sam’s $100,000 portfolio has drifted to 68% stocks and 32% bonds. Instead of guessing, Sam rebalances to the 60/40 target: sell $8,000 of stocks and buy $8,000 of bonds.",
+  "t": "El portafolio de US$100.000 de Sam se desvió a 68 % acciones y 32 % bonos. En vez de adivinar, Sam rebalancea a la meta 60/40: vende US$8.000 de acciones y compra US$8.000 de bonos."
+ },
+ "a4513b1e627c": {
+  "en": "Let the first 15 minutes finish; on Fed days, wait for the press conference.",
+  "t": "Deja que terminen los primeros 15 minutos; los días de la Fed, espera la rueda de prensa."
+ },
+ "a780e060ed42": {
+  "en": "Investors: judge the trend across several quarters (revenue, margins, guidance) rather than one headline.",
+  "t": "Inversionistas: juzguen la tendencia a lo largo de varios trimestres (ingresos, márgenes, proyecciones) en vez de un solo titular."
+ },
+ "a8fc565840ca": {
+  "en": "Several warning lights are on together. That has often come before or during recessions, but stocks tend to bottom before the economy does.",
+  "t": "Varias luces de alerta están encendidas a la vez. Eso a menudo ha llegado antes o durante las recesiones, pero las acciones tienden a tocar fondo antes que la economía."
+ },
+ "aa8886889a14": {
+  "en": "Mid cycle",
+  "t": "Mitad del ciclo"
+ },
+ "aaccd725cc4f": {
+  "en": "<span class=\"wg-title\">Release day</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">Día del dato</span><span class=\"grow\"></span>{0}"
+ },
+ "abdb7c102cb2": {
+  "en": "Let the first 15 minutes finish, then trade levels with confirmation (see <a href=\"#l-timeframes\">timeframes</a> and <a href=\"#l-breakouts\">breakouts</a>). The first reaction often reverses as people read the details.",
+  "t": "Deja que terminen los primeros 15 minutos y luego opera niveles con confirmación (mira <a href=\"#l-timeframes\">temporalidades</a> y <a href=\"#l-breakouts\">rupturas</a>). La primera reacción a menudo se voltea cuando la gente lee los detalles."
+ },
+ "ad2351155f02": {
+  "en": "The readings point to <b>{0}</b>.",
+  "t": "Las lecturas apuntan a <b>{0}</b>."
+ },
  "ad7c70de24ef": {
   "en": "Expectations",
   "t": "Expectativas"
+ },
+ "ad8919ace091": {
+  "en": "Event",
+  "t": "Evento"
+ },
+ "af2b7fbc7a16": {
+  "en": "speeds up",
+  "t": "se acelera"
+ },
+ "b1e2c226e04e": {
+  "en": "<span class=\"lab\">Guidance for next quarter</span>{0}",
+  "t": "<span class=\"lab\">Proyecciones para el próximo trimestre</span>{0}"
+ },
+ "b3391024080a": {
+  "en": "Start with “Beat, but guidance cut”, then switch the guidance to Raised and shrink the run-up. Watch which bar drives the move.",
+  "t": "Empieza con “Supera, pero recorta proyecciones”, luego cambia las proyecciones a Subidas y achica la subida previa. Mira qué barra impulsa el movimiento."
+ },
+ "b438b622cf98": {
+  "en": "<b>Recession</b>: output and jobs fall, and the Fed cuts rates.",
+  "t": "<b>Recesión</b>: la producción y el empleo caen, y la Fed recorta las tasas."
+ },
+ "b47e8bebe002": {
+  "en": "Over three months the yield curve goes from −0.4 to +0.6 points as short-term rates fall: after being inverted, it is turning positive again.",
+  "t": "En tres meses la curva de rendimientos pasa de −0,4 a +0,6 puntos a medida que bajan las tasas de corto plazo: después de estar invertida, se está volviendo positiva otra vez."
+ },
+ "b538cd592dca": {
+  "en": "Bars show the usual shape of a season (share of S&amp;P 500 companies reporting each week), not an exact count. Weeks start on the Monday after the quarter ends. Tap a bar. Check each company’s investor-relations page for its date.",
+  "t": "Las barras muestran la forma habitual de una temporada (la parte de las empresas del S&amp;P 500 que reportan cada semana), no un conteo exacto. Las semanas empiezan el lunes después de que termina el trimestre. Toca una barra. Revisa la página de relación con inversionistas de cada empresa para su fecha."
+ },
+ "b5c0609e99ca": {
+  "en": "The guidance cut speaks about the next quarters, which is what the price is really built on.",
+  "t": "El recorte de las proyecciones habla de los próximos trimestres, que es en lo que de verdad se construye el precio."
+ },
+ "b765c779d31a": {
+  "en": "Its sector",
+  "t": "Su sector"
+ },
+ "b9a349379ac4": {
+  "en": "<b>{0}:</b> {1}. {2}, example price.",
+  "t": "<b>{0}:</b> {1}. {2}, precio de ejemplo."
+ },
+ "ba2dd9263da1": {
+  "en": "DEMO stock chart into its earnings report, a gap of {0} and what drove it",
+  "t": "Gráfico de la acción DEMO hasta su informe de resultados, un gap de {0} y lo que lo impulsó"
+ },
+ "bcbb4d146e15": {
+  "en": "The call after a report where executives explain results and answer analysts’ questions.",
+  "t": "La llamada después de un informe en la que los directivos explican los resultados y responden las preguntas de los analistas."
+ },
+ "bdc673fb48bf": {
+  "en": "peak weeks",
+  "t": "semanas pico"
+ },
+ "bf93f25f520c": {
+  "en": "Holding a large position through a report as if a stop protects you. The stock can open far past it.",
+  "t": "Mantener una posición grande durante un informe como si un stop te protegiera. La acción puede abrir muy por debajo de él."
+ },
+ "c0007941000c": {
+  "en": "US Treasury: daily par yield curve rates (Oct. 2026)",
+  "t": "Tesoro de EE. UU.: tasas diarias de la curva de rendimientos a la par (oct. 2026, en inglés)"
+ },
+ "c03aabee08f7": {
+  "en": "Output and jobs fall",
+  "t": "La producción y el empleo caen"
+ },
+ "c0485cb63fb1": {
+  "en": "<b>Early cycle</b>: the economy climbs out of a recession, rates are low and profits rebound fast.",
+  "t": "<b>Principio del ciclo</b>: la economía sale de una recesión, las tasas están bajas y las utilidades rebotan rápido."
+ },
+ "c0a596806655": {
+  "en": "The market looks ahead, so it usually turns before the economic data does:",
+  "t": "El mercado mira hacia adelante, así que por lo general da la vuelta antes que los datos económicos:"
+ },
+ "c14a755b8882": {
+  "en": "Pick a quarter and tap the bars: banks open the season, the peak weeks follow, and retailers come last.",
+  "t": "Escoge un trimestre y toca las barras: los bancos abren la temporada, siguen las semanas pico y los minoristas llegan de últimos."
+ },
+ "c1f6debf3c0b": {
+  "en": "About a year after it ended",
+  "t": "Más o menos un año después de que terminó"
+ },
+ "c3c299579832": {
+  "en": "The {0} quarter ends {1} {2}.",
+  "t": "El trimestre de {0} termina el {1} {2}."
+ },
+ "c3d7328819c6": {
+  "en": "Back to basics in <a href=\"#l-earnings\">earnings</a> and <a href=\"#l-statements\">the three statements</a>.",
+  "t": "Vuelve a lo básico en <a href=\"#l-earnings\">resultados</a> y <a href=\"#l-statements\">los tres estados financieros</a>."
+ },
+ "c405b5b47841": {
+  "en": "Seasons open about two weeks after each quarter ends, with the big banks; retailers report last.",
+  "t": "Las temporadas abren cerca de dos semanas después de que termina cada trimestre, con los grandes bancos; los minoristas reportan de últimos."
+ },
+ "c421d62977c0": {
+  "en": "Options price the expected move. Holding through a report means accepting a gap of that size or more, so keep the position small enough (see <a href=\"#l-data-day\">data-release days</a>).",
+  "t": "Las opciones descuentan el movimiento esperado. Mantener una posición durante un informe significa aceptar un gap de ese tamaño o más, así que mantén la posición lo bastante pequeña (mira <a href=\"#l-data-day\">días de datos</a>)."
+ },
+ "c46c300be02c": {
+  "en": "rises →",
+  "t": "sube →"
+ },
+ "c5a89508cf59": {
+  "en": "Early in the Q3 2026 season, 84% of S&amp;P 500 companies that had reported beat their EPS estimates, above the 5-year average of 78% and the 10-year average of 77% (FactSet, October 16, 2026). But the average beat was only 2.6%, and only 67% beat on revenue. Companies tend to guide cautiously and analysts trim estimates before reports, so a small beat is the baseline, not good news. What moves the stock is the size of the beat, whether revenue beat too, and whether guidance went up or down, compared with what the stock’s run-up already assumed.",
+  "t": "Al principio de la temporada del 3.er trimestre de 2026, el 84 % de las empresas del S&amp;P 500 que habían reportado superaron sus estimaciones de UPA, por encima del promedio de 5 años del 78 % y del promedio de 10 años del 77 % (FactSet, 16 de octubre de 2026). Pero la sorpresa promedio fue de solo 2,6 %, y solo el 67 % superó lo esperado en ingresos. Las empresas tienden a proyectar con prudencia y los analistas recortan sus estimaciones antes de los informes, así que una sorpresa pequeña es lo normal, no una buena noticia. Lo que mueve la acción es el tamaño de la sorpresa, si los ingresos también superaron lo esperado y si las proyecciones subieron o bajaron, comparado con lo que ya suponía la subida previa de la acción."
+ },
+ "c678f73a8066": {
+  "en": "After the report, implied volatility drops (<a href=\"#l-iv-crush\">IV crush</a>). Option buyers need a move bigger than priced in.",
+  "t": "Después del informe, la volatilidad implícita cae (<a href=\"#l-iv-crush\">el desplome de la IV</a>). Los compradores de opciones necesitan un movimiento más grande que el descontado."
+ },
+ "c70e3abac840": {
+  "en": "It lowers its outlook for next quarter below what analysts expected. In the model, the guidance cut is worth −7 points and the high expectations −3.6 points; the EPS beat adds only +2.5.",
+  "t": "Baja su panorama para el próximo trimestre por debajo de lo que esperaban los analistas. En el modelo, el recorte de las proyecciones vale −7 puntos y las expectativas altas −3,6 puntos; superar la UPA solo suma +2,5."
+ },
+ "c938a98e1235": {
+  "en": "<b>Mid cycle</b>: steady growth, usually the longest phase.",
+  "t": "<b>Mitad del ciclo</b>: crecimiento estable, por lo general la fase más larga."
+ },
+ "ca083635bf61": {
+  "en": "An index fund trades at $500 (example price). The at-the-money straddle costs $5.00, so the market is pricing about ±$5, or 1%.",
+  "t": "Un fondo indexado se negocia a US$500 (precio de ejemplo). El straddle en el dinero cuesta US$5,00, así que el mercado está descontando cerca de ±US$5, o 1 %."
+ },
+ "cbb26abc2da6": {
+  "en": "<b class=\"n\">4</b><span>Options lose their event premium after the news. Being right on direction is not enough.</span>",
+  "t": "<b class=\"n\">4</b><span>Las opciones pierden su prima por el evento después de la noticia. Acertar la dirección no basta.</span>"
+ },
+ "cc680e07ca21": {
+  "en": "<b>Also watched</b>: PCE inflation, PPI, retail sales, the ISM PMIs (10:00 am ET), GDP, and results from the largest companies.",
+  "t": "<b>También se miran</b>: la inflación PCE, el IPP, las ventas minoristas, los PMI del ISM (10:00 a. m., hora de Nueva York), el PIB y los resultados de las empresas más grandes."
+ },
+ "cc93d6451d72": {
+  "en": "Over long periods stock prices follow earnings. FactSet put blended growth for Q3 2026 at about 29% as of October 16, led by energy and semiconductors, with about 33% expected for all of 2026. The S&amp;P 500 traded at about 19 times expected earnings for the next 12 months, close to its 10-year average of 19.1, down from 22 at the end of 2025 as bond yields rose. When stocks are priced at a high multiple of earnings, there is less room for disappointment.",
+  "t": "En periodos largos los precios de las acciones siguen a las utilidades. FactSet calculó el crecimiento combinado del 3.er trimestre de 2026 en cerca del 29 % al 16 de octubre, liderado por la energía y los semiconductores, con cerca del 33 % esperado para todo 2026. El S&amp;P 500 se negociaba a unas 19 veces las utilidades esperadas para los próximos 12 meses, cerca de su promedio de 10 años de 19,1, por debajo de 22 a finales de 2025 porque subieron los rendimientos de los bonos. Cuando las acciones están valoradas a un múltiplo alto de las utilidades, hay menos espacio para la decepción."
+ },
+ "cdd56d700a31": {
+  "en": "No forecast needed: the dashboard says “be ready”, and rebalancing puts the plan back in place whatever comes next.",
+  "t": "No se necesita un pronóstico: el tablero dice “prepárate”, y rebalancear vuelve a poner el plan en su lugar venga lo que venga."
+ },
+ "cf4ec019ccc7": {
+  "en": "Buying options right before the event and losing money even when the direction was right, because volatility drops after the news.",
+  "t": "Comprar opciones justo antes del evento y perder dinero aunque la dirección fuera la correcta, porque la volatilidad cae después de la noticia."
+ },
+ "d018b082e8a3": {
+  "en": "Technology",
+  "t": "Tecnología"
+ },
+ "d171525c2620": {
+  "en": "Selling everything on one recession signal. Single signals, such as the 2022 to 2024 inversion, have given false alarms.",
+  "t": "Venderlo todo por una sola señal de recesión. Las señales solas, como la inversión de 2022 a 2024, han dado falsas alarmas."
+ },
+ "d20b90c92c0d": {
+  "en": "The options market tells you. Add the prices of the at-the-money call and put that expire just after the event: that pair is a <b>straddle</b>. Its price is roughly the size of the move traders expect. If an index fund trades at $500 and the straddle costs $5, the market is pricing about ±$5, or 1%. A smaller move happens a bit more than half the time; a move twice as big is rarer, but it happens. For the S&amp;P 500, options have priced roughly 0.6% to 1% for recent CPI days and about 1.2% for a jobs report in May 2024. Real moves can be far bigger: on September 13, 2022, a hot CPI report sent the S&amp;P 500 down 4.3% in one day. More in <a href=\"#l-volatility\">volatility and the expected move</a>.",
+  "t": "El mercado de opciones te lo dice. Suma los precios del call y del put en el dinero que vencen justo después del evento: ese par es un <b>straddle</b>. Su precio es más o menos el tamaño del movimiento que esperan los traders. Si un fondo indexado se negocia a US$500 y el straddle cuesta US$5, el mercado está descontando cerca de ±US$5, o 1 %. Un movimiento más pequeño pasa un poco más de la mitad de las veces; uno del doble es más raro, pero pasa. Para el S&P 500, las opciones han descontado más o menos del 0,6 % al 1 % en los días recientes del IPC y cerca del 1,2 % para un informe de empleo en mayo de 2024. Los movimientos reales pueden ser mucho más grandes: el 13 de septiembre de 2022, un IPC caliente hizo caer el S&P 500 un 4,3 % en un día. Más en <a href=\"#l-volatility\">la volatilidad y el movimiento esperado</a>."
+ },
+ "d46b1be45023": {
+  "en": "Index ETF",
+  "t": "ETF de índice"
+ },
+ "d4eaba5d2b33": {
+  "en": "Do not carry a full-size position with a tight stop into 8:30 am data. A stop becomes a market order: if the price gaps past it, you are filled at the gap.",
+  "t": "No lleves una posición de tamaño completo con un stop ajustado hasta un dato de las 8:30 a. m. Un stop se vuelve una orden de mercado: si el precio salta con un gap, te ejecutan en el gap."
+ },
+ "d81cacabd053": {
+  "en": "Holding a full-size position with a tight stop through 8:30 am data, as if the stop guaranteed the exit price.",
+  "t": "Mantener una posición de tamaño completo con un stop ajustado durante un dato de las 8:30 a. m., como si el stop garantizara el precio de salida."
+ },
+ "da7efa2e581c": {
+  "en": "Watch several leading indicators together: the yield curve, jobless claims, PMI and the Sahm rule.",
+  "t": "Mira varios indicadores adelantados juntos: la curva de rendimientos, las solicitudes de subsidio por desempleo, el PMI y la regla de Sahm."
+ },
+ "da9089787603": {
+  "en": "<b>The jobs report</b>: 8:30 am ET, usually on the first Friday of the month (the September report came out on Friday, October 2). See <a href=\"#l-jobs\">the jobs report</a>.",
+  "t": "<b>El informe de empleo</b>: 8:30 a. m., hora de Nueva York, por lo general el primer viernes del mes (el informe de septiembre salió el viernes 2 de octubre). Mira <a href=\"#l-jobs\">el informe de empleo</a>."
+ },
+ "db2dd8d9a859": {
+  "en": "Readings",
+  "t": "Lecturas"
+ },
+ "dd06bb59ad26": {
+  "en": "Fidelity: The Business Cycle Approach to Sector Investing",
+  "t": "Fidelity: The Business Cycle Approach to Sector Investing (en inglés)"
+ },
+ "dda67ee088f7": {
+  "en": "Buying options just before an event? Implied volatility drops right after the news (<a href=\"#l-iv-crush\">IV crush</a>), so you need a bigger move than priced in to profit.",
+  "t": "¿Vas a comprar opciones justo antes de un evento? La volatilidad implícita cae justo después de la noticia (<a href=\"#l-iv-crush\">el desplome de la IV</a>), así que necesitas un movimiento más grande que el descontado para ganar."
+ },
+ "de920609e08f": {
+  "en": "The cycle runs early, mid, late and recession; expansions have lasted far longer than contractions.",
+  "t": "El ciclo va de principio, a mitad, a final y a recesión; las expansiones han durado mucho más que las contracciones."
+ },
+ "e0e36bd7fcd7": {
+  "en": "About ±$12, or 3%",
+  "t": "Cerca de ±US$12, o 3 %"
+ },
+ "e1bd4f17d3b4": {
+  "en": "Defensive sectors have tended to fall least. Stocks have often bottomed before the recession ended.",
+  "t": "Los sectores defensivos han tendido a caer menos. Las acciones a menudo han tocado fondo antes de que terminara la recesión."
+ },
+ "e483cee0d421": {
+  "en": "Guidance carries the economy inside it: rates, the dollar, consumer demand and costs.",
+  "t": "Las proyecciones llevan la economía adentro: las tasas, el dólar, la demanda de los consumidores y los costos."
+ },
+ "e4997553c724": {
+  "en": "Watch the calendar for the reports that feed these indicators (see <a href=\"#calendar\">the calendar</a>).",
+  "t": "Mira el calendario para los informes que alimentan estos indicadores (mira <a href=\"#calendar\">el calendario</a>)."
+ },
+ "e4b605e4e6ce": {
+  "en": "The at-the-money straddle shows roughly how big a move is priced in.",
+  "t": "El straddle en el dinero muestra más o menos qué tan grande es el movimiento descontado."
+ },
+ "e5dd5801fac9": {
+  "en": "Why CPI, jobs and Fed days move markets, and how to size around the release.",
+  "t": "Por qué los días del IPC, del empleo y de la Fed mueven los mercados, y cómo dimensionar alrededor del dato."
+ },
+ "eac1c8cdc8c4": {
+  "en": "Treating sector rotation as a law. It is a tendency, and some cycles break it.",
+  "t": "Tomar la rotación de sectores como una ley. Es una tendencia, y algunos ciclos la rompen."
+ },
+ "eb250954e614": {
+  "en": "Check the calendar the night before and write down the time.",
+  "t": "Revisa el calendario la noche anterior y anota la hora."
+ },
+ "ece6e99dedd9": {
+  "en": "<span class=\"wg-title\">The business cycle</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">El ciclo económico</span><span class=\"grow\"></span>{0}"
+ },
+ "ee9bde577afd": {
+  "en": "Same idea, sized for the data: a bad open now costs 1R, not 5R.",
+  "t": "La misma idea, dimensionada para el dato: una mala apertura ahora cuesta 1R, no 5R."
+ },
+ "f1b5a12ccb23": {
+  "en": " But the four lights miss two late-cycle features of October 2026: inflation back at 3.7% and a Fed rate hike in September.",
+  "t": " Pero las cuatro luces no ven dos rasgos de final de ciclo de octubre de 2026: la inflación de vuelta en 3,7 % y una subida de tasas de la Fed en septiembre."
+ },
+ "f2decdcfb80e": {
+  "en": "In the US, the National Bureau of Economic Research (NBER) dates recessions, usually many months after they start. From 1945 to 2020 the average expansion lasted about 64 months and the average contraction about 10 months.",
+  "t": "En EE. UU., la Oficina Nacional de Investigación Económica (NBER) fecha las recesiones, por lo general muchos meses después de que empiezan. De 1945 a 2020 la expansión promedio duró unos 64 meses y la contracción promedio unos 10 meses."
+ },
+ "f37d8b2744ac": {
+  "en": "Post-earnings drift",
+  "t": "Deriva posterior a los resultados"
+ },
+ "f444f4c7db88": {
+  "en": "Buying (or selling) a call and a put with the same strike and expiry. Its price shows how big a move the market expects.",
+  "t": "Comprar (o vender) un call y un put con el mismo strike y el mismo vencimiento. Su precio muestra qué tan grande es el movimiento que espera el mercado."
+ },
+ "f4a80cbac9e3": {
+  "en": "<b>Interest rates</b>: borrowing costs for companies, and lending income for banks. See <a href=\"#l-rates\">rates</a>.",
+  "t": "<b>Las tasas de interés</b>: el costo de los préstamos para las empresas, y los ingresos por préstamos para los bancos. Mira <a href=\"#l-rates\">tasas</a>."
+ },
+ "f4bf7be54dd1": {
+  "en": "NBER: US business cycle expansions and contractions",
+  "t": "NBER: expansiones y contracciones del ciclo económico de EE. UU. (en inglés)"
+ },
+ "f7041daf4b38": {
+  "en": "<b>The dollar</b>: higher US yields tend to lift it. See <a href=\"#l-dollar\">the dollar</a>.",
+  "t": "<b>El dólar</b>: los rendimientos más altos en EE. UU. tienden a subirlo. Mira <a href=\"#l-dollar\">el dólar</a>."
+ },
+ "f7b3737e2e41": {
+  "en": "Simple teaching model built from common patterns: guidance and revenue matter more than an EPS beat, and a big run-up raises the bar. Real reactions vary a lot. DEMO is a made-up company.",
+  "t": "Un modelo didáctico simple construido con patrones comunes: las proyecciones y los ingresos importan más que superar la UPA, y una gran subida previa sube la vara. Las reacciones reales varían mucho. DEMO es una empresa inventada."
+ },
+ "f987cab7dec8": {
+  "en": "CPI came in {0}. Traders expect the Fed to keep rates {1}, so the 2-year yield {2} and the dollar usually follows. Stocks {3}{4}",
+  "t": "El IPC salió {0}. Los traders esperan que la Fed mantenga las tasas {1}, así que el rendimiento a 2 años {2} y el dólar por lo general lo sigue. Las acciones {3}{4}"
+ },
+ "f9ad393d8408": {
+  "en": "<span class=\"wg-title\">Earnings season</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">Temporada de resultados</span><span class=\"grow\"></span>{0}"
+ },
+ "faa127d8b85a": {
+  "en": "The lower guidance",
+  "t": "Las proyecciones más bajas"
+ },
+ "fb25811dea53": {
+  "en": "The tendency of stocks with big earnings surprises to keep moving the same way for a while afterward.",
+  "t": "La tendencia de las acciones con grandes sorpresas en los resultados a seguir moviéndose en la misma dirección por un tiempo."
+ },
+ "fc3941565d88": {
+  "en": "2-year yield",
+  "t": "Rendimiento a 2 años"
+ },
+ "fd507d81493f": {
+  "en": "× bigger",
+  "t": "× más grande"
+ },
+ "fdb2a0e88cff": {
+  "en": "Nasdaq: stocks suffer worst day since 2020 on hot CPI (Sept. 13, 2022)",
+  "t": "Nasdaq: las acciones sufren su peor día desde 2020 por un IPC caliente (13 de septiembre de 2022, en inglés)"
+ },
+ "fe2bd7b3b6c3": {
+  "en": "The 8% EPS beat",
+  "t": "Haber superado la UPA en 8 %"
+ },
+ "fee4154c2055": {
+  "en": "after the 4:00 pm close, so the move shows up the next morning",
+  "t": "después del cierre de las 4:00 p. m., así que el movimiento aparece a la mañana siguiente"
+ },
+ "ff45e7c2a802": {
+  "en": "Your stop is well inside the priced-in move. In a simple bell-curve model there is about a 37% chance the open jumps straight past it.",
+  "t": "Tu stop está bien adentro del movimiento descontado. En un modelo simple de campana hay más o menos un 37 % de probabilidad de que la apertura lo salte directo."
  }
 }
