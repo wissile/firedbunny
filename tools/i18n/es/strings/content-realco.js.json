@@ -7,6 +7,10 @@
   "en": "Sep 2026",
   "t": "Sep. 2026"
  },
+ "0d19a75027ad": {
+  "en": "Gross profit minus operating expenses: the profit from the core business before interest and taxes.",
+  "t": "La utilidad bruta menos los gastos operativos: la ganancia del negocio principal antes de intereses e impuestos."
+ },
  "13e9a9ce086f": {
   "en": "Operating cash flow",
   "t": "Flujo de caja operativo"
@@ -23,6 +27,14 @@
   "en": "Additional paid-in capital",
   "t": "Prima en colocación de acciones"
  },
+ "18b86644c1fe": {
+  "en": "Net margin",
+  "t": "Margen neto"
+ },
+ "1d4bc96a9055": {
+  "en": "Research and development",
+  "t": "Investigación y desarrollo"
+ },
  "20e338624cee": {
   "en": "Assets",
   "t": "Activos"
@@ -30,6 +42,22 @@
  "2b1ab3e857d8": {
   "en": "Lockup",
   "t": "Periodo de bloqueo"
+ },
+ "2eac40bfbfb1": {
+  "en": "Quarter over quarter",
+  "t": "Frente al trimestre anterior"
+ },
+ "2f2c9024fd23": {
+  "en": "Assets minus liabilities: what would be left for shareholders on paper.",
+  "t": "Activos menos pasivos: lo que quedaría en el papel para los accionistas."
+ },
+ "2fb4d7181b16": {
+  "en": "Bills the company owes its suppliers.",
+  "t": "Cuentas que la empresa les debe a sus proveedores."
+ },
+ "300d29fd5f32": {
+  "en": "Inventory",
+  "t": "Inventario"
  },
  "33d467acbd83": {
   "en": "Run rate",
@@ -47,6 +75,10 @@
   "en": "Operating income",
   "t": "Utilidad operativa"
  },
+ "3fab8b868a92": {
+  "en": "9 months to Sep 2026",
+  "t": "9 meses hasta sep. 2026"
+ },
  "3feba10ac822": {
   "en": "Gross margin",
   "t": "Margen bruto"
@@ -55,9 +87,17 @@
   "en": "Segment",
   "t": "Segmento"
  },
+ "45c4e10472f1": {
+  "en": "Other non-current liabilities",
+  "t": "Otros pasivos no corrientes"
+ },
  "476432a3e85a": {
   "en": "Apple",
   "t": "Apple"
+ },
+ "4a9afffc374b": {
+  "en": "Other current liabilities",
+  "t": "Otros pasivos corrientes"
  },
  "4c565a915bc4": {
   "en": "Operating expenses",
@@ -67,9 +107,21 @@
   "en": "Goodwill",
   "t": "Crédito mercantil"
  },
+ "571285c93abd": {
+  "en": "Retained earnings",
+  "t": "Utilidades retenidas"
+ },
  "60b29e44beaa": {
   "en": "One-time item",
   "t": "Partida única"
+ },
+ "62c1dc9257ca": {
+  "en": "Cash customers paid in advance for something not yet delivered, like a subscription or a launch contract.",
+  "t": "Efectivo que los clientes pagaron por adelantado por algo que todavía no se ha entregado, como una suscripción o un contrato de lanzamiento."
+ },
+ "63b99db94d98": {
+  "en": "Accounts payable",
+  "t": "Cuentas por pagar"
  },
  "690d2fadac07": {
   "en": "Market cap",
@@ -83,6 +135,10 @@
   "en": "Adjusted EBITDA",
   "t": "EBITDA ajustado"
  },
+ "6cd80a0d27ad": {
+  "en": "Other non-current assets",
+  "t": "Otros activos no corrientes"
+ },
  "740922ac20ba": {
   "en": "Multiple",
   "t": "Múltiplo"
@@ -90,6 +146,10 @@
  "7b68a5639517": {
   "en": "Stock-based compensation",
   "t": "Pago basado en acciones"
+ },
+ "7c300941ea55": {
+  "en": "YoY",
+  "t": "Anual"
  },
  "80b1038db883": {
   "en": "Shareholders’ equity",
@@ -127,6 +187,10 @@
   "en": "Price to sales",
   "t": "Precio sobre ventas"
  },
+ "9c5285e31350": {
+  "en": "Common stock and paid-in capital",
+  "t": "Acciones comunes y capital aportado"
+ },
  "9eb09b3e0a6c": {
   "en": "Other income",
   "t": "Otros ingresos"
@@ -151,9 +215,21 @@
   "en": "Depreciation and amortization",
   "t": "Depreciación y amortización"
  },
+ "a6dbc8878920": {
+  "en": "Products and parts waiting to be sold.",
+  "t": "Productos y partes esperando a ser vendidos."
+ },
+ "acfecf85e0c6": {
+  "en": "Space (launch, Starship, Dragon)",
+  "t": "Space (lanzamientos, Starship, Dragon)"
+ },
  "ad3d7b91dbef": {
   "en": "Share count",
   "t": "Número de acciones"
+ },
+ "ad531e40d4dc": {
+  "en": "Current assets",
+  "t": "Activos corrientes"
  },
  "ae7d2bc2112b": {
   "en": "Elon Musk, CEO",
@@ -163,6 +239,10 @@
   "en": "Earnings call",
   "t": "Llamada de resultados"
  },
+ "b8bb047db189": {
+  "en": "Other current assets",
+  "t": "Otros activos corrientes"
+ },
  "b98df7d6d2e5": {
   "en": "Other liabilities",
   "t": "Otros pasivos"
@@ -170,6 +250,10 @@
  "c0a3d683d1ab": {
   "en": "Net loss",
   "t": "Pérdida neta"
+ },
+ "c8ed3c8a0059": {
+  "en": "Accounts receivable",
+  "t": "Cuentas por cobrar"
  },
  "cf15e8eb9738": {
   "en": "Forward P/E",
@@ -187,9 +271,21 @@
   "en": "Diluted EPS",
   "t": "UPA diluida"
  },
+ "d9ad26a9a33c": {
+  "en": "Other adjustments",
+  "t": "Otros ajustes"
+ },
  "daa863711549": {
   "en": "August 14, 2026",
   "t": "14 de agosto de 2026"
+ },
+ "db753a79bcdb": {
+  "en": "Current liabilities",
+  "t": "Pasivos corrientes"
+ },
+ "dbd729da8dd9": {
+  "en": "Vendor non-trade receivables",
+  "t": "Cuentas por cobrar a proveedores no comerciales"
  },
  "e27256a258a9": {
   "en": "Cash and cash equivalents",
@@ -198,6 +294,10 @@
  "e4062ee5a2c0": {
   "en": "Capex",
   "t": "Capex"
+ },
+ "e49799e89b43": {
+  "en": "Selling, general and administrative",
+  "t": "Gastos de ventas, generales y administrativos"
  },
  "e763d92c95b5": {
   "en": "Miss",
@@ -211,6 +311,18 @@
   "en": "Cash burn",
   "t": "Quema de efectivo"
  },
+ "eb363d6abe86": {
+  "en": "Gross profit as a percent of revenue: how many cents of each sales dollar are left after making the product.",
+  "t": "La utilidad bruta como porcentaje de los ingresos: cuántos centavos de cada dólar de ventas quedan después de fabricar el producto."
+ },
+ "ee76f25813f1": {
+  "en": "Year over year",
+  "t": "Interanual"
+ },
+ "f20742f84801": {
+  "en": "Sep 2026 qtr",
+  "t": "Trim. sep. 2026"
+ },
  "f2bd177092d9": {
   "en": "How fast a company uses cash when free cash flow is negative.",
   "t": "Qué tan rápido usa efectivo una empresa cuando el flujo de caja libre es negativo."
@@ -219,8 +331,16 @@
   "en": "When a private company first sells shares to the public and lists on an exchange.",
   "t": "Cuando una empresa privada vende acciones al público por primera vez y empieza a cotizar en una bolsa."
  },
+ "f49cca22f06b": {
+  "en": "Commercial paper",
+  "t": "Papeles comerciales"
+ },
  "f4e821747c88": {
   "en": "SpaceX",
   "t": "SpaceX"
+ },
+ "fc33f40f326b": {
+  "en": "Money customers owe for things already delivered.",
+  "t": "Dinero que los clientes deben por cosas ya entregadas."
  }
 }

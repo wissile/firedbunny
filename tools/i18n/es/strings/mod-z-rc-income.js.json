@@ -1,14 +1,754 @@
 {
+ "004094470560": {
+  "en": "The September quarter is Apple’s latest reported quarter as of November 2026 (reported {0}). Compare it with a year earlier or with the June quarter, the previous one. The fiscal-year section shows all of fiscal 2026.",
+  "t": "El trimestre de septiembre es el último trimestre reportado de Apple a noviembre de 2026 (reportado {0}). Compáralo con un año antes o con el trimestre de junio, el anterior. La sección del año fiscal muestra todo el año fiscal 2026."
+ },
+ "008a05b24e3c": {
+  "en": "Services were {0} of sales but {1} of gross profit: each Services dollar keeps {2} vs {3} for products. That is why investors watch Services so closely.",
+  "t": "Los servicios fueron {0} de las ventas pero {1} de la utilidad bruta: cada dólar de servicios deja {2} frente a {3} de los productos. Por eso los inversionistas miran los servicios tan de cerca."
+ },
+ "0157e8b48cc6": {
+  "en": "Services are {0} of sales but {1} of gross profit, thanks to a {2} margin.",
+  "t": "Los servicios son {0} de las ventas pero {1} de la utilidad bruta, gracias a un margen de {2}."
+ },
+ "019dd6756b33": {
+  "en": "{0}, up from {1}",
+  "t": "{0}, frente a {1}"
+ },
+ "039711232507": {
+  "en": "Regions",
+  "t": "Regiones"
+ },
+ "0458f45331e3": {
+  "en": "Tap a highlighted word in the headline, then flip between Hoppy’s cart, Apple and SpaceX to see the same idea with real numbers.",
+  "t": "Toca una palabra resaltada del titular y luego cambia entre el carrito de Hoppy, Apple y SpaceX para ver la misma idea con números reales."
+ },
+ "0516e7a5939f": {
+  "en": "Money in",
+  "t": "Dinero que entra"
+ },
+ "06ef73927d9f": {
+  "en": "<b>Gross profit</b>",
+  "t": "<b>Utilidad bruta</b>"
+ },
+ "072bf141ed82": {
+  "en": "Adjusted (non-GAAP)",
+  "t": "Ajustado (no GAAP)"
+ },
+ "07a712fb309d": {
+  "en": "Gross profit ",
+  "t": "Utilidad bruta "
+ },
+ "09cd1e07ecc9": {
+  "en": "A <b>one-time item</b> is temporary or unusual, so it says little about the repeatable business. Apple’s September EPS included {0} from tariff refunds, down from {1} in June; without them it was about {2}. The refunds are temporary, and they are fading.",
+  "t": "Una <b>partida única</b> es temporal o inusual, así que dice poco sobre el negocio que se repite. La UPA de septiembre de Apple incluyó {0} de reembolsos de aranceles, frente a {1} en junio; sin ellos fue de cerca de {2}. Los reembolsos son temporales, y se están apagando."
+ },
+ "0bcd8a64ad44": {
+  "en": "Both times Apple beat, both times the help from refunds made the beat look bigger, and both times the next-quarter guide fell short of hopes. The July guide also proved cautious: September revenue grew {0}, above its {1}% to {2}% range. Whether the December guide does the same is what the January report will show.",
+  "t": "Las dos veces Apple superó lo esperado, las dos veces la ayuda de los reembolsos hizo que la sorpresa se viera más grande, y las dos veces la proyección del próximo trimestre se quedó corta frente a las esperanzas. La proyección de julio también resultó prudente: los ingresos de septiembre crecieron {0}, por encima de su rango del {1} % al {2} %. Si la proyección de diciembre hace lo mismo es lo que va a mostrar el informe de enero."
+ },
+ "0d9961e6a115": {
+  "en": "Tap any row for its card. Flip to June or to a year ago, switch to cents per $1 of sales, and remove the tariff refund.",
+  "t": "Toca cualquier fila para ver su tarjeta. Cambia a junio o a hace un año, pasa a centavos por cada US$1 de ventas y quita el reembolso de aranceles."
+ },
+ "0e0221eb67c0": {
+  "en": "Apple’s last two reports tell the same story, which is why investors read guidance first.",
+  "t": "Los dos últimos informes de Apple cuentan la misma historia, por eso los inversionistas leen primero las proyecciones."
+ },
+ "0e7bd8e5389f": {
+  "en": "Out of {0} of sales Apple kept {1}: {2}, {3} {4} a year earlier. EPS of {5} beat the roughly {6} expected, yet the stock {7} as the December-quarter guide disappointed. See <a href=\"#l-rc-price\">why</a>.",
+  "t": "De {0} de ventas Apple se quedó con {1}: {2}, {3} {4} un año antes. La UPA de {5} superó los cerca de {6} esperados, y aun así la acción {7} porque las proyecciones del trimestre de diciembre decepcionaron. Mira <a href=\"#l-rc-price\">por qué</a>."
+ },
+ "0edc0112db95": {
+  "en": "Sequential",
+  "t": "Secuencial"
+ },
+ "119ab890af90": {
+  "en": "Costs and gross profit",
+  "t": "Costos y utilidad bruta"
+ },
+ "123182b1386e": {
+  "en": "The {0} YoY, because it compares the same season",
+  "t": "El {0} interanual, porque compara la misma temporada"
+ },
+ "12748281e0f0": {
+  "en": "Units",
+  "t": "Unidades"
+ },
+ "1390a2a8bb81": {
+  "en": "Revenue is the first number traders hold up against the consensus. A top-line beat shows customers are really buying; a miss is hard to fix with cost cuts.",
+  "t": "Los ingresos son el primer número que los traders comparan con el consenso. Superar lo esperado en la primera línea muestra que los clientes de verdad están comprando; quedarse corto es difícil de arreglar recortando costos."
+ },
+ "14c5f4319f1a": {
+  "en": "Tap a line to see what it means.",
+  "t": "Toca una línea para ver qué significa."
+ },
+ "15a1ede910cd": {
+  "en": "Use YoY for seasonal businesses; QoQ shows the pace of a fast grower like SpaceX.",
+  "t": "Usa la comparación interanual para los negocios de temporada; la trimestral muestra el ritmo de una empresa de crecimiento rápido como SpaceX."
+ },
+ "15d4099645cb": {
+  "en": "A made-up headline for a made-up cart, built from the numbers in this lesson.",
+  "t": "Un titular inventado para un carrito inventado, armado con los números de esta lección."
+ },
+ "17ac7f446865": {
+  "en": "{0}–{1}% vs ~{2}% hoped",
+  "t": "{0}–{1} % frente a ~{2} % esperado"
+ },
+ "195ec4910c2f": {
+  "en": "It cannot be known",
+  "t": "No se puede saber"
+ },
+ "19c6bf187dbf": {
+  "en": "It slipped a little, to about {0}",
+  "t": "Bajó un poco, a cerca de {0}"
+ },
+ "1f21f65cfb20": {
+  "en": "Reading only the headline beat. Check temporary items (Apple’s {0} of tariff refunds, SpaceX’s $1.6 billion of non-operating profit from below the operating line, some of which may not recur) and the guidance before deciding what the number means.",
+  "t": "Leer solo el titular positivo. Revisa las partidas temporales (los {0} de reembolsos de aranceles de Apple, los US$1.600 millones de utilidad no operativa de SpaceX de debajo de la línea operativa, parte de la cual puede no repetirse) y las proyecciones antes de decidir qué significa el número."
+ },
+ "20d27b13c033": {
+  "en": "Where it went",
+  "t": "A dónde fue"
+ },
+ "2195e30360ae": {
+  "en": "Neither: add them together",
+  "t": "Ninguno: súmalos"
+ },
+ "21fb03cb82e9": {
+  "en": "Adjustments and cash",
+  "t": "Ajustes y efectivo"
+ },
+ "251fb7e876de": {
+  "en": "About {0} of the {1} EPS came from temporary tariff refunds, down from {2} in June.",
+  "t": "Cerca de {0} de la UPA de {1} vino de reembolsos temporales de aranceles, frente a {2} en junio."
+ },
+ "252516566462": {
+  "en": "November 2",
+  "t": "2 de noviembre"
+ },
+ "27f507a81bf6": {
+  "en": "Headline-style summary written by FiredBunny from {0} release and reported estimates.",
+  "t": "Resumen tipo titular escrito por FiredBunny a partir del comunicado {0} y de las estimaciones reportadas."
+ },
+ "2857d22aec4d": {
+  "en": "Apple said tariff refunds added about {0} point of gross margin; without them, about {1}.",
+  "t": "Apple dijo que los reembolsos de aranceles le sumaron cerca de {0} punto al margen bruto; sin ellos, cerca de {1}."
+ },
+ "2a4146bb92ea": {
+  "en": "The {0} QoQ, because it is the most recent",
+  "t": "El {0} trimestral, porque es el más reciente"
+ },
+ "2cffd40ff258": {
+  "en": "<span class=\"k\"><i></i>Headline decoder · tap a highlighted word</span>",
+  "t": "<span class=\"k\"><i></i>Decodificador de titulares · toca una palabra resaltada</span>"
+ },
+ "2ec156e1d32c": {
+  "en": "Operating income: {0} − {1} R&D − {2} SG&A = {3}, a {4} operating margin ({5} a year earlier).",
+  "t": "Utilidad operativa: {0} − {1} de investigación y desarrollo − {2} de gastos de ventas, generales y administrativos = {3}, un margen operativo de {4} ({5} un año antes)."
+ },
+ "35f1795a8b99": {
+  "en": "Interest on the cart loan",
+  "t": "Intereses del préstamo del carrito"
+ },
+ "374f5a9cda01": {
+  "en": "<b>Guidance</b> is management’s own forecast for the next quarter. For the December quarter Apple guided sales growth of {0}% to {1}% and a {2}% to {3}% gross margin, while analysts had hoped for about {4}% growth and a margin near {5}%, and its stock {6}. July was the same story: a beat, a softer guide and a {7} drop. SpaceX did the opposite in October: it beat (revenue $14.6 billion vs about $12.7 to $12.9 billion expected) and guided first-quarter 2027 revenue of $33 to $37 billion vs about $22.2 billion expected, and its stock rose about 7.8%. A stock prices the future, so guidance often counts more than the quarter just reported. See <a href=\"#l-rc-price\">how earnings move the stock price</a>, <a href=\"#l-earnings\">earnings reports</a> and <a href=\"#l-earnings-season\">earnings season</a>.",
+  "t": "Las <b>proyecciones</b> son el pronóstico de la propia gerencia para el próximo trimestre. Para el trimestre de diciembre Apple proyectó un crecimiento de ventas del {0} % al {1} % y un margen bruto del {2} % al {3} %, mientras los analistas esperaban cerca del {4} % de crecimiento y un margen cerca del {5} %, y su acción {6}. Julio fue la misma historia: resultados mejores de lo esperado, proyecciones más flojas y una caída del {7}. SpaceX hizo lo contrario en octubre: superó lo esperado (ingresos de US$14.600 millones frente a cerca de US$12.700 a US$12.900 millones esperados) y proyectó ingresos para el primer trimestre de 2027 de US$33.000 a US$37.000 millones frente a cerca de US$22.200 millones esperados, y su acción subió cerca de 7,8 %. Una acción pone precio al futuro, así que las proyecciones a menudo cuentan más que el trimestre que se acaba de reportar. Mira <a href=\"#l-rc-price\">cómo los resultados mueven el precio de la acción</a>, <a href=\"#l-earnings\">informes de resultados</a> y <a href=\"#l-earnings-season\">la temporada de resultados</a>."
+ },
+ "37ad9c89475f": {
+  "en": "Ads, permit, accountant, phone (SG&amp;A)",
+  "t": "Publicidad, permiso, contador, teléfono (gastos de ventas, generales y administrativos)"
+ },
+ "37c59c34cd9d": {
+  "en": "Beat or miss",
+  "t": "Supera o se queda corto"
+ },
+ "3972ce5f7af1": {
+  "en": "R&amp;D rose {0} to {1} ({2} of sales) and SG&amp;A {3} to {4}. Operating expenses grew {5}, faster than gross profit ({6}), so operating income grew only {7} to <b>{8}</b> and the operating margin slipped to {9} from {10}. That is negative <b>operating leverage</b>: for now costs are growing faster than profit. Apple said it is spending what its AI and product plans need.",
+  "t": "La investigación y el desarrollo subieron {0} a {1} ({2} de las ventas) y los gastos de ventas, generales y administrativos {3} a {4}. Los gastos operativos crecieron {5}, más rápido que la utilidad bruta ({6}), así que la utilidad operativa creció solo {7} a <b>{8}</b> y el margen operativo bajó a {9} desde {10}. Eso es <b>apalancamiento operativo</b> negativo: por ahora los costos crecen más rápido que la utilidad. Apple dijo que está gastando lo que necesitan sus planes de IA y de productos."
+ },
+ "3aad859190ae": {
+  "en": "Gross profit is the fuel for every line below it. When it grows faster than sales, the company is pricing well or making things more cheaply.",
+  "t": "La utilidad bruta es el combustible de todas las líneas de abajo. Cuando crece más rápido que las ventas, la empresa está poniendo bien sus precios o fabricando más barato."
+ },
+ "3d9658cf4db7": {
+  "en": "Apple’s fiscal Q4 2026 (July to September), in millions of dollars as Apple printed them.",
+  "t": "El 4.º trimestre fiscal de 2026 de Apple (julio a septiembre), en millones de dólares como los publicó Apple."
+ },
  "3ecdb4a976fb": {
   "en": "Super Intelligence (formerly AI)",
   "t": "Super Intelligence (antes IA)"
+ },
+ "3f38a438ab69": {
+  "en": "Help from tariff refunds",
+  "t": "Ayuda de los reembolsos de aranceles"
+ },
+ "3fa1c76946ef": {
+  "en": "Next-quarter gross margin guide",
+  "t": "Proyección de margen bruto del próximo trimestre"
+ },
+ "42ed8ebdaf3b": {
+  "en": "{0} about {1} the next day",
+  "t": "{0} cerca de {1} al día siguiente"
+ },
+ "439633b7ef94": {
+  "en": "Reading the higher gross margin as progress. About {0} point came from temporary tariff refunds; without it the margin was {1} a year ago.",
+  "t": "Leer el margen bruto más alto como un avance. Cerca de {0} punto vino de reembolsos temporales de aranceles; sin ellos el margen estuvo {1} hace un año."
+ },
+ "44a2c58d43b7": {
+  "en": "A September-quarter record. Analysts expected about {0}; Apple’s July guide implied {1}–{2} (our math).",
+  "t": "Un récord para un trimestre de septiembre. Los analistas esperaban cerca de {0}; las proyecciones de julio de Apple implicaban {1}–{2} (cálculo nuestro)."
+ },
+ "44ccb91f71b5": {
+  "en": "YoY compares September with September, so the seasons cancel out. The QoQ rise is mostly the new iPhones that go on sale every September.",
+  "t": "La comparación interanual compara septiembre con septiembre, así que las temporadas se cancelan. La subida trimestral es sobre todo por los nuevos iPhone que salen a la venta cada septiembre."
+ },
+ "44dbd7a0f044": {
+  "en": "{0}, July to September 2026, three months ended {1}",
+  "t": "{0}, julio a septiembre de 2026, tres meses terminados el {1}"
+ },
+ "47728c7e5dcd": {
+  "en": "not reported for this period",
+  "t": "no reportado para este periodo"
+ },
+ "48178a0887f2": {
+  "en": "Gross margin: {0} minus about {1} point ≈ {2}, {3} the {4} of a year earlier. Apple’s December guide ({5}% to {6}%) is lower still, mainly because of memory costs.",
+  "t": "Margen bruto: {0} menos cerca de {1} punto ≈ {2}, {3} el {4} de un año antes. La proyección de diciembre de Apple ({5} % al {6} %) es todavía más baja, sobre todo por los costos de memoria."
+ },
+ "4930b04cadcc": {
+  "en": "Tax (20%)",
+  "t": "Impuestos (20 %)"
+ },
+ "4b34da1b0e75": {
+  "en": "Other income added {0} (Apple had guided about {1}). Tax took {2}, a {3} rate vs {4} a year earlier and the roughly {5}% Apple had guided. Net income rose {6} to <b>{7}</b>. Diluted EPS rose {8} to <b>{9}</b>, faster than profit, because buybacks cut the diluted share count {10} to {11} billion. The cash side of those buybacks is in <a href=\"#l-rc-apple-cash\">Apple’s cash flow</a>.",
+  "t": "Los otros ingresos sumaron {0} (Apple había proyectado cerca de {1}). Los impuestos se llevaron {2}, una tasa de {3} frente a {4} un año antes y al cerca de {5} % que había proyectado Apple. La utilidad neta subió {6} a <b>{7}</b>. La UPA diluida subió {8} a <b>{9}</b>, más rápido que la utilidad, porque las recompras redujeron el número de acciones diluidas {10} a {11} mil millones. El lado del efectivo de esas recompras está en <a href=\"#l-rc-apple-cash\">el flujo de caja de Apple</a>."
+ },
+ "51802ba8fa25": {
+  "en": "Next ›",
+  "t": "Siguiente ›"
+ },
+ "5257612a114d": {
+  "en": "<b>Operating expenses</b>: <b>R&amp;D</b> (inventing the next product) plus <b>SG&amp;A</b> (selling and running the company). Gross profit minus these is <b>operating income</b>; as a share of sales it is the <b>operating margin</b> (Apple {0}).",
+  "t": "Los <b>gastos operativos</b>: <b>investigación y desarrollo</b> (inventar el próximo producto) más <b>gastos de ventas, generales y administrativos</b> (vender y manejar la empresa). La utilidad bruta menos estos es la <b>utilidad operativa</b>; como parte de las ventas es el <b>margen operativo</b> (Apple {0})."
+ },
+ "52d0bb13b98b": {
+  "en": "a little below",
+  "t": "un poco por debajo"
+ },
+ "530f05ec3989": {
+  "en": "How much of Apple’s {0} was repeatable? All figures from Apple’s release.",
+  "t": "¿Cuánto de los {0} de Apple se puede repetir? Todas las cifras son del comunicado de Apple."
+ },
+ "55984c126d16": {
+  "en": "Expecting a record quarter to lift the stock. The December margin and Services guide mattered more.",
+  "t": "Esperar que un trimestre récord suba la acción. Las proyecciones de margen y de servicios para diciembre importaron más."
+ },
+ "55a4433c899f": {
+  "en": "<span class=\"wg-title\">Where the sales came from</span><span class=\"grow\"></span>{0}",
+  "t": "<span class=\"wg-title\">De dónde vinieron las ventas</span><span class=\"grow\"></span>{0}"
+ },
+ "5785b9d7ad46": {
+  "en": "Another word for quarter over quarter: compared with the quarter just before.",
+  "t": "Otra forma de decir frente al trimestre anterior: comparado con el trimestre justo antes."
+ },
+ "57f8a4a9e89b": {
+  "en": "Still a beat and still double-digit growth, but the repeatable margin was slipping. That is why investors looked past the beat to the guidance.",
+  "t": "Todavía por encima de lo esperado y todavía con crecimiento de dos dígitos, pero el margen que se repite estaba bajando. Por eso los inversionistas miraron más allá de la sorpresa positiva, a las proyecciones."
+ },
+ "5b3a87aff4dc": {
+  "en": "Before results, analysts publish forecasts; their average is the <b>consensus</b>. A result above it is a <b>beat</b>, below it a <b>miss</b>. Apple’s revenue ({0} vs about {1} expected) and EPS ({2} vs about {3}) were beats; Services ({4} vs about {5}) was in line.",
+  "t": "Antes de los resultados, los analistas publican pronósticos; su promedio es el <b>consenso</b>. Un resultado por encima <b>supera lo esperado</b>, uno por debajo <b>se queda corto</b>. Los ingresos de Apple ({0} frente a cerca de {1} esperados) y la UPA ({2} frente a cerca de {3}) superaron lo esperado; los servicios ({4} frente a cerca de {5}) salieron en línea."
+ },
+ "5b6094543c20": {
+  "en": "Apple’s September 2026 quarter, sales to EPS, and what each line did to the stock.",
+  "t": "El trimestre de septiembre de 2026 de Apple, de las ventas a la UPA, y lo que cada línea le hizo a la acción."
+ },
+ "5c48e80014ae": {
+  "en": "Apple said tariff refunds added {0}. {1} − {2} = {3}.",
+  "t": "Apple dijo que los reembolsos de aranceles sumaron {0}. {1} − {2} = {3}."
+ },
+ "5da84ce5e2dd": {
+  "en": "Treating every category as equal. iPad fell {0}, but it is about {1} of sales; iPhone is about half.",
+  "t": "Tratar todas las categorías como iguales. El iPad cayó {0}, pero es cerca de {1} de las ventas; el iPhone es cerca de la mitad."
+ },
+ "5dfc10a6dda1": {
+  "en": "<b>Free cash flow</b> is operating cash minus capex: about {0} for Apple in fiscal 2026 (our math), and about −$35.0 billion for SpaceX in nine months as it built computing capacity. More in <a href=\"#l-rc-apple-cash\">Apple’s cash flow</a>.",
+  "t": "El <b>flujo de caja libre</b> es el efectivo operativo menos el capex: cerca de {0} para Apple en el año fiscal 2026 (cálculo nuestro), y cerca de −US$35.000 millones para SpaceX en nueve meses mientras construía capacidad de cómputo. Más en <a href=\"#l-rc-apple-cash\">el flujo de caja de Apple</a>."
+ },
+ "5f5c7ec348e7": {
+  "en": "SpaceX reports cash flow year to date (nine months), with totals only; capex is also given quarter by quarter, so free cash flow here is nine-month operating cash minus nine-month capex.",
+  "t": "SpaceX reporta el flujo de caja en lo corrido del año (nueve meses), solo con totales; el capex también se da trimestre por trimestre, así que aquí el flujo de caja libre es el efectivo operativo de nueve meses menos el capex de nueve meses."
  },
  "5fad28635420": {
   "en": "Below the operating line",
   "t": "Debajo de la línea operativa"
  },
+ "604fa62136b4": {
+  "en": "<b>Cost of sales</b>: what it cost to make exactly what was sold. Revenue minus cost of sales is <b>gross profit</b>; divide it by revenue for the <b>gross margin</b> (Hoppy’s 60%, Apple {0}).",
+  "t": "El <b>costo de ventas</b>: lo que costó fabricar exactamente lo que se vendió. Los ingresos menos el costo de ventas son la <b>utilidad bruta</b>; divídela entre los ingresos para obtener el <b>margen bruto</b> (Hoppy 60 %, Apple {0})."
+ },
+ "626458c64258": {
+  "en": "Figures in millions exactly as reported: 109,417 means $109.4 billion. Change shows % for like-signed values and the difference otherwise; pts = percentage points. Ratios and lines marked computed are FiredBunny’s math. ",
+  "t": "Cifras en millones exactamente como se reportaron: 109,417 significa US$109.400 millones. El cambio muestra el % para valores del mismo signo y la diferencia en los demás casos; pts = puntos porcentuales. Los indicadores y las líneas marcadas como calculadas son cuentas de FiredBunny. "
+ },
+ "699649e4099f": {
+  "en": "Rest of Asia Pacific",
+  "t": "Resto de Asia-Pacífico"
+ },
+ "69ff26246fb3": {
+  "en": "One quarter later the lines turned black. In Q3 2026 revenue rose 161% from a year earlier to $14.6 billion, operating income was +$2.8 billion and net income +$4.4 billion, or $0.35 per diluted share: its first profitable quarter as a public company. About $1.6 billion of that profit came from below the operating line (other income, net interest and a tax benefit), so investors also look at the $2.8 billion of operating income.",
+  "t": "Un trimestre después las líneas se pusieron en negro. En el 3.er trimestre de 2026 los ingresos subieron 161 % frente a un año antes, a US$14.600 millones, la utilidad operativa fue de +US$2.800 millones y la utilidad neta de +US$4.400 millones, o US$0,35 por acción diluida: su primer trimestre rentable como empresa en bolsa. Cerca de US$1.600 millones de esa utilidad vinieron de debajo de la línea operativa (otros ingresos, intereses netos y un beneficio tributario), así que los inversionistas también miran los US$2.800 millones de utilidad operativa."
+ },
+ "6a32caba075c": {
+  "en": "Last June: {0} − {1} = {2}.",
+  "t": "El junio pasado: {0} − {1} = {2}."
+ },
+ "6d501f0c771d": {
+  "en": "Treating adjusted EBITDA as profit. In Q2 2026 SpaceX showed positive $3.5 billion on its own adjusted EBITDA measure in a quarter with a $541 million GAAP net loss.",
+  "t": "Tomar el EBITDA ajustado como utilidad. En el 2.º trimestre de 2026 SpaceX mostró un positivo de US$3.500 millones según su propia medida de EBITDA ajustado en un trimestre con una pérdida neta GAAP de US$541 millones."
+ },
+ "6ecf608a415f": {
+  "en": "Apple {0}, {1} vs a year earlier",
+  "t": "Apple {0}, {1} frente a un año antes"
+ },
+ "6fddf53cb57f": {
+  "en": "B diluted shares =",
+  "t": "mil millones de acciones diluidas ="
+ },
+ "70f27c50ef9b": {
+  "en": "Apple: fiscal Q4 2026 (July to September), reported {0}. SpaceX: {1} (July to September), reported {2}. These are the latest reported quarters as of November 2026. Statement figures in $ millions as the companies print them; ratios computed by FiredBunny. Estimates and the analyst consensus are as reported by news outlets. Hoppy’s Coffee Cart is made up. Education only, not investment advice.",
+  "t": "Apple: 4.º trimestre fiscal de 2026 (julio a septiembre), reportado {0}. SpaceX: {1} (julio a septiembre), reportado {2}. Son los últimos trimestres reportados a noviembre de 2026. Cifras de los estados en US$ millones, como las publican las empresas; los indicadores los calcula FiredBunny. Las estimaciones y el consenso de los analistas son los reportados por medios de noticias. El carrito de café de Hoppy es inventado. Solo educación, no asesoría de inversión."
+ },
+ "719f56a6e7ec": {
+  "en": "Compare with",
+  "t": "Comparar con"
+ },
+ "71cb9d02521f": {
+  "en": "Total cost of sales",
+  "t": "Costo de ventas total"
+ },
+ "735d95a89975": {
+  "en": "Total operating expenses",
+  "t": "Gastos operativos totales"
+ },
+ "7374f3d9e7cc": {
+  "en": "Profit before tax",
+  "t": "Utilidad antes de impuestos"
+ },
+ "737708deda75": {
+  "en": "Take out the {0} point of refunds and the margin was about {1}, a little below {2}. Memory chips cost more, and Apple guided {3}% to {4}% for December.",
+  "t": "Quita el {0} punto de reembolsos y el margen fue de cerca de {1}, un poco por debajo de {2}. Los chips de memoria cuestan más, y Apple proyectó del {3} % al {4} % para diciembre."
+ },
+ "74869f341c2e": {
+  "en": "sales by region",
+  "t": "ventas por región"
+ },
+ "750e7f6478d5": {
+  "en": "New recipes, barista training (R&amp;D)",
+  "t": "Recetas nuevas, formación de baristas (investigación y desarrollo)"
+ },
+ "7949045087da": {
+  "en": "{0} {1}: where each sales dollar went",
+  "t": "{0} {1}: a dónde fue cada dólar de ventas"
+ },
+ "7970dd55eef9": {
+  "en": "Revenue minus cost of sales: what is left to pay for inventing, selling and running the business. Apple’s statement calls this line \"gross margin\" in dollars.",
+  "t": "Los ingresos menos el costo de ventas: lo que queda para pagar por inventar, vender y manejar el negocio. El estado de Apple llama a esta línea \"margen bruto\" en dólares."
+ },
+ "7adcfa090517": {
+  "en": "Gross profit: {0} − {1} cost of sales = {2}. Gross margin: {3} ÷ {4} = {5}.",
+  "t": "Utilidad bruta: {0} − {1} de costo de ventas = {2}. Margen bruto: {3} ÷ {4} = {5}."
+ },
+ "7ae91bb3dffb": {
+  "en": "Every earnings word decoded with a coffee cart, then Apple and SpaceX.",
+  "t": "Cada palabra de los resultados explicada con un carrito de café, y luego con Apple y SpaceX."
+ },
+ "7da3734b6d27": {
+  "en": "Basic EPS",
+  "t": "UPA básica"
+ },
+ "7eaaaa369bd9": {
+  "en": "{0}, up {1} from {2}. Products {3} ({4}), Services {5} ({6}). Analysts expected about {7}; Apple’s own July guide implied {8}–{9} (our math).",
+  "t": "{0}, {1} más que {2}. Productos {3} ({4}), servicios {5} ({6}). Los analistas esperaban cerca de {7}; las proyecciones de julio de Apple implicaban {8}–{9} (cálculo nuestro)."
+ },
+ "8083794440e2": {
+  "en": "vs year ago",
+  "t": "frente a hace un año"
+ },
+ "80f17655c8ab": {
+  "en": "The same quarter as Apple printed it, in millions. Tap any line for its card, compare with the June quarter, see the full fiscal year, or switch to the balance sheet, cash flow or SpaceX.",
+  "t": "El mismo trimestre como lo publicó Apple, en millones. Toca cualquier línea para ver su tarjeta, compara con el trimestre de junio, mira el año fiscal completo o cambia al balance general, al flujo de caja o a SpaceX."
+ },
+ "81276066caf8": {
+  "en": "<b>Guidance</b> for the December quarter: {0}% to {1}% growth (about {2} to {3}, our math) vs about {4}% hoped for; Services {5}% to {6}% vs about {7}%; and a {8}% to {9}% gross margin vs about {10}%, mainly because of memory costs. Apple still expects its best revenue quarter ever.",
+  "t": "<b>Proyecciones</b> para el trimestre de diciembre: crecimiento del {0} % al {1} % (cerca de {2} a {3}, cálculo nuestro) frente a cerca del {4} % esperado; servicios del {5} % al {6} % frente a cerca del {7} %; y un margen bruto del {8} % al {9} % frente a cerca del {10} %, sobre todo por los costos de memoria. Apple todavía espera su mejor trimestre de ingresos de la historia."
+ },
+ "82c92fb2213d": {
+  "en": "Financing",
+  "t": "Financiación"
+ },
+ "83ea1e7298ea": {
+  "en": "gross margin",
+  "t": "margen bruto"
+ },
+ "85759dc87f6b": {
+  "en": "Guidance: {0}% to {1}% growth and a {2}% to {3}% gross margin for the December quarter, below the roughly {4}% and {5}% analysts wanted. The stock {6}.",
+  "t": "Proyecciones: crecimiento del {0} % al {1} % y un margen bruto del {2} % al {3} % para el trimestre de diciembre, por debajo del cerca de {4} % y {5} % que querían los analistas. La acción {6}."
+ },
+ "85bf9637b44a": {
+  "en": "Revenue is the top line, net income the bottom line, and EPS is net income per share.",
+  "t": "Los ingresos son la primera línea, la utilidad neta la última, y la UPA es la utilidad neta por acción."
+ },
+ "860a17d4aaa4": {
+  "en": "Every cup rung up in June, before paying for a single bean: {0} on last June.",
+  "t": "Cada taza cobrada en junio, antes de pagar un solo grano: {0} frente al junio pasado."
+ },
+ "87cf09804ed9": {
+  "en": "$ billions",
+  "t": "US$ miles de millones"
+ },
+ "89b5ad36c46e": {
+  "en": "Beans, milk, cups (cost of sales)",
+  "t": "Granos, leche, vasos (costo de ventas)"
+ },
+ "8a6b793bc616": {
+  "en": "A record quarter and a falling stock are not a contradiction. The price already expected a strong September; the news was the holiday-quarter margin guide and slower Services.",
+  "t": "Un trimestre récord y una acción que cae no son una contradicción. El precio ya esperaba un septiembre fuerte; la noticia fueron las proyecciones de margen para el trimestre de fin de año y los servicios más lentos."
+ },
+ "8c11eb9fe676": {
+  "en": "{0} this June vs {1} last June",
+  "t": "{0} este junio frente a {1} el junio pasado"
+ },
  "8cde075aa757": {
   "en": "FAR ABOVE",
   "t": "MUY POR ENCIMA"
+ },
+ "8d30f9b66a6f": {
+  "en": "Revenue growth (YoY)",
+  "t": "Crecimiento de ingresos (interanual)"
+ },
+ "8d8461178a8d": {
+  "en": "<b>Revenue and EPS beat</b> the consensus of about {0} and {1}, and iPhone and Mac beat too.",
+  "t": "<b>Los ingresos y la UPA superaron</b> el consenso de cerca de {0} y {1}, y el iPhone y el Mac también superaron lo esperado."
+ },
+ "8dcba29c279f": {
+  "en": "<b>Services</b>, the high-margin engine, matched the roughly {0} expected, but growth is slowing; iPad and Greater China came in light.",
+  "t": "<b>Los servicios</b>, el motor de alto margen, igualaron los cerca de {0} esperados, pero el crecimiento se está frenando; el iPad y la Gran China se quedaron cortos."
+ },
+ "8dd27e07979e": {
+  "en": "The average forecast of the analysts who follow a company; the same as the consensus estimate.",
+  "t": "El pronóstico promedio de los analistas que siguen a una empresa; lo mismo que la estimación de consenso."
+ },
+ "903faef9cdca": {
+  "en": "July 30",
+  "t": "30 de julio"
+ },
+ "93b00617e855": {
+  "en": "SpaceX’s previous quarter shows a loss. In Q2 2026, its first report as a public company, revenue was $7.8 billion and the gross margin 55.3%, but research and other operating costs were bigger than gross profit. That is an <b>operating loss</b>: −$143 million. After interest and tax the <b>net loss</b> was −$541 million, or −$0.09 per share.",
+  "t": "El trimestre anterior de SpaceX muestra una pérdida. En el 2.º trimestre de 2026, su primer informe como empresa en bolsa, los ingresos fueron de US$7.800 millones y el margen bruto del 55,3 %, pero la investigación y otros costos operativos fueron más grandes que la utilidad bruta. Eso es una <b>pérdida operativa</b>: −US$143 millones. Después de intereses e impuestos, la <b>pérdida neta</b> fue de −US$541 millones, o −US$0,09 por acción."
+ },
+ "93fa9ce90cd7": {
+  "en": "Stocks move on results versus the consensus, and most of all on guidance.",
+  "t": "Las acciones se mueven con los resultados frente al consenso, y sobre todo con las proyecciones."
+ },
+ "94bed29cbbdd": {
+  "en": "Income before taxes",
+  "t": "Utilidad antes de impuestos"
+ },
+ "977d3d7a0bc4": {
+  "en": "Hoppy’s Coffee Cart: June {0} up {1} {2} to {3}; {4} widens to {5}; {6} {7}; {8} {9}, or {10} of {11} vs {12}; {13} {14}.",
+  "t": "El carrito de café de Hoppy: junio {0}, sube {1} {2} a {3}; el {4} se amplía a {5}; {6} {7}; {8} {9}, o {10} de {11} frente a {12}; {13} {14}."
+ },
+ "991e5a6bdd94": {
+  "en": "<b>Part of the beat was temporary</b>: {0} of tariff refunds, so the underlying beat was about {1} cents (FiredBunny’s math, assuming the consensus did not include the refunds).",
+  "t": "<b>Parte de la sorpresa positiva fue temporal</b>: {0} de reembolsos de aranceles, así que la sorpresa de fondo fue de cerca de {1} centavos (cálculo de FiredBunny, suponiendo que el consenso no incluía los reembolsos)."
+ },
+ "9925e6e2f227": {
+  "en": "Follow {0} of sales down to {1} per share, and see which lines lifted the stock and which sank it.",
+  "t": "Sigue {0} de ventas hasta {1} por acción, y mira qué líneas subieron la acción y cuáles la hundieron."
+ },
+ "993880aaeb76": {
+  "en": "Apple’s latest reported quarter as of November 2026 is its <b>fiscal Q4 2026</b>: the three months from July to September, ended September 26, 2026, which also closes Apple’s fiscal year. Results came out on November 2, 2026, after the market closed, on John Ternus’s first earnings call as CEO (he took over from Tim Cook on September 1). It was a September-quarter record: revenue {0}, net income {1} and diluted EPS {2}. For the whole of fiscal 2026, revenue was {3} ({4}) and EPS {5} ({6}). The June quarter, the previous one, is the contrast all through this lesson. If the words are new, start with <a href=\"#l-rc-words\">earnings words in plain English</a>.",
+  "t": "El último trimestre reportado de Apple a noviembre de 2026 es su <b>4.º trimestre fiscal de 2026</b>: los tres meses de julio a septiembre, terminados el 26 de septiembre de 2026, que también cierran el año fiscal de Apple. Los resultados salieron el 2 de noviembre de 2026, después del cierre del mercado, en la primera llamada de resultados de John Ternus como CEO (reemplazó a Tim Cook el 1 de septiembre). Fue un récord para un trimestre de septiembre: ingresos de {0}, utilidad neta de {1} y UPA diluida de {2}. Para todo el año fiscal 2026, los ingresos fueron de {3} ({4}) y la UPA de {5} ({6}). El trimestre de junio, el anterior, es el contraste a lo largo de toda esta lección. Si las palabras son nuevas, empieza por <a href=\"#l-rc-words\">las palabras de los resultados en lenguaje sencillo</a>."
+ },
+ "9ce21eac3f08": {
+  "en": "All the money customers paid for what the company sold in the period, before any cost comes out. It is the first line of the income statement, so people call it the top line.",
+  "t": "Todo el dinero que los clientes pagaron por lo que la empresa vendió en el periodo, antes de restar cualquier costo. Es la primera línea del estado de resultados, por eso la gente la llama la primera línea."
+ },
+ "9e23ac51bf7c": {
+  "en": "Revenue was {0} times its level a year earlier ({1}). Super Intelligence brought in {2}, {3} of it.",
+  "t": "Los ingresos fueron {0} veces su nivel de un año antes ({1}). Super Intelligence trajo {2}, {3} de ellos."
+ },
+ "9f3b8f49959d": {
+  "en": "Reported: {0} net income ÷ {1} diluted shares = {2} of diluted EPS.",
+  "t": "Reportado: {0} de utilidad neta ÷ {1} acciones diluidas = {2} de UPA diluida."
+ },
+ "a1408bc2a5a1": {
+  "en": "Revenue was <b>{0}, up {1}</b>, above both Apple’s own July guide ({2}% to {3}%) and the roughly {4} analysts expected. Products brought in {5} ({6}) and Services {7} ({8}, slower than June’s {9}). By category: iPhone {10} ({11}), Mac {12} ({13}; Apple said it has never sold more Macs in a fiscal year), iPad {14} ({15}), and Wearables, Home and Accessories {16} ({17}). Apple’s official segments are regions: Greater China grew {18} to {19}, yet some analysts had expected about {20}.",
+  "t": "Los ingresos fueron de <b>{0}, {1} más</b>, por encima de las proyecciones de julio de la propia Apple ({2} % al {3} %) y de los cerca de {4} que esperaban los analistas. Los productos trajeron {5} ({6}) y los servicios {7} ({8}, más lento que el {9} de junio). Por categoría: iPhone {10} ({11}), Mac {12} ({13}; Apple dijo que nunca había vendido tantos Mac en un año fiscal), iPad {14} ({15}), y wearables, hogar y accesorios {16} ({17}). Los segmentos oficiales de Apple son regiones: la Gran China creció {18} a {19}, aunque algunos analistas esperaban cerca de {20}."
+ },
+ "a2aeb2612b08": {
+  "en": "Same quarter, three readings: a record September-quarter top line, a smaller beat once the temporary refunds are removed, and a soft holiday-quarter outlook. After the report the stock followed the outlook, just as it did in July.",
+  "t": "El mismo trimestre, tres lecturas: una primera línea récord para un trimestre de septiembre, una sorpresa positiva más pequeña cuando se quitan los reembolsos temporales y un panorama flojo para el trimestre de fin de año. Después del informe la acción siguió al panorama, igual que en julio."
+ },
+ "a43c3d40366f": {
+  "en": "Apple {0} income statement as a waterfall from revenue {1} to net income {2} and diluted EPS {3}",
+  "t": "Estado de resultados {0} de Apple como una cascada desde los ingresos de {1} hasta la utilidad neta de {2} y la UPA diluida de {3}"
+ },
+ "a4ce56fd1ab0": {
+  "en": "It rose by {0} points",
+  "t": "Subió {0} puntos"
+ },
+ "a6dc3887e4eb": {
+  "en": "Sales ",
+  "t": "Ventas "
+ },
+ "a7dcbf3a3d11": {
+  "en": "After interest, other income and tax comes <b>net income</b>, the <b>bottom line</b>: Apple {0}.",
+  "t": "Después de los intereses, los otros ingresos y los impuestos viene la <b>utilidad neta</b>, la <b>última línea</b>: Apple {0}."
+ },
+ "a8166d4919dc": {
+  "en": "Every earnings report uses the same few words. To learn them, picture one small business: Hoppy’s Coffee Cart. Here is its June next to last June. Apple’s income statement has the very same lines, just with much bigger numbers. New to the three reports? Start with <a href=\"#l-statements\">the three statements</a>.",
+  "t": "Todos los informes de resultados usan las mismas pocas palabras. Para aprenderlas, imagina un negocio pequeño: el carrito de café de Hoppy. Aquí está su junio al lado del junio pasado. El estado de resultados de Apple tiene exactamente las mismas líneas, solo que con números mucho más grandes. ¿Nuevo con los tres informes? Empieza por <a href=\"#l-statements\">los tres estados financieros</a>."
+ },
+ "a913c5947c04": {
+  "en": ", closing at ",
+  "t": ", y cerró en "
+ },
+ "a9e6ef32f7dd": {
+  "en": "Next-quarter growth guide",
+  "t": "Proyección de crecimiento del próximo trimestre"
+ },
+ "ac2cb20d853f": {
+  "en": "Split net income across the shares and you get <b>EPS</b>. Headlines quote <b>diluted EPS</b>, which also counts shares promised to employees: Apple {0}.",
+  "t": "Reparte la utilidad neta entre las acciones y obtienes la <b>UPA</b>. Los titulares citan la <b>UPA diluida</b>, que también cuenta las acciones prometidas a los empleados: Apple {0}."
+ },
+ "aead945bb5c4": {
+  "en": "Provision for income taxes",
+  "t": "Provisión para impuesto de renta"
+ },
+ "aefcd2460b82": {
+  "en": "Compare balance sheet with",
+  "t": "Comparar el balance con"
+ },
+ "b24981385cdc": {
+  "en": "{0} vs {1}–{2}",
+  "t": "{0} frente a {1}–{2}"
+ },
+ "b28868f02578": {
+  "en": "<b>Moves the stock because:</b> {0}",
+  "t": "<b>Mueve la acción porque:</b> {0}"
+ },
+ "b5ba7e235de3": {
+  "en": "<b>Year over year (YoY)</b> compares a quarter with the same quarter a year earlier. <b>Quarter over quarter (QoQ)</b>, also called sequential, compares it with the quarter right before. Apple’s sales were up {0} YoY and {1} QoQ. Apple sells far more in the October to December holiday quarter, and new iPhones make its September quarter a little bigger than June, so for a seasonal business YoY is the fair test. For a fast grower like SpaceX, QoQ shows the pace: {2} in one quarter.",
+  "t": "La comparación <b>interanual</b> compara un trimestre con el mismo trimestre un año antes. La comparación <b>frente al trimestre anterior</b>, también llamada secuencial, lo compara con el trimestre justo antes. Las ventas de Apple subieron {0} interanual y {1} frente al trimestre anterior. Apple vende mucho más en el trimestre de fin de año de octubre a diciembre, y los nuevos iPhone hacen su trimestre de septiembre un poco más grande que el de junio, así que para un negocio de temporada la comparación interanual es la prueba justa. Para una empresa de crecimiento rápido como SpaceX, la comparación con el trimestre anterior muestra el ritmo: {2} en un solo trimestre."
+ },
+ "bb51d7ae889f": {
+  "en": "EPS vs consensus",
+  "t": "UPA frente al consenso"
+ },
+ "bb8496ddb87e": {
+  "en": "Apple turned {0} of sales into {1} of profit: {2} cents per dollar, {3} {4} a year earlier. {5}",
+  "t": "Apple convirtió {0} de ventas en {1} de utilidad: {2} centavos por dólar, {3} {4} un año antes. {5}"
+ },
+ "bcf2b8a93932": {
+  "en": "Hoppy’s cart",
+  "t": "El carrito de Hoppy"
+ },
+ "befe7cacf5e2": {
+  "en": "<b>Revenue</b>, the <b>top line</b>: everything customers paid. Apple took in {0} in its July to September 2026 quarter.",
+  "t": "Los <b>ingresos</b>, la <b>primera línea</b>: todo lo que pagaron los clientes. Apple recibió {0} en su trimestre de julio a septiembre de 2026."
+ },
+ "bff70332f10a": {
+  "en": "Shares used: basic",
+  "t": "Acciones usadas: básicas"
+ },
+ "c084bd66ef6c": {
+  "en": "Other income/(expense), net",
+  "t": "Otros ingresos/(gastos), neto"
+ },
+ "c0c7dedb8621": {
+  "en": "Apple turned {0} of sales into {1} of profit: {2} cents per dollar.",
+  "t": "Apple convirtió {0} de ventas en {1} de utilidad: {2} centavos por dólar."
+ },
+ "c2578d6a38e6": {
+  "en": "Sales and growth",
+  "t": "Ventas y crecimiento"
+ },
+ "c6cba817153d": {
+  "en": "Total net sales",
+  "t": "Ventas netas totales"
+ },
+ "c8842d59aa70": {
+  "en": "<b>Net income</b>",
+  "t": "<b>Utilidad neta</b>"
+ },
+ "cc8586953895": {
+  "en": "The stock closed at {0} on November 2 and {1}. Hear how the call unfolded in <a href=\"#l-rc-apple-call\">Apple’s earnings call, explained</a>, and see the math in <a href=\"#l-rc-price\">how earnings move the stock price</a>. For options traders, that kind of gap is why <a href=\"#l-iv-crush\">IV crush</a> and position size matter around earnings.",
+  "t": "La acción cerró en {0} el 2 de noviembre y {1}. Escucha cómo se desarrolló la llamada en <a href=\"#l-rc-apple-call\">la llamada de resultados de Apple, explicada</a>, y mira las cuentas en <a href=\"#l-rc-price\">cómo los resultados mueven el precio de la acción</a>. Para quienes operan opciones, un gap así es la razón por la que <a href=\"#l-iv-crush\">el desplome de la IV</a> y el tamaño de la posición importan alrededor de los resultados."
+ },
+ "cd1ecc5e189e": {
+  "en": "<b>EPS</b> (1,000 shares)",
+  "t": "<b>UPA</b> (1.000 acciones)"
+ },
+ "cd9b41f7ba40": {
+  "en": "{0} cash flow: operating, investing, financing and free cash flow",
+  "t": "Flujo de caja de {0}: operación, inversión, financiación y flujo de caja libre"
+ },
+ "ce3bacfe6bdf": {
+  "en": "Calling a quarter a boom or a slowdown from QoQ alone. Apple’s sales rose {0} from June to September mostly because new iPhones launch in September; the fair test is the same quarter a year earlier ({1}).",
+  "t": "Llamar a un trimestre auge o desaceleración solo con la comparación trimestral. Las ventas de Apple subieron {0} de junio a septiembre sobre todo porque los nuevos iPhone salen en septiembre; la prueba justa es el mismo trimestre un año antes ({1})."
+ },
+ "d02745eb6f38": {
+  "en": "Top line: revenue was {0} vs {1} a year earlier. ({2} − {3}) ÷ {4} = {5} YoY. Against the June quarter’s {6} it is {7} QoQ: new iPhones make September a little bigger than June.",
+  "t": "Primera línea: los ingresos fueron de {0} frente a {1} un año antes. ({2} − {3}) ÷ {4} = {5} interanual. Frente a los {6} del trimestre de junio es {7} trimestral: los nuevos iPhone hacen que septiembre sea un poco más grande que junio."
+ },
+ "d039e77cb001": {
+  "en": "Shares used: diluted",
+  "t": "Acciones usadas: diluidas"
+ },
+ "d19d09ded320": {
+  "en": "<b>Operating income</b>",
+  "t": "<b>Utilidad operativa</b>"
+ },
+ "d3bbb0959e62": {
+  "en": "Read a results headline in this order: revenue against the consensus, EPS against the consensus, then guidance. The third one usually decides the next day.",
+  "t": "Lee un titular de resultados en este orden: ingresos frente al consenso, UPA frente al consenso y luego proyecciones. La tercera por lo general decide el día siguiente."
+ },
+ "d3c69d2c89fe": {
+  "en": "Apple’s official segments are these regions. {0} ({1}) and {2} ({3}) grew fastest; the {4}, the biggest, grew {5}. Tap a bar for details.",
+  "t": "Los segmentos oficiales de Apple son estas regiones. {0} ({1}) y {2} ({3}) fueron las que más crecieron; {4}, la más grande, creció {5}. Toca una barra para ver los detalles."
+ },
+ "d3f4f971d8d3": {
+  "en": "Apple sales {0} split into products and services, and the gross profit each kept",
+  "t": "Ventas de Apple de {0} divididas en productos y servicios, y la utilidad bruta que dejó cada uno"
+ },
+ "d498662b0a94": {
+  "en": "Stock the next day",
+  "t": "La acción al día siguiente"
+ },
+ "d61efb30dcbb": {
+  "en": "Bottom line: {0} + {1} other income − {2} tax = {3}. Divided by {4} diluted shares, that is {5} of EPS.",
+  "t": "Última línea: {0} + {1} de otros ingresos − {2} de impuestos = {3}. Dividido entre {4} acciones diluidas, eso es {5} de UPA."
+ },
+ "d7eaa3cb2918": {
+  "en": "In nine months operations brought in {0}, but capex was {1}, so free cash flow was about {2}. IPO money ({3}) paid for it, and SpaceX guided {4}–{5} of capex for the fourth quarter alone.",
+  "t": "En nueve meses las operaciones trajeron {0}, pero el capex fue de {1}, así que el flujo de caja libre fue de cerca de {2}. El dinero de la salida a bolsa ({3}) lo pagó, y SpaceX proyectó {4}–{5} de capex solo para el cuarto trimestre."
+ },
+ "d80f59eea3ea": {
+  "en": "A <b>segment</b> is a part of the business reported on its own: SpaceX’s Starlink, Super Intelligence and Space, or Apple’s five regions.",
+  "t": "Un <b>segmento</b> es una parte del negocio que se reporta por separado: Starlink, Super Intelligence y Space de SpaceX, o las cinco regiones de Apple."
+ },
+ "da198866baa1": {
+  "en": "Always read adjusted numbers and one-time items next to the GAAP line.",
+  "t": "Lee siempre los números ajustados y las partidas únicas al lado de la línea GAAP."
+ },
+ "dc2246792c35": {
+  "en": "nine months to September 30, 2026 (SpaceX reports cash flow year to date)",
+  "t": "nueve meses hasta el 30 de septiembre de 2026 (SpaceX reporta el flujo de caja en lo corrido del año)"
+ },
+ "debeace914cd": {
+  "en": "SpaceX’s",
+  "t": "de SpaceX"
+ },
+ "dfb58f931852": {
+  "en": "Apple’s fiscal Q4 2026: three months ended {0}, reported {1}; the latest reported quarter as of November 2026 and the last quarter of Apple’s fiscal year. The June 2026 quarter (fiscal Q3) is the previous one. Source: Apple’s condensed consolidated financial statements. Tap any row for its card. \"Remove tariff refund\" is our estimate: Apple said refunds added about {2} point of gross margin and {3} of EPS (June: about {4} points and {5}); we take {6} × {7} diluted shares ≈ {8} after tax, ≈ {9} before tax at the quarter’s {10} tax rate.",
+  "t": "4.º trimestre fiscal de 2026 de Apple: tres meses terminados el {0}, reportados {1}; el último trimestre reportado a noviembre de 2026 y el último trimestre del año fiscal de Apple. El trimestre de junio de 2026 (3.er trimestre fiscal) es el anterior. Fuente: estados financieros consolidados condensados de Apple. Toca cualquier fila para ver su tarjeta. \"Quitar el reembolso de aranceles\" es una estimación nuestra: Apple dijo que los reembolsos le sumaron cerca de {2} punto al margen bruto y {3} a la UPA (junio: cerca de {4} puntos y {5}); tomamos {6} × {7} acciones diluidas ≈ {8} después de impuestos, ≈ {9} antes de impuestos a la tasa de impuestos del trimestre de {10}."
+ },
+ "e03eab051214": {
+  "en": "‹ Prev",
+  "t": "‹ Anterior"
+ },
+ "e154776d8fe3": {
+  "en": "Gross margin rose to <b>{0}</b> from {1} a year earlier, but fell from {2} in June. Products kept {3} cents of each sales dollar and Services {4} cents, so Services were {5} of sales but {6} of gross profit. Apple said <b>tariff refunds</b> added about {7} point of gross margin and {8} of EPS this time (about {9} points and {10} in June). Without them, gross margin was about {11}, {12} a year earlier. The reason is memory: chip prices jumped, and the finance chief said that, refunds aside, margins slipped about 1 point from June mainly because of memory costs.",
+  "t": "El margen bruto subió a <b>{0}</b> desde {1} un año antes, pero bajó desde {2} en junio. Los productos se quedaron con {3} centavos de cada dólar de ventas y los servicios con {4} centavos, así que los servicios fueron {5} de las ventas pero {6} de la utilidad bruta. Apple dijo que los <b>reembolsos de aranceles</b> le sumaron cerca de {7} punto al margen bruto y {8} a la UPA esta vez (cerca de {9} puntos y {10} en junio). Sin ellos, el margen bruto fue de cerca de {11}, {12} un año antes. La razón es la memoria: los precios de los chips saltaron, y el director financiero dijo que, sin contar los reembolsos, los márgenes bajaron cerca de 1 punto desde junio sobre todo por los costos de memoria."
+ },
+ "e17b9284ba7a": {
+  "en": "Example to read",
+  "t": "Ejemplo para leer"
+ },
+ "e23bb676405e": {
+  "en": "A <b>fiscal year</b> is a company’s own accounting year. Apple’s ends in late September, so October to December is its fiscal Q1 and July to September 2026 is <b>fiscal Q4 2026</b>, the last quarter of its fiscal year. SpaceX uses the calendar year, so the very same months are its Q3 2026. These are the latest reported quarters as of November 2026: SpaceX reported on October 20 and Apple on November 2. Apple usually reports its December quarter in late January.",
+  "t": "Un <b>año fiscal</b> es el año contable propio de una empresa. El de Apple termina a finales de septiembre, así que octubre a diciembre es su 1.er trimestre fiscal y julio a septiembre de 2026 es su <b>4.º trimestre fiscal de 2026</b>, el último trimestre de su año fiscal. SpaceX usa el año calendario, así que esos mismos meses son su 3.er trimestre de 2026. Son los últimos trimestres reportados a noviembre de 2026: SpaceX reportó el 20 de octubre y Apple el 2 de noviembre. Apple por lo general reporta su trimestre de diciembre a finales de enero."
+ },
+ "e61f27be8b52": {
+  "en": "R&D grew fast, so operating income grew slower than sales; buybacks still made EPS grow faster than net income.",
+  "t": "La investigación y el desarrollo crecieron rápido, así que la utilidad operativa creció más lento que las ventas; aun así, las recompras hicieron que la UPA creciera más rápido que la utilidad neta."
+ },
+ "e6694c95203c": {
+  "en": "{0}: {1} margin",
+  "t": "{0}: margen de {1}"
+ },
+ "e772268536b9": {
+  "en": "The September 2025 quarter: {0} of sales and EPS of {1}. The dashed outlines show September 2026: sales grew {2} and gross profit {3}, but operating income only {4} because R&amp;D jumped {5}. Net income grew {6} and EPS {7}.",
+  "t": "El trimestre de septiembre de 2025: {0} de ventas y una UPA de {1}. Los contornos punteados muestran septiembre de 2026: las ventas crecieron {2} y la utilidad bruta {3}, pero la utilidad operativa solo {4} porque la investigación y el desarrollo saltaron {5}. La utilidad neta creció {6} y la UPA {7}."
+ },
+ "e91453c49475": {
+  "en": "Margins turn dollars into cents per sales dollar: Apple kept {0} after making its products and {1} as profit.",
+  "t": "Los márgenes convierten los dólares en centavos por dólar de ventas: Apple se quedó con {0} después de fabricar sus productos y con {1} como utilidad."
+ },
+ "e95024f57e39": {
+  "en": "<b>GAAP</b> numbers follow the official rules. <b>Adjusted</b> (non-GAAP) numbers leave some costs out. <b>EBITDA</b> skips interest, taxes, depreciation and amortization. In Q3 2026 SpaceX showed positive $8.8 billion on its own adjusted EBITDA measure, double its $4.4 billion GAAP net income; <a href=\"#l-rc-spacex\">the SpaceX lesson</a> goes deeper.",
+  "t": "Los números <b>GAAP</b> siguen las reglas oficiales. Los números <b>ajustados</b> (no GAAP) dejan por fuera algunos costos. El <b>EBITDA</b> se salta los intereses, los impuestos, la depreciación y la amortización. En el 3.er trimestre de 2026 SpaceX mostró un positivo de US$8.800 millones según su propia medida de EBITDA ajustado, el doble de su utilidad neta GAAP de US$4.400 millones; <a href=\"#l-rc-spacex\">la lección de SpaceX</a> va más a fondo."
+ },
+ "eaa547dc2caf": {
+  "en": "≈{0} pt, {1}",
+  "t": "≈{0} pt, {1}"
+ },
+ "ee0e7fcfed6b": {
+  "en": "Running costs and operating profit",
+  "t": "Gastos de funcionamiento y utilidad operativa"
+ },
+ "f317c96df15f": {
+  "en": "Gross margin (gross profit)",
+  "t": "Margen bruto (utilidad bruta)"
+ },
+ "f36dfb4c5f3a": {
+  "en": "Assuming sales growth flows straight to profit. Operating expenses grew {0}, so operating income grew only {1} on {2} sales growth.",
+  "t": "Suponer que el crecimiento de las ventas pasa directo a la utilidad. Los gastos operativos crecieron {0}, así que la utilidad operativa creció solo {1} con un crecimiento de ventas de {2}."
+ },
+ "f54220ea4cf7": {
+  "en": "¢ per $1",
+  "t": "¢ por US$1"
+ },
+ "f61cd21f0fe2": {
+  "en": "SpaceX’s latest quarter (Q3): revenue up {0} {1} and {2} {3}; its first {4} as a public company, {5}, and a {6} of {7}, though about {8} came from {9}; {10} {11} vs a {12} {13}; {14} {15} {16}; the Super Intelligence {17} is now {18} of sales; {19} of capex keeps {20} deep below zero; {21} far above hopes.",
+  "t": "El último trimestre de SpaceX (3.er trim.): ingresos al alza {0} {1} y {2} {3}; su primera {4} como empresa en bolsa, {5}, y una {6} de {7}, aunque cerca de {8} vino de {9}; {10} {11} frente a {12} {13}; {14} {15} {16}; el {17} de Super Intelligence ya es {18} de las ventas; {19} de capex mantienen el {20} muy por debajo de cero; {21} muy por encima de lo esperado."
+ },
+ "f6812fb8fea7": {
+  "en": "About twenty words build every earnings headline. Learn them on a coffee cart, then read Apple and SpaceX for real.",
+  "t": "Unas veinte palabras arman todos los titulares de resultados. Apréndelas con un carrito de café y luego lee a Apple y SpaceX de verdad."
+ },
+ "f688ccd42fa8": {
+  "en": "The stock fell after the report because the holiday-quarter guide (margin, Services and growth) came in below hopes, just as in July.",
+  "t": "La acción cayó después del informe porque las proyecciones del trimestre de fin de año (margen, servicios y crecimiento) quedaron por debajo de las esperanzas, igual que en julio."
+ },
+ "f68e295e4e72": {
+  "en": "Mixing up fiscal and calendar quarters. Apple’s fiscal Q4 is July to September; its fiscal Q1 is the holiday quarter.",
+  "t": "Confundir los trimestres fiscales con los del calendario. El 4.º trimestre fiscal de Apple es julio a septiembre; su 1.er trimestre fiscal es el trimestre de fin de año."
+ },
+ "f9484a2ec378": {
+  "en": "Against the {0} consensus, the beat shrinks from {1} cents to {2} cents (our math, assuming the consensus did not include the refunds).",
+  "t": "Frente al consenso de {0}, la sorpresa se encoge de {1} centavos a {2} centavos (cálculo nuestro, suponiendo que el consenso no incluía los reembolsos)."
+ },
+ "fbdec080ffde": {
+  "en": "≈{0} pts, {1}",
+  "t": "≈{0} pts, {1}"
+ },
+ "fd91b3cc1b4b": {
+  "en": "Breakdown",
+  "t": "Desglose"
+ },
+ "fe0a091fdbfb": {
+  "en": "Products",
+  "t": "Productos"
+ },
+ "fed18eb161f5": {
+  "en": "QoQ",
+  "t": "Trim."
+ },
+ "fff96bea56c7": {
+  "en": "<span class=\"sr\">Pick a term</span>",
+  "t": "<span class=\"sr\">Escoge un término</span>"
  }
 }

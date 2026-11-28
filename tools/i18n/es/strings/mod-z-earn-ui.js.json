@@ -1,4 +1,12 @@
 {
+ "36159349f351": {
+  "en": "Fiscal quarter",
+  "t": "Trimestre fiscal"
+ },
+ "420c81e0e893": {
+  "en": "about the same as",
+  "t": "más o menos igual que"
+ },
  "47b383d82810": {
   "en": "All the money customers paid for what the company delivered in the period, before any costs.",
   "t": "Todo el dinero que los clientes pagaron por lo que la empresa entregó en el periodo, antes de cualquier costo."
@@ -7,6 +15,22 @@
   "en": "How earnings move the stock price",
   "t": "Cómo los resultados mueven el precio de la acción"
  },
+ "60978877a0db": {
+  "en": "Apple’s earnings, line by line",
+  "t": "Los resultados de Apple, línea por línea"
+ },
+ "6b12d06ba166": {
+  "en": "Operating",
+  "t": "Operación"
+ },
+ "7a1994999d18": {
+  "en": "Company",
+  "t": "Empresa"
+ },
+ "84d5b1cce853": {
+  "en": "Diluted shares",
+  "t": "Acciones diluidas"
+ },
  "8fc3905b1c56": {
   "en": "Sales of $10,000 this June, up 25% from $8,000 last June.",
   "t": "Ventas de US$10.000 este junio, 25 % más que los US$8.000 del junio pasado."
@@ -14,6 +38,18 @@
  "9f7ed32a201b": {
   "en": "The ",
   "t": "El "
+ },
+ "ad073d6c8c75": {
+  "en": "Earnings words in plain English",
+  "t": "Las palabras de los resultados en lenguaje sencillo"
+ },
+ "ba5221f8cd01": {
+  "en": "Buybacks",
+  "t": "Recompras"
+ },
+ "dc316d294e30": {
+  "en": "The bottom line",
+  "t": "La última línea"
  },
  "f02eece1c7ed": {
   "en": "Listen: Apple’s earnings call, explained",

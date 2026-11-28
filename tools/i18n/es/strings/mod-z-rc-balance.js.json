@@ -1,4 +1,12 @@
 {
+ "298fd3787e8b": {
+  "en": "Total liabilities",
+  "t": "Pasivos totales"
+ },
+ "436794da08a6": {
+  "en": "operating cash − capex",
+  "t": "efectivo operativo − capex"
+ },
  "56b52248fec9": {
   "en": "Next line",
   "t": "Línea siguiente"
@@ -7,13 +15,25 @@
   "en": "Nov 3",
   "t": "3 nov."
  },
+ "6b9500a22218": {
+  "en": "Shareholders’ equity divided by the number of shares.",
+  "t": "El patrimonio de los accionistas dividido entre el número de acciones."
+ },
  "8a68c2c4aa0c": {
   "en": "Capex ",
   "t": "Capex "
  },
+ "8c467612b6cc": {
+  "en": "Book value per share",
+  "t": "Valor en libros por acción"
+ },
  "8d0a03ab0cc6": {
   "en": " YoY",
   "t": " anual"
+ },
+ "b82abdb33990": {
+  "en": "Total assets",
+  "t": "Activos totales"
  },
  "b8b1b9ff4036": {
   "en": "Capex (capital expenditures)",
@@ -26,6 +46,14 @@
  "c68195387744": {
   "en": "Cart loan",
   "t": "Préstamo del carrito"
+ },
+ "ca0c16386937": {
+  "en": "Change in cash",
+  "t": "Cambio en el efectivo"
+ },
+ "cc078e85c433": {
+  "en": "Per share",
+  "t": "Por acción"
  },
  "cf3cc7f34391": {
   "en": "Nov 2",
