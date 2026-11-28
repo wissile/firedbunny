@@ -1,54 +1,1834 @@
 {
+ "008a5c5e2d63": {
+  "en": "The share of 1,000 simulated retirements in which the money lasted the whole time, when you withdraw a set percentage in year one and raise that amount with inflation every year.",
+  "t": "La parte de 1.000 jubilaciones simuladas en las que la plata alcanzó todo el tiempo, cuando retiras un porcentaje fijo el primer año y subes ese monto con la inflación cada año."
+ },
+ "0175f258bc77": {
+  "en": "Black and Scholes (1973): The Pricing of Options and Corporate Liabilities, Journal of Political Economy 81(3)",
+  "t": "Black y Scholes (1973): The Pricing of Options and Corporate Liabilities, Journal of Political Economy 81(3) (en inglés)"
+ },
+ "01be01fbd744": {
+  "en": "Stock returns are not steady; 7% is a long-run average with big swings.",
+  "t": "Las rentabilidades de las acciones no son constantes; 7 % es un promedio de largo plazo con grandes oscilaciones."
+ },
+ "021433593ae3": {
+  "en": "How long it takes to clear up to three debts with a fixed monthly budget, how much interest you pay, and how the avalanche method (highest rate first) compares with the snowball method (smallest balance first) and with paying only minimums.",
+  "t": "Cuánto tiempo toma saldar hasta tres deudas con un presupuesto mensual fijo, cuántos intereses pagas y cómo se compara el método de avalancha (primero la tasa más alta) con el de bola de nieve (primero el saldo más pequeño) y con pagar solo los mínimos."
+ },
+ "0345dc751b61": {
+  "en": "The annualized figure is not an expected return. One big drop after assignment can wipe out many months of premium.",
+  "t": "La cifra anualizada no es una rentabilidad esperada. Una sola caída grande después de la asignación puede borrar muchos meses de primas."
+ },
+ "039521808351": {
+  "en": "Cash to set aside: $5,750; premium $95.",
+  "t": "Efectivo a separar: US$5.750; prima de US$95."
+ },
+ "03e48856ce8b": {
+  "en": "Greeks are for the whole position. Theta is per calendar day and vega is per 1 point of IV. No commissions.",
+  "t": "Las griegas son de toda la posición. La theta es por día calendario y la vega por cada punto de IV. Sin comisiones."
+ },
+ "046f15a1033d": {
+  "en": "Chance of touching it = 2 × N(−|ln(liquidation ÷ entry)| ÷ σ), with σ = yearly volatility × √(days ÷ 365)",
+  "t": "Probabilidad de tocarlo = 2 × N(−|ln(liquidación ÷ entrada)| ÷ σ), con σ = volatilidad anual × √(días ÷ 365)"
+ },
+ "048803045303": {
+  "en": "Covered call calculator: premium, return if unchanged or called away, annualized return, breakeven and the estimated chance your shares are called.",
+  "t": "Calculadora de covered call: prima, rentabilidad si la acción no se mueve o si te compran las acciones, rentabilidad anualizada, punto de equilibrio y la probabilidad estimada de que te compren las acciones."
+ },
+ "04a4d7607ccb": {
+  "en": "Investor.gov (SEC): Compound interest calculator, to cross-check a result",
+  "t": "Investor.gov (SEC): calculadora de interés compuesto, para comparar un resultado (en inglés)"
+ },
+ "04f4b8eab316": {
+  "en": "Twenty futures is a small sample: press Run again to see different luck.",
+  "t": "Veinte futuros es una muestra pequeña: presiona Correr otra vez para ver otra suerte."
+ },
+ "0543a54f9a99": {
+  "en": "High (calls): in the money, ex-dividend date before expiry and dividend > time value",
+  "t": "Alto (calls): dentro del dinero, fecha ex-dividendo antes del vencimiento y dividendo > valor temporal"
+ },
+ "0551c5cd4a4c": {
+  "en": "Trip presets set spending, cash and withdrawals.",
+  "t": "Los viajes predefinidos fijan el gasto, el efectivo y los retiros."
+ },
+ "055fd29d15dc": {
+  "en": "Starting the same plan at 32 ends near $473,000, so waiting ten years costs about $530,000.",
+  "t": "Empezar el mismo plan a los 32 termina cerca de US$473.000, así que esperar diez años cuesta unos US$530.000."
+ },
+ "058c1e8567db": {
+  "en": "The gain you need to get back to even after a loss, and how many years that takes at 10% a year.",
+  "t": "La ganancia que necesitas para volver a quedar tablas después de una pérdida, y cuántos años toma eso al 10 % anual."
+ },
+ "05fdc853c3b8": {
+  "en": "Default inputs, isolated long:",
+  "t": "Datos por defecto, compra con margen aislado:"
+ },
+ "06793b766dd0": {
+  "en": "Car cash or loan calculator: monthly payment, total interest and what your cash would earn after tax instead, to see whether to pay cash or finance a car.",
+  "t": "Calculadora de carro de contado o a crédito: cuota mensual, intereses totales y lo que ganaría tu efectivo después de impuestos, para ver si pagar de contado o financiar un carro."
+ },
+ "08712ab2caf6": {
+  "en": "Value in today’s dollars = money × ((1 + asset return) ÷ (1 + inflation))<sup>years</sup>",
+  "t": "Valor en dólares de hoy = plata × ((1 + rentabilidad del activo) ÷ (1 + inflación))<sup>años</sup>"
+ },
+ "0ade9eb36e50": {
+  "en": "Covered call: sale price if called = new strike + total premium kept; cost after premiums = your cost − total premium",
+  "t": "Covered call: precio de venta si te las compran = strike nuevo + prima total conservada; costo después de primas = tu costo − prima total"
+ },
+ "0b900cc60486": {
+  "en": "Success = the share of the 1,000 paths that never ran out",
+  "t": "Éxito = la parte de los 1.000 caminos en los que la plata nunca se acabó"
+ },
+ "0c4fdcd523f1": {
+  "en": "Cash earns 3.83% × (1 − 0.237) = 2.92% after tax: $5,502 over the 5 years if left invested.",
+  "t": "El efectivo gana 3,83 % × (1 − 0,237) = 2,92 % después de impuestos: US$5.502 en los 5 años si se queda invertido."
+ },
+ "0cbcce0ac822": {
+  "en": "At a steady 10% a year that takes about 3.7 years.",
+  "t": "A un 10 % anual constante eso toma unos 3,7 años."
+ },
+ "0d2e695f9dcc": {
+  "en": "Estimated value = earnings per share (EPS) × the P/E you think is fair",
+  "t": "Valor estimado = utilidad por acción (UPA) × el P/U que crees justo"
+ },
+ "0da2fac931a5": {
+  "en": "Assignment can come before expiration. Taxes on premiums and assignments have their own rules: see the <a href=\"#tool-wheeltax\">wheel tax walkthrough</a>.",
+  "t": "La asignación puede llegar antes del vencimiento. Los impuestos sobre primas y asignaciones tienen sus propias reglas: mira la <a href=\"#tool-wheeltax\">guía de impuestos de la rueda</a>."
+ },
+ "0df835076e17": {
+  "en": "No taxes on interest or gains.",
+  "t": "Sin impuestos sobre intereses ni ganancias."
+ },
+ "0e22b082b6fb": {
+  "en": "Return if called away = (strike − stock price now + premium) ÷ stock price now; annualized × 365 ÷ days",
+  "t": "Rentabilidad si te las compran = (strike − precio actual de la acción + prima) ÷ precio actual de la acción; anualizada × 365 ÷ días"
+ },
+ "0f3548c6f74a": {
+  "en": "It does not check your buying power or margin. It warns when the position is more than 25% of the account or more than the whole account.",
+  "t": "No revisa tu poder de compra ni tu margen. Avisa cuando la posición es más del 25 % de la cuenta o más que toda la cuenta."
+ },
  "0f5857108392": {
   "en": "Options Industry Council: Covered call (buy/write)",
   "t": "Options Industry Council: Covered call (buy/write) (en inglés)"
+ },
+ "0fc9803c4b4f": {
+  "en": "One contract; spreads and fees on both legs are not included.",
+  "t": "Un contrato; no se incluyen los diferenciales ni las comisiones de las dos patas."
+ },
+ "0fd5f87c040d": {
+  "en": "A 1-point rise in the yield cuts the steady company’s fair P/E by about 14% and the fast-grower’s by about 21%.",
+  "t": "Una subida de 1 punto en el rendimiento recorta el P/U justo de la empresa estable cerca de 14 % y el de la de crecimiento rápido cerca de 21 %."
+ },
+ "10b3f0f680e2": {
+  "en": "Adjustable-rate loans, HOA fees, closing costs on a purchase and maintenance are not included.",
+  "t": "No se incluyen los créditos de tasa variable, las cuotas de administración, los costos de cierre de una compra ni el mantenimiento."
+ },
+ "10df4e80058e": {
+  "en": "About 224 nights booked; guests pay about $85,847 including occupancy tax.",
+  "t": "Cerca de 224 noches reservadas; los huéspedes pagan unos US$85.847 incluido el impuesto de ocupación."
+ },
+ "10f52600d750": {
+  "en": "Renting your own home 14 nights or fewer a year is tax-free (and deducts nothing).",
+  "t": "En EE. UU., arrendar tu propia casa 14 noches o menos al año está libre de impuestos (y no deduce nada)."
+ },
+ "11bbdac94c0a": {
+  "en": "Real returns vary, so treat the years as a guide.",
+  "t": "Las rentabilidades reales varían, así que toma los años como una guía."
+ },
+ "123dfb04f1e8": {
+  "en": "Cash to set aside = strike × 100 × contracts",
+  "t": "Efectivo a separar = strike × 100 × contratos"
+ },
+ "126cef5c3e45": {
+  "en": "Savings earn 5% a year after inflation.",
+  "t": "Los ahorros ganan 5 % al año después de inflación."
+ },
+ "12bd2f5048d3": {
+  "en": "Return on the cash = premium ÷ strike; annualized × 365 ÷ days",
+  "t": "Rentabilidad sobre el efectivo = prima ÷ strike; anualizada × 365 ÷ días"
+ },
+ "139c111df3e0": {
+  "en": "No commissions or taxes; the chance is a model estimate.",
+  "t": "Sin comisiones ni impuestos; la probabilidad es una estimación del modelo."
+ },
+ "1412678b83b1": {
+  "en": "Default inputs: a $6.25 latte 5 times a week, a $15 lunch 3 times a week and $55 a month of subscriptions.",
+  "t": "Datos por defecto: un latte de US$6,25 5 veces por semana, un almuerzo de US$15 3 veces por semana y US$55 al mes de suscripciones."
+ },
+ "142014d9fd97": {
+  "en": "Both paths spend the same each month; interest compounds monthly.",
+  "t": "Los dos caminos gastan lo mismo cada mes; el interés se compone mensualmente."
+ },
+ "142a814d513c": {
+  "en": "E*TRADE: Options expiration process and risks (automatic exercise)",
+  "t": "E*TRADE: Options expiration process and risks (ejercicio automático, en inglés)"
+ },
+ "1465ada3bfda": {
+  "en": "No taxes. Fees are your input.",
+  "t": "Sin impuestos. Las comisiones las pones tú."
  },
  "14fc586955c0": {
   "en": "Investor.gov (SEC): Stop order",
   "t": "Investor.gov (SEC): Stop order (en inglés)"
  },
+ "1575136cafdd": {
+  "en": "Margin and debt are healthy; 8% growth is “watch”. Result: 4 of 5 healthy.",
+  "t": "El margen y la deuda están sanos; el crecimiento del 8 % está “a vigilar”. Resultado: 4 de 5 sanos."
+ },
+ "158ed3c4f82a": {
+  "en": "You collect $95 and set aside $3,800.",
+  "t": "Recibes US$95 y separas US$3.800."
+ },
+ "15a03a00f050": {
+  "en": "Crypto can gap; a random walk understates large moves.",
+  "t": "Las cripto pueden abrir con gaps; un camino aleatorio subestima los movimientos grandes."
+ },
+ "1637ff02d252": {
+  "en": "Expected move = straddle price (call + put at the money); as % = straddle ÷ price",
+  "t": "Movimiento esperado = precio del straddle (call + put en el dinero); como % = straddle ÷ precio"
+ },
+ "16def0794db5": {
+  "en": "Default inputs: EPS $4.00, a fair P/E of 15, a price of $42, a 30% cushion.",
+  "t": "Datos por defecto: UPA de US$4,00, un P/U justo de 15, un precio de US$42, un colchón del 30 %."
+ },
+ "171d27150275": {
+  "en": "Yearly cost = price × times a week × 52 (or a monthly total × 12)",
+  "t": "Costo anual = precio × veces por semana × 52 (o un total mensual × 12)"
+ },
+ "17e08f6f22f2": {
+  "en": "Stocks: required return = 10-year yield + the extra return investors want from stocks",
+  "t": "Acciones: rentabilidad exigida = rendimiento a 10 años + la rentabilidad extra que los inversionistas quieren de las acciones"
+ },
+ "19217eb97f6c": {
+  "en": "Expected move calculator: price × IV × √(days ÷ 365) gives the range options are pricing in, with 68% and 95% ranges. A rough guide, not a promise.",
+  "t": "Calculadora del movimiento esperado: precio × IV × √(días ÷ 365) da el rango que están descontando las opciones, con rangos del 68 % y del 95 %. Una guía aproximada, no una promesa."
+ },
+ "196015238c81": {
+  "en": "The invested money you need so that withdrawals, plus any other income, cover your yearly spending for good, how much of it you already have, and roughly when you get there.",
+  "t": "La plata invertida que necesitas para que los retiros, más cualquier otro ingreso, cubran tu gasto anual para siempre, cuánto de eso ya tienes y más o menos cuándo llegas."
+ },
+ "1c03d062f431": {
+  "en": "The model prices the call at about $2.18, so it costs about $218.",
+  "t": "El modelo le pone al call un precio de unos US$2,18, así que cuesta unos US$218."
+ },
+ "1c54d1ed9618": {
+  "en": "In real life T-bill yields tend to rise with inflation, and stocks swing widely from year to year.",
+  "t": "En la vida real los rendimientos de las letras del Tesoro tienden a subir con la inflación, y las acciones oscilan mucho de un año a otro."
+ },
+ "1c7e0df3a489": {
+  "en": "Freddie Mac: Primary Mortgage Market Survey (30-year 7.40%, 15-year 6.71% on Oct 15, 2026)",
+  "t": "Freddie Mac: Primary Mortgage Market Survey (30 años 7,40 %, 15 años 6,71 % el 15 de octubre de 2026; en inglés)"
+ },
+ "1cd0922f5b1e": {
+  "en": "Buying leaves a net worth of about $266,217; renting and investing the difference about $315,045.",
+  "t": "Comprar deja un patrimonio de unos US$266.217; arrendar e invertir la diferencia, unos US$315.045."
+ },
+ "1d00959c21da": {
+  "en": "Worst drawdown = the biggest fall from a high in any of the 20 futures",
+  "t": "Peor caída = la caída más grande desde un máximo en cualquiera de los 20 futuros"
+ },
+ "1e0fda162c2c": {
+  "en": "Put: new breakeven = new strike − total premium kept",
+  "t": "Put: nuevo punto de equilibrio = strike nuevo − prima total conservada"
+ },
+ "1e7bc951ff02": {
+  "en": "Trades are independent, and risk is a fixed percentage of the current balance.",
+  "t": "Las operaciones son independientes, y el riesgo es un porcentaje fijo del saldo actual."
+ },
+ "1f5b10143be5": {
+  "en": "Costs: platform fee (15.5% host-only or 3% split), cleaning and supplies per stay, manager % of nightly revenue, utilities, insurance, property tax, maintenance, furnishing ÷ 7 years",
+  "t": "Costos: tarifa de la plataforma (15,5 % solo al anfitrión o 3 % compartida), aseo e insumos por estadía, % del administrador sobre los ingresos por noche, servicios públicos, seguro, impuesto predial, mantenimiento, amoblado ÷ 7 años"
+ },
+ "232f01aaada3": {
+  "en": "Type your broker’s quote in Premium to replace the model price.",
+  "t": "Escribe la cotización de tu bróker en Prima para reemplazar el precio del modelo."
+ },
+ "235766c05f13": {
+  "en": "Social Security, pensions and windfalls are not included. The <a href=\\\"#tool-years\\\">years to freedom</a> tool goes further.",
+  "t": "No se incluyen pensiones ni ingresos inesperados. La herramienta <a href=\\\"#tool-years\\\">años hasta la libertad</a> va más allá."
+ },
+ "237c7f17a063": {
+  "en": "A bad open of 2 × $5 against 125 shares loses $1,250, which is 5R.",
+  "t": "Una mala apertura de 2 × US$5 en contra de 125 acciones pierde US$1.250, que son 5R."
+ },
+ "24240e133661": {
+  "en": "Position = shares × entry. Target = entry plus (or minus, for a short) target R × risk per share",
+  "t": "Posición = acciones × entrada. Objetivo = entrada más (o menos, para una venta en corto) R objetivo × riesgo por acción"
+ },
+ "24b3f5efbde8": {
+  "en": "Returns are after inflation and drawn at random each year: stocks average about 7% with swings of about 16%, bonds about 2% with swings of about 6%, and the two are only slightly related.",
+  "t": "Las rentabilidades son después de inflación y se sacan al azar cada año: las acciones promedian cerca del 7 % con oscilaciones de cerca del 16 %, los bonos cerca del 2 % con oscilaciones de cerca del 6 %, y los dos están apenas un poco relacionados."
+ },
+ "24ca7b1ac80b": {
+  "en": "Years for prices to double = ln 2 ÷ ln(1 + inflation)",
+  "t": "Años para que los precios se dupliquen = ln 2 ÷ ln(1 + inflación)"
+ },
+ "2542794ac9df": {
+  "en": "CME Group: cryptocurrency futures FAQ",
+  "t": "CME Group: preguntas frecuentes sobre futuros de criptomonedas (en inglés)"
+ },
+ "2587c013f2b5": {
+  "en": "No commissions, fees or slippage.",
+  "t": "Sin comisiones, tarifas ni deslizamiento."
+ },
+ "2587dcf907fe": {
+  "en": "Take-home pay $80,000, saving 30%, 5% after inflation, 4% withdrawal rate, nothing saved yet.",
+  "t": "Ingreso neto de US$80.000, ahorro del 30 %, 5 % después de inflación, tasa de retiro del 4 %, nada ahorrado todavía."
+ },
+ "259cbf27aae8": {
+  "en": "Real wins and losses vary in size, and you only know a strategy’s real win rate after many trades.",
+  "t": "Las ganancias y pérdidas reales varían de tamaño, y solo conoces la tasa de acierto real de una estrategia después de muchas operaciones."
+ },
+ "27b214f28175": {
+  "en": "Option sellers can lose far more than the premium they collect. Read the options disclosure document before you trade.",
+  "t": "Los vendedores de opciones pueden perder mucho más que la prima que cobran. Lee el documento de divulgación de opciones antes de operar."
+ },
+ "29be6fbb442f": {
+  "en": "Years to independence = ln(1 + 25 × 0.05 × (1 − s) ÷ s) ÷ ln(1.05), where s is the savings rate",
+  "t": "Años hasta la independencia = ln(1 + 25 × 0,05 × (1 − s) ÷ s) ÷ ln(1,05), donde s es la tasa de ahorro"
+ },
+ "2b6bcb04b416": {
+  "en": "With $28,000 a year of Social Security from 67, the long-run number drops to $1.35 million, plus a bridge for the years before 67.",
+  "t": "Con US$28.000 al año de pensión pública desde los 67, el número de largo plazo baja a US$1,35 millones, más un puente para los años antes de los 67."
+ },
+ "2b80ad13f4b2": {
+  "en": "The thresholds are general rules of thumb, not industry-specific.",
+  "t": "Los umbrales son reglas prácticas generales, no específicas de cada sector."
+ },
+ "2bf98880f468": {
+  "en": "Interest rates, hard-to-borrow stocks and special dividends can change owners’ choices.",
+  "t": "Las tasas de interés, las acciones difíciles de pedir prestadas y los dividendos extraordinarios pueden cambiar lo que deciden los tenedores."
+ },
+ "2c1b43b9a503": {
+  "en": "Shares = risk budget ÷ risk per share, rounded down to a whole share",
+  "t": "Acciones = presupuesto de riesgo ÷ riesgo por acción, redondeado hacia abajo a una acción entera"
+ },
+ "2c969109702a": {
+  "en": "Gain needed = 0.30 ÷ 0.70 ≈ 42.9%, which turns $7,000 back into $10,000.",
+  "t": "Ganancia necesaria = 0,30 ÷ 0,70 ≈ 42,9 %, que convierte US$7.000 otra vez en US$10.000."
+ },
+ "2ca542ce34a2": {
+  "en": "Buy below = value × (1 − the cushion you want)",
+  "t": "Comprar por debajo de = valor × (1 − el colchón que quieres)"
+ },
+ "2d40bb47f313": {
+  "en": "The minimum-payment formula is a common card formula; your cards may use a different one.",
+  "t": "La fórmula del pago mínimo es una fórmula común de tarjetas; tus tarjetas pueden usar otra."
+ },
+ "2dfb8e7a3095": {
+  "en": "Returns are held fixed: cash 0%, savings 0.6%, T-bills and money market 4.2%, bonds 4.5%, stocks 9% a year.",
+  "t": "Las rentabilidades son fijas: efectivo 0 %, ahorros 0,6 %, letras del Tesoro y mercado monetario 4,2 %, bonos 4,5 %, acciones 9 % al año."
+ },
+ "2e4909687c1f": {
+  "en": "The two companies are made up; levels are illustrations, the direction is the lesson.",
+  "t": "Las dos empresas son inventadas; los niveles son ilustraciones, la dirección es la lección."
+ },
+ "2e91a40995eb": {
+  "en": "The bridge money just keeps pace with inflation.",
+  "t": "La plata del puente solo le sigue el paso a la inflación."
+ },
+ "2ea66910f624": {
+  "en": "Saving is added at the end of each month and never changes.",
+  "t": "El ahorro se suma al final de cada mes y nunca cambia."
+ },
+ "301c26f6515e": {
+  "en": "$250 ÷ $1.50 = 166.7, so 166 shares: an $8,300 position, 33% of the account.",
+  "t": "US$250 ÷ US$1,50 = 166,7, así que 166 acciones: una posición de US$8.300, el 33 % de la cuenta."
+ },
  "30891eaca4e4": {
   "en": "Options Industry Council: Understanding the “rule of 16” in plain terms (July 2025)",
   "t": "Options Industry Council: Understanding the “rule of 16” in plain terms (julio de 2025, en inglés)"
+ },
+ "30f97d992942": {
+  "en": "The three sample companies are made up.",
+  "t": "Las tres empresas de ejemplo son inventadas."
+ },
+ "312ac2997f3c": {
+  "en": "A withdrawal rate is a rule of thumb from history and simulations, not a guarantee. For 40 to 60 year retirements, research points to about 3.25% to 3.5%; see <a href=\"#l-swr\">the 4% rule and its limits</a>.",
+  "t": "Una tasa de retiro es una regla práctica sacada de la historia y de simulaciones, no una garantía. Para jubilaciones de 40 a 60 años, los estudios apuntan a más o menos 3,25 % a 3,5 %; mira <a href=\"#l-swr\">la regla del 4 % y sus límites</a>."
+ },
+ "319652b97464": {
+  "en": "Lenders price points differently; check your Loan Estimate.",
+  "t": "Los prestamistas cobran los puntos de forma distinta; revisa tu estimación del crédito."
+ },
+ "31c91a4ac3f4": {
+  "en": "The tax rules for short-term rentals are complex; this is a simplified sketch, not tax advice.",
+  "t": "Las reglas tributarias de los arriendos de corta estadía son complejas; esto es un esquema simplificado, no asesoría tributaria."
+ },
+ "334a097532d3": {
+  "en": "Defaults: $300 a night, 62% occupancy, 3-night stays, 20% co-host, $125 cleaning fee and $110 cost, a $350,000 home with 25% down at 7.4%, a beach-town season.",
+  "t": "Por defecto: US$300 la noche, 62 % de ocupación, estadías de 3 noches, 20 % de coanfitrión, tarifa de aseo de US$125 y costo de US$110, una casa de US$350.000 con 25 % de cuota inicial al 7,4 %, temporada de pueblo de playa."
+ },
+ "338436f26ee6": {
+  "en": "Edge per trade (in R) = win rate × reward:risk − (1 − win rate)",
+  "t": "Ventaja por operación (en R) = tasa de acierto × ganancia:riesgo − (1 − tasa de acierto)"
+ },
+ "33860e2277a0": {
+  "en": "You save at the end of each year and earn a steady return after inflation.",
+  "t": "Ahorras al final de cada año y ganas una rentabilidad constante después de inflación."
+ },
+ "33bbac3a3135": {
+  "en": "Mortgage calculator: monthly payment, total interest, PMI, points and extra payments, plus 15 vs 30 years and refinance break-even. Free, with charts.",
+  "t": "Calculadora de hipoteca: cuota mensual, intereses totales, PMI, puntos y abonos extra, más 15 frente a 30 años y el punto de equilibrio de una refinanciación. Gratis, con gráficos."
+ },
+ "33cd13f23104": {
+  "en": "Position size = margin × leverage",
+  "t": "Tamaño de la posición = margen × apalancamiento"
+ },
+ "33d4a1e8ede7": {
+  "en": "Black-Scholes assumes exercise only at expiration, no dividends, a constant interest rate and volatility, and prices that move randomly with a lognormal distribution.",
+  "t": "Black-Scholes supone ejercicio solo al vencimiento, sin dividendos, con una tasa de interés y una volatilidad constantes, y precios que se mueven al azar con una distribución lognormal."
+ },
+ "33f7dea59641": {
+  "en": "What a short-term rental keeps from each $100 guests pay, after the platform fee, cleaning, a manager, supplies, fixed costs, the mortgage and tax, and which months lose money in a seasonal market.",
+  "t": "Lo que un arriendo de corta estadía se queda de cada US$100 que pagan los huéspedes, después de la tarifa de la plataforma, el aseo, un administrador, los insumos, los costos fijos, la hipoteca y los impuestos, y qué meses pierden plata en un mercado de temporada."
+ },
+ "342acb250ad6": {
+  "en": "A 1-point change in the mortgage rate moves the payment by about $233 a month.",
+  "t": "Un cambio de 1 punto en la tasa hipotecaria mueve la cuota cerca de US$233 al mes."
+ },
+ "34645e63d7e7": {
+  "en": "Each month, interest = balance × APR ÷ 12 is added to every debt",
+  "t": "Cada mes se le suman intereses = saldo × tasa anual ÷ 12 a cada deuda"
+ },
+ "34efff2a67bf": {
+  "en": "95% range = price ± two expected moves",
+  "t": "Rango del 95 % = precio ± dos movimientos esperados"
+ },
+ "35a6d0e1c507": {
+  "en": "EPS is a year of normal earnings, not a one-off good or bad year.",
+  "t": "La UPA es un año de utilidades normales, no un año excepcionalmente bueno o malo."
+ },
+ "35a78f2d9615": {
+  "en": "The price range that an option’s implied volatility points to over a number of days: about one standard deviation either side of today’s price.",
+  "t": "El rango de precios que indica la volatilidad implícita de una opción en un número de días: más o menos una desviación estándar a cada lado del precio de hoy."
+ },
+ "365c910a1ca3": {
+  "en": "No fees or taxes. “Today’s dollars” assumes 3% inflation a year.",
+  "t": "Sin comisiones ni impuestos. “Plata de hoy” supone una inflación del 3 % al año."
+ },
+ "36978dc8a0c7": {
+  "en": "Today’s dollars: each year’s balance ÷ 1.03<sup>years</sup>",
+  "t": "Plata de hoy: el saldo de cada año ÷ 1,03<sup>años</sup>"
+ },
+ "36cf32d16f36": {
+  "en": "Home value grows at your price growth rate; rent grows at your rent growth rate",
+  "t": "El valor de la casa crece a tu tasa de crecimiento de precios; el arriendo crece a tu tasa de crecimiento del arriendo"
+ },
+ "3710c53f5ed9": {
+  "en": "Paying cash and investing the $682 a month ends $3,526 ahead. The loan would win only if your cash earned more than about 8.3% before tax.",
+  "t": "Pagar de contado e invertir los US$682 al mes termina US$3.526 adelante. El crédito ganaría solo si tu efectivo ganara más de cerca del 8,3 % antes de impuestos."
+ },
+ "382e5d6783b2": {
+  "en": "If your budget is below the total of the minimums, the calculator says so.",
+  "t": "Si tu presupuesto está por debajo del total de los mínimos, la calculadora te lo dice."
+ },
+ "3836651dd837": {
+  "en": "The chart counts how many of the 1,000 futures still had money left at the end of the period you picked.",
+  "t": "El gráfico cuenta cuántos de los 1.000 futuros todavía tenían plata al final del periodo que escogiste."
+ },
+ "38ce8592d264": {
+  "en": "Monthly budget calculator: split take-home pay into needs, wants and saving (50/30/20 or your own), and see how your savings rate sets years to independence.",
+  "t": "Calculadora de presupuesto mensual: divide tu ingreso neto en necesidades, gustos y ahorro (50/30/20 o tu propio reparto), y mira cómo tu tasa de ahorro fija los años hasta la independencia."
+ },
+ "38efc4a2caad": {
+  "en": "Compare with the company’s own history and its peers before deciding. The <a href=\\\"#l-ratios\\\">ratios lesson</a> explains each one.",
+  "t": "Compara con la historia de la propia empresa y con sus pares antes de decidir. La <a href=\\\"#l-ratios\\\">lección de los indicadores</a> explica cada uno."
+ },
+ "38f0c6991652": {
+  "en": "Property tax and insurance stay at today’s amounts.",
+  "t": "El impuesto predial y el seguro se quedan en los montos de hoy."
+ },
+ "3921e43b737b": {
+  "en": "Spending often changes in retirement: health insurance before 65 and taxes can add to it.",
+  "t": "El gasto a menudo cambia en el retiro: el seguro de salud y los impuestos pueden sumarle."
+ },
+ "3aa52d0686e0": {
+  "en": "Stock ratio checker: P/E, sales growth, profit margin, debt to equity and free cash flow yield, each rated healthy, watch or weak, with three sample companies.",
+  "t": "Verificador de indicadores de acciones: P/U, crecimiento de ventas, margen de utilidad, deuda sobre patrimonio y rendimiento del flujo de caja libre, cada uno calificado como sano, a vigilar o débil, con tres empresas de ejemplo."
+ },
+ "3c61bc3646c9": {
+  "en": "Real property taxes and insurance usually rise over time.",
+  "t": "Los impuestos prediales y los seguros reales suelen subir con el tiempo."
+ },
+ "3d351d949ccc": {
+  "en": "Loan payment = amount × i ÷ (1 − (1 + i)<sup>−n</sup>), with i = APR ÷ 12 and n months",
+  "t": "Cuota del crédito = monto × i ÷ (1 − (1 + i)<sup>−n</sup>), con i = tasa anual ÷ 12 y n meses"
+ },
+ "3fae0a69dce2": {
+  "en": "Time value = option price − the amount in the money",
+  "t": "Valor temporal = precio de la opción − lo que está dentro del dinero"
+ },
+ "41039bd2d224": {
+  "en": "Years = ln((17.5 + 6) ÷ 6) ÷ ln(1.05) ≈ 28 years.",
+  "t": "Años = ln((17,5 + 6) ÷ 6) ÷ ln(1,05) ≈ 28 años."
+ },
+ "41963cd55fd6": {
+  "en": "At 65 the balance is about $1,003,000. Only $155,800 of it was saved; about $847,000 is growth.",
+  "t": "A los 65 el saldo es de unos US$1.003.000. Solo US$155.800 se ahorraron; unos US$847.000 son crecimiento."
+ },
+ "4205d7e45fc5": {
+  "en": "Defaults: CPI, an index ETF at $500 with a $5 straddle, a $25,000 account, 1% risk, a 0.4% stop, long.",
+  "t": "Por defecto: IPC, un ETF de índice en US$500 con un straddle de US$5, una cuenta de US$25.000, riesgo del 1 %, stop del 0,4 %, compra."
+ },
+ "42894a193356": {
+  "en": "Net credit: $4.55 − $3.60 = $0.95, or $95, for 35 more days (about 17% a year on $5,750).",
+  "t": "Crédito neto: US$4,55 − US$3,60 = US$0,95, o US$95, por 35 días más (cerca del 17 % al año sobre US$5.750)."
+ },
+ "429bb6ab7abf": {
+  "en": "Some traders scale by 252 trading days instead of 365 calendar days; the answers are close but not the same.",
+  "t": "Algunos traders escalan con 252 días de negociación en vez de 365 días calendario; las respuestas son parecidas pero no iguales."
+ },
+ "43008b2993f7": {
+  "en": "Your broker may restrict where the set-aside cash can sit.",
+  "t": "Tu bróker puede restringir dónde puede estar el efectivo separado."
+ },
+ "432faa90c959": {
+  "en": "Defaults: sell one $38 put on a $40 stock for $0.95 with 30 days left.",
+  "t": "Por defecto: vender un put de US$38 sobre una acción de US$40 por US$0,95 con 30 días restantes."
+ },
+ "435101611d3a": {
+  "en": "They have $395,500 that counts and save $45,000 a year at 5%: about 14.7 years, retiring near 53 with a bridge of about $400,000, for a target of about $1.75 million.",
+  "t": "Tienen US$395.500 que cuentan y ahorran US$45.000 al año al 5 %: unos 14,7 años, retirándose cerca de los 53 con un puente de unos US$400.000, para una meta de unos US$1,75 millones."
+ },
+ "438acf5f746a": {
+  "en": "The fair P/E is your judgment; 15 is a long-run average for the US market, and fair values differ by industry.",
+  "t": "El P/U justo es tu criterio; 15 es un promedio de largo plazo del mercado de EE. UU., y los valores justos cambian según el sector."
+ },
+ "45096a9db4a0": {
+  "en": "It does not include a balance transfer; see the <a href=\\\"#tool-transfer\\\">balance transfer planner</a>.",
+  "t": "No incluye una compra de cartera; mira el <a href=\\\"#tool-transfer\\\">planificador de compra de cartera</a>."
+ },
+ "455e7610e720": {
+  "en": "Moves are equally likely up or down. The sample paths on the chart are simulated.",
+  "t": "Los movimientos son igual de probables hacia arriba o hacia abajo. Los caminos de ejemplo del gráfico son simulados."
+ },
+ "46f6b95e0f2d": {
+  "en": "The chart is an illustration: value grows about 6% a year and the price swings around it.",
+  "t": "El gráfico es una ilustración: el valor crece cerca de 6 % al año y el precio oscila a su alrededor."
+ },
+ "476f27ea48ea": {
+  "en": "Liquidation price (isolated long) = (position − margin) ÷ (coins × (1 − maintenance margin)); for a short, (position + margin) ÷ (coins × (1 + maintenance margin)); cross margin uses the whole account instead of the margin",
+  "t": "Precio de liquidación (compra con margen aislado) = (posición − margen) ÷ (monedas × (1 − margen de mantenimiento)); para una venta en corto, (posición + margen) ÷ (monedas × (1 + margen de mantenimiento)); el margen cruzado usa toda la cuenta en vez del margen"
+ },
+ "48c6bba06607": {
+  "en": "Year one withdrawal = starting portfolio × withdrawal rate; later years take the same amount in today’s dollars",
+  "t": "Retiro del primer año = portafolio inicial × tasa de retiro; los años siguientes sacan el mismo monto en plata de hoy"
+ },
+ "499ec9edfb15": {
+  "en": "How much cash a cash-secured put needs, what the premium earns on it, the real price you pay if you are assigned, and an estimate of how likely assignment is.",
+  "t": "Cuánto efectivo necesita un put asegurado con efectivo, lo que la prima gana sobre él, el precio real que pagas si te asignan y una estimación de qué tan probable es la asignación."
+ },
+ "4ae110cbad09": {
+  "en": "If called away: ($52.50 − $50 + $0.80) ÷ $50 = 6.6%, about 80% annualized, which assumes it repeats every month.",
+  "t": "Si te las compran: (US$52,50 − US$50 + US$0,80) ÷ US$50 = 6,6 %, cerca del 80 % anualizado, lo que supone que se repite cada mes."
+ },
+ "4b544c94b356": {
+  "en": "A $25,000 account risking 1% has a $250 budget.",
+  "t": "Una cuenta de US$25.000 que arriesga el 1 % tiene un presupuesto de US$250."
+ },
+ "4bdc364438d8": {
+  "en": "The 10% a year is a fixed illustration.",
+  "t": "El 10 % anual es una ilustración fija."
+ },
+ "4cb12180b14d": {
+  "en": "Each month: interest = balance × r; the rest of the payment (plus any extra) reduces the balance",
+  "t": "Cada mes: intereses = saldo × r; el resto de la cuota (más cualquier abono extra) reduce el saldo"
+ },
+ "4cecd51dc5e4": {
+  "en": "What small regular spending adds up to a day and a year, and what the same money could grow to if you invested it each month instead. A second view compares café coffee, pods and a home espresso machine.",
+  "t": "Lo que suma al día y al año un gasto pequeño y frecuente, y en qué se podría convertir esa misma plata si la invirtieras cada mes. Una segunda vista compara el café de cafetería, las cápsulas y una máquina de espresso en casa."
+ },
+ "4d45b9ba659c": {
+  "en": "Real prices have fatter tails than a bell curve: big moves happen more often than the 95% range suggests, especially around earnings.",
+  "t": "Los precios reales tienen colas más gruesas que una campana: los movimientos grandes pasan más seguido de lo que sugiere el rango del 95 %, sobre todo alrededor de los resultados."
+ },
+ "4d7c0da4af50": {
+  "en": "Whether buying or renting leaves you richer after the years you stay, counting every cost of owning, what your down payment would have earned, and the costs of buying and selling.",
+  "t": "Si comprar o arrendar te deja con más plata después de los años que te quedes, contando cada costo de ser dueño, lo que habría ganado tu cuota inicial y los costos de comprar y vender."
+ },
+ "4d9a432aa2bf": {
+  "en": "If assigned you pay $56.55 a share, 5.75% below today; estimated chance of assignment about 31%.",
+  "t": "Si te asignan pagas US$56,55 por acción, 5,75 % por debajo de hoy; probabilidad estimada de asignación cerca del 31 %."
+ },
+ "4de5cb374347": {
+  "en": "The reaction chart shows typical directions, not forecasts.",
+  "t": "El gráfico de reacción muestra direcciones típicas, no pronósticos."
+ },
+ "4ebfef5aa89d": {
+  "en": "Inflation calculator: what inflation does to $10,000 in cash, savings, T-bills, bonds and stocks over 1 to 40 years, in today’s dollars, plus a CPI basket view.",
+  "t": "Calculadora de inflación: lo que la inflación les hace a US$10.000 en efectivo, ahorros, letras del Tesoro, bonos y acciones en 1 a 40 años, en dólares de hoy, más una vista de la canasta del IPC."
+ },
+ "4f57b9ae09e0": {
+  "en": "Real gaps can exceed twice the priced-in move.",
+  "t": "Los gaps reales pueden superar el doble del movimiento descontado."
+ },
+ "50d8e1035a47": {
+  "en": "Taxable result = income after costs − first-year interest − depreciation (80% of the price ÷ 27.5, or faster with cost segregation)",
+  "t": "Resultado gravable = ingresos después de costos − intereses del primer año − depreciación (80 % del precio ÷ 27,5, o más rápido con segregación de costos)"
+ },
+ "5273ad2f3b20": {
+  "en": "How much prices rise over the years you choose, how long they take to double, and what cash, a savings account, T-bills, bonds and stocks are worth in today’s dollars at that rate. A second view builds an inflation rate from the five parts of the CPI basket.",
+  "t": "Cuánto suben los precios en los años que escojas, cuánto tardan en duplicarse y cuánto valen en dólares de hoy, a esa tasa, el efectivo, una cuenta de ahorros, las letras del Tesoro, los bonos y las acciones. Una segunda vista arma una tasa de inflación con las cinco partes de la canasta del IPC."
+ },
+ "52aab2cf063b": {
+  "en": "Breakeven is $37.05. If assigned, you own 100 shares at an effective $37.05.",
+  "t": "El punto de equilibrio es US$37,05. Si te asignan, tienes 100 acciones a un costo efectivo de US$37,05."
+ },
+ "52bb53eed590": {
+  "en": "Other income is after tax. Social Security counts only up to your spending.",
+  "t": "Los otros ingresos son después de impuestos. La pensión pública cuenta solo hasta tu gasto."
+ },
+ "547f04c72a46": {
+  "en": "When a debt is paid off, its payment rolls into the next one",
+  "t": "Cuando una deuda se termina de pagar, su pago pasa a la siguiente"
+ },
+ "5501a107cedb": {
+  "en": "Credit per extra day, yearly = net credit ÷ capital × 365 ÷ extra days (capital = new strike × 100 for puts, stock price × 100 for calls)",
+  "t": "Crédito por día extra, anual = crédito neto ÷ capital × 365 ÷ días extra (capital = strike nuevo × 100 para puts, precio de la acción × 100 para calls)"
+ },
+ "550f057224e5": {
+  "en": "APRs stay the same and no new charges are added.",
+  "t": "Las tasas se quedan iguales y no se agregan cargos nuevos."
+ },
+ "559b5b8581fb": {
+  "en": "Over 30 years you would spend $138,750 on them.",
+  "t": "En 30 años gastarías US$138.750 en ellos."
+ },
+ "5606194dd7d5": {
+  "en": "Points: each point costs 1% of the loan and cuts the rate by the amount you set (0.25% by default)",
+  "t": "Puntos: cada punto cuesta el 1 % del crédito y baja la tasa en lo que fijes (0,25 % por defecto)"
  },
  "567e11135522": {
   "en": "IRS Topic 409: Capital gains and losses",
   "t": "IRS Topic 409: Capital gains and losses (impuestos en EE. UU., en inglés)"
  },
+ "568a8fd62dcb": {
+  "en": "Avalanche: debt-free in 2 years 6 months, paying $5,414 of interest.",
+  "t": "Avalancha: libre de deudas en 2 años y 6 meses, pagando US$5.414 de intereses."
+ },
+ "56e954f69852": {
+  "en": "IV changes every day and differs by strike and expiration.",
+  "t": "La IV cambia todos los días y es distinta según el strike y el vencimiento."
+ },
+ "58b63bc2e9af": {
+  "en": "Expected move = price × IV × √(days ÷ 365)",
+  "t": "Movimiento esperado = precio × IV × √(días ÷ 365)"
+ },
+ "59755b303724": {
+  "en": "Default inputs: DEMO at $50, bought at $50, a $52.50 call for $0.80, 30 days, 30% volatility.",
+  "t": "Datos por defecto: DEMO en US$50, comprada en US$50, un call de US$52,50 por US$0,80, 30 días, 30 % de volatilidad."
+ },
+ "599d31c66d46": {
+  "en": "All amounts are in today’s dollars and the return is after inflation.",
+  "t": "Todos los montos están en plata de hoy y la rentabilidad es después de inflación."
+ },
+ "59c123783c48": {
+  "en": "There is about a 37% chance the open jumps the 0.4% stop; 25 shares, or waiting until after the release, keeps that within 1R.",
+  "t": "Hay más o menos un 37 % de probabilidad de que la apertura salte el stop del 0,4 %; 25 acciones, o esperar a que salga el dato, lo mantiene dentro de 1R."
+ },
+ "5aa329fa8f31": {
+  "en": "Savings rate = saving ÷ take-home pay",
+  "t": "Tasa de ahorro = ahorro ÷ ingreso neto"
+ },
+ "5ad79f883a3f": {
+  "en": "Shares that keep a bad open within 1R = planned risk ÷ (2 × expected move)",
+  "t": "Acciones que mantienen una mala apertura dentro de 1R = riesgo planeado ÷ (2 × movimiento esperado)"
+ },
+ "5b1e6622429f": {
+  "en": "Stays = nights ÷ average stay; guests pay nights × nightly rate + stays × cleaning fee, plus occupancy tax (passed on to the city)",
+  "t": "Estadías = noches ÷ estadía promedio; los huéspedes pagan noches × tarifa por noche + estadías × tarifa de aseo, más el impuesto de ocupación (que va a la ciudad)"
+ },
+ "5b569ac989e9": {
+  "en": "Net credit (or debit) = new premium − cost to buy back the old option",
+  "t": "Crédito (o débito) neto = prima nueva − costo de recomprar la opción vieja"
+ },
+ "5b8bf28d28df": {
+  "en": "Some banks refund ATM owner fees, which takes the smart setup to $0.",
+  "t": "Algunos bancos devuelven las comisiones de los dueños de los cajeros, lo que deja la configuración inteligente en US$0."
+ },
+ "5ca636927a89": {
+  "en": "Entry $50.00, stop $48.50: $1.50 of risk per share.",
+  "t": "Entrada US$50,00, stop US$48,50: US$1,50 de riesgo por acción."
+ },
+ "5ddfb03e1379": {
+  "en": "At 7% money doubles roughly every 10.3 years.",
+  "t": "Al 7 % la plata se duplica más o menos cada 10,3 años."
+ },
+ "5e6bf283717c": {
+  "en": "Mortgage spread default 2.28 points: Freddie Mac’s 7.40% (Oct 15, 2026) minus the 5.12% 10-year yield (Oct 20, 2026).",
+  "t": "Diferencial hipotecario por defecto de 2,28 puntos: el 7,40 % de Freddie Mac (15 de octubre de 2026) menos el rendimiento a 10 años de 5,12 % (20 de octubre de 2026)."
+ },
  "5f6843a71449": {
   "en": "FINRA: Frequent intraday trading, understanding the basics (June 2026)",
   "t": "FINRA: Frequent intraday trading, understanding the basics (junio de 2026, en inglés)"
+ },
+ "5f6e07fca548": {
+  "en": "The point is to choose, not to cut everything: keep what you value most.",
+  "t": "La idea es escoger, no recortarlo todo: quédate con lo que más valoras."
+ },
+ "5fb842eda579": {
+  "en": "Chance in the money is a model figure, not a forecast of what the stock will do.",
+  "t": "La probabilidad de terminar dentro del dinero es una cifra del modelo, no un pronóstico de lo que hará la acción."
+ },
+ "602eb2975609": {
+  "en": "Loan = home price × (1 − down payment %)",
+  "t": "Crédito = precio de la casa × (1 − % de cuota inicial)"
+ },
+ "60f772a621b1": {
+  "en": "FIRE number = spending ÷ withdrawal rate",
+  "t": "Número FIRE = gasto ÷ tasa de retiro"
+ },
+ "6103d92c522b": {
+  "en": "The rest of your monthly budget goes to one debt: the highest APR (avalanche) or the smallest balance (snowball)",
+  "t": "El resto de tu presupuesto mensual va a una deuda: la de tasa más alta (avalancha) o la de saldo más pequeño (bola de nieve)"
+ },
+ "61b7aff368ca": {
+  "en": "How many shares to buy (or short) so that, if your stop is hit, you lose only the amount you decided to risk. You pick the stop first; the share count follows from it.",
+  "t": "Cuántas acciones comprar (o vender en corto) para que, si se activa tu stop, pierdas solo la cantidad que decidiste arriesgar. Escoges primero el stop; el número de acciones sale de ahí."
+ },
+ "61f953964fc8": {
+  "en": "Early assignment before an ex-dividend date is not modelled; see the <a href=\\\"#tool-assignment\\\">early assignment checker</a>.",
+  "t": "La asignación anticipada antes de una fecha ex-dividendo no está modelada; mira el <a href=\\\"#tool-assignment\\\">verificador de asignación anticipada</a>."
+ },
+ "621024b50c5e": {
+  "en": "You can live on 4% of your savings a year, so you need 25 times your yearly spending, and you spend what you don’t save.",
+  "t": "Puedes vivir con el 4 % de tus ahorros al año, así que necesitas 25 veces tu gasto anual, y gastas lo que no ahorras."
+ },
+ "6360634ecc83": {
+  "en": "Five quick numbers about a company, each marked healthy, watch or weak against a simple rule of thumb, plus its earnings yield.",
+  "t": "Cinco números rápidos sobre una empresa, cada uno marcado como sano, a vigilar o débil según una regla práctica simple, más su rendimiento de utilidades."
+ },
+ "636b1b4904cd": {
+  "en": "The smart setup pays only 3 owner fees, $12, keeping $224.",
+  "t": "La configuración inteligente paga solo 3 comisiones de dueños, US$12, y se queda con US$224."
+ },
+ "6402c0f48245": {
+  "en": "Risking about 1% per trade is a common rule of thumb among traders, not a rule from any regulator. See <a href=\"#l-one-percent\">the 1% rule</a>.",
+  "t": "Arriesgar cerca del 1 % por operación es una regla práctica común entre traders, no una regla de ningún regulador. Mira <a href=\"#l-one-percent\">la regla del 1 %</a>."
+ },
+ "641c0c00ce88": {
+  "en": "At expiration, options $0.01 or more in the money are exercised automatically unless the owner says otherwise.",
+  "t": "Al vencimiento, las opciones dentro del dinero por US$0,01 o más se ejercen automáticamente a menos que el tenedor diga otra cosa."
+ },
+ "6448c649bfd1": {
+  "en": "Invested monthly at 7%: about $67,000 after 10 years and $470,000 after 30.",
+  "t": "Invertido cada mes al 7 %: unos US$67.000 después de 10 años y US$470.000 después de 30."
+ },
+ "647aefa46fb0": {
+  "en": "Your SSA statement assumes you keep working until you claim. Stopping early lowers the benefit.",
+  "t": "El cálculo de la pensión supone que sigues trabajando hasta que la pides. Parar antes baja la pensión."
+ },
+ "64d53272ebc7": {
+  "en": "Expected move = 100 × 0.30 × √(30 ÷ 365) ≈ $8.60.",
+  "t": "Movimiento esperado = 100 × 0,30 × √(30 ÷ 365) ≈ US$8,60."
+ },
+ "65289560f787": {
+  "en": "Premium collected = premium × 100 × contracts",
+  "t": "Prima cobrada = prima × 100 × contratos"
+ },
+ "6550266d694d": {
+  "en": "The winner is whichever pile is bigger at the end",
+  "t": "Gana el montón que sea más grande al final"
+ },
+ "66199409b7e6": {
+  "en": "Chance the price jumps your stop = 1 − N(stop distance ÷ σ), with σ = expected move ÷ 0.798 (a normal distribution)",
+  "t": "Probabilidad de que el precio salte tu stop = 1 − N(distancia al stop ÷ σ), con σ = movimiento esperado ÷ 0,798 (una distribución normal)"
+ },
+ "667abe1f6bc9": {
+  "en": "Breakeven = your cost − premium",
+  "t": "Punto de equilibrio = tu costo − prima"
+ },
+ "66e95661bfdf": {
+  "en": "Interest on the waiting cash = cash × your rate × days ÷ 365 (mentioned, not added to the return)",
+  "t": "Intereses del efectivo en espera = efectivo × tu tasa × días ÷ 365 (se menciona, no se suma a la rentabilidad)"
+ },
+ "68f306a05574": {
+  "en": "No dividends, commissions or taxes; the chance is a model estimate, not a forecast.",
+  "t": "Sin dividendos, comisiones ni impuestos; la probabilidad es una estimación del modelo, no un pronóstico."
+ },
+ "690d5bf88be2": {
+  "en": "Real option prices include a bid-ask spread.",
+  "t": "Los precios reales de las opciones incluyen un diferencial entre compra y venta."
+ },
+ "6917352b30c2": {
+  "en": "Kraken fee schedule",
+  "t": "Tabla de comisiones de Kraken"
+ },
+ "695d9ecefc79": {
+  "en": "A stop below the entry is a long trade; a stop above it is a short trade.",
+  "t": "Un stop por debajo de la entrada es una compra; un stop por encima es una venta en corto."
+ },
+ "69eb23e1bcdb": {
+  "en": "Banks, utilities and young growth companies are judged on different numbers.",
+  "t": "Los bancos, las empresas de servicios públicos y las empresas jóvenes de crecimiento se juzgan con otros números."
+ },
+ "6a74783b054c": {
+  "en": "FIRE number = (spending − other income − Social Security) ÷ withdrawal rate + Social Security bridge",
+  "t": "Número FIRE = (gasto − otros ingresos − pensión pública) ÷ tasa de retiro + puente hasta la pensión"
+ },
+ "6b01651ae2f5": {
+  "en": "Default inputs:",
+  "t": "Datos por defecto:"
+ },
+ "6b1eb16cb662": {
+  "en": "What rolling a short put or covered call to a later expiration does: whether it brings in money or costs money, the premium you have kept across both trades, your new breakeven and how much time it buys.",
+  "t": "Qué hace renovar un put vendido o un covered call a un vencimiento posterior: si trae plata o cuesta plata, la prima que has conservado entre las dos operaciones, tu nuevo punto de equilibrio y cuánto tiempo compra."
+ },
+ "6c4000ffd5c4": {
+  "en": "Option roll calculator: net credit or debit, total premium kept, the new breakeven, extra days bought and the loss if you simply close instead.",
+  "t": "Calculadora de renovación de opciones: crédito o débito neto, prima total conservada, el nuevo punto de equilibrio, los días extra que compras y la pérdida si simplemente cierras."
+ },
+ "6c53fff4b410": {
+  "en": "A simulation, not history. Real markets have streaks and recoveries that this simple model leaves out, and the result shifts slightly each time you roll new futures.",
+  "t": "Una simulación, no la historia. Los mercados reales tienen rachas y recuperaciones que este modelo simple deja por fuera, y el resultado cambia un poco cada vez que generas futuros nuevos."
+ },
+ "6d16504e54e3": {
+  "en": "A 7% yearly return, compounded monthly, before taxes and inflation.",
+  "t": "Una rentabilidad anual del 7 %, compuesta mensualmente, antes de impuestos e inflación."
+ },
+ "6e6490eb3c09": {
+  "en": "How your take-home pay splits into needs, wants and saving, your savings rate, and roughly how many years of saving at that rate it takes to reach financial independence.",
+  "t": "Cómo se divide tu ingreso neto en necesidades, gustos y ahorro, tu tasa de ahorro y más o menos cuántos años de ahorro a esa tasa se necesitan para llegar a la independencia financiera."
+ },
+ "7003d22311e0": {
+  "en": "If assigned you sell 100 shares at $30, $3,000, and miss the $50 dividend.",
+  "t": "Si te asignan vendes 100 acciones a US$30, US$3.000, y te pierdes el dividendo de US$50."
+ },
+ "712fc3336f06": {
+  "en": "Margin of safety calculator: a rough value from EPS × a fair P/E, how far the price is below it, and the price to buy below for the cushion you want.",
+  "t": "Calculadora de margen de seguridad: un valor aproximado con UPA × un P/U justo, qué tan por debajo está el precio y el precio por debajo del cual comprar para el colchón que quieres."
+ },
+ "71e7a5884a4a": {
+  "en": "Free cash flow (FCF) yield = yearly free cash flow per share ÷ price",
+  "t": "Rendimiento del flujo de caja libre (FCL) = flujo de caja libre anual por acción ÷ precio"
+ },
+ "71ea509bda47": {
+  "en": "The car loan interest deduction (2025 to 2028, up to $10,000 a year for qualifying new cars assembled in the US, with income limits) counts federal tax only when switched on.",
+  "t": "La deducción por intereses de créditos de carro (2025 a 2028, hasta US$10.000 al año para carros nuevos que califiquen ensamblados en EE. UU., con límites de ingresos) solo cuenta en el impuesto federal cuando está activada."
+ },
+ "72e11420646a": {
+  "en": "Funding about $21 and fees about $10; to risk 1% of $10,000 with a 5% stop, the position should be about $2,000, which needs no leverage.",
+  "t": "Funding de unos US$21 y comisiones de unos US$10; para arriesgar el 1 % de US$10.000 con un stop del 5 %, la posición debería ser de unos US$2.000, lo que no necesita apalancamiento."
+ },
+ "7333e2021e08": {
+  "en": "US stock options can usually be exercised any day before expiration, so sellers can be assigned early, especially on a short call just before an ex-dividend date.",
+  "t": "Las opciones sobre acciones de EE. UU. por lo general se pueden ejercer cualquier día antes del vencimiento, así que a los vendedores los pueden asignar antes, sobre todo en un call vendido justo antes de una fecha ex-dividendo."
+ },
+ "747127f628f4": {
+  "en": "Position $10,000; liquidation about $76,400, 9.5% below the entry, about 4.2 normal days’ moves.",
+  "t": "Posición de US$10.000; liquidación cerca de US$76.400, 9,5 % por debajo de la entrada, unos 4,2 movimientos de un día normal."
+ },
+ "747c6730c220": {
+  "en": "Early assignment and earnings gaps are not modelled.",
+  "t": "La asignación anticipada y los gaps por resultados no están modelados."
+ },
+ "7526f67f9dec": {
+  "en": "Full payment = principal and interest + property tax ÷ 12 + insurance ÷ 12 + PMI",
+  "t": "Cuota completa = capital e intereses + impuesto predial ÷ 12 + seguro ÷ 12 + PMI"
+ },
+ "75669f46640d": {
+  "en": "The chance of touching it within 7 days is about 9%.",
+  "t": "La probabilidad de tocarla dentro de 7 días es de cerca del 9 %."
+ },
+ "75758d0aa19b": {
+  "en": "Renting is ahead by about $48,828, and at these numbers buying does not catch up within 30 years.",
+  "t": "Arrendar va adelante por unos US$48.828, y con estos números comprar no lo alcanza en 30 años."
+ },
+ "75b965113412": {
+  "en": "The $0.50 dividend is bigger than the $0.05 of time value and comes first: risk High.",
+  "t": "El dividendo de US$0,50 es más grande que los US$0,05 de valor temporal y llega antes: riesgo Alto."
+ },
+ "7763380956ee": {
+  "en": "Breakeven $49.20; estimated chance of being called about 28%.",
+  "t": "Punto de equilibrio US$49,20; probabilidad estimada de que te las compren cerca del 28 %."
+ },
+ "77fb40b2ccd5": {
+  "en": "Vanguard: 2025 income from US government obligations, by fund (PDF)",
+  "t": "Vanguard: ingresos de 2025 por obligaciones del gobierno de EE. UU., por fondo (PDF, en inglés)"
+ },
+ "783c20481397": {
+  "en": "Home prices and returns are not steady; try lower growth and returns to see how the answer changes.",
+  "t": "Los precios de la vivienda y las rentabilidades no son constantes; prueba con crecimientos y rentabilidades más bajos para ver cómo cambia la respuesta."
+ },
+ "78d23a05540a": {
+  "en": "Stocks at 9% grow to about $27,100 in today’s dollars. Prices double in about 19 years.",
+  "t": "Las acciones al 9 % crecen a unos US$27.100 en dólares de hoy. Los precios se duplican en unos 19 años."
+ },
+ "79f5788c85c2": {
+  "en": "Every win hits the target exactly and every loss is exactly 1R.",
+  "t": "Cada ganancia toca el objetivo exactamente y cada pérdida es exactamente 1R."
+ },
+ "7a0696a7c652": {
+  "en": "IRS Publication 925: Passive Activity and At-Risk Rules",
+  "t": "IRS Publication 925: Passive Activity and At-Risk Rules (en inglés)"
+ },
+ "7a15bfd89eda": {
+  "en": "Foreign transaction fee calculator: what card fees, paying in dollars abroad and ATM fees cost on a trip, and how much a no-fee setup saves.",
+  "t": "Calculadora de comisiones por transacciones en el exterior: lo que cuestan en un viaje las comisiones de la tarjeta, pagar en dólares en el exterior y las comisiones de cajeros, y cuánto ahorra una configuración sin comisiones."
+ },
+ "7a985c7bc21c": {
+  "en": "State tax applies to the third of VMFXX’s income that is not from US government debt.",
+  "t": "El impuesto estatal aplica a la tercera parte de los ingresos de VMFXX que no viene de deuda del gobierno de EE. UU."
+ },
+ "7ad912764b1c": {
+  "en": "Only buying the option back removes the risk.",
+  "t": "Solo recomprar la opción quita el riesgo."
+ },
+ "7ae05128d14e": {
+  "en": "Mr. Money Mustache: the shockingly simple math behind early retirement (2012)",
+  "t": "Mr. Money Mustache: las matemáticas sorprendentemente simples detrás del retiro temprano (2012, en inglés)"
+ },
+ "7b751b582110": {
+  "en": "Each year is independent: no streaks, recoveries or valuation effects.",
+  "t": "Cada año es independiente: sin rachas, recuperaciones ni efectos de valoración."
+ },
+ "7c2ff1c9dbcb": {
+  "en": "Smart setup = a 0% card, always paying in local currency, at most 3 withdrawals, and a debit card with no bank ATM or foreign fee (ATM owners may still charge)",
+  "t": "Configuración inteligente = una tarjeta al 0 %, siempre pagar en moneda local, como máximo 3 retiros y una tarjeta débito sin comisión del banco por cajero ni en el exterior (los dueños de los cajeros igual pueden cobrar)"
  },
  "7ceef8e69767": {
   "en": "November 2026",
   "t": "noviembre de 2026"
  },
+ "7d57ca4f71c8": {
+  "en": "68% range = price ± one expected move",
+  "t": "Rango del 68 % = precio ± un movimiento esperado"
+ },
+ "7f217fc415d8": {
+  "en": "A stop order turns into a market order when the stop price is reached, so in a fast market or an overnight gap you can be filled well past your stop and lose more than planned.",
+  "t": "Una orden stop se vuelve una orden de mercado cuando se alcanza el precio del stop, así que en un mercado rápido o en un gap de la noche te pueden ejecutar mucho más allá de tu stop y perder más de lo planeado."
+ },
+ "7f60a00a3d14": {
+  "en": "Default inputs, the “Steady” sample: price $60, EPS $3.50, sales growth 8%, margin 18%, debt/equity 0.6×, FCF $3.20 a share.",
+  "t": "Datos por defecto, el ejemplo “Estable”: precio US$60, UPA US$3,50, crecimiento de ventas 8 %, margen 18 %, deuda/patrimonio 0,6×, FCL US$3,20 por acción."
+ },
+ "7f8942875a5e": {
+  "en": "Early Retirement Now: the ultimate guide to safe withdrawal rates, part 1",
+  "t": "Early Retirement Now: la guía definitiva de las tasas de retiro seguras, parte 1 (en inglés)"
+ },
+ "7f8f3d68bdf5": {
+  "en": "The New grad preset: age 22, $1,000 to start, $300 a month, 7% a year, retiring at 65.",
+  "t": "El ejemplo Recién graduado: 22 años, US$1.000 para empezar, US$300 al mes, 7 % al año, retiro a los 65."
+ },
+ "7f9a06c76df1": {
+  "en": "Renter’s net worth = investments after 15% tax on gains",
+  "t": "Patrimonio del arrendatario = inversiones después de 15 % de impuesto sobre las ganancias"
+ },
+ "801b9065884c": {
+  "en": "Spending = living costs + health insurance + taxes",
+  "t": "Gasto = costo de vida + seguro de salud + impuestos"
+ },
+ "80b97b2149b4": {
+  "en": "The breakeven win rate at 2 : 1 is 1 ÷ 3, about 33%, so this sits about 12 points above it.",
+  "t": "La tasa de acierto de equilibrio con 2 a 1 es 1 ÷ 3, cerca del 33 %, así que esto queda unos 12 puntos por encima."
+ },
+ "80efa09d511c": {
+  "en": "Cost of waiting = ending balance − the balance if the same plan started 10 years later",
+  "t": "Costo de esperar = saldo final − el saldo si el mismo plan empezara 10 años después"
+ },
  "820c14300546": {
   "en": "OCC: Characteristics and Risks of Standardized Options (the options disclosure document)",
   "t": "OCC: Characteristics and Risks of Standardized Options (el documento de divulgación de opciones, en inglés)"
+ },
+ "82be3bdaf4b3": {
+  "en": "In the money by = stock − strike (calls) or strike − stock (puts)",
+  "t": "Dentro del dinero por = acción − strike (calls) o strike − acción (puts)"
+ },
+ "831f63fa1de7": {
+  "en": "Each year: withdraw at the start, then grow what is left by that year’s return after inflation, minus fees",
+  "t": "Cada año: retira al principio y luego haz crecer lo que queda con la rentabilidad de ese año después de inflación, menos comisiones"
+ },
+ "83ee26c18900": {
+  "en": "A $10,000 start and no costs.",
+  "t": "Un inicio de US$10.000 y sin costos."
+ },
+ "84eb17e51f1f": {
+  "en": "Card foreign fee = card spending × the card’s fee %",
+  "t": "Comisión de la tarjeta en el exterior = gasto con tarjeta × el % de comisión de la tarjeta"
+ },
+ "8512bc5f9268": {
+  "en": "Wheel income calculator: premium, return on capital, annualized yield and breakeven for a cash-secured put or covered call, with the formulas shown.",
+  "t": "Calculadora de ingresos de la rueda: prima, rentabilidad sobre el capital, rendimiento anualizado y punto de equilibrio de un put asegurado con efectivo o un covered call, con las fórmulas a la vista."
+ },
+ "85f1cdd1649d": {
+  "en": "The CPI weights are fixed at the shares shown; your own spending mix may differ.",
+  "t": "Los pesos del IPC están fijos en las partes mostradas; tu propia mezcla de gastos puede ser distinta."
+ },
+ "8660b93274ef": {
+  "en": "How interest rates feed into what stocks are worth, what bonds are priced at, what a mortgage costs, and the shape of the yield curve.",
+  "t": "Cómo las tasas de interés influyen en lo que valen las acciones, en el precio de los bonos, en lo que cuesta una hipoteca y en la forma de la curva de rendimientos."
  },
  "8663548b99ee": {
   "en": "Schwab: The risks of options assignment (October 2025)",
   "t": "Schwab: The risks of options assignment (octubre de 2025, en inglés)"
  },
+ "86e340eaf0ec": {
+  "en": "Loan payment $682 a month; total interest $5,942.",
+  "t": "Cuota del crédito US$682 al mes; intereses totales US$5.942."
+ },
+ "86ffffa7c3a8": {
+  "en": "The default premium, the dashed “today” line, delta, theta, vega and the chance of finishing in the money come from the Black-Scholes model with a 4% interest rate. Chance in the money is the model’s N(d2)",
+  "t": "La prima por defecto, la línea punteada de “hoy”, la delta, la theta, la vega y la probabilidad de terminar dentro del dinero salen del modelo Black-Scholes con una tasa de interés del 4 %. La probabilidad de terminar dentro del dinero es el N(d2) del modelo"
+ },
+ "873547cfe6bd": {
+  "en": "A rule-of-thumb rating of how likely a short call or put is to be assigned early, from how far it is in the money, how much time value is left and, for calls, whether a dividend bigger than that time value comes before expiry.",
+  "t": "Una calificación práctica de qué tan probable es que asignen antes de tiempo un call o un put vendido, según qué tan dentro del dinero está, cuánto valor temporal le queda y, para los calls, si antes del vencimiento viene un dividendo más grande que ese valor temporal."
+ },
+ "8749969f3269": {
+  "en": "With $1,000,000 at 4%, you withdraw $40,000 in year one.",
+  "t": "Con US$1.000.000 al 4 %, retiras US$40.000 el primer año."
+ },
+ "87a02434e6c4": {
+  "en": "The coffee view ignores repairs and electricity and assumes you already own a pod machine.",
+  "t": "La vista del café ignora reparaciones y electricidad y supone que ya tienes una máquina de cápsulas."
+ },
+ "88fa00630d6a": {
+  "en": "At a 20% savings rate: ln(1 + 25 × 0.05 × 4) ÷ ln(1.05) = ln 6 ÷ ln 1.05 ≈ 37 years.",
+  "t": "Con una tasa de ahorro del 20 %: ln(1 + 25 × 0,05 × 4) ÷ ln(1,05) = ln 6 ÷ ln 1,05 ≈ 37 años."
+ },
+ "897568cfe81a": {
+  "en": "Shares = (account × risk %) ÷ (price × stop %), rounded down",
+  "t": "Acciones = (cuenta × % de riesgo) ÷ (precio × % del stop), redondeado hacia abajo"
+ },
+ "8a43bf7c9a6f": {
+  "en": "Lattes $1,625 + lunches $2,340 + subscriptions $660 = $4,625 a year, or $12.67 a day.",
+  "t": "Lattes US$1.625 + almuerzos US$2.340 + suscripciones US$660 = US$4.625 al año, o US$12,67 al día."
+ },
+ "8a887a2b878d": {
+  "en": "Total premium kept = first premium − buy-back cost + new premium",
+  "t": "Prima total conservada = primera prima − costo de recompra + prima nueva"
+ },
+ "8ac4c59c33aa": {
+  "en": "Each month: balance = balance × (1 + yearly return ÷ 12) + monthly saving",
+  "t": "Cada mes: saldo = saldo × (1 + rentabilidad anual ÷ 12) + ahorro mensual"
+ },
+ "8adb15231b1c": {
+  "en": "Real returns vary; the years are a guide, not a forecast.",
+  "t": "Las rentabilidades reales varían; los años son una guía, no un pronóstico."
+ },
+ "8b91666389f4": {
+  "en": "A $100 stock with 30% IV, 30 days out.",
+  "t": "Una acción de US$100 con 30 % de IV, a 30 días."
+ },
+ "8b981b22eb82": {
+  "en": "Default inputs: a $57.50 put sold for $0.95; DEMO now $54 with 7 days left; buy back $3.60; roll to a $57.50 put 42 days out for $4.55.",
+  "t": "Datos por defecto: un put de US$57,50 vendido por US$0,95; DEMO ahora en US$54 con 7 días restantes; recompra por US$3,60; renovación a un put de US$57,50 a 42 días por US$4,55."
+ },
+ "8c74d52d1c6d": {
+  "en": "Experian: Average car loan interest rates by credit score (Q2 2026)",
+  "t": "Experian: tasas promedio de créditos de carro según el puntaje de crédito en EE. UU. (2.º trimestre de 2026, en inglés)"
+ },
+ "8c7f2122a8a0": {
+  "en": "A rule of thumb based on how owners usually act, not a prediction; any short US stock option can be assigned any trading day.",
+  "t": "Una regla práctica basada en cómo suelen actuar los tenedores, no una predicción; cualquier opción vendida sobre acciones de EE. UU. se puede asignar cualquier día de negociación."
+ },
+ "8d26d04f708c": {
+  "en": "PWL Capital: the 5% rule for renting versus buying",
+  "t": "PWL Capital: la regla del 5 % para arrendar frente a comprar (en inglés)"
+ },
+ "8daf192f8a34": {
+  "en": "Breakeven win rate = 1 ÷ (1 + reward:risk)",
+  "t": "Tasa de acierto de equilibrio = 1 ÷ (1 + ganancia:riesgo)"
+ },
+ "8de2aec75f9a": {
+  "en": "After-tax yield = yield × (1 − federal rate − state rate × the state-taxable share)",
+  "t": "Rendimiento después de impuestos = rendimiento × (1 − tarifa federal − tarifa estatal × la parte gravable por el estado)"
+ },
+ "8f12850127c0": {
+  "en": "Habit cost calculator: what lattes, takeout, delivery and subscriptions cost a year, and what that money could grow to if invested for 10, 20 or 30 years.",
+  "t": "Calculadora del costo de los hábitos: lo que cuestan al año los cafés, la comida para llevar, los domicilios y las suscripciones, y en qué se podría convertir esa plata si la inviertes 10, 20 o 30 años."
+ },
+ "8f7e19df52a7": {
+  "en": "Years at 10% a year = ln(1 ÷ (1 − loss)) ÷ ln(1.10)",
+  "t": "Años al 10 % anual = ln(1 ÷ (1 − pérdida)) ÷ ln(1,10)"
+ },
+ "8ff6cb67c486": {
+  "en": "Your monthly principal and interest, the full payment with property tax, insurance and PMI, the total interest over the loan, and how extra payments, points, a 15-year term or a refinance change it.",
+  "t": "Tu capital e intereses mensuales, la cuota completa con impuesto predial, seguro y PMI, los intereses totales del crédito y cómo lo cambian los abonos extra, los puntos, un plazo de 15 años o una refinanciación."
+ },
+ "90368e3338fc": {
+  "en": "Coffee: machine payback in months = machine cost ÷ ((café price − home price) × coffees a day × 365 ÷ 12)",
+  "t": "Café: recuperación de la máquina en meses = costo de la máquina ÷ ((precio en cafetería − precio en casa) × cafés al día × 365 ÷ 12)"
+ },
+ "91ed2d4103e2": {
+  "en": "On paper it is a $5,887 loss, but with 3-night stays and no material participation the loss is passive, so it saves no tax this year.",
+  "t": "En el papel es una pérdida de US$5.887, pero con estadías de 3 noches y sin participación material la pérdida es pasiva, así que este año no ahorra impuestos."
+ },
+ "91ffb0f5b0fd": {
+  "en": "The 68% range is about $91.40 to $108.60; the 95% range about $82.80 to $117.20.",
+  "t": "El rango del 68 % va más o menos de US$91,40 a US$108,60; el rango del 95 %, de unos US$82,80 a US$117,20."
+ },
+ "9245f0fedabc": {
+  "en": "Fast-grower P/E = the value of 10 years of 14% profit growth plus a 3.5% growth tail, discounted at the required return",
+  "t": "P/U de una empresa de crecimiento rápido = el valor de 10 años de crecimiento de utilidades del 14 % más una cola de crecimiento del 3,5 %, descontados a la rentabilidad exigida"
+ },
+ "9287e9ca0f3c": {
+  "en": "EPS × P/E is a first estimate; a discounted cash flow or a comparison with peers is more careful.",
+  "t": "UPA × P/U es una primera estimación; un flujo de caja descontado o una comparación con pares es más cuidadoso."
+ },
+ "93925be40221": {
+  "en": "Defaults: stock $100, buy one $105 call with 30 days left at 35% IV.",
+  "t": "Por defecto: acción en US$100, compra de un call de US$105 con 30 días restantes al 35 % de IV."
+ },
+ "941c85435df9": {
+  "en": "Defaults: a $420,000 home, 20% down, 7.4% for 30 years, $2,100 rent, 3.5% price growth, 6% investment return, 3% rent growth, 1% property tax, 0.5% insurance, 1% maintenance, 3% buying and 7% selling costs.",
+  "t": "Por defecto: una casa de US$420.000, 20 % de cuota inicial, 7,4 % a 30 años, arriendo de US$2.100, 3,5 % de crecimiento de precios, 6 % de rentabilidad de inversión, 3 % de crecimiento del arriendo, 1 % de impuesto predial, 0,5 % de seguro, 1 % de mantenimiento, 3 % de costos de compra y 7 % de costos de venta."
+ },
+ "942f4314032c": {
+  "en": "What a trip abroad costs in card foreign fees, paying in dollars instead of the local currency, and ATM fees, and how much a better setup would keep in your pocket.",
+  "t": "Lo que cuesta un viaje al exterior en comisiones de la tarjeta por compras en el exterior, en pagar en dólares en vez de la moneda local y en comisiones de cajeros, y cuánto te dejaría en el bolsillo una mejor configuración."
+ },
+ "946e8f764e24": {
+  "en": "Default inputs: $35,000, 6.35% for 60 months, cash in a money market fund at 3.83%, 22% federal and 5% state tax.",
+  "t": "Datos por defecto: US$35.000, 6,35 % a 60 meses, efectivo en un fondo del mercado monetario al 3,83 %, impuesto federal del 22 % y estatal del 5 %."
+ },
+ "94aaa0c390ea": {
+  "en": "Steady company P/E = payout × (1 + g) ÷ (required return − g), with 3% growth and a 70% payout",
+  "t": "P/U de una empresa estable = reparto × (1 + g) ÷ (rentabilidad exigida − g), con 3 % de crecimiento y 70 % de reparto"
+ },
+ "952db1a6281b": {
+  "en": "Renting wins only if you really invest the difference.",
+  "t": "Arrendar gana solo si de verdad inviertes la diferencia."
+ },
+ "9552d7555bd2": {
+  "en": "Dealer rebates that require financing, or that are lost with 0% offers, are not included.",
+  "t": "No se incluyen los descuentos del concesionario que exigen financiación, o que se pierden con ofertas al 0 %."
+ },
+ "96ea7dc525b4": {
+  "en": "How big a move the options market expects on a data day (CPI, jobs, the Fed, earnings), how many shares your risk allows, and what happens if the price gaps straight past your stop.",
+  "t": "Qué tan grande es el movimiento que espera el mercado de opciones en un día de datos (IPC, empleo, la Fed, resultados), cuántas acciones permite tu riesgo y qué pasa si el precio abre con un gap directo por encima de tu stop."
+ },
+ "984272121567": {
+  "en": "PMI (under 20% down) = PMI rate × loan ÷ 12, until the balance falls to 78% of the original price",
+  "t": "PMI (con menos de 20 % de cuota inicial) = tasa de PMI × crédito ÷ 12, hasta que el saldo baja al 78 % del precio original"
+ },
+ "98cce72ae61d": {
+  "en": "Early assignment risk checker for short calls and puts: how far in the money, time value left, the dividend test and what assignment would mean.",
+  "t": "Verificador del riesgo de asignación anticipada para calls y puts vendidos: qué tan dentro del dinero está, el valor temporal que queda, la prueba del dividendo y lo que significaría la asignación."
+ },
+ "9991d746fc15": {
+  "en": "A rough estimate of what a share is worth, how far today’s price is below (or above) that estimate, and the highest price that still gives you the safety cushion you chose.",
+  "t": "Una estimación aproximada de lo que vale una acción, qué tan por debajo (o por encima) de esa estimación está el precio de hoy y el precio más alto que todavía te da el colchón de seguridad que escogiste."
+ },
+ "99bc599be200": {
+  "en": "Margin of safety = (value − price) ÷ value",
+  "t": "Margen de seguridad = (valor − precio) ÷ valor"
+ },
+ "9c8b641a9584": {
+  "en": "Inflation starts at the latest CPI reading built into the tool (3.7%, September 2026) and stays constant.",
+  "t": "La inflación arranca en el último dato del IPC de EE. UU. incluido en la herramienta (3,7 %, septiembre de 2026) y se mantiene constante."
+ },
+ "9c9b718cda12": {
+  "en": "If prices rise 3% that year, you withdraw $41,200 in year two, whatever the market did.",
+  "t": "Si los precios suben 3 % ese año, retiras US$41.200 el segundo año, haga lo que haga el mercado."
+ },
+ "9cdeac319568": {
+  "en": "Earnings yield = EPS ÷ price (the P/E turned upside down)",
+  "t": "Rendimiento de utilidades = UPA ÷ precio (el P/U al revés)"
+ },
+ "9cfda9e2ff49": {
+  "en": "At 25% it would be about 32 years.",
+  "t": "Con 25 % serían unos 32 años."
+ },
+ "9d8a0c548cb5": {
+  "en": "Chance of assignment = the model probability the stock ends below the strike (Black-Scholes N(−d2))",
+  "t": "Probabilidad de asignación = la probabilidad según el modelo de que la acción termine por debajo del strike (Black-Scholes N(−d2))"
+ },
+ "9e0af03fd11f": {
+  "en": "If the stop fills, the loss is 166 × $1.50 = $249. The 2R target is $53.00. The calculator flags the position as concentrated because it is more than a quarter of the account.",
+  "t": "Si se ejecuta el stop, la pérdida es 166 × US$1,50 = US$249. El objetivo de 2R es US$53,00. La calculadora marca la posición como concentrada porque es más de una cuarta parte de la cuenta."
+ },
+ "9e5b225921e4": {
+  "en": "Health insurance before 65 and taxes depend on your income and on laws that change.",
+  "t": "El seguro de salud antes de la edad de pensión y los impuestos dependen de tus ingresos y de leyes que cambian."
+ },
+ "9e6f986e163f": {
+  "en": "Gain needed = loss ÷ (1 − loss)",
+  "t": "Ganancia necesaria = pérdida ÷ (1 − pérdida)"
+ },
+ "9f4aeed1bf75": {
+  "en": "The same return every year, with monthly compounding.",
+  "t": "La misma rentabilidad cada año, con capitalización mensual."
+ },
+ "9f659387c43c": {
+  "en": "Either beats paying only the minimums by about $23,795 of interest.",
+  "t": "Cualquiera de los dos le gana a pagar solo los mínimos por unos US$23.795 de intereses."
+ },
+ "9fd71190ac86": {
+  "en": "Steady company: 0.7 × 1.03 ÷ (0.091 − 0.03) ≈ 11.8× earnings.",
+  "t": "Empresa estable: 0,7 × 1,03 ÷ (0,091 − 0,03) ≈ 11,8 veces las utilidades."
+ },
+ "a0136dfb7d4d": {
+  "en": "The chart shows profit at the new expiration after the roll, against the old position held to its expiration.",
+  "t": "El gráfico muestra la ganancia al nuevo vencimiento después de la renovación, frente a la posición vieja mantenida hasta su vencimiento."
+ },
+ "a05502d1697c": {
+  "en": "Savings rate calculator: years to financial independence from your savings rate, return after inflation and withdrawal rate. The formula is shown.",
+  "t": "Calculadora de tasa de ahorro: años hasta la independencia financiera según tu tasa de ahorro, la rentabilidad después de inflación y la tasa de retiro. La fórmula está a la vista."
+ },
+ "a1575d4cf226": {
+  "en": "Compound interest calculator: see what a starting sum plus monthly saving grows into by retirement, how much is growth, and what waiting 10 years costs.",
+  "t": "Calculadora de interés compuesto: mira en qué se convierte una suma inicial más un ahorro mensual para el retiro, cuánto es crecimiento y cuánto cuesta esperar 10 años."
+ },
+ "a2a5092080b9": {
+  "en": "Annualizing assumes the same trade repeats all year without assignment.",
+  "t": "Anualizar supone que la misma operación se repite todo el año sin asignación."
+ },
+ "a33157eaf28e": {
+  "en": "A $10,000 account, so the dollar figures are easy to scale.",
+  "t": "Una cuenta de US$10.000, para que las cifras en dólares sean fáciles de escalar."
+ },
+ "a3549538ad47": {
+  "en": "Needs $4,500, saving $1,800, wants $2,700.",
+  "t": "Necesidades US$4.500, ahorro US$1.800, gustos US$2.700."
+ },
+ "a4138f3aace5": {
+  "en": "Never empty your emergency fund for a car.",
+  "t": "Nunca vacíes tu fondo de emergencia por un carro."
+ },
+ "a44f2846736e": {
+  "en": "2026 standard deductions: $32,200 married filing jointly, $16,100 single.",
+  "t": "Deducciones estándar de 2026 en EE. UU.: US$32.200 casados declarando juntos, US$16.100 solteros."
+ },
+ "a467eda1c4d5": {
+  "en": "Paying in dollars = card spending × the share paid in dollars × the markup",
+  "t": "Pagar en dólares = gasto con tarjeta × la parte pagada en dólares × el recargo"
+ },
+ "a55f299f6d97": {
+  "en": "Return if unchanged = premium ÷ stock price now",
+  "t": "Rentabilidad si no se mueve = prima ÷ precio actual de la acción"
+ },
+ "a6860c8133be": {
+  "en": "Covered call: capital = stock price × 100 × contracts; return = premium ÷ stock price; breakeven = your cost − premium; if called away, gain = (strike − your cost + premium) × 100 × contracts",
+  "t": "Covered call: capital = precio de la acción × 100 × contratos; rentabilidad = prima ÷ precio de la acción; punto de equilibrio = tu costo − prima; si te compran las acciones, ganancia = (strike − tu costo + prima) × 100 × contratos"
+ },
+ "a828ac85eefc": {
+  "en": "Chance of being called = the model probability the stock ends above the strike (Black-Scholes N(d2), 4% interest, your volatility)",
+  "t": "Probabilidad de que te las compren = la probabilidad según el modelo de que la acción termine por encima del strike (Black-Scholes N(d2), interés del 4 %, tu volatilidad)"
+ },
+ "a86ee1186f2a": {
+  "en": "Default inputs: a short $30 call, stock $31, call price $1.05, 10 days left, a $0.50 dividend going ex in 3 days.",
+  "t": "Datos por defecto: un call vendido de US$30, acción en US$31, precio del call US$1,05, 10 días restantes, un dividendo de US$0,50 con fecha ex en 3 días."
+ },
+ "a9c48366429a": {
+  "en": "CPI and jobs day trading calculator: the move options price in, your position size, the chance the open jumps your stop and what a bad open costs in R.",
+  "t": "Calculadora de day trading en días de IPC y empleo: el movimiento que descuentan las opciones, el tamaño de tu posición, la probabilidad de que la apertura salte tu stop y lo que cuesta una mala apertura en R."
+ },
+ "aaf10d274af1": {
+  "en": "Net worth when you sell = home value − selling costs − loan balance − tax on any gain above the $250,000 / $500,000 exclusion + the owner’s investments (after 15% tax on gains)",
+  "t": "Patrimonio al vender = valor de la casa − costos de venta − saldo del crédito − impuesto sobre la ganancia por encima de la exclusión de US$250.000 / US$500.000 + las inversiones del dueño (después de 15 % de impuesto sobre las ganancias)"
+ },
+ "ab54a26cc57d": {
+  "en": "The Couple preset spends $82,000 a year. At 4% that is $2.05 million before Social Security.",
+  "t": "El ejemplo Pareja gasta US$82.000 al año. Al 4 % eso son US$2,05 millones antes de la pensión pública."
+ },
+ "ab7796c96e8b": {
+  "en": "Safe withdrawal rate calculator: the share of 1,000 simulated retirements that lasted, by withdrawal rate, years, stock share and fees. Assumptions shown.",
+  "t": "Calculadora de tasa de retiro segura: la parte de 1.000 jubilaciones simuladas en las que la plata alcanzó, según la tasa de retiro, los años, la parte en acciones y las comisiones. Supuestos a la vista."
+ },
+ "abae416ed749": {
+  "en": "FIRE number calculator: (spending − other income) ÷ withdrawal rate, plus a Social Security bridge, counting only money you can spend. Free and visual.",
+  "t": "Calculadora del número FIRE: (gasto − otros ingresos) ÷ tasa de retiro, más un puente hasta la pensión, contando solo la plata que puedes gastar. Gratis y visual."
+ },
+ "ac0784c48709": {
+  "en": "FCF yield: $3.20 ÷ $60 = 5.3% (healthy).",
+  "t": "Rendimiento del FCL: US$3,20 ÷ US$60 = 5,3 % (sano)."
+ },
+ "acde8c8dec13": {
+  "en": "Drawdown recovery calculator: gain needed = loss ÷ (1 − loss). See why a 50% loss needs a 100% gain, and how long recovery takes at 10% a year.",
+  "t": "Calculadora de recuperación de caídas: ganancia necesaria = pérdida ÷ (1 − pérdida). Mira por qué una pérdida del 50 % necesita una ganancia del 100 %, y cuánto tarda la recuperación al 10 % anual."
+ },
+ "ad385f5aa96e": {
+  "en": "Rent or buy calculator: your net worth from buying vs renting and investing the difference, the break-even year, and the 5% rule and price-to-rent ratio.",
+  "t": "Calculadora de arrendar o comprar: tu patrimonio comprando frente a arrendando e invirtiendo la diferencia, el año de equilibrio, la regla del 5 % y la relación precio-arriendo."
+ },
+ "ae40fd3d1ff9": {
+  "en": "Premium $80; return if unchanged $0.80 ÷ $50 = 1.6%.",
+  "t": "Prima de US$80; rentabilidad si no se mueve US$0,80 ÷ US$50 = 1,6 %."
+ },
+ "b00dd852a616": {
+  "en": "Owning each month: mortgage payment + property tax + insurance + maintenance + HOA + PMI (under 20% down, until the balance falls to 78% of the price)",
+  "t": "Ser dueño cada mes: cuota de la hipoteca + impuesto predial + seguro + mantenimiento + administración + PMI (con menos de 20 % de cuota inicial, hasta que el saldo baje al 78 % del precio)"
+ },
+ "b05b322caac9": {
+  "en": "How many years of saving it takes to reach financial independence, from your savings rate, the return after inflation and your withdrawal rate. Your pay level hardly matters; the rate does.",
+  "t": "Cuántos años de ahorro se necesitan para llegar a la independencia financiera, según tu tasa de ahorro, la rentabilidad después de inflación y tu tasa de retiro. Tu nivel de ingresos casi no importa; la tasa sí."
+ },
+ "b1aeedadd4ec": {
+  "en": "Cash-secured put calculator: cash to set aside, return on that cash, annualized return, the price you pay if assigned and the chance of assignment.",
+  "t": "Calculadora de put asegurado con efectivo: el efectivo a separar, la rentabilidad sobre ese efectivo, la rentabilidad anualizada, el precio que pagas si te asignan y la probabilidad de asignación."
+ },
+ "b2169c6a3d49": {
+  "en": "Growth = ending balance − what you put in",
+  "t": "Crecimiento = saldo final − lo que pusiste"
+ },
+ "b245d1b791d1": {
+  "en": "The model gives roughly a 31% chance of finishing above $105. Delta is about 34 shares and time decay costs about $6.50 a day.",
+  "t": "El modelo da más o menos un 31 % de probabilidad de terminar por encima de US$105. La delta es de unas 34 acciones y el desgaste por el tiempo cuesta unos US$6,50 al día."
+ },
+ "b2f0fa75f61d": {
+  "en": "IRS Topic 415: Renting residential and vacation property",
+  "t": "IRS Topic 415: Renting residential and vacation property (en inglés)"
+ },
+ "b2fc89dc1645": {
+  "en": "Implied volatility is your input. Real quotes use a different IV at each strike and expiration.",
+  "t": "La volatilidad implícita la pones tú. Las cotizaciones reales usan una IV distinta en cada strike y vencimiento."
+ },
+ "b30f22ac2cd8": {
+  "en": "Fees are charged on the amount in dollars; exchange-rate spreads beyond the markup are not counted.",
+  "t": "Las comisiones se cobran sobre el monto en dólares; no se cuentan los diferenciales de la tasa de cambio más allá del recargo."
+ },
+ "b486f1624093": {
+  "en": "Promotional rates, penalty rates and fees are not modelled.",
+  "t": "No se modelan las tasas promocionales, las tasas de penalización ni las comisiones."
+ },
+ "b4be4bbf1d53": {
+  "en": "No commissions or taxes.",
+  "t": "Sin comisiones ni impuestos."
+ },
+ "b5b81b99ed40": {
+  "en": "Real returns jump around from year to year, and no return is promised. A crash just before you retire hurts most (see <a href=\"#l-sequence\">sequence risk</a>).",
+  "t": "Las rentabilidades reales saltan de un año a otro, y ninguna rentabilidad está prometida. Un desplome justo antes de retirarte es lo que más duele (mira <a href=\"#l-sequence\">el riesgo de secuencia</a>)."
+ },
+ "b6720666616c": {
+  "en": "Position size calculator: shares = (account × risk %) ÷ (entry − stop). Size a trade so a stop-out costs only what you chose to risk. Free, with a chart.",
+  "t": "Calculadora de tamaño de posición: acciones = (cuenta × % de riesgo) ÷ (entrada − stop). Dimensiona una operación para que tocar el stop cueste solo lo que escogiste arriesgar. Gratis, con gráfico."
+ },
+ "b7ef7ceb7d3d": {
+  "en": "Cash-secured put: money set aside = strike × 100 × contracts; return = premium ÷ strike; breakeven = strike − premium",
+  "t": "Put asegurado con efectivo: plata separada = strike × 100 × contratos; rentabilidad = prima ÷ strike; punto de equilibrio = strike − prima"
+ },
+ "b81dd5dff79a": {
+  "en": "PMI is measured against the original price, not a new appraisal.",
+  "t": "El PMI se mide contra el precio original, no contra un avalúo nuevo."
+ },
+ "b82807f0e14d": {
+  "en": "Monthly payment = loan × r ÷ (1 − (1 + r)<sup>−n</sup>), where r is the yearly rate ÷ 12 and n the number of months",
+  "t": "Cuota mensual = crédito × r ÷ (1 − (1 + r)<sup>−n</sup>), donde r es la tasa anual ÷ 12 y n el número de meses"
+ },
+ "b891693a0bcf": {
+  "en": "Each trade: a win grows the account by risk % × reward:risk; a loss shrinks it by risk %",
+  "t": "Cada operación: una ganancia hace crecer la cuenta en % de riesgo × ganancia:riesgo; una pérdida la achica en % de riesgo"
+ },
+ "b998be7e68a1": {
+  "en": "Annualized = return × 365 ÷ days to expiry (simple, not compounded)",
+  "t": "Anualizado = rentabilidad × 365 ÷ días al vencimiento (simple, no compuesto)"
+ },
+ "b9d77157398c": {
+  "en": "Elevated: in the money with under $0.10 of time value, or expiry within a day",
+  "t": "Elevado: dentro del dinero con menos de US$0,10 de valor temporal, o vencimiento dentro de un día"
+ },
+ "ba6ce50aa885": {
+  "en": "Margin of safety: ($60 − $42) ÷ $60 = 30%.",
+  "t": "Margen de seguridad: (US$60 − US$42) ÷ US$60 = 30 %."
+ },
+ "ba71f32ed4bb": {
+  "en": "Bonds: price change = price at the new yield ÷ price at today’s yield − 1, for 2-, 10- and 30-year Treasuries (a bond fund uses duration 6)",
+  "t": "Bonos: cambio de precio = precio al nuevo rendimiento ÷ precio al rendimiento de hoy − 1, para bonos del Tesoro a 2, 10 y 30 años (un fondo de bonos usa duración 6)"
+ },
+ "bb21b4a348d2": {
+  "en": "Principal and interest: $2,326 a month. Property tax at 1% adds $350 and insurance of $2,100 a year adds $175: $2,851 in all (no PMI at 20% down).",
+  "t": "Capital e intereses: US$2.326 al mes. El impuesto predial al 1 % suma US$350 y un seguro de US$2.100 al año suma US$175: US$2.851 en total (sin PMI con 20 % de cuota inicial)."
+ },
+ "bc116a04818f": {
+  "en": "P/E = share price ÷ yearly earnings per share (not shown when earnings are negative)",
+  "t": "P/U = precio de la acción ÷ utilidad anual por acción (no se muestra cuando las utilidades son negativas)"
+ },
+ "bc61dda4498a": {
+  "en": "Fees and taxes come off the top and compound against you.",
+  "t": "Las comisiones y los impuestos se restan primero y se componen en tu contra."
+ },
+ "bdb3abf1d7be": {
+  "en": "Move priced in: $5 ÷ $500 = ±1.0%. Shares: $250 ÷ $2 = 125.",
+  "t": "Movimiento descontado: US$5 ÷ US$500 = ±1,0 %. Acciones: US$250 ÷ US$2 = 125."
+ },
+ "be844cfad28f": {
+  "en": "Size for your risk = account × risk % ÷ stop distance",
+  "t": "Tamaño para tu riesgo = cuenta × % de riesgo ÷ distancia al stop"
+ },
+ "bea2bd8e865d": {
+  "en": "Over 30 years you pay $2,326.40 × 360 − $336,000 ≈ $501,503 of interest.",
+  "t": "En 30 años pagas US$2.326,40 × 360 − US$336.000 ≈ US$501.503 de intereses."
+ },
+ "bf499abe8f33": {
+  "en": "Morningstar: what is a safe retirement withdrawal rate for 2026?",
+  "t": "Morningstar: ¿cuál es una tasa de retiro segura para 2026? (en inglés)"
+ },
+ "bfb7b6693f6b": {
+  "en": "Defaults: BTC at $84,500, $1,000 margin at 10×, 7 days, 43% yearly volatility, 0.5% maintenance margin, +0.01% funding every 8 hours, 0.05% fee a side, a $10,000 account, a 5% stop and 1% risk.",
+  "t": "Por defecto: BTC en US$84.500, US$1.000 de margen a 10×, 7 días, 43 % de volatilidad anual, 0,5 % de margen de mantenimiento, +0,01 % de funding cada 8 horas, 0,05 % de comisión por lado, una cuenta de US$10.000, un stop del 5 % y riesgo del 1 %."
+ },
+ "bfc242c83efe": {
+  "en": "Risk per share = the distance between entry and stop",
+  "t": "Riesgo por acción = la distancia entre la entrada y el stop"
+ },
+ "c00427950ec7": {
+  "en": "Being willing to cut spending in bad years supports a higher starting rate; see <a href=\"#l-guardrails\">guardrails</a>.",
+  "t": "Estar dispuesto a recortar el gasto en los años malos permite una tasa inicial más alta; mira <a href=\"#l-guardrails\">las barandas</a>."
+ },
  "c01a7c727b48": {
   "en": "CME Group: Discover options volatility (annualized volatility and the square root of time)",
   "t": "CME Group: Discover options volatility (volatilidad anualizada y raíz cuadrada del tiempo; en inglés)"
+ },
+ "c0a0ffbb4d23": {
+  "en": "Total premium kept: $0.95 − $3.60 + $4.55 = $1.90; new breakeven $55.60.",
+  "t": "Prima total conservada: US$0,95 − US$3,60 + US$4,55 = US$1,90; nuevo punto de equilibrio US$55,60."
+ },
+ "c0bdda3fa844": {
+  "en": "IRS Publication 523: Selling Your Home",
+  "t": "IRS Publication 523: Selling Your Home (en inglés)"
+ },
+ "c1f7f7c65602": {
+  "en": "US Treasury: Daily Treasury par yield curve rates, October 2026",
+  "t": "Tesoro de EE. UU.: tasas diarias de la curva de rendimientos a la par, octubre de 2026 (en inglés)"
+ },
+ "c20126d4282a": {
+  "en": "Default inputs: DEMO at $60, a $57.50 put for $0.95, 30 days, 4% on cash, 30% volatility.",
+  "t": "Datos por defecto: DEMO en US$60, un put de US$57,50 por US$0,95, 30 días, 4 % sobre el efectivo, 30 % de volatilidad."
+ },
+ "c2755536c8f7": {
+  "en": "Take the loan: your cash stays invested and grows at the after-tax yield",
+  "t": "Tomar el crédito: tu efectivo sigue invertido y crece al rendimiento después de impuestos"
+ },
+ "c2885fe88c1d": {
+  "en": "Refinance: break-even = closing costs ÷ monthly saving.",
+  "t": "Refinanciación: punto de equilibrio = costos de cierre ÷ ahorro mensual."
+ },
+ "c2f1ec904f79": {
+  "en": "Cash buys $10,000 ÷ 2.07 ≈ $4,835 of today’s goods (shown as $4.8K).",
+  "t": "El efectivo compra US$10.000 ÷ 2,07 ≈ US$4.835 en bienes de hoy (se muestra como US$4,8 mil)."
+ },
+ "c31dfc717004": {
+  "en": "This is arithmetic and simulation, so it needs no outside source.",
+  "t": "Esto es aritmética y simulación, así que no necesita una fuente externa."
+ },
+ "c357916926c6": {
+  "en": "In the money by $1.00, so time value is $0.05.",
+  "t": "Dentro del dinero por US$1,00, así que el valor temporal es US$0,05."
+ },
+ "c37df583943f": {
+  "en": "IRS: Deduction for car loan interest (One Big Beautiful Bill Act)",
+  "t": "IRS: deducción por intereses de créditos de carro (One Big Beautiful Bill Act, en inglés)"
+ },
+ "c49088353bf9": {
+  "en": "Basket inflation = each category’s rate × its CPI weight, added up",
+  "t": "Inflación de la canasta = la tasa de cada categoría × su peso en el IPC, sumadas"
+ },
+ "c59745390919": {
+  "en": "Card fee $105 + paying in dollars $52.50 + bank ATM fees $30 + owner fees $24 + foreign fee on cash $24 = $236.",
+  "t": "Comisión de la tarjeta US$105 + pagar en dólares US$52,50 + comisiones del banco por cajero US$30 + comisiones de los dueños US$24 + comisión en el exterior sobre el efectivo US$24 = US$236."
+ },
+ "c620d16521be": {
+  "en": "Doubles every ≈ 72 ÷ yearly return (the rule of 72)",
+  "t": "Se duplica cada ≈ 72 ÷ rentabilidad anual (la regla del 72)"
+ },
+ "c6f89af1d938": {
+  "en": "Closing instead would lose $265.",
+  "t": "Cerrar en cambio perdería US$265."
+ },
+ "c73f0eee5dce": {
+  "en": "A put seller must buy at the strike however far the stock has fallen, and a covered call caps your gain at the strike.",
+  "t": "Quien vende un put tiene que comprar al strike por mucho que haya caído la acción, y un covered call le pone tope a tu ganancia en el strike."
+ },
+ "c7c77e4f3f32": {
+  "en": "You spend the same in retirement as you do now.",
+  "t": "Gastas lo mismo en el retiro que ahora."
+ },
+ "c80ac1320da7": {
+  "en": "$10,000 falls 30% to $7,000.",
+  "t": "US$10.000 caen 30 %, a US$7.000."
+ },
+ "c80cf1ae7a0e": {
+  "en": "Breakeven at expiration is $105 + $2.18 = $107.18. The most you can lose is the $218.",
+  "t": "El punto de equilibrio al vencimiento es US$105 + US$2,18 = US$107,18. Lo máximo que puedes perder son los US$218."
+ },
+ "c92752ed0283": {
+  "en": "The stop fills exactly at the stop price.",
+  "t": "El stop se ejecuta exactamente al precio del stop."
+ },
+ "c939b3f3c7cb": {
+  "en": "Early Retirement Now: does a 4% withdrawal rate survive a 60-year retirement?",
+  "t": "Early Retirement Now: ¿una tasa de retiro del 4 % sobrevive a una jubilación de 60 años? (en inglés)"
+ },
+ "ca45f8edaa06": {
+  "en": "Annualized assumes you could repeat the same trade back to back all year at the same return, which rarely happens.",
+  "t": "El anualizado supone que podrías repetir la misma operación una tras otra todo el año con la misma rentabilidad, lo que casi nunca pasa."
+ },
+ "cb847266e878": {
+  "en": "Profit at expiration = (premium − the amount the stock ends below the strike) × shares",
+  "t": "Ganancia al vencimiento = (prima − lo que la acción termine por debajo del strike) × acciones"
+ },
+ "cb91fbd9a112": {
+  "en": "Real stock prices also move with earnings, risk appetite and flows.",
+  "t": "Los precios reales de las acciones también se mueven con las utilidades, el apetito por el riesgo y los flujos de dinero."
+ },
+ "cbff199bd669": {
+  "en": "Airbnb profit calculator: what a short-term rental really keeps after platform fees, cleaning, a co-host, fixed costs, the mortgage and tax, month by month.",
+  "t": "Calculadora de ganancias de Airbnb: lo que realmente le queda a un arriendo de corta estadía después de las tarifas de la plataforma, el aseo, un coanfitrión, los costos fijos, la hipoteca y los impuestos, mes a mes."
+ },
+ "ccbddbab1fbb": {
+  "en": "BLS: Consumer Price Index news release (8:30 am ET)",
+  "t": "BLS: comunicado del índice de precios al consumidor (8:30 a. m., hora de Nueva York; en inglés)"
+ },
+ "cce176642477": {
+  "en": "Rolling does not change the stock’s risk; judge the new option on its own merits.",
+  "t": "Renovar no cambia el riesgo de la acción; juzga la opción nueva por sus propios méritos."
+ },
+ "cd062f44c78a": {
+  "en": "Success only means money was left. It says nothing about how much.",
+  "t": "Éxito solo significa que quedó plata. No dice nada sobre cuánta."
+ },
+ "cd34541d5d87": {
+  "en": "What a starting amount plus a monthly saving grows into by your retirement age at a steady return, how much of that is growth, and what starting 10 years later would cost you.",
+  "t": "En qué se convierte un monto inicial más un ahorro mensual para tu edad de retiro con una rentabilidad constante, cuánto de eso es crecimiento y cuánto te costaría empezar 10 años después."
+ },
+ "cd60850e1ffd": {
+  "en": "Default inputs, two weeks: $3,500 on a card with a 3% fee, 30% paid in dollars at a 5% markup, $800 from 6 ATM withdrawals at $5 + $4 each, and a 3% foreign fee on cash.",
+  "t": "Datos por defecto, dos semanas: US$3.500 con una tarjeta con comisión del 3 %, 30 % pagado en dólares con un recargo del 5 %, US$800 en 6 retiros de cajero a US$5 + US$4 cada uno y una comisión en el exterior del 3 % sobre el efectivo."
+ },
+ "cebbf06f8e84": {
+  "en": "In year 1, $24,758 of the $27,917 you pay (89%) is interest.",
+  "t": "En el año 1, US$24.758 de los US$27.917 que pagas (89 %) son intereses."
+ },
+ "cfdeb48b3a59": {
+  "en": "Whether paying cash or taking a car loan leaves you with more money at the end of the loan, after tax on what your cash would have earned.",
+  "t": "Si pagar de contado o tomar un crédito de carro te deja con más plata al final del crédito, después de impuestos sobre lo que habría ganado tu efectivo."
+ },
+ "d0881fcf6b5c": {
+  "en": "Funding = position × funding rate × 3 a day × days; fees = position × fee × 2",
+  "t": "Funding = posición × tasa de funding × 3 al día × días; comisiones = posición × comisión × 2"
+ },
+ "d0c113d4e151": {
+  "en": "Years: each year the balance grows by the return and your yearly saving is added, until it reaches the FIRE number",
+  "t": "Años: cada año el saldo crece con la rentabilidad y se suma tu ahorro anual, hasta que llega al número FIRE"
+ },
+ "d13da8aaf913": {
+  "en": "Value: $4.00 × 15 = $60.",
+  "t": "Valor: US$4,00 × 15 = US$60."
+ },
+ "d1496151aad3": {
+  "en": "This is pure arithmetic, so it needs no outside source: check it with any calculator.",
+  "t": "Esto es pura aritmética, así que no necesita una fuente externa: compruébalo con cualquier calculadora."
+ },
+ "d1ba44f6ad15": {
+  "en": "Straddle prices change through the day; use the live price before the release.",
+  "t": "Los precios del straddle cambian durante el día; usa el precio en vivo antes del dato."
+ },
+ "d1da8925df74": {
+  "en": "Spending = take-home pay × (1 − savings rate)",
+  "t": "Gasto = ingreso neto × (1 − tasa de ahorro)"
+ },
+ "d1ec138c7862": {
+  "en": "Price you pay if assigned = breakeven = strike − premium",
+  "t": "Precio que pagas si te asignan = punto de equilibrio = strike − prima"
+ },
+ "d25aed85dbc0": {
+  "en": "Default view, stocks: a 5.10% 10-year yield and 4 points of extra return, so a 9.1% required return.",
+  "t": "Vista por defecto, acciones: un rendimiento a 10 años de 5,10 % y 4 puntos de rentabilidad extra, así que una rentabilidad exigida de 9,1 %."
+ },
+ "d2877ee277a1": {
+  "en": "The yield curve shapes besides today’s are illustrations.",
+  "t": "Las formas de la curva de rendimientos distintas a la de hoy son ilustraciones."
  },
  "d3bcace22a97": {
   "en": "Fidelity: How dividends can increase options assignment risk (October 2026)",
   "t": "Fidelity: How dividends can increase options assignment risk (octubre de 2026, en inglés)"
  },
+ "d48b783498a6": {
+  "en": "Edge = 0.45 × 2 − 0.55 = +0.35R per trade.",
+  "t": "Ventaja = 0,45 × 2 − 0,55 = +0,35R por operación."
+ },
+ "d50bfd436d3d": {
+  "en": "Breakeven at expiration = strike + premium for a call, strike − premium for a put",
+  "t": "Punto de equilibrio al vencimiento = strike + prima para un call, strike − prima para un put"
+ },
+ "d560819c1075": {
+  "en": "NerdWallet: best no-foreign-transaction-fee cards (Oct 2026)",
+  "t": "NerdWallet: las mejores tarjetas sin comisión por transacciones en el exterior (octubre de 2026, en inglés)"
+ },
+ "d67992d1294a": {
+  "en": "Debt payoff calculator: avalanche vs snowball vs minimum payments. Months to debt-free, interest paid and interest saved, for up to three debts. Free.",
+  "t": "Calculadora para salir de deudas: avalancha frente a bola de nieve frente a pagos mínimos. Meses hasta quedar libre de deudas, intereses pagados e intereses ahorrados, para hasta tres deudas. Gratis."
+ },
+ "d6c5891bed47": {
+  "en": "Default inputs, selling after 10 years:",
+  "t": "Datos por defecto, vendiendo después de 10 años:"
+ },
+ "d6eb74cedaaa": {
+  "en": "Example prices; edit them to match yours.",
+  "t": "Precios de ejemplo; edítalos para que coincidan con los tuyos."
+ },
+ "d7c9ce6c0bde": {
+  "en": "What a covered call pays now, your return if the stock stays put or is called away, your breakeven, and an estimate of the chance the shares are called away at expiration.",
+  "t": "Lo que un covered call paga ahora, tu rentabilidad si la acción se queda quieta o si te compran las acciones, tu punto de equilibrio y una estimación de la probabilidad de que te compren las acciones al vencimiento."
+ },
+ "d7de3b6a41b1": {
+  "en": "Advisor Perspectives: Bill Bengen boosts the 4% rule to 4.7% (Aug 2025)",
+  "t": "Advisor Perspectives: Bill Bengen sube la regla del 4 % al 4,7 % (agosto de 2025, en inglés)"
+ },
+ "d82cae92bb37": {
+  "en": "SSA: benefit reduction for early retirement",
+  "t": "SSA: reducción de la pensión por jubilación anticipada en EE. UU. (en inglés)"
+ },
+ "d8478b5fe8fc": {
+  "en": "Trading expectancy simulator: edge per trade = win rate × reward:risk − loss rate. Run 20 futures to see drawdowns and losing streaks for your numbers.",
+  "t": "Simulador de esperanza matemática: ventaja por operación = tasa de acierto × ganancia:riesgo − tasa de pérdida. Corre 20 futuros para ver caídas y rachas perdedoras con tus números."
+ },
+ "d93ce31a5d33": {
+  "en": "Default inputs: three cards, $1,200 at 19.9%, $4,800 at 29.99% and $9,500 at 24.24%, with $700 a month.",
+  "t": "Datos por defecto: tres tarjetas, US$1.200 al 19,9 %, US$4.800 al 29,99 % y US$9.500 al 24,24 %, con US$700 al mes."
+ },
+ "d9ec7df00fbe": {
+  "en": "After every cost and the mortgage, about $1,827 is left: roughly $2 of every $100 booked.",
+  "t": "Después de todos los costos y la hipoteca quedan unos US$1.827: más o menos US$2 de cada US$100 reservados."
+ },
+ "db81631d1ea3": {
+  "en": "Cash before tax = income after those costs − mortgage payment",
+  "t": "Efectivo antes de impuestos = ingresos después de esos costos − cuota de la hipoteca"
+ },
+ "dbdd22c07c85": {
+  "en": "You put in = starting money + monthly saving × 12 × years",
+  "t": "Lo que pones = plata inicial + ahorro mensual × 12 × años"
+ },
+ "dbfa3eccc4c4": {
+  "en": "Price rise = (1 + inflation)<sup>years</sup> − 1",
+  "t": "Subida de precios = (1 + inflación)<sup>años</sup> − 1"
+ },
+ "dd7e88ea2256": {
+  "en": "Local rules, permits and occupancy taxes vary widely; check your city.",
+  "t": "Las reglas locales, los permisos y los impuestos de ocupación varían mucho; revisa los de tu ciudad."
+ },
+ "dd9ac77678c5": {
+  "en": "Loss if you just close = first premium − buy-back cost",
+  "t": "Pérdida si solo cierras = primera prima − costo de recompra"
+ },
+ "ddb5d6a88e1e": {
+  "en": "IV is read as a yearly standard deviation and scaled by the square root of calendar days.",
+  "t": "La IV se lee como una desviación estándar anual y se escala con la raíz cuadrada de los días calendario."
+ },
+ "ddde31ebeb9b": {
+  "en": "15 vs 30 years: both paths spend the 15-year payment each month; with the 30-year loan the difference is invested at the return you set, and after the 15-year loan is paid off its payment is invested. Taxes on investment returns and the mortgage interest deduction are left out.",
+  "t": "15 frente a 30 años: los dos caminos gastan la cuota a 15 años cada mes; con el crédito a 30 años la diferencia se invierte a la rentabilidad que fijes, y cuando se termina de pagar el crédito a 15 años se invierte su cuota. Se dejan por fuera los impuestos sobre la rentabilidad de las inversiones y la deducción por intereses hipotecarios."
+ },
+ "deedd04d09ef": {
+  "en": "Return on the cash: $0.95 ÷ $57.50 = 1.65%, about 20% annualized; the cash could earn about $19 of interest meanwhile.",
+  "t": "Rentabilidad sobre el efectivo: US$0,95 ÷ US$57,50 = 1,65 %, cerca del 20 % anualizado; mientras tanto el efectivo podría ganar unos US$19 de intereses."
+ },
+ "e076107d6ba3": {
+  "en": "Crypto liquidation calculator: liquidation price for leverage, the chance of touching it, funding and fees, and the position size that fits your risk.",
+  "t": "Calculadora de liquidación en cripto: el precio de liquidación según el apalancamiento, la probabilidad de tocarlo, el funding y las comisiones, y el tamaño de posición que cabe en tu riesgo."
+ },
  "e090c3b76b72": {
   "en": "Options Industry Council: Cash-secured put",
   "t": "Options Industry Council: Cash-secured put (en inglés)"
+ },
+ "e123b6b5e4ff": {
+  "en": "Default inputs, the “Couple” preset: $9,000 a month, 50% needs, 20% saving.",
+  "t": "Datos por defecto, el ejemplo “Pareja”: US$9.000 al mes, 50 % necesidades, 20 % ahorro."
+ },
+ "e151da7c7665": {
+  "en": "Risk budget = account × risk %",
+  "t": "Presupuesto de riesgo = cuenta × % de riesgo"
+ },
+ "e26c3076d66a": {
+  "en": "Years = ln((T + s ÷ r) ÷ (N + s ÷ r)) ÷ ln(1 + r), where s is the savings rate, r the return, T the FIRE number and N what you have saved, both measured in years of take-home pay",
+  "t": "Años = ln((T + s ÷ r) ÷ (N + s ÷ r)) ÷ ln(1 + r), donde s es la tasa de ahorro, r la rentabilidad, T el número FIRE y N lo que has ahorrado, los dos medidos en años de ingreso neto"
+ },
+ "e32873aecab3": {
+  "en": "Buy below: $60 × 0.70 = $42, so today’s price is right at the edge of the buy zone.",
+  "t": "Comprar por debajo de: US$60 × 0,70 = US$42, así que el precio de hoy está justo en el borde de la zona de compra."
+ },
+ "e3cfa4fb4b9a": {
+  "en": "When you switch between put and call it fills in a strike about 5% out of the money and a model premium (Black-Scholes, 40% IV, 4% rate). Type your broker’s quote to replace it.",
+  "t": "Cuando cambias entre put y call, pone un strike cerca del 5 % fuera del dinero y una prima del modelo (Black-Scholes, 40 % de IV, tasa del 4 %). Escribe la cotización de tu bróker para reemplazarla."
+ },
+ "e4694a381025": {
+  "en": "Whether a win rate and a reward-to-risk ratio make money on average, and how bumpy the ride can be, across 20 simulated sequences of the same trades.",
+  "t": "Si una tasa de acierto y una relación ganancia/riesgo ganan plata en promedio, y qué tan movido puede ser el camino, en 20 secuencias simuladas de las mismas operaciones."
+ },
+ "e4d058a81370": {
+  "en": "You start from zero savings.",
+  "t": "Empiezas con cero ahorros."
+ },
+ "e5a5420c62c0": {
+  "en": "Default inputs: 3.7% inflation, 20 years, $10,000.",
+  "t": "Datos por defecto: 3,7 % de inflación, 20 años, US$10.000."
+ },
+ "e5afd8d638a0": {
+  "en": "A low price can be a value trap if earnings are about to fall. Check the <a href=\\\"#tool-ratios\\\">five-number check</a> too.",
+  "t": "Un precio bajo puede ser una trampa de valor si las utilidades están por caer. Revisa también los <a href=\\\"#tool-ratios\\\">cinco números</a>."
+ },
+ "e5ee70c34d3b": {
+  "en": "Profit or loss at expiration for buying or selling a call or put, the breakeven price, the most you can make and lose, and the Greeks for the whole position.",
+  "t": "Ganancia o pérdida al vencimiento por comprar o vender un call o un put, el precio de equilibrio, lo máximo que puedes ganar y perder, y las griegas de toda la posición."
+ },
+ "e6c963c188d8": {
+  "en": "Tax treatment of each leg is in the <a href=\\\"#l-wheel-tax\\\">wheel tax lesson</a>.",
+  "t": "El tratamiento tributario en EE. UU. de cada pata está en la <a href=\\\"#l-wheel-tax\\\">lección sobre los impuestos de la rueda</a>."
+ },
+ "e6fb4b0b7c9d": {
+  "en": "That is 5.5% of the $4,300 trip.",
+  "t": "Eso es el 5,5 % del viaje de US$4.300."
+ },
+ "e71953312cd9": {
+  "en": "A fixed rate for the whole term.",
+  "t": "Una tasa fija durante todo el plazo."
+ },
+ "e7bf794876c0": {
+  "en": "Returns are measured on what the shares are worth now; dollar profit from your cost.",
+  "t": "Las rentabilidades se miden sobre lo que valen las acciones hoy; la ganancia en dólares, desde tu costo."
+ },
+ "e7e6cf6396ee": {
+  "en": "The price at which a leveraged crypto position is liquidated, how likely a random walk is to touch it while you hold, what funding and fees cost, and how big the position should be for your risk.",
+  "t": "El precio al que se liquida una posición apalancada en cripto, qué tan probable es que un camino aleatorio lo toque mientras la mantienes, cuánto cuestan el funding y las comisiones, y qué tan grande debería ser la posición para tu riesgo."
+ },
+ "e7ee7f8b26e4": {
+  "en": "Option profit calculator: breakeven, max profit and loss, and Greeks for buying or selling a call or put, using the Black-Scholes model. Free and visual.",
+  "t": "Calculadora de ganancias con opciones: punto de equilibrio, ganancia y pérdida máximas, y griegas para comprar o vender un call o un put, con el modelo Black-Scholes. Gratis y visual."
+ },
+ "e97dcda76a72": {
+  "en": "Spending is $56,000, so the FIRE number is $1.4 million.",
+  "t": "El gasto es de US$56.000, así que el número FIRE es US$1,4 millones."
+ },
+ "ea5327d5cfc5": {
+  "en": "Prices rise 1.037<sup>20</sup> − 1 = 107%: $100 of shopping costs $207.",
+  "t": "Los precios suben 1,037<sup>20</sup> − 1 = 107 %: un mercado de US$100 cuesta US$207."
+ },
+ "eadb2d7b69d8": {
+  "en": "Default inputs: a $420,000 home, 20% down, 7.4% for 30 years.",
+  "t": "Datos por defecto: una casa de US$420.000, 20 % de cuota inicial, 7,4 % a 30 años."
+ },
+ "eb18b9b72a70": {
+  "en": "ATM fees = withdrawals × (your bank’s fee + the ATM owner’s fee) + cash × your bank’s foreign fee %",
+  "t": "Comisiones de cajeros = retiros × (comisión de tu banco + comisión del dueño del cajero) + efectivo × el % de comisión en el exterior de tu banco"
+ },
+ "ebc36dac4396": {
+  "en": "Portfolio return = stock share × stock return + bond share × bond return, rebalanced every year",
+  "t": "Rentabilidad del portafolio = parte en acciones × rentabilidad de las acciones + parte en bonos × rentabilidad de los bonos, rebalanceado cada año"
+ },
+ "ecb21449f453": {
+  "en": "Fast-grower: about 22.6×.",
+  "t": "Empresa de crecimiento rápido: cerca de 22,6×."
+ },
+ "edceefa28a06": {
+  "en": "Minimum payment on each debt = that month’s interest + 1% of the balance, at least $25 (or the whole balance if smaller)",
+  "t": "Pago mínimo de cada deuda = los intereses de ese mes + 1 % del saldo, al menos US$25 (o todo el saldo si es menor)"
+ },
+ "edf15018ab57": {
+  "en": "Needs = pay × needs %; saving = pay × saving %; wants = whatever is left",
+  "t": "Necesidades = ingreso × % de necesidades; ahorro = ingreso × % de ahorro; gustos = lo que quede"
+ },
+ "edff481f7c63": {
+  "en": "Pay cash: each month you invest the payment you would have made",
+  "t": "Pagar de contado: cada mes inviertes la cuota que habrías pagado"
+ },
+ "ee71bd39940a": {
+  "en": "ORATS: bank earnings and CPI straddles (July 2026)",
+  "t": "ORATS: straddles en resultados de bancos y en el IPC (julio de 2026, en inglés)"
+ },
+ "efee7ff4adac": {
+  "en": "Whichever side spends less each month invests the difference at your investment return; the renter also invests the down payment and buying costs",
+  "t": "El lado que gaste menos cada mes invierte la diferencia a tu rentabilidad de inversión; el arrendatario también invierte la cuota inicial y los costos de compra"
  },
  "eff50d26ff7d": {
   "en": "Investor.gov (SEC): An introduction to options, investor bulletin (updated July 2026)",
   "t": "Investor.gov (SEC): An introduction to options, boletín para inversionistas (actualizado en julio de 2026, en inglés)"
  },
+ "f12e466e0b1f": {
+  "en": "10% a year is not an expected return; real recoveries are faster or much slower.",
+  "t": "El 10 % anual no es una rentabilidad esperada; las recuperaciones reales son más rápidas o mucho más lentas."
+ },
+ "f13e75401e5c": {
+  "en": "Airbnb Help: Airbnb service fees",
+  "t": "Ayuda de Airbnb: tarifas de servicio de Airbnb"
+ },
+ "f140d1f94021": {
+  "en": "Shares are rounded down, so the planned loss is at or just under your budget.",
+  "t": "Las acciones se redondean hacia abajo, así que la pérdida planeada queda en tu presupuesto o justo por debajo."
+ },
+ "f1672d0adc2d": {
+  "en": "Return = $0.95 ÷ $38 = 2.50%. Annualized: 2.50% × 365 ÷ 30 ≈ 30.4%, only if every month went the same way.",
+  "t": "Rentabilidad = US$0,95 ÷ US$38 = 2,50 %. Anualizada: 2,50 % × 365 ÷ 30 ≈ 30,4 %, solo si todos los meses salieran igual."
+ },
+ "f24f93678122": {
+  "en": "Interest rate calculator: what a rise in the 10-year Treasury yield does to stock P/E ratios, bond prices and mortgage payments, and how the yield curve looks.",
+  "t": "Calculadora de tasas de interés: lo que una subida del rendimiento del Tesoro de EE. UU. a 10 años les hace a los P/U de las acciones, a los precios de los bonos y a las cuotas hipotecarias, y cómo se ve la curva de rendimientos."
+ },
+ "f265172b1177": {
+  "en": "One contract covers 100 shares: cost or credit = premium × 100 × contracts",
+  "t": "Un contrato cubre 100 acciones: costo o crédito = prima × 100 × contratos"
+ },
+ "f2b41c25a315": {
+  "en": "You have = taxable + pre-tax (at 85% while that option is on) + Roth + HSA, plus cash and home equity only if you choose to count them, minus debts",
+  "t": "Lo que tienes = cuentas gravables + cuentas antes de impuestos (al 85 % mientras esa opción esté activa) + Roth + HSA, más el efectivo y el patrimonio en vivienda solo si decides contarlos, menos las deudas"
+ },
+ "f2c04717b1a3": {
+  "en": "IRS Publication 936: Home Mortgage Interest Deduction",
+  "t": "IRS Publication 936: Home Mortgage Interest Deduction (en inglés)"
+ },
+ "f3d4538d56df": {
+  "en": "Nights booked = occupancy spread across the months by a seasonal pattern (at most 98% in any month)",
+  "t": "Noches reservadas = ocupación repartida entre los meses según un patrón de temporada (como máximo 98 % en cualquier mes)"
+ },
+ "f3e478080eb6": {
+  "en": "Inflation is a fixed 3% here; recent inflation has run higher and lower than that.",
+  "t": "Aquí la inflación es un 3 % fijo; la inflación reciente ha estado por encima y por debajo de eso."
+ },
  "f473ed931b3a": {
   "en": "Schwab: Managing cash-secured equity puts (May 2025)",
   "t": "Schwab: Managing cash-secured equity puts (mayo de 2025, en inglés)"
+ },
+ "f4a819e9ab7a": {
+  "en": "Bridge = yearly Social Security × the years between your retirement age and the age benefits start",
+  "t": "Puente = pensión anual × los años entre tu edad de retiro y la edad en que empieza la pensión"
+ },
+ "f64a99020cc1": {
+  "en": "Profit at expiration = (the lower of the stock price and the strike − your cost + premium) × shares",
+  "t": "Ganancia al vencimiento = (el menor entre el precio de la acción y el strike − tu costo + prima) × acciones"
+ },
+ "f77362c4d982": {
+  "en": "P/E: $60 ÷ $3.50 = 17.1 (healthy). Earnings yield: 5.8%.",
+  "t": "P/U: US$60 ÷ US$3,50 = 17,1 (sano). Rendimiento de utilidades: 5,8 %."
+ },
+ "f7e77d612705": {
+  "en": "Exchanges use mark prices, tiered maintenance margins and insurance funds that change the exact level.",
+  "t": "Los exchanges usan precios de marca, márgenes de mantenimiento escalonados y fondos de seguro que cambian el nivel exacto."
+ },
+ "f832e6acca25": {
+  "en": "BLS via DOL: Consumer Price Index, September 2026",
+  "t": "BLS vía DOL: índice de precios al consumidor de EE. UU., septiembre de 2026 (en inglés)"
+ },
+ "fad20a0dfaac": {
+  "en": "Snowball pays $243 more interest, but clears the first card in 6 months instead of 1 year 3 months.",
+  "t": "La bola de nieve paga US$243 más de intereses, pero salda la primera tarjeta en 6 meses en vez de 1 año y 3 meses."
+ },
+ "fb3c861f5fb5": {
+  "en": "Loan: $420,000 × 0.80 = $336,000.",
+  "t": "Crédito: US$420.000 × 0,80 = US$336.000."
+ },
+ "fccf933a0cd9": {
+  "en": "Card terms change; check the fee in your card’s terms.",
+  "t": "Las condiciones de las tarjetas cambian; revisa la comisión en las condiciones de tu tarjeta."
+ },
+ "fd71a91519c0": {
+  "en": "Bad open = shares × 2 × the expected move; in R = that loss ÷ your planned risk",
+  "t": "Mala apertura = acciones × 2 × el movimiento esperado; en R = esa pérdida ÷ tu riesgo planeado"
+ },
+ "fe56b9959da5": {
+  "en": "The premium you collect, the return on the money the trade ties up, a simple annualized rate and the breakeven for one cash-secured put or covered call, the two halves of the wheel.",
+  "t": "La prima que cobras, la rentabilidad sobre la plata que amarra la operación, una tasa anualizada simple y el punto de equilibrio de un put asegurado con efectivo o un covered call, las dos mitades de la rueda."
+ },
+ "fe97f34fda76": {
+  "en": "45% winners at 2 : 1 reward to risk, risking 1% a trade.",
+  "t": "45 % de ganadoras con una relación ganancia/riesgo de 2 a 1, arriesgando el 1 % por operación."
+ },
+ "fef1aa2d73c4": {
+  "en": "Invested value = monthly amount × ((1 + r ÷ 12)<sup>months</sup> − 1) ÷ (r ÷ 12), with r the yearly return",
+  "t": "Valor invertido = monto mensual × ((1 + r ÷ 12)<sup>meses</sup> − 1) ÷ (r ÷ 12), con r la rentabilidad anual"
+ },
+ "ffc048a8dfd5": {
+  "en": "Linear USD-margined perpetual futures; fees and funding move liquidation slightly closer and are left out of it.",
+  "t": "Futuros perpetuos lineales con margen en USD; las comisiones y el funding acercan un poco la liquidación y no se incluyen."
  }
 }
