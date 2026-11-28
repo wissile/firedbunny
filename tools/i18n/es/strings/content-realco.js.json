@@ -1,6 +1,26 @@
 {
+ "20e338624cee": {
+  "en": "Assets",
+  "t": "Activos"
+ },
  "690d2fadac07": {
   "en": "Market cap",
   "t": "Capitalización bursátil"
+ },
+ "84c5b876462a": {
+  "en": "Net income",
+  "t": "Utilidad neta"
+ },
+ "a1a6cd89dd4f": {
+  "en": "Beat",
+  "t": "Supera"
+ },
+ "e4062ee5a2c0": {
+  "en": "Capex",
+  "t": "Capex"
+ },
+ "e763d92c95b5": {
+  "en": "Miss",
+  "t": "Se queda corto"
  }
 }

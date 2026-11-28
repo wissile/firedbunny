@@ -1,31 +1,675 @@
 {
+ "001fda90cb82": {
+  "en": "Cash accounts trade with settled cash; sales settle T+1.",
+  "t": "Las cuentas de efectivo operan con efectivo liquidado; las ventas se liquidan en T+1."
+ },
+ "0043d4dca7b4": {
+  "en": "Monday 9:45: you buy 100 DEMO at $30 with the $3,000 and sell at $30.50 by 10:30. You now hold $3,050 that settles Tuesday.",
+  "t": "Lunes 9:45: compras 100 DEMO a US$30 con los US$3.000 y vendes a US$30,50 para las 10:30. Ahora tienes US$3.050 que se liquidan el martes."
+ },
+ "01495ecef0b2": {
+  "en": "Where is my stop, and is the target at least 2R away?",
+  "t": "¿Dónde está mi stop, y el objetivo está al menos a 2R?"
+ },
+ "0321f38bb1d6": {
+  "en": "After a bad day, start the next one at normal size.",
+  "t": "Después de un mal día, empieza el siguiente con el tamaño normal."
+ },
+ "05122ec8c71f": {
+  "en": "Week view of equity and example buying power in a margin account, with the $2,000 minimum line",
+  "t": "Vista semanal del patrimonio y del poder de compra de ejemplo en una cuenta de margen, con la línea del mínimo de US$2.000"
+ },
+ "0553481e2701": {
+  "en": "Prices swing further than the businesses behind them because people trade them, and people move in herds. The <b>emotion cycle</b> is a sketch of how the crowd feels as a big trend rises and falls. You can see it in single stocks, in crypto and in the whole market.",
+  "t": "Los precios oscilan más que los negocios que hay detrás porque los negocian personas, y las personas se mueven en manada. El <b>ciclo de emociones</b> es un esquema de cómo se siente la gente a medida que una tendencia grande sube y baja. Lo puedes ver en acciones individuales, en cripto y en todo el mercado."
+ },
+ "05e8b75fdad9": {
+  "en": "Growth: sales rose 12% to $2.0B, so customers are buying more.",
+  "t": "Crecimiento: las ventas subieron 12 % hasta US$2.000 millones, así que los clientes están comprando más."
+ },
+ "0682e5770723": {
+  "en": "DEMO is a made-up company. It trades at $60 and has 60 million shares.",
+  "t": "DEMO es una empresa inventada. Se negocia a US$60 y tiene 60 millones de acciones."
+ },
  "0684e80f3e7d": {
   "en": "Long-term",
   "t": "Largo plazo"
+ },
+ "076364d5cc24": {
+  "en": "<b>P/E</b> is the share price divided by yearly earnings per share. It tells you how many years of today's profit you pay for: a P/E of 20 means $20 for each $1 of yearly profit.",
+  "t": "El <b>P/U</b> (precio sobre utilidad, P/E en inglés) es el precio de la acción dividido entre la utilidad anual por acción. Te dice cuántos años de la utilidad de hoy estás pagando: un P/U de 20 significa US$20 por cada US$1 de utilidad anual."
+ },
+ "097921720570": {
+  "en": "Log at least 20 to 30 trades before you trust these numbers.",
+  "t": "Registra al menos 20 a 30 operaciones antes de confiar en estos números."
+ },
+ "09d9819c0a83": {
+  "en": "Healthy companies grow sales, keep debt in check and produce free cash.",
+  "t": "Las empresas sanas hacen crecer sus ventas, mantienen la deuda bajo control y producen efectivo libre."
+ },
+ "0a03899c1836": {
+  "en": "The extra $10 is slippage. Expect a little on every stop, and more on thin or fast-moving stocks.",
+  "t": "Los US$10 extra son deslizamiento. Espera un poco en cada stop, y más en acciones con poca liquidez o que se mueven rápido."
+ },
+ "0a2a3052f966": {
+  "en": "The cycle is a teaching sketch of crowd mood, not a forecast: in real time nobody knows which stage it is. The tilt meter is a simple rule of thumb you can copy into your own plan.",
+  "t": "El ciclo es un esquema didáctico del ánimo de la gente, no un pronóstico: en tiempo real nadie sabe en qué etapa está. El medidor de tilt es una regla práctica simple que puedes copiar en tu propio plan."
+ },
+ "0d36ba762082": {
+  "en": "Short the same stock because it owes you",
+  "t": "Ir en corto en la misma acción porque te debe"
+ },
+ "0de330a9901e": {
+  "en": "Revenge trading after a loss is one of the fastest ways to turn a small loss into a big one.",
+  "t": "El trading por venganza después de una pérdida es una de las formas más rápidas de convertir una pérdida pequeña en una grande."
+ },
+ "0e151d4172a5": {
+  "en": "Total: +2.4R, or $240. Win rate: 4 ÷ 10 = 40%. Expectancy: +2.4R ÷ 10 = +0.24R per trade.",
+  "t": "Total: +2,4R, o US$240. Tasa de acierto: 4 ÷ 10 = 40 %. Esperanza: +2,4R ÷ 10 = +0,24R por operación."
+ },
+ "10356d26edc8": {
+  "en": "Trading psychology",
+  "t": "Psicología del trading"
+ },
+ "10406684d5f4": {
+  "en": "Fear, greed and tilt",
+  "t": "Miedo, codicia y tilt"
+ },
+ "1166132d8c66": {
+  "en": "Sleep, stress and hunger change how you trade. A tired brain takes more risk and follows fewer rules, so trade smaller or not at all on rough days. Use a size you can sleep with: if a position has you checking your phone at night, it is too big, even when the math says it is fine. The next lesson, <a href=\"#l-emotions\">Fear, greed and tilt</a>, shows how these feelings build over a trend and over a single bad day.",
+  "t": "El sueño, el estrés y el hambre cambian cómo operas. Un cerebro cansado toma más riesgo y sigue menos reglas, así que opera más pequeño o no operes en los días difíciles. Usa un tamaño con el que puedas dormir: si una posición te tiene revisando el celular en la noche, es demasiado grande, aunque las cuentas digan que está bien. La siguiente lección, <a href=\"#l-emotions\">Miedo, codicia y tilt</a>, muestra cómo se acumulan estas emociones a lo largo de una tendencia y de un solo mal día."
+ },
+ "1220c0eda272": {
+  "en": "The day ends at −$650, more than twice your limit. Stopping at −$300 would have kept the loss to something one good day can repair.",
+  "t": "El día termina en −US$650, más del doble de tu límite. Parar en −US$300 habría dejado la pérdida en algo que un buen día puede reparar."
+ },
+ "12460564a407": {
+  "en": "under 20 fair, over 40 pricey",
+  "t": "menos de 20 justo, más de 40 caro"
+ },
+ "128e39faa5d4": {
+  "en": "Week view of settled and settling cash in a cash account",
+  "t": "Vista semanal del efectivo liquidado y por liquidar en una cuenta de efectivo"
+ },
+ "144b49b7c52c": {
+  "en": "Account type",
+  "t": "Tipo de cuenta"
+ },
+ "145df9a6f687": {
+  "en": "A stock reacts to the surprise versus expectations and to the forecast, more than to the raw numbers.",
+  "t": "Una acción reacciona a la sorpresa frente a lo esperado y a las proyecciones, más que a los números en bruto."
+ },
+ "147cc0ff109b": {
+  "en": "The same $3,000 in a margin account is above the $2,000 minimum, so you could trade several times on Monday. Buying power is checked in real time, and going over it brings a margin call.",
+  "t": "Esos mismos US$3.000 en una cuenta de margen están por encima del mínimo de US$2.000, así que podrías operar varias veces el lunes. El poder de compra se revisa en tiempo real, y pasarte trae una llamada de margen."
+ },
+ "14ab12a72b5e": {
+  "en": "Positive, growing free cash flow is a strong sign of a real business.",
+  "t": "Un flujo de caja libre positivo y creciente es una señal fuerte de un negocio real."
+ },
+ "154d15ce49b9": {
+  "en": "Tuesday, one business day later",
+  "t": "El martes, un día hábil después"
+ },
+ "1596a26236cb": {
+  "en": "Bid ",
+  "t": "Bid "
+ },
+ "16c4c0168f59": {
+  "en": "Bad news hits and DEMO drops fast. Price touches $24.60 and your stop becomes a market order.",
+  "t": "Llega una mala noticia y DEMO cae rápido. El precio toca US$24,60 y tu stop se vuelve una orden de mercado."
+ },
+ "16d05a48f09c": {
+  "en": "Ran +8% without you",
+  "t": "Subió +8 % sin ti"
+ },
+ "16e12a263162": {
+  "en": "Right after the fill you set a stop order at $24.60. Planned risk: ($25.02 − $24.60) × 200 = $84.",
+  "t": "Justo después de la ejecución pones una orden stop en US$24,60. Riesgo planeado: (US$25,02 − US$24,60) × 200 = US$84."
+ },
+ "17cfbe126e6c": {
+  "en": "Settling tomorrow (T+1)",
+  "t": "Se liquida mañana (T+1)"
+ },
+ "183e3fcd89c2": {
+  "en": "Hope",
+  "t": "Esperanza"
+ },
+ "18dd8ea5c18a": {
+  "en": "Ask ",
+  "t": "Ask "
+ },
+ "197867fa65de": {
+  "en": "Never move a stop further away, and stop for the day at your loss limit.",
+  "t": "Nunca alejes un stop, y para por el día en tu límite de pérdida."
+ },
+ "1a8a3f358028": {
+  "en": "Read each situation, choose what you would do, and build your discipline score.",
+  "t": "Lee cada situación, escoge lo que harías y construye tu puntaje de disciplina."
+ },
+ "1af07e76c139": {
+  "en": "Earnings beat by {0}, but management lowered its forecast. A stock's price is a bet on future profits, so a weaker outlook can outweigh a good quarter.",
+  "t": "Los resultados superaron lo esperado por {0}, pero la gerencia bajó sus proyecciones. El precio de una acción es una apuesta por las utilidades futuras, así que un panorama más débil puede pesar más que un buen trimestre."
+ },
+ "1afb61b06487": {
+  "en": "A market buy would fill at the ask, $25.05. You place a limit buy at $25.02 instead, and a seller fills it.",
+  "t": "Una compra a mercado se ejecutaría al ask, US$25,05. En cambio pones una compra límite en US$25,02, y un vendedor la ejecuta."
+ },
+ "1de42832e28c": {
+  "en": "The $25,000 PDT rule was removed in 2026.",
+  "t": "La regla PDT de US$25.000 se eliminó en 2026."
+ },
+ "1f14d47a7138": {
+  "en": "What would you do? Pick one.",
+  "t": "¿Qué harías? Escoge una."
+ },
+ "2033caedf184": {
+  "en": "Drag the marker along the wave or press Run the cycle. Then set the tilt meter to match a bad day and see when it tells you to stop.",
+  "t": "Arrastra el marcador a lo largo de la ola o presiona Recorrer el ciclo. Luego ajusta el medidor de tilt a un mal día y mira cuándo te dice que pares."
+ },
+ "2065f3f66ee5": {
+  "en": "Peak risk feels like euphoria; peak opportunity feels like despair.",
+  "t": "El máximo riesgo se siente como euforia; la máxima oportunidad se siente como desesperación."
+ },
+ "21b60a9549da": {
+  "en": "Immediately",
+  "t": "De inmediato"
+ },
+ "22c69d4f567b": {
+  "en": "DEMO Corp is a made-up company. All numbers cover one year.",
+  "t": "DEMO Corp es una empresa inventada. Todos los números cubren un año."
  },
  "23408b19b29e": {
   "en": "Wed",
   "t": "Mié"
  },
+ "234e1da4b67c": {
+  "en": "Example trades with made-up prices. Type over them with your own; edits stay in this browser. Short trades work too: put the stop above the entry.",
+  "t": "Operaciones de ejemplo con precios inventados. Escribe encima las tuyas; los cambios se quedan en este navegador. Las ventas en corto también funcionan: pon el stop por encima de la entrada."
+ },
+ "24153078ea7b": {
+  "en": "Optimism",
+  "t": "Optimismo"
+ },
+ "2425e5cfb432": {
+  "en": "Cash account: slower, no borrowing. Margin account: more flexible, but borrowed money makes losses grow faster.",
+  "t": "Cuenta de efectivo: más lenta, sin préstamos. Cuenta de margen: más flexible, pero la plata prestada hace que las pérdidas crezcan más rápido."
+ },
  "24345a14377f": {
   "en": "Today",
   "t": "Hoy"
+ },
+ "2452ee476643": {
+  "en": "Raising size after a winning streak. Part of the streak was luck, and the next normal losing run now costs twice as much.",
+  "t": "Subir el tamaño después de una racha ganadora. Parte de la racha fue suerte, y la próxima racha perdedora normal ahora cuesta el doble."
+ },
+ "249eccdb2bb4": {
+  "en": "Earnings reports",
+  "t": "Informes de resultados"
  },
  "24b2a0993d0c": {
   "en": "Mon",
   "t": "Lun"
  },
+ "25ebe680e47a": {
+  "en": "Reset examples",
+  "t": "Restaurar los ejemplos"
+ },
+ "26436cc58ed5": {
+  "en": "Earnings moves often happen as an overnight gap that jumps straight past your stop. Many short-term traders close positions before earnings or trade smaller.",
+  "t": "Los movimientos por resultados a menudo llegan como un gap de la noche a la mañana que salta directo por encima de tu stop. Muchos traders de corto plazo cierran posiciones antes de los resultados u operan más pequeño."
+ },
+ "27a86c88218d": {
+  "en": "Hitting the limit while tilted is when the next trade is most likely to be a bad one. Stop, write it down and start fresh tomorrow.",
+  "t": "Llegar al límite estando en tilt es cuando la próxima operación tiene más probabilidad de ser mala. Para, escríbelo y empieza de cero mañana."
+ },
+ "27d7eba730da": {
+  "en": "<b>Sales growth</b> shows whether customers buy more each year. <b>Profit margin</b> is the share of each sales dollar the company keeps as profit.",
+  "t": "El <b>crecimiento de ventas</b> muestra si los clientes compran más cada año. El <b>margen de utilidad</b> es la parte de cada dólar de ventas que la empresa se queda como utilidad."
+ },
+ "27e5c88f122b": {
+  "en": "The journal found a $500 leak that you could not feel while trading.",
+  "t": "El diario encontró una fuga de US$500 que no podías sentir mientras operabas."
+ },
+ "2a1e851dc328": {
+  "en": "Two traders can use the same strategy and get opposite results. The difference is what they do when money is on the line. Trading pokes at fear and greed all day, and a handful of predictable thinking errors show up in almost everyone.",
+  "t": "Dos traders pueden usar la misma estrategia y obtener resultados opuestos. La diferencia es lo que hacen cuando hay plata en juego. El trading pincha el miedo y la codicia todo el día, y un puñado de errores mentales predecibles aparecen en casi todo el mundo."
+ },
+ "2b98f3fd0f54": {
+  "en": "Name the urge: FOMO, revenge, overconfidence. Naming it slows you down.",
+  "t": "Ponle nombre al impulso: FOMO, venganza, exceso de confianza. Nombrarlo te frena."
+ },
+ "3207d8fe5639": {
+  "en": "Treating the daily loss limit as a suggestion. One more \"last trade\" is how −3% days turn into −10% days.",
+  "t": "Tomar el límite de pérdida diario como una sugerencia. Una \"última operación\" más es como los días de −3 % se vuelven días de −10 %."
+ },
+ "32269fc06870": {
+  "en": "Log the setup, entry, stop, exit and size of every trade, plus a screenshot and one lesson. Review every week. Patterns show up fast: maybe your breakouts work and your midday trades don't.",
+  "t": "Registra la configuración, la entrada, el stop, la salida y el tamaño de cada operación, más una captura de pantalla y una lección. Revisa cada semana. Los patrones aparecen rápido: quizás tus rupturas funcionan y tus operaciones del mediodía no."
+ },
+ "327d76a1df2d": {
+  "en": "Management cuts its full-year guidance by 5%. Traders now expect lower profits next year.",
+  "t": "La gerencia recorta sus proyecciones del año en 5 %. Ahora los traders esperan menos utilidades el próximo año."
+ },
+ "32f509cdeb90": {
+  "en": "How much you can buy right now: settled cash in a cash account, or cash plus available margin in a margin account.",
+  "t": "Cuánto puedes comprar ahora mismo: el efectivo liquidado en una cuenta de efectivo, o el efectivo más el margen disponible en una cuenta de margen."
+ },
+ "344bc2be493a": {
+  "en": "Expectancy above 0R per trade means a working method.",
+  "t": "Una esperanza por encima de 0R por operación significa un método que funciona."
+ },
+ "347dce9283f4": {
+  "en": "Price moves on the surprise, not on the number itself.",
+  "t": "El precio se mueve con la sorpresa, no con el número en sí."
+ },
  "3593ccd96f6c": {
   "en": "Thu",
   "t": "Jue"
+ },
+ "38d13bda5c40": {
+  "en": "Cut",
+  "t": "Recorte"
+ },
+ "38d1bd7c232f": {
+  "en": "Check the earnings date before every swing trade or option trade.",
+  "t": "Revisa la fecha de resultados antes de cada operación swing o con opciones."
+ },
+ "38f859dde041": {
+  "en": "Next day",
+  "t": "Día siguiente"
+ },
+ "38ff2cd79eed": {
+  "en": "You let it go. On Tuesday the $3,050 is settled and you can trade with all of it again.",
+  "t": "La dejas pasar. El martes los US$3.050 están liquidados y puedes volver a operar con todo."
+ },
+ "390b031f9928": {
+  "en": "Investors price future profits, so a weaker forecast can outweigh one good quarter.",
+  "t": "Los inversionistas valoran las utilidades futuras, así que un pronóstico más débil puede pesar más que un buen trimestre."
+ },
+ "396001973309": {
+  "en": "\"It\\'s flying! Buy now before it goes even higher!\"",
+  "t": "\"¡Va volando! ¡Compra ya antes de que suba más!\""
+ },
+ "39651186baca": {
+  "en": "Buy at market right now",
+  "t": "Comprar a mercado ya mismo"
+ },
+ "3bd5a27dc7e6": {
+  "en": "Margin accounts need at least $2,000 in equity.",
+  "t": "Las cuentas de margen necesitan al menos US$2.000 de patrimonio."
+ },
+ "3dce5884b88e": {
+  "en": "Tilt check: 2 losses in a row, 2× size, 4 minutes between trades, 1 rule broken and 100% of the daily limit used. The meter says stop.",
+  "t": "Revisión de tilt: 2 pérdidas seguidas, 2× de tamaño, 4 minutos entre operaciones, 1 regla rota y el 100 % del límite diario usado. El medidor dice que pares."
+ },
+ "3e57ffd34c33": {
+  "en": "You tag each trade with the time of entry. 5 of the 6 losers came after 11:00.",
+  "t": "Etiquetas cada operación con la hora de entrada. 5 de las 6 perdedoras llegaron después de las 11:00."
+ },
+ "3e97121d3d19": {
+  "en": "Skipping the chase cost nothing. Taking it would have risked 5 times the possible reward.",
+  "t": "No perseguir el precio no costó nada. Hacerlo habría arriesgado 5 veces la ganancia posible."
+ },
+ "3ec4b3bf9772": {
+  "en": "Pick an order type, set your price, then place the order and watch what happens.",
+  "t": "Escoge un tipo de orden, fija tu precio, luego envía la orden y mira qué pasa."
+ },
+ "3eec5cd6eb90": {
+  "en": "Place your stop as soon as you enter a trade.",
+  "t": "Pon tu stop apenas entres a una operación."
+ },
+ "3fb043c4f05f": {
+  "en": "The point in a fall when many holders give up and sell at once, often on very high volume.",
+  "t": "El punto de una caída en el que muchos tenedores se rinden y venden a la vez, a menudo con un volumen muy alto."
+ },
+ "410b8c22a39e": {
+  "en": "The three statements",
+  "t": "Los tres estados financieros"
+ },
+ "419212002f1c": {
+  "en": "Pick a sample company, then move the sliders and watch each gauge and verdict change.",
+  "t": "Escoge una empresa de ejemplo, luego mueve los deslizadores y mira cómo cambia cada indicador y su veredicto."
+ },
+ "421038b4a860": {
+  "en": "Euphoria",
+  "t": "Euforia"
+ },
+ "42a83c1a8c27": {
+  "en": "Crowds move from optimism to euphoria to panic to despair and back.",
+  "t": "La gente pasa del optimismo a la euforia, al pánico y a la desesperación, y de vuelta."
+ },
+ "42bb28bc3d85": {
+  "en": "Sample company",
+  "t": "Empresa de ejemplo"
+ },
+ "4307c81cd7cc": {
+  "en": "FCF yield",
+  "t": "Rendimiento del FCL"
+ },
+ "4370688f012c": {
+  "en": "Analysts publish estimates ahead of time, so the price already reflects what people expect. A <b>beat</b> means results came in above the estimates; a <b>miss</b> means below.",
+  "t": "Los analistas publican estimaciones por adelantado, así que el precio ya refleja lo que la gente espera. <b>Superar</b> significa que los resultados quedaron por encima de las estimaciones; <b>quedarse corto</b> significa por debajo."
+ },
+ "44755760e222": {
+  "en": "Guidance about the future often outweighs the last quarter.",
+  "t": "Las proyecciones sobre el futuro a menudo pesan más que el último trimestre."
+ },
+ "4579119db1e2": {
+  "en": "Greed makes you size up, chase a stock that already ran, or hold a winner past your target hoping for more. Fear makes you skip good setups after a loss, or dump a good trade at the first wiggle. Both feel like smart decisions in the moment.",
+  "t": "La codicia te hace subir el tamaño, perseguir una acción que ya subió o aguantar una ganadora más allá de tu objetivo esperando más. El miedo te hace saltarte buenas configuraciones después de una pérdida, o soltar una buena operación al primer movimiento. Las dos se sienten como decisiones inteligentes en el momento."
+ },
+ "45abb3e27cae": {
+  "en": "In a cash account, buying with unsettled money and selling before that money settles. Repeat violations can restrict the account.",
+  "t": "En una cuenta de efectivo, comprar con plata sin liquidar y vender antes de que esa plata se liquide. Las infracciones repetidas pueden restringir la cuenta."
+ },
+ "47d18e38db91": {
+  "en": "In a <b>margin account</b> you now need at least $2,000 in equity, and your buying power is checked in real time during the day. Go over it and you get a margin call that you must cover.",
+  "t": "En una <b>cuenta de margen</b> ahora necesitas al menos US$2.000 de patrimonio, y tu poder de compra se revisa en tiempo real durante el día. Si te pasas, recibes una llamada de margen que tienes que cubrir."
+ },
+ "47e8ec9fbe4d": {
+  "en": "Recency bias",
+  "t": "Sesgo de lo reciente"
+ },
+ "493d70368a90": {
+  "en": "Logging only the good trades. A journal without the losers tells a nice story and teaches you nothing.",
+  "t": "Registrar solo las buenas operaciones. Un diario sin las perdedoras cuenta una historia bonita y no te enseña nada."
+ },
+ "495bb193134c": {
+  "en": "15% or more is strong",
+  "t": "15 % o más es fuerte"
+ },
+ "498ffd2406c1": {
+  "en": "10:05: you ignore it, take a third trade and move the stop lower when it goes against you. It closes at −$350.",
+  "t": "10:05: lo ignoras, tomas una tercera operación y bajas el stop cuando va en tu contra. Cierra en −US$350."
+ },
+ "4a6de60e6a71": {
+  "en": "Keep a journal",
+  "t": "Lleva un diario"
+ },
+ "4b15fce6dff0": {
+  "en": "Cash flow: profit plus non-cash costs minus capex equals free cash flow.",
+  "t": "Flujo de caja: utilidad más costos que no son efectivo menos capex es igual a flujo de caja libre."
+ },
+ "4c2c3a475918": {
+  "en": "<b>Debt to equity</b> compares what the company owes with what shareholders own. <b>Free cash flow</b> is the cash left after running and investing in the business. Divide it by the price and you get the free cash flow yield.",
+  "t": "La <b>deuda sobre patrimonio</b> compara lo que la empresa debe con lo que tienen los accionistas. El <b>flujo de caja libre</b> es el efectivo que queda después de operar el negocio e invertir en él. Divídelo entre el precio y obtienes el rendimiento del flujo de caja libre."
+ },
+ "4c8cccba4871": {
+  "en": "A 40% win rate can still make money if winners average 2R.",
+  "t": "Una tasa de acierto del 40 % igual puede ganar plata si las ganadoras promedian 2R."
+ },
+ "4f8788da38a5": {
+  "en": "<b>Confirmation bias.</b> You read only the news and posts that agree with your trade and ignore the chart telling you that you are wrong.",
+  "t": "<b>Sesgo de confirmación.</b> Lees solo las noticias y publicaciones que coinciden con tu operación e ignoras el gráfico que te dice que estás equivocado."
+ },
+ "504b984a1691": {
+  "en": "Double the size on the next trade to win it back",
+  "t": "Duplicar el tamaño en la próxima operación para recuperarla"
+ },
+ "50f94286ba30": {
+  "en": "Previous",
+  "t": "Anterior"
+ },
+ "512d0bc19c54": {
+  "en": "Forgetting to check the date. Look up the next earnings date before every swing or option trade.",
+  "t": "Olvidar revisar la fecha. Busca la próxima fecha de resultados antes de cada operación swing o con opciones."
+ },
+ "5206575b9210": {
+  "en": "Despair",
+  "t": "Desesperación"
  },
  "529541bb390c": {
   "en": "Tue",
   "t": "Mar"
  },
+ "53469a82c62c": {
+  "en": "These are rules of thumb. Fast growers often carry high P/Es and banks normally carry more debt, so compare a company with its peers and with its own past.",
+  "t": "Son reglas prácticas. Las empresas de crecimiento rápido a menudo tienen P/U altos y los bancos normalmente tienen más deuda, así que compara una empresa con sus pares y con su propio pasado."
+ },
+ "536f6a31def5": {
+  "en": "Earnings: net income of $180M ÷ 60M shares = EPS of $3. P/E = $60 ÷ $3 = 20.",
+  "t": "Utilidades: utilidad neta de US$180 millones ÷ 60 millones de acciones = UPA de US$3. P/U = US$60 ÷ US$3 = 20."
+ },
+ "53fef90002fc": {
+  "en": "No orders yet. Your orders and their fills will show here.",
+  "t": "Todavía no hay órdenes. Tus órdenes y sus ejecuciones aparecen aquí."
+ },
+ "5486880bc78d": {
+  "en": "You planned a $300 loss and took $700, about 2.3R, because the gap jumped your stop.",
+  "t": "Planeaste una pérdida de US$300 y te llevaste una de US$700, cerca de 2,3R, porque el gap saltó tu stop."
+ },
+ "55077b7dfe55": {
+  "en": "Add trade",
+  "t": "Agregar operación"
+ },
+ "55a89527100d": {
+  "en": "Caution",
+  "t": "Precaución"
+ },
+ "573c21c3a244": {
+  "en": "Coming back the next day at bigger size to make up the loss. That is tilt carried over into a new day.",
+  "t": "Volver al día siguiente con más tamaño para compensar la pérdida. Eso es tilt llevado a un día nuevo."
+ },
+ "57a61d4fa519": {
+  "en": "Until 2026, FINRA's pattern day trader rule required $25,000 in a margin account to make more than three day trades in five business days. In April 2026 the SEC approved FINRA's change that replaces it. The new rule took effect on June 4, 2026, and brokers have until October 2027 to finish switching over, so yours may still be moving.",
+  "t": "Hasta 2026, la regla del pattern day trader de FINRA exigía US$25.000 en una cuenta de margen para hacer más de tres operaciones intradía en cinco días hábiles. En abril de 2026 la SEC aprobó el cambio de FINRA que la reemplaza. La regla nueva entró en vigor el 4 de junio de 2026, y los brókeres tienen hasta octubre de 2027 para terminar de cambiarse, así que el tuyo puede estar todavía en transición. Estas reglas aplican a brókeres de EE. UU."
+ },
+ "599edd89947b": {
+  "en": "Depreciation",
+  "t": "Depreciación"
+ },
+ "5a6d2319f0d0": {
+  "en": "Nothing, profit is all that matters",
+  "t": "Nada, la utilidad es lo único que importa"
+ },
+ "5c02f5480871": {
+  "en": "Anxiety",
+  "t": "Ansiedad"
+ },
+ "5c4b3e60bdbf": {
+  "en": "YOUR PRICE ",
+  "t": "TU PRECIO "
+ },
+ "5dd3f632ca5c": {
+  "en": "Profit margin",
+  "t": "Margen de utilidad"
+ },
+ "5e9d7ca10872": {
+  "en": "Where the cash goes, such as heavy capex or customers paying late",
+  "t": "A dónde se va el efectivo, como un capex muy alto o clientes que pagan tarde"
+ },
+ "5f2e861b9364": {
+  "en": "Income statement: revenue minus costs equals net income",
+  "t": "Estado de resultados: ingresos menos costos es igual a utilidad neta"
+ },
+ "5ff7449f288f": {
+  "en": "Set the expected and reported EPS, then flip guidance between raised, in line and cut.",
+  "t": "Fija la UPA esperada y la reportada, luego cambia las proyecciones entre subidas, en línea y recortadas."
+ },
+ "60ffe1f38d78": {
+  "en": "Made-up sample companies and rules of thumb only. Fair values differ by industry, so compare a company with its peers and its own history.",
+  "t": "Solo empresas de ejemplo inventadas y reglas prácticas. Los valores justos cambian según el sector, así que compara una empresa con sus pares y con su propia historia."
+ },
+ "61aeb78b8077": {
+  "en": "Debt: debt to equity is 0.6, well under the 2× warning line.",
+  "t": "Deuda: la deuda sobre patrimonio es 0,6, muy por debajo de la línea de alerta de 2×."
+ },
+ "64464215d06a": {
+  "en": "Expected EPS {0}, reported {1}, guidance {2}; the illustrated stock gaps {3} the next day",
+  "t": "UPA esperada {0}, reportada {1}, proyecciones {2}; la acción ilustrada abre con un gap {3} al día siguiente"
+ },
+ "64546c94420b": {
+  "en": "{0} of 5 checks look healthy. Next, compare with similar companies and decide what a fair price would be.",
+  "t": "{0} de 5 revisiones se ven sanas. Luego compara con empresas parecidas y decide cuál sería un precio justo."
+ },
+ "652c6f169fce": {
+  "en": "Profit of {0} plus {1} of non-cash costs is {2} of real cash. After {3} of capex, {4} is free for dividends, buybacks or paying debt.",
+  "t": "Una utilidad de {0} más {1} de costos que no son efectivo son {2} de efectivo real. Después de {3} de inversiones de capital, quedan {4} libres para dividendos, recompras o pagar deuda."
+ },
+ "660768e1f334": {
+  "en": "It always rises because it beat",
+  "t": "Siempre sube porque superó lo esperado"
+ },
+ "6663395d0d75": {
+  "en": "Run a pre-trade checklist on every trade. Any \"no\" means skip.",
+  "t": "Usa una lista de chequeo antes de cada operación. Cualquier \"no\" significa saltártela."
+ },
+ "67d7c40b58ab": {
+  "en": "A <b>market order</b> fills right away at the best available price: you buy at the ask and sell at the bid. A <b>limit order</b> fills only at your price or better, so it may never fill.",
+  "t": "Una <b>orden de mercado</b> se ejecuta de inmediato al mejor precio disponible: compras al ask y vendes al bid. Una <b>orden límite</b> se ejecuta solo a tu precio o a uno mejor, así que puede que nunca se ejecute."
+ },
+ "6803eb179dc2": {
+  "en": "At your daily loss limit, close the platform and write one paragraph in your <a href=\"#l-journal\">journal</a>.",
+  "t": "En tu límite de pérdida diario, cierra la plataforma y escribe un párrafo en tu <a href=\"#l-journal\">diario</a>."
+ },
+ "689e027c2657": {
+  "en": "Fear",
+  "t": "Miedo"
+ },
+ "68b6123a378f": {
+  "en": "Add a trade to draw your R curve",
+  "t": "Agrega una operación para dibujar tu curva de R"
+ },
+ "68c8e6a2a820": {
+  "en": "Daily loss limit",
+  "t": "Límite de pérdida diario"
+ },
+ "698eae98d6d7": {
+  "en": " of 5",
+  "t": " de 5"
+ },
+ "69af35547277": {
+  "en": "Cash flow: net income plus non-cash costs minus capex equals free cash flow",
+  "t": "Flujo de caja: utilidad neta más costos que no son efectivo menos inversiones de capital es igual a flujo de caja libre"
+ },
+ "6a14b66123f6": {
+  "en": "The old rule: with under $25,000, a fourth day trade in five business days flagged you as a pattern day trader. FINRA removed it in 2026. Each round trip here is assumed to break even. Buying power shown as 2× equity is only an example; your broker sets the real number and may add its own limits.",
+  "t": "La regla vieja en EE. UU.: con menos de US$25.000, una cuarta operación intradía en cinco días hábiles te marcaba como pattern day trader. FINRA la eliminó en 2026. Aquí se supone que cada ida y vuelta queda tablas. El poder de compra mostrado como 2× el patrimonio es solo un ejemplo; tu bróker fija el número real y puede agregar sus propios límites."
+ },
+ "6a18caf3f5fd": {
+  "en": "Earnings report",
+  "t": "Informe de resultados"
+ },
+ "6ac87f344682": {
+  "en": "Expected",
+  "t": "Esperado"
+ },
+ "6e83ee3d6530": {
+  "en": "After any broken rule, cut your size in half for the rest of the day.",
+  "t": "Después de cualquier regla rota, reduce tu tamaño a la mitad por el resto del día."
+ },
+ "6ef3831824b3": {
+  "en": "Before your limit order fills, DEMO spikes to $40.70. FOMO says to buy now at market.",
+  "t": "Antes de que se ejecute tu orden límite, DEMO salta a US$40,70. El FOMO te dice que compres ya a mercado."
+ },
+ "6fe1d54b2ba0": {
+  "en": "Subtract $50M of capex for new equipment. Free cash flow is $85M − $50M = $35M.",
+  "t": "Resta US$50 millones de capex en equipos nuevos. El flujo de caja libre es US$85 millones − US$50 millones = US$35 millones."
+ },
+ "716053d55b7f": {
+  "en": "Selling everything in a panic after a long drop, often near the low, then missing the recovery.",
+  "t": "Venderlo todo en pánico después de una caída larga, a menudo cerca del mínimo, y luego perderse la recuperación."
+ },
+ "71ff3674fd2f": {
+  "en": "A strategy only works if you follow it. Most account damage comes from broken rules, so build habits that protect you from yourself.",
+  "t": "Una estrategia solo funciona si la sigues. La mayor parte del daño a las cuentas viene de reglas rotas, así que construye hábitos que te protejan de ti mismo."
+ },
+ "7347a1c0439d": {
+  "en": "Monday 11:00: another setup appears. Buying it with the unsettled $3,050 and selling it today would be a good faith violation.",
+  "t": "Lunes 11:00: aparece otra configuración. Comprarla con los US$3.050 sin liquidar y venderla hoy sería una infracción de buena fe (good faith violation)."
+ },
+ "7348d9b8a23e": {
+  "en": "Stop: triggers at your price, then fills at market.",
+  "t": "Stop: se activa a tu precio y luego se ejecuta a mercado."
+ },
+ "73c20ded5edc": {
+  "en": "Reported",
+  "t": "Reportado"
+ },
+ "746fcc229bf1": {
+  "en": "Assuming a stop guarantees your price. Overnight gaps and fast moves can fill you well below it.",
+  "t": "Suponer que un stop garantiza tu precio. Los gaps de la noche y los movimientos rápidos te pueden ejecutar muy por debajo."
+ },
+ "74d3cf747284": {
+  "en": "Run the cycle",
+  "t": "Recorrer el ciclo"
+ },
  "75509fab53c4": {
   "en": "Short-term",
   "t": "Corto plazo"
+ },
+ "7570de41975c": {
+  "en": "Cash: free cash flow of $90M ÷ 60M shares = $1.50 a share. $1.50 ÷ $60 = a 2.5% free cash flow yield.",
+  "t": "Efectivo: flujo de caja libre de US$90 millones ÷ 60 millones de acciones = US$1,50 por acción. US$1,50 ÷ US$60 = un rendimiento del flujo de caja libre de 2,5 %."
+ },
+ "76af59217541": {
+  "en": "<b>The bottom:</b> capitulation and despair, then hope and relief. Once most people have given up, sellers run out and price can turn.",
+  "t": "<b>El piso:</b> capitulación y desesperación, luego esperanza y alivio. Una vez la mayoría se rindió, se acaban los vendedores y el precio puede dar la vuelta."
+ },
+ "782031bb3940": {
+  "en": "Place order (100 shares)",
+  "t": "Enviar orden (100 acciones)"
+ },
+ "7930bf9fc20b": {
+  "en": "Calm",
+  "t": "Calma"
+ },
+ "79c9e13ab7d5": {
+  "en": "Flat",
+  "t": "Sin posición"
+ },
+ "7a2fb2d492e7": {
+  "en": "Good faith violation",
+  "t": "Infracción de buena fe"
+ },
+ "7af650f6255d": {
+  "en": "Your stop becomes a market order and fills near $73. The loss is $7 a share, or $700 on 100 shares.",
+  "t": "Tu stop se vuelve una orden de mercado y se ejecuta cerca de US$73. La pérdida es de US$7 por acción, o US$700 en 100 acciones."
+ },
+ "7afe0e03fb7e": {
+  "en": "<b>Tilt</b> is a poker word for playing badly because you are upset. In trading it usually starts with a loss or two, then shows up as bigger size, faster trades and broken rules. Each step makes the next mistake more likely.",
+  "t": "<b>Tilt</b> es una palabra del póquer para jugar mal porque estás alterado. En el trading por lo general empieza con una o dos pérdidas y luego aparece como más tamaño, operaciones más rápidas y reglas rotas. Cada paso hace más probable el siguiente error."
+ },
+ "7b3b68822160": {
+  "en": "You marked DEMO\\'s premarket high at $40.20 before the open. Your account is $10,000 and you risk 1%, or $100, per trade.",
+  "t": "Marcaste el máximo del premercado de DEMO en US$40,20 antes de la apertura. Tu cuenta es de US$10.000 y arriesgas el 1 %, o US$100, por operación."
+ },
+ "7b3fceb5dcfb": {
+  "en": "Watch for the signs: losses in a row, size above normal, jumping into a new trade minutes after the last one, and any broken rule. Two or more at once means stop for the day. A <b>daily loss limit</b>, such as 2% to 3% of the account, is the hard stop that ends the session no matter how you feel.",
+  "t": "Vigila las señales: pérdidas seguidas, tamaño por encima de lo normal, saltar a una operación nueva minutos después de la anterior y cualquier regla rota. Dos o más a la vez significa parar por el día. Un <b>límite de pérdida diario</b>, como el 2 % a 3 % de la cuenta, es el freno duro que termina la sesión sin importar cómo te sientas."
+ },
+ "7bf6625541ba": {
+  "en": "under 1× is comfortable",
+  "t": "menos de 1× es cómodo"
+ },
+ "7e5dd3845e0f": {
+  "en": "Buy and sell today",
+  "t": "Comprar y vender hoy"
+ },
+ "7e68df30c8ca": {
+  "en": "Switch between the three statements and move the sliders. Watch profit flow from one report into the others.",
+  "t": "Cambia entre los tres estados y mueve los deslizadores. Mira cómo la utilidad pasa de un informe a los otros."
+ },
+ "7f174142dfef": {
+  "en": "<b>Loss aversion.</b> A loss hurts roughly twice as much as an equal gain feels good. So you hold losers to avoid making the loss real, and you sell winners early to lock in the good feeling.",
+  "t": "<b>Aversión a la pérdida.</b> Una pérdida duele más o menos el doble de lo bien que se siente una ganancia igual. Así que aguantas las perdedoras para no volver real la pérdida, y vendes las ganadoras temprano para asegurar la buena sensación."
+ },
+ "7f687376cb1a": {
+  "en": "Cut your size in half and take only an A+ setup{0}.",
+  "t": "Reduce tu tamaño a la mitad y toma solo una configuración A+{0}."
+ },
+ "7f77efd53d19": {
+  "en": "Order type",
+  "t": "Tipo de orden"
+ },
+ "7f8c9fa01bbd": {
+  "en": "{0}: example chart",
+  "t": "{0}: gráfico de ejemplo"
+ },
+ "7ff6754d636f": {
+  "en": "Using market orders on thinly traded stocks. A wide spread can cost more than the risk you planned.",
+  "t": "Usar órdenes de mercado en acciones con poca negociación. Un diferencial amplio puede costar más que el riesgo que planeaste."
  },
  "805f230533b9": {
   "en": "SEC: Beginners’ guide to financial statements",
@@ -35,20 +679,780 @@
   "en": "No",
   "t": "No"
  },
+ "81e1e279fe98": {
+  "en": "Balance sheet: assets of $900M minus debt of $400M leaves equity of $500M. Debt to equity is $400M ÷ $500M = 0.8.",
+  "t": "Balance general: activos de US$900 millones menos deuda de US$400 millones dejan un patrimonio de US$500 millones. La deuda sobre patrimonio es US$400 millones ÷ US$500 millones = 0,8."
+ },
+ "81e4b930ad82": {
+  "en": "An <b>R multiple</b> measures a trade by the risk you took. If you risked $1 per share and made $2, that's +2R. If you hit your stop, that's −1R. R lets you compare trades of any size.",
+  "t": "Un <b>múltiplo de R</b> mide una operación por el riesgo que tomaste. Si arriesgaste US$1 por acción y ganaste US$2, eso es +2R. Si tocaste tu stop, eso es −1R. El R te deja comparar operaciones de cualquier tamaño."
+ },
+ "845826d81f30": {
+  "en": "Judging a company by profit alone. A business can report a profit for years while its free cash flow stays negative.",
+  "t": "Juzgar una empresa solo por su utilidad. Un negocio puede reportar utilidad durante años mientras su flujo de caja libre sigue negativo."
+ },
+ "853c8c6677a2": {
+  "en": "Denial",
+  "t": "Negación"
+ },
+ "87c020e6442c": {
+  "en": "A fixed amount you can lose in one day before you stop trading, such as 3% of the account.",
+  "t": "Una cantidad fija que puedes perder en un día antes de dejar de operar, como el 3 % de la cuenta."
+ },
+ "87f0909840bf": {
+  "en": "Your broker may still have its own limits.",
+  "t": "Tu bróker puede tener todavía sus propios límites."
+ },
+ "88850f54bb02": {
+  "en": "Your account is $10,000. You risk $100 per trade and your daily loss limit is 3%, or $300.",
+  "t": "Tu cuenta es de US$10.000. Arriesgas US$100 por operación y tu límite de pérdida diario es del 3 %, o US$300."
+ },
+ "88f7b23e3c45": {
+  "en": "DEMO shows a bid of $25.00 and an ask of $25.05. You plan to buy 200 shares.",
+  "t": "DEMO muestra un bid de US$25,00 y un ask de US$25,05. Planeas comprar 200 acciones."
+ },
+ "89a870edc98e": {
+  "en": "Five numbers to check",
+  "t": "Cinco números para revisar"
+ },
+ "89d912198a74": {
+  "en": "Balance sheet: assets equal debt plus equity.",
+  "t": "Balance general: activos es igual a deuda más patrimonio."
+ },
+ "8a4e4a3a4a15": {
+  "en": "10% a year or more is strong",
+  "t": "10 % al año o más es fuerte"
+ },
+ "8a506f2146e3": {
+  "en": "Spreading the cost of equipment over its useful life. It lowers profit but uses no cash that year.",
+  "t": "Repartir el costo de un equipo a lo largo de su vida útil. Baja la utilidad pero no usa efectivo ese año."
+ },
+ "8a61122b149b": {
+  "en": "Income, balance sheet and cash flow: what each report tells you.",
+  "t": "Resultados, balance general y flujo de caja: qué te dice cada informe."
+ },
+ "8a8f4ebf1708": {
+  "en": "Earnings can gap a stock past your stop loss.",
+  "t": "Los resultados pueden hacer que una acción salte tu stop loss con un gap."
+ },
+ "8b27ab085a08": {
+  "en": "Beat and raise",
+  "t": "Supera y sube proyecciones"
+ },
+ "8b3c26f8417e": {
+  "en": "Judging from a single year. Look at 3 to 5 years of sales, margins and cash flow to see the direction.",
+  "t": "Juzgar con un solo año. Mira de 3 a 5 años de ventas, márgenes y flujo de caja para ver la dirección."
+ },
+ "8b403fa9dd5a": {
+  "en": "Buying options right before the report. Implied volatility drops afterwards (IV crush), so options can lose value even when you guess the direction right.",
+  "t": "Comprar opciones justo antes del informe. La volatilidad implícita cae después (el desplome de la IV), así que las opciones pueden perder valor aunque adivines bien la dirección."
+ },
+ "8cc032100a04": {
+  "en": "The <b>cash flow statement</b> tracks real money moving in and out. Accounting choices can shape profit, but cash is much harder to fake. <b>Free cash flow</b> is the cash left after paying for new equipment and buildings, called capex.",
+  "t": "El <b>estado de flujos de efectivo</b> sigue la plata real que entra y sale. Las decisiones contables pueden moldear la utilidad, pero el efectivo es mucho más difícil de falsear. El <b>flujo de caja libre</b> es el efectivo que queda después de pagar equipos y edificios nuevos, lo que se llama inversiones de capital (capex)."
+ },
+ "8d64a94eb137": {
+  "en": "{0}<span class=\"grow\"></span><span class=\"pill\">Example company · $ millions</span>",
+  "t": "{0}<span class=\"grow\"></span><span class=\"pill\">Empresa de ejemplo · US$ millones</span>"
+ },
+ "8d78b7fb1d46": {
+  "en": "The <b>balance sheet</b> is a snapshot of what the company owns (assets) and what it owes (debt). Whatever is left belongs to shareholders. That part is called equity.",
+  "t": "El <b>balance general</b> es una foto de lo que la empresa tiene (activos) y lo que debe (deuda). Lo que sobra les pertenece a los accionistas. Esa parte se llama patrimonio."
+ },
+ "8ddfe8f092ca": {
+  "en": "Pick an order type, set a price, place the order and watch when it fills.",
+  "t": "Escoge un tipo de orden, fija un precio, envía la orden y mira cuándo se ejecuta."
+ },
+ "8f17662ea868": {
+  "en": "Profitable, cash positive and moderate debt: a healthy picture worth a closer look.",
+  "t": "Rentable, con efectivo positivo y deuda moderada: un panorama sano que vale la pena mirar más de cerca."
+ },
+ "8fd68a39a4af": {
+  "en": "A <b>stop order</b> waits until price reaches your stop, then becomes a market order. It protects you from a bigger loss, but in a fast move it can fill below your stop. That difference is called slippage.",
+  "t": "Una <b>orden stop</b> espera hasta que el precio llega a tu stop y luego se vuelve una orden de mercado. Te protege de una pérdida más grande, pero en un movimiento rápido se puede ejecutar por debajo de tu stop. Esa diferencia se llama deslizamiento."
+ },
+ "909c98130d13": {
+  "en": "Brokers can still set stricter rules of their own, so read your broker's policy before you start.",
+  "t": "Los brókeres igual pueden fijar reglas propias más estrictas, así que lee la política de tu bróker antes de empezar."
+ },
+ "90d27900e210": {
+  "en": "You log your last 10 trades in R. Each one risked $100.",
+  "t": "Registras tus últimas 10 operaciones en R. Cada una arriesgó US$100."
+ },
+ "90e759e16d11": {
+  "en": "Pause, check your daily loss limit, and wait for a real setup",
+  "t": "Hacer una pausa, revisar tu límite de pérdida diario y esperar una configuración de verdad"
+ },
+ "91899d061911": {
+  "en": "<b>Recency bias.</b> The last few trades feel like the whole story. Three losses and you drop a strategy that works over 100 trades.",
+  "t": "<b>Sesgo de lo reciente.</b> Las últimas operaciones se sienten como toda la historia. Tres pérdidas y abandonas una estrategia que funciona a lo largo de 100 operaciones."
+ },
+ "91a7bf39f710": {
+  "en": "The three reports connect. Profit adds to equity on the balance sheet, and it is the starting line of the cash flow statement.",
+  "t": "Los tres informes están conectados. La utilidad se suma al patrimonio en el balance general y es el punto de partida del estado de flujos de efectivo."
+ },
+ "921246ad5e43": {
+  "en": "Debt to equity",
+  "t": "Deuda sobre patrimonio"
+ },
+ "9239ca78f292": {
+  "en": "<b>Rising:</b> optimism, then excitement, then thrill. Each gain makes people more sure of themselves.",
+  "t": "<b>Subiendo:</b> optimismo, luego entusiasmo, luego emoción. Cada ganancia hace que la gente esté más segura de sí misma."
+ },
+ "92f9610e6529": {
+  "en": "Tilt meter gauge reading {0} out of 100",
+  "t": "Medidor de tilt que marca {0} de 100"
+ },
+ "931c4da6bab9": {
+  "en": "One more trade at normal size to get back to even",
+  "t": "Una operación más con el tamaño normal para quedar tablas"
+ },
+ "939ab20750ea": {
+  "en": "Next situation",
+  "t": "Siguiente situación"
+ },
+ "9457813103d5": {
+  "en": "When a stock opens well above or below the last close, skipping the prices in between.",
+  "t": "Cuando una acción abre muy por encima o muy por debajo del último cierre, saltándose los precios intermedios."
+ },
+ "95ab5d0612dc": {
+  "en": "<span class=\"sr\">Remove</span>",
+  "t": "<span class=\"sr\">Quitar</span>"
+ },
+ "95bfd86b32a8": {
+  "en": "Buying because the P/E is low. A shrinking business often looks cheap right before its profits fall further.",
+  "t": "Comprar porque el P/U está bajo. Un negocio que se está achicando a menudo se ve barato justo antes de que sus utilidades caigan más."
+ },
+ "95c152c0bf56": {
+  "en": "The wash sale rule",
+  "t": "La regla de la venta ficticia (wash sale)"
+ },
+ "96dce5c7e5ec": {
+  "en": "Market emotion cycle drawn as a price wave. The marker is at {0}.",
+  "t": "Ciclo de emociones del mercado dibujado como una ola de precios. El marcador está en {0}."
+ },
+ "971ef41db19c": {
+  "en": "Starts at ",
+  "t": "Empieza en "
+ },
+ "978d974d5310": {
+  "en": "Stop trading for the day and journal what happened",
+  "t": "Dejar de operar por el día y escribir en el diario lo que pasó"
+ },
+ "985281bb55d6": {
+  "en": "Skipping the notes. Your mood and the reason for each trade explain patterns the numbers cannot.",
+  "t": "Saltarte las notas. Tu ánimo y la razón de cada operación explican patrones que los números no pueden."
+ },
+ "98971971f69f": {
+  "en": "Excitement",
+  "t": "Entusiasmo"
+ },
+ "9a2034b037b6": {
+  "en": "Profit is an accounting number; free cash flow that stays negative means the business keeps needing more money than it brings in.",
+  "t": "La utilidad es un número contable; un flujo de caja libre que sigue negativo significa que el negocio sigue necesitando más plata de la que trae."
+ },
+ "9a26cba4c121": {
+  "en": "<b>Overconfidence after a streak.</b> Five winners in a row feel like pure skill. You raise size and loosen your rules right before the normal losing run arrives.",
+  "t": "<b>Exceso de confianza después de una racha.</b> Cinco ganadoras seguidas se sienten como pura habilidad. Subes el tamaño y aflojas tus reglas justo antes de que llegue la racha perdedora normal."
+ },
+ "9b0528e1825a": {
+  "en": "9:44: annoyed, you jump into another trade at double size. It stops out for −$200, and you are down $300 for the day.",
+  "t": "9:44: molesto, te lanzas a otra operación con el doble de tamaño. Toca el stop por −US$200, y vas perdiendo US$300 en el día."
+ },
+ "9c07477a7ae0": {
+  "en": "<b>The top:</b> euphoria. Everyone you know is buying. Risk is highest here, because few buyers are left.",
+  "t": "<b>El techo:</b> euforia. Todos los que conoces están comprando. El riesgo es más alto aquí, porque quedan pocos compradores."
+ },
+ "9c3192e18550": {
+  "en": "Buying more as a trend gets exciting and everyone is talking about it. Euphoria is where risk is highest.",
+  "t": "Comprar más a medida que una tendencia se pone emocionante y todo el mundo habla de ella. La euforia es donde el riesgo es más alto."
+ },
+ "9c5e9f874faf": {
+  "en": "Start the next day at normal size. Don't try to win yesterday back.",
+  "t": "Empieza el día siguiente con el tamaño normal. No trates de recuperar lo de ayer."
+ },
+ "9cc6f6fa9b8c": {
+  "en": "CASH FLOW",
+  "t": "FLUJO DE CAJA"
+ },
+ "9e78cb419519": {
+  "en": "Changing everything after a handful of trades. Test one change at a time and review after 20 to 30 more trades.",
+  "t": "Cambiarlo todo después de un puñado de operaciones. Prueba un cambio a la vez y revisa después de 20 a 30 operaciones más."
+ },
+ "9ef8cbf522b9": {
+  "en": "9:40: a DEMO breakout fails and you hit your stop. Loss: −$100. Normal, it happens.",
+  "t": "9:40: una ruptura de DEMO falla y tocas tu stop. Pérdida: −US$100. Normal, pasa."
+ },
+ "9f180890b309": {
+  "en": "Without those 5 trades the other 5 total +2.4R + 5R = +7.4R.",
+  "t": "Sin esas 5 operaciones, las otras 5 suman +2,4R + 5R = +7,4R."
+ },
+ "a0fab09a8741": {
+  "en": "The $25,000 pattern day trader rule is gone. Now it's about settled cash in a cash account or $2,000 of equity in a margin account.",
+  "t": "Se acabó la regla del pattern day trader de US$25.000. Ahora todo depende del efectivo liquidado en una cuenta de efectivo o de US$2.000 de patrimonio en una cuenta de margen."
+ },
+ "a2875e8bed16": {
+  "en": "In a <b>cash account</b> you can day trade without margin, but only with settled cash. Stock trades settle one business day later (T+1), so money from today's sale is ready to use again tomorrow.",
+  "t": "En una <b>cuenta de efectivo</b> puedes hacer day trading sin margen, pero solo con efectivo liquidado. Las operaciones con acciones se liquidan un día hábil después (T+1), así que la plata de la venta de hoy está lista para usarse otra vez mañana."
+ },
+ "a2e54e3fa08a": {
+  "en": "Revenge trading",
+  "t": "Trading por venganza"
+ },
+ "a3e27f511ab2": {
+  "en": "Sales of {0} minus costs of {1} leaves {2} of profit. That profit adds to equity and starts the cash flow statement.",
+  "t": "Ventas de {0} menos costos de {1} dejan {2} de utilidad. Esa utilidad se suma al patrimonio y abre el estado de flujos de efectivo."
+ },
+ "a47104eedf72": {
+  "en": "Bought and sold {0} today with settled cash. The {1} from the sale settles tomorrow (T+1).",
+  "t": "Compraste y vendiste {0} hoy con efectivo liquidado. Los {1} de la venta se liquidan mañana (T+1)."
+ },
+ "a72ca256dc49": {
+  "en": "Statement",
+  "t": "Estado"
+ },
+ "a75591b5999e": {
+  "en": "A market order buys speed, a limit order controls price, and a stop order gets you out when price turns against you.",
+  "t": "Una orden de mercado compra velocidad, una orden límite controla el precio y una orden stop te saca cuando el precio se voltea en tu contra."
+ },
+ "a83e2b483086": {
+  "en": "After two losses in a row, stand up and step away for 15 minutes.",
+  "t": "Después de dos pérdidas seguidas, levántate y aléjate 15 minutos."
+ },
+ "a8bf3039b539": {
+  "en": "Debt / equity",
+  "t": "Deuda / patrimonio"
+ },
+ "a9155d69fc09": {
+  "en": "Management also gives <b>guidance</b>, its forecast for the coming quarter or year. A stock's price is a bet on future profits, so a lower forecast can sink a stock even after a great quarter.",
+  "t": "La gerencia también da <b>proyecciones</b> (guidance), su pronóstico para el próximo trimestre o año. El precio de una acción es una apuesta por las utilidades futuras, así que un pronóstico más bajo puede hundir una acción incluso después de un gran trimestre."
+ },
+ "a9f0cf18a85f": {
+  "en": "Margin: $180M profit ÷ $2.0B sales = 9%. DEMO keeps 9 cents of each sales dollar.",
+  "t": "Margen: US$180 millones de utilidad ÷ US$2.000 millones de ventas = 9 %. DEMO se queda con 9 centavos de cada dólar de ventas."
+ },
+ "abddff6003a6": {
+  "en": "Buying power",
+  "t": "Poder de compra"
+ },
+ "ac1b5c4af447": {
+  "en": "Every stock has two prices at once. The <b>bid</b> is the highest price buyers offer; the <b>ask</b> is the lowest price sellers accept. The gap between them is the <b>spread</b>, a small cost you pay on every trade.",
+  "t": "Toda acción tiene dos precios a la vez. El <b>bid</b> es el precio más alto que ofrecen los compradores; el <b>ask</b> es el precio más bajo que aceptan los vendedores. La brecha entre los dos es el <b>diferencial</b> (spread), un costo pequeño que pagas en cada operación."
+ },
+ "acaadabfd4e2": {
+  "en": "Size: $100 ÷ $0.30 = 333 shares. You are under your daily limit and feel calm, so every box is checked.",
+  "t": "Tamaño: US$100 ÷ US$0,30 = 333 acciones. Estás por debajo de tu límite diario y te sientes tranquilo, así que todas las casillas están marcadas."
+ },
+ "ae8a6ebb2c29": {
+  "en": "Plan: entry $40.25 and stop $39.95 under the level, so you risk $0.30 a share. The target of $40.85 is $0.60 away, which is 2R.",
+  "t": "Plan: entrada en US$40,25 y stop en US$39,95 debajo del nivel, así que arriesgas US$0,30 por acción. El objetivo de US$40,85 está a US$0,60, que es 2R."
+ },
+ "b0df71f1ec01": {
+  "en": "Crowds swing from euphoria to panic and back, and so can you inside a single day. Spot the swing early and let rules decide.",
+  "t": "La gente pasa de la euforia al pánico y de vuelta, y tú también puedes hacerlo en un solo día. Detecta el cambio temprano y deja que decidan las reglas."
+ },
+ "b104934e4ec4": {
+  "en": "Nothing, guidance doesn't matter",
+  "t": "Nada, las proyecciones no importan"
+ },
+ "b2464742da10": {
+  "en": "Gap",
+  "t": "Gap"
+ },
+ "b25928c69902": {
+  "en": "Total",
+  "t": "Total"
+ },
+ "b354ebd40e09": {
+  "en": "Placing stops at obvious round numbers like $25.00, where many other stops sit. Price often dips there and then reverses.",
+  "t": "Poner los stops en números redondos obvios como US$25,00, donde están muchos otros stops. El precio a menudo baja hasta ahí y luego se voltea."
+ },
+ "b3a1873d4330": {
+  "en": "Buying power (example: 2× equity)",
+  "t": "Poder de compra (ejemplo: 2× el patrimonio)"
+ },
+ "b3cf1a7a6b1d": {
+  "en": "Cash flow statement: start from the $60M profit and add back $25M of depreciation, a cost that used no cash this year. Cash from operations is $85M.",
+  "t": "Estado de flujos de efectivo: empieza con la utilidad de US$60 millones y súmale de vuelta US$25 millones de depreciación, un costo que este año no usó efectivo. El efectivo de las operaciones es de US$85 millones."
+ },
+ "b3e636c64389": {
+  "en": "R = (exit − entry) ÷ (entry − stop).",
+  "t": "R = (salida − entrada) ÷ (entrada − stop)."
+ },
+ "b3fab0975d9c": {
+  "en": "Immediately at $50.02",
+  "t": "De inmediato en US$50,02"
+ },
+ "b49d827b9675": {
+  "en": "Trading with unsettled cash in a cash account. Repeated good faith violations can get the account restricted.",
+  "t": "Operar con efectivo sin liquidar en una cuenta de efectivo. Las infracciones de buena fe repetidas pueden hacer que restrinjan la cuenta."
+ },
+ "b4e995c8d4f0": {
+  "en": "P/E = price ÷ earnings per share. Lower is cheaper, but cheap can be cheap for a reason.",
+  "t": "P/U = precio ÷ utilidad por acción. Más bajo es más barato, pero lo barato puede estar barato por una razón."
+ },
+ "b50a4d98b3cd": {
+  "en": "4% or more is strong",
+  "t": "4 % o más es fuerte"
+ },
+ "b514d5b8e77b": {
+  "en": "Buy double size to make up for missing it",
+  "t": "Comprar el doble de tamaño para compensar lo que te perdiste"
+ },
+ "b51ce621d56b": {
+  "en": "Analysts expect EPS of $1.00. DEMO reports $1.08, a beat of 8%.",
+  "t": "Los analistas esperan una UPA de US$1,00. DEMO reporta US$1,08, lo que supera lo esperado en 8 %."
+ },
+ "b87bb17ec8b0": {
+  "en": "Price chart around $50 with bid {0} and ask {1}, plus your working orders",
+  "t": "Gráfico de precios alrededor de US$50 con bid {0} y ask {1}, más tus órdenes activas"
+ },
+ "b87f07599e1c": {
+  "en": "Reading only the headline beat or miss. Guidance and revenue often decide which way the stock moves.",
+  "t": "Leer solo si superó o se quedó corto en el titular. Las proyecciones y los ingresos a menudo deciden hacia dónde se mueve la acción."
+ },
+ "bab799ac4e01": {
+  "en": "\"I am a genius. This never ends.\"",
+  "t": "\"Soy un genio. Esto no se acaba nunca.\""
+ },
  "bae7d5be7082": {
   "en": "Status",
   "t": "Estado"
+ },
+ "bb9202cba6a3": {
+  "en": "A limit buy fills only at your price or better.",
+  "t": "Una compra límite se ejecuta solo a tu precio o a uno mejor."
  },
  "bbd6e32ee132": {
   "en": "Fri",
   "t": "Vie"
  },
+ "bc3eaee06e60": {
+  "en": "Market: fast fill, price not guaranteed.",
+  "t": "Mercado: ejecución rápida, precio no garantizado."
+ },
+ "bc41a0b9eee4": {
+  "en": "Cash vs margin accounts now that the $25,000 rule is gone.",
+  "t": "Cuentas de efectivo frente a cuentas de margen ahora que se acabó la regla de los US$25.000."
+ },
+ "bd85aabfb810": {
+  "en": "Capitulation",
+  "t": "Capitulación"
+ },
+ "bda511eb29da": {
+  "en": "Set a daily loss limit and stop when you hit it.",
+  "t": "Fija un límite de pérdida diario y para cuando lo alcances."
+ },
+ "be32b133e414": {
+  "en": "Tilt signs: losses in a row, bigger size, rushed trades, broken rules.",
+  "t": "Señales de tilt: pérdidas seguidas, más tamaño, operaciones apuradas, reglas rotas."
+ },
+ "be53bb74496a": {
+  "en": "Relief",
+  "t": "Alivio"
+ },
+ "be7af3ed46d7": {
+  "en": "Not reading your broker's rules. Some brokers keep stricter day trading limits than the FINRA minimum.",
+  "t": "No leer las reglas de tu bróker. Algunos brókeres mantienen límites de day trading más estrictos que el mínimo de FINRA."
+ },
+ "bed15ad1474a": {
+  "en": "Treating margin buying power as your own money. Borrowed size makes every loss bigger.",
+  "t": "Tratar el poder de compra del margen como plata propia. El tamaño prestado agranda cada pérdida."
+ },
+ "bed2b20f7499": {
+  "en": "P/E, growth, margins, debt and free cash flow in plain words.",
+  "t": "P/U, crecimiento, márgenes, deuda y flujo de caja libre en palabras sencillas."
+ },
+ "bf17222e43a4": {
+  "en": "Income statement: revenue of $500M minus all costs of $440M leaves net income of $60M. Profit margin is $60M ÷ $500M = 12%.",
+  "t": "Estado de resultados: ingresos de US$500 millones menos costos totales de US$440 millones dejan una utilidad neta de US$60 millones. El margen de utilidad es US$60 millones ÷ US$500 millones = 12 %."
+ },
+ "bf45d39edb07": {
+  "en": "Reading one quarter in isolation. Compare at least four quarters, and the same quarter last year, to see the trend.",
+  "t": "Leer un trimestre aislado. Compara al menos cuatro trimestres, y el mismo trimestre del año pasado, para ver la tendencia."
+ },
+ "c085664b81e8": {
+  "en": "Profit is the thread that links all three reports",
+  "t": "La utilidad es el hilo que une los tres informes"
+ },
+ "c0babc6903d5": {
+  "en": "−$650 is 6.5 normal losses. Stopping at the limit would have cost 3.",
+  "t": "−US$650 son 6,5 pérdidas normales. Parar en el límite habría costado 3."
+ },
+ "c0cd703ac6df": {
+  "en": "Risk / sh",
+  "t": "Riesgo / acc."
+ },
+ "c0d22eaed856": {
+  "en": "You risked $0.50 per share and made $1.00, which is two times your risk.",
+  "t": "Arriesgaste US$0,50 por acción y ganaste US$1,00, que es dos veces tu riesgo."
+ },
+ "c0f0732c4d61": {
+  "en": "$50 ÷ $2.50 = 20, so you pay $20 for every $1 of yearly profit.",
+  "t": "US$50 ÷ US$2,50 = 20, así que pagas US$20 por cada US$1 de utilidad anual."
+ },
+ "c28d87d9d56e": {
+  "en": "Day trading rules in 2026",
+  "t": "Las reglas del day trading en 2026"
+ },
+ "c3646ad92940": {
+  "en": "<b>Falling:</b> anxiety, denial, fear and panic. People hold too long, then sell all at once.",
+  "t": "<b>Cayendo:</b> ansiedad, negación, miedo y pánico. La gente aguanta demasiado y luego vende toda al mismo tiempo."
+ },
+ "c3f505a7960a": {
+  "en": "Limit: price guaranteed, fill not guaranteed.",
+  "t": "Límite: precio garantizado, ejecución no garantizada."
+ },
+ "c452801d1ad3": {
+  "en": "Look for growing sales and steady margins.",
+  "t": "Busca ventas que crecen y márgenes estables."
+ },
+ "c5d71fadb103": {
+  "en": "New rule to test: no new trades after 11:00 for the next 20 trades, then review again.",
+  "t": "Regla nueva para probar: ninguna operación nueva después de las 11:00 durante las próximas 20 operaciones, y luego revisar otra vez."
+ },
+ "c5dbf781cddb": {
+  "en": "<span class=\"wg-title\">Sample company</span>{0}",
+  "t": "<span class=\"wg-title\">Empresa de ejemplo</span>{0}"
+ },
+ "c5f303004858": {
+  "en": "Half size",
+  "t": "Medio tamaño"
+ },
+ "c68fc2b7c88c": {
+  "en": "Switch to options to win it back faster",
+  "t": "Pasarte a opciones para recuperarla más rápido"
+ },
+ "c6ce989224d6": {
+  "en": "No trades yet",
+  "t": "Todavía no hay operaciones"
+ },
+ "c6cf43468a45": {
+  "en": "You can\\'t switch emotions off, but you can make your decisions before they show up. Write your entry, stop, target and size before you click. Set a daily loss limit. During the session your only job is to follow the plan you made with a clear head. When you feel an urge, name it: saying \"this is FOMO\" is often enough to slow you down.",
+  "t": "No puedes apagar las emociones, pero puedes tomar tus decisiones antes de que aparezcan. Escribe tu entrada, stop, objetivo y tamaño antes de hacer clic. Fija un límite de pérdida diario. Durante la sesión tu único trabajo es seguir el plan que hiciste con la cabeza fría. Cuando sientas un impulso, ponle nombre: decir \"esto es FOMO\" a menudo basta para frenarte."
+ },
+ "c73922973e89": {
+  "en": "Comparing P/Es across industries. A software company and a bank are priced on very different scales.",
+  "t": "Comparar P/U entre sectores. Una empresa de software y un banco se valoran en escalas muy distintas."
+ },
+ "c75c66e10652": {
+  "en": "Edit the example trades or add your own. The stats and the R curve update as you type.",
+  "t": "Edita las operaciones de ejemplo o agrega las tuyas. Las estadísticas y la curva de R se actualizan mientras escribes."
+ },
+ "c88e4a067b60": {
+  "en": "Next tick",
+  "t": "Siguiente movimiento"
+ },
+ "c8a17e44a748": {
+  "en": "Your <b>win rate</b> is the share of trades that made money. <b>Expectancy</b> is the average R per trade: above zero means your method makes money over time, below zero means it loses.",
+  "t": "Tu <b>tasa de acierto</b> es la parte de las operaciones que ganó plata. La <b>esperanza matemática</b> es el R promedio por operación: por encima de cero significa que tu método gana plata con el tiempo, por debajo de cero que pierde."
+ },
+ "c8f626b99b79": {
+  "en": "Income statement: sales minus costs equals profit.",
+  "t": "Estado de resultados: ventas menos costos es igual a utilidad."
+ },
+ "c8ffa9c4c019": {
+  "en": "Am I under my daily loss limit, and am I calm?",
+  "t": "¿Estoy por debajo de mi límite de pérdida diario, y estoy tranquilo?"
+ },
+ "c9112b4bc084": {
+  "en": "Debt above 2× equity deserves a closer look.",
+  "t": "Una deuda de más de 2× el patrimonio merece una mirada más de cerca."
+ },
+ "c9710d8ffe02": {
+  "en": "Track every trade in R to find out what actually works.",
+  "t": "Registra cada operación en R para descubrir qué funciona de verdad."
+ },
+ "c99d9ff7afb0": {
+  "en": "After 30 days",
+  "t": "Después de 30 días"
+ },
+ "cb5c70da513e": {
+  "en": "<b>FOMO.</b> Fear of missing out. A stock is flying, everyone is talking about it, and you buy late, far from any level, with no sensible place for a stop.",
+  "t": "<b>FOMO.</b> El miedo a quedarse por fuera. Una acción va volando, todo el mundo habla de ella y compras tarde, lejos de cualquier nivel, sin un lugar sensato para el stop."
+ },
+ "cbf73e3825cd": {
+  "en": "Filing status",
+  "t": "Estado civil para la declaración"
+ },
+ "cc0459ac3ab9": {
+  "en": "Reading only bullish posts about a stock you own. Confirmation bias hides the warning signs on the chart.",
+  "t": "Leer solo publicaciones alcistas sobre una acción que tienes. El sesgo de confirmación esconde las señales de alerta del gráfico."
+ },
+ "cc23fc3b675f": {
+  "en": "Why stocks jump or drop when a company reports its results.",
+  "t": "Por qué las acciones saltan o caen cuando una empresa reporta sus resultados."
+ },
+ "cc4519d6770c": {
+  "en": "<span class=\"wg-title\">Guidance</span>{0}",
+  "t": "<span class=\"wg-title\">Proyecciones</span>{0}"
+ },
+ "cc4696be3e1e": {
+  "en": "By then the best bid is $24.55, so that is where you fill. Actual loss: ($25.02 − $24.55) × 200 = $94.",
+  "t": "Para ese momento el mejor bid es US$24,55, así que ahí se ejecuta. Pérdida real: (US$25,02 − US$24,55) × 200 = US$94."
+ },
+ "cded6b4c6763": {
+  "en": "Moving the stop \"just a little\" to give the trade room. A small planned loss becomes a large unplanned one.",
+  "t": "Mover el stop \"solo un poquito\" para darle espacio a la operación. Una pérdida pequeña planeada se vuelve una grande no planeada."
+ },
+ "ce67fc1d0ecf": {
+  "en": "At $40.70 with the same stop you would risk $0.75 to make $0.15. The checklist fails, so you cancel and wait for the next retest.",
+  "t": "En US$40,70 con el mismo stop arriesgarías US$0,75 para ganar US$0,15. La lista de chequeo falla, así que cancelas y esperas el próximo retesteo."
+ },
+ "cece1ca90854": {
+  "en": "Trade a size you can sleep with.",
+  "t": "Opera un tamaño con el que puedas dormir."
+ },
  "cf1c85adba54": {
   "en": "Position",
   "t": "Posición"
  },
+ "cf53ae70a4d7": {
+  "en": "It can fall because the future now looks weaker",
+  "t": "Puede caer porque ahora el futuro se ve más débil"
+ },
+ "cfcc57f8eb2c": {
+  "en": "Reset week",
+  "t": "Reiniciar la semana"
+ },
+ "d15dcb875a60": {
+  "en": "Shares",
+  "t": "Acciones"
+ },
+ "d42d1d54d63c": {
+  "en": "Does my size risk 1% of the account or less?",
+  "t": "¿Mi tamaño arriesga el 1 % de la cuenta o menos?"
+ },
+ "d43b4d5ad8c7": {
+  "en": "Example stock with a 10-cent spread. Buyers pay the ask, sellers get the bid. Each order is 100 shares; a sell with no shares opens a short.",
+  "t": "Acción de ejemplo con un diferencial de 10 centavos. Los compradores pagan el precio de venta (ask), los vendedores reciben el precio de compra (bid). Cada orden es de 100 acciones; una venta sin acciones abre una venta en corto."
+ },
+ "d4804c8d26af": {
+  "en": "{0}<span class=\"grow\"></span><span class=\"pill acc\">2026 rules</span>",
+  "t": "{0}<span class=\"grow\"></span><span class=\"pill acc\">reglas de 2026</span>"
+ },
+ "d669a4f39cf7": {
+  "en": "You have $3,000 of settled cash in a cash account.",
+  "t": "Tienes US$3.000 de efectivo liquidado en una cuenta de efectivo."
+ },
+ "d704ab761983": {
+  "en": "Illustration with a simple made-up model. Real reactions vary a lot and depend on what traders already expected.",
+  "t": "Ilustración con un modelo simple inventado. Las reacciones reales varían mucho y dependen de lo que los traders ya esperaban."
+ },
+ "d7c3014b9539": {
+  "en": "Write down every trade in R multiples. After 30 trades the numbers show you whether you have a real edge.",
+  "t": "Anota cada operación en múltiplos de R. Después de 30 operaciones, los números te muestran si tienes una ventaja real."
+ },
+ "d9e1c48ba4c9": {
+  "en": "Is this one of my setups, at a level I marked before the open?",
+  "t": "¿Es una de mis configuraciones, en un nivel que marqué antes de la apertura?"
+ },
+ "da3adc125b26": {
+  "en": "Switch account types, set a balance, and place day trades through the week.",
+  "t": "Cambia el tipo de cuenta, fija un saldo y haz operaciones intradía a lo largo de la semana."
+ },
+ "dc836ec02865": {
+  "en": "Extreme confidence near a top, when almost everyone expects prices to keep rising.",
+  "t": "Confianza extrema cerca de un techo, cuando casi todos esperan que los precios sigan subiendo."
+ },
+ "dca32e21cb9f": {
+  "en": "No day-trade counting anymore. Buying power is checked in real time while you trade.",
+  "t": "Ya no se cuentan las operaciones intradía. El poder de compra se revisa en tiempo real mientras operas."
+ },
+ "dda7b2060cf8": {
+  "en": "The next morning the stock opens at $73, a gap of −8.75% that skips right past your $77 stop.",
+  "t": "A la mañana siguiente la acción abre en US$73, un gap de −8,75 % que salta directo tu stop de US$77."
+ },
+ "ddead851a418": {
+  "en": "Order types",
+  "t": "Tipos de órdenes"
+ },
  "ded334c3c00d": {
   "en": "Fidelity: The P/E ratio, how it is calculated and its limits",
   "t": "Fidelity: The P/E ratio, how it is calculated and its limits (en inglés)"
+ },
+ "dff7f2050744": {
+  "en": "Stock trades settle T+1, one business day after the trade.",
+  "t": "Las operaciones con acciones se liquidan en T+1, un día hábil después de la operación."
+ },
+ "e13b8a1f82c5": {
+  "en": "Giving your last few results too much weight compared with the long-run record.",
+  "t": "Darles demasiado peso a tus últimos resultados comparados con el registro de largo plazo."
+ },
+ "e15472b7dbf4": {
+  "en": "MOST OPPORTUNITY",
+  "t": "MAYOR OPORTUNIDAD"
+ },
+ "e5833b28c3d4": {
+  "en": "Skipping the balance sheet. A company with debt far above its equity can get into trouble fast when sales slow or rates rise.",
+  "t": "Saltarte el balance general. Una empresa con deuda muy por encima de su patrimonio se puede meter en problemas rápido cuando las ventas se frenan o suben las tasas."
+ },
+ "e6a5ba1f9476": {
+  "en": "Holding a full-size swing trade through earnings. An overnight gap can blow straight past your stop.",
+  "t": "Mantener una operación swing de tamaño completo durante los resultados. Un gap de la noche a la mañana puede pasar volando por encima de tu stop."
+ },
+ "e84e2929f756": {
+  "en": "Growing, profitable, low debt and cash positive at a P/E of 20. Next step: compare with its peers.",
+  "t": "Creciendo, rentable, con poca deuda y efectivo positivo, con un P/U de 20. Siguiente paso: compararla con sus pares."
+ },
+ "e87f2e1e4a93": {
+  "en": "Market, limit and stop orders, and when each one fills.",
+  "t": "Órdenes de mercado, límite y stop, y cuándo se ejecuta cada una."
+ },
+ "e899cc4de2bb": {
+  "en": "Taking a rushed, often bigger trade to win back a loss right away.",
+  "t": "Tomar una operación apurada, a menudo más grande, para recuperar una pérdida de inmediato."
+ },
+ "e8f25ad45730": {
+  "en": "Four times a year a company reports its results, usually before the market opens or after it closes. The headline number is <b>EPS</b>, earnings per share: profit divided by the number of shares.",
+  "t": "Cuatro veces al año una empresa reporta sus resultados, por lo general antes de que abra el mercado o después de que cierra. El número principal es la <b>UPA</b>, utilidad por acción: la utilidad dividida entre el número de acciones."
+ },
+ "e90df21ccd05": {
+  "en": "At the close no matter what",
+  "t": "Al cierre, pase lo que pase"
+ },
+ "e97e9fe52e68": {
+  "en": "Five quick numbers show whether a company is growing, profitable, not drowning in debt, and fairly priced.",
+  "t": "Cinco números rápidos muestran si una empresa está creciendo, es rentable, no se está ahogando en deudas y tiene un precio justo."
+ },
+ "e9e063f80e46": {
+  "en": "Net income divided by revenue: the share of each sales dollar kept as profit.",
+  "t": "Utilidad neta dividida entre los ingresos: la parte de cada dólar de ventas que queda como utilidad."
+ },
+ "ea6e9551a0a7": {
+  "en": "Every public company publishes three financial statements each quarter. The <b>income statement</b> shows sales (revenue) minus costs. What is left is profit, also called net income or earnings.",
+  "t": "Toda empresa que cotiza en bolsa publica tres estados financieros cada trimestre. El <b>estado de resultados</b> muestra las ventas (ingresos) menos los costos. Lo que queda es la utilidad, también llamada utilidad neta o ganancias."
+ },
+ "eaab18d9ccf1": {
+  "en": "Review your journal weekly and cut what loses.",
+  "t": "Revisa tu diario cada semana y corta lo que pierde."
+ },
+ "eabf461d7b32": {
+  "en": "Entering without placing the stop. Put it in right after the fill, while your head is clear.",
+  "t": "Entrar sin poner el stop. Ponlo justo después de la ejecución, mientras tienes la cabeza fría."
+ },
+ "ead6bf419b94": {
+  "en": "The crowd emotion cycle, and how to notice when you are on tilt.",
+  "t": "El ciclo de emociones de la gente, y cómo notar cuando estás en tilt."
+ },
+ "eaef401f559d": {
+  "en": "Measuring in dollars. Trades of different sizes only compare fairly in R.",
+  "t": "Medir en dólares. Las operaciones de distintos tamaños solo se comparan de forma justa en R."
+ },
+ "ec143493b0df": {
+  "en": "Panic",
+  "t": "Pánico"
+ },
+ "ec3858c24903": {
+  "en": "Any \"no\" means skip the trade. There is always another one.",
+  "t": "Cualquier \"no\" significa saltarte la operación. Siempre hay otra."
+ },
+ "ec4e154e59ab": {
+  "en": "Three reports answer three questions: did it make money, what does it own and owe, and where did the cash go?",
+  "t": "Tres informes responden tres preguntas: ¿ganó plata?, ¿qué tiene y qué debe?, ¿y a dónde se fue el efectivo?"
+ },
+ "ec77c53ff6ce": {
+  "en": "MOST RISK",
+  "t": "MAYOR RIESGO"
+ },
+ "ed197c99f8e5": {
+  "en": "Settled cash",
+  "t": "Efectivo liquidado"
+ },
+ "f0b792caf96f": {
+  "en": "Thrill",
+  "t": "Emoción"
+ },
+ "f14daa62ce38": {
+  "en": "The stock's RSI",
+  "t": "El RSI de la acción"
+ },
+ "f3efb79a607f": {
+  "en": "Only if the ask drops to $49.50 or lower",
+  "t": "Solo si el ask baja a US$49,50 o menos"
+ },
+ "f45981c0808a": {
+  "en": "Total debt divided by shareholder equity. Above 2 deserves a closer look in most industries.",
+  "t": "Deuda total dividida entre el patrimonio de los accionistas. Por encima de 2 merece una mirada más de cerca en la mayoría de los sectores."
+ },
+ "f4fc5710dbbd": {
+  "en": "Nobody knows for sure which stage they are in while it happens. The useful part is noticing these feelings in yourself and in the headlines. If you feel like a genius and want to go all in, treat that feeling as a warning sign.",
+  "t": "Nadie sabe con certeza en qué etapa está mientras pasa. Lo útil es notar estas emociones en ti y en los titulares. Si te sientes un genio y quieres apostarlo todo, toma esa sensación como una señal de alerta."
+ },
+ "f5182b2d1fbf": {
+  "en": "<b>Revenge trading.</b> After a loss you want the money back right now, so you take a worse setup at a bigger size.",
+  "t": "<b>Trading por venganza.</b> Después de una pérdida quieres recuperar la plata ya mismo, así que tomas una configuración peor con un tamaño más grande."
+ },
+ "f5abcaaa84f5": {
+  "en": "Fear, greed and the thinking traps that make you break your own rules.",
+  "t": "El miedo, la codicia y las trampas mentales que te hacen romper tus propias reglas."
+ },
+ "f69cbf6764fb": {
+  "en": "Most account damage comes from broken rules. Follow the plan you wrote with a clear head.",
+  "t": "La mayor parte del daño a las cuentas viene de reglas rotas. Sigue el plan que escribiste con la cabeza fría."
+ },
+ "f7044d10d248": {
+  "en": "Five gauges: P/E, sales growth, profit margin, debt to equity and free cash flow yield, each marked healthy, watch or weak",
+  "t": "Cinco indicadores: P/U, crecimiento de ventas, margen de utilidad, deuda sobre patrimonio y rendimiento del flujo de caja libre, cada uno marcado como sano, a vigilar o débil"
+ },
+ "f70a6f33ac30": {
+  "en": "Trims, tightens stops and refuses to chase. This is the point of most risk.",
+  "t": "Recorta, ajusta los stops y se niega a perseguir el precio. Este es el punto de mayor riesgo."
+ },
+ "f84ef4f1e37d": {
+  "en": "Wait for a pullback to a level, or skip it",
+  "t": "Esperar un retroceso a un nivel, o dejarla pasar"
+ },
+ "f8b6b76dbc40": {
+  "en": "Goes all in near the top, often with call options.",
+  "t": "Lo apuesta todo cerca del techo, a menudo con opciones call."
+ },
+ "f8f0d1a51698": {
+  "en": "4 winners average +2.1R, for +8.4R. 6 losers at −1R each add up to −6R.",
+  "t": "4 ganadoras promedian +2,1R, para +8,4R. 6 perdedoras de −1R cada una suman −6R."
+ },
+ "fb880fa866f1": {
+  "en": "Sales growth",
+  "t": "Crecimiento de ventas"
+ },
+ "fc2fe7adfab1": {
+  "en": "Short vs long-term gains",
+  "t": "Ganancias de corto y de largo plazo"
+ },
+ "fccf73a9d663": {
+  "en": "You hold 100 shares of DEMO at $80 going into earnings, with a stop at $77. You planned to risk $300.",
+  "t": "Tienes 100 acciones de DEMO en US$80 antes de los resultados, con un stop en US$77. Planeaste arriesgar US$300."
+ },
+ "fd10e38d1d19": {
+  "en": "FINRA Regulatory Notice 26-10: intraday margin standards replace the day trading rules (April 2026)",
+  "t": "FINRA Regulatory Notice 26-10: los estándares de margen intradía reemplazan las reglas de day trading (abril de 2026, en inglés)"
+ },
+ "fdc4b3d3dcea": {
+  "en": "Setup: DEMO breaks above $40.20 on strong volume, pulls back and holds the level. That retest is one of your setups.",
+  "t": "Configuración: DEMO rompe por encima de US$40,20 con volumen fuerte, retrocede y sostiene el nivel. Ese retesteo es una de tus configuraciones."
+ },
+ "fe1bb9a408c2": {
+  "en": "The company is losing money, so P/E doesn't apply. Check whether sales are growing and how long its cash will last.",
+  "t": "La empresa está perdiendo plata, así que el P/U no aplica. Revisa si las ventas están creciendo y cuánto le va a durar el efectivo."
+ },
+ "fe23cae658a1": {
+  "en": "So a cash account gives you about one full-size round trip a day. Rack up several violations in 12 months and many brokers restrict you to settled cash for 90 days.",
+  "t": "Así que una cuenta de efectivo te da más o menos una ida y vuelta de tamaño completo al día. Si acumulas varias infracciones en 12 meses, muchos brókeres te restringen a efectivo liquidado durante 90 días."
+ },
+ "feecccef498e": {
+  "en": "GUIDANCE CUT",
+  "t": "PROYECCIONES RECORTADAS"
+ },
+ "fefe080827ea": {
+  "en": "$2,000 minimum",
+  "t": "Mínimo de US$2.000"
+ },
+ "ff7e4a778aae": {
+  "en": "Copy as table",
+  "t": "Copiar como tabla"
+ },
+ "ffc84ded9c81": {
+  "en": "Dropping a tested strategy after three losses. Judge a method over 30 or more trades.",
+  "t": "Abandonar una estrategia probada después de tres pérdidas. Juzga un método a lo largo de 30 operaciones o más."
  }
 }

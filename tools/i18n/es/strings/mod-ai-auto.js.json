@@ -7,6 +7,10 @@
   "en": "Reset",
   "t": "Reiniciar"
  },
+ "5bdcb64905fd": {
+  "en": "SEC Investor.gov: Types of orders",
+  "t": "SEC Investor.gov: Types of orders (en inglés)"
+ },
  "6eef6648406c": {
   "en": "None",
   "t": "Ninguno"
@@ -30,6 +34,10 @@
  "befd0bcd0c93": {
   "en": "Breakouts & fakeouts",
   "t": "Rupturas y rupturas falsas"
+ },
+ "cdd7bb2816b7": {
+  "en": "Setup",
+  "t": "Configuración"
  },
  "d8b7c55f1d86": {
   "en": "Blending styles",
