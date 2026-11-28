@@ -19,9 +19,17 @@
   "en": "13, 48 & 200 EMA",
   "t": "EMA de 13, 48 y 200"
  },
+ "788f398e1cf3": {
+  "en": "SEC, NASAA and FINRA: Artificial intelligence and investment fraud (investor alert, Jan. 2024)",
+  "t": "SEC, NASAA y FINRA: inteligencia artificial y fraude de inversión (alerta para inversionistas, enero de 2024, en inglés)"
+ },
  "905cb326c779": {
   "en": "You",
   "t": "Tú"
+ },
+ "95d0cad23e2b": {
+  "en": "Robinhood newsroom: Robinhood is now open to agents (May 27, 2026)",
+  "t": "Sala de prensa de Robinhood: Robinhood ya está abierto a los agentes (27 de mayo de 2026, en inglés)"
  },
  "a124947cbd2d": {
   "en": "Low",
@@ -30,6 +38,14 @@
  "b52b36b7269f": {
   "en": "Back",
   "t": "Atrás"
+ },
+ "bb11a8e3f871": {
+  "en": "Rules",
+  "t": "Reglas"
+ },
+ "bd2ab9779fe1": {
+  "en": "Model Context Protocol: What is MCP?",
+  "t": "Model Context Protocol: What is MCP? (en inglés)"
  },
  "befd0bcd0c93": {
   "en": "Breakouts & fakeouts",
@@ -50,6 +66,10 @@
  "e622d6d01b83": {
   "en": "The wheel",
   "t": "La rueda"
+ },
+ "e9f7ee92bde6": {
+  "en": "Robinhood Support: Agentic Trading overview",
+  "t": "Soporte de Robinhood: resumen de Agentic Trading (en inglés)"
  },
  "f83b6fe3aebf": {
   "en": "Exit",

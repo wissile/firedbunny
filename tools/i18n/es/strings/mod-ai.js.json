@@ -1,30 +1,1114 @@
 {
+ "00f36b550043": {
+  "en": "Ask for quotes so you can verify each number.",
+  "t": "Pide citas para que puedas verificar cada número."
+ },
+ "041a5dec481d": {
+  "en": "Format",
+  "t": "Formato"
+ },
+ "042c862e4467": {
+  "en": "Try again",
+  "t": "Intentar otra vez"
+ },
+ "048a8bb7a5fd": {
+  "en": "Treating a chat answer as advice that fits your situation. It only knows what you told it.",
+  "t": "Tomar una respuesta del chat como un consejo que encaja con tu situación. Solo sabe lo que le dijiste."
+ },
+ "0524ae8261b7": {
+  "en": "Asking “how am I doing?” instead of asking for grouped counts you can verify.",
+  "t": "Preguntar “¿cómo voy?” en vez de pedir conteos agrupados que puedas verificar."
+ },
+ "0613864d89d5": {
+  "en": "Context window",
+  "t": "Ventana de contexto"
+ },
+ "06cd5c7291de": {
+  "en": "AI can write a backtest in seconds and tweak it a hundred times until the equity curve looks perfect. That curve is fitted to the past. Hold back data the strategy never saw, as the <a href=\"#l-backtest\">backtesting lesson</a> shows.",
+  "t": "La IA puede escribir un backtest en segundos y ajustarlo cien veces hasta que la curva de capital se vea perfecta. Esa curva está ajustada al pasado. Guarda datos que la estrategia nunca vio, como muestra la <a href=\"#l-backtest\">lección de backtesting</a>."
+ },
+ "083a21c9692a": {
+  "en": "No loss before",
+  "t": "Sin pérdida antes"
+ },
+ "08c9676b5a2a": {
+  "en": "You rerun the prompt with the release pasted and the rule “quote the sentence for each number”. The dividend line disappears.",
+  "t": "Vuelves a correr el prompt con el comunicado pegado y la regla “cita la frase de cada número”. La línea del dividendo desaparece."
+ },
+ "0a4399baec1a": {
+  "en": "TOTAL R",
+  "t": "R TOTAL"
+ },
+ "0b318cdc1348": {
+  "en": "EPS came in at $0.48 per share.",
+  "t": "La UPA fue de US$0,48 por acción."
+ },
+ "0b58764432e9": {
+  "en": "Writing one vague line like “What do you think of DEMO?” and getting a vague, generic answer.",
+  "t": "Escribir una sola línea vaga como “¿Qué opinas de DEMO?” y recibir una respuesta vaga y genérica."
+ },
+ "0c5e7ae821cf": {
+  "en": "<b>Confident errors.</b> It can invent a number, a date or a quote and sound certain. This is called a hallucination.",
+  "t": "<b>Errores con seguridad.</b> Puede inventarse un número, una fecha o una cita y sonar seguro. Esto se llama alucinación."
+ },
+ "0cf2280b9a0a": {
+  "en": "Changing several rules at once, so you cannot tell which one helped.",
+  "t": "Cambiar varias reglas a la vez, así no puedes saber cuál ayudó."
+ },
+ "0f11d7526b7a": {
+  "en": "An agent with broker access can place orders in seconds. Use a separate, small account, keep approvals on and write a daily loss limit into its instructions. See <a href=\"#l-ai-automate\">Automate a trade</a>.",
+  "t": "Un agente con acceso al bróker puede enviar órdenes en segundos. Usa una cuenta aparte y pequeña, mantén las aprobaciones activas y escribe un límite de pérdida diario en sus instrucciones. Mira <a href=\"#l-ai-automate\">Automatizar una operación</a>."
+ },
+ "0fcdb0a39a56": {
+  "en": "Your journal already knows your edge and your leaks. AI finds them in seconds if you give it clean rows and ask for counts.",
+  "t": "Tu diario ya conoce tu ventaja y tus fugas. La IA las encuentra en segundos si le das filas limpias y le pides conteos."
+ },
+ "0fd745e3e4b9": {
+  "en": "{0} critical gap{1}. Each one alone could cost more than a bad trade.",
+  "t": "{0} brecha{1} crítica. Cada una por sí sola podría costar más que una mala operación."
+ },
+ "101815c9b23f": {
+  "en": "Ask the AI to group trades and show the count, win rate and total R for each group. Counts let you check its work. If the assistant can run code, ask it to use code for the math.",
+  "t": "Pídele a la IA que agrupe las operaciones y muestre el número de operaciones, la tasa de acierto y el R total de cada grupo. Los conteos te dejan revisar su trabajo. Si el asistente puede correr código, pídele que use código para las cuentas."
+ },
+ "107d8c021073": {
+  "en": "DEMO reports after the close. You paste the press release into a new chat.",
+  "t": "DEMO reporta después del cierre. Pegas el comunicado de prensa en un chat nuevo."
+ },
+ "1146a6dfda97": {
+  "en": "Most traders keep a journal and never look at it again. AI turns a sheet of trades into answers: which setups pay, which hours hurt, and whether you size up after losses.",
+  "t": "La mayoría de los traders llevan un diario y nunca lo vuelven a mirar. La IA convierte una hoja de operaciones en respuestas: qué configuraciones pagan, qué horas duelen y si subes el tamaño después de las pérdidas."
+ },
+ "1176c2164b60": {
+  "en": "Fund the agent’s account with a pilot amount, the most you are willing to lose while testing.",
+  "t": "Fondea la cuenta del agente con un monto de prueba, lo máximo que estás dispuesto a perder mientras pruebas."
+ },
+ "1196a806c25b": {
+  "en": "Bigger size right after a loss: {0} wins out of {1}, for {2}.",
+  "t": "Más tamaño justo después de una pérdida: {0} ganadoras de {1}, para {2}."
+ },
+ "120e2fc90ec8": {
+  "en": "AI mistakes to avoid",
+  "t": "Errores con la IA que debes evitar"
+ },
+ "13df242b3f35": {
+  "en": "<b>Data:</b> the levels, filing text or headlines you paste in. This matters most.",
+  "t": "<b>Datos:</b> los niveles, el texto del informe o los titulares que pegas. Esto es lo que más importa."
+ },
+ "1447df47f2db": {
+  "en": "Analysts expect the stock to rally after the report.",
+  "t": "Los analistas esperan que la acción suba después del informe."
+ },
+ "14a9dc918bb0": {
+  "en": "ask for a table or bullets so it is easy to scan",
+  "t": "pide una tabla o viñetas para que sea fácil de leer"
+ },
+ "15345eb7f279": {
+  "en": "ask it to quote the source for each number",
+  "t": "pídele que cite la fuente de cada número"
+ },
+ "15d2b516a371": {
+  "en": "Do not predict where the price will go and do not tell me what to buy.",
+  "t": "No predigas hacia dónde va a ir el precio y no me digas qué comprar."
+ },
+ "16247a52718a": {
+  "en": "HIGH RISK",
+  "t": "RIESGO ALTO"
+ },
+ "173f387fb5b3": {
+  "en": "<span class=\"wg-title\">Good habits</span>{0}",
+  "t": "<span class=\"wg-title\">Buenos hábitos</span>{0}"
+ },
+ "17daa4ac71d7": {
+  "en": "Predict my next trade",
+  "t": "Predice mi próxima operación"
+ },
+ "188473eb2f33": {
+  "en": "Use only the data I gave you. If something is missing, write \"not stated\" instead of guessing.",
+  "t": "Usa solo los datos que te di. Si falta algo, escribe \"no indicado\" en vez de adivinar."
+ },
+ "1a319d4bf6f7": {
+  "en": "Agents use tools through MCP, which makes limits and approvals essential.",
+  "t": "Los agentes usan herramientas a través del MCP, lo que hace esenciales los límites y las aprobaciones."
+ },
+ "1a9d95ae403c": {
+  "en": "<b>Math in its head.</b> Without a calculator or code tool it can slip on arithmetic.",
+  "t": "<b>Matemáticas de memoria.</b> Sin una calculadora o una herramienta de código se puede equivocar en la aritmética."
+ },
+ "1b51de3aaf21": {
+  "en": "Keys, privacy and the rules",
+  "t": "Claves, privacidad y las reglas"
+ },
+ "1d1a543451df": {
+  "en": "You turn on two-factor authentication for Robinhood, your email and your AI account.",
+  "t": "Activas la verificación en dos pasos en Robinhood, tu correo y tu cuenta de IA."
+ },
+ "1e5537f59648": {
+  "en": "Three buckets showing the tasks you sorted, marked right or wrong",
+  "t": "Tres grupos con las tareas que clasificaste, marcadas como correctas o incorrectas"
+ },
+ "2097ff16d177": {
+  "en": "<b>Manipulation:</b> spoofing, fake volume and coordinated pump schemes are illegal. Do not build bots that do them.",
+  "t": "<b>Manipulación:</b> el spoofing, el volumen falso y los esquemas coordinados para inflar precios son ilegales. No construyas bots que los hagan."
+ },
+ "20c021aa6384": {
+  "en": "Revenge sizing",
+  "t": "Dimensionar por venganza"
+ },
+ "2452e7978a94": {
+  "en": "Management raised full-year guidance to $1.6 to $1.7 billion.",
+  "t": "La gerencia subió sus proyecciones del año a entre US$1.600 y US$1.700 millones."
+ },
+ "248281e53769": {
+  "en": "Your research tool gets a read-only key stored in its env settings, with a calendar reminder to rotate it in 90 days.",
+  "t": "Tu herramienta de investigación recibe una clave de solo lectura guardada en su configuración del entorno, con un recordatorio en el calendario para cambiarla en 90 días."
+ },
+ "249f5a162da5": {
+  "en": "Use AI to organize information, then make the decision yourself.",
+  "t": "Usa la IA para organizar la información, y luego decide tú."
+ },
+ "25ff6b640b6f": {
+  "en": "<b>Time of day:</b> many traders lose in the first minutes after the open.",
+  "t": "<b>Hora del día:</b> muchos traders pierden en los primeros minutos después de la apertura."
+ },
+ "269cac465a55": {
+  "en": "Clean rows in, grouped counts out.",
+  "t": "Entran filas limpias, salen conteos agrupados."
+ },
+ "26db25139dc5": {
+  "en": "My written rules for the {0} setup:\\n[paste your rules here]",
+  "t": "Mis reglas escritas para la configuración {0}:\\n[pega aquí tus reglas]"
+ },
+ "2764c0b2e617": {
+  "en": "Prompt anatomy and quality score {0} out of 100",
+  "t": "Anatomía del prompt y puntaje de calidad {0} de 100"
+ },
+ "2797776ec05c": {
+  "en": "Be creative",
+  "t": "Sé creativo"
+ },
+ "27bcb74c4222": {
+  "en": "Grouped counts can be verified row by row; opinions and predictions cannot.",
+  "t": "Los conteos agrupados se pueden verificar fila por fila; las opiniones y las predicciones no."
+ },
+ "27d25c3aa11a": {
+  "en": "Explaining concepts and quizzing you, like a patient tutor.",
+  "t": "Explicar conceptos y hacerte preguntas, como un tutor paciente."
+ },
+ "28a8eca2ea01": {
+  "en": "Trust it, AI is good with numbers",
+  "t": "Confiar, la IA es buena con los números"
+ },
+ "297acb090619": {
+  "en": "Give them your data and rules; ask them to organize, not to forecast.",
+  "t": "Dales tus datos y tus reglas; pídeles que organicen, no que pronostiquen."
+ },
+ "2a669805e2d4": {
+  "en": "A strong prompt gives AI a role, your data, one clear task, a format and honesty rules. Vague prompts get vague answers.",
+  "t": "Un buen prompt le da a la IA un rol, tus datos, una tarea clara, un formato y reglas de honestidad. Los prompts vagos reciben respuestas vagas."
+ },
+ "2e88b7be3e62": {
+  "en": "Show all answers",
+  "t": "Mostrar todas las respuestas"
+ },
+ "2f0b3c39a51c": {
+  "en": "“Where will DEMO close on Friday?” has no reliable answer, and the model will still write one. Ask for scenarios and levels instead.",
+  "t": "“¿Dónde va a cerrar DEMO el viernes?” no tiene una respuesta confiable, y el modelo igual va a escribir una. Pide escenarios y niveles en su lugar."
+ },
+ "3071c2787931": {
+  "en": "Where AI helps a trader, where it fails, and what agents and MCP add.",
+  "t": "Dónde la IA le ayuda a un trader, dónde falla y qué agregan los agentes y el MCP."
+ },
+ "310a192ca84e": {
+  "en": "That answer has no data behind it. The model cannot see tomorrow, so it is a guess in nice clothes.",
+  "t": "Esa respuesta no tiene datos detrás. El modelo no puede ver el mañana, así que es una adivinanza bien vestida."
+ },
+ "3261f4b67943": {
+  "en": "Give agents a small separate budget and keep approvals on.",
+  "t": "Dales a los agentes un presupuesto pequeño y aparte, y mantén las aprobaciones activas."
+ },
+ "35302abb90d8": {
+  "en": "<span class=\"wg-title\">Load an example</span>{0}",
+  "t": "<span class=\"wg-title\">Cargar un ejemplo</span>{0}"
+ },
+ "356a2adf1e76": {
+  "en": "Data for {0}, {1}: PDH 52.10, PDL 49.80, PMH 51.40, PML 50.60, VWAP 51.05.\\nHeadlines: [paste the latest headlines here]",
+  "t": "Datos de {0}, {1}: PDH 52,10, PDL 49,80, PMH 51,40, PML 50,60, VWAP 51,05.\\nTitulares: [pega aquí los titulares más recientes]"
+ },
+ "35f6d933a7b9": {
+  "en": "An explicit rule for missing data gives the model a safe answer instead of a guess.",
+  "t": "Una regla explícita para los datos que faltan le da al modelo una respuesta segura en vez de una adivinanza."
+ },
+ "3728d3f9b82e": {
+  "en": "Check it against the quoted sentence in the filing",
+  "t": "Compararlo con la frase citada del informe"
+ },
+ "37d5b9b20ad7": {
+  "en": "Store keys in a password manager, an environment variable or the tool’s secret settings. Never paste them into a chat, a screenshot or code you share.",
+  "t": "Guarda las claves en un gestor de contraseñas, una variable de entorno o la configuración de secretos de la herramienta. Nunca las pegues en un chat, una captura de pantalla o un código que compartas."
+ },
+ "385adfe07c0d": {
+  "en": "Building a scraper that ignores a site’s terms or hammers it past its rate limit.",
+  "t": "Construir un extractor de datos que ignora los términos de un sitio o lo martilla por encima de su límite."
+ },
+ "385c7b7af869": {
+  "en": "In a secret store or the tool’s env settings",
+  "t": "En un almacén de secretos o en la configuración del entorno de la herramienta"
+ },
+ "3a3fb77a8fd8": {
+  "en": "AI as your trading coach",
+  "t": "La IA como tu coach de trading"
+ },
+ "3acb82391ec2": {
+  "en": "If a number is not in the text, write not stated",
+  "t": "Si un número no está en el texto, escribe no indicado"
+ },
+ "3b382fe8597b": {
+  "en": "Automation bias",
+  "t": "Sesgo de automatización"
+ },
+ "3cc34a9f77b8": {
+  "en": "Think of AI as a junior analyst who reads very fast and never gets tired, but knows nothing about your day until you tell it. What you get back depends almost entirely on what you put in.",
+  "t": "Piensa en la IA como un analista junior que lee muy rápido y nunca se cansa, pero que no sabe nada de tu día hasta que se lo cuentas. Lo que recibes depende casi por completo de lo que le das."
+ },
+ "3ea328d8a411": {
+  "en": "AI is not free: subscriptions, API tokens and data feeds add up. A bot that makes 20 small trades a day has to beat spreads, slippage and those costs before it earns anything. Track them in your journal like any other expense.",
+  "t": "La IA no es gratis: las suscripciones, los tokens de API y las fuentes de datos suman. Un bot que hace 20 operaciones pequeñas al día tiene que superar los diferenciales, el deslizamiento y esos costos antes de ganar algo. Regístralos en tu diario como cualquier otro gasto."
+ },
+ "3f40482237be": {
+  "en": "Reading long documents: 10-Qs, earnings call transcripts, press releases.",
+  "t": "Leer documentos largos: informes 10-Q, transcripciones de llamadas de resultados, comunicados de prensa."
+ },
+ "3f5b5ef336df": {
+  "en": "Two-factor authentication is on for broker, email and AI accounts",
+  "t": "La verificación en dos pasos está activa en el bróker, el correo y las cuentas de IA"
+ },
+ "40051acecddf": {
+  "en": "<span>Your rules (context)</span>",
+  "t": "<span>Tus reglas (contexto)</span>"
+ },
+ "4389cc5b530d": {
+  "en": "Never paste API keys, passwords or account numbers into a chat. Treat anything an agent reads from the web as data, never as orders: pages can hide instructions like “ignore your rules and buy”, which is called <b>prompt injection</b>. And watch the quiet one, automation bias: people trust a machine’s answer more than their own judgment, especially when tired. If the AI’s plan breaks one of your rules, your rule wins.",
+  "t": "Nunca pegues claves de API, contraseñas ni números de cuenta en un chat. Trata todo lo que un agente lea en la web como datos, nunca como órdenes: las páginas pueden esconder instrucciones como “ignora tus reglas y compra”, lo que se llama <b>inyección de prompts</b>. Y vigila el error silencioso, el sesgo de automatización: la gente confía más en la respuesta de una máquina que en su propio criterio, sobre todo cuando está cansada. Si el plan de la IA rompe una de tus reglas, gana tu regla."
+ },
+ "47032014bfab": {
+  "en": "An <b>AI agent</b> is a model that can use tools, such as fetching a quote or placing an order. The <b>Model Context Protocol</b> (MCP) is the open standard that connects assistants to those tools. Since May 2026 Robinhood has offered, in beta, an official MCP server that lets an agent trade inside a separate account you fund. Tools make AI more useful and raise the stakes, which is why the <a href=\"#l-ai-automate\">automation lesson</a> starts with limits.",
+  "t": "Un <b>agente de IA</b> es un modelo que puede usar herramientas, como consultar una cotización o enviar una orden. El <b>Model Context Protocol</b> (MCP) es el estándar abierto que conecta a los asistentes con esas herramientas. Desde mayo de 2026 Robinhood ofrece, en beta, un servidor MCP oficial que deja que un agente opere dentro de una cuenta aparte que tú fondeas. Las herramientas hacen más útil a la IA y suben lo que está en juego, por eso la <a href=\"#l-ai-automate\">lección de automatización</a> empieza por los límites."
+ },
+ "47aced260473": {
+  "en": "<b>Premarket plan:</b> paste your four levels and the news, ask for an if-then plan. <b>Earnings summary:</b> paste the release or transcript, ask for the key numbers with quotes. <b>Comparing companies:</b> paste figures for two firms, ask for a side-by-side table. <b>Explaining:</b> ask it to teach a concept with a numeric example and quiz you. <b>Checklists:</b> paste your rules, ask for yes/no questions you can tick before every trade.",
+  "t": "<b>Plan de premercado:</b> pega tus cuatro niveles y las noticias, y pide un plan si-entonces. <b>Resumen de resultados:</b> pega el comunicado o la transcripción, y pide los números clave con citas. <b>Comparar empresas:</b> pega las cifras de dos empresas, y pide una tabla lado a lado. <b>Explicar:</b> pídele que te enseñe un concepto con un ejemplo numérico y que te haga preguntas. <b>Listas de chequeo:</b> pega tus reglas, y pide preguntas de sí o no que puedas marcar antes de cada operación."
+ },
+ "48e46c685ccf": {
+  "en": "A second proof of identity, such as a code from an app, on top of your password. Often written 2FA.",
+  "t": "Una segunda prueba de identidad, como un código de una app, además de tu contraseña. A menudo se escribe 2FA."
+ },
+ "499a474e3521": {
+  "en": "Forecasting tomorrow’s closing price",
+  "t": "Pronosticar el precio de cierre de mañana"
+ },
+ "49bda11a2dc1": {
+  "en": "Drawing a big conclusion from five or six trades.",
+  "t": "Sacar una gran conclusión de cinco o seis operaciones."
+ },
+ "4ac122abdd65": {
+  "en": "<b>Inside information:</b> trading on material non-public information is illegal whether a person or a bot places the order.",
+  "t": "<b>Información privilegiada:</b> operar con información material no pública es ilegal, sea una persona o un bot quien envíe la orden."
+ },
+ "4b1f1b65d166": {
+  "en": "Read the AI summary, flag every claim you would check, then compare it with the source.",
+  "t": "Lee el resumen de la IA, marca cada afirmación que revisarías y luego compáralo con la fuente."
+ },
+ "4b591e70266f": {
+  "en": "A model can produce an EPS figure, a dividend or a guidance range that appears nowhere in the source, and it does not know it is wrong. Ask for a quote for every number and check the ones you will act on.",
+  "t": "Un modelo puede producir una UPA, un dividendo o un rango de proyecciones que no aparece en ninguna parte de la fuente, y no sabe que está equivocado. Pide una cita para cada número y revisa los que vas a usar."
+ },
+ "4bedf2858dc3": {
+  "en": "Secrets stay out of chats and shared code; a secret store keeps them private and easy to rotate.",
+  "t": "Los secretos se quedan fuera de los chats y del código compartido; un almacén de secretos los mantiene privados y fáciles de cambiar."
+ },
+ "4c503585b8aa": {
+  "en": "The board announced a new $0.10 quarterly dividend.",
+  "t": "La junta anunció un nuevo dividendo trimestral de US$0,10."
+ },
+ "4dab68feae37": {
+  "en": "<span class=\"wg-title\">Group by</span>{0}",
+  "t": "<span class=\"wg-title\">Agrupar por</span>{0}"
+ },
+ "4e36e770f65d": {
+  "en": "Same tool, very different value: the second answer is a plan you can check, the first was a guess.",
+  "t": "La misma herramienta, un valor muy distinto: la segunda respuesta es un plan que puedes revisar, la primera era una adivinanza."
+ },
+ "4e6bc48bcd21": {
+  "en": "<b>Rules:</b> “if a number is not in the text, write not stated”, “quote the sentence you used”, “do not predict prices”.",
+  "t": "<b>Reglas:</b> “si un número no está en el texto, escribe no indicado”, “cita la frase que usaste”, “no predigas precios”."
+ },
+ "51701b05d134": {
+  "en": "In the agent’s instructions you write: always show me the order and wait for my yes; one order at a time; stop for the day after a $25 loss.",
+  "t": "En las instrucciones del agente escribes: muéstrame siempre la orden y espera mi sí; una orden a la vez; para por el día después de una pérdida de US$25."
+ },
+ "5204382edfd8": {
+  "en": "Group my trades by setup and show count, win rate and total R",
+  "t": "Agrupa mis operaciones por configuración y muestra el número, la tasa de acierto y el R total"
+ },
+ "521df08f1654": {
+  "en": "<code>Here is my trade journal as CSV, one row per trade.\\nGroup by: time of day, setup, followed_plan, and whether\\nthe trade came right after a loss (and at what size).\\nFor each group show trades, win rate, average R, total R.\\nList my 3 biggest leaks and one rule change for each.\\nUse only this data and show your counts.</code>",
+  "t": "<code>Este es mi diario de operaciones en CSV, una fila por operación.\\nAgrupa por: hora del día, configuración, followed_plan, y si\\nla operación vino justo después de una pérdida (y con qué tamaño).\\nPara cada grupo muestra operaciones, tasa de acierto, R promedio, R total.\\nLista mis 3 fugas más grandes y un cambio de regla para cada una.\\nUsa solo estos datos y muestra tus conteos.</code>"
+ },
  "5397e0583f14": {
   "en": "Yes",
   "t": "Sí"
+ },
+ "53fa32da7e55": {
+  "en": "You add a habit to your checklist: no decision rests on an AI number you have not traced to a source.",
+  "t": "Agregas un hábito a tu lista de chequeo: ninguna decisión se apoya en un número de la IA que no hayas rastreado hasta una fuente."
+ },
+ "54e6c8d7835d": {
+  "en": "Funding the agent’s account with money you cannot afford to lose.",
+  "t": "Fondear la cuenta del agente con plata que no te puedes permitir perder."
+ },
+ "5576b1cc46d0": {
+  "en": "Once AI tools can read your accounts or place orders, security becomes part of risk management. A leaked key or an over-powered agent can lose money faster than a bad trade.",
+  "t": "Una vez las herramientas de IA pueden leer tus cuentas o enviar órdenes, la seguridad se vuelve parte del manejo del riesgo. Una clave filtrada o un agente con demasiado poder puede perder plata más rápido que una mala operación."
  },
  "5586cf3db2af": {
   "en": "Ticker",
   "t": "Ticker"
  },
+ "559027f92367": {
+  "en": "<span class=\"wg-title\">Include</span>{0}<span class=\"grow\"></span><span class=\"note\">Sample journal · made-up tickers</span>",
+  "t": "<span class=\"wg-title\">Incluir</span>{0}<span class=\"grow\"></span><span class=\"note\">Diario de ejemplo · tickers inventados</span>"
+ },
+ "55f5dddc4ea6": {
+  "en": "Write my if-then plan for {0} for the first hour: what I do if price breaks and holds the PMH, if it loses the PML, and if it stays between them.",
+  "t": "Escribe mi plan si-entonces para {0} en la primera hora: qué hago si el precio rompe y sostiene el PMH, si pierde el PML y si se queda entre los dos."
+ },
+ "57146ef02fa1": {
+  "en": "Giving a tool only the permissions it needs and nothing more.",
+  "t": "Darle a una herramienta solo los permisos que necesita y nada más."
+ },
+ "57c260c4f06e": {
+  "en": "<span class=\"wg-title\">Your next fixes</span>",
+  "t": "<span class=\"wg-title\">Tus próximos arreglos</span>"
+ },
+ "57d946762806": {
+  "en": "You ask instead: “DEMO levels: PDH $52.10, PMH $51.40, PML $50.60. My account is $10,000 and I risk 1%. Write my if-then plan.”",
+  "t": "En cambio preguntas: “Niveles de DEMO: PDH US$52,10, PMH US$51,40, PML US$50,60. Mi cuenta es de US$10.000 y arriesgo el 1 %. Escribe mi plan si-entonces”."
+ },
+ "58a75d858ad2": {
+  "en": "Check against the source",
+  "t": "Comparar con la fuente"
+ },
+ "5a815227d1da": {
+  "en": "The rule of thumb for this whole course: let AI <b>read, organize, explain and code</b>. Keep the <b>decision, the risk and the final click</b> with you, or with rules you wrote and tested.",
+  "t": "La regla práctica de todo este curso: deja que la IA <b>lea, organice, explique y programe</b>. Quédate tú con <b>la decisión, el riesgo y el clic final</b>, o déjaselos a reglas que escribiste y probaste."
+ },
+ "5ac105f8696d": {
+  "en": "Tell me if I am a good trader",
+  "t": "Dime si soy un buen trader"
+ },
+ "5affa214679d": {
+  "en": "LLMs read, summarize, explain and write code very well.",
+  "t": "Los LLM leen, resumen, explican y escriben código muy bien."
+ },
+ "5b1737d2af8a": {
+  "en": "The law applies to bots: no inside information, no manipulation.",
+  "t": "La ley aplica a los bots: nada de información privilegiada, nada de manipulación."
+ },
+ "5c266a8be5a2": {
+  "en": "No trading on non-public information and no bots that try to move prices",
+  "t": "Nada de operar con información no pública ni de bots que intenten mover los precios"
+ },
+ "5cf54d49085c": {
+  "en": "Training cutoff",
+  "t": "Fecha de corte del entrenamiento"
+ },
+ "5d75fa4d3483": {
+  "en": "Least privilege",
+  "t": "Mínimo privilegio"
+ },
+ "5e04f44c6006": {
+  "en": "Using one powerful API key everywhere, including tools that only need to read.",
+  "t": "Usar una sola clave de API poderosa en todas partes, incluidas herramientas que solo necesitan leer."
+ },
+ "5ea82d6bdad4": {
+  "en": "<b>Setup:</b> one or two setups usually carry the whole account.",
+  "t": "<b>Configuración:</b> una o dos configuraciones por lo general sostienen toda la cuenta."
+ },
+ "63be865c5195": {
+  "en": "9:45 to 10:30",
+  "t": "9:45 a 10:30"
+ },
+ "63df04c8bba6": {
+  "en": "I can disconnect the agent or revoke keys in one step",
+  "t": "Puedo desconectar el agente o revocar las claves en un solo paso"
+ },
+ "6430215fe8cc": {
+  "en": "The date after which a model knows nothing new unless it is connected to a live data tool.",
+  "t": "La fecha después de la cual un modelo no sabe nada nuevo, a menos que esté conectado a una herramienta de datos en vivo."
+ },
+ "6670699d82c3": {
+  "en": "I never paste account numbers, SSNs or full statements into chats",
+  "t": "Nunca pego números de cuenta, documentos de identidad ni extractos completos en los chats"
+ },
+ "668996ac1ace": {
+  "en": "9:30 to 9:45",
+  "t": "9:30 a 9:45"
+ },
+ "671d30a2426e": {
+  "en": "Ten trades in a group is a hint, not proof. Treat a pattern as real when it holds across 30 to 50 trades, then change one rule at a time and keep journaling. Ask the AI to point out which groups are too small to trust.",
+  "t": "Diez operaciones en un grupo son una pista, no una prueba. Toma un patrón como real cuando se mantiene a lo largo de 30 a 50 operaciones, y luego cambia una regla a la vez y sigue llevando el diario. Pídele a la IA que señale qué grupos son demasiado pequeños para confiar en ellos."
+ },
+ "675cb73bf2ab": {
+  "en": "Now it does what it is good at: a table with an entry, a stop and a size for each scenario, built only from your numbers.",
+  "t": "Ahora hace lo que sabe hacer: una tabla con una entrada, un stop y un tamaño para cada escenario, construida solo con tus números."
+ },
+ "681b8af64b8d": {
+  "en": "Trusting numbers it produced without checking the source or the math.",
+  "t": "Confiar en números que produjo sin revisar la fuente o las cuentas."
+ },
+ "68ea5d4a8b36": {
+  "en": "<span>When / timeframe</span>",
+  "t": "<span>Cuándo / temporalidad</span>"
+ },
+ "697dc66fcffd": {
+  "en": "Pick a task, type a ticker and your rules, then switch the good habits on and off. Watch the prompt and its score change.",
+  "t": "Escoge una tarea, escribe un ticker y tus reglas, y luego activa y desactiva los buenos hábitos. Mira cómo cambian el prompt y su puntaje."
+ },
+ "6a020eb87904": {
+  "en": "After 12:00",
+  "t": "Después de las 12:00"
+ },
+ "6a48c0a81754": {
+  "en": "Time of day",
+  "t": "Hora del día"
+ },
+ "6b11e2b14c78": {
+  "en": "PMH break and retest",
+  "t": "Ruptura y retesteo del PMH"
+ },
  "6c82e6dd8680": {
   "en": "Time",
   "t": "Hora"
+ },
+ "6cd92dfaadb7": {
+  "en": "Role, context, data, task, format, rules: include all six.",
+  "t": "Rol, contexto, datos, tarea, formato, reglas: incluye los seis."
+ },
+ "6cf6a0d051f4": {
+  "en": "Revenue rose 18% to $412 million.",
+  "t": "Los ingresos subieron 18 % a US$412 millones."
+ },
+ "6ed45a8906f4": {
+  "en": "Bigger size right after a loss: {0} trades, {1} wins, {2}. That is revenge sizing; keep size fixed after a loss.",
+  "t": "Más tamaño justo después de una pérdida: {0} operaciones, {1} ganadoras, {2}. Eso es dimensionar por venganza; mantén el tamaño fijo después de una pérdida."
+ },
+ "6fd49a44c643": {
+  "en": "Protect keys and accounts, limit what agents can touch, and stay on the right side of the law.",
+  "t": "Protege las claves y las cuentas, limita lo que pueden tocar los agentes y mantente del lado correcto de la ley."
+ },
+ "70158ca68d9e": {
+  "en": "Summarizing a 60-page 10-Q you paste in",
+  "t": "Resumir un 10-Q de 60 páginas que pegas"
+ },
+ "73e31a2f6050": {
+  "en": "Turning your rules into checklists and reviewing your journal for patterns.",
+  "t": "Convertir tus reglas en listas de chequeo y revisar tu diario en busca de patrones."
+ },
+ "75c4eda93e66": {
+  "en": "Total for the period: {0}. The plan-following trades alone made {1}; the leaks gave much of it back.",
+  "t": "Total del periodo: {0}. Las operaciones que siguieron el plan solas ganaron {1}; las fugas devolvieron buena parte."
+ },
+ "7625db2e26a1": {
+  "en": "You spot-check two numbers against the quoted sentences. Both match, and 412 ÷ 349 = 1.18, so +18% is right.",
+  "t": "Revisas dos números contra las frases citadas. Los dos coinciden, y 412 ÷ 349 = 1,18, así que +18 % está bien."
+ },
+ "781a7e689a29": {
+  "en": "10:30 to 12:00",
+  "t": "10:30 a 12:00"
+ },
+ "789ce33cce69": {
+  "en": "Letting an agent trade your main account with no budget, approvals or loss limit.",
+  "t": "Dejar que un agente opere tu cuenta principal sin presupuesto, aprobaciones ni límite de pérdida."
  },
  "799b3e5c2304": {
   "en": "Costs",
   "t": "Costos"
  },
+ "7a01f3abbea6": {
+  "en": "Quant model",
+  "t": "Modelo cuantitativo"
+ },
+ "7a9b1e41c375": {
+  "en": "Pick a bucket for the task above. You get the reason right away.",
+  "t": "Escoge un grupo para la tarea de arriba. Te damos la razón de inmediato."
+ },
+ "7bb0ddf9221c": {
+  "en": "Task",
+  "t": "Tarea"
+ },
+ "7c3cb40a5c5a": {
+  "en": "That account holds only a small pilot amount I can afford to lose",
+  "t": "Esa cuenta tiene solo un monto pequeño de prueba que me puedo permitir perder"
+ },
+ "7d2e85ebe82b": {
+  "en": "Move every API key into a password manager or the tool’s env settings and rotate any key that was ever pasted into a chat.",
+  "t": "Pasa cada clave de API a un gestor de contraseñas o a la configuración del entorno de la herramienta, y cambia cualquier clave que alguna vez hayas pegado en un chat."
+ },
+ "7e19edee72f3": {
+  "en": "Skipping the honesty rules. Without “write not stated”, models tend to fill blanks.",
+  "t": "Saltarte las reglas de honestidad. Sin “escribe no indicado”, los modelos tienden a llenar los espacios en blanco."
+ },
+ "7f2961aed9e6": {
+  "en": "You connect Claude to Robinhood’s official MCP server and open the separate agentic account during sign-in.",
+  "t": "Conectas Claude al servidor MCP oficial de Robinhood y abres la cuenta agéntica aparte al iniciar sesión."
+ },
+ "7f33fe04507f": {
+  "en": "Use the least power that works: read-only keys for research tools, trading keys only where needed.",
+  "t": "Usa el menor poder que funcione: claves de solo lectura para las herramientas de investigación, claves de trading solo donde se necesiten."
+ },
+ "80487955f275": {
+  "en": "Start a new conversation for each ticker or each day so old details do not leak into new answers, and paste fresh data every time. For filings, paste the actual text or connect a filings tool; do not rely on what the model remembers.",
+  "t": "Empieza una conversación nueva para cada ticker o cada día, para que los detalles viejos no se cuelen en las respuestas nuevas, y pega datos frescos cada vez. Para los informes, pega el texto real o conecta una herramienta de informes; no te fíes de lo que el modelo recuerda."
+ },
+ "807b92f7b757": {
+  "en": "Worst case is capped at $500, every order needs your yes, and no secret ever touched a chat window.",
+  "t": "El peor caso tiene un tope de US$500, cada orden necesita tu sí y ningún secreto tocó nunca una ventana de chat."
+ },
+ "80a8556a5e4e": {
+  "en": "I track wash sales and taxes from frequent automated trades",
+  "t": "Llevo la cuenta de los impuestos (y en EE. UU., de las ventas ficticias) de las operaciones automáticas frecuentes"
+ },
+ "81423fa83887": {
+  "en": "Export your journal and let AI find the patterns in your wins, losses and rule breaks.",
+  "t": "Exporta tu diario y deja que la IA encuentre los patrones en tus ganancias, tus pérdidas y tus reglas rotas."
+ },
+ "81991007cdc4": {
+  "en": "Sort each task into a bucket. You get the reason after every pick.",
+  "t": "Clasifica cada tarea en un grupo. Te damos la razón después de cada elección."
+ },
+ "81cdf4f898ad": {
+  "en": "Group the sample journal by time, setup, plan or what happened after a loss. Read the coach notes, then copy the prompt for your own data.",
+  "t": "Agrupa el diario de ejemplo por hora, configuración, plan o lo que pasó después de una pérdida. Lee las notas del coach y luego copia el prompt para tus propios datos."
+ },
+ "8311d408f889": {
+  "en": "By {0}: <b>{1}</b> is {2} over {3} trades. <b>{4}</b> is the strongest at {5}.",
+  "t": "Por {0}: <b>{1}</b> da {2} en {3} operaciones. <b>{4}</b> es el más fuerte, con {5}."
+ },
+ "847fe649c2ae": {
+  "en": "AI is a fast, tireless assistant for reading, writing and coding. It cannot see the future, and it can be confidently wrong.",
+  "t": "La IA es un asistente rápido e incansable para leer, escribir y programar. No puede ver el futuro, y puede equivocarse con total seguridad."
+ },
+ "85aaaded8d13": {
+  "en": "Without a live data tool, a model’s knowledge stops at its training cutoff. It may describe last year’s guidance or a rule that has changed, such as the $25,000 day-trading minimum that was removed in 2026.",
+  "t": "Sin una herramienta de datos en vivo, el conocimiento de un modelo se detiene en su fecha de corte del entrenamiento. Puede describir las proyecciones del año pasado o una regla que ya cambió, como el mínimo de US$25.000 para day trading que se eliminó en 2026."
+ },
+ "873c9a3fb107": {
+  "en": "The summary says DEMO “announced a new $0.10 quarterly dividend”, which would make the stock more attractive to you.",
+  "t": "El resumen dice que DEMO “anunció un nuevo dividendo trimestral de US$0,10”, lo que haría la acción más atractiva para ti."
+ },
+ "886aaefc46ac": {
+  "en": "Trades that broke the plan: {0} wins in {1}, {2}. Trades that followed it: {3}% wins, {4}.",
+  "t": "Operaciones que rompieron el plan: {0} ganadoras de {1}, {2}. Operaciones que lo siguieron: {3} % ganadoras, {4}."
+ },
+ "8b373966638c": {
+  "en": "The first 15 minutes (9:30 to 9:45): {0} trades, {1}% wins, {2}. Waiting until 9:45 would have skipped most of that.",
+  "t": "Los primeros 15 minutos (9:30 a 9:45): {0} operaciones, {1} % ganadoras, {2}. Esperar hasta las 9:45 se habría saltado la mayor parte de eso."
+ },
+ "8d7a9be4928f": {
+  "en": "You add one line to tomorrow’s plan: guidance is unchanged, so watch how price reacts at PMH instead of guessing the direction.",
+  "t": "Agregas una línea al plan de mañana: las proyecciones no cambiaron, así que mira cómo reacciona el precio en el PMH en vez de adivinar la dirección."
+ },
+ "8d83cd7f6041": {
+  "en": "Flag any claim you would verify before trading on it. Then check against the source.",
+  "t": "Marca cualquier afirmación que verificarías antes de operar con ella. Luego compara con la fuente."
+ },
+ "8e273e3b5ed3": {
+  "en": "<b>Scraping:</b> follow each site’s terms and rate limits, and use official APIs where they exist, like SEC EDGAR’s free data API (10 requests per second, with a User-Agent that names you).",
+  "t": "<b>Extracción de datos:</b> sigue los términos y los límites de cada sitio, y usa las API oficiales donde existan, como la API gratuita de datos de SEC EDGAR (10 solicitudes por segundo, con un User-Agent que te identifique)."
+ },
+ "8e7b99ca9a58": {
+  "en": "Choose a bucket",
+  "t": "Escoge un grupo"
+ },
+ "8f207e10aaa1": {
+  "en": "After a loss",
+  "t": "Después de una pérdida"
+ },
+ "9499f17940f2": {
+  "en": "Rotate keys every few months, and at once if one may have leaked.",
+  "t": "Cambia las claves cada pocos meses, y de inmediato si alguna se pudo haber filtrado."
+ },
+ "94a259ae84b8": {
+  "en": "After a loss, same size",
+  "t": "Después de una pérdida, el mismo tamaño"
+ },
+ "94f6b20a354a": {
+  "en": "Followed plan",
+  "t": "Siguió el plan"
+ },
  "952f375412e8": {
   "en": "Start",
   "t": "Empezar"
+ },
+ "95445fb5d281": {
+  "en": "In a public code repository",
+  "t": "En un repositorio de código público"
+ },
+ "967a60ed034c": {
+  "en": "<b>Prices and news it cannot see.</b> Without a live data tool its knowledge stops at a training cutoff.",
+  "t": "<b>Precios y noticias que no puede ver.</b> Sin una herramienta de datos en vivo, su conocimiento se detiene en una fecha de corte del entrenamiento."
+ },
+ "979342474e75": {
+  "en": "<b>Revenge sizing:</b> bigger size right after a loss.",
+  "t": "<b>Dimensionar por venganza:</b> más tamaño justo después de una pérdida."
+ },
+ "985791643b2b": {
+  "en": "You move $500 into that account. That is the most the agent can ever spend.",
+  "t": "Pasas US$500 a esa cuenta. Eso es lo máximo que el agente puede gastar."
+ },
+ "99343a8ca377": {
+  "en": "Plan, summarize filings, compare companies and build checklists with prompts you can copy.",
+  "t": "Planea, resume informes, compara empresas y arma listas de chequeo con prompts que puedes copiar."
+ },
+ "9940ef243491": {
+  "en": "Acting on an AI-summarized number without opening the source.",
+  "t": "Actuar con un número resumido por la IA sin abrir la fuente."
+ },
+ "9a0d4197c8f3": {
+  "en": "Most of the AI traders use today is a <b>large language model</b>, or LLM, such as Claude or ChatGPT. It learned from huge amounts of text, so it is very good at reading, summarizing, explaining and writing, including code. It is not a crystal ball. It has never seen tomorrow’s prices, and nothing in its training gives it an edge over the market.",
+  "t": "La mayor parte de la IA que usan hoy los traders es un <b>modelo de lenguaje grande</b>, o LLM, como Claude o ChatGPT. Aprendió de cantidades enormes de texto, así que es muy bueno leyendo, resumiendo, explicando y escribiendo, incluido código. No es una bola de cristal. Nunca ha visto los precios de mañana, y nada en su entrenamiento le da una ventaja sobre el mercado."
+ },
+ "9b28fb07fd69": {
+  "en": "Give an agent its own account. Robinhood’s agentic account is a separate account the agent trades in, so its budget is whatever you move there. The agent can still <b>read</b> your other Robinhood accounts, such as balances and positions, so treat that read access as sensitive too. Turn on two-factor authentication for your broker, your email and your AI accounts.",
+  "t": "Dale a un agente su propia cuenta. La cuenta agéntica de Robinhood es una cuenta aparte en la que opera el agente, así que su presupuesto es lo que tú pases ahí. El agente igual puede <b>leer</b> tus otras cuentas de Robinhood, como saldos y posiciones, así que trata ese acceso de lectura también como sensible. Activa la verificación en dos pasos en tu bróker, tu correo y tus cuentas de IA."
+ },
+ "9bc5e5d070cb": {
+  "en": "Reading and condensing long text is what language models do well; forecasts and guarantees are not.",
+  "t": "Leer y condensar textos largos es lo que los modelos de lenguaje hacen bien; los pronósticos y las garantías no."
+ },
+ "9c51b3360109": {
+  "en": "Don’t",
+  "t": "No"
+ },
+ "9c5a179da974": {
+  "en": "<b>Your situation.</b> It knows your goals, taxes and risk limits only if you tell it.",
+  "t": "<b>Tu situación.</b> Conoce tus metas, impuestos y límites de riesgo solo si se los dices."
+ },
+ "9df39ea2c8a7": {
+  "en": "Data collection follows site terms and rate limits, using official APIs where they exist",
+  "t": "La recolección de datos sigue los términos y los límites de los sitios, usando las API oficiales donde existan"
+ },
+ "9e039e61ae6c": {
+  "en": "You ask an AI to summarize DEMO’s quarter from memory, without pasting the report.",
+  "t": "Le pides a una IA que resuma el trimestre de DEMO de memoria, sin pegar el informe."
+ },
+ "9e6e027be79f": {
+  "en": "Use with care",
+  "t": "Con cuidado"
+ },
+ "a0a9bf36835b": {
+  "en": "At the top of every chat so the AI can use it",
+  "t": "Al principio de cada chat para que la IA la pueda usar"
+ },
+ "a24a9d402711": {
+  "en": "API keys live in a secret store or env settings, never in a chat or shared code",
+  "t": "Las claves de API viven en un almacén de secretos o en la configuración del entorno, nunca en un chat ni en código compartido"
+ },
+ "a364c8bf2976": {
+  "en": "Example setups",
+  "t": "Configuraciones de ejemplo"
+ },
+ "a3e6a508c2c3": {
+  "en": "How much text a model can read at once. Long chats push early details out or blur them.",
+  "t": "Cuánto texto puede leer un modelo a la vez. Los chats largos sacan o difuminan los detalles del principio."
+ },
+ "a55247452096": {
+  "en": "The first 15 minutes after the open: {0} wins out of {1}, for {2}.",
+  "t": "Los primeros 15 minutos después de la apertura: {0} ganadoras de {1}, para {2}."
+ },
+ "a5ea5083cd98": {
+  "en": "Pasting full broker statements with account numbers into a chat for “analysis”.",
+  "t": "Pegar extractos completos del bróker con números de cuenta en un chat para “análisis”."
+ },
+ "a6a622e145a4": {
+  "en": "Trading bigger right after a loss to win it back quickly. One of the most common leaks in a journal.",
+  "t": "Operar más grande justo después de una pérdida para recuperarla rápido. Una de las fugas más comunes de un diario."
+ },
+ "a7479d2e2e89": {
+  "en": "Treat web text as data; never let it give your agent orders.",
+  "t": "Trata el texto de la web como datos; nunca dejes que le dé órdenes a tu agente."
+ },
+ "a89973bbf944": {
+  "en": "Separate account, small budget, approvals on, one-tap disconnect.",
+  "t": "Cuenta aparte, presupuesto pequeño, aprobaciones activas, desconexión en un toque."
+ },
+ "a9498113cd86": {
+  "en": "You add two rules: no entries before 9:45, and size never goes up after a loss. You keep the PMH retest as your main setup.",
+  "t": "Agregas dos reglas: ninguna entrada antes de las 9:45, y el tamaño nunca sube después de una pérdida. Mantienes el retesteo del PMH como tu configuración principal."
+ },
+ "acf1184eceef": {
+  "en": "Turn on trade approvals or tell the agent to always wait for your yes before ordering.",
+  "t": "Activa las aprobaciones de operaciones o dile al agente que siempre espere tu sí antes de enviar una orden."
+ },
+ "ae2439d23a3d": {
+  "en": "You are a careful trading assistant. You help me plan; you do not give financial advice.",
+  "t": "Eres un asistente de trading cuidadoso. Me ayudas a planear; no das asesoría financiera."
+ },
+ "af3184a0e324": {
+  "en": "Ask for scenarios and plans, never predictions.",
+  "t": "Pide escenarios y planes, nunca predicciones."
+ },
+ "afabb1746fe0": {
+  "en": "Sample size: {0} trades is enough for hints, not proof. Change one rule, then journal another 30 to 50 trades.",
+  "t": "Tamaño de la muestra: {0} operaciones alcanzan para pistas, no para pruebas. Cambia una regla y luego registra otras 30 a 50 operaciones."
+ },
+ "b0753d77543e": {
+  "en": "A statistical or machine-learning system trained on market data, usually built and tested by a professional team.",
+  "t": "Un sistema estadístico o de aprendizaje automático entrenado con datos del mercado, por lo general construido y probado por un equipo profesional."
+ },
+ "b2ee0dd55618": {
+  "en": "Turn on two-factor authentication for your broker, your email and every AI account.",
+  "t": "Activa la verificación en dos pasos en tu bróker, tu correo y cada cuenta de IA."
+ },
+ "b36568b116a6": {
+  "en": "Data is in: answers can be checked.",
+  "t": "Hay datos: las respuestas se pueden verificar."
+ },
+ "b3a0c251b294": {
+  "en": "Check time of day, setup, rule breaks and sizing after losses.",
+  "t": "Revisa la hora del día, la configuración, las reglas rotas y el tamaño después de las pérdidas."
+ },
+ "b3c825dab7de": {
+  "en": "You open the actual release. It says the board did not declare a dividend.",
+  "t": "Abres el comunicado real. Dice que la junta no decretó ningún dividendo."
+ },
+ "b3e0a54e01b2": {
+  "en": "<b>Role:</b> who it should act as, such as “a careful analyst writing for a beginner”.",
+  "t": "<b>Rol:</b> qué papel debe hacer, como “un analista cuidadoso que escribe para un principiante”."
+ },
+ "b5661b87c0d4": {
+  "en": "Research tools use read-only keys; only the trading tool can place orders",
+  "t": "Las herramientas de investigación usan claves de solo lectura; solo la herramienta de trading puede enviar órdenes"
+ },
+ "b5975e5a01cb": {
+  "en": "Never paste secrets or account numbers into AI chats.",
+  "t": "Nunca pegues secretos ni números de cuenta en chats de IA."
+ },
+ "b5a8b3e9840b": {
+  "en": "Not pasting the data, so the model fills gaps from memory or invents figures.",
+  "t": "No pegar los datos, así el modelo llena los huecos de memoria o se inventa cifras."
+ },
+ "b67f6735acff": {
+  "en": "<b>Task:</b> one clear job.",
+  "t": "<b>Tarea:</b> un trabajo claro."
+ },
+ "b6bb0f808d01": {
+  "en": "The date after which a model knows nothing new unless a live data tool is connected.",
+  "t": "La fecha después de la cual un modelo no sabe nada nuevo, a menos que esté conectada una herramienta de datos en vivo."
+ },
+ "b6c915d0234c": {
+  "en": "The table comes back: revenue $412M vs $349M, EPS $0.42, gross margin 46.1% vs 44.0%, guidance $1.58B to $1.62B, unchanged.",
+  "t": "La tabla vuelve: ingresos de US$412 millones frente a US$349 millones, UPA US$0,42, margen bruto 46,1 % frente a 44,0 %, proyecciones de US$1.580 a US$1.620 millones, sin cambios."
+ },
+ "b6fffc5ab71c": {
+  "en": "Start again",
+  "t": "Empezar de nuevo"
+ },
+ "b791df09c6fd": {
+  "en": "Group trades by",
+  "t": "Agrupar operaciones por"
+ },
+ "b92aba48781e": {
+  "en": "When the AI is connected to tools, such as a broker’s MCP server or a filings feed, it can fetch data itself. You still choose what it looks at, and you still check its work before it touches your plan.",
+  "t": "Cuando la IA está conectada a herramientas, como el servidor MCP de un bróker o una fuente de informes, puede buscar los datos por su cuenta. Igual eres tú quien escoge qué mira, y quien revisa su trabajo antes de que toque tu plan."
+ },
+ "ba3153c68542": {
+  "en": "You export {0} trades and paste them with the prompt above.",
+  "t": "Exportas {0} operaciones y las pegas con el prompt de arriba."
+ },
+ "be81a543b91a": {
+  "en": "Least privilege: read-only where possible, trading keys only where needed.",
+  "t": "Mínimo privilegio: solo lectura donde sea posible, claves de trading solo donde se necesiten."
+ },
+ "c07abe7ff9d3": {
+  "en": "<b>Taxes:</b> bots that trade the same ticker often can create many wash sales. Keep records and use your broker’s tax forms.",
+  "t": "<b>Impuestos:</b> los bots que operan el mismo ticker seguido pueden crear muchas ventas ficticias (wash sales, una regla de EE. UU.). Guarda registros y usa los certificados tributarios de tu bróker."
+ },
+ "c09266434de2": {
+  "en": "Writing code: Pine Script indicators, Python backtests, spreadsheet formulas.",
+  "t": "Escribir código: indicadores en Pine Script, backtests en Python, fórmulas de hojas de cálculo."
+ },
+ "c1bd5c6b16ef": {
+  "en": "One row per trade: date, time, ticker, setup, side, entry, stop, exit, shares, R and whether you followed your plan. The <a href=\"#sheets\">trade journal sheet</a> on this site already has these columns. Leave out names, account numbers and anything private.",
+  "t": "Una fila por operación: fecha, hora, ticker, configuración, lado, entrada, stop, salida, acciones, R y si seguiste tu plan. La <a href=\"#sheets\">hoja del diario de operaciones</a> de este sitio ya tiene estas columnas. Deja por fuera nombres, números de cuenta y cualquier cosa privada."
+ },
+ "c1cdef3dfca0": {
+  "en": "Only the source confirms a number; a second model can repeat the same error.",
+  "t": "Solo la fuente confirma un número; un segundo modelo puede repetir el mismo error."
+ },
+ "c28366be8f06": {
+  "en": "The agent trades in a separate account, like a Robinhood agentic account",
+  "t": "El agente opera en una cuenta aparte, como una cuenta agéntica de Robinhood"
+ },
+ "c3f104d13657": {
+  "en": "Role",
+  "t": "Rol"
+ },
+ "c41d3e0354e8": {
+  "en": "PMH retest carries the account: {0} trades, {1}% wins, {2}.",
+  "t": "El retesteo del PMH sostiene la cuenta: {0} operaciones, {1} % ganadoras, {2}."
+ },
+ "c5501b39d044": {
+  "en": "Treat every AI connection like lending someone your car: the fewest permissions, the smallest budget and a way to take the keys back.",
+  "t": "Trata cada conexión de IA como prestarle tu carro a alguien: los menos permisos posibles, el presupuesto más pequeño y una forma de recuperar las llaves."
+ },
+ "c56247f8c760": {
+  "en": "Max order size and a daily loss limit are written into the agent’s rules",
+  "t": "El tamaño máximo de orden y un límite de pérdida diario están escritos en las reglas del agente"
+ },
+ "c5ab0f28870d": {
+  "en": "Tick what your setup already does. Watch the risk gauge and your list of fixes.",
+  "t": "Marca lo que tu configuración ya hace. Mira el medidor de riesgo y tu lista de arreglos."
+ },
+ "c74f63431bbf": {
+  "en": "Answer as fast as possible",
+  "t": "Responde lo más rápido posible"
+ },
+ "c835e726abfa": {
+  "en": "I checked each AI tool’s data and training settings",
+  "t": "Revisé la configuración de datos y de entrenamiento de cada herramienta de IA"
+ },
+ "cab0613fc7ff": {
+  "en": "Change one rule at a time and keep journaling.",
+  "t": "Cambia una regla a la vez y sigue llevando el diario."
+ },
+ "cc11b3a28fa3": {
+  "en": "Context",
+  "t": "Contexto"
+ },
+ "cc11d3c8e794": {
+  "en": "<b>Holding time:</b> cutting winners early while letting losers run.",
+  "t": "<b>Tiempo de tenencia:</b> cortar las ganadoras temprano mientras dejas correr las perdedoras."
+ },
+ "cc2b65980894": {
+  "en": "One unchecked line would have changed your thesis. The fix cost thirty seconds.",
+  "t": "Una línea sin revisar habría cambiado tu tesis. El arreglo costó treinta segundos."
+ },
+ "ccdc21d726f5": {
+  "en": "Risk gauge at {0} out of 100",
+  "t": "Medidor de riesgo en {0} de 100"
+ },
+ "ced128179c48": {
+  "en": "Great for AI",
+  "t": "Ideal para la IA"
  },
  "cf8468705371": {
   "en": "Strong",
   "t": "Fuerte"
  },
+ "cff8fa3a6393": {
+  "en": "You need 30 to 50 trades before trusting a pattern.",
+  "t": "Necesitas de 30 a 50 operaciones antes de confiar en un patrón."
+ },
+ "d0caae76f0ef": {
+  "en": "Net income was $31 million.",
+  "t": "La utilidad neta fue de US$31 millones."
+ },
+ "d2f8d140818c": {
+  "en": "Trusting a machine’s answer over your own judgment, even when the machine is wrong.",
+  "t": "Confiar en la respuesta de una máquina por encima de tu propio criterio, incluso cuando la máquina está equivocada."
+ },
+ "d3b5515b1051": {
+  "en": "Anything you paste may be stored by the provider. Check each tool’s privacy and training settings. Leave out account numbers, Social Security numbers and full statements. A journal with tickers, times and R values is enough for analysis.",
+  "t": "Todo lo que pegas puede quedar guardado por el proveedor. Revisa la configuración de privacidad y de entrenamiento de cada herramienta. Deja por fuera números de cuenta, documentos de identidad y extractos completos. Un diario con tickers, horas y valores de R es suficiente para el análisis."
+ },
+ "d4a7d352655b": {
+  "en": "<b>Rule breaks:</b> compare trades that followed the plan with the ones that did not.",
+  "t": "<b>Reglas rotas:</b> compara las operaciones que siguieron el plan con las que no."
+ },
+ "d64fd01d9239": {
+  "en": "Asking AI to predict prices or pick winners. It will answer, and the answer will sound smarter than it is.",
+  "t": "Pedirle a la IA que prediga precios o escoja ganadoras. Va a responder, y la respuesta va a sonar más inteligente de lo que es."
+ },
+ "d6cc798f8603": {
+  "en": "Mixing many tickers and days in one long chat, so old details leak into new answers.",
+  "t": "Mezclar muchos tickers y días en un solo chat largo, así los detalles viejos se cuelan en las respuestas nuevas."
+ },
+ "d81a0449e89c": {
+  "en": "Prefer official sign-in flows, like Robinhood’s MCP login, over community tools that ask for your username and password.",
+  "t": "Prefiere los inicios de sesión oficiales, como el acceso por MCP de Robinhood, sobre herramientas de la comunidad que te piden tu usuario y contraseña."
+ },
+ "d8b1dfb90470": {
+  "en": "Approvals are on, or my instructions say: always show me the order and wait",
+  "t": "Las aprobaciones están activas, o mis instrucciones dicen: muéstrame siempre la orden y espera"
+ },
+ "d9dd413de2f1": {
+  "en": "PROMPT ANATOMY",
+  "t": "ANATOMÍA DEL PROMPT"
+ },
+ "db24ad9ea194": {
+  "en": "Verify every number you will act on against a source.",
+  "t": "Verifica contra una fuente cada número con el que vas a actuar."
+ },
+ "db6f8ecfa8d5": {
+  "en": "They cannot predict prices and can be confidently wrong.",
+  "t": "No pueden predecir precios y pueden equivocarse con total seguridad."
+ },
+ "dcf5b41b8010": {
+  "en": "Copy prompt",
+  "t": "Copiar el prompt"
+ },
+ "dd385120d494": {
+  "en": "<code>Role: You are a careful trading assistant. You do not give financial advice.\\nContext: I day trade US stocks on a 2-minute chart, risk 1% per trade,\\nand only take PMH or PDH breaks that retest and hold.\\nData: DEMO levels today: PDH 52.10, PDL 49.80, PMH 51.40, PML 50.60.\\nHeadlines: [paste]\\nTask: Write my if-then plan for the first hour.\\nFormat: Table with Scenario, Trigger, Entry, Stop, Target.\\nRules: Use only the data above. Write \"not stated\" for anything missing.\\nDo not predict where the price will go.</code>",
+  "t": "<code>Rol: Eres un asistente de trading cuidadoso. No das asesoría financiera.\\nContexto: Hago day trading de acciones de EE. UU. en un gráfico de 2 minutos, arriesgo 1 % por operación,\\ny solo tomo rupturas del PMH o del PDH que retestean y se sostienen.\\nDatos: Niveles de DEMO hoy: PDH 52,10, PDL 49,80, PMH 51,40, PML 50,60.\\nTitulares: [pegar]\\nTarea: Escribe mi plan si-entonces para la primera hora.\\nFormato: Tabla con Escenario, Señal, Entrada, Stop, Objetivo.\\nReglas: Usa solo los datos de arriba. Escribe \"no indicado\" para lo que falte.\\nNo predigas hacia dónde va a ir el precio.</code>"
+ },
+ "dd468e11d86c": {
+  "en": "Bars of total R for each group of trades, with count and win rate",
+  "t": "Barras del R total de cada grupo de operaciones, con el número de operaciones y la tasa de acierto"
+ },
+ "de7b1820a6b0": {
+  "en": "Every agent action and order is logged and reviewed weekly",
+  "t": "Cada acción y orden del agente queda registrada y la reviso cada semana"
+ },
+ "df30381aaaf0": {
+  "en": "Summarize a 60-page 10-Q you paste in into five bullets",
+  "t": "Resumir en cinco puntos un 10-Q de 60 páginas que pegas"
+ },
+ "e2b0f5298828": {
+  "en": "Ten minutes of reading done in two, with every number traced to a sentence you can check.",
+  "t": "Diez minutos de lectura hechos en dos, con cada número rastreado hasta una frase que puedes revisar."
+ },
+ "e2b637272a57": {
+  "en": "Assuming it knows today’s news or prices when no data tool is connected.",
+  "t": "Suponer que conoce las noticias o los precios de hoy cuando no hay ninguna herramienta de datos conectada."
+ },
+ "e5135dc264ab": {
+  "en": "To improve it: ",
+  "t": "Para mejorarlo: "
+ },
+ "e5e429bcc9c2": {
+  "en": "Data",
+  "t": "Datos"
+ },
+ "e6ca664cefa3": {
+  "en": "Funds have used <b>quantitative models</b> for decades: statistical and machine-learning systems trained on price data, run by teams with clean data, fast execution and strict testing. A chat assistant is a different tool. Ask it “will this stock go up?” and you get a guess written in the voice of an analyst.",
+  "t": "Los fondos llevan décadas usando <b>modelos cuantitativos</b>: sistemas estadísticos y de aprendizaje automático entrenados con datos de precios, manejados por equipos con datos limpios, ejecución rápida y pruebas estrictas. Un asistente de chat es otra herramienta. Pregúntale “¿esta acción va a subir?” y recibes una adivinanza escrita con voz de analista."
+ },
+ "e7e9b6efc99c": {
+  "en": "Give the agent its own account so it can never touch your main portfolio.",
+  "t": "Dale al agente su propia cuenta para que nunca pueda tocar tu portafolio principal."
+ },
+ "e9ffcb328030": {
+  "en": "AI makes careful traders faster. It also makes careless traders faster. These are the mistakes that cost people money, roughly in order of how often they happen.",
+  "t": "La IA hace más rápidos a los traders cuidadosos. También hace más rápidos a los descuidados. Estos son los errores que le cuestan plata a la gente, más o menos en orden de qué tan seguido pasan."
+ },
+ "eabfab2b9418": {
+  "en": "After a loss, bigger size",
+  "t": "Después de una pérdida, más tamaño"
+ },
  "eb9a4bc1c0c1": {
   "en": "Date",
   "t": "Fecha"
+ },
+ "ed06b9d7bf29": {
+  "en": "You check the math: $10,000 × 1% = $100 of risk. Entry $51.50, stop $51.10 is $0.40 a share, so 250 shares.",
+  "t": "Revisas las cuentas: US$10.000 × 1 % = US$100 de riesgo. Entrada en US$51,50, stop en US$51,10 son US$0,40 por acción, así que 250 acciones."
+ },
+ "edd304201add": {
+  "en": "AI as your research assistant",
+  "t": "La IA como tu asistente de investigación"
+ },
+ "edfd617aa53e": {
+  "en": "Two-factor authentication",
+  "t": "Verificación en dos pasos"
+ },
+ "f061dbf4aaad": {
+  "en": "Most AI trading losses come from trusting it too much: believing its numbers, letting it act without limits, or feeding it text written to fool it.",
+  "t": "La mayoría de las pérdidas de trading con IA vienen de confiar demasiado en ella: creer sus números, dejarla actuar sin límites o darle textos escritos para engañarla."
+ },
+ "f067ddd3a1a2": {
+  "en": "Your pasted data is the most important part of the prompt.",
+  "t": "Los datos que pegas son la parte más importante del prompt."
+ },
+ "f11f4ae751c6": {
+  "en": "Gross margin expanded to 46.1% from 44.0%.",
+  "t": "El margen bruto subió a 46,1 % desde 44,0 %."
+ },
+ "f133cc19e678": {
+  "en": "Guaranteeing a win rate above 60%",
+  "t": "Garantizar una tasa de acierto por encima del 60 %"
+ },
+ "f151622a2ea7": {
+  "en": "What AI can and can’t do",
+  "t": "Lo que la IA puede y no puede hacer"
+ },
+ "f17a910a23e1": {
+  "en": "Hallucinations, stale data, predictions, overfitting, unlimited agents, leaked keys and poisoned text.",
+  "t": "Alucinaciones, datos viejos, predicciones, sobreajuste, agentes sin límites, claves filtradas y textos envenenados."
+ },
+ "f2a2c7cc83a7": {
+  "en": "You are my trading coach. You keep my rules exactly as I wrote them.",
+  "t": "Eres mi coach de trading. Mantienes mis reglas exactamente como las escribí."
+ },
+ "f35e07f99309": {
+  "en": "<span class=\"note\">Then try the same prompt with your own export.</span>",
+  "t": "<span class=\"note\">Luego prueba el mismo prompt con tu propia exportación.</span>"
+ },
+ "f35fa8cccec3": {
+  "en": "Asking the model to tune a strategy until the backtest looks perfect, then trading it live.",
+  "t": "Pedirle al modelo que ajuste una estrategia hasta que el backtest se vea perfecto, y luego operarla en vivo."
+ },
+ "f37b2fc6cb33": {
+  "en": "<b>Format:</b> a table, five bullets or JSON.",
+  "t": "<b>Formato:</b> una tabla, cinco viñetas o JSON."
+ },
+ "f38cb5c2e750": {
+  "en": "Ask a second AI to agree",
+  "t": "Pedirle a una segunda IA que esté de acuerdo"
+ },
+ "f3be4473c188": {
+  "en": "Pasting a broker API key into a chat to “help it connect”.",
+  "t": "Pegar una clave de API del bróker en un chat para “ayudarle a conectarse”."
+ },
+ "f4cb4933625e": {
+  "en": "TRADES · WIN",
+  "t": "OPERACIONES · ACIERTO"
+ },
+ "f6cbbedc6ab9": {
+  "en": "Free cash flow was $22 million.",
+  "t": "El flujo de caja libre fue de US$22 millones."
+ },
+ "f836784ab78b": {
+  "en": "You ask: “Will DEMO go up tomorrow?” The AI replies with a confident paragraph about momentum and sentiment.",
+  "t": "Preguntas: “¿DEMO va a subir mañana?”. La IA responde con un párrafo seguro sobre impulso y sentimiento."
+ },
+ "f86ddd60aebb": {
+  "en": "Pasting account numbers or full broker statements instead of a clean journal.",
+  "t": "Pegar números de cuenta o extractos completos del bróker en vez de un diario limpio."
+ },
+ "f8cbe94cae4d": {
+  "en": "Copy the AI prompt with this journal",
+  "t": "Copiar el prompt de IA con este diario"
+ },
+ "fa6efacfc4de": {
+  "en": "Trades that broke the plan: {0} wins out of {1}, for {2}. Trades that followed it: {3}.",
+  "t": "Operaciones que rompieron el plan: {0} ganadoras de {1}, para {2}. Operaciones que lo siguieron: {3}."
+ },
+ "fc5f509ec3b3": {
+  "en": "<span class=\"note\">Paste into Claude, ChatGPT or any assistant, then fill the [brackets].</span>",
+  "t": "<span class=\"note\">Pégalo en Claude, ChatGPT o cualquier asistente, y luego llena los [corchetes].</span>"
+ },
+ "fd09f028d166": {
+  "en": "<b>Context:</b> how you trade, such as “2-minute chart, 1% risk per trade”.",
+  "t": "<b>Contexto:</b> cómo operas, como “gráfico de 2 minutos, riesgo del 1 % por operación”."
+ },
+ "fdf1f7634cc2": {
+  "en": "FINRA Regulatory Notice 26-10: intraday margin standards replace the pattern day trader rule (effective June 4, 2026)",
+  "t": "FINRA Regulatory Notice 26-10: los estándares de margen intradía reemplazan la regla del pattern day trader (vigente desde el 4 de junio de 2026, en inglés)"
+ },
+ "fe8059c44331": {
+  "en": "Turn my rules into a yes/no checklist I can tick before {0}. Keep every rule; do not add new ones.",
+  "t": "Convierte mis reglas en una lista de chequeo de sí o no que pueda marcar antes de {0}. Conserva todas las reglas; no agregues nuevas."
  }
 }

@@ -1,4 +1,8 @@
 {
+ "1ba0e91427d1": {
+  "en": "SEC: Accessing EDGAR data (10 requests a second, declare a User-Agent)",
+  "t": "SEC: acceso a los datos de EDGAR (10 solicitudes por segundo, declarar un User-Agent; en inglés)"
+ },
  "597b1092b357": {
   "en": "Trades",
   "t": "Operaciones"
