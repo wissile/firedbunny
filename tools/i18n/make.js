@@ -57,6 +57,7 @@ function build(lang, out, opts) {
     const segs = extract(src, f);
     const dict = Object.assign({}, all);
     for (const g of segs) {
+      if (dict[g.key] == null && opts.keys) dict[g.key] = '⟦' + g.key + '⟧' + (/\{\d+\}/.test(g.en) ? ' ' + (g.en.match(/\{\d+\}/g) || []).join(' ') : '') + ((g.en.match(/<\/?[a-zA-Z][^>]*>/g) || []).join(''));
       if (dict[g.key] == null && opts.pseudo) dict[g.key] = pseudo(g.en);
       if (dict[g.key] == null) missingW += words(g.en); else { done++; doneW += words(g.en); }
       if (g.runtime && dict[g.key] != null) rt[g.en] = dict[g.key];
@@ -84,12 +85,15 @@ function build(lang, out, opts) {
   return { done, missingW, bad };
 }
 
-function todo(lang, files, max) {
+function todo(lang, files, max, seenOnly) {
   const { all } = loadStrings(lang);
+  let seen = null;
+  if (seenOnly) seen = new Set(JSON.parse(fs.readFileSync(dir(lang, 'seen.json'), 'utf8')).keys);
   const out = {}; let n = 0;
   for (const f of files.length ? files : workFiles()) {
     for (const g of segmentsOf(f)) {
       if (all[g.key] != null || out[g.key] != null) continue;
+      if (seen && !seen.has(g.key)) continue;
       out[g.key] = g.en; if (++n >= max) break;
     }
     if (n >= max) break;
@@ -135,8 +139,8 @@ function stats(only) {
 }
 
 const [cmd, lang, ...rest] = process.argv.slice(2);
-if (cmd === 'build') build(lang, rest[0], { pseudo: rest.includes('--pseudo') });
-else if (cmd === 'todo') { const mi = rest.indexOf('--max'); const max = mi >= 0 ? +rest[mi + 1] : Infinity; todo(lang, rest.filter((x, i) => !x.startsWith('--') && (mi < 0 || i !== mi + 1)), max); }
+if (cmd === 'build') build(lang, rest[0], { pseudo: rest.includes('--pseudo'), keys: rest.includes('--keys') });
+else if (cmd === 'todo') { const mi = rest.indexOf('--max'); const max = mi >= 0 ? +rest[mi + 1] : Infinity; todo(lang, rest.filter((x, i) => !x.startsWith('--') && (mi < 0 || i !== mi + 1)), max, rest.includes('--seen')); }
 else if (cmd === 'add') add(lang, rest[0]);
 else if (cmd === 'stats') stats(lang);
 else console.log('usage: make.js build|todo|add|stats ...');

@@ -26,5 +26,7 @@
   inPlace(SML.lessons, (l) => !hidden.has(l.id));
   inPlace(SML.courses, (c) => !hidden.has('c-' + c.id));
   inPlace(SML.tools, (t) => !hidden.has(t.id));
+  // glossary terms whose lesson is hidden are US jargon with nowhere to go (401(k), FDIC, Roth...): hidden too
+  inPlace(SML.glossary, (g) => !(g.l && hidden.has(g.l)));
   SML.HIDDEN = hidden;
 })();

@@ -319,6 +319,10 @@
   "en": "Expected move calculator for options",
   "t": "Calculadora del movimiento esperado para opciones"
  },
+ "862c7ef259c2": {
+  "en": "{0} 1 interactive lesson.",
+  "t": "{0} 1 lección interactiva."
+ },
  "87b703b418ca": {
   "en": "Option roll calculator: net credit, total premium and new breakeven",
   "t": "Calculadora para rolar opciones: crédito neto, prima total y nuevo punto de equilibrio"
@@ -326,6 +330,10 @@
  "8849a8abe275": {
   "en": "Copy-ready trading spreadsheet templates with live formulas, starting with a trade journal. Edit them here, then copy them into Google Sheets or Excel.",
   "t": "Plantillas de hojas de cálculo para trading listas para copiar, con fórmulas que funcionan, empezando por un diario de trading. Edítalas aquí y luego cópialas en Google Sheets o Excel."
+ },
+ "89095d111528": {
+  "en": "{0} {1} interactive lessons, from {2} to {3}.",
+  "t": "{0} {1} lecciones interactivas, de {2} a {3}."
  },
  "8a51ffaf8978": {
   "en": "Theta explained: how time decay drains an option’s value",

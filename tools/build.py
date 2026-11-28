@@ -205,7 +205,7 @@ langs = [k for k in langs if os.path.isdir(os.path.join(ROOT, 'tools', 'i18n', k
 lang_shells = {}
 for code in langs:
     tmp = os.path.join(BUILD_DIR, 'i18n-src-' + code)
-    r = subprocess.run(['node', os.path.join(ROOT, 'tools', 'i18n', 'make.js'), 'build', code, tmp] + (['--pseudo'] if os.environ.get('FB_PSEUDO') else []))
+    r = subprocess.run(['node', os.path.join(ROOT, 'tools', 'i18n', 'make.js'), 'build', code, tmp] + (['--pseudo'] if os.environ.get('FB_PSEUDO') else []) + (['--keys'] if os.environ.get('FB_KEYS') else []))
     if r.returncode:
         sys.exit(f'tools/i18n/make.js failed for {code}')
     env = dict(os.environ, FB_LANG=code, FB_SRC=tmp, FB_DIST=dist, FB_BUILD=BUILD_DIR)
