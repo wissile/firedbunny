@@ -1,10 +1,1326 @@
 {
+ "005364103cf0": {
+  "en": "At 25 times spending, that gap is $16,400 × 25 = $410,000 of FIRE number they would have been missing.",
+  "t": "A 25 veces el gasto, esa brecha son US$16.400 × 25 = US$410.000 de número FIRE que les habrían faltado."
+ },
+ "017dc4bbd95a": {
+  "en": "A small budget, roughly under $40K a year for a household. Faster, thinner cushion.",
+  "t": "Un presupuesto pequeño, más o menos menos de US$40.000 al año para un hogar. Más rápido, colchón más delgado."
+ },
+ "02f91f7d6f37": {
+  "en": "The 4% rule comes from William Bengen\\'s 1994 study of 30-year retirements: the worst historical start still lasted 30 years at about 4.15%. In 2025 he raised his figure to 4.7% for a more diversified portfolio, while Morningstar\\'s estimate for 2026 is 3.9% (30 years, 90% success). If you stop at 40, your money may need to last 50 years or more, and research on 40- to 60-year retirements points to roughly 3.25% to 3.5%. Being willing to cut spending in bad years lets you start higher. See <a href=\"#l-swr\">the 4% rule and its limits</a>.",
+  "t": "La regla del 4 % viene del estudio de William Bengen de 1994 sobre jubilaciones de 30 años: el peor comienzo histórico igual duró 30 años con cerca del 4,15 %. En 2025 subió su cifra al 4,7 % para un portafolio más diversificado, mientras que la estimación de Morningstar para 2026 es 3,9 % (30 años, 90 % de éxito). Si paras a los 40, tu plata puede tener que durar 50 años o más, y los estudios sobre jubilaciones de 40 a 60 años apuntan más o menos a 3,25 % a 3,5 %. Estar dispuesto a recortar el gasto en los años malos te deja empezar más alto. Mira <a href=\"#l-swr\">la regla del 4 % y sus límites</a>."
+ },
+ "053d49e267f5": {
+  "en": "$30,000 ÷ 10 years = $3,000 a year, set aside monthly in a sinking fund.",
+  "t": "US$30.000 ÷ 10 años = US$3.000 al año, separados cada mes en un fondo de reserva."
+ },
+ "054ec0cca8ed": {
+  "en": "<b>Health insurance and care.</b> Retire before 65 and you buy your own coverage. For 2026, marketplace subsidies stop completely above 400% of the federal poverty level: a MAGI (modified adjusted gross income, not your spending) of about $62,600 for one person, $84,600 for two and $128,600 for a family of four. Below the line, the lower your MAGI the less you pay: a couple at about $42,300 pays roughly 6.6% of income for the benchmark plan, about $230 a month, versus about $660 a month at $80,000. See <a href=\"#l-aca\">health insurance before 65</a>.",
+  "t": "<b>Seguro y atención de salud.</b> En EE. UU., si te retiras antes de los 65 compras tu propia cobertura. Para 2026, los subsidios del mercado de seguros se acaban por completo por encima del 400 % del nivel federal de pobreza: un MAGI (ingreso bruto ajustado modificado, no tu gasto) de unos US$62.600 para una persona, US$84.600 para dos y US$128.600 para una familia de cuatro. Por debajo de esa línea, mientras más bajo tu MAGI, menos pagas: una pareja con unos US$42.300 paga más o menos el 6,6 % de sus ingresos por el plan de referencia, unos US$230 al mes, frente a unos US$660 al mes con US$80.000. Mira <a href=\"#l-aca\">seguro de salud antes de los 65</a>."
+ },
+ "0577f48521ae": {
+  "en": "INVESTED, BY AGE",
+  "t": "INVERTIDO, POR EDAD"
+ },
+ "0588578bf14a": {
+  "en": "National averages",
+  "t": "Promedios nacionales"
+ },
+ "06d3b5b56fb6": {
+  "en": "Does Social Security count?",
+  "t": "¿Cuenta la pensión pública?"
+ },
+ "0811c56fe678": {
+  "en": "<b>Barista FIRE</b> means leaving full-time work while part-time income covers part of your spending and your portfolio covers the rest. The name comes from the idea of a part-time coffee-shop job with health benefits. Every $1,000 a year of take-home pay cuts $25,000 from a 4% target, so $25,000 a year cuts $625,000.",
+  "t": "<b>Barista FIRE</b> significa dejar el trabajo de tiempo completo mientras un ingreso de medio tiempo cubre parte de tu gasto y tu portafolio cubre el resto. El nombre viene de la idea de un trabajo de medio tiempo en una cafetería con beneficios de salud. Cada US$1.000 al año de ingreso neto le quita US$25.000 a una meta al 4 %, así que US$25.000 al año le quitan US$625.000."
+ },
+ "0892b8a1d590": {
+  "en": "<b>Taxes on withdrawals</b>, often low but rarely zero (<a href=\\\"#l-fire-tax\\\">how withdrawals are taxed</a>).",
+  "t": "<b>Impuestos sobre los retiros</b>, a menudo bajos pero casi nunca cero (<a href=\\\"#l-fire-tax\\\">cómo pagan impuestos los retiros</a>)."
+ },
+ "093aa79fe8dc": {
+  "en": "The labels are rough community terms. There are no official cutoffs.",
+  "t": "Las etiquetas son términos aproximados de la comunidad. No hay límites oficiales."
+ },
+ "09727156d982": {
+  "en": "Once your investments can grow into your number on their own, you only need to earn what you spend today.",
+  "t": "Una vez que tus inversiones pueden crecer solas hasta tu número, solo necesitas ganar lo que gastas hoy."
+ },
+ "098d709166fd": {
+  "en": "Social Security lowers the number but needs a bridge until it starts, and an early stop lowers the benefit.",
+  "t": "La pensión pública baja el número pero necesita un puente hasta que empieza, y parar antes baja la pensión."
+ },
+ "0b07b228a18c": {
+  "en": "Years to financial independence from zero, with a 5% return after inflation and spending what you do not save:",
+  "t": "Años hasta la independencia financiera desde cero, con una rentabilidad del 5 % después de inflación y gastando lo que no ahorras:"
+ },
+ "0b8b37212163": {
+  "en": "Why the share of income you save decides how many years you work.",
+  "t": "Por qué la parte de los ingresos que ahorras decide cuántos años trabajas."
+ },
+ "0c1db124c100": {
+  "en": "You don\\'t need a huge salary, stock picking or a lucky bet. Most people who get there use ordinary index funds and keep a big gap between income and spending for 10 to 25 years.",
+  "t": "No necesitas un salario enorme, escoger acciones ni una apuesta con suerte. La mayoría de quienes llegan usan fondos indexados comunes y mantienen una brecha grande entre ingresos y gastos durante 10 a 25 años."
+ },
+ "0cac0611fcd8": {
+  "en": "Personal insurance and pensions",
+  "t": "Seguros personales y pensiones"
+ },
+ "0cdbf163d0ca": {
+  "en": "With a 5% return after inflation, a 4% withdrawal rate and nothing saved to start: <b>10%</b> takes about 51 years, <b>25%</b> about 32, <b>50%</b> roughly 16 to 17 and <b>75%</b> about 7. The chart above runs the same math with your numbers.",
+  "t": "Con una rentabilidad del 5 % después de inflación, una tasa de retiro del 4 % y nada ahorrado al empezar: <b>10 %</b> toma unos 51 años, <b>25 %</b> unos 32, <b>50 %</b> más o menos 16 a 17 y <b>75 %</b> unos 7. El gráfico de arriba hace las mismas cuentas con tus números."
+ },
+ "0d85bf8a54b1": {
+  "en": "Using a calm month as your budget and forgetting yearly and once-a-decade bills.",
+  "t": "Usar un mes tranquilo como presupuesto y olvidar los gastos anuales y los de una vez por década."
+ },
+ "0dcdd1b35ec8": {
+  "en": "What it leaves out",
+  "t": "Lo que deja por fuera"
+ },
+ "1225a169c786": {
+  "en": "Free at {0}",
+  "t": "Libre a los {0}"
+ },
+ "12e5d7d7bf61": {
+  "en": "Years to financial independence depend mostly on your savings rate.",
+  "t": "Los años hasta la independencia financiera dependen sobre todo de tu tasa de ahorro."
+ },
+ "134e792db134": {
+  "en": "Cutting back to part-time work without a plan for health insurance.",
+  "t": "Pasarte a un trabajo de medio tiempo sin un plan para el seguro de salud."
+ },
+ "137cb1e5d4cf": {
+  "en": "Divide each irregular cost by how many years it lasts and save that every month:",
+  "t": "Divide cada costo irregular entre los años que dura y ahorra eso cada mes:"
+ },
+ "13c0fb902f7d": {
+  "en": "about 51",
+  "t": "unos 51"
+ },
+ "144c53869735": {
+  "en": "Roughly your current lifestyle, paid by your investments for life.",
+  "t": "Más o menos tu estilo de vida actual, pagado por tus inversiones de por vida."
+ },
+ "145a070a5177": {
+  "en": "Transportation",
+  "t": "Transporte"
+ },
+ "1533eb01ef15": {
+  "en": "<b>Track forward.</b> Use an app or a spreadsheet for three months, then add the yearly costs you know are coming.",
+  "t": "<b>Registra hacia adelante.</b> Usa una app o una hoja de cálculo durante tres meses y luego suma los costos anuales que sabes que vienen."
+ },
+ "156536a7114d": {
+  "en": "Saving more puts more money to work each year, and it proves you can live on less, which shrinks your target. At 10% you save $1 for every $9 you spend, so piling up 25 years of spending takes most of a career. At 50% you save $1 for every $1 you spend, so each working year funds a year of freedom before any growth.",
+  "t": "Ahorrar más pone más plata a trabajar cada año, y demuestra que puedes vivir con menos, lo que achica tu meta. Al 10 % ahorras US$1 por cada US$9 que gastas, así que juntar 25 años de gasto toma casi toda una carrera. Al 50 % ahorras US$1 por cada US$1 que gastas, así que cada año de trabajo financia un año de libertad antes de cualquier crecimiento."
+ },
+ "15ed103dfaca": {
+  "en": "For a $1.25 million target ($50,000 a year at 4%) and full retirement at 60:",
+  "t": "Para una meta de US$1,25 millones (US$50.000 al año al 4 %) y retiro completo a los 60:"
+ },
+ "16771a3caf76": {
+  "en": "Appliances and electronics, $5,000",
+  "t": "Electrodomésticos y electrónicos, US$5.000"
+ },
+ "1683c1a043a5": {
+  "en": "A 5% return after inflation and a 4% withdrawal rate, starting from zero.",
+  "t": "Una rentabilidad del 5 % después de inflación y una tasa de retiro del 4 %, empezando de cero."
+ },
+ "16e314276c48": {
+  "en": "about 9",
+  "t": "unos 9"
+ },
+ "1725ddb48b85": {
+  "en": "<span class=\"wg-title\">Household</span>{0}<span class=\"grow\"></span>",
+  "t": "<span class=\"wg-title\">Hogar</span>{0}<span class=\"grow\"></span>"
+ },
+ "1756ad24d0ea": {
+  "en": "<b>Goes away:</b> retirement contributions, commuting, work clothes, and the mortgage payment if it will be paid off.",
+  "t": "<b>Desaparece:</b> los aportes para el retiro, el transporte al trabajo, la ropa de trabajo y la cuota de la hipoteca si ya va a estar pagada."
+ },
+ "177ecde7a46d": {
+  "en": "${0} saved",
+  "t": "US${0} ahorrados"
+ },
+ "179cd81ef0f6": {
+  "en": "True average",
+  "t": "Promedio real"
+ },
+ "1805f58f4e20": {
+  "en": "Full table",
+  "t": "Tabla completa"
+ },
+ "18d94bd966d8": {
+  "en": "Home repairs and upkeep",
+  "t": "Reparaciones y mantenimiento de la casa"
+ },
+ "19707dc79c8d": {
+  "en": "Roth",
+  "t": "Roth"
+ },
+ "19da1c713b0e": {
+  "en": "Savings rate is the lever",
+  "t": "La tasa de ahorro es la palanca"
+ },
+ "1a1d7489a217": {
+  "en": "Neither, their incomes are equal",
+  "t": "Ninguno, sus ingresos son iguales"
+ },
+ "1b24076d1104": {
+  "en": "set aside <b>{0}</b>",
+  "t": "para separar <b>{0}</b>"
+ },
+ "1c3e601ed4b2": {
+  "en": "You need {0} today to coast; you have {1}. Saving {2} a year, you cross the coast line around age {3}. After that, work only has to bring home your {4} a year.",
+  "t": "Necesitas {0} hoy para estar en Coast; tienes {1}. Ahorrando {2} al año, cruzas la línea Coast cerca de los {3} años. Después de eso, el trabajo solo tiene que dejarte tus {4} al año."
+ },
+ "1cecf3c90690": {
+  "en": "After Coast FIRE, work only has to cover today\\'s spending, after tax.",
+  "t": "Después de Coast FIRE, el trabajo solo tiene que cubrir el gasto de hoy, después de impuestos."
+ },
+ "1e2f2598cd5f": {
+  "en": "Measuring the savings rate a different way each month, so you cannot see progress.",
+  "t": "Medir la tasa de ahorro de una forma distinta cada mes, así no puedes ver el avance."
+ },
+ "1ec7587a7f9d": {
+  "en": "Rent from a property or steady part-time work reduces what your portfolio must pay. Social Security helps too, but benefits start at 62 at the earliest, so you need a <b>bridge</b>: money set aside to cover the years until they begin. The calculator adds that bridge for you. Be careful with the estimate: your SSA statement assumes you keep working until you claim. Stopping early fills your 35-year record with zero years and lowers the benefit, so use an estimate with no future earnings (<a href=\"#l-ss-early\">see how much</a>).",
+  "t": "El arriendo de una propiedad o un trabajo estable de medio tiempo reducen lo que tiene que pagar tu portafolio. La pensión pública también ayuda, pero en EE. UU. el Seguro Social empieza a los 62 como muy pronto, así que necesitas un <b>puente</b>: plata separada para cubrir los años hasta que empiece. La calculadora agrega ese puente por ti. Cuidado con la estimación: el extracto de la SSA supone que sigues trabajando hasta que la pides. Parar antes llena tu historial de 35 años con años en cero y baja la pensión, así que usa una estimación sin ingresos futuros (<a href=\"#l-ss-early\">mira cuánto</a>)."
+ },
+ "1f2b9fabf094": {
+  "en": "Living",
+  "t": "Costo de vida"
+ },
+ "1fe830de3234": {
+  "en": "Only for a sense of scale. Your own statements are what matter.",
+  "t": "Solo para tener una idea de escala. Lo que importa son tus propios extractos."
+ },
+ "20c3ad5aceef": {
+  "en": "US Bureau of Labor Statistics: Consumer Expenditure Surveys",
+  "t": "Oficina de Estadísticas Laborales de EE. UU.: Consumer Expenditure Surveys (en inglés)"
+ },
+ "215bdc11d690": {
+  "en": "Then the long-cycle costs: a $28,000 car every 10 years ($2,800 a year) and $5,000 of appliances and electronics every 5 years ($1,000 a year). That adds $3,800.",
+  "t": "Luego los costos de ciclo largo: un carro de US$28.000 cada 10 años (US$2.800 al año) y US$5.000 de electrodomésticos y electrónicos cada 5 años (US$1.000 al año). Eso suma US$3.800."
+ },
+ "21c4ea09791c": {
+  "en": "All amounts in today's dollars; the return is after inflation. Other income is after tax. Your SSA statement assumes you keep working until you claim, so use a lower estimate if you will stop early. The Social Security bridge is money set aside for the years before benefits start, assumed to just keep pace with inflation. Count home equity only if you will sell or downsize.",
+  "t": "Todos los montos están en plata de hoy; la rentabilidad es después de inflación. Los otros ingresos son después de impuestos. El cálculo de la pensión pública supone que sigues trabajando hasta que la pides, así que usa una estimación más baja si vas a parar antes. El puente hasta la pensión es plata separada para los años antes de que empiece, que se supone solo le sigue el paso a la inflación. Cuenta el patrimonio en vivienda solo si vas a vender o pasarte a algo más pequeño."
+ },
+ "224ab1e001d5": {
+  "en": "($60,000 − $12,000) ÷ 0.04 = $1,200,000. The rental covers part of the spending.",
+  "t": "(US$60.000 − US$12.000) ÷ 0,04 = US$1.200.000. El arriendo cubre parte del gasto."
+ },
+ "22fb76e46f64": {
+  "en": "Travel",
+  "t": "Viajes"
+ },
+ "2692b2bc00cb": {
+  "en": "<b>Spending creeps.</b> If retirement spending ends up higher than planned, the coast number was too low.",
+  "t": "<b>El gasto se infla.</b> Si el gasto en el retiro termina siendo más alto de lo planeado, el número Coast estaba muy bajo."
+ },
+ "287594da9232": {
+  "en": "A margin",
+  "t": "Un margen"
+ },
+ "28874cb7d4b9": {
+  "en": "Jo takes home $80,000 and saves $16,000, a 20% savings rate. She needs about 37 years.",
+  "t": "Jo recibe US$80.000 netos y ahorra US$16.000, una tasa de ahorro del 20 %. Necesita unos 37 años."
+ },
+ "2a00d2d00e86": {
+  "en": "Forgetting the gap between retiring and Social Security, which starts at 62 at the earliest.",
+  "t": "Olvidar la brecha entre el retiro y la pensión pública, que en EE. UU. empieza a los 62 como muy pronto."
+ },
+ "2a116aaef3b5": {
+  "en": "<b>Fat FIRE</b>: a large budget with room for travel and comfort. A bigger number and a longer road.",
+  "t": "<b>Fat FIRE</b>: un presupuesto grande con espacio para viajes y comodidad. Un número más grande y un camino más largo."
+ },
+ "2a6c79d90213": {
+  "en": "Leaving out health insurance because an employer pays most of it today.",
+  "t": "Dejar por fuera el seguro de salud porque hoy un empleador paga la mayor parte."
+ },
+ "2b74c4c1da25": {
+  "en": "Yes, but fewer years of growth mean a bigger coast number, as the table shows.",
+  "t": "Sí, pero menos años de crecimiento significan un número Coast más grande, como muestra la tabla."
+ },
+ "2bf9f5d549c2": {
+  "en": "Every $1,000 a year of spending adds about $25,000 to your FIRE number.",
+  "t": "Cada US$1.000 al año de gasto le suma unos US$25.000 a tu número FIRE."
+ },
+ "2c86d3c91a0a": {
+  "en": "Financial independence means your investments can pay your spending for life.",
+  "t": "Independencia financiera significa que tus inversiones pueden pagar tu gasto de por vida."
+ },
+ "2cc6105769f6": {
+  "en": "Coast line from age {0} to {1}, your balance of {2} and the FIRE number of {3}",
+  "t": "Línea Coast de los {0} a los {1} años, tu saldo de {2} y el número FIRE de {3}"
+ },
+ "2ccfc876c4e3": {
+  "en": "Lean, regular and Fat FIRE differ by budget. Barista and Coast FIRE are ways to leave full-time work sooner.",
+  "t": "Lean, FIRE normal y Fat FIRE se diferencian por el presupuesto. Barista y Coast FIRE son formas de dejar antes el trabajo de tiempo completo."
+ },
+ "2d50f9d6be15": {
+  "en": "Treating Lean FIRE as a finish line with no cushion. A thin budget leaves little room for a bad market or a big bill.",
+  "t": "Tomar el Lean FIRE como una meta final sin colchón. Un presupuesto ajustado deja poco espacio para un mal mercado o una cuenta grande."
+ },
+ "2d56fc97586e": {
+  "en": "<b>Usually leave out:</b> home equity unless you will sell or downsize, the emergency cash you want to keep, cars and belongings.",
+  "t": "<b>Por lo general deja por fuera:</b> el patrimonio en vivienda a menos que vayas a vender o pasarte a algo más pequeño, el efectivo de emergencia que quieres conservar, los carros y las pertenencias."
+ },
+ "2fb01e08c7c1": {
+  "en": "<b>Count with care:</b> pre-tax 401(k) and IRA money is taxed when it comes out, so some people count it at about 85%.",
+  "t": "<b>Cuenta con cuidado:</b> la plata antes de impuestos de un 401(k) o una IRA paga impuesto cuando sale, así que algunas personas la cuentan al 85 % más o menos."
+ },
+ "301b3832c0a3": {
+  "en": "Divide each irregular cost by how many years it lasts. A $28,000 car every 10 years is $2,800 a year. A $5,000 round of appliances and electronics every 5 years is $1,000 a year. Move that money aside monthly into a <b>sinking fund</b> so the bill never becomes a crisis.",
+  "t": "Divide cada costo irregular entre los años que dura. Un carro de US$28.000 cada 10 años son US$2.800 al año. Una ronda de electrodomésticos y electrónicos de US$5.000 cada 5 años son US$1.000 al año. Separa esa plata cada mes en un <b>fondo de reserva</b> para que la cuenta nunca se vuelva una crisis."
+ },
+ "3191f520661c": {
+  "en": "You need {0} and have {1}% of it. Saving {2} a year gets you there in about {3} years, at age {4}. Another $5,000 a year saves about {5} years; every $1,000 a year of spending you cut lowers the target by {6}.{7}",
+  "t": "Necesitas {0} y tienes el {1} % de eso. Ahorrando {2} al año llegas en unos {3} años, a los {4}. Otros US$5.000 al año te ahorran unos {5} años; cada US$1.000 al año de gasto que recortas baja la meta en {6}.{7}"
+ },
+ "32c28fa63e6d": {
+  "en": "total {0} · counted {1}",
+  "t": "total {0} · cuenta {1}"
+ },
+ "32faef9d97b9": {
+  "en": "Counting the equity in a home you plan to keep living in, or emergency cash you will never spend.",
+  "t": "Contar el patrimonio de una casa en la que planeas seguir viviendo, o un efectivo de emergencia que nunca vas a gastar."
+ },
+ "33ae7fd060b8": {
+  "en": "No. Coast means you stop saving but keep earning your spending. Barista means you leave full-time work and part-time income covers part of your spending while you draw on savings.",
+  "t": "No. Coast significa que dejas de ahorrar pero sigues ganando tu gasto. Barista significa que dejas el trabajo de tiempo completo y un ingreso de medio tiempo cubre parte de tu gasto mientras usas tus ahorros."
+ },
+ "349fa319c612": {
+  "en": "Retiring around 53 means about 14 bridge years, roughly $400,000, so the target is about $1.75 million, reached in about 15 years.",
+  "t": "Retirarse cerca de los 53 significa unos 14 años de puente, más o menos US$400.000, así que la meta es de unos US$1,75 millones, a la que llegan en unos 15 años."
+ },
+ "34d29ac7c7c1": {
+  "en": "Many plans use 4% to 5% after inflation for a stock-heavy portfolio. Lower is safer.",
+  "t": "Muchos planes usan del 4 % al 5 % después de inflación para un portafolio cargado en acciones. Más bajo es más seguro."
+ },
+ "355ff2b8f189": {
+  "en": "Work costs and retirement saving go away; health insurance before 65, travel and taxes on withdrawals often go up.",
+  "t": "Los costos del trabajo y el ahorro para el retiro desaparecen; el seguro de salud antes de la edad de pensión, los viajes y los impuestos sobre los retiros a menudo suben."
+ },
+ "35b259290ec3": {
+  "en": "Food",
+  "t": "Comida"
+ },
+ "35be4ed6e581": {
+  "en": "Insurance billed yearly",
+  "t": "Seguros que se cobran una vez al año"
+ },
+ "383e09eedcfb": {
+  "en": "Use 12 months of real transactions when you can.",
+  "t": "Usa 12 meses de movimientos reales cuando puedas."
+ },
+ "3aaa0856cff5": {
+  "en": "The government’s Consumer Expenditure Survey for 2025 (released October 2026) found average spending of <b>$81,905</b> per household, up 4.3% from 2024, on average pre-tax income of $110,847:",
+  "t": "La Encuesta de Gastos del Consumidor del gobierno de EE. UU. para 2025 (publicada en octubre de 2026) encontró un gasto promedio de <b>US$81.905</b> por hogar, 4,3 % más que en 2024, con un ingreso promedio antes de impuestos de US$110.847:"
+ },
+ "3b882bb9551b": {
+  "en": "Does Coast FIRE work if I retire at 50?",
+  "t": "¿Coast FIRE funciona si me retiro a los 50?"
+ },
+ "3c9806c61a88": {
+  "en": "Is a 50% savings rate realistic?",
+  "t": "¿Una tasa de ahorro del 50 % es realista?"
+ },
+ "3cd8ce223b23": {
+  "en": "Same raise, a 17-year difference. What you do with extra income matters more than the income itself.",
+  "t": "El mismo aumento, una diferencia de 17 años. Lo que haces con el ingreso extra importa más que el ingreso en sí."
+ },
+ "3ec5db960190": {
+  "en": "<b>FIRE number = (yearly spending − other yearly income) ÷ withdrawal rate.</b> At a 4% withdrawal rate that is 25 times; at 3.5% about 28.6 times; at 3.25% about 30.8 times.",
+  "t": "<b>Número FIRE = (gasto anual − otros ingresos anuales) ÷ tasa de retiro.</b> Con una tasa de retiro del 4 % eso es 25 veces; con 3,5 %, unas 28,6 veces; con 3,25 %, unas 30,8 veces."
+ },
+ "3fa5676ccd44": {
+  "en": "All amounts in today\\'s dollars, with a 5% return after inflation. It matches the Couple preset above.",
+  "t": "Todos los montos en plata de hoy, con una rentabilidad del 5 % después de inflación. Coincide con el ejemplo Pareja de arriba."
+ },
+ "41da0eb31f11": {
+  "en": "A higher savings rate works twice: more money invested each year, and a smaller target because you live on less.",
+  "t": "Una tasa de ahorro más alta funciona doble: más plata invertida cada año y una meta más pequeña porque vives con menos."
+ },
+ "42d11ebf2d28": {
+  "en": "ASTHO: enhanced ACA premium tax credits expired after 2025",
+  "t": "ASTHO: los créditos tributarios ampliados para primas de la ACA vencieron después de 2025 (en inglés)"
+ },
+ "44766b753bfa": {
+  "en": "Average a full year, including the costs that only show up now and then.",
+  "t": "Promedia un año completo, incluidos los costos que solo aparecen de vez en cuando."
+ },
+ "44d86f660455": {
+  "en": "<b>Keep a margin.</b> Many people keep saving a little even after crossing the line.",
+  "t": "<b>Deja un margen.</b> Mucha gente sigue ahorrando un poco incluso después de cruzar la línea."
+ },
+ "4538ed0d2909": {
+  "en": "<b>Health insurance before 65</b>, often the largest new cost (<a href=\\\"#l-aca\\\">health insurance before 65</a>).",
+  "t": "<b>Seguro de salud antes de la edad de pensión</b>, a menudo el costo nuevo más grande (<a href=\\\"#l-aca\\\">seguro de salud antes de los 65 en EE. UU.</a>)."
+ },
+ "491282a48435": {
+  "en": "True yearly spending: $60,000 + $12,600 + $3,800 = $76,400. The typical-month budget missed $16,400, about 21% of what they really spend (27% more than the budget).",
+  "t": "Gasto anual real: US$60.000 + US$12.600 + US$3.800 = US$76.400. El presupuesto del mes típico se perdió US$16.400, cerca del 21 % de lo que de verdad gastan (27 % más que el presupuesto)."
+ },
+ "4939e5647768": {
+  "en": "Before you quit, plan for health insurance, taxes and early access to retirement accounts.",
+  "t": "Antes de renunciar, planea el seguro de salud, los impuestos y el acceso anticipado a las cuentas de retiro."
+ },
+ "496e80c655d0": {
+  "en": "Adjust for retirement: some costs end, health insurance and taxes begin.",
+  "t": "Ajusta para el retiro: algunos costos se acaban, el seguro de salud y los impuestos empiezan."
+ },
+ "49b4279cb076": {
+  "en": "FIRE number {0} at {1}",
+  "t": "Número FIRE {0} a los {1}"
+ },
+ "4a5a28906261": {
+  "en": "For long retirements, 3.25% to 3.5% is the cautious range; 4% works better with flexible spending.",
+  "t": "Para jubilaciones largas, 3,25 % a 3,5 % es el rango prudente; el 4 % funciona mejor con un gasto flexible."
+ },
+ "4bc341910af6": {
+  "en": "Is 25 times enough?",
+  "t": "¿25 veces es suficiente?"
+ },
+ "4c667562a1ee": {
+  "en": "Money set aside to cover the spending Social Security will later pay, for the years between retiring and the first benefit check.",
+  "t": "Plata separada para cubrir el gasto que la pensión pública pagará después, durante los años entre el retiro y el primer pago."
+ },
+ "4d8c36101b2f": {
+  "en": "Sam moves to a 30-hour job paying about $60,000 a year before tax. After payroll tax and federal income tax (single, 2026 standard deduction) that leaves about $50,400, enough for the $50,000 of spending before any state tax.",
+  "t": "Sam pasa a un trabajo de 30 horas que paga unos US$60.000 al año antes de impuestos. Después de los aportes sobre la nómina y el impuesto federal sobre la renta (soltero, deducción estándar de 2026 en EE. UU.), le quedan unos US$50.400, suficientes para los US$50.000 de gasto antes de cualquier impuesto estatal."
+ },
+ "4dacde84e68f": {
+  "en": "FIRE flavors",
+  "t": "Tipos de FIRE"
+ },
+ "4fc72dcb6f77": {
+  "en": "For a 30-year retirement it has held up historically. For longer ones, or if you cannot cut spending in bad years, many plan on 28 to 31 times.",
+  "t": "Para una jubilación de 30 años ha aguantado históricamente. Para jubilaciones más largas, o si no puedes recortar el gasto en los años malos, muchos planean con 28 a 31 veces."
+ },
+ "51327aef9866": {
+  "en": "Oct",
+  "t": "Oct"
+ },
+ "53021fce179a": {
+  "en": "savings rate",
+  "t": "tasa de ahorro"
+ },
+ "534589a7ba00": {
+  "en": "Cutting tiny costs while ignoring housing and cars, the biggest lines in most budgets.",
+  "t": "Recortar costos diminutos mientras ignoras la vivienda y los carros, las líneas más grandes de casi todos los presupuestos."
+ },
+ "543c243896ea": {
+  "en": "Now add Social Security. Their SSA statement shows $38,000 a year at 67, but it assumes they keep working until then. With no earnings after their early 50s, a fairer estimate is about $28,000 a year. The portfolio then needs ($82,000 − $28,000) ÷ 0.04 = $1,350,000 for the long run, plus a bridge for the years before 67.",
+  "t": "Ahora suma la pensión pública. Su extracto de la SSA muestra US$38.000 al año a los 67, pero supone que siguen trabajando hasta entonces. Sin ingresos después de los cincuenta y pocos, una estimación más justa es de unos US$28.000 al año. El portafolio entonces necesita (US$82.000 − US$28.000) ÷ 0,04 = US$1.350.000 para el largo plazo, más un puente para los años antes de los 67."
+ },
+ "54fe2d9e28ca": {
+  "en": "Going from 10% to 20% cuts about 14 years. Going from 60% to 70% cuts about 4. Each extra point of savings both adds money and lowers the spending you have to replace, so the gains are biggest when you start low.",
+  "t": "Pasar del 10 % al 20 % recorta unos 14 años. Pasar del 60 % al 70 % recorta unos 4. Cada punto extra de ahorro suma plata y baja el gasto que tienes que reemplazar, así que las ganancias son más grandes cuando empiezas bajo."
+ },
+ "551b5aa2a6c9": {
+  "en": "Lean",
+  "t": "Lean"
+ },
+ "5580bec43869": {
+  "en": "Housing, transport and food are about 63% of the total, which is why changes there move a budget more than small cuts elsewhere.",
+  "t": "La vivienda, el transporte y la comida son cerca del 63 % del total, por eso los cambios ahí mueven un presupuesto más que los recortes pequeños en otras partes."
+ },
+ "57c01e28b4bd": {
+  "en": "Coast FIRE means your current investments will grow into your FIRE number by your chosen retirement age without another dollar saved. After that you only need to earn your current spending. The coast number is your FIRE number divided by (1 + real return) to the power of the years left.",
+  "t": "Coast FIRE significa que tus inversiones actuales van a crecer hasta tu número FIRE para la edad de retiro que escogiste sin ahorrar un dólar más. Después de eso solo necesitas ganar tu gasto actual. El número Coast es tu número FIRE dividido entre (1 + rentabilidad real) elevado a los años que faltan."
+ },
+ "57e76faeff12": {
+  "en": "Enough invested to grow into your number by retirement age, so work only pays today.",
+  "t": "Suficiente invertido para que crezca hasta tu número para la edad de retiro, así el trabajo solo paga el hoy."
+ },
+ "5933a80ad7f2": {
+  "en": "Nothing, it is not a monthly bill",
+  "t": "Nada, no es una cuenta mensual"
+ },
+ "5b9ac4d82d71": {
+  "en": "Assuming FIRE means never earning again. A little income later makes almost any plan much safer.",
+  "t": "Suponer que FIRE significa no volver a ganar plata nunca. Un poco de ingreso más adelante hace casi cualquier plan mucho más seguro."
+ },
+ "5bda65b54f59": {
+  "en": " Social Security",
+  "t": " pensión pública"
+ },
+ "5c3960e42a2f": {
+  "en": "Property tax (if not in the mortgage)",
+  "t": "Impuesto predial (si no está en la hipoteca)"
+ },
+ "5cecfe6c2908": {
+  "en": "Dropping the mortgage from retirement spending but also forgetting the property tax, insurance and repairs that stay.",
+  "t": "Quitar la hipoteca del gasto en el retiro pero olvidar también el impuesto predial, el seguro y las reparaciones que se quedan."
+ },
+ "5d72a104ca79": {
+  "en": "Car repairs and tires",
+  "t": "Reparaciones y llantas del carro"
+ },
+ "5e03a9f76b83": {
+  "en": "The Motley Fool: types of FIRE and which one is right for you (2025)",
+  "t": "The Motley Fool: tipos de FIRE y cuál es el adecuado para ti (2025, en inglés)"
+ },
+ "5e6c7d33d568": {
+  "en": "Many planners add about 10% for things nobody can list in advance. Watch for <b>lifestyle creep</b>, where spending rises with every raise: it quietly pushes your target further away.",
+  "t": "Muchos planificadores agregan cerca del 10 % para cosas que nadie puede listar por adelantado. Cuidado con la <b>inflación del estilo de vida</b>, cuando el gasto sube con cada aumento de sueldo: aleja tu meta en silencio."
+ },
+ "5e8d3f2f06c4": {
+  "en": "Taxable brokerage",
+  "t": "Cuenta de inversión gravable"
+ },
+ "5ed377bfde6f": {
+  "en": "Her target is her spending times 25: $64,000 × 25 = $1,600,000.",
+  "t": "Su meta es su gasto por 25: US$64.000 × 25 = US$1.600.000."
+ },
+ "60bf52d20b47": {
+  "en": "They count $160,000 taxable, $210,000 pre-tax at 85% ($178,500), $45,000 Roth and $12,000 HSA: $395,500. They leave out $30,000 of emergency cash and $180,000 of home equity, and have no other debts. That is about 19% of the way.",
+  "t": "Cuentan US$160.000 gravables, US$210.000 antes de impuestos al 85 % (US$178.500), US$45.000 en Roth y US$12.000 en HSA: US$395.500. Dejan por fuera US$30.000 de efectivo de emergencia y US$180.000 de patrimonio en vivienda, y no tienen otras deudas. Eso es cerca del 19 % del camino."
+ },
+ "624746543519": {
+  "en": "You: {0}",
+  "t": "Tú: {0}"
+ },
+ "625cba0fece8": {
+  "en": "The formula: years = ln(1 + 25 × 0.05 × (1 − s) ÷ s) ÷ ln(1.05), where s is the savings rate. The <a href=\\\"#tool-budget\\\">budget calculator</a> uses the same math.",
+  "t": "La fórmula: años = ln(1 + 25 × 0,05 × (1 − s) ÷ s) ÷ ln(1,05), donde s es la tasa de ahorro. La <a href=\\\"#tool-budget\\\">calculadora de presupuesto</a> usa las mismas cuentas."
+ },
+ "62f7d39e33f7": {
+  "en": "Is Coast FIRE the same as Barista FIRE?",
+  "t": "¿Coast FIRE es lo mismo que Barista FIRE?"
+ },
+ "63b2eb18d49f": {
+  "en": "Social Security shrinks the target, but {0} of it is a bridge to age {1}.",
+  "t": "La pensión pública achica la meta, pero {0} de ella es un puente hasta los {1} años."
+ },
+ "63cf44456827": {
+  "en": "For many households it is not. Moving from 10% to 20% still saves about 14 years of work.",
+  "t": "Para muchos hogares no lo es. Pasar del 10 % al 20 % igual ahorra unos 14 años de trabajo."
+ },
+ "63f80219bdfb": {
+  "en": "What FIRE really means",
+  "t": "Qué significa de verdad FIRE"
+ },
+ "64a91c57233c": {
+  "en": "about 12",
+  "t": "unos 12"
+ },
+ "67baa5ed6719": {
+  "en": "<b>Taxes on withdrawals.</b> Often low in early retirement, but rarely zero; see <a href=\"#l-fire-tax\">how withdrawals are taxed</a>.",
+  "t": "<b>Impuestos sobre los retiros.</b> A menudo bajos al principio del retiro, pero casi nunca cero; mira <a href=\"#l-fire-tax\">cómo pagan impuestos los retiros</a>."
+ },
+ "67c236eb15bd": {
+  "en": "Next car",
+  "t": "El próximo carro"
+ },
+ "69241b56d42f": {
+  "en": "Once you cross the coast number, work only has to pay today\\'s bills.",
+  "t": "Una vez cruzas el número Coast, el trabajo solo tiene que pagar las cuentas de hoy."
+ },
+ "69fda2147871": {
+  "en": "OF EVERY $100 YOU TAKE HOME",
+  "t": "DE CADA US$100 QUE TE LLEGAN"
+ },
+ "6a1d6001830f": {
+  "en": "<b>Coast FIRE</b>: you have enough invested that it will grow into your number by a normal retirement age, so you only need to earn today\\'s costs (<a href=\"#l-coast-fire\">more here</a>).",
+  "t": "<b>Coast FIRE</b>: tienes suficiente invertido para que crezca hasta tu número para una edad de retiro normal, así que solo necesitas ganar los costos de hoy (<a href=\"#l-coast-fire\">más aquí</a>)."
+ },
+ "6bb6ea6f061c": {
+  "en": "Deductibles, dental and glasses",
+  "t": "Deducibles, odontología y gafas"
+ },
+ "6ca404ecb092": {
+  "en": "Simple version: money saved ÷ take-home pay. Fuller version: add your pre-tax 401(k) contributions and the employer match to both the top and the bottom. Pick one method and stick with it so you can see progress month to month.",
+  "t": "Versión simple: plata ahorrada ÷ ingreso neto. Versión completa: suma arriba y abajo tus aportes de retiro antes de impuestos y lo que aporta el empleador. Escoge un método y quédate con él para que puedas ver el avance mes a mes."
+ },
+ "6ce7feb5e1d7": {
+  "en": "Sam is 35, expects to spend $50,000 a year and wants to fully retire at 60. FIRE number: $50,000 × 25 = $1,250,000.",
+  "t": "Sam tiene 35 años, espera gastar US$50.000 al año y quiere retirarse por completo a los 60. Número FIRE: US$50.000 × 25 = US$1.250.000."
+ },
+ "6d90df3be4d0": {
+  "en": "Jun",
+  "t": "Jun"
+ },
+ "6f58081f5337": {
+  "en": "<b>Stays:</b> property tax, home insurance and repairs, even with no mortgage.",
+  "t": "<b>Se queda:</b> el impuesto predial, el seguro de la casa y las reparaciones, incluso sin hipoteca."
+ },
+ "6f70edbe54db": {
+  "en": "Typical month",
+  "t": "Mes típico"
+ },
+ "70ec09fc8c4f": {
+  "en": "Leaving health insurance and taxes out of retirement spending.",
+  "t": "Dejar el seguro de salud y los impuestos por fuera del gasto en el retiro."
+ },
+ "711cb2db9ed7": {
+  "en": "every 10 years",
+  "t": "cada 10 años"
+ },
+ "718914d40e44": {
+  "en": "<b>Goes up:</b> health insurance (often the biggest new cost before <a href=\"#l-aca\">Medicare at 65</a>), travel and hobbies, and <a href=\"#l-fire-tax\">taxes on withdrawals</a>.",
+  "t": "<b>Sube:</b> el seguro de salud (a menudo el costo nuevo más grande antes de <a href=\"#l-aca\">Medicare a los 65 en EE. UU.</a>), los viajes y los pasatiempos, y los <a href=\"#l-fire-tax\">impuestos sobre los retiros</a>."
+ },
+ "7327384df31b": {
+  "en": "Had she spent the raise and kept saving $16,000, her rate would fall to 16%, her target would rise to $84,000 × 25 = $2,100,000 and the road would stretch to about 41 years.",
+  "t": "Si se hubiera gastado el aumento y siguiera ahorrando US$16.000, su tasa bajaría al 16 %, su meta subiría a US$84.000 × 25 = US$2.100.000 y el camino se alargaría a unos 41 años."
+ },
+ "75423661829f": {
+  "en": "Your FIRE number is built on spending, so use a full year of real numbers, including bills that come once a year or once a decade.",
+  "t": "Tu número FIRE se construye con el gasto, así que usa un año completo de números reales, incluidas las cuentas que llegan una vez al año o una vez por década."
+ },
+ "754492117d93": {
+  "en": "Drag the dot along the curve, or move the sliders, to see how many working years each savings rate costs.",
+  "t": "Arrastra el punto a lo largo de la curva, o mueve los deslizadores, para ver cuántos años de trabajo cuesta cada tasa de ahorro."
+ },
+ "75629af51d7c": {
+  "en": "Aug",
+  "t": "Ago"
+ },
+ "7584d116f89e": {
+  "en": "$48,000 × 25 = $1,200,000, the same as dividing by a 4% withdrawal rate.",
+  "t": "US$48.000 × 25 = US$1.200.000, lo mismo que dividir entre una tasa de retiro del 4 %."
+ },
  "758ec54e430e": {
   "en": "Cash",
   "t": "Efectivo"
  },
+ "75ccde8560d4": {
+  "en": "Lumpy costs",
+  "t": "Costos irregulares"
+ },
+ "77707834472b": {
+  "en": "Coast at {0}",
+  "t": "Coast a los {0}"
+ },
+ "779980a64082": {
+  "en": "<b>A bad first decade</b> of returns (<a href=\\\"#l-sequence\\\">sequence of returns risk</a>).",
+  "t": "<b>Una primera década mala</b> de rentabilidades (<a href=\\\"#l-sequence\\\">el riesgo de secuencia de rentabilidades</a>)."
+ },
+ "77dfa7176267": {
+  "en": "The flavor you pick sets the target, and spending is the biggest dial you control.",
+  "t": "El tipo que escoges fija la meta, y el gasto es la palanca más grande que controlas."
+ },
+ "7a2fdba6df27": {
+  "en": "<b>Changes over time:</b> kids grow up and leave, and health costs rise with age.",
+  "t": "<b>Cambia con el tiempo:</b> los hijos crecen y se van, y los costos de salud suben con la edad."
+ },
+ "7af8ea79983d": {
+  "en": "The target scales with spending, and with how cautious your withdrawal rate is:",
+  "t": "La meta crece con el gasto, y con qué tan prudente es tu tasa de retiro:"
+ },
+ "7b691073adf2": {
+  "en": "Age {0}<small>{1} yrs</small>",
+  "t": "{0} años<small>{1} años</small>"
+ },
+ "7b6dca624645": {
+  "en": "How much cushion should I add?",
+  "t": "¿Cuánto colchón debo agregar?"
+ },
+ "7b71bd0c3d76": {
+  "en": "Fat",
+  "t": "Fat"
+ },
+ "7dacb92f254b": {
+  "en": "Low-cost, diversified investing held for many years (<a href=\"#l-index-funds\">index funds</a>).",
+  "t": "Inversión diversificada y de bajo costo mantenida por muchos años (<a href=\"#l-index-funds\">fondos indexados</a>)."
+ },
+ "802a55208145": {
+  "en": "SS bridge",
+  "t": "Puente pensión"
+ },
+ "81132325cf03": {
+  "en": "A budget built from a typical month says {0} a year. The real number is {1}, so the typical month misses {2}% of your spending. At 25 times spending, that gap is {3} of FIRE number.",
+  "t": "Un presupuesto armado con un mes típico dice {0} al año. El número real es {1}, así que el mes típico se pierde el {2} % de tu gasto. A 25 veces el gasto, esa brecha son {3} de número FIRE."
+ },
+ "8118f5f2de96": {
+  "en": "Move your age, balance and savings. Drag the amber target dot to change when you fully retire.",
+  "t": "Mueve tu edad, tu saldo y tus ahorros. Arrastra el punto ámbar de la meta para cambiar cuándo te retiras por completo."
+ },
+ "8156bb0f2451": {
+  "en": "Counting retirement contributions as spending. They stop when you stop working.",
+  "t": "Contar los aportes para el retiro como gasto. Se acaban cuando dejas de trabajar."
+ },
+ "8385d48a35f6": {
+  "en": "Spending {0} a year means a target of {1}. {2}{3}",
+  "t": "Gastar {0} al año significa una meta de {1}. {2}{3}"
+ },
+ "83bf2d5b9754": {
+  "en": "Years to financial independence by savings rate; at {0}% it takes about {1} years",
+  "t": "Años hasta la independencia financiera según la tasa de ahorro; al {0} % toma unos {1} años"
+ },
+ "84492e6ef226": {
+  "en": "The multiple covers spending. A real plan also needs:",
+  "t": "El múltiplo cubre el gasto. Un plan real también necesita:"
+ },
+ "84a21f413674": {
+  "en": "every 25 years",
+  "t": "cada 25 años"
+ },
+ "858ca62444ad": {
+  "en": "Then the yearly bills: insurance $2,200, travel $4,000, holidays and gifts $1,500, car repairs $1,400 and home repairs $3,500. That adds $12,600.",
+  "t": "Luego los gastos anuales: seguros US$2.200, viajes US$4.000, fiestas y regalos US$1.500, reparaciones del carro US$1.400 y reparaciones de la casa US$3.500. Eso suma US$12.600."
+ },
+ "861aa7bae7eb": {
+  "en": "From zero, about 17 years at a 50% rate and about 51 years at 10% (5% real return, 4% withdrawal).",
+  "t": "Desde cero, unos 17 años con una tasa del 50 % y unos 51 años con el 10 % (rentabilidad real del 5 %, retiro del 4 %)."
+ },
+ "879be6a9a273": {
+  "en": "A rough target is 25 times yearly spending, from the 4% rule.",
+  "t": "Una meta aproximada es 25 veces el gasto anual, por la regla del 4 %."
+ },
+ "88716add73fb": {
+  "en": "Count the whole year. A number built on a typical month can leave you hundreds of thousands short.",
+  "t": "Cuenta todo el año. Un número construido con un mes típico te puede dejar cientos de miles por debajo."
+ },
+ "88b8f6ed2e25": {
+  "en": "Yearly bills",
+  "t": "Gastos anuales"
+ },
+ "8a64b20fc8ac": {
+  "en": "Dee wants $140,000 a year for travel and a bigger home: $140,000 × 25 = $3,500,000, a Fat FIRE target.",
+  "t": "Dee quiere US$140.000 al año para viajes y una casa más grande: US$140.000 × 25 = US$3.500.000, una meta Fat FIRE."
+ },
+ "8c4e46e95f11": {
+  "en": "Your FIRE number of {0} against {1} counted today, and a projection by age",
+  "t": "Tu número FIRE de {0} frente a {1} que cuentan hoy, y una proyección por edad"
+ },
+ "8c6287a064f0": {
+  "en": "<b>Count fully:</b> taxable brokerage, Roth accounts and HSA.",
+  "t": "<b>Cuenta completo:</b> cuentas de inversión gravables, cuentas Roth y HSA."
+ },
+ "8c9543632aab": {
+  "en": "Many planners add about 10% for costs nobody can list in advance. That is a rule of thumb.",
+  "t": "Muchos planificadores agregan cerca del 10 % para costos que nadie puede listar por adelantado. Es una regla práctica."
+ },
+ "8d4932ad868a": {
+  "en": "<b>Save your raises.</b> Send most of every raise to savings before it turns into lifestyle creep.",
+  "t": "<b>Ahorra tus aumentos.</b> Manda la mayor parte de cada aumento al ahorro antes de que se vuelva inflación del estilo de vida."
+ },
+ "8db43fc4b1ee": {
+  "en": "Gifts and holidays, $1,200",
+  "t": "Regalos y fiestas, US$1.200"
+ },
+ "8e79d189ddc6": {
+  "en": "Your target depends on what you spend, not what you earn. A common rule of thumb is about 25 times your yearly spending, which comes from the <a href=\"#l-swr\">4% rule</a>. Spend $50,000 a year and the target is about $1.25 million. Spend $35,000 and it drops to $875,000.",
+  "t": "Tu meta depende de lo que gastas, no de lo que ganas. Una regla práctica común es unas 25 veces tu gasto anual, que viene de la <a href=\"#l-swr\">regla del 4 %</a>. Si gastas US$50.000 al año, la meta es de unos US$1,25 millones. Si gastas US$35.000, baja a US$875.000."
+ },
+ "8ebe37513a9a": {
+  "en": "Your real yearly spending from <a href=\"#l-avg-spending\">the last lesson</a>.",
+  "t": "Tu gasto anual real, de <a href=\"#l-avg-spending\">la lección anterior</a>."
+ },
+ "8f00f1e1de55": {
+  "en": "Find your real spending",
+  "t": "Encuentra tu gasto real"
+ },
+ "903c9c26cae2": {
+  "en": "<b>Automate.</b> Pay yourself first with automatic transfers on payday.",
+  "t": "<b>Automatiza.</b> Págate primero a ti con transferencias automáticas el día de pago."
+ },
+ "9130d58dfb24": {
+  "en": "<b>Coast number = FIRE number ÷ (1 + real return)<sup>years to retirement</sup>.</b> At a 5% return after inflation, money roughly doubles every 14 years (the <a href=\"#l-compound\">rule of 72</a>), so time does the heavy lifting.",
+  "t": "<b>Número Coast = número FIRE ÷ (1 + rentabilidad real)<sup>años hasta el retiro</sup>.</b> Con una rentabilidad del 5 % después de inflación, la plata se duplica más o menos cada 14 años (la <a href=\"#l-compound\">regla del 72</a>), así que el tiempo hace el trabajo pesado."
+ },
+ "940cc3ee558e": {
+  "en": "A 5% return after inflation and a 4% withdrawal rate.",
+  "t": "Una rentabilidad del 5 % después de inflación y una tasa de retiro del 4 %."
+ },
+ "94e00a01cacf": {
+  "en": "Yearly bills land in the month they usually come. Costs that come every few years are spread evenly as \"set aside\" money (a sinking fund). Hover or tap a month for its details.",
+  "t": "Los gastos anuales caen en el mes en que suelen llegar. Los costos que llegan cada pocos años se reparten por igual como plata \"para separar\" (un fondo de reserva). Pasa el cursor o toca un mes para ver sus detalles."
+ },
+ "9575c638515f": {
+  "en": "Mixing nominal and real numbers. If your FIRE number is in today\\'s dollars, use a return after inflation.",
+  "t": "Mezclar números nominales y reales. Si tu número FIRE está en plata de hoy, usa una rentabilidad después de inflación."
+ },
+ "98a552f0e712": {
+  "en": "Do I have to stop working?",
+  "t": "¿Tengo que dejar de trabajar?"
+ },
+ "98f499f39b9a": {
+  "en": "<b>Use the tax breaks.</b> A <a href=\"#l-401k-match\">401(k) match</a> and an <a href=\"#l-hsa\">HSA</a> make each dollar saved go further.",
+  "t": "<b>Usa los beneficios tributarios.</b> En EE. UU., el <a href=\"#l-401k-match\">aporte del empleador al 401(k)</a> y una <a href=\"#l-hsa\">HSA</a> hacen rendir más cada dólar ahorrado."
+ },
+ "99367ae0cf36": {
+  "en": "Yearly memberships and software",
+  "t": "Membresías y software anuales"
+ },
+ "995b28dbc1c0": {
+  "en": "Drag the target dot to change your retirement age. Work income here is take-home pay: gross pay must be higher to cover payroll and income taxes. Today's dollars with a steady return after inflation; real returns vary, so recheck every year and keep a margin.",
+  "t": "Arrastra el punto de la meta para cambiar tu edad de retiro. El ingreso por trabajo aquí es ingreso neto: el salario bruto tiene que ser más alto para cubrir aportes e impuestos. Plata de hoy con una rentabilidad constante después de inflación; las rentabilidades reales varían, así que vuelve a revisar cada año y deja un margen."
+ },
+ "997f59bc99b2": {
+  "en": "Dec",
+  "t": "Dic"
+ },
+ "99b9a44ce6b5": {
+  "en": "Every $1,000 a year you don\\'t need cuts $25,000 from the target and adds $1,000 a year to what you can save. That double effect is why <a href=\"#l-savings-rate\">savings rate</a> matters so much.",
+  "t": "Cada US$1.000 al año que no necesitas le quita US$25.000 a la meta y le suma US$1.000 al año a lo que puedes ahorrar. Ese efecto doble es la razón por la que la <a href=\"#l-savings-rate\">tasa de ahorro</a> importa tanto."
+ },
+ "99dc0749efd5": {
+  "en": "Set aside (every few years)",
+  "t": "Para separar (cada pocos años)"
+ },
+ "9bb3167d68a0": {
+  "en": "{0} health · {1} tax · {2} income",
+  "t": "{0} salud · {1} impuestos · {2} ingresos"
+ },
+ "9bcefada3809": {
+  "en": "about 28",
+  "t": "unos 28"
+ },
+ "9c1604d82112": {
+  "en": "Each $1,000 a year you spend adds $25,000 to the target.",
+  "t": "Cada US$1.000 al año que gastas le suma US$25.000 a la meta."
+ },
+ "9cae3eabbb57": {
+  "en": "By age",
+  "t": "Por edad"
+ },
+ "9d101c543241": {
+  "en": "Leave full-time work; part-time income pays part of the bills, ideally with health insurance.",
+  "t": "Dejar el trabajo de tiempo completo; un ingreso de medio tiempo paga parte de las cuentas, idealmente con seguro de salud."
+ },
+ "9d4fa2098b47": {
+  "en": "Regular monthly",
+  "t": "Mensual regular"
+ },
+ "9f146399eccc": {
+  "en": "Ben takes a part-time job that brings home $25,000 a year after tax. Now the portfolio only has to cover $45,000: $45,000 × 25 = $1,125,000. That Barista FIRE number is $625,000 lower.",
+  "t": "Ben toma un trabajo de medio tiempo que le deja US$25.000 al año después de impuestos. Ahora el portafolio solo tiene que cubrir US$45.000: US$45.000 × 25 = US$1.125.000. Ese número Barista FIRE es US$625.000 más bajo."
+ },
+ "a01e116716c4": {
+  "en": "About $500,000",
+  "t": "Unos US$500.000"
+ },
+ "a03e1ca020db": {
+  "en": "<b>FIRE</b>: roughly your current lifestyle.",
+  "t": "<b>FIRE</b>: más o menos tu estilo de vida actual."
+ },
+ "a0754006f56b": {
+  "en": "Forgetting costs your job covered: health insurance, taxes on withdrawals, and replacing cars and roofs.",
+  "t": "Olvidar los costos que cubría tu trabajo: el seguro de salud, los impuestos sobre los retiros y reemplazar carros y techos."
+ },
+ "a09044587e0b": {
+  "en": "Raises that are saved, not spent, are the fastest lever most people have.",
+  "t": "Los aumentos que se ahorran, y no se gastan, son la palanca más rápida que tiene la mayoría de la gente."
+ },
+ "a09e93c73725": {
+  "en": "nothing yet",
+  "t": "todavía nada"
+ },
+ "a1ceb25b38f7": {
+  "en": "Stopping all saving the day you cross the line, with no margin for a bad decade.",
+  "t": "Dejar de ahorrar por completo el día que cruzas la línea, sin margen para una mala década."
+ },
+ "a23976e38c69": {
+  "en": "<b>Build it up.</b> Use the calculator above: monthly costs plus every irregular cost divided by how often it happens.",
+  "t": "<b>Ármalo por partes.</b> Usa la calculadora de arriba: costos mensuales más cada costo irregular dividido entre qué tan seguido ocurre."
+ },
+ "a23f48d9426e": {
+  "en": "Barista number (with {0} part-time)",
+  "t": "Número Barista (con {0} de medio tiempo)"
+ },
+ "a30e7c49abfd": {
+  "en": "Save and invest enough that your investments pay your bills, so work becomes a choice instead of a need.",
+  "t": "Ahorra e invierte lo suficiente para que tus inversiones paguen tus cuentas, y así trabajar se vuelve una opción y no una necesidad."
+ },
+ "a329b761f475": {
+  "en": "Pre-tax",
+  "t": "Antes de impuestos"
+ },
+ "a3af298b903e": {
+  "en": "Does income matter at all?",
+  "t": "¿El ingreso importa algo?"
+ },
+ "a4595605ca6d": {
+  "en": "Recheck every year and keep a margin: growth is not guaranteed.",
+  "t": "Revisa cada año y deja un margen: el crecimiento no está garantizado."
+ },
+ "a4cbccac5520": {
+  "en": "Ben and Cole spend $70,000 a year as a couple. Their FIRE number is $70,000 × 25 = $1,750,000.",
+  "t": "Ben y Cole gastan US$70.000 al año como pareja. Su número FIRE es US$70.000 × 25 = US$1.750.000."
+ },
+ "a4e5e85b9bfa": {
+  "en": "Monthly spending across a year: typical month {0}, true average {1}",
+  "t": "Gasto mensual a lo largo de un año: mes típico {0}, promedio real {1}"
+ },
+ "a5135df06897": {
+  "en": "Full FIRE number",
+  "t": "Número FIRE completo"
+ },
+ "a7aa9648c14e": {
+  "en": "Sam has $380,000 invested, a little above the coast number. With no new saving it should grow to about $1,287,000 by 60.",
+  "t": "Sam tiene US$380.000 invertidos, un poco por encima del número Coast. Sin ahorro nuevo, debería crecer a unos US$1.287.000 para los 60."
+ },
+ "a7e151921fc0": {
+  "en": "Use the look-back if you can. See <a href=\"#l-track-spending\">tracking your spending</a> for tools.",
+  "t": "Usa la mirada hacia atrás si puedes. Mira <a href=\"#l-track-spending\">cómo registrar tus gastos</a> para ver herramientas."
+ },
+ "a8660f7f3291": {
+  "en": "Same 25-times rule, very different targets. All amounts in today\\'s dollars, with a 5% return after inflation.",
+  "t": "La misma regla de 25 veces, metas muy distintas. Todos los montos en plata de hoy, con una rentabilidad del 5 % después de inflación."
+ },
+ "a929ae59eb8a": {
+  "en": "In 2012 the blogger Mr. Money Mustache showed that, starting from zero, the years until financial independence depend almost entirely on one number: your <b>savings rate</b>, the share of take-home pay you save. Income barely matters, because a high earner who spends it all is no closer than anyone else.",
+  "t": "En 2012 el bloguero Mr. Money Mustache mostró que, empezando de cero, los años hasta la independencia financiera dependen casi por completo de un número: tu <b>tasa de ahorro</b>, la parte del ingreso neto que ahorras. El ingreso casi no importa, porque alguien que gana mucho y se lo gasta todo no está más cerca que nadie."
+ },
+ "a96a5b5b206b": {
+  "en": "Financial independence, retire early: the idea, the flavors and the math behind them.",
+  "t": "Independencia financiera y retiro temprano: la idea, los tipos y las matemáticas detrás."
+ },
+ "a9a1a0c8d4ca": {
+  "en": "Social Security bridge",
+  "t": "Puente hasta la pensión"
+ },
+ "a9f1cb15f7b7": {
+  "en": "FIRE numbers",
+  "t": "Números FIRE"
+ },
+ "aabdd347a03d": {
+  "en": "Using an optimistic return. At 7% instead of 5%, the coast number in the example looks about 38% smaller.",
+  "t": "Usar una rentabilidad optimista. Al 7 % en vez del 5 %, el número Coast del ejemplo se ve cerca de un 38 % más pequeño."
+ },
+ "abbce3bf3e21": {
+  "en": "<b>Look back 12 months.</b> Download a year of bank and card transactions and add them up. This is the most honest number.",
+  "t": "<b>Mira 12 meses hacia atrás.</b> Descarga un año de movimientos del banco y de la tarjeta y súmalos. Este es el número más honesto."
+ },
+ "acef1199b38f": {
+  "en": "<b>Lean FIRE</b>: a small budget. Faster, with little room for surprises.",
+  "t": "<b>Lean FIRE</b>: un presupuesto pequeño. Más rápido, con poco espacio para sorpresas."
+ },
+ "addd568c75b2": {
+  "en": "Taxable",
+  "t": "Gravable"
+ },
+ "ae1a616fd0ce": {
+  "en": "Pick one method and keep it. The simple one is money saved ÷ take-home pay. The fuller one adds pre-tax 401(k) contributions and the employer match to both the saving and the pay. The fuller method gives a higher, more honest number if most of your saving happens before your paycheck.",
+  "t": "Escoge un método y mantenlo. El simple es plata ahorrada ÷ ingreso neto. El más completo suma al ahorro y al ingreso los aportes de retiro antes de impuestos y lo que aporta el empleador. El método completo da un número más alto y más honesto si la mayor parte de tu ahorro pasa antes de que te llegue el sueldo."
+ },
+ "ae4595208f74": {
+  "en": "What return should I assume?",
+  "t": "¿Qué rentabilidad debo suponer?"
+ },
+ "af77299777fc": {
+  "en": "Coast number today (to retire at {0})",
+  "t": "Número Coast hoy (para retirarte a los {0})"
+ },
+ "af981e57d940": {
+  "en": "Health care",
+  "t": "Salud"
+ },
+ "b214079091c1": {
+  "en": "Spending scale with your spending at {0}, and FIRE, Barista and Coast targets against {1} invested",
+  "t": "Escala de gasto con tu gasto en {0}, y las metas FIRE, Barista y Coast frente a {1} invertidos"
+ },
+ "b22de096202c": {
+  "en": "({0} spending{1}{2}) ÷ {3}%{4} = <b>{5}</b>",
+  "t": "({0} de gasto{1}{2}) ÷ {3} %{4} = <b>{5}</b>"
+ },
+ "b2b5cbe0d65a": {
+  "en": "every 5 years",
+  "t": "cada 5 años"
+ },
+ "b3700d0a8a44": {
+  "en": "Years to 60: 25. Coast number: $1,250,000 ÷ 1.05^25 = $1,250,000 ÷ 3.386 ≈ $369,000.",
+  "t": "Años hasta los 60: 25. Número Coast: US$1.250.000 ÷ 1,05^25 = US$1.250.000 ÷ 3,386 ≈ US$369.000."
+ },
+ "b3d19ff972bb": {
+  "en": "FIRE number = (spending − other income) ÷ withdrawal rate.",
+  "t": "Número FIRE = (gasto − otros ingresos) ÷ tasa de retiro."
+ },
+ "b3f79cd316a6": {
+  "en": "YEARLY SPENDING",
+  "t": "GASTO ANUAL"
+ },
+ "b45363636a12": {
+  "en": "about 17",
+  "t": "unos 17"
+ },
+ "b4d615e588cf": {
+  "en": "<b>FIRE</b> stands for financial independence, retire early. You are financially independent when your investments can pay your yearly spending for the rest of your life. The \"retire early\" part is optional: many people keep working, just on their own terms.",
+  "t": "<b>FIRE</b> significa independencia financiera y retiro temprano (financial independence, retire early). Eres financieramente independiente cuando tus inversiones pueden pagar tu gasto anual por el resto de tu vida. La parte de \"retirarse temprano\" es opcional: mucha gente sigue trabajando, solo que en sus propios términos."
+ },
+ "b5d26ee4bef9": {
+  "en": "<b>Rental property or a business:</b> count it once. Either as equity you will sell, or as the yearly income it pays you (in other income), never both.",
+  "t": "<b>Propiedad en arriendo o un negocio:</b> cuéntalo una sola vez. O como patrimonio que vas a vender, o como el ingreso anual que te paga (en otros ingresos), nunca las dos."
+ },
+ "b6523ec8675d": {
+  "en": "Only through what you can save and spend. Two people saving 30% reach independence in about the same time, whatever they earn.",
+  "t": "Solo por lo que puedes ahorrar y gastar. Dos personas que ahorran el 30 % llegan a la independencia más o menos al mismo tiempo, ganen lo que ganen."
+ },
+ "b735a3ffe91b": {
+  "en": "Saving more both adds money and shrinks the target.",
+  "t": "Ahorrar más suma plata y además achica la meta."
+ },
+ "b737558468d7": {
+  "en": "Jul",
+  "t": "Jul"
+ },
+ "b78469362ca3": {
+  "en": "COUNTED INVESTMENTS, BY AGE",
+  "t": "INVERSIONES QUE CUENTAN, POR EDAD"
+ },
+ "bb6cad876369": {
+  "en": "Healthcare",
+  "t": "Salud"
+ },
+ "bb70c932ee4c": {
+  "en": "Drag the dot along the curve. Assumes you spend the same in retirement as you do now, save at the end of each year and earn a steady return after inflation. Real markets bounce around, so treat the years as a guide.",
+  "t": "Arrastra el punto a lo largo de la curva. Supone que gastas lo mismo en el retiro que ahora, que ahorras al final de cada año y que ganas una rentabilidad constante después de inflación. Los mercados reales suben y bajan, así que toma los años como una guía."
+ },
+ "bb9bfefd5391": {
+  "en": "Nov",
+  "t": "Nov"
+ },
+ "bc89214ba81c": {
+  "en": "At 36% she needs about 24 years. Keeping spending flat cut about 13 years of work.",
+  "t": "Al 36 % necesita unos 24 años. Mantener el gasto quieto le recortó unos 13 años de trabajo."
+ },
+ "bcf86a136732": {
+  "en": "YEARS OF WORK UNTIL FINANCIALLY INDEPENDENT",
+  "t": "AÑOS DE TRABAJO HASTA LA INDEPENDENCIA FINANCIERA"
+ },
+ "befde54a108c": {
+  "en": "Apr",
+  "t": "Abr"
+ },
+ "bffc31d5a0bb": {
+  "en": "You reach <b>Coast FIRE</b> when the money you already have will grow into your FIRE number by your chosen retirement age, with no more saving. From then on you only need to earn enough to pay your bills. That can mean a lower-stress job, fewer hours or a career change.",
+  "t": "Llegas a <b>Coast FIRE</b> cuando la plata que ya tienes va a crecer hasta tu número FIRE para la edad de retiro que escogiste, sin ahorrar más. Desde ese momento solo necesitas ganar lo suficiente para pagar tus cuentas. Eso puede significar un trabajo con menos estrés, menos horas o un cambio de carrera."
+ },
+ "c08e04c51f01": {
+  "en": "<b>Barista FIRE</b>: leave the full-time job while part-time work covers some spending and, ideally, health insurance.",
+  "t": "<b>Barista FIRE</b>: dejar el trabajo de tiempo completo mientras un trabajo de medio tiempo cubre parte del gasto y, idealmente, el seguro de salud."
+ },
+ "c10d76c9a4b8": {
+  "en": "Transport",
+  "t": "Transporte"
+ },
+ "c2b3d9ea31a8": {
+  "en": "A family adds up a typical month: housing $2,400, food $1,100, transport $500, utilities $350, health $400 and everything else $250. Total: $5,000 a month, or $60,000 a year.",
+  "t": "Una familia suma un mes típico: vivienda US$2.400, comida US$1.100, transporte US$500, servicios públicos US$350, salud US$400 y todo lo demás US$250. Total: US$5.000 al mes, o US$60.000 al año."
+ },
+ "c2fcfd505479": {
+  "en": "Car, $28,000",
+  "t": "Carro, US$28.000"
+ },
+ "c33976a76047": {
+  "en": "If you stop saving today",
+  "t": "Si dejas de ahorrar hoy"
+ },
+ "c4ba0822462e": {
+  "en": "Mar",
+  "t": "Mar"
+ },
+ "c5fc9ceb2fe8": {
+  "en": "about 7",
+  "t": "unos 7"
+ },
+ "c6d747bb01c4": {
+  "en": "It can lower the number you need later, but early retirees usually plan to live on savings until they claim. Fewer working years can also lower the benefit.",
+  "t": "Puede bajar el número que necesitas más adelante, pero quienes se retiran temprano por lo general planean vivir de sus ahorros hasta que la piden. Menos años trabajados también pueden bajar la pensión."
+ },
+ "c72580ea8c85": {
+  "en": "Coast FIRE and Barista FIRE",
+  "t": "Coast FIRE y Barista FIRE"
+ },
+ "c76198ddd54c": {
+  "en": "<b>Access before 59½</b> to money in retirement accounts (<a href=\\\"#l-early-access\\\">money out before 59½</a>).",
+  "t": "<b>Acceso antes de tiempo</b> a la plata de las cuentas de retiro (<a href=\\\"#l-early-access\\\">sacar plata antes de los 59½ en EE. UU.</a>)."
+ },
+ "c8d68d5d4213": {
+  "en": "FIRE means financial independence, retire early: having investments that can pay your spending for life, so work becomes optional. The usual target is about 25 times yearly spending, from the 4% rule; early retirers often plan on 3.25% to 3.5% instead, or about 29 to 31 times.",
+  "t": "FIRE significa independencia financiera y retiro temprano (financial independence, retire early): tener inversiones que puedan pagar tu gasto de por vida, para que trabajar sea opcional. La meta habitual es unas 25 veces el gasto anual, por la regla del 4 %; quienes se retiran temprano a menudo planean con 3,25 % a 3,5 %, o unas 29 a 31 veces."
+ },
+ "c94f479833c5": {
+  "en": "May",
+  "t": "May"
+ },
+ "ca01d5d4b3c1": {
+  "en": "A part-time job with health insurance is gold before 65. Without one you buy marketplace coverage, where your MAGI (modified adjusted gross income) sets the subsidy, and part-time wages count toward it. See <a href=\"#l-aca\">health insurance before 65</a> and <a href=\"#l-health-bridge\">bridging the gap to Medicare</a>.",
+  "t": "En EE. UU., un trabajo de medio tiempo con seguro de salud vale oro antes de los 65. Sin uno, compras cobertura en el mercado de seguros, donde tu MAGI (ingreso bruto ajustado modificado) fija el subsidio, y el sueldo de medio tiempo cuenta. Mira <a href=\"#l-aca\">seguro de salud antes de los 65</a> y <a href=\"#l-health-bridge\">el puente hasta Medicare</a>."
+ },
+ "ca5caec8201f": {
+  "en": "Drag the dot along the spending scale or pick a flavor. Uses a 4% withdrawal rate (25 times spending) and a 5% return after inflation. Part-time pay is take-home pay. The zone labels are rough community terms with no official cutoffs.",
+  "t": "Arrastra el punto a lo largo de la escala de gasto o escoge un tipo. Usa una tasa de retiro del 4 % (25 veces el gasto) y una rentabilidad del 5 % después de inflación. El pago de medio tiempo es ingreso neto. Las etiquetas de las zonas son términos aproximados de la comunidad, sin límites oficiales."
+ },
+ "ca78384701a6": {
+  "en": "Ana is 30 and has $250,000 invested. With no more saving it grows to about $250,000 × 1.05^30 ≈ $1,080,000 by 60, more than her $900,000 target. She has reached Coast FIRE and only needs to earn her $36,000 a year of costs.",
+  "t": "Ana tiene 30 años y US$250.000 invertidos. Sin ahorrar más, eso crece a unos US$250.000 × 1,05^30 ≈ US$1.080.000 para los 60, más que su meta de US$900.000. Llegó a Coast FIRE y solo necesita ganar sus US$36.000 al año de costos."
+ },
+ "cd3ea0c02cd9": {
+  "en": "<span>Age {0}</span><b>{1}</b>",
+  "t": "<span>{0} años</span><b>{1}</b>"
+ },
+ "cfbd74434677": {
+  "en": "BLS: Consumer expenditures in 2025 (released Oct. 29, 2026)",
+  "t": "BLS: Consumer expenditures in 2025 (publicado el 29 de octubre de 2026, en inglés)"
+ },
+ "d041e57cc378": {
+  "en": "Pick a household, adjust the monthly costs, then switch irregular costs on and off and watch the true average move.",
+  "t": "Escoge un hogar, ajusta los costos mensuales y luego activa y desactiva los costos irregulares y mira cómo se mueve el promedio real."
+ },
+ "d04aedefe3c0": {
+  "en": "About 17 years at 50% versus about 37 years at 20%. The savings rate sets the pace, not the income.",
+  "t": "Unos 17 años al 50 % frente a unos 37 años al 20 %. La tasa de ahorro marca el ritmo, no el ingreso."
+ },
+ "d091b6dd4aa8": {
+  "en": "Counting the house is the most common way people fool themselves: you cannot buy groceries with a living room.",
+  "t": "Contar la casa es la forma más común en que la gente se engaña: no puedes hacer mercado con una sala."
+ },
+ "d12dd80dcaec": {
+  "en": "Advisor Perspectives: Bill Bengen boosts the 4% rule to 4.7% (2025)",
+  "t": "Advisor Perspectives: Bill Bengen sube la regla del 4 % al 4,7 % (2025, en inglés)"
+ },
+ "d1c4d78fab53": {
+  "en": "No. Many people use financial independence to work less, change careers or take breaks. The “retire early” part is optional.",
+  "t": "No. Mucha gente usa la independencia financiera para trabajar menos, cambiar de carrera o tomarse descansos. La parte de “retirarse temprano” es opcional."
+ },
+ "d22074dc89b1": {
+  "en": "Barista FIRE instead: $380,000 supports about $15,200 a year at 4%, so part-time work would have to bring home the other $34,800 for as long as it lasts. Coasting asks for more work income now but leads to full retirement at 60.",
+  "t": "Barista FIRE en cambio: US$380.000 sostienen unos US$15.200 al año al 4 %, así que el trabajo de medio tiempo tendría que dejarle los otros US$34.800 mientras dure. El Coast pide más ingreso por trabajo hoy pero lleva al retiro completo a los 60."
+ },
+ "d28dd3f97fc8": {
+  "en": "Count invested money you can spend; treat pre-tax money as partly taxed and leave out the house.",
+  "t": "Cuenta la plata invertida que puedes gastar; trata la plata antes de impuestos como parcialmente gravada y deja por fuera la casa."
+ },
+ "d2c0fcfc6ec1": {
+  "en": "Save hard early, then let compounding finish the job while work only covers today.",
+  "t": "Ahorra fuerte al principio y luego deja que el interés compuesto termine el trabajo mientras el trabajo solo cubre el hoy."
+ },
+ "d2d4afa93982": {
+  "en": "Copying a number from a blog instead of using your own spending. Your target is your spending times about 25.",
+  "t": "Copiar un número de un blog en vez de usar tu propio gasto. Tu meta es tu gasto por unas 25 veces."
+ },
+ "d3b729731e06": {
+  "en": "One point less return raises the coast number by a quarter or more for a 30-year-old. Plan with a cautious return.",
+  "t": "Un punto menos de rentabilidad sube el número Coast en una cuarta parte o más para alguien de 30 años. Planea con una rentabilidad prudente."
+ },
+ "d3c38ebac984": {
+  "en": "Why the lower rates: the 4% rule was built on 30-year retirements. Someone stopping at 40 may need 50 years or more. See <a href=\\\"#l-swr\\\">the 4% rule and its limits</a>.",
+  "t": "Por qué las tasas más bajas: la regla del 4 % se construyó con jubilaciones de 30 años. Alguien que para a los 40 puede necesitar 50 años o más. Mira <a href=\\\"#l-swr\\\">la regla del 4 % y sus límites</a>."
+ },
+ "d4662bfc80ce": {
+  "en": "Coast number = FIRE number ÷ (1 + real return) ^ years to retirement.",
+  "t": "Número Coast = número FIRE ÷ (1 + rentabilidad real) ^ años hasta el retiro."
+ },
+ "d494109fa716": {
+  "en": "<b>Pensions and annuities</b> are income streams, not assets: put the payments in other income.",
+  "t": "<b>Las pensiones y las rentas vitalicias</b> son flujos de ingreso, no activos: pon los pagos en otros ingresos."
+ },
+ "d50108fe3112": {
+  "en": "At a 4% withdrawal rate the FIRE number is $82,000 ÷ 0.04 = $2,050,000.",
+  "t": "Con una tasa de retiro del 4 % el número FIRE es US$82.000 ÷ 0,04 = US$2.050.000."
+ },
+ "d51d2fb1f7fd": {
+  "en": "Coast zone: no more saving needed",
+  "t": "Zona Coast: ya no necesitas ahorrar más"
+ },
+ "d84803fd8c39": {
+  "en": "Barista FIRE lets part-time income pay part of the bills, shrinking the number.",
+  "t": "Barista FIRE deja que un ingreso de medio tiempo pague parte de las cuentas, lo que achica el número."
+ },
+ "d886336ed083": {
+  "en": "A high savings rate, often 30% to 70% of take-home pay.",
+  "t": "Una tasa de ahorro alta, a menudo del 30 % al 70 % del ingreso neto."
+ },
+ "da5e8d6959f9": {
+  "en": "Should I use the national average?",
+  "t": "¿Debo usar el promedio nacional?"
+ },
+ "db8fcdf06b25": {
+  "en": "Ana spends $36,000 a year. Her Lean FIRE number is $36,000 × 25 = $900,000.",
+  "t": "Ana gasta US$36.000 al año. Su número Lean FIRE es US$36.000 × 25 = US$900.000."
+ },
+ "dc8415ccfe52": {
+  "en": "Feb",
+  "t": "Feb"
+ },
+ "def34993e643": {
+  "en": "A coast plan rests on years of returns you cannot see yet. Common ways to add safety (rules of thumb): plan at a lower return, keep saving a little, and recheck every year. If a bad decade leaves you behind, you can raise saving again while still working.",
+  "t": "Un plan Coast se apoya en años de rentabilidades que todavía no puedes ver. Formas comunes de sumar seguridad (reglas prácticas): planear con una rentabilidad más baja, seguir ahorrando un poco y revisar cada año. Si una mala década te deja atrás, puedes volver a subir el ahorro mientras sigues trabajando."
+ },
+ "e0687ea5cc6e": {
+  "en": "Spending, withdrawal rate, other income and your whole net worth in one number.",
+  "t": "El gasto, la tasa de retiro, los otros ingresos y todo tu patrimonio en un solo número."
+ },
+ "e20469a9bc87": {
+  "en": "${0} spent",
+  "t": "US${0} gastados"
+ },
+ "e2cb17c7ef85": {
+  "en": "Saving $45,000 a year, they reach $2,050,000 in about 17 years, around age 55.",
+  "t": "Ahorrando US$45.000 al año, llegan a US$2.050.000 en unos 17 años, cerca de los 55."
+ },
+ "e2f8320affc7": {
+  "en": "Chasing a higher salary while spending rises with it, so the savings rate never moves.",
+  "t": "Perseguir un sueldo más alto mientras el gasto sube con él, así la tasa de ahorro nunca se mueve."
+ },
+ "e4a9a329e03b": {
+  "en": "about 22",
+  "t": "unos 22"
+ },
+ "e618a2aa9507": {
+  "en": "Your FIRE number starts from your real yearly spending, including the costs that come once a year or once a decade. A year of bank and card statements is the most honest way to find it; a typical month usually misses 10% to 25%.",
+  "t": "Tu número FIRE parte de tu gasto anual real, incluidos los costos que llegan una vez al año o una vez por década. Un año de extractos del banco y de la tarjeta es la forma más honesta de encontrarlo; un mes típico por lo general se pierde entre el 10 % y el 25 %."
+ },
+ "e63bfdcc1003": {
+  "en": "<b>The big three:</b> housing, transport and food are most of most budgets. One change there beats a hundred small cuts, though <a href=\"#l-latte\">small habits add up</a> too.",
+  "t": "<b>Los tres grandes:</b> la vivienda, el transporte y la comida son la mayor parte de casi todos los presupuestos. Un cambio ahí le gana a cien recortes pequeños, aunque <a href=\"#l-latte\">los hábitos pequeños también suman</a>."
+ },
+ "e783064be312": {
+  "en": "Holidays and gifts",
+  "t": "Fiestas y regalos"
+ },
+ "e9ade9871d67": {
+  "en": "You are {0}% of the way.",
+  "t": "Vas en el {0} % del camino."
+ },
+ "ea8fdb5034ff": {
+  "en": "A big budget, often $100K+ a year, with room for travel and comfort. Bigger number.",
+  "t": "Un presupuesto grande, a menudo de US$100.000 o más al año, con espacio para viajes y comodidad. Un número más grande."
+ },
+ "ebefd3f11a1f": {
+  "en": "Treating the table as exact. Returns vary, and the order of good and bad years matters.",
+  "t": "Tomar la tabla como exacta. Las rentabilidades varían, y el orden de los años buenos y malos importa."
+ },
+ "ec9f264254ba": {
+  "en": "<span class=\"wg-title\">Household</span>{0}",
+  "t": "<span class=\"wg-title\">Hogar</span>{0}"
+ },
+ "eceac9fd9ae8": {
+  "en": "The 50% saver, about 2 years sooner",
+  "t": "El que ahorra el 50 %, unos 2 años antes"
+ },
  "ee14e683d930": {
   "en": "The formula",
   "t": "La fórmula"
+ },
+ "ee4d43700817": {
+  "en": "Most months look calm. Then the car needs tires, the insurance renews, December arrives and the water heater dies. A budget built from a typical month can easily miss 10% to 25% of what you really spend. For a sense of scale, the average US household spent $78,535 in 2024, according to the government\\'s Consumer Expenditure Surveys.",
+  "t": "La mayoría de los meses se ven tranquilos. Luego el carro necesita llantas, se renueva el seguro, llega diciembre y se daña el calentador. Un presupuesto armado con un mes típico se puede perder fácilmente entre el 10 % y el 25 % de lo que de verdad gastas. Para tener una idea de escala, el hogar promedio de EE. UU. gastó US$78.535 en 2024, según las Encuestas de Gastos del Consumidor del gobierno."
+ },
+ "ef07e21a8018": {
+  "en": "At {0}% it takes about {1} years. Ten points less ({2}%) would mean about {3} years; ten points more, about {4}. Your income level barely changes these numbers.",
+  "t": "Al {0} % toma unos {1} años. Diez puntos menos ({2} %) serían unos {3} años; diez puntos más, unos {4}. Tu nivel de ingresos casi no cambia estos números."
+ },
+ "ef51912897de": {
+  "en": "What changes when I retire?",
+  "t": "¿Qué cambia cuando me retiro?"
+ },
+ "ef8f6ea8a596": {
+  "en": "Your savings rate is the share of take-home pay you save. Starting from zero, it decides most of how long it takes to reach financial independence: about 37 years at 20%, 17 at 50% and 7 at 75%, with a 5% return after inflation and a 4% withdrawal rate.",
+  "t": "Tu tasa de ahorro es la parte del ingreso neto que ahorras. Empezando de cero, decide casi todo el tiempo que toma llegar a la independencia financiera: unos 37 años al 20 %, 17 al 50 % y 7 al 75 %, con una rentabilidad del 5 % después de inflación y una tasa de retiro del 4 %."
+ },
+ "efe1a93ae368": {
+  "en": "<b>Subtract debts</b> you will still owe when you stop, such as car or student loans. A mortgage you keep paying can stay as a debt, or you can leave the balance out and put the payment in your spending, but not both.",
+  "t": "<b>Resta las deudas</b> que todavía vas a tener cuando pares, como créditos de carro o de estudio. Una hipoteca que sigues pagando puede quedarse como deuda, o puedes dejar el saldo por fuera y poner la cuota en tu gasto, pero no las dos cosas."
+ },
+ "efed3690ea22": {
+  "en": "Jan",
+  "t": "Ene"
+ },
+ "f07df87e01c8": {
+  "en": "Spending sets the target, other income shrinks it, and only money you can actually spend counts toward it.",
+  "t": "El gasto fija la meta, los otros ingresos la achican, y solo cuenta la plata que de verdad puedes gastar."
+ },
+ "f3b570ea2e7b": {
+  "en": "Annualize lumpy costs: divide each by how many years it lasts, and save for it monthly.",
+  "t": "Pasa a cifra anual los costos irregulares: divide cada uno entre los años que dura y ahorra para él cada mes."
+ },
+ "f45a1ea2db91": {
+  "en": "Roof, $15,000",
+  "t": "Techo, US$15.000"
+ },
+ "f47fd6581288": {
+  "en": "The first points",
+  "t": "Los primeros puntos"
+ },
+ "f490b5f34e86": {
+  "en": "About $255,000",
+  "t": "Unos US$255.000"
+ },
+ "f4daf61d0fb5": {
+  "en": "Coast line",
+  "t": "Línea Coast"
+ },
+ "f5eb5c8c48f7": {
+  "en": "A plan for what your job used to cover: health insurance (<a href=\"#l-aca\">before 65</a>), taxes on <a href=\"#l-fire-tax\">withdrawals</a> and getting money out of retirement accounts <a href=\"#l-early-access\">before 59½</a>.",
+  "t": "Un plan para lo que antes cubría tu trabajo: el seguro de salud (<a href=\"#l-aca\">antes de la edad de pensión</a>), los impuestos sobre los <a href=\"#l-fire-tax\">retiros</a> y sacar la plata de las cuentas de retiro <a href=\"#l-early-access\">antes de tiempo</a>."
+ },
+ "f63021518cb8": {
+  "en": "Drag your yearly spending along the scale, then pick a flavor to see how the targets change.",
+  "t": "Arrastra tu gasto anual a lo largo de la escala y luego escoge un tipo para ver cómo cambian las metas."
+ },
+ "f6e46820fda9": {
+  "en": "What if I already have savings?",
+  "t": "¿Y si ya tengo ahorros?"
+ },
+ "f712c22c7baf": {
+  "en": "about 37",
+  "t": "unos 37"
+ },
+ "f77eb32366cc": {
+  "en": "Gross or take-home",
+  "t": "Bruto o neto"
+ },
+ "f7bb9509109a": {
+  "en": "Your FIRE number is the invested money that can pay your yearly spending, after other income, for the rest of your life.",
+  "t": "Tu número FIRE es la plata invertida que puede pagar tu gasto anual, después de otros ingresos, por el resto de tu vida."
+ },
+ "f863dafe278e": {
+  "en": "Age ",
+  "t": "Edad "
+ },
+ "f8ee306faddd": {
+  "en": "Living spending is $65,000, health insurance $14,000 and taxes $3,000: $82,000 a year.",
+  "t": "El costo de vida es de US$65.000, el seguro de salud US$14.000 y los impuestos US$3.000: US$82.000 al año."
+ },
+ "f907a3f2d5b8": {
+  "en": "Using 4% for a 50-year retirement with no plan to cut spending in bad years.",
+  "t": "Usar el 4 % para una jubilación de 50 años sin plan para recortar el gasto en los años malos."
+ },
+ "fa17eb35b60d": {
+  "en": "You start ahead of the table. The planner and the FIRE number calculator take your current savings into account.",
+  "t": "Empiezas por delante de la tabla. El planificador y la calculadora del número FIRE tienen en cuenta tus ahorros actuales."
+ },
+ "fa2b98564c10": {
+  "en": "Pick a household and type in your accounts. Then move spending and the withdrawal rate, and hover the chart to see each year.",
+  "t": "Escoge un hogar y escribe tus cuentas. Luego mueve el gasto y la tasa de retiro, y pasa el cursor por el gráfico para ver cada año."
+ },
+ "fd4a5e83da78": {
+  "en": "<b>Fewer earning years can lower Social Security</b> (<a href=\"#l-ss-early\">why</a>).",
+  "t": "<b>Menos años de ingresos pueden bajar la pensión pública</b> (<a href=\"#l-ss-early\">por qué</a>)."
+ },
+ "fdb380578a70": {
+  "en": "<b>Growth is not guaranteed.</b> A coast plan assumes years of returns, and a weak decade can leave you short. Recheck every year.",
+  "t": "<b>El crecimiento no está garantizado.</b> Un plan Coast supone años de rentabilidades, y una década débil te puede dejar corto. Revisa cada año."
+ },
+ "fdd289e370bd": {
+  "en": "Sep",
+  "t": "Sep"
+ },
+ "fe3ac7e209f5": {
+  "en": "Appliances, furniture, electronics",
+  "t": "Electrodomésticos, muebles, electrónicos"
+ },
+ "fe8d1cc832df": {
+  "en": "$30,000, but only in the year you buy",
+  "t": "US$30.000, pero solo en el año en que lo compras"
+ },
+ "feb2c67dd6b7": {
+  "en": "FIRE number {0}",
+  "t": "Número FIRE {0}"
+ },
+ "ff2e2a1c7795": {
+  "en": "The 50% saver, about 20 years sooner",
+  "t": "El que ahorra el 50 %, unos 20 años antes"
+ },
+ "ffe84642f569": {
+  "en": "She gets a $20,000 raise and saves all of it. Take-home pay is now $100,000 and saving is $36,000, a 36% rate, while spending stays at $64,000.",
+  "t": "Le dan un aumento de US$20.000 y lo ahorra todo. Su ingreso neto ahora es de US$100.000 y su ahorro de US$36.000, una tasa del 36 %, mientras el gasto se queda en US$64.000."
  }
 }
