@@ -1,18 +1,814 @@
 {
+ "0053024e8ed1": {
+  "en": "Consumer spending",
+  "t": "Gasto de los consumidores"
+ },
+ "026fbe9d56f2": {
+  "en": "Same money, same safety, about $15,600 apart in buying power after ten years.",
+  "t": "El mismo dinero, la misma seguridad, cerca de US$15.600 de diferencia en poder de compra después de diez años."
+ },
+ "02b88f4623ea": {
+  "en": "Made-up numbers. The Fed has said it is watching the job market closely.",
+  "t": "Números inventados. La Fed ha dicho que está mirando de cerca el mercado laboral."
+ },
+ "0471386edfe0": {
+  "en": "Manufacturing",
+  "t": "Manufactura"
+ },
+ "05d953385b02": {
+  "en": "Reading only the headline number. Energy can swing it by a point or more; core shows the trend the Fed cares about.",
+  "t": "Leer solo el número total. La energía lo puede mover un punto o más; la básica muestra la tendencia que le importa a la Fed."
+ },
+ "0701a63d3ae1": {
+  "en": "Strong consumer data helps <b>retailers, travel and banks</b>.",
+  "t": "Los datos fuertes de los consumidores ayudan a los <b>minoristas, los viajes y los bancos</b>."
+ },
+ "07d62c621538": {
+  "en": "Returns are held fixed so you can see inflation’s bite: savings {0} (national average), T-bills and money market {1}, bonds {2} and stocks {3} a year (long-run average, with big swings). In real life T-bill yields tend to rise with inflation and stocks partly keep up over decades. Hover the chart for any year.",
+  "t": "Las rentabilidades son fijas para que veas la mordida de la inflación: ahorros {0} (promedio nacional de EE. UU.), letras del Tesoro y mercado monetario {1}, bonos {2} y acciones {3} al año (promedio de largo plazo, con grandes oscilaciones). En la vida real los rendimientos de las letras del Tesoro tienden a subir con la inflación y las acciones se ponen al día en parte a lo largo de décadas. Pasa el cursor por el gráfico para ver cualquier año."
+ },
+ "0899f69b6c79": {
+  "en": "<b>ISM Manufacturing PMI</b>: out at 10:00 am Eastern on the first business day of the month. The headline is the average of five parts: new orders, production, employment, supplier deliveries and inventories.",
+  "t": "<b>PMI manufacturero del ISM</b>: sale a las 10:00 a. m., hora de Nueva York, el primer día hábil del mes. El número principal es el promedio de cinco partes: pedidos nuevos, producción, empleo, entregas de los proveedores e inventarios."
+ },
+ "09b278cacd0a": {
+  "en": "Wage growth from the jobs report. Watched for signs of wage-driven inflation.",
+  "t": "El crecimiento de los salarios del informe de empleo. Se mira en busca de señales de inflación impulsada por los salarios."
+ },
+ "09d90d31e1b8": {
+  "en": "this wk",
+  "t": "esta sem."
+ },
+ "09e233eb0928": {
+  "en": "One month below 50 is common. A run of readings in the low or mid-40s has often come with recessions.",
+  "t": "Un mes por debajo de 50 es común. Una serie de lecturas en los 40 bajos o medios a menudo ha llegado con recesiones."
+ },
+ "0a69cbbd2533": {
+  "en": "<b>Employment</b> gives a hint before the jobs report.",
+  "t": "El <b>empleo</b> da una pista antes del informe de empleo."
+ },
+ "0ab76b87f92f": {
+  "en": "50 = no change",
+  "t": "50 = sin cambio"
+ },
  "0d3830748786": {
   "en": "Quarter",
   "t": "Trimestre"
+ },
+ "0e7f46dc5eaf": {
+  "en": "BLS: The Employment Situation, September 2026",
+  "t": "BLS: The Employment Situation, septiembre de 2026 (en inglés)"
+ },
+ "0ec67dffe948": {
+  "en": "Claims history is made up around the latest level ({0}K in mid-October 2026). The 4-week average smooths out holiday weeks and storms. Openings start at {1} million (August 2026 JOLTS); the unemployed count is an example input. JOLTS comes out about a month after the month it describes, so it is slower than claims.",
+  "t": "La historia de solicitudes es inventada alrededor del último nivel ({0} mil a mediados de octubre de 2026). El promedio de 4 semanas suaviza las semanas de fiestas y las tormentas. Las vacantes empiezan en {1} millones (JOLTS de agosto de 2026); el número de desempleados es un dato de ejemplo. El JOLTS sale cerca de un mes después del mes que describe, así que es más lento que las solicitudes."
+ },
+ "0f2b3425236b": {
+  "en": "The Census Bureau’s advance retail sales report comes out around the middle of the month at 8:30 am. It is an early read on consumers. Retail sales are in dollars, so part of any rise can just be higher prices; the “control group” (which leaves out cars, gas, building materials and restaurants) is the part that feeds GDP. Consumer confidence surveys from the University of Michigan (a preliminary reading mid-month and a final one late in the month) and the Conference Board show how people feel, which does not always match how they spend.",
+  "t": "El informe anticipado de ventas minoristas de la Oficina del Censo sale cerca de la mitad del mes a las 8:30 a. m. Es una lectura temprana de los consumidores. Las ventas minoristas están en dólares, así que parte de cualquier subida puede ser solo precios más altos; el “grupo de control” (que deja por fuera los carros, la gasolina, los materiales de construcción y los restaurantes) es la parte que alimenta el PIB. Las encuestas de confianza del consumidor de la Universidad de Michigan (una lectura preliminar a mitad de mes y una final a finales del mes) y del Conference Board muestran cómo se siente la gente, lo que no siempre coincide con cómo gasta."
+ },
+ "10baf0464490": {
+  "en": "Federal Reserve: Statement on Longer-Run Goals (2% PCE inflation)",
+  "t": "Reserva Federal: declaración sobre los objetivos de largo plazo (inflación PCE del 2 %; en inglés)"
+ },
+ "1193c91a77e0": {
+  "en": "<b>GDP</b> (gross domestic product) adds up everything the economy produces. The Bureau of Economic Analysis publishes an advance estimate about a month after each quarter, then two revisions. US growth is quoted at an <b>annual rate</b>: a quarter that grows about 0.5% is reported as about 2%. Consumer spending is the biggest part, roughly two thirds. Inventories and net exports can swing the headline a lot from quarter to quarter, so traders watch consumer spending plus business investment for the real demand underneath.",
+  "t": "El <b>PIB</b> (producto interno bruto) suma todo lo que produce la economía. La Oficina de Análisis Económico de EE. UU. publica una estimación anticipada cerca de un mes después de cada trimestre, y luego dos revisiones. El crecimiento de EE. UU. se cita a <b>tasa anualizada</b>: un trimestre que crece cerca de 0,5 % se reporta como cerca de 2 %. El gasto de los consumidores es la parte más grande, más o menos dos tercios. Los inventarios y las exportaciones netas pueden mover mucho el número principal de un trimestre a otro, así que los traders miran el gasto de los consumidores más la inversión de las empresas para ver la demanda real de fondo."
+ },
+ "12882db7dbda": {
+  "en": "Most sensitive to Fed expectations",
+  "t": "El más sensible a las expectativas sobre la Fed"
+ },
+ "13286c5a8c7d": {
+  "en": "Over decades, owning businesses through <a href=\"#l-index-funds\">index funds</a> has beaten inflation, with big swings along the way.",
+  "t": "A lo largo de décadas, ser dueño de negocios a través de <a href=\"#l-index-funds\">fondos indexados</a> le ha ganado a la inflación, con grandes oscilaciones en el camino."
+ },
+ "1435268bf253": {
+  "en": "More firms reported shrinking than growing",
+  "t": "Más empresas reportaron que se achicaban que las que crecían"
+ },
+ "14ab662ba635": {
+  "en": "Weekly jobless claims with a 4-week average, and {0} job openings per unemployed person",
+  "t": "Solicitudes semanales de subsidio por desempleo con un promedio de 4 semanas, y {0} vacantes por persona desempleada"
+ },
+ "1511af643400": {
+  "en": "<b>Average hourly earnings:</b> wage growth. Fast wage gains can feed inflation, especially in services.",
+  "t": "<b>Ingreso promedio por hora:</b> el crecimiento de los salarios. Las subidas rápidas de salarios pueden alimentar la inflación, sobre todo en los servicios."
+ },
+ "17d05a1f92a3": {
+  "en": "<b>Hotter than expected:</b> traders expect higher interest rates for longer. Bond yields rise, the dollar usually firms, and stocks tend to fall, growth stocks most, because their profits sit far in the future and are worth less when rates are high.",
+  "t": "<b>Más caliente de lo esperado:</b> los traders esperan tasas de interés más altas por más tiempo. Los rendimientos de los bonos suben, el dólar por lo general se fortalece y las acciones tienden a caer, sobre todo las de crecimiento, porque sus utilidades están muy en el futuro y valen menos cuando las tasas están altas."
+ },
+ "192557c53efe": {
+  "en": "<b>Headline</b> inflation includes everything. <b>Core</b> leaves out food and energy, which jump around with weather, wars and oil supply, so core shows the slower trend underneath. Housing costs (shelter) are about {0}% of CPI but closer to 15% of PCE, which is one reason the two measures often differ. Shelter also moves slowly, because it tracks rents people already pay, not just new leases.",
+  "t": "La inflación <b>total</b> lo incluye todo. La <b>básica</b> deja por fuera los alimentos y la energía, que saltan con el clima, las guerras y la oferta de petróleo, así que la básica muestra la tendencia más lenta que hay debajo. Los costos de vivienda son cerca del {0} % del IPC pero más cerca del 15 % del PCE, una de las razones por las que las dos medidas a menudo difieren. La vivienda también se mueve lento, porque sigue los arriendos que la gente ya paga, no solo los contratos nuevos."
+ },
+ "1a049ff6c2f5": {
+  "en": "Quarterly growth scaled up to a full year, the way US GDP is reported.",
+  "t": "El crecimiento trimestral escalado a un año completo, como se reporta el PIB de EE. UU."
+ },
+ "1a5f63b9f9fd": {
+  "en": "First Trust: ISM manufacturing index 54.5 in September 2026",
+  "t": "First Trust: el índice manufacturero del ISM en 54,5 en septiembre de 2026 (en inglés)"
+ },
+ "1bc715779239": {
+  "en": "A strong report makes higher rates for longer more likely, so yields rise and stocks often dip at first.",
+  "t": "Un informe fuerte hace más probables tasas más altas por más tiempo, así que los rendimientos suben y las acciones a menudo bajan al principio."
+ },
+ "25003d6e7ee6": {
+  "en": "GDP shrank at a {0} annual rate. Two weak quarters in a row worry markets, but the official recession call comes later, from the NBER, using jobs, income and spending too.",
+  "t": "El PIB se contrajo a una tasa anualizada del {0}. Dos trimestres débiles seguidos preocupan a los mercados, pero el anuncio oficial de la recesión llega después, de la NBER, usando también el empleo, los ingresos y el gasto."
+ },
+ "26ba4ab2b6dd": {
+  "en": "Trading the first seconds after 8:30 am. Spreads widen and the first move often reverses once traders read the details.",
+  "t": "Operar los primeros segundos después de las 8:30 a. m. Los diferenciales se amplían y el primer movimiento a menudo se voltea cuando los traders leen los detalles."
+ },
+ "26c2946424bc": {
+  "en": "Net exports",
+  "t": "Exportaciones netas"
+ },
+ "279a1925cda0": {
+  "en": "Long-term bonds suffer most when inflation surprises upward; see <a href=\"#l-rates\">rates and the yield curve</a>.",
+  "t": "Los bonos de largo plazo son los que más sufren cuando la inflación sorprende al alza; mira <a href=\"#l-rates\">las tasas y la curva de rendimientos</a>."
+ },
+ "27f1530fff5d": {
+  "en": "<b>Industrial production</b> (Federal Reserve, around the middle of each month): output of factories, mines and utilities, a check on what the manufacturing PMI says.",
+  "t": "<b>Producción industrial</b> (Reserva Federal, cerca de la mitad de cada mes): la producción de fábricas, minas y servicios públicos, un control de lo que dice el PMI manufacturero."
+ },
+ "297d709ebeb7": {
+  "en": "Goods",
+  "t": "Bienes"
+ },
+ "29de4e5e79b0": {
+  "en": "The jobs report shows how fast the economy is hiring. Markets react to the surprise against the forecast, filtered through what the Fed is worried about.",
+  "t": "El informe de empleo muestra qué tan rápido está contratando la economía. Los mercados reaccionan a la sorpresa frente al pronóstico, filtrada por lo que le preocupa a la Fed."
+ },
+ "2bf2e2b3f31c": {
+  "en": "Reactions are a teaching model of typical first moves, not a forecast. Payrolls come from a survey of employers; the unemployment rate comes from a separate survey of households, so they can disagree. Payroll history here is made up.",
+  "t": "Las reacciones son un modelo didáctico de los primeros movimientos típicos, no un pronóstico. Las nóminas salen de una encuesta a empleadores; la tasa de desempleo sale de otra encuesta a hogares, así que pueden no coincidir. La historia de nóminas aquí es inventada."
+ },
+ "2d76b53ba15c": {
+  "en": "Priced in futures markets",
+  "t": "Descontado en los mercados de futuros"
+ },
+ "2f44d75db668": {
+  "en": "Core CPI",
+  "t": "IPC básico"
+ },
+ "31fd294e8728": {
+  "en": "Keep cash in places that pay close to inflation, such as high-yield savings, Treasury bills or a money market fund (see <a href=\"#l-emergency\">where to park cash</a>).",
+  "t": "Mantén el efectivo en lugares que paguen cerca de la inflación, como cuentas de ahorro de alto rendimiento, letras del Tesoro o un fondo del mercado monetario (mira <a href=\"#l-emergency\">dónde dejar el efectivo</a>)."
+ },
+ "323076c5af0f": {
+  "en": "What {0} is worth in today's dollars after {1} years of {2} inflation, for cash, savings, T-bills, bonds and stocks",
+  "t": "Lo que valen {0} en dólares de hoy después de {1} años de inflación del {2}, para efectivo, ahorros, letras del Tesoro, bonos y acciones"
+ },
+ "32afc07e4e16": {
+  "en": "<b>JOLTS</b> (job openings) comes out at 10:00 am about a month after the month it covers, usually on a Tuesday. Openings per unemployed person show how tight the job market is.",
+  "t": "El <b>JOLTS</b> (vacantes) sale a las 10:00 a. m. cerca de un mes después del mes que cubre, por lo general un martes. Las vacantes por persona desempleada muestran qué tan apretado está el mercado laboral."
+ },
+ "33b8ae4bb344": {
+  "en": "Ignoring revisions. A good headline can hide big downward changes to earlier months.",
+  "t": "Ignorar las revisiones. Un buen titular puede esconder grandes cambios a la baja en los meses anteriores."
+ },
+ "34d58449369b": {
+  "en": "S&amp;P Global also publishes US PMIs at 9:45 am, with an early “flash” estimate around the third or fourth week of the month (October 23, 2026 for October).",
+  "t": "S&amp;P Global también publica PMI de EE. UU. a las 9:45 a. m., con una estimación temprana “flash” cerca de la tercera o cuarta semana del mes (el 23 de octubre de 2026 para octubre)."
+ },
+ "351010f00d51": {
+  "en": "Department of Labor: weekly unemployment insurance claims",
+  "t": "Departamento de Trabajo de EE. UU.: solicitudes semanales del seguro de desempleo (en inglés)"
+ },
+ "3585d446a0b7": {
+  "en": "{0} over {1} years, in today’s dollars (after {2} inflation)",
+  "t": "{0} en {1} años, en dólares de hoy (después de una inflación del {2})"
+ },
+ "3816247ca0ad": {
+  "en": "Assuming a strong report is always good for stocks. It depends on whether the Fed is fighting inflation or a slowdown.",
+  "t": "Suponer que un informe fuerte siempre es bueno para las acciones. Depende de si la Fed está combatiendo la inflación o una desaceleración."
+ },
+ "397c48aca12f": {
+  "en": "<span class=\"wg-title\">What worries the Fed most</span>{0}",
+  "t": "<span class=\"wg-title\">Lo que más le preocupa a la Fed</span>{0}"
+ },
+ "3a5f88a4d857": {
+  "en": "<b>PCE</b> (personal consumption expenditures price index) from the Bureau of Economic Analysis: a wider measure of spending, out near the end of the month at 8:30 am with the personal income report. This is the one the Federal Reserve uses for its <b>2% goal</b>. Since 2000, CPI has run about half a point above PCE on average, mostly because the two weigh housing differently.",
+  "t": "El <b>PCE</b> (índice de precios del gasto de consumo personal) de la Oficina de Análisis Económico de EE. UU.: una medida más amplia del gasto, sale cerca del final del mes a las 8:30 a. m. con el informe de ingresos personales. Es el que usa la Reserva Federal para su <b>meta del 2 %</b>. Desde 2000, el IPC ha estado cerca de medio punto por encima del PCE en promedio, sobre todo porque los dos pesan la vivienda de forma distinta."
+ },
+ "3beb9ad4036d": {
+  "en": "Revision",
+  "t": "Revisión"
+ },
+ "3c541b9a5cad": {
+  "en": "<b>New orders</b> are future work, so they tend to lead. New orders above inventories is a sign production will pick up.",
+  "t": "Los <b>pedidos nuevos</b> son trabajo futuro, así que tienden a adelantarse. Pedidos nuevos por encima de los inventarios es una señal de que la producción va a subir."
+ },
+ "3e983ea8aa2e": {
+  "en": "{0} PMI of {1} built from its parts",
+  "t": "PMI {0} de {1} construido con sus partes"
+ },
+ "40fb75032b7d": {
+  "en": "Claims around {0}K a week are steady. Openings per unemployed person of {1} {2}",
+  "t": "Unas {0} mil solicitudes por semana es algo estable. {1} vacantes por persona desempleada: {2}"
+ },
+ "42036bf6e2be": {
+  "en": "Industrial stocks may rise on the orders while bond yields tick up on the prices. One report, two stories.",
+  "t": "Las acciones industriales pueden subir por los pedidos mientras los rendimientos de los bonos suben un poco por los precios. Un informe, dos historias."
+ },
+ "422bbaab37f3": {
+  "en": "<b>Prices paid</b> is published with each report but is not part of the headline. A jump there often comes before higher inflation readings.",
+  "t": "Los <b>precios pagados</b> se publican con cada informe pero no son parte del número principal. Un salto ahí a menudo llega antes de lecturas de inflación más altas."
+ },
+ "42e26d10deba": {
+  "en": "Initial jobless claims each week (thin) and the 4-week average (thick)",
+  "t": "Solicitudes iniciales de subsidio por desempleo cada semana (delgado) y el promedio de 4 semanas (grueso)"
+ },
+ "439ad2586ba0": {
+  "en": "ISM Manufacturing comes out on the first business day, ISM Services on the third, both at 10:00 am ET.",
+  "t": "El ISM manufacturero sale el primer día hábil, el ISM de servicios el tercero, los dos a las 10:00 a. m., hora de Nueva York."
+ },
+ "44053218a859": {
+  "en": "forecast {0}",
+  "t": "pronóstico {0}"
+ },
+ "44e98306fb3d": {
+  "en": "Bond yields rise and stocks dip",
+  "t": "Los rendimientos de los bonos suben y las acciones bajan un poco"
+ },
+ "45b63c40443e": {
+  "en": "Employers added only {0},000 jobs in {1}, and July and August were revised down by a combined 60,000. The unemployment rate edged up to {2} from 4.1%, wages grew {3} over the year and weekly jobless claims were low, near {4},000 in mid-October. Job openings were {5} million in August. Hiring is slow, but layoffs are not rising: a soft job market, not a breaking one. The widget starts from these levels.",
+  "t": "Los empleadores sumaron solo {0}.000 empleos en {1}, y julio y agosto se revisaron a la baja en 60.000 en total. La tasa de desempleo subió un poco a {2} desde 4,1 %, los salarios crecieron {3} en el año y las solicitudes semanales de subsidio por desempleo estaban bajas, cerca de {4}.000 a mediados de octubre. Las vacantes eran {5} millones en agosto. La contratación está lenta, pero los despidos no están subiendo: un mercado laboral flojo, no uno que se rompe. El widget empieza desde estos niveles."
+ },
+ "45c18dac0baa": {
+  "en": "Know the forecast before the release. The surprise, including revisions, drives the first move.",
+  "t": "Conoce el pronóstico antes del dato. La sorpresa, incluidas las revisiones, impulsa el primer movimiento."
+ },
+ "46ff26f17004": {
+  "en": "Payrolls, unemployment, wages and weekly claims, and why good news can be bad for stocks.",
+  "t": "Nóminas, desempleo, salarios y solicitudes semanales, y por qué las buenas noticias pueden ser malas para las acciones."
+ },
+ "46ffbc38b8e9": {
+  "en": " minus inventories",
+  "t": " menos los inventarios"
+ },
+ "4a019c960192": {
+  "en": "Data can have gaps. During the 43-day government shutdown in late 2025, the October 2025 CPI was never published, which is why some year-over-year comparisons for that month are missing.",
+  "t": "Los datos pueden tener huecos. Durante el cierre del gobierno de 43 días a finales de 2025, el IPC de octubre de 2025 nunca se publicó, por eso faltan algunas comparaciones anuales de ese mes."
+ },
+ "4bac52c2bc3a": {
+  "en": "The jobs report and jobless claims",
+  "t": "El informe de empleo y las solicitudes de subsidio por desempleo"
+ },
+ "4df3d0127f1b": {
+  "en": "The PMI part that tracks what firms pay for inputs. An early inflation clue.",
+  "t": "La parte del PMI que sigue lo que pagan las empresas por sus insumos. Una pista temprana de inflación."
+ },
+ "4ea9b4730f90": {
+  "en": "The headline miss was 65,000 jobs, but revisions made the real surprise about 105,000.",
+  "t": "El titular se quedó corto por 65.000 empleos, pero las revisiones hicieron que la sorpresa real fuera de cerca de 105.000."
+ },
+ "4ec4a023d6ec": {
+  "en": "Markets react to the surprise against the forecast, not to the number alone.",
+  "t": "Los mercados reaccionan a la sorpresa frente al pronóstico, no solo al número."
+ },
+ "4f91c53a1337": {
+  "en": "Jobs reports usually land on a Friday at 8:30 am ET: payrolls, unemployment rate, wages and revisions.",
+  "t": "Los informes de empleo por lo general salen un viernes a las 8:30 a. m., hora de Nueva York: nóminas, tasa de desempleo, salarios y revisiones."
+ },
+ "50370e7fa9d3": {
+  "en": "CPI is the headline consumer measure, PCE is the Fed’s 2% target, PPI shows business costs.",
+  "t": "El IPC es la medida principal del consumidor, el PCE es la meta del 2 % de la Fed, el IPP muestra los costos de las empresas."
+ },
+ "52750b3e2c00": {
+  "en": "The 50 line in PMI surveys, how GDP is built and what consumer spending reports say about stocks.",
+  "t": "La línea de 50 en las encuestas PMI, cómo se construye el PIB y qué dicen de las acciones los informes de gasto de los consumidores."
+ },
+ "52f9534f2326": {
+  "en": "means employers are fighting for workers, which pushes wages up.",
+  "t": "los empleadores están peleando por trabajadores, lo que sube los salarios."
+ },
+ "53214eeb0abc": {
+  "en": "A steady rise in claims together with a rising unemployment rate is a classic recession warning; see <a href=\"#l-cycle\">the business cycle</a>.",
+  "t": "Una subida constante de las solicitudes junto con una tasa de desempleo al alza es una advertencia clásica de recesión; mira <a href=\"#l-cycle\">el ciclo económico</a>."
+ },
+ "5417d589e6a5": {
+  "en": "CPI rose {0} over the year to {1}, a touch above the 3.6% forecast, while core CPI was {2}. The gap is energy: energy prices were up {3} on the year. PCE inflation for August was {4}, with core PCE at {5}, unusually above core CPI after a change in how the government measures some services. Producer prices (PPI) were up {6}, a warning that costs are still flowing through. After the CPI report, traders raised the odds of another Fed rate hike. The next CPI comes out on November 10, 2026 at 8:30 am ET; every date is on the <a href=\"#calendar\">calendar</a>.",
+  "t": "El IPC subió {0} en el año hasta {1}, un poco por encima del pronóstico de 3,6 %, mientras el IPC básico fue de {2}. La brecha es la energía: los precios de la energía subieron {3} en el año. La inflación PCE de agosto fue de {4}, con el PCE básico en {5}, inusualmente por encima del IPC básico después de un cambio en cómo mide el gobierno algunos servicios. Los precios al productor (IPP) subieron {6}, una advertencia de que los costos todavía se están trasladando. Después del informe del IPC, los traders subieron las probabilidades de otra subida de tasas de la Fed. El próximo IPC sale el 10 de noviembre de 2026 a las 8:30 a. m., hora de Nueva York; todas las fechas están en el <a href=\"#calendar\">calendario</a>."
+ },
+ "545afdeeeefd": {
+  "en": "New orders",
+  "t": "Pedidos nuevos"
+ },
+ "55bc86387d81": {
+  "en": "Slide inflation and the years to see what your money is really worth. Then open the price basket and change one category at a time.",
+  "t": "Mueve la inflación y los años para ver lo que de verdad vale tu dinero. Luego abre la canasta de precios y cambia una categoría a la vez."
+ },
+ "5793698c40af": {
+  "en": "Every date is on the <a href=\"#calendar\">calendar</a>.",
+  "t": "Todas las fechas están en el <a href=\"#calendar\">calendario</a>."
+ },
+ "5ab31d17ffe3": {
+  "en": "Example report",
+  "t": "Informe de ejemplo"
+ },
+ "5ab35c032514": {
+  "en": "Average hourly earnings",
+  "t": "Ingreso promedio por hora"
+ },
+ "5b19932a6736": {
+  "en": "Core PCE",
+  "t": "PCE básico"
+ },
+ "5c9cb498f540": {
+  "en": "Government",
+  "t": "Gobierno"
  },
  "5cbd58404686": {
   "en": "Services",
   "t": "Servicios"
  },
+ "5fa9c916b719": {
+  "en": "CPI weights are BLS relative importance for December 2025. PCE weights are rough, to show why the two measures differ. Scenarios use approximate category rates with today’s weights, so totals differ a little from the official numbers at the time. Drag a slider to change one category.",
+  "t": "Los pesos del IPC son la importancia relativa del BLS para diciembre de 2025. Los pesos del PCE son aproximados, para mostrar por qué las dos medidas son distintas. Los escenarios usan tasas aproximadas por categoría con los pesos de hoy, así que los totales difieren un poco de los números oficiales de ese momento. Arrastra un deslizador para cambiar una categoría."
+ },
+ "5fde7d16c0b1": {
+  "en": "In the 1970s inflation climbed into double digits while growth stalled, a mix called <b>stagflation</b>. CPI inflation peaked near 15% in 1980, and Fed chair Paul Volcker pushed short-term rates close to 20% to break it, causing a deep recession. In June 2022 CPI inflation reached 9.1%, the highest in about 40 years. The Fed raised rates at the fastest pace in decades, and both stocks and bonds fell that year: an S&P 500 index fund lost about 18%. On September 13, 2022 alone, a hotter-than-expected CPI report knocked the S&P 500 down 4.3%.",
+  "t": "En los años setenta la inflación subió a dos dígitos mientras el crecimiento se estancaba, una mezcla llamada <b>estanflación</b>. La inflación del IPC tocó un pico cerca del 15 % en 1980, y el presidente de la Fed, Paul Volcker, llevó las tasas de corto plazo cerca del 20 % para romperla, lo que causó una recesión profunda. En junio de 2022 la inflación del IPC llegó al 9,1 %, la más alta en unos 40 años. La Fed subió las tasas al ritmo más rápido en décadas, y tanto las acciones como los bonos cayeron ese año: un fondo indexado del S&P 500 perdió cerca del 18 %. Solo el 13 de septiembre de 2022, un IPC más caliente de lo esperado tumbó el S&P 500 un 4,3 %."
+ },
+ "60d4c408772d": {
+  "en": "GDP growth of {0}% at an annual rate, built from its parts",
+  "t": "Crecimiento del PIB del {0} % a tasa anualizada, construido con sus partes"
+ },
+ "62aac869d5bd": {
+  "en": "Inflation: CPI, PCE and PPI",
+  "t": "Inflación: IPC, PCE e IPP"
+ },
+ "648d86f66730": {
+  "en": "GDP is quoted at an annual rate and revised twice; consumers are about two thirds of it.",
+  "t": "El PIB se cita a tasa anualizada y se revisa dos veces; los consumidores son cerca de dos tercios."
+ },
+ "64d779301eeb": {
+  "en": "BLS: release dates changed by the 2025 funding lapse",
+  "t": "BLS: fechas de publicación cambiadas por el cierre del gobierno de 2025 (en inglés)"
+ },
+ "682ab006d70d": {
+  "en": "Census Bureau: economic indicator calendar",
+  "t": "Oficina del Censo de EE. UU.: calendario de indicadores económicos (en inglés)"
+ },
+ "68a66679c5b2": {
+  "en": "The headline is their average: (51.2 + 49.0 + 46.8 + 50.6 + 45.4) ÷ 5 = 48.6, below 50.",
+  "t": "El número principal es su promedio: (51,2 + 49,0 + 46,8 + 50,6 + 45,4) ÷ 5 = 48,6, por debajo de 50."
+ },
+ "6979c133b42a": {
+  "en": "<b>Employment Cost Index</b> (BLS, 8:30 am, once a quarter, for example October 30, 2026): pay plus benefits. The Fed likes it because, unlike average hourly earnings, it is not skewed when the mix of jobs changes.",
+  "t": "<b>Índice de costo del empleo</b> (BLS, 8:30 a. m., una vez por trimestre, por ejemplo el 30 de octubre de 2026): salario más beneficios. A la Fed le gusta porque, a diferencia del ingreso promedio por hora, no se distorsiona cuando cambia la mezcla de empleos."
+ },
+ "6a7cefb8f08c": {
+  "en": "Supplier deliveries",
+  "t": "Entregas de los proveedores"
+ },
+ "6ba2e4d1a233": {
+  "en": "no food or energy",
+  "t": "sin alimentos ni energía"
+ },
+ "6c2144ec09d8": {
+  "en": "The unemployment rate rises from 4.3% to 4.5%, and wage growth slows to 3.4% a year.",
+  "t": "La tasa de desempleo sube de 4,3 % a 4,5 %, y el crecimiento de los salarios baja a 3,4 % al año."
+ },
+ "6cc168005b9b": {
+  "en": "Her brother puts the same $50,000 in Treasury bills paying 4.2%. After 10 years he has $75,448, or $52,464 in today’s dollars.",
+  "t": "Su hermano pone los mismos US$50.000 en letras del Tesoro que pagan 4,2 %. Después de 10 años tiene US$75.448, o US$52.464 en dólares de hoy."
+ },
+ "6e39d896c2dc": {
+  "en": "BLS: Consumer Price Index news release, September 2026",
+  "t": "BLS: comunicado del índice de precios al consumidor, septiembre de 2026 (en inglés)"
+ },
+ "6f808fad6f6a": {
+  "en": "Headline CPI near {0}. {1} adds the most ({2} points). A print like this pushes bond yields up and rate cuts off the table, which usually pulls stocks down, especially growth stocks.",
+  "t": "IPC total cerca de {0}. {1} es lo que más suma ({2} puntos). Un dato así sube los rendimientos de los bonos y saca de la mesa los recortes de tasas, lo que por lo general baja las acciones, sobre todo las de crecimiento."
+ },
+ "704621c50331": {
+  "en": "Weak data sends money toward <b>defensives</b> such as utilities, staples and health care. See <a href=\"#l-cycle\">the business cycle</a>.",
+  "t": "Los datos débiles mandan el dinero hacia los <b>defensivos</b>, como los servicios públicos, el consumo básico y la salud. Mira <a href=\"#l-cycle\">el ciclo económico</a>."
+ },
+ "713815345154": {
+  "en": "Drag this month’s payroll bar or pick an example report, then flip what the Fed is worried about and watch the reactions change.",
+  "t": "Arrastra la barra de nóminas de este mes o escoge un informe de ejemplo, y luego cambia lo que le preocupa a la Fed y mira cómo cambian las reacciones."
+ },
+ "71e6b96fc2c9": {
+  "en": "Maya leaves $50,000 in a savings account paying 0.6%. After 10 years the balance reads $53,082.",
+  "t": "Maya deja US$50.000 en una cuenta de ahorros que paga 0,6 %. Después de 10 años el saldo dice US$53.082."
+ },
+ "720f24357611": {
+  "en": "Jobs added each month (made-up history). Drag this month’s bar.",
+  "t": "Empleos agregados cada mes (historia inventada). Arrastra la barra de este mes."
+ },
+ "732d6291e7bb": {
+  "en": "Fed worry",
+  "t": "Preocupación de la Fed"
+ },
+ "75aa7ae0aa1f": {
+  "en": "BEA: Gross Domestic Product",
+  "t": "BEA: producto interno bruto (en inglés)"
+ },
+ "77b7bb749e6c": {
+  "en": "With the Fed worried about jobs, stocks often fall too, because a weak report raises recession fears. In the widget, pick Soft and the weak-job-market worry to see it.",
+  "t": "Con la Fed preocupada por el empleo, las acciones a menudo también caen, porque un informe débil sube los miedos de recesión. En el widget, escoge Flojo y la preocupación por un mercado laboral débil para verlo."
+ },
+ "7886f6399046": {
+  "en": "<b>ISM Services PMI</b>: out at 10:00 am on the third business day. Four parts: business activity, new orders, employment and supplier deliveries. Services are most of the US economy.",
+  "t": "<b>PMI de servicios del ISM</b>: sale a las 10:00 a. m. el tercer día hábil. Cuatro partes: actividad del negocio, pedidos nuevos, empleo y entregas de los proveedores. Los servicios son la mayor parte de la economía de EE. UU."
+ },
+ "79b03476f98d": {
+  "en": "Both took almost no risk, but one choice kept up with inflation and the other did not.",
+  "t": "Los dos casi no tomaron riesgo, pero una decisión le siguió el paso a la inflación y la otra no."
+ },
+ "7a23362d61ea": {
+  "en": "A <b>PMI</b> (purchasing managers’ index) asks purchasing managers whether things got better, worse or stayed the same this month. The answers are turned into an index where <b>50 means no change</b>: above 50, more firms say growing; below 50, more say shrinking.",
+  "t": "Un <b>PMI</b> (índice de gerentes de compras) les pregunta a los gerentes de compras si las cosas mejoraron, empeoraron o siguieron igual este mes. Las respuestas se convierten en un índice en el que <b>50 significa sin cambio</b>: por encima de 50, más empresas dicen que crecen; por debajo de 50, más dicen que se achican."
+ },
+ "7c6b3e25d4e6": {
+  "en": "Treating a PMI of 49 as a recession. Small dips below 50 are common; direction and new orders matter more.",
+  "t": "Tomar un PMI de 49 como una recesión. Las pequeñas bajadas por debajo de 50 son comunes; la dirección y los pedidos nuevos importan más."
+ },
+ "7ccd117a0743": {
+  "en": "Watch the 2-year Treasury yield. It reacts fastest to what the report means for the Fed.",
+  "t": "Mira el rendimiento del Tesoro a 2 años. Es el que reacciona más rápido a lo que el informe significa para la Fed."
+ },
+ "7d6ba7e65212": {
+  "en": "Annual rate",
+  "t": "Tasa anualizada"
+ },
+ "7e64a75c3fbb": {
+  "en": "The parts come in at new orders 51.2, production 49.0, employment 46.8, supplier deliveries 50.6 and inventories 45.4.",
+  "t": "Las partes salen así: pedidos nuevos 51,2, producción 49,0, empleo 46,8, entregas de los proveedores 50,6 e inventarios 45,4."
+ },
  "7e8548c30fef": {
   "en": "Economy",
   "t": "Economía"
  },
+ "7f4811ea40f1": {
+  "en": "BLS: Job Openings and Labor Turnover Survey news release",
+  "t": "BLS: comunicado de la encuesta de vacantes y rotación laboral (JOLTS; en inglés)"
+ },
+ "802c40a06045": {
+  "en": "BLS: consumer prices up 9.1% over the year ended June 2022",
+  "t": "BLS: los precios al consumidor subieron 9,1 % en el año terminado en junio de 2022 (en inglés)"
+ },
+ "80d391f949f4": {
+  "en": "Economists expect +110,000 jobs. The report shows +45,000.",
+  "t": "Los economistas esperan +110.000 empleos. El informe muestra +45.000."
+ },
+ "80d57c3b9ea8": {
+  "en": "Losing ground: ",
+  "t": "Perdiendo terreno: "
+ },
+ "82b3d7c1c292": {
+  "en": "Just above 50: growth, but barely. Traders look at new orders{0} ({1}) for the direction of the next few months.",
+  "t": "Apenas por encima de 50: crecimiento, pero raspando. Los traders miran los pedidos nuevos{0} ({1}) para ver la dirección de los próximos meses."
+ },
+ "84e39006613e": {
+  "en": "Prices paid jumps to 62. That warns that costs are rising and could show up in inflation later.",
+  "t": "Los precios pagados saltan a 62. Eso advierte que los costos están subiendo y podrían aparecer más adelante en la inflación."
+ },
+ "87de3a55415c": {
+  "en": "Close to the forecast, steady unemployment and normal wages: not too hot, not too cold. Markets usually shrug and move on to the next release.",
+  "t": "Cerca del pronóstico, desempleo estable y salarios normales: ni muy caliente ni muy frío. Los mercados por lo general se encogen de hombros y pasan al siguiente dato."
+ },
+ "87ee13c26da7": {
+  "en": "Bond yields fall and stocks jump",
+  "t": "Los rendimientos de los bonos bajan y las acciones saltan"
+ },
+ "8819c261c074": {
+  "en": "An update to an earlier month’s number when more survey answers come in.",
+  "t": "Una actualización del número de un mes anterior cuando llegan más respuestas a la encuesta."
+ },
+ "882a9c97a40e": {
+  "en": "Size down or stay flat into 8:30 am; see <a href=\"#l-data-day\">trading data-release days</a>.",
+  "t": "Reduce el tamaño o quédate sin posición antes de las 8:30 a. m.; mira <a href=\"#l-data-day\">operar en días de datos</a>."
+ },
+ "884a6a6d871c": {
+  "en": "PMI above 50 means growing, below 50 means shrinking; new orders lead.",
+  "t": "Un PMI por encima de 50 significa que crece, por debajo de 50 que se achica; los pedidos nuevos se adelantan."
+ },
+ "8a129b931893": {
+  "en": "Move the parts of the ISM index and watch the headline and gauge. Then switch to GDP and pick an example quarter.",
+  "t": "Mueve las partes del índice del ISM y mira el número principal y el medidor. Luego cambia al PIB y escoge un trimestre de ejemplo."
+ },
+ "8c2cffbccaca": {
+  "en": "When the Fed fights inflation, strong jobs can push yields up and stocks down.",
+  "t": "Cuando la Fed combate la inflación, un empleo fuerte puede subir los rendimientos y bajar las acciones."
+ },
+ "8d4456245d21": {
+  "en": "PMI, GDP and retail sales",
+  "t": "PMI, PIB y ventas minoristas"
+ },
+ "8f830a037d1b": {
+  "en": "<b>Inflation</b> is the speed at which prices rise. At 3% a year, something that costs $100 today costs about $134 in ten years. The same dollars buy less, so money that earns less than inflation is quietly shrinking.",
+  "t": "La <b>inflación</b> es la velocidad a la que suben los precios. Al 3 % al año, algo que cuesta US$100 hoy cuesta unos US$134 en diez años. Los mismos dólares compran menos, así que el dinero que gana menos que la inflación se está encogiendo en silencio."
+ },
+ "91378a2391da": {
+  "en": "means more people chase each opening, so wage growth tends to cool.",
+  "t": "más personas compiten por cada vacante, así que el crecimiento de los salarios tiende a enfriarse."
+ },
+ "94068b177fe8": {
+  "en": "US GDP growth is reported at an annual rate: a quarter that grows about 0.5% shows up as about 2%. The first (advance) estimate comes out about a month after the quarter, then two revisions follow. Example quarters are made up.",
+  "t": "El crecimiento del PIB de EE. UU. se reporta a tasa anualizada: un trimestre que crece cerca de 0,5 % aparece como cerca de 2 %. La primera estimación (anticipada) sale cerca de un mes después del trimestre, y luego vienen dos revisiones. Los trimestres de ejemplo son inventados."
+ },
+ "946b4347bb3e": {
+  "en": "The <b>Employment Situation</b> report from the Bureau of Labor Statistics comes out at 8:30 am Eastern, usually on the first Friday of the month (the next ones are November 6 and December 4, 2026). Traders call it jobs Friday. It packs several numbers into one release.",
+  "t": "El informe <b>Employment Situation</b> de la Oficina de Estadísticas Laborales sale a las 8:30 a. m., hora de Nueva York, por lo general el primer viernes del mes (los próximos son el 6 de noviembre y el 4 de diciembre de 2026). Los traders lo llaman el viernes de empleo. Mete varios números en un solo comunicado."
+ },
+ "98b69e58e80d": {
+  "en": "The ISM Manufacturing PMI is the average of these five parts. Prices paid is published alongside it but is not in the headline. Out at 10:00 am ET on the first business day of the month.",
+  "t": "El PMI manufacturero del ISM es el promedio de estas cinco partes. Los precios pagados se publican junto a él pero no están en el número principal. Sale a las 10:00 a. m., hora de Nueva York, el primer día hábil del mes."
+ },
+ "9b7bc18c1a1c": {
+  "en": "Strong manufacturing data tends to lift <b>industrials, materials, energy and transport</b>.",
+  "t": "Los datos manufactureros fuertes tienden a subir a los <b>industriales, los materiales, la energía y el transporte</b>."
+ },
+ "9d38817d7713": {
+  "en": "Five parts, equal weight",
+  "t": "Cinco partes, el mismo peso"
+ },
+ "a42ef6ebdbf1": {
+  "en": "Reading payrolls and the unemployment rate as one survey. They come from different surveys and can point different ways.",
+  "t": "Leer las nóminas y la tasa de desempleo como una sola encuesta. Vienen de encuestas distintas y pueden apuntar a lados distintos."
+ },
+ "a4cf7c3de3b8": {
+  "en": "Inflation is how fast prices rise. Hot readings push interest rates and bond yields up, which usually pulls stock prices down.",
+  "t": "La inflación es qué tan rápido suben los precios. Las lecturas calientes suben las tasas de interés y los rendimientos de los bonos, lo que por lo general baja los precios de las acciones."
+ },
+ "a6f12fd71c2c": {
+  "en": "Employment",
+  "t": "Empleo"
+ },
+ "a8fbb45be7f6": {
+  "en": "Shelter",
+  "t": "Vivienda"
+ },
+ "a920de45dc9d": {
+  "en": "S&P Global: PMI release dates",
+  "t": "S&P Global: fechas de publicación de los PMI (en inglés)"
+ },
+ "ac2abcf92555": {
+  "en": "<b>Durable goods orders</b> (Census, 8:30 am, near the end of the month, for example October 27, 2026): orders for things meant to last three years or more. Orders for core capital goods, which leave out aircraft and defense, are watched as a sign of business investment.",
+  "t": "<b>Pedidos de bienes durables</b> (Censo, 8:30 a. m., cerca del final del mes, por ejemplo el 27 de octubre de 2026): pedidos de cosas hechas para durar tres años o más. Los pedidos de bienes de capital básicos, que dejan por fuera los aviones y la defensa, se miran como una señal de la inversión de las empresas."
+ },
+ "adbf97878b94": {
+  "en": "In today’s dollars her account is worth $53,082 ÷ 1.438 = $36,912. She lost about $13,100 of buying power while the balance went up.",
+  "t": "En dólares de hoy su cuenta vale US$53.082 ÷ 1,438 = US$36.912. Perdió cerca de US$13.100 de poder de compra mientras el saldo subía."
+ },
+ "ae60f04dce86": {
+  "en": "<b>Housing starts and building permits</b> (Census, 8:30 am, mid to late month): how many new homes break ground. Housing is very sensitive to mortgage rates, so it often turns early.",
+  "t": "<b>Inicios de vivienda y permisos de construcción</b> (Censo, 8:30 a. m., de mitad a finales de mes): cuántas viviendas nuevas empiezan a construirse. La vivienda es muy sensible a las tasas hipotecarias, así que a menudo cambia de dirección temprano."
+ },
+ "af5ceadd81e9": {
+  "en": "Gaps happen: the October 2025 jobs report was cancelled during the 43-day government shutdown, and the household survey for that month was never collected.",
+  "t": "Hay huecos: el informe de empleo de octubre de 2025 se canceló durante el cierre del gobierno de 43 días, y la encuesta de hogares de ese mes nunca se hizo."
+ },
+ "b44c82c2082f": {
+  "en": "The two previous months are revised down by a combined 40,000, so the total surprise is 45,000 − 110,000 − 40,000 = −105,000 jobs.",
+  "t": "Los dos meses anteriores se revisan a la baja en 40.000 en total, así que la sorpresa total es 45.000 − 110.000 − 40.000 = −105.000 empleos."
+ },
+ "b457120fbd2c": {
+  "en": "Forgetting that US GDP is annualized. A 2% headline is about 0.5% growth in that quarter.",
+  "t": "Olvidar que el PIB de EE. UU. está anualizado. Un titular del 2 % es cerca de 0,5 % de crecimiento en ese trimestre."
+ },
+ "b45e60bd8a42": {
+  "en": "PMI surveys are the fastest read on business: above 50 means growing. GDP is the slower, fuller picture, and consumers drive most of it.",
+  "t": "Las encuestas PMI son la lectura más rápida de los negocios: por encima de 50 significa que crecen. El PIB es el panorama más lento y más completo, y los consumidores mueven la mayor parte."
+ },
+ "b62e135b9ee1": {
+  "en": "How inflation is measured, why the Fed aims for 2% and how hot or cool reports move markets.",
+  "t": "Cómo se mide la inflación, por qué la Fed apunta al 2 % y cómo mueven los mercados los informes calientes o fríos."
+ },
+ "b69416e4e390": {
+  "en": "When the Fed is fighting inflation, a hot jobs report means rates stay high for longer. Bond yields jump and stocks can fall on “good” news. When the Fed is more worried about a weakening job market, the same strong report is simply good news. Always ask which problem the Fed is focused on; the <a href=\"#l-fed\">Fed lesson</a> explains how it decides.",
+  "t": "Cuando la Fed está combatiendo la inflación, un informe de empleo caliente significa que las tasas se quedan altas por más tiempo. Los rendimientos de los bonos saltan y las acciones pueden caer con una “buena” noticia. Cuando a la Fed le preocupa más un mercado laboral que se debilita, el mismo informe fuerte es simplemente una buena noticia. Pregúntate siempre en qué problema está enfocada la Fed; la <a href=\"#l-fed\">lección de la Fed</a> explica cómo decide."
+ },
+ "ba3186b11de2": {
+  "en": "Treating one week of jobless claims as a trend. Use the 4-week average.",
+  "t": "Tomar una semana de solicitudes de subsidio por desempleo como una tendencia. Usa el promedio de 4 semanas."
+ },
+ "ba7203ccb438": {
+  "en": "Hotter-than-expected inflation usually means higher yields and lower stock prices, especially for growth stocks.",
+  "t": "Una inflación más caliente de lo esperado por lo general significa rendimientos más altos y precios de las acciones más bajos, sobre todo para las de crecimiento."
+ },
+ "bb6e016c04b0": {
+  "en": "A sub-50 headline with strong new orders is often the first sign a manufacturing slump is ending.",
+  "t": "Un número principal por debajo de 50 con pedidos nuevos fuertes a menudo es la primera señal de que se está acabando una caída manufacturera."
+ },
+ "bc53470bb0e8": {
+  "en": "<b>Nonfarm payrolls:</b> how many jobs employers added or cut last month, from a survey of businesses.",
+  "t": "<b>Nóminas no agrícolas:</b> cuántos empleos sumaron o recortaron los empleadores el mes pasado, según una encuesta a empresas."
+ },
+ "bd7eeccbd34c": {
+  "en": "<b>Cooler than expected:</b> the opposite. Rate cuts look closer, yields fall and stocks often rally.",
+  "t": "<b>Más fría de lo esperado:</b> lo contrario. Los recortes de tasas se ven más cerca, los rendimientos bajan y las acciones a menudo suben."
+ },
+ "be8d8a49f329": {
+  "en": "<b>Unemployment rate:</b> the share of the labor force (people working or actively looking) who are jobless and looking, from a separate survey of households. The two surveys can disagree in any one month.",
+  "t": "<b>Tasa de desempleo:</b> la parte de la fuerza laboral (personas que trabajan o buscan trabajo activamente) que no tiene trabajo y está buscando, según otra encuesta a hogares. Las dos encuestas pueden no coincidir en un mes dado."
+ },
+ "bf6b07e59fbe": {
+  "en": "Weekly claims (Thursdays) and JOLTS are earlier and slower clues about the job market.",
+  "t": "Las solicitudes semanales (los jueves) y el JOLTS son pistas más tempranas y más lentas sobre el mercado laboral."
+ },
+ "c2270e66b206": {
+  "en": "GDP growth",
+  "t": "Crecimiento del PIB"
+ },
+ "c2c6308adea4": {
+  "en": "Housing costs in CPI: rent and the estimated rent owners would pay. About a third of the index.",
+  "t": "Los costos de vivienda en el IPC: el arriendo y el arriendo estimado que pagarían los dueños. Cerca de un tercio del índice."
+ },
+ "c6c8314b6469": {
+  "en": "what {0} buys today",
+  "t": "lo que compran hoy {0}"
+ },
+ "cad6b7643bbb": {
+  "en": "Fed target 2%",
+  "t": "Meta de la Fed del 2 %"
+ },
+ "cb0551c3a7c7": {
+  "en": "Job openings per unemployed person (JOLTS): {0}",
+  "t": "Vacantes por persona desempleada (JOLTS): {0}"
+ },
+ "cbb9ced59ea5": {
+  "en": "At {0}, {1} kept as cash buys only {2} of today’s goods after {3} years. {4} Stocks still grow to about {5} in today’s dollars.",
+  "t": "Al {0}, {1} guardados en efectivo compran solo {2} en bienes de hoy después de {3} años. {4} Las acciones igual crecen a unos {5} en dólares de hoy."
+ },
+ "cd268f20797b": {
+  "en": "<b>Initial jobless claims</b> come out every Thursday at 8:30 am. They count new filings for unemployment benefits, so they turn before the monthly report does. Watch the 4-week average to smooth out holidays and storms.",
+  "t": "Las <b>solicitudes iniciales de subsidio por desempleo</b> salen cada jueves a las 8:30 a. m. Cuentan las solicitudes nuevas de beneficios de desempleo, así que cambian de dirección antes que el informe mensual. Mira el promedio de 4 semanas para suavizar las fiestas y las tormentas."
+ },
+ "cd3fa22a6800": {
+  "en": "But new orders minus inventories is 51.2 − 45.4 = +5.8. Orders are arriving faster than stock is piling up, an early sign of a turn.",
+  "t": "Pero pedidos nuevos menos inventarios es 51,2 − 45,4 = +5,8. Los pedidos están llegando más rápido de lo que se acumula el inventario, una señal temprana de un cambio de dirección."
+ },
+ "ce0975bdcd78": {
+  "en": "Strong data can be bad news",
+  "t": "Los datos fuertes pueden ser malas noticias"
+ },
+ "cec5912d7aa2": {
+  "en": "Monthly payrolls: this month {0} against a forecast of {1}",
+  "t": "Nóminas mensuales: este mes {0} frente a un pronóstico de {1}"
+ },
+ "d0bfdaf87700": {
+  "en": "Made-up numbers for one manufacturing report.",
+  "t": "Números inventados para un informe manufacturero."
+ },
+ "d0faccd7c854": {
+  "en": "Inflation is the speed prices rise; money earning less than inflation loses buying power.",
+  "t": "La inflación es la velocidad a la que suben los precios; el dinero que gana menos que la inflación pierde poder de compra."
+ },
+ "d10b837939d2": {
+  "en": "Factory output fell 2%",
+  "t": "La producción de las fábricas cayó 2 %"
+ },
+ "d11bd4e6509f": {
+  "en": "Inflation averages 3.7% a year (the CPI rate for September 2026). Taxes are ignored.",
+  "t": "La inflación promedia 3,7 % al año (la tasa del IPC de septiembre de 2026). Se ignoran los impuestos."
+ },
+ "d15c1716d272": {
+  "en": "The market moves on the surprise against the forecast, including revisions.",
+  "t": "El mercado se mueve con la sorpresa frente al pronóstico, incluidas las revisiones."
+ },
+ "d200f3e6d000": {
+  "en": "PMI is a survey index: below 50 means more firms reported declines than gains. It is not a percent change and not a recession call.",
+  "t": "El PMI es un índice de encuesta: por debajo de 50 significa que más empresas reportaron caídas que subidas. No es un cambio porcentual ni un anuncio de recesión."
+ },
+ "d56e2c394a28": {
+  "en": "Prices paid",
+  "t": "Precios pagados"
+ },
+ "d6a8d916139f": {
+  "en": "rough, Fed’s gauge",
+  "t": "aproximado, la medida de la Fed"
+ },
+ "d72d40b309fd": {
+  "en": "BLS: Employment Situation release schedule",
+  "t": "BLS: calendario de publicación de The Employment Situation (en inglés)"
+ },
+ "d72f7547ccb6": {
+  "en": "Nothing, jobs data does not move markets",
+  "t": "Nada, los datos de empleo no mueven los mercados"
+ },
+ "d9a94c1f776a": {
+  "en": "<b>CPI</b> (Consumer Price Index) from the Bureau of Labor Statistics: prices consumers pay, out around the middle of each month at 8:30 am Eastern (for example October 14 and November 10, 2026). It is the headline number on the news.",
+  "t": "El <b>IPC</b> (índice de precios al consumidor) de la Oficina de Estadísticas Laborales de EE. UU.: los precios que pagan los consumidores, sale cerca de la mitad de cada mes a las 8:30 a. m., hora de Nueva York (por ejemplo el 14 de octubre y el 10 de noviembre de 2026). Es el número principal de las noticias."
+ },
+ "da35435f1245": {
+  "en": "ISM: Report On Business release calendar",
+  "t": "ISM: calendario de publicación del Report On Business (en inglés)"
+ },
+ "da9be9e0a524": {
+  "en": "<b>Revisions:</b> the two previous months are updated. A big downward revision can matter as much as the new number.",
+  "t": "<b>Revisiones:</b> se actualizan los dos meses anteriores. Una gran revisión a la baja puede importar tanto como el número nuevo."
+ },
+ "df048b2b8b31": {
+  "en": "Inflation from a price basket: CPI {0}, core CPI {1}, rough PCE {2}",
+  "t": "Inflación a partir de una canasta de precios: IPC {0}, IPC básico {1}, PCE aproximado {2}"
+ },
+ "df70fc7991d3": {
+  "en": "Production",
+  "t": "Producción"
+ },
+ "e5808d940691": {
+  "en": "Each colored block is that category’s share of the yearly inflation number",
+  "t": "Cada bloque de color es la parte de esa categoría en el número anual de inflación"
+ },
+ "e5c449689750": {
+  "en": "The economy is officially in recession",
+  "t": "La economía está oficialmente en recesión"
+ },
+ "e6e0b625d344": {
+  "en": "Prices rose 1.037 to the 10th power, or 43.8% in total, so each of her dollars buys less.",
+  "t": "Los precios subieron 1,037 a la 10.ª potencia, o 43,8 % en total, así que cada uno de sus dólares compra menos."
+ },
+ "e73cde8c4cd4": {
+  "en": "Strong data helps cyclical stocks, weak data favors defensives.",
+  "t": "Los datos fuertes ayudan a las acciones cíclicas, los débiles favorecen a las defensivas."
+ },
+ "e764746aef9f": {
+  "en": "Comparing your savings rate with zero instead of with inflation. A 0.6% account loses ground when prices rise 3.7%.",
+  "t": "Comparar el rendimiento de tus ahorros con cero en vez de con la inflación. Una cuenta al 0,6 % pierde terreno cuando los precios suben 3,7 %."
+ },
+ "e8dc2abce8da": {
+  "en": "Treating CPI and PCE as the same number. The Fed’s 2% goal is for PCE, which usually runs a little below CPI.",
+  "t": "Tratar el IPC y el PCE como el mismo número. La meta del 2 % de la Fed es para el PCE, que por lo general está un poco por debajo del IPC."
+ },
+ "e8dca2f97b81": {
+  "en": "Money today",
+  "t": "Dinero hoy"
+ },
+ "e9bfaa907519": {
+  "en": "Watching only manufacturing. Services are the bigger part of the US economy.",
+  "t": "Mirar solo la manufactura. Los servicios son la parte más grande de la economía de EE. UU."
+ },
+ "eb9adbcbd046": {
+  "en": "Each part adds or subtracts points; together they make GDP growth (annual rate)",
+  "t": "Cada parte suma o resta puntos; juntas forman el crecimiento del PIB (tasa anualizada)"
+ },
+ "edb0f51932da": {
+  "en": "The Fed’s 2% target is set in terms of the PCE price index, which covers a wider range of spending than CPI.",
+  "t": "La meta del 2 % de la Fed está definida con el índice de precios del PCE, que cubre una gama de gastos más amplia que el IPC."
+ },
+ "ee444f9ff81a": {
+  "en": "In {0} the ISM Manufacturing PMI was {1} and the Services PMI {2}: both comfortably above 50. But prices paid hit 77.9 in manufacturing and about 74 in services, a sign that cost pressure is building. GDP grew at a {3} annual rate in the second quarter; the third-quarter advance estimate is due October 29, 2026. Retail sales jumped 0.8% in September, though much of that was gas prices; the control group rose only 0.1%. Meanwhile the University of Michigan sentiment index fell to {4} in its October preliminary reading, among the lowest in its history. Busy businesses, gloomy households: a good reminder that each report shows only part of the picture.",
+  "t": "En {0} el PMI manufacturero del ISM fue de {1} y el de servicios de {2}: los dos cómodamente por encima de 50. Pero los precios pagados llegaron a 77,9 en manufactura y a cerca de 74 en servicios, una señal de que la presión de costos se está acumulando. El PIB creció a una tasa anualizada del {3} en el segundo trimestre; la estimación anticipada del tercer trimestre sale el 29 de octubre de 2026. Las ventas minoristas saltaron 0,8 % en septiembre, aunque buena parte fue por los precios de la gasolina; el grupo de control subió solo 0,1 %. Mientras tanto, el índice de confianza de la Universidad de Michigan cayó a {4} en su lectura preliminar de octubre, entre los más bajos de su historia. Empresas ocupadas, hogares pesimistas: un buen recordatorio de que cada informe muestra solo una parte del panorama."
+ },
+ "ee45c30326b7": {
+  "en": "Report",
+  "t": "Informe"
+ },
+ "ef1303318d57": {
+  "en": "<b>PPI</b> (Producer Price Index): prices businesses receive. Rising costs here can show up in consumer prices a few months later.",
+  "t": "El <b>IPP</b> (índice de precios al productor): los precios que reciben las empresas. Los costos que suben aquí pueden aparecer en los precios al consumidor unos meses después."
+ },
+ "efa38f15bcae": {
+  "en": "is roughly balanced.",
+  "t": "el mercado está más o menos equilibrado."
+ },
+ "f134c61219da": {
+  "en": "<b>What matters is the surprise:</b> markets price in the forecast before the report. A 3% reading can lift stocks if 3.3% was expected. See <a href=\"#l-data-day\">trading data-release days</a>.",
+  "t": "<b>Lo que importa es la sorpresa:</b> los mercados descuentan el pronóstico antes del informe. Una lectura del 3 % puede subir las acciones si se esperaba 3,3 %. Mira <a href=\"#l-data-day\">operar en días de datos</a>."
+ },
+ "f17bbad3fae4": {
+  "en": "September 2026",
+  "t": "Septiembre de 2026"
+ },
  "f2e43c8f44e8": {
   "en": "little change",
   "t": "poco cambio"
+ },
+ "f2e80929bea2": {
+  "en": "Follows yields",
+  "t": "Sigue a los rendimientos"
+ },
+ "f4a529e51192": {
+  "en": "<b>Leading Economic Index</b> (Conference Board, 10:00 am, monthly): a blend of early indicators such as claims, new orders, building permits and the yield curve, built to turn before the economy does.",
+  "t": "<b>Índice económico adelantado</b> (Conference Board, 10:00 a. m., mensual): una mezcla de indicadores tempranos como las solicitudes de subsidio, los pedidos nuevos, los permisos de construcción y la curva de rendimientos, hecha para cambiar de dirección antes que la economía."
+ },
+ "f8f3dbfe774a": {
+  "en": "Reading retail sales without inflation in mind. Sales up 3% with prices up 3% means about the same amount of stuff.",
+  "t": "Leer las ventas minoristas sin tener en cuenta la inflación. Ventas al alza 3 % con precios al alza 3 % significa más o menos la misma cantidad de cosas."
+ },
+ "f9516b606aa2": {
+  "en": "Traders read this as a cooling job market. The 2-year yield falls and the odds of a rate cut jump within minutes.",
+  "t": "Los traders lo leen como un mercado laboral que se enfría. El rendimiento a 2 años baja y las probabilidades de un recorte de tasas saltan en minutos."
+ },
+ "fe605fa33f63": {
+  "en": "Core inflation leaves out food and energy to show the underlying trend.",
+  "t": "La inflación básica deja por fuera los alimentos y la energía para mostrar la tendencia de fondo."
+ },
+ "fed88550263b": {
+  "en": "Business investment",
+  "t": "Inversión de las empresas"
+ },
+ "ff42b0384716": {
+  "en": "BEA: Personal Income and Outlays, August 2026",
+  "t": "BEA: Personal Income and Outlays, agosto de 2026 (en inglés)"
  }
 }

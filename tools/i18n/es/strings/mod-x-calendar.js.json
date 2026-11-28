@@ -7,9 +7,21 @@
   "en": "Energy",
   "t": "Energía"
  },
+ "7ed2d496fd78": {
+  "en": "ISM Manufacturing",
+  "t": "ISM manufacturero"
+ },
+ "8bd81c3fbcbe": {
+  "en": "ISM Manufacturing PMI",
+  "t": "PMI manufacturero del ISM"
+ },
  "ad772fd474d6": {
   "en": "Earnings",
   "t": "Utilidades"
+ },
+ "c612c5762521": {
+  "en": "ISM Services",
+  "t": "ISM de servicios"
  },
  "f42c107e68bb": {
   "en": "Fed decision",
