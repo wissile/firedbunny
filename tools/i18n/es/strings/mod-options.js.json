@@ -149,7 +149,7 @@
  },
  "10b37999cb1b": {
   "en": "<b>No earnings report before expiration</b>, unless you accept a possible gap. Premiums are richer before earnings because a bigger move is expected (see <a href=\\\"#l-iv-crush\\\">IV crush</a>).",
-  "t": "<b>Ningún informe de resultados antes del vencimiento</b>, a menos que aceptes un posible gap. Las primas son más altas antes de los resultados porque se espera un movimiento más grande (mira <a href=\"#l-iv-crush\">El desplome de la IV</a>)."
+  "t": "<b>Ningún informe de resultados antes del vencimiento</b>, a menos que aceptes un posible gap. Las primas son más altas antes de los resultados porque se espera un movimiento más grande (mira <a href=\\\"#l-iv-crush\\\">El desplome de la IV</a>)."
  },
  "1128990bda35": {
   "en": "Ignoring a wide bid-ask spread. A $0.30 spread on a $1.00 option costs about 30% to get in and back out.",
@@ -293,7 +293,7 @@
  },
  "22a51d4c531d": {
   "en": "In the US, nearly all of it is short-term gain, taxed at your ordinary income rate. Premium is taxed when the option ends, not when you collect it, and assignment folds it into the share price. <a href=\\\"#l-wheel-tax\\\">How the wheel is taxed</a> walks through each case.",
-  "t": "En EE. UU., casi todo es ganancia de corto plazo, que paga impuesto a tu tarifa de ingresos ordinarios. La prima paga impuesto cuando la opción termina, no cuando la cobras, y la asignación la suma al precio de las acciones. <a href=\"#l-wheel-tax\">Cómo pagan impuestos las operaciones de la rueda</a> explica cada caso."
+  "t": "En EE. UU., casi todo es ganancia de corto plazo, que paga impuesto a tu tarifa de ingresos ordinarios. La prima paga impuesto cuando la opción termina, no cuando la cobras, y la asignación la suma al precio de las acciones. <a href=\\\"#l-wheel-tax\\\">Cómo pagan impuestos las operaciones de la rueda</a> explica cada caso."
  },
  "22d16953fc7b": {
   "en": "Sell a call (without the shares)",
@@ -309,7 +309,7 @@
  },
  "24a3d9a9d02b": {
   "en": "Owning 100 shares and selling a call against them (a covered call) has nearly the same payoff as selling a put at the same strike with cash set aside: a capped gain above the strike and a loss that grows as the stock falls. That is why the two halves of the <a href=\\\"#l-wheel\\\">wheel</a> feel so similar. The difference is what you hold while you wait, shares or cash.",
-  "t": "Tener 100 acciones y venderles un call encima (un covered call) tiene casi el mismo pago que vender un put al mismo strike con el efectivo separado: una ganancia con tope por encima del strike y una pérdida que crece a medida que la acción cae. Por eso las dos mitades de la <a href=\"#l-wheel\">rueda</a> se sienten tan parecidas. La diferencia es lo que tienes mientras esperas: acciones o efectivo."
+  "t": "Tener 100 acciones y venderles un call encima (un covered call) tiene casi el mismo pago que vender un put al mismo strike con el efectivo separado: una ganancia con tope por encima del strike y una pérdida que crece a medida que la acción cae. Por eso las dos mitades de la <a href=\\\"#l-wheel\\\">rueda</a> se sienten tan parecidas. La diferencia es lo que tienes mientras esperas: acciones o efectivo."
  },
  "26251c958ad8": {
   "en": "Before earnings, option prices are pumped up by expected volatility. After the news, that air comes out.",
@@ -1105,7 +1105,7 @@
  },
  "8307072c2537": {
   "en": "Usually, yes. Most brokers allow cash-secured puts and covered calls in an IRA, with every put fully backed by cash. <a href=\\\"#l-wheel-ira\\\">Run the wheel in an IRA</a> covers the trade-offs.",
-  "t": "En EE. UU., por lo general sí. La mayoría de los brókeres permiten puts asegurados con efectivo y covered calls en una IRA (una cuenta de retiro estadounidense), con cada put totalmente respaldado por efectivo. <a href=\"#l-wheel-ira\">La rueda en una IRA</a> explica los pros y contras."
+  "t": "En EE. UU., por lo general sí. La mayoría de los brókeres permiten puts asegurados con efectivo y covered calls en una IRA (una cuenta de retiro estadounidense), con cada put totalmente respaldado por efectivo. <a href=\\\"#l-wheel-ira\\\">La rueda en una IRA</a> explica los pros y contras."
  },
  "83609c09211e": {
   "en": "A call profits when the stock rises above the strike, a put when it falls below. Buyers can lose only what they paid.",
@@ -1285,7 +1285,7 @@
  },
  "957fec83ab6b": {
   "en": "<b>Implied volatility is high</b>, because a bigger move is expected (see <a href=\\\"#l-iv-crush\\\">IV and earnings</a>).",
-  "t": "<b>La volatilidad implícita está alta</b>, porque se espera un movimiento más grande (mira <a href=\"#l-iv-crush\">La IV y los resultados</a>)."
+  "t": "<b>La volatilidad implícita está alta</b>, porque se espera un movimiento más grande (mira <a href=\\\"#l-iv-crush\\\">La IV y los resultados</a>)."
  },
  "95c90430a943": {
   "en": "Is the wheel better than buying and holding the stock?",
@@ -1341,7 +1341,7 @@
  },
  "9c4fcc9908d3": {
   "en": "Option sellers often pick strikes by delta. A short put at a 0.20 delta pays less and is assigned less often than one at 0.40. Buyers do the reverse: a high-delta call costs more but behaves more like the stock. The <a href=\\\"#l-wheel\\\">wheel strategy</a> lesson shows the trade-off with three strike styles.",
-  "t": "Los vendedores de opciones a menudo escogen strikes por la delta. Un put vendido con delta de 0,20 paga menos y lo asignan menos seguido que uno con 0,40. Los compradores hacen lo contrario: un call de delta alta cuesta más pero se comporta más como la acción. La lección <a href=\"#l-wheel\">La estrategia de la rueda</a> muestra el equilibrio con tres estilos de strike."
+  "t": "Los vendedores de opciones a menudo escogen strikes por la delta. Un put vendido con delta de 0,20 paga menos y lo asignan menos seguido que uno con 0,40. Los compradores hacen lo contrario: un call de delta alta cuesta más pero se comporta más como la acción. La lección <a href=\\\"#l-wheel\\\">La estrategia de la rueda</a> muestra el equilibrio con tres estilos de strike."
  },
  "9c9e00bd3d67": {
   "en": "IV usually drops sharply right after earnings.",
@@ -1561,7 +1561,7 @@
  },
  "b42cb2166304": {
   "en": "Rolling buys time. It does not remove the risk. Buying back an option that has moved against you costs more than you were paid for it, each roll adds trading costs, and if the stock keeps falling the new put keeps losing too. Decide before you sell what you will do if the stock reaches your strike: take the shares, roll once, or close for a loss. <a href=\\\"#l-rolling\\\">Rolling options</a> and the <a href=\\\"#tool-roll\\\">roll calculator</a> go further.",
-  "t": "Renovar compra tiempo. No quita el riesgo. Recomprar una opción que se movió en tu contra cuesta más de lo que te pagaron por ella, cada renovación suma costos de negociación y, si la acción sigue cayendo, el put nuevo también sigue perdiendo. Decide antes de vender qué vas a hacer si la acción llega a tu strike: recibir las acciones, renovar una vez o cerrar con pérdida. <a href=\"#l-rolling\">Renovar opciones</a> y la <a href=\"#tool-roll\">calculadora de renovación</a> profundizan en esto."
+  "t": "Renovar compra tiempo. No quita el riesgo. Recomprar una opción que se movió en tu contra cuesta más de lo que te pagaron por ella, cada renovación suma costos de negociación y, si la acción sigue cayendo, el put nuevo también sigue perdiendo. Decide antes de vender qué vas a hacer si la acción llega a tu strike: recibir las acciones, renovar una vez o cerrar con pérdida. <a href=\\\"#l-rolling\\\">Renovar opciones</a> y la <a href=\\\"#tool-roll\\\">calculadora de renovación</a> profundizan en esto."
  },
  "b43c866a1232": {
   "en": "Most the seller can lose",
@@ -1617,7 +1617,7 @@
  },
  "b6fb3abfa7a0": {
   "en": "<b>Income, from the other side.</b> Sellers collect premium in exchange for an obligation; the <a href=\\\"#l-wheel\\\">wheel strategy</a> is built on selling puts and calls.",
-  "t": "<b>Ingresos, desde el otro lado.</b> Los vendedores cobran la prima a cambio de una obligación; la <a href=\"#l-wheel\">estrategia de la rueda</a> se basa en vender puts y calls."
+  "t": "<b>Ingresos, desde el otro lado.</b> Los vendedores cobran la prima a cambio de una obligación; la <a href=\\\"#l-wheel\\\">estrategia de la rueda</a> se basa en vender puts y calls."
  },
  "b70c8faa5658": {
   "en": "SIPC: What SIPC protects",
@@ -1709,7 +1709,7 @@
  },
  "be2f6977b962": {
   "en": "In the wheel, assignment is the plan working, not an accident. The cash for the put is already set aside, and being called away is the exit you chose. The Options Industry Council calls the cash-secured put “primarily a stock acquisition strategy for a price-sensitive investor”. More in <a href=\\\"#l-assignment\\\">Assignment and early exercise</a>.",
-  "t": "En la rueda, la asignación es el plan funcionando, no un accidente. El efectivo para el put ya está separado, y que te compren las acciones es la salida que escogiste. El Options Industry Council llama al put asegurado con efectivo “principalmente una estrategia de adquisición de acciones para un inversionista sensible al precio”. Más en <a href=\"#l-assignment\">Asignación y ejercicio anticipado</a>."
+  "t": "En la rueda, la asignación es el plan funcionando, no un accidente. El efectivo para el put ya está separado, y que te compren las acciones es la salida que escogiste. El Options Industry Council llama al put asegurado con efectivo “principalmente una estrategia de adquisición de acciones para un inversionista sensible al precio”. Más en <a href=\\\"#l-assignment\\\">Asignación y ejercicio anticipado</a>."
  },
  "bf1c53e42acb": {
   "en": "Back to 60 days",
@@ -2261,7 +2261,7 @@
  },
  "f785e71e7f7b": {
   "en": "<b>Expiration.</b> An option’s time value melts fastest in its last few weeks (see <a href=\\\"#l-theta\\\">Theta: time decay</a>). Many wheel traders therefore sell options about a month from expiration, as the simulator does. That is common practice, not a rule. Shorter options pay less each time and need more attention. Longer ones tie up your cash for longer.",
-  "t": "<b>Vencimiento.</b> El valor temporal de una opción se derrite más rápido en sus últimas semanas (mira <a href=\"#l-theta\">Theta: el desgaste por el tiempo</a>). Por eso muchos traders de la rueda venden opciones a cerca de un mes del vencimiento, como lo hace el simulador. Es una práctica común, no una regla. Las opciones más cortas pagan menos cada vez y necesitan más atención. Las más largas amarran tu efectivo por más tiempo."
+  "t": "<b>Vencimiento.</b> El valor temporal de una opción se derrite más rápido en sus últimas semanas (mira <a href=\\\"#l-theta\\\">Theta: el desgaste por el tiempo</a>). Por eso muchos traders de la rueda venden opciones a cerca de un mes del vencimiento, como lo hace el simulador. Es una práctica común, no una regla. Las opciones más cortas pagan menos cada vez y necesitan más atención. Las más largas amarran tu efectivo por más tiempo."
  },
  "f7863dd939d5": {
   "en": "The $100 put",

@@ -333,7 +333,7 @@
  },
  "38052352041d": {
   "en": "For a short trade, risk per share is the stop minus the entry. The <a href=\\\"#tool-size\\\">position size calculator</a> does the arithmetic.",
-  "t": "Para una venta en corto, el riesgo por acción es el stop menos la entrada. La <a href=\"#tool-size\">calculadora de tamaño de posición</a> hace las cuentas."
+  "t": "Para una venta en corto, el riesgo por acción es el stop menos la entrada. La <a href=\\\"#tool-size\\\">calculadora de tamaño de posición</a> hace las cuentas."
  },
  "3845d4b45fd8": {
   "en": "Funnel from {0} sample stocks down to {1} after filters",
@@ -601,7 +601,7 @@
  },
  "6154b76f824c": {
   "en": "Record every trade in R in a <a href=\\\"#l-journal\\\">trading journal</a>: the result divided by what you planned to risk. After 30 to 50 trades of the same setup, work out the win rate, the average win and the average loss. Costs and slippage come off the expectancy, so include them.",
-  "t": "Registra cada operación en R en un <a href=\"#l-journal\">diario de trading</a>: el resultado dividido entre lo que planeaste arriesgar. Después de 30 a 50 operaciones de la misma configuración, calcula la tasa de acierto, la ganancia promedio y la pérdida promedio. Los costos y el deslizamiento se restan de la esperanza, así que inclúyelos."
+  "t": "Registra cada operación en R en un <a href=\\\"#l-journal\\\">diario de trading</a>: el resultado dividido entre lo que planeaste arriesgar. Después de 30 a 50 operaciones de la misma configuración, calcula la tasa de acierto, la ganancia promedio y la pérdida promedio. Los costos y el deslizamiento se restan de la esperanza, así que inclúyelos."
  },
  "61694dca5bf0": {
   "en": "Losses and gains are lopsided: after a loss you need a bigger percentage gain to get back to even. A 20% loss needs a 25% gain, and a 50% loss needs 100%. That is why limiting drawdowns matters more than chasing big returns.",
@@ -721,7 +721,7 @@
  },
  "79b905d8e0a3": {
   "en": "The same arithmetic explains why a portfolio that falls less in a crash can end ahead of one that rises more in good years, and why retirees worry about losses early in retirement (see <a href=\\\"#l-sequence\\\">sequence of returns risk</a>).",
-  "t": "La misma aritmética explica por qué un portafolio que cae menos en un desplome puede terminar por delante de uno que sube más en los años buenos, y por qué a los jubilados les preocupan las pérdidas al principio del retiro (mira <a href=\"#l-sequence\">el riesgo de secuencia de rentabilidades</a>)."
+  "t": "La misma aritmética explica por qué un portafolio que cae menos en un desplome puede terminar por delante de uno que sube más en los años buenos, y por qué a los jubilados les preocupan las pérdidas al principio del retiro (mira <a href=\\\"#l-sequence\\\">el riesgo de secuencia de rentabilidades</a>)."
  },
  "79c5e4f20e14": {
   "en": "Treating the value estimate as exact. It is a range, which is why you want a margin of safety.",
@@ -1065,7 +1065,7 @@
  },
  "af6bdbbf3647": {
   "en": "A 10% drawdown is a bad month. A 65% drawdown needs a gain of almost 190% to recover (see <a href=\\\"#l-drawdowns\\\">Losses are lopsided</a>).",
-  "t": "Una caída del 10 % es un mal mes. Una caída del 65 % necesita una ganancia de casi 190 % para recuperarse (mira <a href=\"#l-drawdowns\">Las pérdidas son desiguales</a>)."
+  "t": "Una caída del 10 % es un mal mes. Una caída del 65 % necesita una ganancia de casi 190 % para recuperarse (mira <a href=\\\"#l-drawdowns\\\">Las pérdidas son desiguales</a>)."
  },
  "afc6c5f1daa3": {
   "en": "An example account with made-up prices.",

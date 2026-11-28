@@ -1033,7 +1033,7 @@
  },
  "8523c54e43e3": {
   "en": "The same trading can look very different by timeframe. A 15-minute hammer can be made of seven 2-minute candles that show a clear flush and recovery. Many day traders read direction on a slower chart and time entries on a faster one; the <a href=\\\"#l-timeframes\\\">2-minute vs 15-minute</a> lesson shows how.",
-  "t": "La misma negociación puede verse muy distinta según la temporalidad. Un martillo de 15 minutos puede estar hecho de siete velas de 2 minutos que muestran una caída fuerte y una recuperación clara. Muchos day traders leen la dirección en un gráfico más lento y escogen el momento de entrar en uno más rápido; la lección <a href=\"#l-timeframes\">2 minutos frente a 15 minutos</a> muestra cómo."
+  "t": "La misma negociación puede verse muy distinta según la temporalidad. Un martillo de 15 minutos puede estar hecho de siete velas de 2 minutos que muestran una caída fuerte y una recuperación clara. Muchos day traders leen la dirección en un gráfico más lento y escogen el momento de entrar en uno más rápido; la lección <a href=\\\"#l-timeframes\\\">2 minutos frente a 15 minutos</a> muestra cómo."
  },
  "855259b611e7": {
   "en": "<b>SMA</b>: add the last N closes and divide by N. Every close counts the same.",
@@ -1481,7 +1481,7 @@
  },
  "b7ee5b794117": {
   "en": "Put the stop just on the other side of the level: if price returns there, the breakout has failed. Put the first target at the next level, such as the next swing high or yesterday’s high. Measure the trade in R: if the stop is $0.20 away and the target $0.80, the trade risks 1R to make 4R, and the <a href=\\\"#l-risk-reward\\\">win rate and R</a> lesson shows why that ratio matters.",
-  "t": "Pon el stop justo al otro lado del nivel: si el precio vuelve ahí, la ruptura falló. Pon el primer objetivo en el siguiente nivel, como el siguiente máximo de swing o el máximo de ayer. Mide la operación en R: si el stop está a US$0,20 y el objetivo a US$0,80, la operación arriesga 1R para ganar 4R, y la lección <a href=\"#l-risk-reward\">Tasa de acierto y R</a> muestra por qué importa esa relación."
+  "t": "Pon el stop justo al otro lado del nivel: si el precio vuelve ahí, la ruptura falló. Pon el primer objetivo en el siguiente nivel, como el siguiente máximo de swing o el máximo de ayer. Mide la operación en R: si el stop está a US$0,20 y el objetivo a US$0,80, la operación arriesga 1R para ganar 4R, y la lección <a href=\\\"#l-risk-reward\\\">Tasa de acierto y R</a> muestra por qué importa esa relación."
  },
  "b815877a248c": {
   "en": "7 to 8",
@@ -1517,7 +1517,7 @@
  },
  "bb60f1e9766b": {
   "en": "Once resistance breaks and holds, it can serve as support, and a broken support can become resistance. Traders who missed a breakout often buy the first pullback to the old ceiling; if that retest holds, it confirms the break. If price falls back through, the breakout has failed (see <a href=\\\"#l-breakouts\\\">Breakouts &amp; fakeouts</a>).",
-  "t": "Cuando una resistencia se rompe y se sostiene, puede servir como soporte, y un soporte roto puede volverse resistencia. Los traders que se perdieron una ruptura a menudo compran el primer retroceso al techo viejo; si ese retesteo se sostiene, confirma la ruptura. Si el precio vuelve a caer a través del nivel, la ruptura falló (mira <a href=\"#l-breakouts\">Rupturas y rupturas falsas</a>)."
+  "t": "Cuando una resistencia se rompe y se sostiene, puede servir como soporte, y un soporte roto puede volverse resistencia. Los traders que se perdieron una ruptura a menudo compran el primer retroceso al techo viejo; si ese retesteo se sostiene, confirma la ruptura. Si el precio vuelve a caer a través del nivel, la ruptura falló (mira <a href=\\\"#l-breakouts\\\">Rupturas y rupturas falsas</a>)."
  },
  "bb7255567b68": {
   "en": "Drag the amber line onto a price where the chart keeps turning. The counters show touches and bounces.",
@@ -1677,7 +1677,7 @@
  },
  "cbcf76fa6a49": {
   "en": "VWAP is an intraday tool and lags more as the day goes on, because each new candle is a smaller share of the total. Early in the session it rests on few candles and can jump. It also says nothing about the long-term trend, so pair it with the <a href=\\\"#l-ema-stack\\\">EMA stack</a>.",
-  "t": "El VWAP es una herramienta intradía y se retrasa más a medida que avanza el día, porque cada vela nueva es una parte más pequeña del total. Temprano en la sesión se apoya en pocas velas y puede saltar. Tampoco dice nada sobre la tendencia de largo plazo, así que combínalo con la <a href=\"#l-ema-stack\">alineación de EMA</a>."
+  "t": "El VWAP es una herramienta intradía y se retrasa más a medida que avanza el día, porque cada vela nueva es una parte más pequeña del total. Temprano en la sesión se apoya en pocas velas y puede saltar. Tampoco dice nada sobre la tendencia de largo plazo, así que combínalo con la <a href=\\\"#l-ema-stack\\\">alineación de EMA</a>."
  },
  "cc0ce1324c9f": {
   "en": "New sample paths",
