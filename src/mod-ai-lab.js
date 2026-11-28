@@ -213,7 +213,7 @@
       b += ep(bh, 's-mut w15') + ep(R.res.eq, 's-acc w25');
       b += S.line(padL, yE(1), W - padR, yE(1), 's-mut dash2 o50');
       // end labels, spread apart
-      const lab = [{ v: R.res.eq[n - 1], t: '$' + Math.round(R.res.eq[n - 1] * 10000).toLocaleString('en-US'), cls: 'acc' }, { v: bh[n - 1], t: '$' + Math.round(bh[n - 1] * 10000).toLocaleString('en-US'), cls: 'mut' }].map((q) => ({ ...q, y: yE(q.v) })).sort((a, c) => a.y - c.y);
+      const lab = [{ v: R.res.eq[n - 1], t: '$' + Math.round(R.res.eq[n - 1] * 10000).toLocaleString(SML.locale), cls: 'acc' }, { v: bh[n - 1], t: '$' + Math.round(bh[n - 1] * 10000).toLocaleString(SML.locale), cls: 'mut' }].map((q) => ({ ...q, y: yE(q.v) })).sort((a, c) => a.y - c.y);
       if (lab[1].y - lab[0].y < 14) lab[1].y = lab[0].y + 14;
       lab.forEach((q) => { b += S.text(W - padR + 6, SML.clamp(q.y, eqTop + 4, eqTop + eqH) + 4, q.t, `xs mono b ${q.cls}`); });
       if (!compact) b += S.text(W - padR - 6, eqTop + eqH - 6, 'amber: strategy · grey: buy and hold', 'xs', 'end');
@@ -222,9 +222,9 @@
         const i = hoverI, hx = x(i);
         b += S.line(hx, top - 6, hx, H - bot, 's-mut dash2');
         b += S.circle(hx, yE(R.res.eq[i]), 3.5, 'f-acc') + S.circle(hx, yE(bh[i]), 3, 'f-mut');
-        const dt = D.dates[i].toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-        const txt = `${dt}  $${D.c[i].toFixed(2)}  strategy $${Math.round(R.res.eq[i] * 10000).toLocaleString('en-US')}  hold $${Math.round(bh[i] * 10000).toLocaleString('en-US')}`;
-        const short = `${dt}  strat $${Math.round(R.res.eq[i] * 10000).toLocaleString('en-US')}`;
+        const dt = D.dates[i].toLocaleDateString(SML.locale, { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+        const txt = `${dt}  $${D.c[i].toFixed(2)}  strategy $${Math.round(R.res.eq[i] * 10000).toLocaleString(SML.locale)}  hold $${Math.round(bh[i] * 10000).toLocaleString(SML.locale)}`;
+        const short = `${dt}  strat $${Math.round(R.res.eq[i] * 10000).toLocaleString(SML.locale)}`;
         const tt = compact ? short : txt; const tw = Math.min(W - 8, tt.length * 6.7 + 16); const tx = SML.clamp(hx - tw / 2, 2, W - tw - 2);
         b += S.rect(tx, eqTop - 26, tw, 19, 'tipbg', 4) + S.text(tx + 8, eqTop - 12.5, tt, 'sm mono ink');
       }

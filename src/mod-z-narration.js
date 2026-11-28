@@ -329,7 +329,7 @@
       window.speechSynthesis.cancel(); clearInterval(ttsTimer);
       if (i >= flat.length) { idx = flat.length; ttsT = estDur; ended(); return; }
       idx = i; const item = flat[i]; ttsT = item.t;
-      utt = new SpeechSynthesisUtterance(item.p); const v = bestVoice(); if (v) { utt.voice = v; utt.lang = v.lang; } else utt.lang = 'en-US';
+      utt = new SpeechSynthesisUtterance(item.p); const v = bestVoice(); if (v) { utt.voice = v; utt.lang = v.lang; } else utt.lang = SML.locale;
       utt.rate = speed; const t0 = Date.now();
       ttsTimer = setInterval(() => { ttsT = Math.min(item.t + item.d, item.t + ((Date.now() - t0) / 1000) * speed); paint(); }, 250);
       utt.onend = () => { clearInterval(ttsTimer); if (playing && utt && utt.text === item.p) speakFrom(i + 1); };

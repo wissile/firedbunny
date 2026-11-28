@@ -1,5 +1,5 @@
 /* FiredBunny service worker: keeps the site working offline.
-   tools/build.py writes dist/sw.js as `const BUILD = { version, shell: [...] };` followed by this file.
+   tools/build.py writes dist/sw.js as `const BUILD = { version, shell: [...], langs: {...} };` followed by this file.
 
    - The page and its script (app.<hash>.js) are saved at install and opened from the device on every visit, so the
      site starts at once, online or not. A new deploy changes this file (its version), the browser installs it in the
@@ -15,6 +15,10 @@ const AUDIO = 'fb-audio-v1'; // kept across site updates; keys carry ?v=<file ha
 const API = 'fb-api-v1';
 const API_KEEP = 40; // most recent live-data answers kept for offline use
 const PAGE = '/';
+// other languages (docs/i18n/README.md): { code: [home address, script] }. Their pages open from their own home
+// document, saved the first time a page of that language is visited (English is saved at install).
+const LANGS = BUILD.langs || {};
+const shellFor = (p) => { for (const k in LANGS) { const home = LANGS[k][0]; if (p === home.slice(0, -1) || p.startsWith(home)) return LANGS[k]; } return null; };
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
@@ -59,12 +63,15 @@ self.addEventListener('fetch', (event) => {
    asks the network, and saving that answer never holds the page back. */
 async function page(event) {
   const cache = await caches.open(SHELL);
-  const hit = await cache.match(PAGE);
+  const lang = shellFor(new URL(event.request.url).pathname);
+  const home = lang ? lang[0] : PAGE;
+  const hit = await cache.match(home);
   if (hit) return hit;
   try {
     const res = await fetch(event.request);
     // keep only the home document as the app shell: every page address opens from it, and the router draws the page
-    if (res.ok && new URL(event.request.url).pathname === PAGE && /text\/html/i.test(res.headers.get('content-type') || '')) event.waitUntil(cache.put(PAGE, res.clone()).catch(() => {}));
+    if (res.ok && new URL(event.request.url).pathname === home && /text\/html/i.test(res.headers.get('content-type') || '')) event.waitUntil(cache.put(home, res.clone()).catch(() => {}));
+    else if (res.ok && lang) event.waitUntil(Promise.all(lang.map((u) => cache.add(new Request(u, { cache: 'no-cache' })))).catch(() => {}));
     return res;
   } catch (e) {
     return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>FiredBunny</title><body style="font:16px system-ui;background:#0b0f19;color:#e8edf5;padding:32px">You are offline, and FiredBunny has not been saved on this device yet. Open it once while online, then it works offline.</body>', { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
@@ -78,7 +85,7 @@ async function asset(req) {
   if (hit) return hit;
   const res = await fetch(req);
   // fonts, and the versioned sign-in library (/vendor/, fetched only by signed-in visitors), are kept for offline use
-  if (res.ok && /^\/(fonts|vendor)\//.test(new URL(req.url).pathname)) cache.put(req, res.clone()).catch(() => {});
+  if (res.ok && /^\/(fonts|vendor)\/|^\/app-[a-z]{2}\.[0-9a-f]+\.js$/.test(new URL(req.url).pathname)) cache.put(req, res.clone()).catch(() => {});
   return res;
 }
 

@@ -272,7 +272,7 @@
     function route(a, f, d, sc) {
       const [k, , , type] = a;
       const intest = f.kids ? (sc === 'blended' ? 'State law splits it; stepchildren left out' : 'State law splits spouse and kids') : 'State law picks: parents, then siblings';
-      const viaWill = (txt) => (d.will ? { path: 'Will, then probate', kind: 'probate', out: txt || 'Court process, months, public' } : { path: 'No will: probate', kind: 'problem', out: intest });
+      const viaWill = (txt) => (d.will ? { path: 'Will, then probate', kind: 'probate', out: txt || 'Court process, months, public' } : { path: 'No will: probate', kind: 'problem', noWill: true, out: intest });
       if (type === 'form') {
         if (d.benef) return { path: 'Beneficiary form', kind: 'direct', out: f.kids && !d.trust ? 'Named people; kids need a custodian' : 'Named people, in weeks' };
         if (sc === 'blended' && k === 'life') return { path: 'Form from 2009', kind: 'problem', out: 'Pays the ex-spouse' };
@@ -337,7 +337,7 @@
       const issues = [];
       if (sc === 'blended' && !d.benef) issues.push(['dn', 'The 2009 life insurance form still names the ex-spouse. Workplace plans follow the form, not your will.']);
       if (f.kids && !d.will) issues.push(['dn', 'No will, so no guardian is named: a court decides who raises your children.']);
-      if (rows.some((o) => o.r.kind === 'problem' && o.r.path.indexOf('No will') === 0)) issues.push(['dn', 'With no will, state law decides who inherits what is left.']);
+      if (rows.some((o) => o.r.noWill)) issues.push(['dn', 'With no will, state law decides who inherits what is left.']);
       if (f.kids && d.benef && !d.trust) issues.push(['acc', 'Young children cannot take money directly. Name a trust or a custodian (UTMA) as the backup on each form.']);
       if (!d.poa) issues.push(['acc', 'No power of attorney: if you cannot act, family may need a court to manage your money.']);
       if (!d.hc) issues.push(['acc', 'No healthcare directive: doctors and family must guess your wishes.']);

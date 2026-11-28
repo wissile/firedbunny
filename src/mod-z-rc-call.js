@@ -1472,7 +1472,7 @@
         const [a, b] = c.st[si]; base = a; s0 = now(); token.span = b - a;
         const u = new SpeechSynthesisUtterance(c.sentSay[si]);
         const vs = voices(); if (vs.length) u.voice = vs[(c.speaker === 'coach' && vs.length > 1) ? 1 : 0];
-        u.lang = 'en-US'; u.rate = st.rate;
+        u.lang = SML.locale; u.rate = st.rate;
         u.onstart = () => { started = true; s0 = now(); };
         u.onboundary = (e) => { if (speech !== token || !e || e.charIndex == null) return; const L = c.sentSay[si].length || 1; token.frac = e.charIndex / L; };
         u.onend = () => {

@@ -12,7 +12,7 @@
 (function () {
   'use strict';
   const SML = window.SML;
-  const FROZEN = {
+  const FROZEN_EN = {
     "home": "/",
     "learn": "/learn/",
     "lessons": "/lessons/",
@@ -300,14 +300,21 @@
     "post-tax-loss-checklist": "/notes/tax-loss-checklist/",
     "post-premarket-routine": "/notes/premarket-routine/"
   };
+  // Other languages (docs/i18n/README.md): a language build sets SML.LANG (tools/i18n/make.js) with its address prefix
+  // ('/es'), the folder of each kind of page, the address of each named page and its own frozen addresses. English
+  // addresses above never change.
+  const LANG = SML.LANG || null;
+  const FROZEN = LANG ? (LANG.frozen || {}) : FROZEN_EN;
   const PRIVATE = ["results", "dashboard", "profile", "settings", "signin", "offline", "portfolio", "support-thanks"];
   // pages whose content is the same as another page's: they point search engines at that one (rel=canonical)
   const CANONICAL_OF = { learn: 'track-trading', tracks: 'courses' };
-  const PREFIX = [['l-', '/lessons/'], ['c-', '/courses/'], ['tool-', '/tools/'], ['track-', '/tracks/'], ['post-', '/notes/']];
+  const PREFIX_EN = [['l-', '/lessons/'], ['c-', '/courses/'], ['tool-', '/tools/'], ['track-', '/tracks/'], ['post-', '/notes/']];
+  const PREFIX = LANG ? PREFIX_EN.map(([p, s]) => [p, LANG.prefix + ((LANG.sections || {})[p] || s)]) : PREFIX_EN;
   const HELPERS = ['post']; // SML.pages entries that draw a family of pages (post-*), not a page of their own
 
   function slugify(s) {
-    s = String(s || '').toLowerCase().replace(/&/g, ' and ').replace(/%/g, ' percent').replace(/[’']/g, '').replace(/½/g, '-half').replace(/\(k\)/g, 'k');
+    // accents go (lección -> leccion), so translated titles make plain ASCII addresses; English titles have none
+    s = String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/&/g, LANG ? ' ' + (LANG.and || 'y') + ' ' : ' and ').replace(/%/g, ' percent').replace(/[’']/g, '').replace(/½/g, '-half').replace(/\(k\)/g, 'k');
     s = s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').replace(/^(the|a|an)-/, '');
     if (s.length > 60) s = s.slice(0, 60).replace(/-[^-]*$/, '');
     return s || 'page';
@@ -350,7 +357,9 @@
       let p = FROZEN[t];
       if (!p) { // not frozen yet: an address from its title (or token), made unique
         const pre = PREFIX.find(([x]) => t.indexOf(x) === 0); const r = record(t);
-        const base = pre ? pre[1] + slugify(r && r.title ? r.title : t.slice(pre[0].length)) : '/' + slugify(t);
+        const named = LANG && LANG.pages && t in LANG.pages ? LANG.pages[t] : null;
+        if (named != null) { p = LANG.prefix + '/' + (named ? named.replace(/^\/+|\/+$/g, '') + '/' : ''); byTok[t] = p; byPath[p] = t; auto.push(t); return; }
+        const base = pre ? pre[1] + slugify(r && r.title ? r.title : t.slice(pre[0].length)) : (LANG ? LANG.prefix : '') + '/' + slugify(t);
         p = base + '/'; for (let i = 2; byPath[p] && byPath[p] !== t; i++) p = base + '-' + i + '/';
         auto.push(t);
       }
@@ -383,5 +392,13 @@
   }
   const isPrivate = (tok) => PRIVATE.indexOf(tok) >= 0;
   const canonicalOf = (tok) => CANONICAL_OF[tok] || tok;
-  SML.routes = { mode, path, token, href, exists, all, fromHref, isPrivate, canonicalOf, slugify, unfrozen: () => { index(); return auto.slice(); } };
+  // the same page in another language: that language's home with ?to=<token>; its router opens the page and puts its
+  // own address in the bar (see the end of this file). English pages are reached by their frozen address.
+  function inLang(tok, code) {
+    if (code === 'en') return FROZEN_EN[tok] || ('/?to=' + encodeURIComponent(tok));
+    const L = (SML.LANGS || {})[code];
+    return L ? L.prefix + '/' + (tok && tok !== 'home' ? '?to=' + encodeURIComponent(tok) : '') : null;
+  }
+  SML.routes = { mode, path, token, href, exists, all, fromHref, isPrivate, canonicalOf, slugify, inLang, lang: LANG ? LANG.code : 'en', prefix: LANG ? LANG.prefix : '',
+    unfrozen: () => { index(); return auto.filter((t) => !(LANG && LANG.pages && t in LANG.pages)); } };
 })();

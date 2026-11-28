@@ -191,14 +191,20 @@ def _out_path(dist, path):
     return os.path.join(dist, 'index.html') if path == '/' else os.path.join(dist, path.strip('/'), 'index.html')
 
 
-def prerender(dist, strict=False):
-    say = lambda *a: print('prerender:', *a)
+def prerender(dist, strict=False, lang=None, L=None):
+    """lang/L: a language build (tools/i18n): its pages live under L['prefix'] in the same dist/, its 404 page in
+    dist/<prefix>/404.html; until the language is live its pages are noindex, so it gets no lastmod record, sitemap or
+    preview images."""
+    say = (lambda *a: print(f'prerender {lang}:', *a)) if lang else (lambda *a: print('prerender:', *a))
+    home = os.path.join(dist, L['prefix'].strip('/')) if L else dist
+    live = not L or bool(L.get('live'))
+    lastmod_file = LASTMOD_FILE if not L else os.path.join(ROOT, 'tools', 'i18n', lang, 'seo-lastmod.json')
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         say('skipped: Playwright is not installed (pip install playwright); only the home shell was built')
         return False
-    template = open(os.path.join(dist, 'index.html'), encoding='utf-8').read()
+    template = open(os.path.join(home, 'index.html'), encoding='utf-8').read()
     if seohead.START not in template or '<div id="boot"' not in template or '</head>' not in template:
         say('skipped: unexpected page layout')
         return False
@@ -223,7 +229,7 @@ def prerender(dist, strict=False):
             ctx = browser.new_context(viewport={'width': 1280, 'height': 900}, service_workers='block')
             page = ctx.new_page()
             page.on('pageerror', lambda e: errors.append(str(e)))
-            page.goto(url)
+            page.goto(url + (L['prefix'].strip('/') + '/' if L else ''))
             page.wait_for_selector('#view section', timeout=60000)
             page.wait_for_function("() => !document.getElementById('boot') && document.fonts.status === 'loaded'", timeout=30000)
             page.wait_for_timeout(300)
@@ -232,8 +238,9 @@ def prerender(dist, strict=False):
               courses: t.indexOf('track-') === 0 ? SML.courses.filter((c) => (c.track || 'trading') === t.slice(6)).map((c) => c.id) : [] }))""")
             named = page.evaluate("() => SML.routes.all().filter((t) => !/^(l|c|tool|track|post)-/.test(t))")
             unfrozen = page.evaluate('() => SML.routes.unfrozen()')
-            if unfrozen:
-                say(f'{len(unfrozen)} page(s) have an automatic address; add them to FROZEN in src/routes.js:', ', '.join(unfrozen))
+            if unfrozen and live:
+                say(f'{len(unfrozen)} page(s) have an automatic address; add them to FROZEN in src/routes.js:' if not L else
+                    f'{len(unfrozen)} page(s) have an automatic address; freeze them in tools/i18n/{lang}/frozen.json:', ', '.join(unfrozen[:20]))
             for r in routes + [{'tok': 'not-found', 'path': None, 'private': False}]:
                 tok = r['tok']
                 page.evaluate(GO_JS, tok)
@@ -242,10 +249,10 @@ def prerender(dist, strict=False):
                     snaps[tok] = page.evaluate(SNAPSHOT_JS)
             # lastmod: content hash against tools/seo-lastmod.json
             try:
-                book = json.load(open(LASTMOD_FILE, encoding='utf-8'))
+                book = json.load(open(lastmod_file, encoding='utf-8'))
             except Exception:
                 book = {}
-            fresh = not book  # no record yet: seed dates from git; otherwise a page not in the record is new today
+            fresh = not book and not L  # no record yet: seed dates from git; otherwise a page not in the record is new today
             today = datetime.date.today().isoformat()
             seeds = None
             changed, lastmod, published = [], {}, {}
@@ -302,17 +309,22 @@ def prerender(dist, strict=False):
     nf = metas['not-found']; nf.update({'canonical': '', 'url': ''})
     doc = seohead.replace(template, seohead.block(nf, [], 'not-found'))
     nf_js = _head_js('/__any__/', 'not-found', named).replace("p.toLowerCase()!==\"/__any__/\"||", '')
-    open(os.path.join(dist, '404.html'), 'w', encoding='utf-8').write(_with_snapshot(doc, snaps['not-found'], nf_js))
-    # the sitemap: indexable pages only (no per-visitor pages, no pages that point elsewhere with a canonical)
+    open(os.path.join(home, '404.html'), 'w', encoding='utf-8').write(_with_snapshot(doc, snaps['not-found'], nf_js))
+    # the sitemap: indexable pages only (no per-visitor pages, no pages that point elsewhere with a canonical). A live
+    # language gets its own (dist/<prefix>/sitemap.xml, listed in robots.txt by tools/i18n/alternates.py).
     items = [f'  <url><loc>{html.escape(ORIGIN + r["path"])}</loc><lastmod>{lastmod[r["tok"]]}</lastmod></url>' for r in routes if r['tok'] in lastmod]
-    open(os.path.join(dist, 'sitemap.xml'), 'w', encoding='utf-8').write(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(items) + '\n</urlset>\n')
-    book = {k: book[k] for k in sorted(book) if any(r['path'] == k for r in routes)}
-    try:
-        with open(LASTMOD_FILE, 'w', encoding='utf-8') as f:
-            json.dump(book, f, indent=0, sort_keys=True); f.write('\n')
-    except OSError as e:
-        say('could not update', LASTMOD_FILE, e)
+    if live:
+        open(os.path.join(home, 'sitemap.xml'), 'w', encoding='utf-8').write(
+            '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(items) + '\n</urlset>\n')
+        book = {k: book[k] for k in sorted(book) if any(r['path'] == k for r in routes)}
+        try:
+            os.makedirs(os.path.dirname(lastmod_file), exist_ok=True)
+            with open(lastmod_file, 'w', encoding='utf-8') as f:
+                json.dump(book, f, indent=0, sort_keys=True); f.write('\n')
+        except OSError as e:
+            say('could not update', lastmod_file, e)
+    # every page's address by token, for the hreflang links between languages (tools/i18n/alternates.py)
+    json.dump({r['tok']: r['path'] for r in routes if not r['private']}, open(os.path.join(home, '.paths.json'), 'w'))
     if changed:
         say(f'{len(changed)} page(s) changed content (lastmod {today}); commit tools/seo-lastmod.json with the change:', ', '.join(changed[:8]) + (' ...' if len(changed) > 8 else ''))
     say(f"{len(routes)} pages written ({total // 1024} KB of HTML), {len(items)} in sitemap.xml, {cards} preview images, 404.html")

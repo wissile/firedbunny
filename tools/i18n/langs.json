@@ -1,0 +1,161 @@
+{
+  "_about": "Languages of FiredBunny besides English (docs/i18n/README.md). 'paused' languages are never built. 'live': false keeps a language out of search (noindex, no sitemap, no hreflang) and its menu entry visible only in browsers that opened ?preview=languages. pages: the address of each named page under the prefix; sections: the folder of each kind of page. countries: locale and currency per country; tz: time zones that pick the country on a first visit; scale: rough local money per US dollar, used only to size calculator defaults (not a live rate).",
+  "es": {
+    "name": "Español",
+    "htmlLang": "es",
+    "locale": "es-MX",
+    "hreflang": "es-419",
+    "ogLocale": "es_MX",
+    "prefix": "/es",
+    "countries": {
+      "MX": {
+        "name": "México",
+        "locale": "es-MX",
+        "currency": "MXN",
+        "tz": [
+          "America/Mexico_City",
+          "America/Cancun",
+          "America/Merida",
+          "America/Monterrey",
+          "America/Matamoros",
+          "America/Chihuahua",
+          "America/Ciudad_Juarez",
+          "America/Ojinaga",
+          "America/Mazatlan",
+          "America/Bahia_Banderas",
+          "America/Hermosillo",
+          "America/Tijuana"
+        ],
+        "scale": 20
+      },
+      "CO": {
+        "name": "Colombia",
+        "locale": "es-CO",
+        "currency": "COP",
+        "tz": [
+          "America/Bogota"
+        ],
+        "scale": 4000
+      }
+    },
+    "defaultCountry": "MX",
+    "sections": {
+      "l-": "/lecciones/",
+      "c-": "/cursos/",
+      "tool-": "/herramientas/",
+      "track-": "/rutas/",
+      "post-": "/notas/"
+    },
+    "pages": {
+      "home": "",
+      "learn": "aprender",
+      "lessons": "lecciones",
+      "courses": "cursos",
+      "tracks": "rutas",
+      "tools": "herramientas",
+      "indicator": "indicador-tradingview",
+      "play": "practica",
+      "wheel": "herramientas/simulador-de-la-rueda",
+      "blog": "notas",
+      "sheets": "hojas-de-calculo",
+      "apps": "apps",
+      "glossary": "glosario",
+      "calendar": "calendario",
+      "about": "acerca-de",
+      "editorial": "normas-editoriales",
+      "assessment": "evaluacion-del-inversionista",
+      "results": "resultados",
+      "dashboard": "panel",
+      "profile": "perfil",
+      "settings": "ajustes",
+      "signin": "iniciar-sesion",
+      "offline": "sin-conexion",
+      "portfolio": "portafolio",
+      "support": "apoyo",
+      "support-thanks": "apoyo/gracias",
+      "plans": "planes",
+      "privacy": "privacidad",
+      "terms": "terminos",
+      "contact": "contacto"
+    },
+    "live": false,
+    "and": "y"
+  },
+  "pt": {
+    "name": "Português",
+    "htmlLang": "pt-BR",
+    "locale": "pt-BR",
+    "hreflang": "pt-BR",
+    "ogLocale": "pt_BR",
+    "prefix": "/pt",
+    "countries": {
+      "BR": {
+        "name": "Brasil",
+        "locale": "pt-BR",
+        "currency": "BRL",
+        "tz": [],
+        "scale": 5
+      }
+    },
+    "defaultCountry": "BR",
+    "sections": {
+      "l-": "/licoes/",
+      "c-": "/cursos/",
+      "tool-": "/ferramentas/",
+      "track-": "/trilhas/",
+      "post-": "/notas/"
+    },
+    "pages": {
+      "home": "",
+      "learn": "aprender",
+      "lessons": "licoes",
+      "courses": "cursos",
+      "tracks": "trilhas",
+      "tools": "ferramentas",
+      "indicator": "indicador-tradingview",
+      "play": "pratica",
+      "wheel": "ferramentas/simulador-da-roda",
+      "blog": "notas",
+      "sheets": "planilhas",
+      "apps": "apps",
+      "glossary": "glossario",
+      "calendar": "calendario",
+      "about": "sobre",
+      "editorial": "padroes-editoriais",
+      "assessment": "avaliacao-do-investidor",
+      "results": "resultados",
+      "dashboard": "painel",
+      "profile": "perfil",
+      "settings": "configuracoes",
+      "signin": "entrar",
+      "offline": "offline",
+      "portfolio": "carteira",
+      "support": "apoiar",
+      "support-thanks": "apoiar/obrigado",
+      "plans": "planos",
+      "privacy": "privacidade",
+      "terms": "termos",
+      "contact": "contato"
+    },
+    "live": false,
+    "and": "e"
+  },
+  "fr": {
+    "name": "Français",
+    "htmlLang": "fr",
+    "locale": "fr-FR",
+    "hreflang": "fr-FR",
+    "prefix": "/fr",
+    "paused": true,
+    "_why": "Paused 28 Nov 2026 (EU legal questions: GDPR representative)."
+  },
+  "da": {
+    "name": "Dansk",
+    "htmlLang": "da",
+    "locale": "da-DK",
+    "hreflang": "da-DK",
+    "prefix": "/da",
+    "paused": true,
+    "_why": "Paused 28 Nov 2026 (EU legal questions: GDPR representative)."
+  }
+}

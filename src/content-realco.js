@@ -289,6 +289,9 @@
       },
       call: {
         date: 'October 20, 2026, 3:30 p.m. CT', speakers: ['Andrea Williams, investor relations', 'Elon Musk, CEO', 'Gwynne Shotwell, President and COO', 'Bret Johnsen, CFO'],
+        // the guidance ranges as numbers ($ millions, GW), so charts never read them out of the sentences below (which are
+        // translated in other languages)
+        guide: { q1_2027Revenue: [33000, 37000], capexQ4: [35000, 40000], computeGWYearEnd: [2.5, 3] },
         outlook: [
           'Revenue of $33 billion to $37 billion in the first quarter of 2027 (analysts had about $22.2 billion, LSEG).',
           'Capex of $35 billion to $40 billion in the fourth quarter of 2026 (Q3 was $19.6 billion).',

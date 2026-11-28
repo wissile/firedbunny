@@ -9,6 +9,25 @@
   SML.tools = SML.tools || [];
   SML.glossary = SML.glossary || [];
 
+  /* ---------------- language and country (docs/i18n/README.md) ----------------
+     English: en-US and US dollars. A language build sets SML.LANG (tools/i18n/make.js); a language spoken in several
+     countries (Spanish: Mexico, Colombia) remembers the visitor's pick (fb-country), else guesses it from the time zone.
+     SML.locale formats numbers and dates; SML.currency is the local money (SML.fmt.loc); US prices stay in dollars
+     (SML.fmt.usd), shown as US$ outside English. */
+  (function () {
+    const L = SML.LANG, cs = (L && L.countries) || {};
+    let c = L && L.defaultCountry;
+    try { const saved = localStorage.getItem('fb-country'); if (saved && cs[JSON.parse(saved)]) c = JSON.parse(saved); else {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      for (const k in cs) if ((cs[k].tz || []).some((z) => tz === z)) c = k;
+    } } catch (e) {}
+    SML.country = c || 'US';
+    SML.locale = (cs[c] && cs[c].locale) || (L && L.locale) || 'en-US';
+    SML.currency = (cs[c] && cs[c].currency) || 'USD';
+    SML.moneyScale = (cs[c] && cs[c].scale) || 1; // rough size of local money against dollars, for calculator defaults
+    SML.setCountry = (k) => { if (!cs[k]) return; try { localStorage.setItem('fb-country', JSON.stringify(k)); } catch (e) {} location.reload(); };
+  })();
+
   /* ---------------- DOM + misc ---------------- */
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
@@ -171,12 +190,26 @@
   const MINUS = '−';
   // one formatter per number of decimals: building a new one on every call was the slowest thing at startup
   const NF = {};
-  const num = (v, d) => (NF[d] || (NF[d] = new Intl.NumberFormat('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }))).format(Math.abs(v));
+  const num = (v, d) => (NF[d] || (NF[d] = new Intl.NumberFormat(SML.locale, { minimumFractionDigits: d, maximumFractionDigits: d }))).format(Math.abs(v));
+  // money in a currency, without its sign (the sign is added in front, as MINUS or +): $1,234 in English; US$ 1.234 in
+  // Brazil; R$ 1.234 for reais
+  const CF = {};
+  const money = (v, d, ccy) => {
+    if (SML.locale === 'en-US' && ccy === 'USD') return '$' + num(v, d);
+    const k = ccy + d;
+    const f = CF[k] || (CF[k] = new Intl.NumberFormat(SML.locale, { style: 'currency', currency: ccy, currencyDisplay: ccy === 'USD' ? 'symbol' : 'narrowSymbol', minimumFractionDigits: d, maximumFractionDigits: d }));
+    let s = f.format(Math.abs(v));
+    if (ccy === 'USD') s = /USD|US\s?\$/.test(s) ? s.replace(/USD\s?|US\s\$/, 'US$') : s.replace('$', 'US$'); // '$' alone means pesos in Mexico and Colombia
+    return s;
+  };
   SML.fmt = {
     num: (v, d) => (v < 0 ? MINUS : '') + num(v, d || 0),
-    usd: (v, d) => (v < 0 ? MINUS : '') + '$' + num(v, d == null ? 2 : d),
+    usd: (v, d) => (v < 0 ? MINUS : '') + money(v, d == null ? 2 : d, 'USD'),
     usd0: (v) => SML.fmt.usd(v, 0),
-    susd: (v, d) => (v > 0 ? '+' : v < 0 ? MINUS : '') + '$' + num(v, d == null ? 2 : d),
+    susd: (v, d) => (v > 0 ? '+' : v < 0 ? MINUS : '') + money(v, d == null ? 2 : d, 'USD'),
+    // local money (SML.currency): personal-finance calculators in other languages; dollars in English
+    loc: (v, d) => (v < 0 ? MINUS : '') + money(v, d == null ? 2 : d, SML.currency),
+    loc0: (v) => SML.fmt.loc(v, 0),
     pct: (v, d) => (v < 0 ? MINUS : '') + num(v, d == null ? 1 : d) + '%',
     spct: (v, d) => (v > 0 ? '+' : v < 0 ? MINUS : '') + num(v, d == null ? 1 : d) + '%',
     R: (v, d) => (v > 0 ? '+' : v < 0 ? MINUS : '') + num(v, d == null ? 1 : d) + 'R',
@@ -240,11 +273,19 @@
   ui._fmt = {};
   ui.F = {
     num: (v) => SML.fmt.num(v, 0), num1: (v) => SML.fmt.num(v, 1), num2: (v) => SML.fmt.num(v, 2),
-    usd: (v) => SML.fmt.usd(v, 2), usd0: (v) => SML.fmt.usd(v, 0), pct: (v) => SML.fmt.num(v, 0) + '%', pct1: (v) => SML.fmt.num(v, 1) + '%',
+    usd: (v) => SML.fmt.usd(v, 2), usd0: (v) => SML.fmt.usd(v, 0), loc: (v) => SML.fmt.loc(v, 2), loc0: (v) => SML.fmt.loc(v, 0), pct: (v) => SML.fmt.num(v, 0) + '%', pct1: (v) => SML.fmt.num(v, 1) + '%',
     days: (v) => v + (Number(v) === 1 ? ' day' : ' days'), x: (v) => SML.fmt.num(v, 1) + '×', R: (v) => SML.fmt.num(v, 1) + 'R', yrs: (v) => v + (Number(v) === 1 ? ' year' : ' years'), bars: (v) => v + ' bars', plain: (v) => String(v),
   };
   /* slider HTML. o: {id,label,min,max,step,value,fmt:'usd'|fn} */
+  // a slider in local money ('loc' / 'loc0' formats) scales its range, step and default by the country's money size
+  // (SML.moneyScale: about 20 pesos to the dollar), rounded to round numbers; the calculator reads the scaled values
+  const nice = (v) => { if (!v) return v; const m = Math.pow(10, Math.floor(Math.log10(Math.abs(v)))), q = v / m; return (q < 1.5 ? 1 : q < 3.5 ? 2.5 : q < 7.5 ? 5 : 10) * m * Math.sign(v); };
   ui.slider = function (o) {
+    if ((o.fmt === 'loc' || o.fmt === 'loc0') && SML.moneyScale !== 1 && !o.scaled) {
+      const k = SML.moneyScale, step = nice(o.step * k);
+      const snap = (v) => Math.round((v * k) / step) * step;
+      o = Object.assign({}, o, { min: snap(o.min), max: snap(o.max), step, value: snap(o.value), scaled: true });
+    }
     if (typeof o.fmt === 'function') ui._fmt[o.id] = o.fmt;
     const key = typeof o.fmt === 'string' ? o.fmt : 'num';
     const f = typeof o.fmt === 'function' ? o.fmt : ui.F[key] || ui.F.num;

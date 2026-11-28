@@ -117,6 +117,7 @@
         <div><h2 class="foot-h">Practice</h2><nav aria-label="Practice"><a href="#play">Trade replay</a><a href="#wheel">Wheel simulator</a><a href="#tools">All tools</a>${['tool-size', 'tool-wheel', 'tool-compound', 'tool-rentbuy', 'tool-fire', 'tool-fireplan'].map((id) => SML.tools.find((t) => t.id === id)).filter(Boolean).map((t) => `<a href="#${t.id}">${esc(t.title)}</a>`).join('')}</nav></div>
         <div><h2 class="foot-h">FiredBunny</h2><nav aria-label="Resources"><a href="#about">About &amp; feedback</a>${SML.support ? SML.support.footerLink() : ''}<a href="#plans">Plans</a><a href="#editorial">Editorial standards</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#contact">Contact</a><a href="#assessment">Investor self-assessment</a><a href="#dashboard">My dashboard</a><a href="#calendar">Market &amp; tax calendar</a><a href="#indicator">TradingView indicator</a><a href="#sheets">Spreadsheets</a><a href="#blog">Trade notes</a><a href="#apps">Apps</a><a href="#offline">Offline &amp; app</a><a href="#glossary">Glossary</a><a href="#settings">Privacy &amp; settings</a></nav></div>
       </div>
+      <nav class="foot-lang" id="foot-lang" aria-label="Language" translate="no" hidden></nav>
       <div class="foot-base"><span>© 2026 FluidWeb LLC · FiredBunny is a FluidWeb LLC site · made with patience, not hype</span><span>Rules and tax figures checked October 2026 (US).</span></div>
     </div>`;
     document.body.appendChild(foot);
@@ -208,7 +209,7 @@
   function toolTile(t) {
     return `<li><a class="tile" href="#${t.id}"><span class="tile-top"><span class="tool-ic">${SML.toolIcon(t.icon)}</span><span class="tag">${esc(t.cat)}</span></span><span class="tile-t">${esc(t.title)}</span><span class="tile-p">${esc(t.blurb)}</span></a></li>`;
   }
-  function fmtDate(d, long) { try { const t = new Date(d + 'T12:00:00'); return t.toLocaleDateString('en-US', long ? { month: 'long', day: 'numeric', year: 'numeric' } : { month: 'short', day: '2-digit', year: 'numeric' }); } catch (e) { return d || ''; } }
+  function fmtDate(d, long) { try { const t = new Date(d + 'T12:00:00'); return t.toLocaleDateString(SML.locale, long ? { month: 'long', day: 'numeric', year: 'numeric' } : { month: 'short', day: '2-digit', year: 'numeric' }); } catch (e) { return d || ''; } }
   SML.fmtDate = fmtDate;
   SML.css(`.tiles.t5{grid-template-columns:1fr}@media(min-width:640px){.tiles.t5{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(min-width:1100px){.tiles.t5{grid-template-columns:repeat(5,minmax(0,1fr))}}
     .split2{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
@@ -874,6 +875,13 @@
     if (PATHS) {
       const h = (location.hash || '').replace(/^#/, '');
       if (h && R.exists(h)) { try { history.replaceState(history.state, '', R.path(h) + location.search); } catch (e) {} return h; }
+      // ?to=<token>: the language menu's link to this page in this language (SML.routes.inLang); show its own address
+      const to = new URLSearchParams(location.search).get('to');
+      if (to && R.exists(to)) {
+        const q = new URLSearchParams(location.search); q.delete('to'); const rest = q.toString();
+        try { history.replaceState(history.state, '', R.path(to) + (rest ? '?' + rest : '')); } catch (e) {}
+        return to;
+      }
       return R.token(location.pathname) || MISSING;
     }
     let tok = (location.hash || '').replace(/^#/, '') || 'home';
@@ -900,6 +908,31 @@
     if (p == null) { bar.hidden = true; nav.classList.remove('has-bar'); return; }
     bar.hidden = false; nav.classList.add('has-bar'); bar.setAttribute('aria-valuenow', String(p));
     const i = bar.firstElementChild; requestAnimationFrame(() => { i.style.width = p + '%'; });
+  }
+  // the language menu (docs/i18n/README.md): this page in each language. Shown once a language is live, or in a browser
+  // that opened any page with ?preview=languages (the owner, while languages are being built). Each language is named
+  // in itself, so the menu is never translated (translate="no").
+  function langMenu(tok) {
+    const box = document.getElementById('foot-lang'); if (!box) return;
+    const L = SML.LANGS || {}, codes = Object.keys(L);
+    let preview = false;
+    try {
+      if (/(^|&)preview=languages(&|$)/.test(location.search.slice(1))) localStorage.setItem('fb-preview-languages', '1');
+      preview = localStorage.getItem('fb-preview-languages') === '1';
+    } catch (e) {}
+    const shown = codes.filter((c) => L[c].live || preview);
+    if (!shown.length) { box.hidden = true; return; }
+    const items = [['en', 'English', 'en']].concat(shown.map((c) => [c, L[c].name, L[c].htmlLang]));
+    box.innerHTML = items.map(([c, name, hl]) => (c === R.lang ? `<b lang="${hl}" aria-current="true">${esc(name)}</b>`
+      : `<a lang="${hl}" hreflang="${hl}" href="${esc(R.inLang(tok, c))}">${esc(name)}</a>`)).join('') + countryPicker();
+    box.hidden = false;
+    box.querySelectorAll('[data-country]').forEach((b) => b.addEventListener('click', () => SML.setCountry(b.dataset.country)));
+  }
+  // a language spoken in several countries (Spanish: Mexico, Colombia): which country's money, taxes and lessons to use
+  function countryPicker() {
+    const cs = (SML.LANG && SML.LANG.countries) || {}, ks = Object.keys(cs);
+    if (ks.length < 2) return '';
+    return `<span class="foot-cty">${ks.map((k) => (k === SML.country ? `<b aria-current="true">${esc(cs[k].name)}</b>` : `<button type="button" data-country="${k}">${esc(cs[k].name)}</button>`)).join('')}</span>`;
   }
   function render() {
     const tok = routeTok();
@@ -938,6 +971,7 @@
     const same = current === tok; // drawn again in place (SML.rerender), not a new page
     current = tok;
     updateCta();
+    langMenu(tok);
     try { document.dispatchEvent(new CustomEvent('sml:route', { detail: { tok, title: document.title, same } })); } catch (e) {} // analytics page view
   }
   SML.route = render;

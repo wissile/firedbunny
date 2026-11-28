@@ -1,0 +1,1443 @@
+{
+ "boot": [],
+ "pages": {
+  "play": {
+   "len": 2498,
+   "errors": [],
+   "path": "/es/practica/"
+  },
+  "blog": {
+   "len": 1579,
+   "errors": [],
+   "path": "/es/notas/"
+  },
+  "sheets": {
+   "len": 6588,
+   "errors": [],
+   "path": "/es/hojas-de-calculo/"
+  },
+  "apps": {
+   "len": 3026,
+   "errors": [],
+   "path": "/es/apps/"
+  },
+  "indicator": {
+   "len": 10685,
+   "errors": [],
+   "path": "/es/indicador-tradingview/"
+  },
+  "calendar": {
+   "len": 5009,
+   "errors": [],
+   "path": "/es/calendario/"
+  },
+  "about": {
+   "len": 10453,
+   "errors": [],
+   "path": "/es/acerca-de/"
+  },
+  "editorial": {
+   "len": 3769,
+   "errors": [],
+   "path": "/es/normas-editoriales/"
+  },
+  "signin": {
+   "len": 1283,
+   "errors": [],
+   "path": "/es/iniciar-sesion/"
+  },
+  "profile": {
+   "len": 1941,
+   "errors": [],
+   "path": "/es/perfil/"
+  },
+  "settings": {
+   "len": 3905,
+   "errors": [],
+   "path": "/es/ajustes/"
+  },
+  "assessment": {
+   "len": 1823,
+   "errors": [],
+   "path": "/es/evaluacion-del-inversionista/"
+  },
+  "dashboard": {
+   "len": 4689,
+   "errors": [],
+   "path": "/es/panel/"
+  },
+  "privacy": {
+   "len": 9284,
+   "errors": [],
+   "path": "/es/privacidad/"
+  },
+  "terms": {
+   "len": 9005,
+   "errors": [],
+   "path": "/es/terminos/"
+  },
+  "contact": {
+   "len": 1080,
+   "errors": [],
+   "path": "/es/contacto/"
+  },
+  "plans": {
+   "len": 5210,
+   "errors": [],
+   "path": "/es/planes/"
+  },
+  "portfolio": {
+   "len": 10897,
+   "errors": [],
+   "path": "/es/portafolio/"
+  },
+  "results": {
+   "len": 9305,
+   "errors": [],
+   "path": "/es/resultados/"
+  },
+  "support": {
+   "len": 2647,
+   "errors": [],
+   "path": "/es/apoyo/"
+  },
+  "support-thanks": {
+   "len": 71,
+   "errors": [],
+   "path": "/es/apoyo/gracias/"
+  },
+  "offline": {
+   "len": 2068,
+   "errors": [
+    "attr leak: A download=\u27e6F\u00eer\u00e9dB\u00fc\u00f1\u00f1\u00ff - \u27e7\u27e6Wh\u00e0t \u00e0 \u0161t\u00f6\u00e7k \u00ee\u0161\u27e7.m4a",
+    "attr leak: A download=\u27e6F\u00eer\u00e9dB\u00fc\u00f1\u00f1\u00ff - \u27e7\u27e6B\u00f6\u00f1d\u0161 & \u00ee\u00f1t\u00e9r\u00e9\u0161t r\u00e0t\u00e9\u0161\u27e7.m4a",
+    "attr leak: A download=\u27e6F\u00eer\u00e9dB\u00fc\u00f1\u00f1\u00ff - \u27e7\u27e6\u00ce\u00f1d\u00e9x f\u00fc\u00f1d\u0161 & \u00c9TF\u0161\u27e7.m4a"
+   ],
+   "path": "/es/sin-conexion/"
+  },
+  "home": {
+   "len": 12995,
+   "errors": [],
+   "path": "/es/"
+  },
+  "learn": {
+   "len": 13882,
+   "errors": [],
+   "path": "/es/aprender/"
+  },
+  "track-trading": {
+   "len": 13882,
+   "errors": [],
+   "path": "/es/rutas/trading/"
+  },
+  "track-wealth": {
+   "len": 9314,
+   "errors": [],
+   "path": "/es/rutas/retirement-y-wealth/"
+  },
+  "track-fire": {
+   "len": 5117,
+   "errors": [],
+   "path": "/es/rutas/fire/"
+  },
+  "lessons": {
+   "len": 26472,
+   "errors": [],
+   "path": "/es/lecciones/"
+  },
+  "courses": {
+   "len": 4116,
+   "errors": [],
+   "path": "/es/cursos/"
+  },
+  "tracks": {
+   "len": 4116,
+   "errors": [],
+   "path": "/es/rutas/"
+  },
+  "tools": {
+   "len": 7017,
+   "errors": [],
+   "path": "/es/herramientas/"
+  },
+  "wheel": {
+   "len": 1457,
+   "errors": [],
+   "path": "/es/herramientas/simulador-de-la-rueda/"
+  },
+  "glossary": {
+   "len": 69426,
+   "errors": [
+    "attr leak: BUTTON data-l=\u27e6",
+    "attr leak: DIV data-s=\u27e60% \u00e7\u00e0p\u00eet\u00e0l g\u00e0\u00ee\u00f1\u0161 br\u00e0\u00e7k\u00e9t\u27e7  \u27e6th\u00e9 r\u00e0\u00f1g\u00e9 \u00f6f t\u00e0x\u00e0bl\u00e9 \u00ee\u00f1\u00e7\u00f6m\u00e9 wh\u00e9",
+    "attr leak: DIV data-s=\u27e61031 \u00e9x\u00e7h\u00e0\u00f1g\u00e9\u27e7  \u27e6s\u00e9ll\u00ee\u00f1g \u00e0\u00f1 \u00ee\u00f1v\u00e9\u0161tm\u00e9\u00f1t pr\u00f6p\u00e9rt\u00ff \u00e0\u00f1d b\u00fc\u00ff\u00ee\u00f1g "
+   ],
+   "path": "/es/glosario/"
+  },
+  "c-basics": {
+   "len": 2242,
+   "errors": [],
+   "path": "/es/cursos/market-basics/"
+  },
+  "c-charts": {
+   "len": 2440,
+   "errors": [],
+   "path": "/es/cursos/reading-charts/"
+  },
+  "c-indicators": {
+   "len": 2154,
+   "errors": [],
+   "path": "/es/cursos/indicators/"
+  },
+  "c-options": {
+   "len": 4534,
+   "errors": [],
+   "path": "/es/cursos/options-y-the-wheel/"
+  },
+  "c-risk": {
+   "len": 2132,
+   "errors": [],
+   "path": "/es/cursos/risk-y-sizing/"
+  },
+  "c-styles": {
+   "len": 1855,
+   "errors": [],
+   "path": "/es/cursos/trading-styles/"
+  },
+  "c-fundamentals": {
+   "len": 1628,
+   "errors": [],
+   "path": "/es/cursos/company-fundamentals/"
+  },
+  "c-taxes": {
+   "len": 1598,
+   "errors": [],
+   "path": "/es/cursos/taxes-for-traders/"
+  },
+  "c-habits": {
+   "len": 2318,
+   "errors": [],
+   "path": "/es/cursos/execution-y-habits/"
+  },
+  "c-ai": {
+   "len": 5252,
+   "errors": [],
+   "path": "/es/cursos/trading-with-ai/"
+  },
+  "c-money": {
+   "len": 2796,
+   "errors": [],
+   "path": "/es/cursos/money-foundations/"
+  },
+  "c-debt": {
+   "len": 2831,
+   "errors": [],
+   "path": "/es/cursos/debt-y-credit/"
+  },
+  "c-banking": {
+   "len": 2603,
+   "errors": [],
+   "path": "/es/cursos/banking-y-cards/"
+  },
+  "c-benefits": {
+   "len": 4318,
+   "errors": [],
+   "path": "/es/cursos/company-benefits/"
+  },
+  "c-accounts": {
+   "len": 3176,
+   "errors": [],
+   "path": "/es/cursos/retirement-accounts/"
+  },
+  "c-invest": {
+   "len": 2803,
+   "errors": [],
+   "path": "/es/cursos/investing-for-decades/"
+  },
+  "c-wtax": {
+   "len": 3456,
+   "errors": [],
+   "path": "/es/cursos/smart-taxes/"
+  },
+  "c-home": {
+   "len": 3485,
+   "errors": [],
+   "path": "/es/cursos/home-y-real-estate/"
+  },
+  "c-protect": {
+   "len": 1987,
+   "errors": [],
+   "path": "/es/cursos/protect-what-you-build/"
+  },
+  "c-retire": {
+   "len": 2407,
+   "errors": [],
+   "path": "/es/cursos/early-or-late-retirement/"
+  },
+  "c-fi-basics": {
+   "len": 2643,
+   "errors": [],
+   "path": "/es/cursos/your-fire-number/"
+  },
+  "c-fi-where": {
+   "len": 2796,
+   "errors": [],
+   "path": "/es/cursos/where-will-you-live/"
+  },
+  "c-fi-tax": {
+   "len": 1984,
+   "errors": [],
+   "path": "/es/cursos/taxes-in-early-retirement/"
+  },
+  "c-fi-health": {
+   "len": 2032,
+   "errors": [],
+   "path": "/es/cursos/health-care-y-social-security/"
+  },
+  "c-fi-abroad": {
+   "len": 2583,
+   "errors": [],
+   "path": "/es/cursos/retiring-abroad/"
+  },
+  "c-fi-plan": {
+   "len": 2959,
+   "errors": [],
+   "path": "/es/cursos/stress-test-your-plan/"
+  },
+  "c-fed": {
+   "len": 1953,
+   "errors": [],
+   "path": "/es/cursos/fed-y-interest-rates/"
+  },
+  "c-econ": {
+   "len": 4160,
+   "errors": [],
+   "path": "/es/cursos/economic-data-y-the-calendar/"
+  },
+  "c-commod": {
+   "len": 3112,
+   "errors": [],
+   "path": "/es/cursos/oil-metals-y-geopolitics/"
+  },
+  "c-crypto": {
+   "len": 3709,
+   "errors": [],
+   "path": "/es/cursos/crypto-y-blockchain/"
+  },
+  "c-realco": {
+   "len": 4763,
+   "errors": [],
+   "path": "/es/cursos/read-a-real-company/"
+  },
+  "l-stocks": {
+   "len": 4741,
+   "errors": [],
+   "path": "/es/lecciones/what-a-stock-is/"
+  },
+  "l-bonds": {
+   "len": 4749,
+   "errors": [],
+   "path": "/es/lecciones/bonds-y-interest-rates/"
+  },
+  "l-etfs": {
+   "len": 4636,
+   "errors": [],
+   "path": "/es/lecciones/index-funds-y-etfs/"
+  },
+  "l-risk-ladder": {
+   "len": 4754,
+   "errors": [],
+   "path": "/es/lecciones/risk-ladder/"
+  },
+  "l-broker": {
+   "len": 11987,
+   "errors": [],
+   "path": "/es/lecciones/choosing-a-broker/"
+  },
+  "l-options-101": {
+   "len": 9309,
+   "errors": [],
+   "path": "/es/lecciones/calls-and-puts/"
+  },
+  "l-contracts": {
+   "len": 8118,
+   "errors": [],
+   "path": "/es/lecciones/contracts-y-moneyness/"
+  },
+  "l-payoff": {
+   "len": 8571,
+   "errors": [],
+   "path": "/es/lecciones/payoff-diagrams/"
+  },
+  "l-delta-gamma": {
+   "len": 7514,
+   "errors": [],
+   "path": "/es/lecciones/delta-y-gamma/"
+  },
+  "l-theta": {
+   "len": 6964,
+   "errors": [],
+   "path": "/es/lecciones/theta-time-decay/"
+  },
+  "l-iv-crush": {
+   "len": 7867,
+   "errors": [],
+   "path": "/es/lecciones/iv-y-earnings/"
+  },
+  "l-wheel": {
+   "len": 12877,
+   "errors": [],
+   "path": "/es/lecciones/wheel-strategy/"
+  },
+  "l-candles": {
+   "len": 7519,
+   "errors": [],
+   "path": "/es/lecciones/candlesticks/"
+  },
+  "l-timeframes": {
+   "len": 4256,
+   "errors": [],
+   "path": "/es/lecciones/2-min-vs-15-min/"
+  },
+  "l-levels": {
+   "len": 7312,
+   "errors": [],
+   "path": "/es/lecciones/pdh-pdl-pmh-pml/"
+  },
+  "l-support": {
+   "len": 6455,
+   "errors": [],
+   "path": "/es/lecciones/support-y-resistance/"
+  },
+  "l-breakouts": {
+   "len": 6650,
+   "errors": [],
+   "path": "/es/lecciones/breakouts-y-fakeouts/"
+  },
+  "l-volume": {
+   "len": 6274,
+   "errors": [],
+   "path": "/es/lecciones/volume/"
+  },
+  "l-moving-averages": {
+   "len": 6157,
+   "errors": [],
+   "path": "/es/lecciones/sma-vs-ema/"
+  },
+  "l-ema-stack": {
+   "len": 6464,
+   "errors": [],
+   "path": "/es/lecciones/13-48-y-200-ema/"
+  },
+  "l-vwap": {
+   "len": 6654,
+   "errors": [],
+   "path": "/es/lecciones/vwap/"
+  },
+  "l-rsi": {
+   "len": 6464,
+   "errors": [],
+   "path": "/es/lecciones/rsi/"
+  },
+  "l-volatility": {
+   "len": 4727,
+   "errors": [],
+   "path": "/es/lecciones/volatility-y-expected-move/"
+  },
+  "l-one-percent": {
+   "len": 6589,
+   "errors": [],
+   "path": "/es/lecciones/1-percent-rule/"
+  },
+  "l-position-size": {
+   "len": 6711,
+   "errors": [],
+   "path": "/es/lecciones/position-sizing/"
+  },
+  "l-risk-reward": {
+   "len": 6472,
+   "errors": [],
+   "path": "/es/lecciones/win-rate-y-reward/"
+  },
+  "l-drawdowns": {
+   "len": 5498,
+   "errors": [],
+   "path": "/es/lecciones/losses-are-lopsided/"
+  },
+  "l-stock-picking": {
+   "len": 5027,
+   "errors": [],
+   "path": "/es/lecciones/which-stocks-to-trade/"
+  },
+  "l-styles": {
+   "len": 5019,
+   "errors": [],
+   "path": "/es/lecciones/day-swing-wheel-value/"
+  },
+  "l-game-plan": {
+   "len": 5152,
+   "errors": [],
+   "path": "/es/lecciones/day-trade-game-plan/"
+  },
+  "l-value": {
+   "len": 4618,
+   "errors": [],
+   "path": "/es/lecciones/value-investing/"
+  },
+  "l-blend": {
+   "len": 4327,
+   "errors": [],
+   "path": "/es/lecciones/blending-styles/"
+  },
+  "l-statements": {
+   "len": 5033,
+   "errors": [],
+   "path": "/es/lecciones/three-statements/"
+  },
+  "l-earnings": {
+   "len": 5207,
+   "errors": [],
+   "path": "/es/lecciones/earnings-reports/"
+  },
+  "l-ratios": {
+   "len": 5503,
+   "errors": [],
+   "path": "/es/lecciones/five-numbers-to-check/"
+  },
+  "l-cap-gains": {
+   "len": 7584,
+   "errors": [],
+   "path": "/es/lecciones/short-vs-long-term-gains/"
+  },
+  "l-tax-loss": {
+   "len": 7339,
+   "errors": [],
+   "path": "/es/lecciones/tax-loss-harvesting/"
+  },
+  "l-wash-sale": {
+   "len": 6908,
+   "errors": [],
+   "path": "/es/lecciones/wash-sale-rule/"
+  },
+  "l-orders": {
+   "len": 4768,
+   "errors": [],
+   "path": "/es/lecciones/order-types/"
+  },
+  "l-pdt": {
+   "len": 5621,
+   "errors": [],
+   "path": "/es/lecciones/day-trading-rules-in-2026/"
+  },
+  "l-psychology": {
+   "len": 6901,
+   "errors": [],
+   "path": "/es/lecciones/trading-psychology/"
+  },
+  "l-emotions": {
+   "len": 7067,
+   "errors": [],
+   "path": "/es/lecciones/fear-greed-and-tilt/"
+  },
+  "l-journal": {
+   "len": 4200,
+   "errors": [],
+   "path": "/es/lecciones/keep-a-journal/"
+  },
+  "l-ai-automate": {
+   "len": 10399,
+   "errors": [],
+   "path": "/es/lecciones/automate-trades-with-robinhood-and-mcp/"
+  },
+  "l-ai-bots": {
+   "len": 6913,
+   "errors": [],
+   "path": "/es/lecciones/benefits-and-risks-of-trading-bots/"
+  },
+  "l-ai-setups": {
+   "len": 7520,
+   "errors": [],
+   "path": "/es/lecciones/setups-worth-automating/"
+  },
+  "l-backtest": {
+   "len": 10000,
+   "errors": [],
+   "path": "/es/lecciones/backtest-before-you-trust/"
+  },
+  "l-ai-pine": {
+   "len": 10222,
+   "errors": [],
+   "path": "/es/lecciones/build-a-tradingview-indicator-with-ai/"
+  },
+  "l-ai-news": {
+   "len": 11603,
+   "errors": [],
+   "path": "/es/lecciones/use-ai-to-read-news-and-data/"
+  },
+  "l-ai-basics": {
+   "len": 7212,
+   "errors": [],
+   "path": "/es/lecciones/what-ai-can-and-cant-do/"
+  },
+  "l-ai-research": {
+   "len": 8026,
+   "errors": [],
+   "path": "/es/lecciones/ai-as-your-research-assistant/"
+  },
+  "l-ai-mistakes": {
+   "len": 7223,
+   "errors": [],
+   "path": "/es/lecciones/ai-mistakes-to-avoid/"
+  },
+  "l-ai-security": {
+   "len": 8303,
+   "errors": [],
+   "path": "/es/lecciones/keys-privacy-and-the-rules/"
+  },
+  "l-ai-journal": {
+   "len": 6486,
+   "errors": [],
+   "path": "/es/lecciones/ai-as-your-trading-coach/"
+  },
+  "l-us-tax-abroad": {
+   "len": 12150,
+   "errors": [],
+   "path": "/es/lecciones/us-taxes-follow-you-abroad/"
+  },
+  "l-treaty-france": {
+   "len": 13420,
+   "errors": [],
+   "path": "/es/lecciones/tax-treaties-the-france-example/"
+  },
+  "l-expat-money": {
+   "len": 11876,
+   "errors": [],
+   "path": "/es/lecciones/banks-brokers-and-pfics-abroad/"
+  },
+  "l-expat-health": {
+   "len": 8034,
+   "errors": [],
+   "path": "/es/lecciones/health-care-and-insurance-abroad/"
+  },
+  "l-aca": {
+   "len": 11577,
+   "errors": [],
+   "path": "/es/lecciones/health-insurance-before-65/"
+  },
+  "l-health-bridge": {
+   "len": 8791,
+   "errors": [],
+   "path": "/es/lecciones/bridging-the-gap-to-medicare/"
+  },
+  "l-ss-early": {
+   "len": 8748,
+   "errors": [],
+   "path": "/es/lecciones/social-security-when-you-stop-early/"
+  },
+  "l-fire-intro": {
+   "len": 8939,
+   "errors": [],
+   "path": "/es/lecciones/what-fire-really-means/"
+  },
+  "l-avg-spending": {
+   "len": 9636,
+   "errors": [],
+   "path": "/es/lecciones/find-your-real-spending/"
+  },
+  "l-fire-number": {
+   "len": 9120,
+   "errors": [],
+   "path": "/es/lecciones/your-fire-number/"
+  },
+  "l-savings-rate": {
+   "len": 8117,
+   "errors": [],
+   "path": "/es/lecciones/savings-rate-is-the-lever/"
+  },
+  "l-coast-fire": {
+   "len": 7987,
+   "errors": [],
+   "path": "/es/lecciones/coast-fire-and-barista-fire/"
+  },
+  "l-fire-planner": {
+   "len": 12921,
+   "errors": [],
+   "path": "/es/lecciones/your-full-fire-plan/"
+  },
+  "l-fire-whatif": {
+   "len": 8279,
+   "errors": [],
+   "path": "/es/lecciones/what-if-stress-test-the-plan/"
+  },
+  "l-swr": {
+   "len": 11020,
+   "errors": [],
+   "path": "/es/lecciones/4-percent-rule-and-its-limits/"
+  },
+  "l-sequence": {
+   "len": 8938,
+   "errors": [],
+   "path": "/es/lecciones/sequence-of-returns-risk/"
+  },
+  "l-guardrails": {
+   "len": 8334,
+   "errors": [],
+   "path": "/es/lecciones/flexible-spending-with-guardrails/"
+  },
+  "l-fire-tax": {
+   "len": 12063,
+   "errors": [],
+   "path": "/es/lecciones/how-fire-withdrawals-are-taxed/"
+  },
+  "l-zero-bracket": {
+   "len": 9750,
+   "errors": [],
+   "path": "/es/lecciones/0-percent-capital-gains-bracket/"
+  },
+  "l-early-access": {
+   "len": 9203,
+   "errors": [],
+   "path": "/es/lecciones/money-out-before-59-half/"
+  },
+  "l-geo-arbitrage": {
+   "len": 10993,
+   "errors": [],
+   "path": "/es/lecciones/where-your-money-goes-furthest/"
+  },
+  "l-van-life": {
+   "len": 7693,
+   "errors": [],
+   "path": "/es/lecciones/van-rv-trailer-or-house/"
+  },
+  "l-travel-budget": {
+   "len": 6835,
+   "errors": [],
+   "path": "/es/lecciones/budget-for-a-life-of-travel/"
+  },
+  "l-household": {
+   "len": 7643,
+   "errors": [],
+   "path": "/es/lecciones/partners-kids-and-your-number/"
+  },
+  "l-visas": {
+   "len": 9153,
+   "errors": [],
+   "path": "/es/lecciones/visas-for-early-retirees/"
+  },
+  "l-covered-call": {
+   "len": 8770,
+   "errors": [],
+   "path": "/es/lecciones/covered-calls/"
+  },
+  "l-cash-secured-put": {
+   "len": 8131,
+   "errors": [],
+   "path": "/es/lecciones/cash-secured-puts/"
+  },
+  "l-rolling": {
+   "len": 7860,
+   "errors": [],
+   "path": "/es/lecciones/rolling-options/"
+  },
+  "l-assignment": {
+   "len": 9063,
+   "errors": [],
+   "path": "/es/lecciones/assignment-and-early-exercise/"
+  },
+  "l-401k-match": {
+   "len": 9932,
+   "errors": [],
+   "path": "/es/lecciones/401k-match-is-free-money/"
+  },
+  "l-401k-limits": {
+   "len": 7591,
+   "errors": [],
+   "path": "/es/lecciones/max-your-401k-the-limits-most-people-miss/"
+  },
+  "l-mega-backdoor": {
+   "len": 7567,
+   "errors": [],
+   "path": "/es/lecciones/mega-backdoor-roth/"
+  },
+  "l-hsa": {
+   "len": 8077,
+   "errors": [],
+   "path": "/es/lecciones/hsa-a-triple-tax-break/"
+  },
+  "l-open-enrollment": {
+   "len": 8507,
+   "errors": [],
+   "path": "/es/lecciones/open-enrollment-pick-the-right-plan/"
+  },
+  "l-trad-vs-roth": {
+   "len": 8473,
+   "errors": [],
+   "path": "/es/lecciones/traditional-or-roth/"
+  },
+  "l-ira": {
+   "len": 9994,
+   "errors": [],
+   "path": "/es/lecciones/when-to-open-an-ira-and-in-what-order-to-save/"
+  },
+  "l-backdoor-roth": {
+   "len": 8708,
+   "errors": [],
+   "path": "/es/lecciones/backdoor-roth-ira-step-by-step/"
+  },
+  "l-bank-tiers": {
+   "len": 10282,
+   "errors": [],
+   "path": "/es/lecciones/why-a-banking-relationship-pays/"
+  },
+  "l-private-client": {
+   "len": 8244,
+   "errors": [],
+   "path": "/es/lecciones/private-client-perks-and-their-real-cost/"
+  },
+  "l-travel-money": {
+   "len": 6598,
+   "errors": [],
+   "path": "/es/lecciones/travel-money-with-no-foreign-fees/"
+  },
+  "l-rewards": {
+   "len": 6934,
+   "errors": [],
+   "path": "/es/lecciones/rewards-cards-without-the-trap/"
+  },
+  "l-credit-score": {
+   "len": 8353,
+   "errors": [],
+   "path": "/es/lecciones/how-credit-scores-work/"
+  },
+  "l-card-debt": {
+   "len": 8069,
+   "errors": [],
+   "path": "/es/lecciones/credit-card-debt-get-out-stay-out/"
+  },
+  "l-balance-transfer": {
+   "len": 7081,
+   "errors": [],
+   "path": "/es/lecciones/0-percent-apr-and-balance-transfers/"
+  },
+  "l-car-cash": {
+   "len": 10185,
+   "errors": [],
+   "path": "/es/lecciones/car-pay-cash-or-take-the-loan/"
+  },
+  "l-rsu": {
+   "len": 9628,
+   "errors": [],
+   "path": "/es/lecciones/rsus-taxes-at-vest-and-when-to-sell/"
+  },
+  "l-espp": {
+   "len": 8315,
+   "errors": [],
+   "path": "/es/lecciones/espp-the-15-percent-discount/"
+  },
+  "l-stock-options": {
+   "len": 8907,
+   "errors": [],
+   "path": "/es/lecciones/stock-options-isos-and-nsos/"
+  },
+  "l-rent-vs-buy": {
+   "len": 10909,
+   "errors": [],
+   "path": "/es/lecciones/rent-or-buy/"
+  },
+  "l-mortgage": {
+   "len": 8393,
+   "errors": [],
+   "path": "/es/lecciones/mortgage-basics/"
+  },
+  "l-home-taxes": {
+   "len": 9273,
+   "errors": [],
+   "path": "/es/lecciones/your-home-and-taxes/"
+  },
+  "l-house-invest": {
+   "len": 7808,
+   "errors": [],
+   "path": "/es/lecciones/is-a-house-an-investment/"
+  },
+  "l-compound": {
+   "len": 7551,
+   "errors": [],
+   "path": "/es/lecciones/power-of-compound-interest/"
+  },
+  "l-index-funds": {
+   "len": 9273,
+   "errors": [],
+   "path": "/es/lecciones/index-funds-vtwax-vti-and-voo/"
+  },
+  "l-allocation": {
+   "len": 6905,
+   "errors": [],
+   "path": "/es/lecciones/stocks-bonds-and-your-age/"
+  },
+  "l-extra-money": {
+   "len": 9540,
+   "errors": [],
+   "path": "/es/lecciones/where-your-extra-money-should-go/"
+  },
+  "l-kids-money": {
+   "len": 8751,
+   "errors": [],
+   "path": "/es/lecciones/kids-529s-trump-accounts-and-custodial-roths/"
+  },
+  "l-budget": {
+   "len": 7836,
+   "errors": [],
+   "path": "/es/lecciones/build-a-monthly-budget/"
+  },
+  "l-track-spending": {
+   "len": 6662,
+   "errors": [],
+   "path": "/es/lecciones/track-your-spending/"
+  },
+  "l-latte": {
+   "len": 7222,
+   "errors": [],
+   "path": "/es/lecciones/small-habits-big-numbers/"
+  },
+  "l-emergency": {
+   "len": 9008,
+   "errors": [],
+   "path": "/es/lecciones/emergency-fund-and-where-to-park-cash/"
+  },
+  "l-net-worth": {
+   "len": 7011,
+   "errors": [],
+   "path": "/es/lecciones/know-your-net-worth/"
+  },
+  "l-insurance": {
+   "len": 9610,
+   "errors": [],
+   "path": "/es/lecciones/insurance-you-actually-need/"
+  },
+  "l-estate": {
+   "len": 10515,
+   "errors": [],
+   "path": "/es/lecciones/wills-beneficiaries-and-trusts/"
+  },
+  "l-scams": {
+   "len": 8891,
+   "errors": [],
+   "path": "/es/lecciones/scams-that-target-savers/"
+  },
+  "l-rental": {
+   "len": 11419,
+   "errors": [],
+   "path": "/es/lecciones/rental-property-the-real-numbers/"
+  },
+  "l-airbnb": {
+   "len": 10609,
+   "errors": [],
+   "path": "/es/lecciones/airbnb-gross-vs-real-revenue/"
+  },
+  "l-smart-leverage": {
+   "len": 10299,
+   "errors": [],
+   "path": "/es/lecciones/leverage-the-smart-way/"
+  },
+  "l-retire-age": {
+   "len": 8473,
+   "errors": [],
+   "path": "/es/lecciones/retire-at-55-62-67-or-70/"
+  },
+  "l-retire-plan": {
+   "len": 8396,
+   "errors": [],
+   "path": "/es/lecciones/your-retirement-plan-on-one-page/"
+  },
+  "l-retire-countdown": {
+   "len": 9752,
+   "errors": [],
+   "path": "/es/lecciones/ten-year-countdown/"
+  },
+  "l-social-security": {
+   "len": 9379,
+   "errors": [],
+   "path": "/es/lecciones/social-security-when-to-claim/"
+  },
+  "l-medicare-rmd": {
+   "len": 11307,
+   "errors": [],
+   "path": "/es/lecciones/medicare-rmds-and-irmaa/"
+  },
+  "l-retire-income": {
+   "len": 11289,
+   "errors": [],
+   "path": "/es/lecciones/turn-savings-into-a-paycheck/"
+  },
+  "l-tax-brackets": {
+   "len": 9624,
+   "errors": [],
+   "path": "/es/lecciones/how-tax-brackets-really-work/"
+  },
+  "l-deductions": {
+   "len": 12460,
+   "errors": [],
+   "path": "/es/lecciones/deductions-and-credits-worth-knowing/"
+  },
+  "l-asset-location": {
+   "len": 8548,
+   "errors": [],
+   "path": "/es/lecciones/asset-location-the-right-account-for-each-fund/"
+  },
+  "l-tlh-pairs": {
+   "len": 11519,
+   "errors": [],
+   "path": "/es/lecciones/tax-loss-harvesting-with-fund-pairs/"
+  },
+  "l-wheel-tax": {
+   "len": 11015,
+   "errors": [],
+   "path": "/es/lecciones/how-the-wheel-is-taxed/"
+  },
+  "l-wheel-ira": {
+   "len": 8036,
+   "errors": [],
+   "path": "/es/lecciones/run-the-wheel-in-an-ira/"
+  },
+  "l-key-dates": {
+   "len": 10825,
+   "errors": [],
+   "path": "/es/lecciones/investors-calendar/"
+  },
+  "l-blockchain": {
+   "len": 9617,
+   "errors": [],
+   "path": "/es/lecciones/how-a-blockchain-works/"
+  },
+  "l-crypto-coins": {
+   "len": 10130,
+   "errors": [],
+   "path": "/es/lecciones/bitcoin-ethereum-stablecoins-and-altcoins/"
+  },
+  "l-crypto-custody": {
+   "len": 8879,
+   "errors": [],
+   "path": "/es/lecciones/wallets-keys-exchanges-and-etfs/"
+  },
+  "l-crypto-drivers": {
+   "len": 11505,
+   "errors": [],
+   "path": "/es/lecciones/what-moves-crypto-prices/"
+  },
+  "l-crypto-trading": {
+   "len": 10529,
+   "errors": [],
+   "path": "/es/lecciones/how-to-trade-crypto/"
+  },
+  "l-crypto-risks": {
+   "len": 10018,
+   "errors": [],
+   "path": "/es/lecciones/risks-scams-and-taxes/"
+  },
+  "l-inflation": {
+   "len": 9603,
+   "errors": [],
+   "path": "/es/lecciones/inflation-cpi-pce-and-ppi/"
+  },
+  "l-jobs": {
+   "len": 8428,
+   "errors": [],
+   "path": "/es/lecciones/jobs-report-and-jobless-claims/"
+  },
+  "l-pmi": {
+   "len": 9855,
+   "errors": [],
+   "path": "/es/lecciones/pmi-gdp-and-retail-sales/"
+  },
+  "l-macro-intro": {
+   "len": 7530,
+   "errors": [],
+   "path": "/es/lecciones/how-the-economy-moves-stocks/"
+  },
+  "l-fed": {
+   "len": 10898,
+   "errors": [],
+   "path": "/es/lecciones/how-the-federal-reserve-works/"
+  },
+  "l-rates": {
+   "len": 8098,
+   "errors": [],
+   "path": "/es/lecciones/rates-yields-and-the-yield-curve/"
+  },
+  "l-geopolitics": {
+   "len": 12872,
+   "errors": [],
+   "path": "/es/lecciones/tension-war-sanctions-and-tariffs/"
+  },
+  "l-dollar": {
+   "len": 8235,
+   "errors": [],
+   "path": "/es/lecciones/dollar-and-global-money/"
+  },
+  "l-data-day": {
+   "len": 10611,
+   "errors": [],
+   "path": "/es/lecciones/trading-data-release-days/"
+  },
+  "l-earnings-season": {
+   "len": 9977,
+   "errors": [],
+   "path": "/es/lecciones/earnings-season-and-the-economy/"
+  },
+  "l-cycle": {
+   "len": 9258,
+   "errors": [],
+   "path": "/es/lecciones/business-cycle-sectors-and-recessions/"
+  },
+  "l-oil": {
+   "len": 12781,
+   "errors": [],
+   "path": "/es/lecciones/oil-prices-opec-and-the-economy/"
+  },
+  "l-gold-silver": {
+   "len": 8837,
+   "errors": [],
+   "path": "/es/lecciones/gold-and-silver/"
+  },
+  "l-copper": {
+   "len": 8240,
+   "errors": [],
+   "path": "/es/lecciones/copper-and-industrial-metals/"
+  },
+  "l-rc-apple-balance": {
+   "len": 15133,
+   "errors": [],
+   "path": "/es/lecciones/apples-balance-sheet-line-by-line/"
+  },
+  "l-rc-apple-cash": {
+   "len": 12662,
+   "errors": [],
+   "path": "/es/lecciones/apples-cash-flow-where-the-money-went/"
+  },
+  "l-rc-apple-call": {
+   "len": 20582,
+   "errors": [],
+   "path": "/es/lecciones/listen-apples-earnings-call-explained/"
+  },
+  "l-rc-spacex-call": {
+   "len": 15484,
+   "errors": [],
+   "path": "/es/lecciones/listen-spacexs-third-quarter-call/"
+  },
+  "l-rc-words": {
+   "len": 13700,
+   "errors": [],
+   "path": "/es/lecciones/earnings-words-in-plain-english/"
+  },
+  "l-rc-apple-income": {
+   "len": 16591,
+   "errors": [],
+   "path": "/es/lecciones/apples-earnings-line-by-line/"
+  },
+  "l-rc-spacex": {
+   "len": 25617,
+   "errors": [],
+   "path": "/es/lecciones/spacex-from-a-loss-to-a-profit/"
+  },
+  "l-rc-price": {
+   "len": 16502,
+   "errors": [],
+   "path": "/es/lecciones/how-earnings-move-the-stock-price/"
+  },
+  "tool-size": {
+   "len": 3203,
+   "errors": [],
+   "path": "/es/herramientas/position-size/"
+  },
+  "tool-options": {
+   "len": 4274,
+   "errors": [],
+   "path": "/es/herramientas/option-profit/"
+  },
+  "tool-wheel": {
+   "len": 3569,
+   "errors": [],
+   "path": "/es/herramientas/wheel-income/"
+  },
+  "tool-risk": {
+   "len": 2629,
+   "errors": [],
+   "path": "/es/herramientas/win-rate-y-r-simulator/"
+  },
+  "tool-compound": {
+   "len": 3765,
+   "errors": [],
+   "path": "/es/herramientas/compound-interest/"
+  },
+  "tool-expected": {
+   "len": 2767,
+   "errors": [],
+   "path": "/es/herramientas/expected-move/"
+  },
+  "tool-tlh": {
+   "len": 2985,
+   "errors": [],
+   "path": "/es/herramientas/tax-loss-harvest/"
+  },
+  "tool-drawdown": {
+   "len": 2112,
+   "errors": [],
+   "path": "/es/herramientas/drawdown-recovery/"
+  },
+  "tool-value": {
+   "len": 2617,
+   "errors": [],
+   "path": "/es/herramientas/margin-of-safety/"
+  },
+  "tool-ratios": {
+   "len": 3077,
+   "errors": [],
+   "path": "/es/herramientas/five-number-check/"
+  },
+  "tool-style": {
+   "len": 1065,
+   "errors": [],
+   "path": "/es/herramientas/which-style-fits-you/"
+  },
+  "tool-budget": {
+   "len": 3142,
+   "errors": [],
+   "path": "/es/herramientas/monthly-budget/"
+  },
+  "tool-habits": {
+   "len": 3605,
+   "errors": [],
+   "path": "/es/herramientas/what-habits-really-cost/"
+  },
+  "tool-cash": {
+   "len": 4644,
+   "errors": [],
+   "path": "/es/herramientas/where-to-park-cash/"
+  },
+  "tool-payoff": {
+   "len": 3510,
+   "errors": [],
+   "path": "/es/herramientas/debt-payoff-plan/"
+  },
+  "tool-transfer": {
+   "len": 3253,
+   "errors": [],
+   "path": "/es/herramientas/balance-transfer-planner/"
+  },
+  "tool-car": {
+   "len": 4297,
+   "errors": [],
+   "path": "/es/herramientas/car-cash-or-loan/"
+  },
+  "tool-fx": {
+   "len": 3657,
+   "errors": [],
+   "path": "/es/herramientas/foreign-fee-cost/"
+  },
+  "tool-match": {
+   "len": 4022,
+   "errors": [],
+   "path": "/es/herramientas/401k-match/"
+  },
+  "tool-limits": {
+   "len": 3701,
+   "errors": [],
+   "path": "/es/herramientas/401k-limit-stack/"
+  },
+  "tool-rsu": {
+   "len": 4107,
+   "errors": [],
+   "path": "/es/herramientas/rsu-tax-gap/"
+  },
+  "tool-espp": {
+   "len": 4438,
+   "errors": [],
+   "path": "/es/herramientas/espp-return/"
+  },
+  "tool-roth": {
+   "len": 3857,
+   "errors": [],
+   "path": "/es/herramientas/roth-or-traditional/"
+  },
+  "tool-backdoor": {
+   "len": 3987,
+   "errors": [],
+   "path": "/es/herramientas/backdoor-roth-check/"
+  },
+  "tool-ss": {
+   "len": 4027,
+   "errors": [],
+   "path": "/es/herramientas/social-security-age/"
+  },
+  "tool-retire": {
+   "len": 5213,
+   "errors": [],
+   "path": "/es/herramientas/retirement-planner/"
+  },
+  "tool-brackets": {
+   "len": 3977,
+   "errors": [],
+   "path": "/es/herramientas/tax-brackets/"
+  },
+  "tool-wheeltax": {
+   "len": 4438,
+   "errors": [],
+   "path": "/es/herramientas/how-the-wheel-is-taxed/"
+  },
+  "tool-rentbuy": {
+   "len": 4860,
+   "errors": [],
+   "path": "/es/herramientas/rent-or-buy/"
+  },
+  "tool-mortgage": {
+   "len": 3732,
+   "errors": [],
+   "path": "/es/herramientas/mortgage/"
+  },
+  "tool-rental": {
+   "len": 4383,
+   "errors": [],
+   "path": "/es/herramientas/rental-property/"
+  },
+  "tool-airbnb": {
+   "len": 5369,
+   "errors": [],
+   "path": "/es/herramientas/airbnb-real-profit/"
+  },
+  "tool-fire": {
+   "len": 4640,
+   "errors": [],
+   "path": "/es/herramientas/fire-number/"
+  },
+  "tool-years": {
+   "len": 3031,
+   "errors": [],
+   "path": "/es/herramientas/years-to-freedom/"
+  },
+  "tool-cities": {
+   "len": 3281,
+   "errors": [],
+   "path": "/es/herramientas/cost-of-living-by-place/"
+  },
+  "tool-firetax": {
+   "len": 5048,
+   "errors": [],
+   "path": "/es/herramientas/tax-on-your-withdrawals/"
+  },
+  "tool-ladder": {
+   "len": 4471,
+   "errors": [],
+   "path": "/es/herramientas/early-access-planner/"
+  },
+  "tool-aca": {
+   "len": 4306,
+   "errors": [],
+   "path": "/es/herramientas/health-subsidy-cliff/"
+  },
+  "tool-france": {
+   "len": 3147,
+   "errors": [],
+   "path": "/es/herramientas/france-and-us-tax-estimate/"
+  },
+  "tool-swr": {
+   "len": 4637,
+   "errors": [],
+   "path": "/es/herramientas/safe-withdrawal-rate/"
+  },
+  "tool-fireplan": {
+   "len": 6364,
+   "errors": [],
+   "path": "/es/herramientas/full-fire-plan/"
+  },
+  "tool-rates": {
+   "len": 3570,
+   "errors": [],
+   "path": "/es/herramientas/rates-and-stock-values/"
+  },
+  "tool-inflation": {
+   "len": 3219,
+   "errors": [],
+   "path": "/es/herramientas/inflation-and-your-money/"
+  },
+  "tool-dataday": {
+   "len": 4440,
+   "errors": [],
+   "path": "/es/herramientas/data-day-move/"
+  },
+  "tool-metals": {
+   "len": 1602,
+   "errors": [],
+   "path": "/es/herramientas/gold-silver-and-copper/"
+  },
+  "tool-liq": {
+   "len": 4173,
+   "errors": [],
+   "path": "/es/herramientas/crypto-leverage-and-liquidation/"
+  },
+  "tool-call": {
+   "len": 10690,
+   "errors": [],
+   "path": "/es/herramientas/earnings-call-player/"
+  },
+  "tool-statements": {
+   "len": 4268,
+   "errors": [],
+   "path": "/es/herramientas/real-statement-explorer/"
+  },
+  "tool-earnings-price": {
+   "len": 2233,
+   "errors": [],
+   "path": "/es/herramientas/earnings-and-the-stock-price/"
+  },
+  "tool-covered-call": {
+   "len": 3511,
+   "errors": [],
+   "path": "/es/herramientas/covered-call/"
+  },
+  "tool-csp": {
+   "len": 3483,
+   "errors": [],
+   "path": "/es/herramientas/cash-secured-put/"
+  },
+  "tool-roll": {
+   "len": 3523,
+   "errors": [],
+   "path": "/es/herramientas/option-roll/"
+  },
+  "tool-assignment": {
+   "len": 3690,
+   "errors": [],
+   "path": "/es/herramientas/early-assignment-risk/"
+  },
+  "tool-earnings": {
+   "len": 1197,
+   "errors": [],
+   "path": "/es/herramientas/earnings-lookup/"
+  },
+  "post-pmh-retest": {
+   "len": 2799,
+   "errors": [],
+   "path": "/es/notas/breakdown-a-premarket-high-break-and-retest/"
+  },
+  "post-wheel-40": {
+   "len": 3272,
+   "errors": [],
+   "path": "/es/notas/one-full-turn-of-the-wheel-on-a-40-stock/"
+  },
+  "post-first-five": {
+   "len": 2040,
+   "errors": [],
+   "path": "/es/notas/why-the-first-five-minutes-are-a-trap/"
+  },
+  "post-tax-loss-checklist": {
+   "len": 2632,
+   "errors": [],
+   "path": "/es/notas/december-tax-loss-harvesting-checklist/"
+  },
+  "post-premarket-routine": {
+   "len": 2025,
+   "errors": [],
+   "path": "/es/notas/10-minute-premarket-routine/"
+  }
+ }
+}

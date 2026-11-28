@@ -10,13 +10,14 @@ def serve(d, port):
         def send_head(self):  # every unknown path gets index.html, like the live router
             p = self.translate_path(self.path.split('?')[0])
             if not os.path.exists(p) or (os.path.isdir(p) and not os.path.exists(os.path.join(p, 'index.html'))):
-                self.path = '/index.html'
+                seg = self.path.split('?')[0].split('/')[1:2]  # a language's pages fall back to its own shell
+                self.path = f'/{seg[0]}/index.html' if seg and os.path.exists(os.path.join(d, seg[0], 'index.html')) else '/index.html'
             return super().send_head()
     srv = http.server.ThreadingHTTPServer(('127.0.0.1', port), functools.partial(Q, directory=d))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
 
-def crawl(d, port):
+def crawl(d, port, start='/'):
     srv = serve(d, port)
     res = {}
     with sync_playwright() as p:
@@ -25,25 +26,32 @@ def crawl(d, port):
         errs = []
         pg.on('pageerror', lambda e: errs.append('pageerror: ' + str(e)[:200]))
         pg.on('console', lambda m: errs.append('console: ' + m.text[:200]) if m.type == 'error' and 'Failed to load resource' not in m.text else None)
-        pg.goto(f'http://127.0.0.1:{port}/'); pg.wait_for_function('window.SML && SML.routes && SML.lessons && SML.lessons.length > 100', timeout=60000)
+        pg.goto(f'http://127.0.0.1:{port}{start}'); pg.wait_for_function('window.SML && SML.routes && SML.lessons && SML.lessons.length > 50', timeout=60000)
         boot = list(errs)
-        paths = pg.evaluate("SML.routes.all().map(t => SML.routes.path(t))")
-        for path in paths:
+        toks = pg.evaluate("SML.routes.all().map(t => [t, SML.routes.path(t)])")
+        for tok, path in toks:
             errs.clear()
             try:
                 pg.evaluate("(p) => { history.pushState({}, '', p); dispatchEvent(new PopStateEvent('popstate')); }", path)
                 pg.wait_for_timeout(250)
                 n = pg.evaluate("(document.querySelector('#view')||document.body).innerText.length")
+                # pseudo-text must never land in a code attribute (class, id, href, data-*...): that would break styles or links
+                leak = pg.evaluate(r"""() => { const out = []; for (const el of document.querySelectorAll('*')) for (const a of el.attributes) {
+                  if (/^(title|aria-label|alt|placeholder|aria-description|data-tip|content|label)$/.test(a.name)) continue;
+                  if (/^(value|data-v|data-t|data-k)$/.test(a.name) && a.value.trim().startsWith('\u27e6') && a.value.trim().endsWith('\u27e7')) continue; // a whole translated label used as a value on both sides
+                  if (a.value.includes('\u27e6')) out.push(el.tagName + ' ' + a.name + '=' + a.value.slice(0, 60)); } return out.slice(0, 3); }""")
+                for l in leak: errs.append('attr leak: ' + l)
             except Exception as e:
                 errs.append('nav: ' + str(e)[:200]); n = 0
-            res[path] = {'len': n, 'errors': list(errs)}
+            res[tok] = {'len': n, 'errors': list(errs), 'path': path}
         b.close()
     srv.shutdown()
     return boot, res
 
 if __name__ == '__main__':
     d = sys.argv[1]
-    boot, res = crawl(d, 8791)
+    start = sys.argv[sys.argv.index('--start') + 1] if '--start' in sys.argv else '/'
+    boot, res = crawl(d, 8791, start)
     print('pages', len(res), 'boot errors', len(boot))
     for e in boot[:20]: print('  BOOT', e)
     bad = {k: v for k, v in res.items() if v['errors']}

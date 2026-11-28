@@ -88,9 +88,9 @@
   const parseDay = (s) => { if (!s) return null; const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(s)); return m ? new Date(+m[1], +m[2] - 1, +m[3], 12) : null; };
   const iso = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   const daysBetween = (a, b) => Math.round((day0(b) - day0(a)) / 864e5);
-  const mDY = (s) => { const d = parseDay(s); return d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'; };
-  const mD = (s) => { const d = parseDay(s); return d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—'; };
-  const when = (isoTime) => { try { const d = new Date(isoTime); return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); } catch (e) { return String(isoTime); } };
+  const mDY = (s) => { const d = parseDay(s); return d ? d.toLocaleDateString(SML.locale, { month: 'short', day: 'numeric', year: 'numeric' }) : '—'; };
+  const mD = (s) => { const d = parseDay(s); return d ? d.toLocaleDateString(SML.locale, { month: 'short', day: 'numeric' }) : '—'; };
+  const when = (isoTime) => { try { const d = new Date(isoTime); return d.toLocaleString(SML.locale, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); } catch (e) { return String(isoTime); } };
   const tone = (v) => (v > 0.5 ? 'up' : v < -0.5 ? 'dn' : '');
   const link = (tok, label) => (SML.routes && SML.routes.exists && !SML.routes.exists(tok) ? esc(label) : `<a class="pf-ln" href="#${tok}">${esc(label)}</a>`);
   const I = (body, w) => `<svg class="pf-i" width="${w || 18}" height="${w || 18}" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
@@ -223,7 +223,7 @@
     // activity in the last 12 months
     const yearAgo = new Date(now); yearAgo.setFullYear(yearAgo.getFullYear() - 1);
     const recent = acts.filter((x) => { const dt = parseDay(x.date); return dt && dt >= yearAgo && dt <= new Date(now.getTime() + 864e5); });
-    const months = []; for (let i = 11; i >= 0; i--) { const m = new Date(now.getFullYear(), now.getMonth() - i, 1, 12); months.push({ key: iso(m).slice(0, 7), label: m.toLocaleDateString('en-US', { month: 'short' }), year: m.getFullYear(), div: 0, int: 0, prem: 0, fees: 0 }); }
+    const months = []; for (let i = 11; i >= 0; i--) { const m = new Date(now.getFullYear(), now.getMonth() - i, 1, 12); months.push({ key: iso(m).slice(0, 7), label: m.toLocaleDateString(SML.locale, { month: 'short' }), year: m.getFullYear(), div: 0, int: 0, prem: 0, fees: 0 }); }
     const mIdx = Object.fromEntries(months.map((m, i) => [m.key, i]));
     const isDiv = (t) => t === 'DIVIDEND' || t === 'SUBSTITUTE_DIVIDEND';
     let premTax = 0;

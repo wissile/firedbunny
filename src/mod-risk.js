@@ -261,7 +261,7 @@
       const budget = (acct * rp) / 100, shares = Math.floor(budget / risk + 1e-9);
       const pos = shares * E, pct = pos / acct, loss = shares * risk, prof = shares * tr * risk;
       $id(id + '-shl').textContent = long ? 'Shares to buy' : 'Shares to short';
-      setT(id + '-sh', shares.toLocaleString('en-US'));
+      setT(id + '-sh', shares.toLocaleString(SML.locale));
       setT(id + '-pos', F.usd0(pos));
       setT(id + '-pct', pctTxt(pct, pct < 0.1 ? 1 : 0), pct > 1 ? 'dn' : pct > 0.25 ? 'acc' : '');
       setT(id + '-loss', F.usd0(loss), 'dn');

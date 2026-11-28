@@ -425,14 +425,14 @@
     const ease = (t) => (t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t));
     const draw = ui.responsive(fig, (W) => {
       const compact = W < 520;
-      const sc = CU[st.seg(id + '-s') || 'china'], mag = st.n(id + '-m') / 100, k = mag / Math.abs(sc.cu || 0.25);
+      const scKey = st.seg(id + '-s') || 'china', sc = CU[scKey], mag = st.n(id + '-m') / 100, k = mag / Math.abs(sc.cu || 0.25);
       const N = 18, start = 3;
       const cu = [], pm = [];
       for (let t = 0; t <= N; t++) {
         let c;
         if (sc.type === 'policy') { const up = ease((t - start) / 3), down = ease((t - start - 4) / 2); c = 100 * (1 + Math.sign(sc.cu) * mag * (up - 0.9 * down)); }
         else if (sc.type === 'supply') { const up = ease((t - start) / 2), fade = ease((t - start - 7) / 8); c = 100 * (1 + Math.sign(sc.cu) * mag * (up - 0.6 * fade)); }
-        else if (sc.label.indexOf('Grid') === 0) c = 100 * (1 + Math.sign(sc.cu) * mag * (t / N));
+        else if (scKey === 'grid') c = 100 * (1 + Math.sign(sc.cu) * mag * (t / N));
         else c = 100 * (1 + Math.sign(sc.cu) * mag * ease((t - start) / 8));
         cu.push(c);
         const lag = sc.lead, base = 50 + sc.pmi * k * ease((t - start - lag) / 8);

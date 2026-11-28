@@ -21,7 +21,7 @@ def block(meta, ld=(), tok=''):
            f'<meta name="robots" content="{e(m["robots"])}">']
     if m.get('canonical'):
         out.append(f'<link rel="canonical" href="{e(m["canonical"])}">')
-    out += [f'<meta property="og:type" content="{e(m["type"])}">', '<meta property="og:site_name" content="FiredBunny">', '<meta property="og:locale" content="en_US">',
+    out += [f'<meta property="og:type" content="{e(m["type"])}">', '<meta property="og:site_name" content="FiredBunny">', f'<meta property="og:locale" content="{e(m.get("locale") or "en_US")}">',
             f'<meta property="og:title" content="{e(m["title"])}">', f'<meta property="og:description" content="{e(m["description"])}">']
     if m.get('url'):
         out.append(f'<meta property="og:url" content="{e(m["url"])}">')

@@ -564,7 +564,7 @@
       const now = new Date(); const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
       const ev = SML.calendarEvents.filter((e) => hit.k.indexOf(e.kind) >= 0 && e.d >= today).sort((x, y) => (x.d < y.d ? -1 : x.d > y.d ? 1 : 0))[0];
       if (!ev) return { h: P('I don’t see one coming up on FiredBunny’s calendar.') + actsHTML([link('calendar', 'Open the calendar', true)]), chips: C('after') };
-      let day = ev.d; try { day = new Date(ev.d + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }); } catch (e) {}
+      let day = ev.d; try { day = new Date(ev.d + 'T12:00:00').toLocaleDateString(SML.locale, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }); } catch (e) {}
       const note = ev.status === 'rule' ? ' That date is worked out from the publisher’s standing rule, so check the official schedule closer to the day.' : ev.status === 'estimate' ? ' That date is approximate; check closer to the time.' : '';
       st.last = ev.lesson ? { type: 'lesson', tok: ev.lesson, title: titleOf(ev.lesson) } : { type: 'page', tok: 'calendar', title: 'Calendar' };
       return { h: `<p class="fbc-k">From the market &amp; tax calendar</p>${P(`The next <b>${esc(/^[A-Z][a-z]/.test(ev.title) ? ev.title.charAt(0).toLowerCase() + ev.title.slice(1) : ev.title)}</b> is on <b>${esc(day)}</b>${ev.time ? ', ' + esc(ev.time) : ''}.${note}`)}` + actsHTML([link('calendar', 'Open the calendar', true), ev.lesson && exists(ev.lesson) ? link(ev.lesson, 'Lesson: ' + titleOf(ev.lesson)) : null]), chips: C('after') };

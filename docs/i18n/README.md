@@ -28,3 +28,26 @@ python3 tools/i18n/crawl.py /tmp/xx/dist --compare dist     # script errors, pag
 errors, about 470 missed strings left (calendar data rows, dates, a few concatenations), to be fixed in the source.
 
 Install the parser once: `cd tools/i18n && npm ci`.
+
+## Building the languages (Nov 28 2026)
+
+- `tools/i18n/langs.json`: each language's address prefix, page names, section folders, countries (locale, currency,
+  time zones, money scale) and `live` flag. French and Danish are `paused` (EU legal questions).
+- `python3 tools/build.py` builds English, then each active language that has a `tools/i18n/<lang>/` folder:
+  `make.js build` writes the translated copy, and build.py runs again with `FB_LANG` into `dist/<prefix>/`
+  (`app-<lang>.<hash>.js`, its own 404 page, its pre-built pages). `FB_LANGS=es,pt` limits the languages,
+  `FB_LANGS=none` skips them, `FB_PSEUDO=1` fills untranslated text with pseudo-text (testing).
+- Until a language is `live`: every page is noindex, it has no sitemap, lastmod record, preview images or hreflang, and
+  the footer language menu shows only in a browser that opened `?preview=languages`.
+- Addresses: `/es/lecciones/<slug>/` etc., made from the translated titles (accents removed). They are frozen into
+  `tools/i18n/<lang>/frozen.json` at launch. The language menu links `/<prefix>/?to=<token>`; that language's router
+  opens the page and shows its own address.
+- Money: `SML.fmt.usd` stays US dollars (US$ outside English: US stocks and options); `SML.fmt.loc` / slider formats
+  `loc`, `loc0` are local money (MXN, COP, BRL), and local-money sliders scale their range by the country's
+  `scale`. In English `loc` is dollars, so switching a personal-finance calculator to `loc` changes nothing there.
+  Dates and numbers use `SML.locale` everywhere (no more hard-coded en-US).
+- Spanish: Mexico and Colombia share `/es/`; the footer has a country picker (`fb-country`), and the first visit picks
+  Colombia from the America/Bogota time zone.
+- The service worker serves each language's own shell (`BUILD.langs`), saved on the first visit to that language.
+- Text the code reads (a range written in a sentence, a label compared in code) must not depend on English: keep such
+  values as data (example: `SML.realco.spacex.call.guide`).

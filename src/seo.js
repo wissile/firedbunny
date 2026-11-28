@@ -326,7 +326,9 @@
     const t = TITLES[tok] || clean(pageTitle) || ownTitle(tok) || BRAND;
     return t === BRAND ? BRAND : t + ' · ' + BRAND;
   }
-  const isNoindex = (tok) => tok === 'not-found' || (R() && R().isPrivate(tok));
+  // a language that hasn't launched (SML.LANG.live false, tools/i18n/langs.json) keeps every page out of search
+  const LANG = SML.LANG || null;
+  const isNoindex = (tok) => tok === 'not-found' || (R() && R().isPrivate(tok)) || !!(LANG && !LANG.live);
   const isArticle = (tok) => tok.indexOf('l-') === 0 || tok.indexOf('post-') === 0;
 
   // Each indexable page has its own preview image, drawn by the build (tools/prerender.py) from card() at
@@ -363,6 +365,7 @@
       indexable: !isNoindex(tok) && canonTok === tok,
       type: isArticle(tok) ? 'article' : 'website',
       image: img, imageWidth: 1200, imageHeight: 630, imageAlt: img === IMAGE ? 'FiredBunny: learn the market by playing with it' : clean(card(tok).title) + ' · FiredBunny',
+      locale: LANG ? LANG.ogLocale || LANG.locale.replace('-', '_') : 'en_US',
     };
   }
 
@@ -376,11 +379,11 @@
     if (isNoindex(tok)) return [];
     if (tok === 'home') return [
       Object.assign({ '@context': 'https://schema.org' }, ORG),
-      { '@context': 'https://schema.org', '@type': 'WebSite', '@id': ORIGIN + '/#website', name: BRAND, url: ORIGIN + '/', description: ABOUT, inLanguage: 'en-US', publisher: { '@id': ORIGIN + '/#organization' } },
+      { '@context': 'https://schema.org', '@type': 'WebSite', '@id': ORIGIN + '/#website', name: BRAND, url: ORIGIN + '/', description: ABOUT, inLanguage: LANG ? LANG.locale : 'en-US', publisher: { '@id': ORIGIN + '/#organization' } },
     ];
     const article = (headline, extra) => Object.assign({
       '@context': 'https://schema.org', '@type': 'Article', headline: fit(headline, 110), description: m.description, url: m.url, mainEntityOfPage: m.url,
-      image: [m.image], inLanguage: 'en-US', isAccessibleForFree: true,
+      image: [m.image], inLanguage: LANG ? LANG.locale : 'en-US', isAccessibleForFree: true,
       author: { '@type': 'Organization', name: BRAND, url: ORIGIN + '/' }, publisher: ORG,
     }, extra);
     if (tok.indexOf('l-') === 0) {
@@ -404,14 +407,14 @@
       // a free web calculator; no rating or review is marked up because there are none
       return [crumbs([['Tools', url('tools')], [heading(tok), m.url]]), {
         '@context': 'https://schema.org', '@type': 'WebApplication', name: heading(tok), description: m.description, url: m.url,
-        applicationCategory: 'FinanceApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: 'en-US',
+        applicationCategory: 'FinanceApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: LANG ? LANG.locale : 'en-US',
         isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, publisher: { '@id': ORIGIN + '/#organization', '@type': 'Organization', name: BRAND, url: ORIGIN + '/' },
       }];
     }
     if (tok === 'glossary') {
       const set = m.url + '#terms';
       return [{
-        '@context': 'https://schema.org', '@type': 'DefinedTermSet', '@id': set, name: 'FiredBunny glossary', description: m.description, url: m.url, inLanguage: 'en-US',
+        '@context': 'https://schema.org', '@type': 'DefinedTermSet', '@id': set, name: 'FiredBunny glossary', description: m.description, url: m.url, inLanguage: LANG ? LANG.locale : 'en-US',
         hasDefinedTerm: glossaryTerms().map((x) => { const o = { '@type': 'DefinedTerm', name: x.g.t, description: clean(x.g.d), url: m.url + '#' + x.id }; if (x.g.full) o.alternateName = x.g.full; return o; }),
       }];
     }

@@ -118,9 +118,9 @@
   X.consYoy = pc(MT.consumerRev[0], MT.consumerRev[2]);
   X.epsOnPq = xc.netInc / xq.sh; X.epsOnYa = xc.netInc / xy.sh;
   const SXE = SX.expectations, SXR = SX.reaction, Q2 = SX.q2;
-  /* Q1 2027 revenue guide: parsed from the call outlook line in SML.realco (it is stored as text) */
-  const g1m = String((SX.call.outlook || []).find((o) => /first quarter of 2027/.test(o)) || '').match(/\$(\d+(?:\.\d+)?) billion to \$(\d+(?:\.\d+)?) billion/);
-  X.g1Lo = g1m ? Number(g1m[1]) * 1000 : NaN; X.g1Hi = g1m ? Number(g1m[2]) * 1000 : NaN;
+  /* Q1 2027 revenue guide: SML.realco.spacex.call.guide (numbers, not the translated outlook sentence) */
+  const g1 = (SX.call.guide || {}).q1_2027Revenue || [NaN, NaN];
+  X.g1Lo = g1[0]; X.g1Hi = g1[1];
   X.g1Mid = (X.g1Lo + X.g1Hi) / 2;
 
   /* ---------------- Apple numbers (from SML.realco.apple) ----------------

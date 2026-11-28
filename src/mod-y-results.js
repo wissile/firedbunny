@@ -901,7 +901,7 @@
         hover(el, o.xs, (k) => `Age ${m.age + k}<br>Current pace: ${kusd(m.cur[k])}${m.showNeed && k <= m.tYears ? `<br>Needed pace: ${kusd(m.nd[k])}` : ''}<br>FIRE number: ${kusd(m.target)}`);
       },
       hist: (el, W) => {
-        const pts = allR.map((x) => { const d = String(x.date || '').slice(0, 10); return { id: x.id, risk: x.scores && x.scores.risk, top: stylesSorted(x)[0].k, label: x.id === 'draft' ? 'Today (not saved)' : dateOf(x), short: x.id === 'draft' ? 'Now' : (d ? new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '') }; });
+        const pts = allR.map((x) => { const d = String(x.date || '').slice(0, 10); return { id: x.id, risk: x.scores && x.scores.risk, top: stylesSorted(x)[0].k, label: x.id === 'draft' ? 'Today (not saved)' : dateOf(x), short: x.id === 'draft' ? 'Now' : (d ? new Date(d + 'T12:00:00').toLocaleDateString(SML.locale, { month: 'short', year: 'numeric' }) : '') }; });
         el.innerHTML = histSVG(W, pts, shownId);
       },
     };

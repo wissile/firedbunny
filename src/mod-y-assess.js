@@ -15,8 +15,8 @@
   const r0 = (v) => Math.round(v);
   const r1 = (v) => Math.round(v * 10) / 10;
   const YEAR = () => new Date().getFullYear();
-  const usd = (v) => (v < 0 ? '−' : '') + '$' + Math.round(Math.abs(v)).toLocaleString('en-US');
-  const big = (v) => { const a = Math.abs(v), s = v < 0 ? '−' : ''; if (a >= 1e6) return s + '$' + (Math.round(a / 1e4) / 100).toLocaleString('en-US') + 'M'; if (a >= 1e4) return s + '$' + Math.round(a / 1e3).toLocaleString('en-US') + 'k'; return usd(v); };
+  const usd = (v) => (v < 0 ? '−' : '') + '$' + Math.round(Math.abs(v)).toLocaleString(SML.locale);
+  const big = (v) => { const a = Math.abs(v), s = v < 0 ? '−' : ''; if (a >= 1e6) return s + '$' + (Math.round(a / 1e4) / 100).toLocaleString(SML.locale) + 'M'; if (a >= 1e4) return s + '$' + Math.round(a / 1e3).toLocaleString(SML.locale) + 'k'; return usd(v); };
   const ico = {
     check: '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     up: '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 10l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',

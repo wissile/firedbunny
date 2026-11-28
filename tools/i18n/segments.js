@@ -19,21 +19,49 @@ const walk = require('acorn-walk');
 const crypto = require('crypto');
 
 const INLINE = new Set(['a', 'b', 'strong', 'i', 'em', 'u', 'code', 'kbd', 'abbr', 'sup', 'sub', 'small', 'mark', 'span', 'br', 'wbr', 's', 'del', 'ins', 'q', 'cite', 'dfn', 'time', 'var', 'samp']);
-const TEXT_ATTRS = ['title', 'aria-label', 'placeholder', 'alt', 'data-tip', 'aria-description'];
+const TEXT_ATTRS = ['title', 'aria-label', 'placeholder', 'alt', 'data-tip', 'aria-description', 'label'];
 const keyOf = (s) => crypto.createHash('sha1').update(s).digest('hex').slice(0, 12);
 const PH = (n) => `\u0001${n}\u0002`; // placeholder marker used while working on a template
+
+/* ---------- the site's CSS class names: a string made only of these is a class list, not text ---------- */
+const CLASSES = (() => {
+  const fs = require('fs'), path = require('path');
+  const dir = path.join(__dirname, '..', '..', 'src'), set = new Set();
+  const scan = (css) => { for (const m of css.matchAll(/\.(-?[a-zA-Z_][\w-]*)/g)) set.add(m[1]); };
+  for (const f of fs.readdirSync(dir).filter((f) => /\.(css|js)$/.test(f))) {
+    const body = fs.readFileSync(path.join(dir, f), 'utf8');
+    if (f.endsWith('.css')) scan(body);
+    else {
+      for (const m of body.matchAll(/\.(-?[a-zA-Z_][\w-]*)/g)) set.add(m[1]);                    // '.wg-bar{', querySelector('.hit')
+      for (const m of body.matchAll(/classList\.(?:add|remove|toggle|contains|replace)\(\s*['"]([\w-]+)/g)) set.add(m[1]);
+    }
+  }
+  return set;
+})();
+// every token a known class, or class-shaped (has a hyphen or digit: 'fn-hit', 'w2', 's-'), and at least one known
+const isClassList = (t) => {
+  const toks = t.trim().split(/\s+/);
+  return toks.length > 0 && toks.every((x) => /^[a-z][\w-]*$/.test(x) && (CLASSES.has(x) || /[-\d]/.test(x))) && toks.some((x) => CLASSES.has(x));
+};
 
 /* ---------- is this text worth translating? ---------- */
 const LETTERS = /[A-Za-z]{2,}/;
 function looksLikeText(s, ctx) {
   const t = s.replace(/\u0001\d+\u0002/g, ' ').replace(/<[^>]*>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').trim();
   if (!LETTERS.test(t)) return false;
+  if (isClassList(t)) return false;                                           // 'sm acc b', ' dash w15'
   if (/^(https?:|mailto:|data:|\/|#|\.)/.test(t) || /^\[[\w-]+(=|\])/.test(t)) return false; // URLs, paths, selectors
   if (/^[a-z0-9_$.-]+$/.test(t) && !(ctx === 'text' && /\u0001\d+\u0002/.test(s) && /^[a-z]+$/.test(t))) return false; // ids, keys, classes, events: one lowercase token ('{0} min' in a template is text)
   if (/^[A-Z0-9_]+$/.test(t) && t.length > 1) return ctx === 'text';         // CONSTANTS, but "OK"/"ETF" as visible text
   if (/^[\w-]+$/.test(t) && /[-_]/.test(t) && !/^[A-Z][a-z]+(-[A-Za-z]+)+$/.test(t)) return false; // kebab-case ids; 'Self-assessment' is text
   if (/[{};]\s*$|^\s*[\w-]+\s*:\s*[^:]+;/.test(t) && /;/.test(t)) return false; // CSS
-  if (/^(rgba?|hsla?|var|calc|url|translate|rotate|scale|cubic-bezier)\(/.test(t)) return false;
+  if (/^(rgba?|hsla?|var|calc|url|translate|rotate|scale|cubic-bezier|color-mix|linear-gradient|radial-gradient|conic-gradient|min|max|clamp)\(/.test(t)) return false;
+  if (/^[a-z-]+\s*:\s*[^\s;]*;?$/.test(t) && !/\s[a-z]{3,}/.test(t)) return false;   // "fill-opacity:0.2", "fill-opacity:{0}"
+  if (/^[a-z0-9:_-]+(,\s*[a-z0-9:_-]+)+$/.test(t)) return false;              // 'noindex, follow', 'a, b' lists of tokens
+  if (/^\s*([\w:-]+=("[^"]*"|'[^']*'|\S*)\s*)+$/.test(s.replace(/\u0001\d+\u0002/g, 'X'))) return false; // class="x" rx="4": attributes
+  if (/[\w-]+=[^\s]*;|^;|Max-Age|SameSite|\bpath=\//.test(t)) return false;  // cookies
+  if (/^\(?(prefers-|min-width|max-width|display-mode|hover|pointer|orientation)/.test(t)) return false; // media queries
+  if (/^(index|noindex|follow|nofollow|max-image-preview|summary_large_image|website|article|application\/|text\/|image\/)/.test(t) && !/\s[a-z]{3,}\s/.test(t)) return false;
   if (/^[\w.-]+\.(js|css|png|jpe?g|svg|mp3|mp4|json|webp|woff2?)(\?.*)?$/i.test(t)) return false;
   if (/^M[\d .,-]+/.test(t) && /\d/.test(t) && !/\s[a-z]{3,}/.test(t)) return false; // SVG path data
   if (/^[a-z]+(\s[a-z-]+)+$/.test(t) && ctx === 'attr-class') return false;
@@ -91,10 +119,10 @@ function htmlSegments(s) {
              the code may also use as values (button options, compared strings, table keys, state defaults). Safe for
              the logic whatever the code does with them; the only cost is a label glued into a longer string stays English.
    false     translated in the code (sentences, HTML, lesson and page text) */
-const CODE_KEYS = /^(id|key|icon|widget|course|track|tool|tools|type|kind|cls|class|className|color|bg|fill|stroke|unit|fmt|format|sym|symbol|ticker|slug|path|href|src|url|u|img|image|svg|audio|voice|lang|locale|token|tok|route|cat|group|tag|tags|level|sort|sel|selector|event|action|mode|style|font|css|ico|emoji|code|ccy|currency|tz|field|prop|attr|el|elId|target|terms|links|related|series|data|seed|var|vars|grid|align|side|pos|dir|shape|layout|variant|status|state|flag|country|region|lessonId|ref|l|w|g)$/;
+const CODE_KEYS = /^(robots|canonical|og|twitter|schema|context|@type|id|key|icon|widget|course|track|tool|tools|type|kind|cls|class|className|color|bg|fill|stroke|unit|fmt|format|sym|symbol|ticker|slug|path|href|src|url|u|img|image|svg|audio|voice|lang|locale|token|tok|route|cat|group|tag|tags|level|sort|sel|selector|event|action|mode|style|font|css|ico|emoji|code|ccy|currency|tz|field|prop|attr|el|elId|target|terms|links|related|series|data|seed|var|vars|grid|align|side|pos|dir|shape|layout|variant|status|state|flag|country|region|lessonId|ref|l|w|g)$/;
 const RUNTIME_KEYS = /^(v|value|k|opt|choice|def|default|name|t|abbr|short|sk|lbl)$/;
 const TEXT_KEYS = /^(title|label|lab|desc|description|summary|idea|body|h|html|q|a|text|note|notes|tip|tips|msg|message|caption|sub|subtitle|lede|kicker|hint|help|why|what|how|example|try|takeaway|takeaways|points|mistakes|d|full|brief|deep|faq|say|reply|answer|intro|outro|blurb|teaser|cta|more|warn|warning|info|empty|placeholder|tooltip|legend|headline|heading|line|lines|steps|step|detail|details|meaning|explain|explanation|story|quote|verdict|read|reads|lesson|after|before|then|ok|bad|good|caveat|source|t2|sentence)$/;
-const CODE_CALLS = /^(querySelector(All)?|getElementById|getElementsByClassName|closest|matches|addEventListener|removeEventListener|dispatchEvent|getItem|setItem|removeItem|getAttribute|setAttribute|removeAttribute|hasAttribute|toggleAttribute|add|remove|toggle|contains|createElement|createElementNS|fetch|import|require|postMessage|track|event|send|use|split|join|replace|replaceAll|startsWith|endsWith|includes|indexOf|lastIndexOf|test|match|matchAll|search|RegExp|padStart|padEnd|toLocaleString|toLocaleDateString|toLocaleTimeString|NumberFormat|DateTimeFormat|Date|key|go|route|path|token|exists|pathOf|tokenOf|assetURL|warn|log|error|info|debug|define|on|off|emit|has|get|set|delete|store|load|save|plays|cssVar|getPropertyValue|setProperty|removeProperty|scrollTo|animate|focus|open|\$|\$\$|seg|on|n|uid|svg|el|attr|css|style|byId|lessonById|toolById|trackById|courseById|now|wire|chips|getContext|createLinearGradient|addColorStop|font|measureText|insertAdjacentHTML)$/;
+const CODE_CALLS = /^(querySelector(All)?|getElementById|getElementsByClassName|closest|matches|addEventListener|removeEventListener|dispatchEvent|getItem|setItem|removeItem|getAttribute|setAttribute|removeAttribute|hasAttribute|toggleAttribute|add|remove|toggle|contains|createElement|createElementNS|fetch|import|require|postMessage|track|event|send|use|split|join|replace|replaceAll|startsWith|endsWith|includes|indexOf|lastIndexOf|test|match|matchAll|search|RegExp|padStart|padEnd|toLocaleString|toLocaleDateString|toLocaleTimeString|NumberFormat|DateTimeFormat|Date|key|go|route|path|token|exists|pathOf|tokenOf|assetURL|warn|log|error|info|debug|define|on|off|emit|has|get|set|delete|store|load|save|plays|cssVar|getPropertyValue|setProperty|removeProperty|scrollTo|animate|focus|open|\$|\$\$|seg|on|n|uid|svg|el|attr|css|style|byId|lessonById|toolById|trackById|courseById|now|wire|chips|getContext|matchMedia|createLinearGradient|addColorStop|font|measureText|insertAdjacentHTML)$/;
 const OPTION_CALLS = /^(seg|chips|tabs|select|radios|pills|toggle|picker|choice|segs|options)$/;
 const DISPLAY_PROPS = /^(textContent|innerText|title|placeholder|ariaLabel|alt|innerHTML|outerHTML|nodeValue|data)$/;
 
@@ -161,7 +189,7 @@ function inClassAttr(src, node, ancestors) {
       const q = a.quasis.filter((x) => x.end <= node.start).pop();
       return !!q && /\b(class|style|id|data-[\w-]+|href|for|type|name)=["'][^"']*$/.test(src.slice(q.start, q.end));
     }
-    if (a.type === 'CallExpression' || a.type === 'AssignmentExpression' || a.type === 'VariableDeclarator' || a.type === 'Property') return false;
+    if (a.type === 'CallExpression' || a.type === 'AssignmentExpression' || a.type === 'VariableDeclarator' || a.type === 'Property' || a.type === 'ReturnStatement') return false;
   }
   return false;
 }
@@ -178,15 +206,15 @@ function collect(src) {
   walk.fullAncestor(ast, (node, _st, ancestors) => {
     if (node.type === 'Literal' && typeof node.value === 'string') {
       const how = classify(node, ancestors);
-      if (how === 'code') return;
+      if (how === 'code' || inClassAttr(src, node, ancestors)) return;
       const raw = src.slice(node.start + 1, node.end - 1);  // between the quotes, as written (escapes kept)
-      const gluedText = how === 'glued' && /^\s|\s$/.test(raw) && /[A-Za-z]{2,}/.test(raw) && !/[{};:=<>]/.test(raw) && !inClassAttr(src, node, ancestors);
+      const gluedText = false; // pieces glued to numbers (' days') are swapped on screen by patterns (src/i18n.js), never in the code
       const segs = /<[a-zA-Z\/!]/.test(raw) ? htmlSegments(raw) : ((looksLikeText(raw, 'string') || gluedText) ? [{ start: 0, end: raw.length, text: raw }] : []);
       for (const g of segs) items.push({ kind: 'str', quote: src[node.start], abs: node.start + 1 + g.start, absEnd: node.start + 1 + g.end, text: g.text, line: node.loc.start.line, runtime: how === 'runtime' && !/<[a-zA-Z]/.test(raw) });
     } else if (node.type === 'TemplateLiteral') {
       const parentTag = ancestors[ancestors.length - 2];
       if (parentTag && parentTag.type === 'TaggedTemplateExpression') return;
-      if (classify(node, ancestors) === 'code') return;
+      if (classify(node, ancestors) === 'code' || inClassAttr(src, node, ancestors)) return;
       // the template's text with each ${expr} replaced by a marker; remember where every piece lives in the source
       let s = '';
       const map = []; // [sIndexStart, srcStart, length] for quasis

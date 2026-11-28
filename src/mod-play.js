@@ -8,7 +8,7 @@
   const p2 = (v) => (v < 0 ? MINUS : '') + Math.abs(v).toFixed(2);
   const CROSS = '<svg class="ck" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8.5" class="f-dn-t"/><path d="M6 6l6 6M12 6l-6 6" class="nf s-dn w2"/></svg>';
   const DASHI = '<svg class="ck" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8.5" class="f-shade"/><path d="M5.5 9h7" class="nf s-mut w2"/></svg>';
-  const fmtDate = (iso) => { const d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); };
+  const fmtDate = (iso) => { const d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString(SML.locale, { month: 'short', day: 'numeric', year: 'numeric' }); };
   const FALLBACK = { 'l-levels': 'PDH, PDL, PMH, PML', 'l-breakouts': 'Breakouts & fakeouts', 'l-volume': 'Volume', 'l-position-size': 'Position sizing', 'l-wheel': 'The wheel strategy', 'l-payoff': 'Payoff diagrams', 'l-theta': 'Theta: time decay', 'l-contracts': 'Contracts & moneyness', 'l-game-plan': 'A day-trade game plan', 'l-orders': 'Order types', 'l-psychology': 'Mind traps', 'l-tax-loss': 'Tax-loss harvesting', 'l-wash-sale': 'The wash sale rule', 'l-cap-gains': 'Short vs long-term gains', 'l-stock-picking': 'Which stocks to trade' };
   const lessonTitle = (id, fb) => { const l = SML.lessons.find((x) => x.id === id); return l ? l.title : FALLBACK[id] || fb; };
 
@@ -245,7 +245,7 @@ kbd{font:600 11px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       const sh = Math.max(1, Math.min(want, capSh)); const capped = want > capSh;
       const vw = vwapArr(); const vNow = vw[vw.length - 1];
       pos = { side, entry: px, stop: stopP, stop0: stopP, target: side === 'long' ? px + 2 * dist : px - 2 * dist, useTarget: true, shares: sh, risk: sh * dist, bar: k - 1, t: k * 2, widened: false, early: k < 3, vwapOk: side === 'long' ? px >= vNow : px <= vNow };
-      say(k * 2, `${side === 'long' ? 'Long' : 'Short'} ${sh.toLocaleString('en-US')} shares at ${p2(px)}. Stop ${p2(stopP)} beyond the last 3 bars, so 1R = ${F.usd0(pos.risk)}${capped ? `, less than 1% because the size hit the practice account's ${F.usd0(bp)} buying power` : ' (1% of the account)'}. Target set at 2R.`, side === 'long' ? 'up' : 'dn', 'Entry');
+      say(k * 2, `${side === 'long' ? 'Long' : 'Short'} ${sh.toLocaleString(SML.locale)} shares at ${p2(px)}. Stop ${p2(stopP)} beyond the last 3 bars, so 1R = ${F.usd0(pos.risk)}${capped ? `, less than 1% because the size hit the practice account's ${F.usd0(bp)} buying power` : ' (1% of the account)'}. Target set at 2R.`, side === 'long' ? 'up' : 'dn', 'Entry');
       if (pos.early) say(k * 2, 'You entered in the first 5 minutes. Spreads are widest and swings are wildest right after the open.', 'acc', 'Rule');
       if (!pos.vwapOk) say(k * 2, side === 'long' ? 'This long is below VWAP. Buyers have not taken control of the day yet.' : 'This short is above VWAP. Sellers have not taken control of the day yet.', 'acc', 'Rule');
       redraw();
@@ -468,7 +468,7 @@ kbd{font:600 11px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       const g = $('#' + id + '-hov', fig); if (!g || !lay) return;
       const s = lay.slots[j]; if (j < lay.s0 || j >= lay.s1 || !s || s.z === 'g' || (s.z === 'd' && s.i >= k)) { g.innerHTML = ''; return; }
       const c = s.c, x = lay.xs(j); const tl = s.z === 'd' ? F.time(s.i * 2) : s.z === 'p' ? F.time(D.pre[s.p * 2].t) + ' pre' : 'Yesterday';
-      const lines = [tl, `O ${c.o.toFixed(2)}  H ${c.h.toFixed(2)}`, `L ${c.l.toFixed(2)}  C ${c.c.toFixed(2)}`, `Vol ${Math.round(c.v * 1000).toLocaleString('en-US')}`];
+      const lines = [tl, `O ${c.o.toFixed(2)}  H ${c.h.toFixed(2)}`, `L ${c.l.toFixed(2)}  C ${c.c.toFixed(2)}`, `Vol ${Math.round(c.v * 1000).toLocaleString(SML.locale)}`];
       const bw = 132, bh = 70; let bx = x + 12; if (bx + bw > lay.plotR) bx = x - 12 - bw; bx = SML.clamp(bx, lay.padL, Math.max(lay.padL, lay.W - bw - 2)); const by = lay.padT;
       g.innerHTML = S.line(x, lay.padT - 8, x, lay.H - 18, 's-mut dash2') + S.rect(bx, by, bw, bh, 'tipbg', 4) + lines.map((t, q) => S.text(bx + 8, by + 16 + q * 15, t, q === 0 ? 'sm ink b' : 'sm mono ink')).join('');
     }
@@ -1179,7 +1179,7 @@ kbd{font:600 11px/1 var(--mono);border:1px solid var(--line);border-bottom-width
         const keys = Object.keys(m).sort(); if (!keys.length) return null;
         const H = 210, padL = 48, padR = 16, padT = 22, padB = 26; const hi = Math.max(...keys.map((q) => m[q])) * 1.15; const y = SML.lin(0, hi, H - padB, padT);
         const sw = (Wd - padL - padR) / keys.length; let b = SML.ticks(0, hi, 4).map((v) => S.line(padL, y(v), Wd - padR, y(v), 's-grid') + S.text(padL - 6, y(v) + 4, F.usd0(v), 'xs mono', 'end')).join('');
-        keys.forEach((q, i) => { const bw = Math.min(56, sw * 0.6), x = padL + (i + 0.5) * sw; b += S.rect(x - bw / 2, y(m[q]), bw, y(0) - y(m[q]), 'f-up', 3) + S.text(x, y(m[q]) - 6, F.usd0(m[q]), 'sm mono ink b', 'middle') + S.text(x, H - 8, new Date(q + '-15T12:00:00').toLocaleDateString('en-US', { month: 'short' }), 'xs mono', 'middle'); });
+        keys.forEach((q, i) => { const bw = Math.min(56, sw * 0.6), x = padL + (i + 0.5) * sw; b += S.rect(x - bw / 2, y(m[q]), bw, y(0) - y(m[q]), 'f-up', 3) + S.text(x, y(m[q]) - 6, F.usd0(m[q]), 'sm mono ink b', 'middle') + S.text(x, H - 8, new Date(q + '-15T12:00:00').toLocaleDateString(SML.locale, { month: 'short' }), 'xs mono', 'middle'); });
         return { H, svg: b, label: 'Bars of premium collected per month' };
       },
       chartTitle: 'Premium collected by month',
@@ -1469,7 +1469,7 @@ kbd{font:600 11px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       if (m === 'size') {
         const a = st.n(id + '-a'), r = st.n(id + '-r'), e = st.n(id + '-e'), s = st.n(id + '-s'); const risk = (a * r) / 100, per = Math.abs(e - s);
         if (!(a > 0 && r > 0 && e > 0 && per > 0)) { o1.textContent = '—'; o2.textContent = 'Enter an entry and a different stop'; o3.textContent = ''; return; }
-        const sh = Math.floor(risk / per); o1.textContent = sh.toLocaleString('en-US') + ' shares'; o2.textContent = `Risking ${F.usd0(risk)} · position ${F.usd0(sh * e)}`; o3.textContent = `2R target: ${F.usd(e > s ? e + 2 * per : e - 2 * per)}`;
+        const sh = Math.floor(risk / per); o1.textContent = sh.toLocaleString(SML.locale) + ' shares'; o2.textContent = `Risking ${F.usd0(risk)} · position ${F.usd0(sh * e)}`; o3.textContent = `2R target: ${F.usd(e > s ? e + 2 * per : e - 2 * per)}`;
       } else if (m === 'be') {
         const t = st.seg(id + '-ty'), k = st.n(id + '-k'), p = st.n(id + '-p'), c = st.n(id + '-c') || 0;
         if (!(k > 0) || !(p >= 0)) { o1.textContent = '—'; o2.textContent = 'Enter a strike and premium'; o3.textContent = ''; return; }

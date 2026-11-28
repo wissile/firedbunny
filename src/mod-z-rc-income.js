@@ -59,9 +59,9 @@
   const XSEG = (k, p) => X.segments[p || 'cur'].find((g) => g.k === k) || {};
   const XBR = (name) => (X.ebitda.bridge.find((b) => b[0] === name) || [0, 0])[1];
   const nums = (t) => (String(t || '').match(/\d+(?:\.\d+)?/g) || []).map(Number);
-  const xOut = X.call.outlook || [], xQ1 = nums(xOut.find((t) => /first quarter of 2027/.test(t))), xGW = nums(xOut.find((t) => /GW/.test(t)));
-  D.xGuideRev = xQ1.length >= 2 ? [xQ1[0] * 1000, xQ1[1] * 1000] : null;
-  D.xGuideGW = xGW.length >= 2 ? [xGW[0], xGW[1]] : null;
+  const XG = X.call.guide || {};
+  D.xGuideRev = XG.q1_2027Revenue || null;
+  D.xGuideGW = XG.computeGWYearEnd || null;
   D.xNextDay = X.reaction.nextDayPct;
   const segOpTxt = () => { const sp = XSEG('space').opInc; return `Starlink earned ${M(XSEG('conn').opInc)}, Super Intelligence ${M(XSEG('ai').opInc)} after ${M(X.segments.notes.cursorStockComp)} of Cursor-related stock pay, and Space ${sp < 0 ? 'lost ' + M(-sp) : 'earned ' + M(sp)}`; };
   D.prodGM = (D.prodGP / ai.prodSales) * 100; D.servGM = (D.servGP / ai.servSales) * 100;
@@ -418,7 +418,7 @@
     c: abs ? (v < 0 ? 'dn' : k === 'rev' ? 'info' : k === 'net' ? 'up' : 'acc') : v < 0 ? 'dn' : 'up',
   })), { fmt: FM[lens], hl: true });
   const trendFig = (hlPair, arrows) => (W) => figCompare(W, {
-    bars: A.trend.map((t, i) => ({ l: t.q, l2: t.fq, v: t.revenue, c: 'info', dim: hlPair.indexOf(i) < 0, tag: t.q.indexOf('Dec') === 0 ? 'holidays' : '' })),
+    bars: A.trend.map((t, i) => ({ l: t.q, l2: t.fq, v: t.revenue, c: 'info', dim: hlPair.indexOf(i) < 0, tag: /Q1 FY/.test(t.fq) ? 'holidays' : '' })),  // Apple's fiscal Q1 is the December (holiday) quarter
     arrows, fmt: (v) => Bn(v),
   });
   const xTrio = (arrows) => (W) => figCompare(W, { bars: [{ l: X.labels.ya, v: xy.revenue }, { l: X.labels.pq, v: xp.revenue }, { l: X.labels.cur, v: xi.revenue }], arrows, fmt: M });

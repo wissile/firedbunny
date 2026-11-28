@@ -542,6 +542,10 @@ dl.gloss dd a{display:inline-block;margin-top:4px;font-size:13px;color:var(--ink
 .foot nav a i{font:500 12px var(--mono);font-style:normal;color:var(--muted)}
 .foot nav a:hover{color:var(--ink)}
 .foot nav a:hover i{color:var(--accent)}
+.foot-lang{display:flex;flex-wrap:wrap;gap:6px 18px;border-top:1px solid var(--line);padding-block:18px 0;font:500 13px/1.4 var(--sans)}
+.foot-lang[hidden]{display:none}
+.foot-cty{display:inline-flex;gap:14px;margin-left:auto}.foot-cty button{all:unset;cursor:pointer;color:var(--muted)}.foot-cty button:hover{color:var(--ink)}.foot-cty button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.foot-cty b{color:var(--ink);font-weight:600}
+.foot-lang a{color:var(--muted)}.foot-lang a:hover{color:var(--ink)}.foot-lang b{color:var(--ink);font-weight:600}
 .foot-base{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-block:24px;font-size:12px;line-height:1.6;color:var(--muted)}
 @media (min-width:768px){.foot-base{flex-direction:row;align-items:center;justify-content:space-between}}
 .foot-base{font:500 12px var(--mono);letter-spacing:.04em}

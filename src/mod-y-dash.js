@@ -27,8 +27,8 @@
     if (a >= 1e3) return sg + '$' + (a / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
     return sg + '$' + Math.round(a);
   };
-  const mY = (iso) => { try { return parseISO(iso).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }); } catch (e) { return iso; } };
-  const mD = (iso) => { try { return parseISO(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); } catch (e) { return iso; } };
+  const mY = (iso) => { try { return parseISO(iso).toLocaleDateString(SML.locale, { month: 'short', year: 'numeric' }); } catch (e) { return iso; } };
+  const mD = (iso) => { try { return parseISO(iso).toLocaleDateString(SML.locale, { month: 'short', day: 'numeric' }); } catch (e) { return iso; } };
   const longDate = (iso) => (SML.fmtDate ? SML.fmtDate(String(iso).slice(0, 10), true) : iso);
   const left = (m) => { if (m < 1) return m <= 0 ? 'now' : 'this month'; const y = Math.floor(m / 12), r = Math.round(m - y * 12); return (y ? y + ' yr' : '') + (y && r ? ' ' : '') + (r ? r + ' mo' : ''); };
   const nice = (lo, hi, n) => {
@@ -803,7 +803,7 @@
       const days = (d) => Math.round((parseISO(d) - parseISO(t0)) / 864e5);
       return `<section class="dsh-card" aria-labelledby="dsh-dt-h">
         <div class="dsh-h"><div><p class="dsh-k">Next 14 days</p><h2 id="dsh-dt-h">Key dates</h2></div><a class="more" href="#calendar">Open the calendar${arrow}</a></div>
-        ${list.length ? `<ul class="dsh-dates">${list.map((e) => { const n = days(e.d); const dt = parseISO(e.d); return `<li><span class="dsh-day" aria-hidden="true"><b>${dt.getDate()}</b><small>${dt.toLocaleDateString('en-US', { weekday: 'short' })}</small></span>
+        ${list.length ? `<ul class="dsh-dates">${list.map((e) => { const n = days(e.d); const dt = parseISO(e.d); return `<li><span class="dsh-day" aria-hidden="true"><b>${dt.getDate()}</b><small>${dt.toLocaleDateString(SML.locale, { weekday: 'short' })}</small></span>
           <div class="t"><b>${esc(e.title)}</b><small><span class="dsh-sw" style="--c:${CATC[e.cat] || 'var(--muted)'}"></span>${esc(CATL[e.cat] || 'Market')}${e.time ? ' · ' + esc(e.time) : ''}${e.status === 'estimate' ? ' · estimate' : ''}</small></div>
           <span class="in${n <= 1 ? ' now' : ''}"><span class="sr">${esc(longDate(e.d))}, </span>${n === 0 ? 'Today' : n === 1 ? 'Tomorrow' : 'in ' + n + 'd'}</span></li>`; }).join('')}</ul>` : `<p class="dsh-note">A quiet two weeks. Nothing big on the calendar.</p>`}
       </section>`;

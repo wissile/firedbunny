@@ -221,7 +221,7 @@
       } catch (e) { body.innerHTML = `<p class="ab-empty">The inbox could not load right now.</p>`; }
     })();
   };
-  function fmtTime(iso) { try { const d = new Date(iso); return d.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); } catch (e) { return String(iso || ''); } }
+  function fmtTime(iso) { try { const d = new Date(iso); return d.toLocaleString(SML.locale, { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); } catch (e) { return String(iso || ''); } }
 
   /* ---------------- feedback form ---------------- */
   const KINDS = () => (SML.feedback ? SML.feedback.KINDS : ['Idea', 'Something to improve', 'Correct an inaccuracy', 'Question', 'Other']);
@@ -354,7 +354,7 @@
       $$('.ab-kind button', form).forEach((x) => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); });
       msg.placeholder = kind === 'Correct an inaccuracy' ? 'What looks wrong, what should it say, and where did you see the right figure?' : kind === 'Idea' ? 'What would you like to see on FiredBunny?' : 'What should change, and why?';
     });
-    const updCnt = () => { const n = msg.value.length; cnt.textContent = n.toLocaleString('en-US') + ' / 4,000'; cnt.classList.toggle('warn', n > 3800); };
+    const updCnt = () => { const n = msg.value.length; cnt.textContent = n.toLocaleString(SML.locale) + ' / 4,000'; cnt.classList.toggle('warn', n > 3800); };
     msg.addEventListener('input', updCnt);
     const showStatus = (cls, html) => { status.hidden = false; status.className = 'ab-status ' + cls; status.innerHTML = SML.bunnyMark(26) + `<div>${html}</div>`; };
 

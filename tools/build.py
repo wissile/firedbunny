@@ -17,6 +17,19 @@ import seohead
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.environ.get('FB_SRC') or os.path.join(ROOT, 'src')  # FB_SRC: a translated copy (tools/i18n)
+# Other languages (docs/i18n/README.md): the English build runs first, then builds each active language of
+# tools/i18n/langs.json into dist/<prefix>/ by running this script again with FB_LANG set (and FB_SRC pointing at the
+# translated copy made by tools/i18n/make.js). A language build adds to dist/ instead of replacing it.
+LANGS_ALL = json.load(open(os.path.join(ROOT, 'tools', 'i18n', 'langs.json'), encoding='utf-8'))
+ACTIVE = {k: v for k, v in LANGS_ALL.items() if not k.startswith('_') and not v.get('paused')}
+LANG = os.environ.get('FB_LANG') or None
+L = ACTIVE.get(LANG) if LANG else None
+if LANG and not L:
+    sys.exit(f'unknown or paused language: {LANG}')
+# every build knows the languages (the language menu, links to the same page in another language)
+LANGS_JS = '/* languages */\n(function () { const SML = (window.SML = window.SML || {}); SML.LANGS = ' + json.dumps(
+    {k: {'name': v['name'], 'prefix': v['prefix'], 'htmlLang': v['htmlLang'], 'hreflang': v['hreflang'], 'live': bool(v.get('live'))} for k, v in ACTIVE.items()},
+    ensure_ascii=False, separators=(',', ':')) + '; })();\n'
 read = lambda f: open(os.path.join(SRC, f), encoding='utf-8').read()
 if '--no-mods' in sys.argv:
     mods = []
@@ -48,7 +61,7 @@ HEAD = f'''<title>FiredBunny</title>
 '''
 # every script of the site, in load order. The help chat comes last: it needs the router and every page to exist, and
 # its launcher is added after the first page has drawn (its panel and search index wait for the first open).
-SCRIPTS = ['core.js'] + [f for f in ('i18n-data.js', 'i18n.js') if os.path.exists(os.path.join(SRC, f))] + ['brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'cloud-config.js', 'brokerage-config.js', 'support-config.js', 'cloud.js', 'account.js',
+SCRIPTS = [f for f in ('i18n-data.js',) if os.path.exists(os.path.join(SRC, f))] + ['core.js', 'i18n.js'] + ['brand.js', 'content.js', 'content-money.js', 'content-macro.js', 'content-realco.js', 'content-toolguide.js', 'cloud-config.js', 'brokerage-config.js', 'support-config.js', 'cloud.js', 'account.js',
            'feedback.js', 'assets.js', 'routes.js'] + mods + ['hero.js', 'seo.js', 'pages.js', 'chat-data.js', 'chat.js']
 BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>\n' + '\n'.join(script(n) for n in SCRIPTS) + '\n'
 
@@ -56,9 +69,10 @@ BODY = read('loader.html') + '<main id="view" class="view" tabindex="-1"></main>
 # 1) claude.ai artifact fragment (the artifact host adds the document skeleton)
 BUILD_DIR = os.environ.get('FB_BUILD') or os.path.join(ROOT, 'build')
 os.makedirs(BUILD_DIR, exist_ok=True)
-frag = HEAD + BODY
+frag = HEAD + BODY.replace('<script>/* core.js */', '<script>' + LANGS_JS + '</script>\n<script>/* core.js */', 1)
 frag_out = os.path.join(BUILD_DIR, 'fragment.html')
-open(frag_out, 'w', encoding='utf-8').write(frag)
+if not LANG:
+    open(frag_out, 'w', encoding='utf-8').write(frag)
 
 # 2) the website: a complete HTML document plus public/ assets. It hosts its own fonts (public/fonts, src/fonts.css)
 #    instead of Google Fonts and has a service worker (src/sw.js -> dist/sw.js), so it works offline.
@@ -80,7 +94,7 @@ fonts_css = read('fonts.css') if os.path.exists(os.path.join(SRC, 'fonts.css')) 
 # fails cannot stop the others, as separate <script> tags did.
 def module(name):
     return f'/* {name} */\ntry {{\n{read(name)}\n}} catch (e) {{ console.error("[FiredBunny] {name} failed to start", e); }}\n'
-app_js = ''.join(module(n) for n in SCRIPTS)
+app_js = LANGS_JS + ''.join(module(n) for n in SCRIPTS)
 # Large inline images (the bunny art, the apps mockup) become files under /img: the script gets ~300 KB lighter and the
 # images load alongside it. The claude.ai copy keeps them inline (it has no files).
 images = {}
@@ -91,7 +105,7 @@ def _extract(m):
     images[name] = data
     return name
 app_js = re.sub(r'data:(image/(?:webp|jpeg|png));base64,([A-Za-z0-9+/=]{4000,})', _extract, app_js)
-app_name = 'app.' + hashlib.sha1(app_js.encode('utf-8')).hexdigest()[:10] + '.js'
+app_name = ('app-' + LANG + '.' if LANG else 'app.') + hashlib.sha1(app_js.encode('utf-8')).hexdigest()[:10] + '.js'
 # fonts the first screen uses: fetched straight away so text never repaints in a fallback font
 # (the home page uses all ten latin faces; the latin-ext and greek files load only when a page needs them). Measured in
 # Nov 2026: preloading only the seven faces visible above the fold made start-up longer (fonts arriving during the first
@@ -130,7 +144,7 @@ web_body = read('loader.html') + '<main id="view" class="view" tabindex="-1"></m
 version = hashlib.sha1((web_head + web_body + app_js + json.dumps(assets, sort_keys=True) + read('sw.js')).encode('utf-8')).hexdigest()[:12]
 asset_js = '<script>window.FB_ASSETS=' + json.dumps({'v': version, 'files': assets}, separators=(',', ':')) + ';</script>\n'
 page = f"""<!doctype html>
-<html lang="en">
+<html lang="{L['htmlLang'] if L else 'en'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -150,16 +164,19 @@ page = f"""<!doctype html>
 </html>
 """
 dist = os.environ.get('FB_DIST') or os.path.join(ROOT, 'dist')
-if os.path.isdir(dist):
-    shutil.rmtree(dist)
-if os.path.isdir(pub):
-    shutil.copytree(pub, dist)
-else:
-    os.makedirs(dist)
-out = os.path.join(dist, 'index.html')
+home = os.path.join(dist, L['prefix'].strip('/')) if L else dist  # where this language's home page and 404 live
+if not LANG:
+    if os.path.isdir(dist):
+        shutil.rmtree(dist)
+    if os.path.isdir(pub):
+        shutil.copytree(pub, dist)
+    else:
+        os.makedirs(dist)
+os.makedirs(home, exist_ok=True)
+out = os.path.join(home, 'index.html')
 open(out, 'w', encoding='utf-8').write(page)
 # unknown addresses get this page with a 404 status (wrangler.jsonc not_found_handling); the prerender adds its picture
-open(os.path.join(dist, '404.html'), 'w', encoding='utf-8').write(seohead.replace(page, seohead.block(
+open(os.path.join(home, '404.html'), 'w', encoding='utf-8').write(seohead.replace(page, seohead.block(
     {'title': 'Page not found · FiredBunny', 'description': 'This page does not exist. Browse the lessons and tools instead.', 'robots': 'noindex, follow', 'canonical': '', 'url': ''})))
 open(os.path.join(dist, app_name), 'w', encoding='utf-8').write(app_js)
 for name, data in images.items():
@@ -169,16 +186,47 @@ for name, data in images.items():
 shell = ['/', '/' + app_name, '/site.webmanifest'] + sorted('/' + os.path.relpath(p, dist).replace(os.sep, '/') for p in
         glob.glob(os.path.join(dist, 'img', '*.*')) + glob.glob(os.path.join(dist, 'fonts', '*.woff2')) + glob.glob(os.path.join(dist, '*.png')) + glob.glob(os.path.join(dist, '*.svg')))
 # pre-build the home page into index.html when a headless browser is available (tools/prerender.py)
+strict = bool(os.environ.get('CI'))
 if '--no-prerender' not in sys.argv:
     from prerender import prerender
-    strict = bool(os.environ.get('CI'))
-    if not prerender(dist, strict=strict) and strict:
+    if not prerender(dist, strict=strict, lang=LANG, L=L) and strict:
         sys.exit('The pages could not be pre-built, so this build must not be deployed (see the messages above).')
-    # search checks on the result (tools/seo_check.py): in CI an error stops the deploy
+if LANG:
+    # the English build reads this to add the language to the service worker
+    json.dump({'app': app_name, 'version': version, 'prefix': L['prefix']}, open(os.path.join(home, '.build.json'), 'w'))
+    print(out, f'{len(page)/1024:.0f} KB + {app_name} {len(app_js)/1024:.0f} KB; version {version}')
+    sys.exit(0)
+
+# 3) the other languages, each into dist/<prefix>/ (FB_LANGS=es,pt limits them; FB_LANGS=none skips them)
+import subprocess
+want = os.environ.get('FB_LANGS')
+langs = [k for k in ACTIVE if not want or k in want.split(',')] if want != 'none' else []
+langs = [k for k in langs if os.path.isdir(os.path.join(ROOT, 'tools', 'i18n', k)) or os.environ.get('FB_PSEUDO')]
+lang_shells = {}
+for code in langs:
+    tmp = os.path.join(BUILD_DIR, 'i18n-src-' + code)
+    r = subprocess.run(['node', os.path.join(ROOT, 'tools', 'i18n', 'make.js'), 'build', code, tmp] + (['--pseudo'] if os.environ.get('FB_PSEUDO') else []))
+    if r.returncode:
+        sys.exit(f'tools/i18n/make.js failed for {code}')
+    env = dict(os.environ, FB_LANG=code, FB_SRC=tmp, FB_DIST=dist, FB_BUILD=BUILD_DIR)
+    r = subprocess.run([sys.executable, os.path.abspath(__file__)] + [a for a in sys.argv[1:]], env=env)
+    if r.returncode:
+        sys.exit(f'the {code} build failed')
+    info = json.load(open(os.path.join(dist, ACTIVE[code]['prefix'].strip('/'), '.build.json')))
+    lang_shells[code] = [info['prefix'] + '/', '/' + info['app']]
+    version = hashlib.sha1((version + info['version']).encode()).hexdigest()[:12]
+
+if '--no-prerender' not in sys.argv:
+    # hreflang links between the languages that are live (tools/i18n/alternates.py), then the search checks on the result
+    # (tools/seo_check.py): in CI an error stops the deploy
+    if langs:
+        import alternates  # tools/alternates.py
+        alternates.main(dist, ACTIVE)
     import seo_check
     if seo_check.main(dist) and strict:
         sys.exit('The search checks failed, so this build must not be deployed (see the messages above).')
-sw = '/* Generated by tools/build.py from src/sw.js. */\nconst BUILD = ' + json.dumps({'version': version, 'shell': shell}) + ';\n' + read('sw.js')
+# the service worker: English pages save the English shell; a language's pages save their own (src/sw.js picks by path)
+sw = '/* Generated by tools/build.py from src/sw.js. */\nconst BUILD = ' + json.dumps({'version': version, 'shell': shell, 'langs': lang_shells}) + ';\n' + read('sw.js')
 open(os.path.join(dist, 'sw.js'), 'w', encoding='utf-8').write(sw)
 print(out, f'{len(page)/1024:.0f} KB + {app_name} {len(app_js)/1024:.0f} KB;', frag_out, f'{len(frag)/1024:.0f} KB;', f'version {version}, {len(shell)} files saved for offline;',
-      'modules:', ', '.join(mods) or '(none)')
+      'modules:', ', '.join(mods) or '(none)', ('; languages: ' + ', '.join(langs)) if langs else '')
