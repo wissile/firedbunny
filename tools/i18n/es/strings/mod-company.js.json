@@ -193,7 +193,7 @@
  },
  "2425e5cfb432": {
   "en": "Cash account: slower, no borrowing. Margin account: more flexible, but borrowed money makes losses grow faster.",
-  "t": "Cuenta de efectivo: más lenta, sin préstamos. Cuenta de margen: más flexible, pero la plata prestada hace que las pérdidas crezcan más rápido."
+  "t": "Cuenta de efectivo: más lenta, sin préstamos. Cuenta de margen: más flexible, pero el dinero prestado hace que las pérdidas crezcan más rápido."
  },
  "24345a14377f": {
   "en": "Today",
@@ -233,7 +233,7 @@
  },
  "2a1e851dc328": {
   "en": "Two traders can use the same strategy and get opposite results. The difference is what they do when money is on the line. Trading pokes at fear and greed all day, and a handful of predictable thinking errors show up in almost everyone.",
-  "t": "Dos traders pueden usar la misma estrategia y obtener resultados opuestos. La diferencia es lo que hacen cuando hay plata en juego. El trading pincha el miedo y la codicia todo el día, y un puñado de errores mentales predecibles aparecen en casi todo el mundo."
+  "t": "Dos traders pueden usar la misma estrategia y obtener resultados opuestos. La diferencia es lo que hacen cuando hay dinero en juego. El trading pincha el miedo y la codicia todo el día, y un puñado de errores mentales predecibles aparecen en casi todo el mundo."
  },
  "2b98f3fd0f54": {
   "en": "Name the urge: FOMO, revenge, overconfidence. Naming it slows you down.",
@@ -361,7 +361,7 @@
  },
  "45abb3e27cae": {
   "en": "In a cash account, buying with unsettled money and selling before that money settles. Repeat violations can restrict the account.",
-  "t": "En una cuenta de efectivo, comprar con plata sin liquidar y vender antes de que esa plata se liquide. Las infracciones repetidas pueden restringir la cuenta."
+  "t": "En una cuenta de efectivo, comprar con dinero sin liquidar y vender antes de que ese dinero se liquide. Las infracciones repetidas pueden restringir la cuenta."
  },
  "47d18e38db91": {
   "en": "In a <b>margin account</b> you now need at least $2,000 in equity, and your buying power is checked in real time during the day. Go over it and you get a margin call that you must cover.",
@@ -397,7 +397,7 @@
  },
  "4c8cccba4871": {
   "en": "A 40% win rate can still make money if winners average 2R.",
-  "t": "Una tasa de acierto del 40 % igual puede ganar plata si las ganadoras promedian 2R."
+  "t": "Una tasa de acierto del 40 % igual puede ganar dinero si las ganadoras promedian 2R."
  },
  "4f8788da38a5": {
   "en": "<b>Confirmation bias.</b> You read only the news and posts that agree with your trade and ignore the chart telling you that you are wrong.",
@@ -749,7 +749,7 @@
  },
  "8cc032100a04": {
   "en": "The <b>cash flow statement</b> tracks real money moving in and out. Accounting choices can shape profit, but cash is much harder to fake. <b>Free cash flow</b> is the cash left after paying for new equipment and buildings, called capex.",
-  "t": "El <b>estado de flujos de efectivo</b> sigue la plata real que entra y sale. Las decisiones contables pueden moldear la utilidad, pero el efectivo es mucho más difícil de falsear. El <b>flujo de caja libre</b> es el efectivo que queda después de pagar equipos y edificios nuevos, lo que se llama inversiones de capital (capex)."
+  "t": "El <b>estado de flujos de efectivo</b> sigue el dinero real que entra y sale. Las decisiones contables pueden moldear la utilidad, pero el efectivo es mucho más difícil de falsear. El <b>flujo de caja libre</b> es el efectivo que queda después de pagar equipos y edificios nuevos, lo que se llama inversiones de capital (capex)."
  },
  "8d64a94eb137": {
   "en": "{0}<span class=\"grow\"></span><span class=\"pill\">Example company · $ millions</span>",
@@ -849,7 +849,7 @@
  },
  "9a2034b037b6": {
   "en": "Profit is an accounting number; free cash flow that stays negative means the business keeps needing more money than it brings in.",
-  "t": "La utilidad es un número contable; un flujo de caja libre que sigue negativo significa que el negocio sigue necesitando más plata de la que trae."
+  "t": "La utilidad es un número contable; un flujo de caja libre que sigue negativo significa que el negocio sigue necesitando más dinero del que trae."
  },
  "9a26cba4c121": {
   "en": "<b>Overconfidence after a streak.</b> Five winners in a row feel like pure skill. You raise size and loosen your rules right before the normal losing run arrives.",
@@ -893,7 +893,7 @@
  },
  "a2875e8bed16": {
   "en": "In a <b>cash account</b> you can day trade without margin, but only with settled cash. Stock trades settle one business day later (T+1), so money from today's sale is ready to use again tomorrow.",
-  "t": "En una <b>cuenta de efectivo</b> puedes hacer day trading sin margen, pero solo con efectivo liquidado. Las operaciones con acciones se liquidan un día hábil después (T+1), así que la plata de la venta de hoy está lista para usarse otra vez mañana."
+  "t": "En una <b>cuenta de efectivo</b> puedes hacer day trading sin margen, pero solo con efectivo liquidado. Las operaciones con acciones se liquidan un día hábil después (T+1), así que el dinero de la venta de hoy está listo para usarse otra vez mañana."
  },
  "a2e54e3fa08a": {
   "en": "Revenge trading",
@@ -1057,7 +1057,7 @@
  },
  "bed15ad1474a": {
   "en": "Treating margin buying power as your own money. Borrowed size makes every loss bigger.",
-  "t": "Tratar el poder de compra del margen como plata propia. El tamaño prestado agranda cada pérdida."
+  "t": "Tratar el poder de compra del margen como dinero propio. El tamaño prestado agranda cada pérdida."
  },
  "bed2b20f7499": {
   "en": "P/E, growth, margins, debt and free cash flow in plain words.",
@@ -1145,7 +1145,7 @@
  },
  "c8a17e44a748": {
   "en": "Your <b>win rate</b> is the share of trades that made money. <b>Expectancy</b> is the average R per trade: above zero means your method makes money over time, below zero means it loses.",
-  "t": "Tu <b>tasa de acierto</b> es la parte de las operaciones que ganó plata. La <b>esperanza matemática</b> es el R promedio por operación: por encima de cero significa que tu método gana plata con el tiempo, por debajo de cero que pierde."
+  "t": "Tu <b>tasa de acierto</b> es la parte de las operaciones que ganó dinero. La <b>esperanza matemática</b> es el R promedio por operación: por encima de cero significa que tu método gana dinero con el tiempo, por debajo de cero que pierde."
  },
  "c8f626b99b79": {
   "en": "Income statement: sales minus costs equals profit.",
@@ -1349,7 +1349,7 @@
  },
  "ec4e154e59ab": {
   "en": "Three reports answer three questions: did it make money, what does it own and owe, and where did the cash go?",
-  "t": "Tres informes responden tres preguntas: ¿ganó plata?, ¿qué tiene y qué debe?, ¿y a dónde se fue el efectivo?"
+  "t": "Tres informes responden tres preguntas: ¿ganó dinero?, ¿qué tiene y qué debe?, ¿y a dónde se fue el efectivo?"
  },
  "ec77c53ff6ce": {
   "en": "MOST RISK",
@@ -1381,7 +1381,7 @@
  },
  "f5182b2d1fbf": {
   "en": "<b>Revenge trading.</b> After a loss you want the money back right now, so you take a worse setup at a bigger size.",
-  "t": "<b>Trading por venganza.</b> Después de una pérdida quieres recuperar la plata ya mismo, así que tomas una configuración peor con un tamaño más grande."
+  "t": "<b>Trading por venganza.</b> Después de una pérdida quieres recuperar el dinero ya mismo, así que tomas una configuración peor con un tamaño más grande."
  },
  "f5abcaaa84f5": {
   "en": "Fear, greed and the thinking traps that make you break your own rules.",
@@ -1433,7 +1433,7 @@
  },
  "fe1bb9a408c2": {
   "en": "The company is losing money, so P/E doesn't apply. Check whether sales are growing and how long its cash will last.",
-  "t": "La empresa está perdiendo plata, así que el P/U no aplica. Revisa si las ventas están creciendo y cuánto le va a durar el efectivo."
+  "t": "La empresa está perdiendo dinero, así que el P/U no aplica. Revisa si las ventas están creciendo y cuánto le va a durar el efectivo."
  },
  "fe23cae658a1": {
   "en": "So a cash account gives you about one full-size round trip a day. Rack up several violations in 12 months and many brokers restrict you to settled cash for 90 days.",

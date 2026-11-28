@@ -1,7 +1,7 @@
 {
  "008a5c5e2d63": {
   "en": "The share of 1,000 simulated retirements in which the money lasted the whole time, when you withdraw a set percentage in year one and raise that amount with inflation every year.",
-  "t": "La parte de 1.000 jubilaciones simuladas en las que la plata alcanzó todo el tiempo, cuando retiras un porcentaje fijo el primer año y subes ese monto con la inflación cada año."
+  "t": "La parte de 1.000 jubilaciones simuladas en las que el dinero alcanzó todo el tiempo, cuando retiras un porcentaje fijo el primer año y subes ese monto con la inflación cada año."
  },
  "0175f258bc77": {
   "en": "Black and Scholes (1973): The Pricing of Options and Corporate Liabilities, Journal of Political Economy 81(3)",
@@ -69,7 +69,7 @@
  },
  "08712ab2caf6": {
   "en": "Value in today’s dollars = money × ((1 + asset return) ÷ (1 + inflation))<sup>years</sup>",
-  "t": "Valor en dólares de hoy = plata × ((1 + rentabilidad del activo) ÷ (1 + inflación))<sup>años</sup>"
+  "t": "Valor en dólares de hoy = dinero × ((1 + rentabilidad del activo) ÷ (1 + inflación))<sup>años</sup>"
  },
  "0ade9eb36e50": {
   "en": "Covered call: sale price if called = new strike + total premium kept; cost after premiums = your cost − total premium",
@@ -77,7 +77,7 @@
  },
  "0b900cc60486": {
   "en": "Success = the share of the 1,000 paths that never ran out",
-  "t": "Éxito = la parte de los 1.000 caminos en los que la plata nunca se acabó"
+  "t": "Éxito = la parte de los 1.000 caminos en los que el dinero nunca se acabó"
  },
  "0c4fdcd523f1": {
   "en": "Cash earns 3.83% × (1 − 0.237) = 2.92% after tax: $5,502 over the 5 years if left invested.",
@@ -205,7 +205,7 @@
  },
  "196015238c81": {
   "en": "The invested money you need so that withdrawals, plus any other income, cover your yearly spending for good, how much of it you already have, and roughly when you get there.",
-  "t": "La plata invertida que necesitas para que los retiros, más cualquier otro ingreso, cubran tu gasto anual para siempre, cuánto de eso ya tienes y más o menos cuándo llegas."
+  "t": "El dinero invertido que necesitas para que los retiros, más cualquier otro ingreso, cubran tu gasto anual para siempre, cuánto de eso ya tienes y más o menos cuándo llegas."
  },
  "1c03d062f431": {
   "en": "The model prices the call at about $2.18, so it costs about $218.",
@@ -325,7 +325,7 @@
  },
  "2e91a40995eb": {
   "en": "The bridge money just keeps pace with inflation.",
-  "t": "La plata del puente solo le sigue el paso a la inflación."
+  "t": "El dinero del puente solo le sigue el paso a la inflación."
  },
  "2ea66910f624": {
   "en": "Saving is added at the end of each month and never changes.",
@@ -381,7 +381,7 @@
  },
  "33f7dea59641": {
   "en": "What a short-term rental keeps from each $100 guests pay, after the platform fee, cleaning, a manager, supplies, fixed costs, the mortgage and tax, and which months lose money in a seasonal market.",
-  "t": "Lo que un arriendo de corta estadía se queda de cada US$100 que pagan los huéspedes, después de la tarifa de la plataforma, el aseo, un administrador, los insumos, los costos fijos, la hipoteca y los impuestos, y qué meses pierden plata en un mercado de temporada."
+  "t": "Lo que un arriendo de corta estadía se queda de cada US$100 que pagan los huéspedes, después de la tarifa de la plataforma, el aseo, un administrador, los insumos, los costos fijos, la hipoteca y los impuestos, y qué meses pierden dinero en un mercado de temporada."
  },
  "342acb250ad6": {
   "en": "A 1-point change in the mortgage rate moves the payment by about $233 a month.",
@@ -405,11 +405,11 @@
  },
  "365c910a1ca3": {
   "en": "No fees or taxes. “Today’s dollars” assumes 3% inflation a year.",
-  "t": "Sin comisiones ni impuestos. “Plata de hoy” supone una inflación del 3 % al año."
+  "t": "Sin comisiones ni impuestos. “Dinero de hoy” supone una inflación del 3 % al año."
  },
  "36978dc8a0c7": {
   "en": "Today’s dollars: each year’s balance ÷ 1.03<sup>years</sup>",
-  "t": "Plata de hoy: el saldo de cada año ÷ 1,03<sup>años</sup>"
+  "t": "Dinero de hoy: el saldo de cada año ÷ 1,03<sup>años</sup>"
  },
  "36cf32d16f36": {
   "en": "Home value grows at your price growth rate; rent grows at your rent growth rate",
@@ -425,7 +425,7 @@
  },
  "3836651dd837": {
   "en": "The chart counts how many of the 1,000 futures still had money left at the end of the period you picked.",
-  "t": "El gráfico cuenta cuántos de los 1.000 futuros todavía tenían plata al final del periodo que escogiste."
+  "t": "El gráfico cuenta cuántos de los 1.000 futuros todavía tenían dinero al final del periodo que escogiste."
  },
  "38ce8592d264": {
   "en": "Monthly budget calculator: split take-home pay into needs, wants and saving (50/30/20 or your own), and see how your savings rate sets years to independence.",
@@ -513,7 +513,7 @@
  },
  "48c6bba06607": {
   "en": "Year one withdrawal = starting portfolio × withdrawal rate; later years take the same amount in today’s dollars",
-  "t": "Retiro del primer año = portafolio inicial × tasa de retiro; los años siguientes sacan el mismo monto en plata de hoy"
+  "t": "Retiro del primer año = portafolio inicial × tasa de retiro; los años siguientes sacan el mismo monto en dinero de hoy"
  },
  "499ec9edfb15": {
   "en": "How much cash a cash-secured put needs, what the premium earns on it, the real price you pay if you are assigned, and an estimate of how likely assignment is.",
@@ -537,7 +537,7 @@
  },
  "4cecd51dc5e4": {
   "en": "What small regular spending adds up to a day and a year, and what the same money could grow to if you invested it each month instead. A second view compares café coffee, pods and a home espresso machine.",
-  "t": "Lo que suma al día y al año un gasto pequeño y frecuente, y en qué se podría convertir esa misma plata si la invirtieras cada mes. Una segunda vista compara el café de cafetería, las cápsulas y una máquina de espresso en casa."
+  "t": "Lo que suma al día y al año un gasto pequeño y frecuente, y en qué se podría convertir ese mismo dinero si lo invirtieras cada mes. Una segunda vista compara el café de cafetería, las cápsulas y una máquina de espresso en casa."
  },
  "4d45b9ba659c": {
   "en": "Real prices have fatter tails than a bell curve: big moves happen more often than the 95% range suggests, especially around earnings.",
@@ -545,7 +545,7 @@
  },
  "4d7c0da4af50": {
   "en": "Whether buying or renting leaves you richer after the years you stay, counting every cost of owning, what your down payment would have earned, and the costs of buying and selling.",
-  "t": "Si comprar o arrendar te deja con más plata después de los años que te quedes, contando cada costo de ser dueño, lo que habría ganado tu cuota inicial y los costos de comprar y vender."
+  "t": "Si comprar o arrendar te deja con más dinero después de los años que te quedes, contando cada costo de ser dueño, lo que habría ganado tu cuota inicial y los costos de comprar y vender."
  },
  "4d9a432aa2bf": {
   "en": "If assigned you pay $56.55 a share, 5.75% below today; estimated chance of assignment about 31%.",
@@ -621,7 +621,7 @@
  },
  "599d31c66d46": {
   "en": "All amounts are in today’s dollars and the return is after inflation.",
-  "t": "Todos los montos están en plata de hoy y la rentabilidad es después de inflación."
+  "t": "Todos los montos están en dinero de hoy y la rentabilidad es después de inflación."
  },
  "59c123783c48": {
   "en": "There is about a 37% chance the open jumps the 0.4% stop; 25 shares, or waiting until after the release, keeps that within 1R.",
@@ -653,7 +653,7 @@
  },
  "5ddfb03e1379": {
   "en": "At 7% money doubles roughly every 10.3 years.",
-  "t": "Al 7 % la plata se duplica más o menos cada 10,3 años."
+  "t": "Al 7 % el dinero se duplica más o menos cada 10,3 años."
  },
  "5e6bf283717c": {
   "en": "Mortgage spread default 2.28 points: Freddie Mac’s 7.40% (Oct 15, 2026) minus the 5.12% 10-year yield (Oct 20, 2026).",
@@ -773,7 +773,7 @@
  },
  "6b1eb16cb662": {
   "en": "What rolling a short put or covered call to a later expiration does: whether it brings in money or costs money, the premium you have kept across both trades, your new breakeven and how much time it buys.",
-  "t": "Qué hace renovar un put vendido o un covered call a un vencimiento posterior: si trae plata o cuesta plata, la prima que has conservado entre las dos operaciones, tu nuevo punto de equilibrio y cuánto tiempo compra."
+  "t": "Qué hace renovar un put vendido o un covered call a un vencimiento posterior: si trae dinero o cuesta dinero, la prima que has conservado entre las dos operaciones, tu nuevo punto de equilibrio y cuánto tiempo compra."
  },
  "6c4000ffd5c4": {
   "en": "Option roll calculator: net credit or debit, total premium kept, the new breakeven, extra days bought and the loss if you simply close instead.",
@@ -1037,7 +1037,7 @@
  },
  "8f12850127c0": {
   "en": "Habit cost calculator: what lattes, takeout, delivery and subscriptions cost a year, and what that money could grow to if invested for 10, 20 or 30 years.",
-  "t": "Calculadora del costo de los hábitos: lo que cuestan al año los cafés, la comida para llevar, los domicilios y las suscripciones, y en qué se podría convertir esa plata si la inviertes 10, 20 o 30 años."
+  "t": "Calculadora del costo de los hábitos: lo que cuestan al año los cafés, la comida para llevar, los domicilios y las suscripciones, y en qué se podría convertir ese dinero si lo inviertes 10, 20 o 30 años."
  },
  "8f7e19df52a7": {
   "en": "Years at 10% a year = ln(1 ÷ (1 − loss)) ÷ ln(1.10)",
@@ -1225,11 +1225,11 @@
  },
  "ab7796c96e8b": {
   "en": "Safe withdrawal rate calculator: the share of 1,000 simulated retirements that lasted, by withdrawal rate, years, stock share and fees. Assumptions shown.",
-  "t": "Calculadora de tasa de retiro segura: la parte de 1.000 jubilaciones simuladas en las que la plata alcanzó, según la tasa de retiro, los años, la parte en acciones y las comisiones. Supuestos a la vista."
+  "t": "Calculadora de tasa de retiro segura: la parte de 1.000 jubilaciones simuladas en las que el dinero alcanzó, según la tasa de retiro, los años, la parte en acciones y las comisiones. Supuestos a la vista."
  },
  "abae416ed749": {
   "en": "FIRE number calculator: (spending − other income) ÷ withdrawal rate, plus a Social Security bridge, counting only money you can spend. Free and visual.",
-  "t": "Calculadora del número FIRE: (gasto − otros ingresos) ÷ tasa de retiro, más un puente hasta la pensión, contando solo la plata que puedes gastar. Gratis y visual."
+  "t": "Calculadora del número FIRE: (gasto − otros ingresos) ÷ tasa de retiro, más un puente hasta la pensión, contando solo el dinero que puedes gastar. Gratis y visual."
  },
  "ac0784c48709": {
   "en": "FCF yield: $3.20 ÷ $60 = 5.3% (healthy).",
@@ -1297,7 +1297,7 @@
  },
  "b7ef7ceb7d3d": {
   "en": "Cash-secured put: money set aside = strike × 100 × contracts; return = premium ÷ strike; breakeven = strike − premium",
-  "t": "Put asegurado con efectivo: plata separada = strike × 100 × contratos; rentabilidad = prima ÷ strike; punto de equilibrio = strike − prima"
+  "t": "Put asegurado con efectivo: dinero separado = strike × 100 × contratos; rentabilidad = prima ÷ strike; punto de equilibrio = strike − prima"
  },
  "b81dd5dff79a": {
   "en": "PMI is measured against the original price, not a new appraisal.",
@@ -1477,7 +1477,7 @@
  },
  "cd062f44c78a": {
   "en": "Success only means money was left. It says nothing about how much.",
-  "t": "Éxito solo significa que quedó plata. No dice nada sobre cuánta."
+  "t": "Éxito solo significa que quedó dinero. No dice nada sobre cuánta."
  },
  "cd34541d5d87": {
   "en": "What a starting amount plus a monthly saving grows into by your retirement age at a steady return, how much of that is growth, and what starting 10 years later would cost you.",
@@ -1493,7 +1493,7 @@
  },
  "cfdeb48b3a59": {
   "en": "Whether paying cash or taking a car loan leaves you with more money at the end of the loan, after tax on what your cash would have earned.",
-  "t": "Si pagar de contado o tomar un crédito de carro te deja con más plata al final del crédito, después de impuestos sobre lo que habría ganado tu efectivo."
+  "t": "Si pagar de contado o tomar un crédito de carro te deja con más dinero al final del crédito, después de impuestos sobre lo que habría ganado tu efectivo."
  },
  "d0881fcf6b5c": {
   "en": "Funding = position × funding rate × 3 a day × days; fees = position × fee × 2",
@@ -1589,7 +1589,7 @@
  },
  "dbdd22c07c85": {
   "en": "You put in = starting money + monthly saving × 12 × years",
-  "t": "Lo que pones = plata inicial + ahorro mensual × 12 × años"
+  "t": "Lo que pones = dinero inicial + ahorro mensual × 12 × años"
  },
  "dbfa3eccc4c4": {
   "en": "Price rise = (1 + inflation)<sup>years</sup> − 1",
@@ -1645,7 +1645,7 @@
  },
  "e4694a381025": {
   "en": "Whether a win rate and a reward-to-risk ratio make money on average, and how bumpy the ride can be, across 20 simulated sequences of the same trades.",
-  "t": "Si una tasa de acierto y una relación ganancia/riesgo ganan plata en promedio, y qué tan movido puede ser el camino, en 20 secuencias simuladas de las mismas operaciones."
+  "t": "Si una tasa de acierto y una relación ganancia/riesgo ganan dinero en promedio, y qué tan movido puede ser el camino, en 20 secuencias simuladas de las mismas operaciones."
  },
  "e4d058a81370": {
   "en": "You start from zero savings.",
@@ -1817,7 +1817,7 @@
  },
  "fe56b9959da5": {
   "en": "The premium you collect, the return on the money the trade ties up, a simple annualized rate and the breakeven for one cash-secured put or covered call, the two halves of the wheel.",
-  "t": "La prima que cobras, la rentabilidad sobre la plata que amarra la operación, una tasa anualizada simple y el punto de equilibrio de un put asegurado con efectivo o un covered call, las dos mitades de la rueda."
+  "t": "La prima que cobras, la rentabilidad sobre el dinero que amarra la operación, una tasa anualizada simple y el punto de equilibrio de un put asegurado con efectivo o un covered call, las dos mitades de la rueda."
  },
  "fe97f34fda76": {
   "en": "45% winners at 2 : 1 reward to risk, risking 1% a trade.",

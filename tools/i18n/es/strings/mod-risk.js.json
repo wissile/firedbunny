@@ -233,7 +233,7 @@
  },
  "2a262484ef74": {
   "en": "Whether a strategy makes money depends on its win rate and the size of its wins compared with its losses, together. Expectancy = win rate × average win − loss rate × average loss, in R. A strategy that wins 40% of the time can be profitable if its winners are much bigger than its losers.",
-  "t": "Que una estrategia gane plata depende de su tasa de acierto y del tamaño de sus ganancias comparado con sus pérdidas, juntos. Esperanza matemática = tasa de acierto × ganancia promedio − tasa de pérdida × pérdida promedio, en R. Una estrategia que gana el 40 % de las veces puede ser rentable si sus ganadoras son mucho más grandes que sus perdedoras."
+  "t": "Que una estrategia gane dinero depende de su tasa de acierto y del tamaño de sus ganancias comparado con sus pérdidas, juntos. Esperanza matemática = tasa de acierto × ganancia promedio − tasa de pérdida × pérdida promedio, en R. Una estrategia que gana el 40 % de las veces puede ser rentable si sus ganadoras son mucho más grandes que sus perdedoras."
  },
  "2ac5c9e075f4": {
   "en": "Core long-term",
@@ -801,7 +801,7 @@
  },
  "8700893511e2": {
   "en": "The math is one line: <b>shares = money you're willing to lose ÷ distance from entry to stop</b>. $250 of risk with a $1.50 stop distance means 166 shares.",
-  "t": "La cuenta es de una línea: <b>acciones = plata que estás dispuesto a perder ÷ distancia de la entrada al stop</b>. US$250 de riesgo con un stop a US$1,50 significa 166 acciones."
+  "t": "La cuenta es de una línea: <b>acciones = dinero que estás dispuesto a perder ÷ distancia de la entrada al stop</b>. US$250 de riesgo con un stop a US$1,50 significa 166 acciones."
  },
  "883fb588b892": {
   "en": "Choosing the number of shares first, then placing the stop wherever the loss feels small enough.",
@@ -1093,7 +1093,7 @@
  },
  "b45490eaf8aa": {
   "en": "Above the breakeven line the strategy has a positive expectancy; below it, it loses money however good it feels.",
-  "t": "Por encima de la línea de equilibrio la estrategia tiene una esperanza positiva; por debajo, pierde plata por bien que se sienta."
+  "t": "Por encima de la línea de equilibrio la estrategia tiene una esperanza positiva; por debajo, pierde dinero por bien que se sienta."
  },
  "b4bb98541fce": {
   "en": "What if the right stop is far away?",
@@ -1285,7 +1285,7 @@
  },
  "d4290a762d19": {
   "en": "Judging a strategy by its win rate alone. A 70% win rate loses money if the losers are much bigger than the winners.",
-  "t": "Juzgar una estrategia solo por su tasa de acierto. Una tasa de acierto del 70 % pierde plata si las perdedoras son mucho más grandes que las ganadoras."
+  "t": "Juzgar una estrategia solo por su tasa de acierto. Una tasa de acierto del 70 % pierde dinero si las perdedoras son mucho más grandes que las ganadoras."
  },
  "d5dd02170f06": {
   "en": "Breakeven win rate",
@@ -1297,7 +1297,7 @@
  },
  "d80eb4ffe36a": {
   "en": "<b>Risk</b> is the money you lose if the trade hits your stop loss. It is not the size of the position. With a $10,000 account, 1% risk means you plan to lose at most $100 on that trade.",
-  "t": "El <b>riesgo</b> es la plata que pierdes si la operación toca tu stop loss. No es el tamaño de la posición. Con una cuenta de US$10.000, un riesgo del 1 % significa que planeas perder como máximo US$100 en esa operación."
+  "t": "El <b>riesgo</b> es el dinero que pierdes si la operación toca tu stop loss. No es el tamaño de la posición. Con una cuenta de US$10.000, un riesgo del 1 % significa que planeas perder como máximo US$100 en esa operación."
  },
  "d840a2eef8c9": {
   "en": "Pause it and review your trades",
@@ -1317,7 +1317,7 @@
  },
  "d9d2f1b7c939": {
   "en": "Is 1% too small to make money?",
-  "t": "¿El 1 % es muy poco para ganar plata?"
+  "t": "¿El 1 % es muy poco para ganar dinero?"
  },
  "d9de35732ba6": {
   "en": "Price is only {0} below value. You asked for {1}%, so wait for {2} or less.",

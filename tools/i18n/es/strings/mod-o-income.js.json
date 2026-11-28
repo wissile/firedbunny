@@ -129,7 +129,7 @@
  },
  "1fbba71bfe50": {
   "en": "How much money do I need?",
-  "t": "¿Cuánta plata necesito?"
+  "t": "¿Cuánto dinero necesito?"
  },
  "1fe31b6bd1cc": {
   "en": "The strike is the price you are agreeing to sell at. Here is the trade-off on the calculator’s default stock, $50 with 30 days to expiry and 30% volatility (model prices):",
@@ -273,7 +273,7 @@
  },
  "4822624f3e98": {
   "en": "Change the new strike: rolling down and out lowers the strike you might buy at, but usually brings in less, or even costs money.",
-  "t": "Cambia el strike nuevo: renovar hacia abajo y hacia adelante baja el strike al que podrías comprar, pero por lo general trae menos, o incluso cuesta plata."
+  "t": "Cambia el strike nuevo: renovar hacia abajo y hacia adelante baja el strike al que podrías comprar, pero por lo general trae menos, o incluso cuesta dinero."
  },
  "4bac5cea191d": {
   "en": "It replaces the old option with a new one, so the old one can no longer be assigned. The new one can be, on any trading day.",
@@ -525,7 +525,7 @@
  },
  "a051a9013dbf": {
   "en": "Credit rolls bring in money; debit rolls cost money.",
-  "t": "Las renovaciones con crédito traen plata; las de débito cuestan plata."
+  "t": "Las renovaciones con crédito traen dinero; las de débito cuestan dinero."
  },
  "a240bbf73a9c": {
   "en": "Your real cost if assigned is the <b>strike − the premium</b>, which is also the breakeven. The worst case is the stock going to zero: you lose the strike minus the premium. That is the same risk as buying the shares, but at a lower price, and in exchange you give up any rally beyond the premium.",
@@ -569,7 +569,7 @@
  },
  "b178892ec309": {
   "en": "Rolling means buying back an option you sold and selling a new one on the same stock with a later expiration, often at a different strike. Rolling for a credit brings in more premium; rolling for a debit costs money. Either way the stock’s risk stays with you, and each roll adds trading costs.",
-  "t": "Renovar (rolling) significa recomprar una opción que vendiste y vender una nueva sobre la misma acción con un vencimiento posterior, a menudo con otro strike. Renovar con crédito trae más prima; renovar con débito cuesta plata. De cualquier forma el riesgo de la acción se queda contigo, y cada renovación suma costos de negociación."
+  "t": "Renovar (rolling) significa recomprar una opción que vendiste y vender una nueva sobre la misma acción con un vencimiento posterior, a menudo con otro strike. Renovar con crédito trae más prima; renovar con débito cuesta dinero. De cualquier forma el riesgo de la acción se queda contigo, y cada renovación suma costos de negociación."
  },
  "b30234824bb9": {
   "en": "The premium is pay for giving up the stock’s upside above the strike. On the default example, if the stock jumps 10% to $55, you still sell at $52.50: about $250 of gain goes to the call buyer, against the $80 you were paid. Over many months the covered call wins in flat markets and lags in strong rallies.",
@@ -685,7 +685,7 @@
  },
  "d7c9c2c56858": {
   "en": "Returns are measured on what the shares are worth now, the money you could have instead. Profit in dollars is measured from your cost. The chance uses a standard pricing model with the volatility you enter; it is an estimate, not a forecast. No commissions, dividends or taxes.",
-  "t": "Las rentabilidades se miden sobre lo que valen las acciones hoy, la plata que podrías tener en su lugar. La ganancia en dólares se mide desde tu costo. La probabilidad usa un modelo de precios estándar con la volatilidad que pongas; es una estimación, no un pronóstico. Sin comisiones, dividendos ni impuestos."
+  "t": "Las rentabilidades se miden sobre lo que valen las acciones hoy, el dinero que podrías tener en su lugar. La ganancia en dólares se mide desde tu costo. La probabilidad usa un modelo de precios estándar con la volatilidad que pongas; es una estimación, no un pronóstico. Sin comisiones, dividendos ni impuestos."
  },
  "d837a1bd9e4e": {
   "en": "Can I be assigned on an out-of-the-money option?",

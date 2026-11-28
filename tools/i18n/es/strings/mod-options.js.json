@@ -653,7 +653,7 @@
  },
  "4d60c0b4dd51": {
   "en": "Why an option can lose money even when the stock moves your way.",
-  "t": "Por qué una opción puede perder plata aunque la acción se mueva a tu favor."
+  "t": "Por qué una opción puede perder dinero aunque la acción se mueva a tu favor."
  },
  "4dd4ce022b2b": {
   "en": "Losses: bonds $400, index fund $3,000, the stock $450 and the options $500. That is $4,350 in total.",
@@ -921,7 +921,7 @@
  },
  "696100578c6f": {
   "en": "Is selling options free money because of theta?",
-  "t": "¿Vender opciones es plata gratis gracias a la theta?"
+  "t": "¿Vender opciones es dinero gratis gracias a la theta?"
  },
  "69862b90c03b": {
   "en": "BOND PRICE",
@@ -1017,7 +1017,7 @@
  },
  "765f66b670f0": {
   "en": "A small move your way can still lose money.",
-  "t": "Un movimiento pequeño a tu favor igual puede perder plata."
+  "t": "Un movimiento pequeño a tu favor igual puede perder dinero."
  },
  "7688f2c388e9": {
   "en": "So a fall in IV from 90% to 35%, as in the worked example above, is 55 points. Multiplied by the option’s vega, that is a large part of its price.",
@@ -1097,7 +1097,7 @@
  },
  "82a6ffcad51d": {
   "en": "Why did my call lose money when the stock went up?",
-  "t": "¿Por qué mi call perdió plata cuando la acción subió?"
+  "t": "¿Por qué mi call perdió dinero cuando la acción subió?"
  },
  "82c5faba5df8": {
   "en": "Keeping the full premium",
@@ -1193,7 +1193,7 @@
  },
  "8acea7c6d6a1": {
   "en": "The wheel is an options income strategy in three steps. Sell a cash-secured put on a stock you want to own. If the stock falls below the strike, you are assigned and buy 100 shares. Then sell covered calls on those shares until they are called away, and start again. Each step pays a premium, but a stock that falls hard still loses money.",
-  "t": "La rueda es una estrategia de ingresos con opciones en tres pasos. Vende un put asegurado con efectivo sobre una acción que quieres tener. Si la acción cae por debajo del strike, te asignan y compras 100 acciones. Luego vende covered calls sobre esas acciones hasta que te las compren, y vuelve a empezar. Cada paso paga una prima, pero una acción que cae fuerte igual pierde plata."
+  "t": "La rueda es una estrategia de ingresos con opciones en tres pasos. Vende un put asegurado con efectivo sobre una acción que quieres tener. Si la acción cae por debajo del strike, te asignan y compras 100 acciones. Luego vende covered calls sobre esas acciones hasta que te las compren, y vuelve a empezar. Cada paso paga una prima, pero una acción que cae fuerte igual pierde dinero."
  },
  "8b25b1508c97": {
   "en": "1% of the company",
@@ -1925,7 +1925,7 @@
  },
  "d3b958b52e06": {
   "en": "Can an option be in the money and still lose money?",
-  "t": "¿Una opción puede estar dentro del dinero y aun así perder plata?"
+  "t": "¿Una opción puede estar dentro del dinero y aun así perder dinero?"
  },
  "d401211ea868": {
   "en": "Decay speeds up in the last 30 days.",
@@ -2009,7 +2009,7 @@
  },
  "dbf2d4c98cdd": {
   "en": "Implied volatility (IV) is the size of move the market expects, built into an option’s price. Before earnings it rises because nobody knows the news; afterwards it usually falls sharply. That drop, IV crush, can make an option lose money even when the stock moves the way you guessed.",
-  "t": "La volatilidad implícita (IV) es el tamaño del movimiento que espera el mercado, incluido en el precio de una opción. Antes de los resultados sube porque nadie conoce la noticia; después suele caer fuerte. Esa caída, el desplome de la IV (IV crush), puede hacer que una opción pierda plata aunque la acción se mueva como adivinaste."
+  "t": "La volatilidad implícita (IV) es el tamaño del movimiento que espera el mercado, incluido en el precio de una opción. Antes de los resultados sube porque nadie conoce la noticia; después suele caer fuerte. Esa caída, el desplome de la IV (IV crush), puede hacer que una opción pierda dinero aunque la acción se mueva como adivinaste."
  },
  "dc28d507102f": {
   "en": "A share is a tiny slice of a company. Its price moves as people change their view of that business.",
